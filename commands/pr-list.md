@@ -42,15 +42,18 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 ### 優先度の判定基準
 
 **高優先度 (🔴)**
+
 - `fix:` バグ修正
 - `release:` リリース作業
 
 **中優先度 (🟡)**
+
 - `feat:` 新機能
 - `update:` 機能改善
 - その他通常の PR
 
 **低優先度 (🟢)**
+
 - DO NOT MERGE を含む PR
 - Draft で `test:`、`build:`、`perf:` の PR
 

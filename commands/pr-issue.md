@@ -42,16 +42,19 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 ### 優先度の判定基準
 
 **高優先度 (🔴)**
+
 - `bug` ラベルが付いている Issue
 - `critical` や `urgent` ラベルが付いている Issue
 - `security` ラベルが付いている Issue
 
 **中優先度 (🟡)**
+
 - `enhancement` ラベルが付いている Issue
 - `feature` ラベルが付いている Issue
 - 担当者が設定されている Issue
 
 **低優先度 (🟢)**
+
 - `documentation` ラベルが付いている Issue
 - `good first issue` ラベルが付いている Issue
 - `wontfix` や `duplicate` ラベルが付いている Issue

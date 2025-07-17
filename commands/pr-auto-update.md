@@ -73,6 +73,7 @@ gh pr list --head $(git branch --show-current) --json number,title,url
 - Hidden comment（GitHub Copilot review rule など）はエスケープせずに完全保持
 
 **例: 既存内容の保持**
+
 ```markdown
 <!-- for GitHub Copilot review rule -->
 <!--
@@ -112,6 +113,7 @@ q. (question)
 - `<!-- e.g. APP-3 Linear Issue ID here -->` : プレースホルダーとして置換対象
 
 **エスケープされている場合の修復**:
+
 - `<\!--` → `<!--` に自動修復
 - `--\>` → `-->` に自動修復
 
@@ -140,18 +142,21 @@ parse_template_structure() {
 #### ラベル取得の仕組み
 
 **優先順位**:
+
 1. **`.github/labels.yml`**: プロジェクト固有のラベル定義から取得
 2. **GitHub API**: `gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'` で既存ラベルを取得
 
 #### 自動判定ルール
 
 **ファイルパターンベース**:
+
 - ドキュメント: `*.md`, `README`, `docs/` → `documentation|docs|doc` を含むラベル
 - テスト: `test`, `spec` → `test|testing` を含むラベル  
 - CI/CD: `.github/`, `*.yml`, `Dockerfile` → `ci|build|infra|ops` を含むラベル
 - 依存関係: `package.json`, `pubspec.yaml`, `requirements.txt` → `dependencies|deps` を含むラベル
 
 **変更内容ベース**:
+
 - バグ修正: `fix|bug|error|crash|修正` → `bug|fix` を含むラベル
 - 新機能: `feat|feature|add|implement|新機能|実装` → `feature|enhancement|feat` を含むラベル
 - リファクタリング: `refactor|clean|リファクタ` → `refactor|cleanup|clean` を含むラベル
@@ -167,6 +172,7 @@ parse_template_structure() {
 #### 実際の使用例
 
 **`.github/labels.yml` が存在する場合**:
+
 ```bash
 # ラベル定義から自動取得
 grep "^- name:" .github/labels.yml | sed "s/^- name: '\?\([^']*\)'\?/\1/"
@@ -175,6 +181,7 @@ grep "^- name:" .github/labels.yml | sed "s/^- name: '\?\([^']*\)'\?/\1/"
 ```
 
 **GitHub API から取得する場合**:
+
 ```bash
 # 既存ラベルの一覧取得
 gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'
@@ -420,6 +427,7 @@ update_pr() {
 ## 設定ファイル
 
 `~/.claude/pr-auto-update.config`:
+
 ```json
 {
   "default_template": "standard",
@@ -497,7 +505,7 @@ GitHub Actions ワークフローを改善しました。{効果}を実現しま
 
 ## 注意事項
 
-1. **既存内容の完全保持**: 
+1. **既存内容の完全保持**:
    - 既に記述されている内容は**一文字も変更しない**
    - **⚠️ 重要**: Hidden comment は**絶対に削除してはいけません**
    - 空のコメント部分とプレースホルダーのみ補完

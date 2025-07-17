@@ -61,6 +61,7 @@ fi
 #### 「意味のある最小単位」への分割戦略
 
 ##### 1. 機能境界による分割
+
 ```bash
 # ディレクトリ構造から機能単位を特定
 git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq
@@ -68,6 +69,7 @@ git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq
 ```
 
 ##### 2. 変更種別による分離
+
 ```bash
 # 新規ファイル vs 既存ファイル修正
 git diff HEAD --name-status | grep '^A' # 新規ファイル
@@ -76,6 +78,7 @@ git diff HEAD --name-status | grep '^D' # 削除ファイル
 ```
 
 ##### 3. 依存関係の分析
+
 ```bash
 # インポート関係の変更を検出
 git diff HEAD | grep -E '^[+-].*import|^[+-].*require' | \
@@ -83,6 +86,7 @@ cut -d' ' -f2- | sort | uniq
 ```
 
 #### ファイル単位の詳細分析
+
 ```bash
 # 変更されたファイル一覧を取得
 git diff HEAD --name-only
@@ -108,7 +112,7 @@ done
    - `components/` 配下のファイル → UI コンポーネント
 
 2. **変更種別**: 同じ種類の変更
-   - テストファイルのみ → `test:` 
+   - テストファイルのみ → `test:`
    - ドキュメントのみ → `docs:`
    - 設定ファイルのみ → `chore:`
 
@@ -188,10 +192,12 @@ $ /semantic-commit --dry-run
 ### スマート分析機能
 
 #### 1. プロジェクト構造の理解
+
 - `package.json`, `Cargo.toml`, `pom.xml` などからプロジェクト種別を判定
 - フォルダ構造から機能単位を推測
 
 #### 2. 変更パターンの認識
+
 ```bash
 # バグ修正パターンの検出
 - "fix", "bug", "error" などのキーワード
@@ -205,6 +211,7 @@ $ /semantic-commit --dry-run
 ```
 
 #### 3. 依存関係の分析
+
 - インポート文の変更
 - 型定義の追加/修正
 - 設定ファイルとの関連性
@@ -214,6 +221,7 @@ $ /semantic-commit --dry-run
 #### Git 標準コマンドによる順次コミット実装
 
 ##### 1. 前処理: 現在の状態を保存
+
 ```bash
 # 未ステージの変更がある場合は一旦リセット
 git reset HEAD
@@ -225,6 +233,7 @@ echo "作業中のブランチ: $CURRENT_BRANCH"
 ```
 
 ##### 2. グループ別の順次コミット実行
+
 ```bash
 # 分割計画の読み込み
 while IFS= read -r commit_plan; do
@@ -271,6 +280,7 @@ done < /tmp/commit_plan.txt
 ```
 
 ##### 3. エラーハンドリングとロールバック
+
 ```bash
 # プリコミットフック失敗時の処理
 commit_with_retry() {
@@ -319,6 +329,7 @@ resume_from_failure() {
 ```
 
 ##### 4. 完了後の検証
+
 ```bash
 # 全変更がコミットされたかの確認
 remaining_changes=$(git status --porcelain | wc -l)
@@ -335,6 +346,7 @@ git log --oneline -n 10 --graph
 ```
 
 ##### 5. 自動プッシュの抑制
+
 ```bash
 # 注意: 自動プッシュは行わない
 echo "📝 注意: 自動プッシュは実行されません"
@@ -345,6 +357,7 @@ echo "  git push origin $CURRENT_BRANCH"
 #### 分割アルゴリズムの詳細
 
 ##### ステップ 1: 初期分析
+
 ```bash
 # 全変更ファイルの取得と分類
 git diff HEAD --name-status | while read status file; do
@@ -356,6 +369,7 @@ git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq -c
 ```
 
 ##### ステップ 2: 機能境界による初期グループ化
+
 ```bash
 # ディレクトリベースのグループ化
 GROUPS=$(git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq)
@@ -366,6 +380,7 @@ done
 ```
 
 ##### ステップ 3: 変更内容の類似性分析
+
 ```bash
 # 各ファイルの変更タイプを分析
 git diff HEAD --name-only | while read file; do
@@ -389,6 +404,7 @@ done
 ```
 
 ##### ステップ 4: 依存関係による調整
+
 ```bash
 # インポート関係の分析
 git diff HEAD | grep -E '^[+-].*import|^[+-].*from.*import' | \
@@ -407,6 +423,7 @@ done
 ```
 
 ##### ステップ 5: コミットサイズの最適化
+
 ```bash
 # グループサイズの調整
 MAX_FILES_PER_COMMIT=8
@@ -424,6 +441,7 @@ done
 ```
 
 ##### ステップ 6: 最終グループ決定
+
 ```bash
 # 分割結果の検証
 for group in $(seq 1 $current_group); do
@@ -448,10 +466,12 @@ done
 #### 標準タイプ
 
 **必須タイプ**:
+
 - `feat`: 新機能（ユーザーに見える機能追加）
 - `fix`: バグ修正
 
 **任意タイプ**:
+
 - `build`: ビルドシステムや外部依存関係の変更
 - `chore`: その他の変更（リリースに影響しない）
 - `ci`: CI 設定ファイルやスクリプトの変更
@@ -552,16 +572,19 @@ export default {
 #### 自動分析の流れ
 
 1. **設定ファイル検索**
+
    ```bash
    find . -name "commitlint.config.*" -o -name ".commitlintrc.*" | head -1
    ```
 
 2. **既存コミット分析**
+
    ```bash
    git log --oneline -50 --pretty=format:"%s"
    ```
 
 3. **使用タイプ統計**
+
    ```bash
    git log --oneline -100 --pretty=format:"%s" | \
    grep -oE '^[a-z]+(\([^)]+\))?' | \
@@ -571,6 +594,7 @@ export default {
 #### プロジェクト規約の例
 
 ##### Angular スタイル
+
 ```
 feat(scope): add new feature
 fix(scope): fix bug
@@ -578,6 +602,7 @@ docs(scope): update documentation
 ```
 
 ##### Gitmoji 併用スタイル
+
 ```
 ✨ feat: add user registration
 🐛 fix: resolve login issue
@@ -585,6 +610,7 @@ docs(scope): update documentation
 ```
 
 ##### 日本語プロジェクト
+
 ```
 feat: ユーザー登録機能を追加
 fix: ログイン処理のバグを修正
@@ -596,12 +622,14 @@ docs: API ドキュメントを更新
 このコマンドで完結する言語判定ロジック：
 
 1. **CommitLint 設定**から言語設定を確認
+
    ```bash
    # subject-case ルールが無効化されている場合は日本語と判定
    grep -E '"subject-case".*\[0\]|subject-case.*0' commitlint.config.*
    ```
 
 2. **git log 分析**による自動判定
+
    ```bash
    # 最近 20 コミットの言語を分析
    git log --oneline -20 --pretty=format:"%s" | \
@@ -610,6 +638,7 @@ docs: API ドキュメントを更新
    ```
 
 3. **プロジェクトファイル**の言語設定
+
    ```bash
    # README.md の言語確認
    head -10 README.md | grep -E '^[あ-ん]|[ア-ン]|[一-龯]' | wc -l
@@ -619,6 +648,7 @@ docs: API ドキュメントを更新
    ```
 
 4. **変更ファイル内**のコメント・文字列分析
+
    ```bash
    # 変更されたファイルのコメント言語を確認
    git diff HEAD | grep -E '^[+-].*//.*[あ-ん]|[ア-ン]|[一-龯]' | wc -l
@@ -669,6 +699,7 @@ fi
 コマンド実行時に以下の順序で設定を確認：
 
 1. **CommitLint 設定ファイルの検索**
+
    ```bash
    # 以下の順序で検索し、最初に見つかったファイルを使用
    commitlint.config.mjs
@@ -689,6 +720,7 @@ fi
    - 言語設定の確認
 
 3. **既存コミット履歴の分析**
+
    ```bash
    # 最近のコミットから使用パターンを学習
    git log --oneline -100 --pretty=format:"%s" | \
@@ -698,6 +730,7 @@ fi
 #### 設定例の分析
 
 **標準的な commitlint.config.mjs**:
+
 ```javascript
 export default {
   extends: ['@commitlint/config-conventional'],
@@ -717,6 +750,7 @@ export default {
 ```
 
 **日本語対応の設定**:
+
 ```javascript
 export default {
   extends: ['@commitlint/config-conventional'],
@@ -733,6 +767,7 @@ export default {
 ```
 
 **カスタムタイプを含む設定**:
+
 ```javascript
 export default {
   extends: ['@commitlint/config-conventional'],
@@ -758,6 +793,7 @@ export default {
 設定ファイルが見つからない場合：
 
 1. **git log 分析**による自動推測
+
    ```bash
    # 最近 100 コミットからタイプを抽出
    git log --oneline -100 --pretty=format:"%s" | \
@@ -766,6 +802,7 @@ export default {
    ```
 
 2. **Conventional Commits 標準**をデフォルト使用
+
    ```
    feat, fix, docs, style, refactor, perf, test, chore, build, ci
    ```
@@ -811,6 +848,7 @@ export default {
 #### 規約検出の実例
 
 **Monorepo での scope 自動検出**:
+
 ```bash
 # packages/ フォルダから scope を推測
 ls packages/ | head -10
@@ -818,6 +856,7 @@ ls packages/ | head -10
 ```
 
 **フレームワーク固有の規約**:
+
 ```javascript
 // Angular プロジェクトの場合
 {
@@ -836,6 +875,7 @@ ls packages/ | head -10
 ```
 
 **企業・チーム固有の規約**:
+
 ```javascript
 // 日本の企業でよく見られるパターン
 {
@@ -864,6 +904,7 @@ ls packages/ | head -10
 #### 例 1: 大規模な認証システム追加
 
 **Before（1 つの巨大なコミット）:**
+
 ```bash
 # 変更されたファイル（15 ファイル、850 行変更）
 src/auth/login.js          # 新規作成
@@ -943,6 +984,7 @@ docs(auth): add authentication documentation and configuration
 #### 例 2: バグ修正とリファクタリングの混在
 
 **Before（混在した問題のあるコミット）:**
+
 ```bash
 # 変更されたファイル（8 ファイル、320 行変更）
 src/user/service.js       # バグ修正 + リファクタリング
@@ -995,6 +1037,7 @@ chore: update documentation and dependencies
 #### 例 3: 複数機能の同時開発
 
 **Before（機能横断の巨大コミット）:**
+
 ```bash
 # 変更されたファイル（12 ファイル、600 行変更）
 src/user/profile.js       # 新機能 A
@@ -1071,11 +1114,13 @@ chore: update dependencies for new features
 ### トラブルシューティング
 
 #### コミット失敗時
+
 - プリコミットフックの確認
 - 依存関係の解決
 - 個別ファイルでの再試行
 
 #### 分割が適切でない場合
+
 - `--max-commits` オプションで調整
 - 手動での `edit` モード使用
 - より細かい単位での再実行
