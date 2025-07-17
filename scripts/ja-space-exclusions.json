@@ -1,0 +1,33 @@
+{
+  "exclusions": [
+    "ジャンプTOON",
+    "少年ジャンプ+",
+    "週刊少年ジャンプ",
+    "ジャンプSQ",
+    "LINEWORKS",
+    "YouTube",
+    "YouTube Music",
+    "GitHub",
+    "GitHub Actions",
+    "GitLab",
+    "macOS",
+    "iOS",
+    "iPadOS",
+    "watchOS",
+    "tvOS",
+    "VS Code",
+    "IntelliJ IDEA",
+    "ChatGPT",
+    "iPhone",
+    "iPad",
+    "MacBook",
+    "AirPods",
+    "PlayStation",
+    "JavaScript",
+    "TypeScript",
+    "PowerShell",
+    "GraphQL",
+    "DynamoDB",
+    "OAuth"
+  ]
+}
