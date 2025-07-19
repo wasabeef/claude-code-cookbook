@@ -66,56 +66,11 @@ gh pr list --head $(git branch --show-current) --json number,title,url
 
 #### 既存内容の保持ルール
 
-**重要**: 既存の内容は**一文字も変更しない**
+**重要**: 既存の内容は変更しない
 
-- 書かれているセクションは完全保持
-- 空のコメント部分とプレースホルダーのみ補完
-- Hidden comment（GitHub Copilot review rule など）はエスケープせずに完全保持
-
-**例: 既存内容の保持**
-
-```markdown
-<!-- for GitHub Copilot review rule -->
-<!--
-レビューする際には、以下の prefix (接頭辞) をつけてください
-must. (must)
-imo. (in my opinion)
-nits. (nitpick)
-q. (question)
--->
-<!-- for GitHub Copilot review rule -->
-
-<!-- I want to review in Japanese. -->
-
-## What does this change?
-
-<!-- 既に説明があれば、完全にそのまま保持 -->
-既存の説明文は一切変更されません
-
-### 主な変更内容
-
-<!-- 空の場合のみ自動補完 -->
-
-## Review Points
-
-- 既存のレビューポイントは保持
-<!-- 空のコメント部分のみ自動追加 -->
-```
-
-#### Hidden Comment の保持ルール
-
-**重要**: HTML コメントは**エスケープせずに**完全保持すること
-
-- `<!-- for GitHub Copilot review rule -->` : 完全保持（エスケープ禁止）
-- `<!-- I want to review in Japanese. -->` : 完全保持（エスケープ禁止）
-- `<!-- レビューする際には... -->` : 完全保持（エスケープ禁止）
-- `<!-- 変更の概要を記載して下さい -->` : プレースホルダーとして置換対象
-- `<!-- e.g. APP-3 Linear Issue ID here -->` : プレースホルダーとして置換対象
-
-**エスケープされている場合の修復**:
-
-- `<\!--` → `<!--` に自動修復
-- `--\>` → `-->` に自動修復
+- 書かれているセクションは保持
+- 空のセクションのみ補完
+- 機能的なコメント（Copilot review rule など）は保持
 
 #### プロジェクトテンプレートの使用
 
@@ -210,9 +165,6 @@ analyze_changes() {
   # ファイル変更の取得
   gh pr diff $pr_number --name-only
   
-  # 行数統計
-  gh pr diff $pr_number --stat
-  
   # 内容分析
   gh pr diff $pr_number | head -1000
 }
@@ -225,94 +177,34 @@ generate_description() {
   # 現在の PR 説明を取得
   local current_body=$(gh pr view $pr_number --json body --jq -r .body)
   
-  # エスケープされた HTML コメントを修復
-  current_body=$(fix_escaped_comments "$current_body")
-  
-  # プロジェクトテンプレートの確認
-  local template_file=".github/PULL_REQUEST_TEMPLATE.md"
-  local base_template=""
-  if [ -f "$template_file" ]; then
-    base_template=$(cat "$template_file")
-  fi
-  
-  # 既存内容の分析
-  if has_meaningful_content "$current_body"; then
-    # 既存内容を完全保持し、空のセクションのみ補完
-    fill_empty_sections "$current_body" "$changes"
+  # 既存内容があればそのまま使用
+  if [ -n "$current_body" ]; then
+    echo "$current_body"
   else
     # テンプレートから新規生成
-    if [ -n "$base_template" ]; then
-      populate_template "$base_template" "$changes"
+    local template_file=".github/PULL_REQUEST_TEMPLATE.md"
+    if [ -f "$template_file" ]; then
+      generate_from_template "$(cat "$template_file")" "$changes"
     else
-      generate_default_description "$changes"
+      generate_from_template "" "$changes"
     fi
   fi
 }
 
-# 既存内容の有無を判定
-has_meaningful_content() {
-  local body="$1"
-  
-  # Hidden comment は保持すべき重要なコンテンツとして扱う
-  # プレースホルダーのみのコメントだけを除外
-  local content_only=$(echo "$body" | sed '/^$/d; s/<e\.g\..*>//g')
-  
-  # Hidden comment が含まれている場合は meaningful content として扱う
-  if echo "$body" | grep -q "I want to review in Japanese\|for GitHub Copilot review rule\|レビューする際には"; then
-    return 0  # true: meaningful content あり
-  fi
-  
-  # その他のコンテンツをチェック
-  [ -n "$(echo "$content_only" | sed '/^[[:space:]]*$/d; /^<!--.*-->$/d')" ]
-}
-
-# 空のセクションのみ補完
-fill_empty_sections() {
-  local current_body="$1"
+# テンプレートからの生成
+generate_from_template() {
+  local template="$1"
   local changes="$2"
   
-  # 重要: 既存の内容は一切変更せず、そのまま返す
-  # Hidden comment を含めて完全に保持
-  echo "$current_body"
-  
-  # 注意: この関数は既存内容を完全保持するため
-  # プレースホルダーの置換は別途 --force-update オプション時のみ実行
-}
-
-# Hidden comment の判定
-is_hidden_comment() {
-  local line="$1"
-  
-  # 保持すべき hidden comment のパターン
-  if [[ "$line" =~ "for GitHub Copilot review rule" ]] || \
-     [[ "$line" =~ "I want to review in Japanese" ]] || \
-     [[ "$line" =~ "prefix.*接頭辞" ]] || \
-     [[ "$line" =~ "must\.|imo\.|nits\.|q\." ]] || \
-     [[ "$line" =~ "レビューする際には" ]]; then
-    return 0  # true: 保持すべき hidden comment
+  if [ -n "$template" ]; then
+    # テンプレートに基づいて生成
+    echo "$template" | sed "s/<!-- .* -->//g"  # プレースホルダーを削除
+  else
+    # デフォルトフォーマットで生成
+    echo "## What does this change?"
+    echo ""
+    echo "$changes"
   fi
-  
-  return 1  # false: 通常のコメント
-}
-
-# エスケープされた HTML コメントを修復
-fix_escaped_comments() {
-  local content="$1"
-  
-  # エスケープされた HTML コメントを正常な形式に修復
-  # 二重エスケープ対応: <\\!-- → <!--
-  content=$(echo "$content" | sed 's/<\\\\!--/<!--/g')
-  content=$(echo "$content" | sed 's/--\\\\>/-->/g')
-  
-  # 単一エスケープ対応: <\!-- → <!--  
-  content=$(echo "$content" | sed 's/<\\!--/<!--/g')
-  content=$(echo "$content" | sed 's/--\\>/-->/g')
-  
-  # 末尾の不要なテキストを削除
-  content=$(echo "$content" | sed '/^EOF < \/dev\/null$/d')
-  content=$(echo "$content" | sed '/^https:\/\/github\.com\/.*\/pull\/[0-9]*$/d')
-  
-  echo "$content"
 }
 
 # 4. ラベルの決定
@@ -343,64 +235,66 @@ determine_labels() {
   echo "${suggested_labels[@]:0:3}"
 }
 
-# 汎用的な変更パターン分析
+# 変更パターンからラベルを決定
 analyze_change_patterns() {
   local file_list="$1"
   local changes="$2"
   local -n available_ref=$3
   local -n suggested_ref=$4
   
-  # 汎用的なキーワードマッチング（プロジェクト非依存）
-  
   # ファイルタイプによる判定
   if echo "$file_list" | grep -q "\.md$\|README\|docs/"; then
-    find_and_add_label "documentation\|docs\|doc" available_ref suggested_ref
-  elif echo "$file_list" | grep -q "test\|spec"; then
-    find_and_add_label "test\|testing" available_ref suggested_ref
-  elif echo "$file_list" | grep -q "\.github/\|\.yml$\|\.yaml$\|Dockerfile"; then
-    find_and_add_label "ci\|build\|infra\|ops" available_ref suggested_ref
-  elif echo "$file_list" | grep -q "package\.json\|requirements\.txt\|Gemfile\|pubspec\.yaml"; then
-    find_and_add_label "dependencies\|deps" available_ref suggested_ref
+    add_matching_label "documentation\|docs\|doc" available_ref suggested_ref
+  fi
+  
+  if echo "$file_list" | grep -q "test\|spec"; then
+    add_matching_label "test\|testing" available_ref suggested_ref
   fi
   
   # 変更内容による判定
   if echo "$changes" | grep -iq "fix\|bug\|error\|crash\|修正"; then
-    find_and_add_label "bug\|fix" available_ref suggested_ref
-  elif echo "$changes" | grep -iq "feat\|feature\|add\|implement\|新機能\|実装"; then
-    find_and_add_label "feature\|enhancement\|feat" available_ref suggested_ref
-  elif echo "$changes" | grep -iq "refactor\|clean\|リファクタ"; then
-    find_and_add_label "refactor\|cleanup\|clean" available_ref suggested_ref
-  elif echo "$changes" | grep -iq "performance\|perf\|optimize\|パフォーマンス"; then
-    find_and_add_label "performance\|perf" available_ref suggested_ref
-  elif echo "$changes" | grep -iq "security\|secure\|セキュリティ"; then
-    find_and_add_label "security" available_ref suggested_ref
+    add_matching_label "bug\|fix" available_ref suggested_ref
+  fi
+  
+  if echo "$changes" | grep -iq "feat\|feature\|add\|implement\|新機能\|実装"; then
+    add_matching_label "feature\|enhancement\|feat" available_ref suggested_ref
   fi
 }
 
-# ラベル名の部分マッチで検索・追加
-find_and_add_label() {
+# マッチするラベルを追加
+add_matching_label() {
   local pattern="$1"
   local -n available_ref=$2
   local -n suggested_ref=$3
   
-  # 既に 3 個の場合は追加しない
+  # すでに 3 個ある場合はスキップ
   if [ ${#suggested_ref[@]} -ge 3 ]; then
     return
   fi
   
-  # パターンにマッチするラベルを検索
+  # パターンにマッチする最初のラベルを追加
   for available_label in "${available_ref[@]}"; do
     if echo "$available_label" | grep -iq "$pattern"; then
       # 重複チェック
+      local already_exists=false
       for existing in "${suggested_ref[@]}"; do
         if [ "$existing" = "$available_label" ]; then
-          return
+          already_exists=true
+          break
         fi
       done
-      suggested_ref+=("$available_label")
-      return
+      
+      if [ "$already_exists" = false ]; then
+        suggested_ref+=("$available_label")
+        return
+      fi
     fi
   done
+}
+
+# 旧関数の互換性のため残しておく
+find_and_add_label() {
+  add_matching_label "$@"
 }
 
 # 5. PR の更新
@@ -415,8 +309,18 @@ update_pr() {
     echo "$description"
     echo "Labels: $labels"
   else
-    gh pr edit $pr_number --body "$description"
+    # リポジトリ情報を取得
+    local repo_info=$(gh repo view --json owner,name)
+    local owner=$(echo "$repo_info" | jq -r .owner.login)
+    local repo=$(echo "$repo_info" | jq -r .name)
     
+    # GitHub API を使用して本文を更新（HTML コメント保持）
+    gh api \
+      --method PATCH \
+      "/repos/$owner/$repo/pulls/$pr_number" \
+      -f body="$description"
+    
+    # ラベルは通常の gh コマンドで問題なし
     if [ -n "$labels" ]; then
       gh pr edit $pr_number --add-label "$labels"
     fi
@@ -424,18 +328,14 @@ update_pr() {
 }
 ```
 
-## 設定ファイル
+## 設定ファイル（今後の拡張用）
 
 `~/.claude/pr-auto-update.config`:
 
 ```json
 {
-  "default_template": "standard",
   "language": "ja",
-  "auto_detect_breaking_changes": true,
-  "max_labels": 3,
-  "smart_labeling": true,
-  "preserve_existing_labels": false
+  "max_labels": 3
 }
 ```
 
@@ -507,11 +407,8 @@ GitHub Actions ワークフローを改善しました。{効果}を実現しま
 
 1. **既存内容の完全保持**:
    - 既に記述されている内容は**一文字も変更しない**
-   - **⚠️ 重要**: Hidden comment は**絶対に削除してはいけません**
    - 空のコメント部分とプレースホルダーのみ補完
    - ユーザーが意図的に書いた内容を尊重
-   - **Hidden comment の保持**: GitHub Copilot review rule など機能的な HTML コメントはエスケープせずに完全保持
-   - **緊急修正**: 現在の実装では Hidden comment が消失する問題があります
 
 2. **テンプレート優先順位**:
    - 既存の PR 説明 > `.github/PULL_REQUEST_TEMPLATE.md` > デフォルト
@@ -540,18 +437,21 @@ GitHub Actions ワークフローを改善しました。{効果}を実現しま
 1. **PR が見つからない**: ブランチ名と PR の関連付けを確認
 2. **権限エラー**: GitHub CLI の認証状態を確認
 3. **ラベルが設定できない**: リポジトリの権限を確認
-4. **HTML コメントがエスケープされる**: `<\!--` や `--\>` が発生する場合は自動修復機能が作動
-5. **末尾に不要なテキスト**: `EOF < /dev/null` や PR URL が含まれる場合は自動削除
+4. **HTML コメントがエスケープされる**: GitHub CLI の仕様により `<!-- -->` が `&lt;!-- --&gt;` に変換される
+
+### GitHub CLI の HTML コメントエスケープ問題
+
+**重要**: GitHub CLI (`gh pr edit`) は HTML コメントを自動エスケープします。`<` が `&lt;` に、`>` が `&gt;` に変換されるため、`<!-- -->` は `&lt;!-- --&gt;` になります。これは GitHub CLI の仕様で回避不可です。
+
+#### 対処方法
+
+1. **GitHub API を直接使用**: `gh api` コマンドで PR を更新することでエスケープを回避
+2. **重要な HTML コメントは PR 作成時に含める**: Copilot review rule などは最初から入れる
+3. **ラベル操作は通常の gh コマンドを使用**: ラベルはエスケープの影響を受けない
 
 ### デバッグオプション
 
 ```bash
-# 詳細ログ出力
+# 詳細ログ出力（実装時に追加）
 /pr-auto-update --verbose
-
-# 分析結果のみ表示
-/pr-auto-update --analyze-only
-
-# テンプレート変数の確認
-/pr-auto-update --show-variables
 ```

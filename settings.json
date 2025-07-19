@@ -78,7 +78,6 @@
       "Bash(yum install *)"
     ]
   },
-  "model": "opus",
   "hooks": {
     "PreToolUse": [
       {
@@ -116,7 +115,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"確認待ち\" with title \"Claude Code\"' && afplay -v 0.5 ~/.claude/assets/confirm.mp3"
+            "command": "osascript -e 'display notification \"確認待ち\" with title \"Claude Code\"' && afplay -v 0.3 ~/.claude/assets/confirm.mp3"
           }
         ]
       }
@@ -131,7 +130,7 @@
           },
           {
             "type": "command",
-            "command": "osascript -e 'display notification \"タスク完了\" with title \"Claude Code\"' && afplay -v 0.5 ~/.claude/assets/perfect.mp3"
+            "command": "osascript -e 'display notification \"タスク完了\" with title \"Claude Code\"' && afplay -v 0.3 ~/.claude/assets/perfect.mp3"
           }
         ]
       }
