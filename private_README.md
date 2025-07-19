@@ -49,12 +49,12 @@ Claude をもっと便利に使うための設定集です。
 | `/multi-role` | 複数の役割（Role）を組み合わせて、同じ対象を並行分析し統合レポートを生成する。 |
 | `/plan` | 実装前の計画立案モードを起動し、詳細な実装戦略を策定する。 |
 | `/pr-auto-update` | Pull Request の内容を自動で更新する。 |
-| `/pr-issue` | Issue を元に Pull Request を作成する。 |
-| `/pr-list` | 現在の Pull Request の一覧を取得する。 |
+| `/pr-issue` | 現在のリポジトリのオープン Issue 一覧を優先順位付きで表示する。 |
+| `/pr-list` | 現在のリポジトリのオープン PR 一覧を優先順位付きで表示する。 |
 | `/role-debate` | 複数の役割（Role）で、特定のテーマについて討論させる。 |
 | `/role-help` | 利用可能な Role の一覧と説明を表示する。 |
 | `/role` | 指定した役割（Role）として振る舞う。 |
-| `/screenshot` | 現在の画面のスクリーンショットを撮る。 |
+| `/screenshot` | 画面のスクリーンショットを取得し解析する |
 | `/search-gemini` | Gemini を使って Web 検索を行う。 |
 | `/semantic-commit` | 大きな変更を意味のある最小単位に分割し、セマンティックなコミットメッセージで順次コミットする。 |
 | `/sequential-thinking` | 複雑な問題を順を追って段階的に考え、結論を導き出す。 |
@@ -63,13 +63,12 @@ Claude をもっと便利に使うための設定集です。
 | `/smart-review` | 高度なレビューを行い、コード品質を向上させる。 |
 | `/spec` | 要求事項から、Kiro の spec-driven development に準拠した詳細な仕様書を段階的に作成する。 |
 | `/style-ai-writting` | AI が生成したような不自然な文章を検出し、修正する。 |
-| `/style-wasabeef-writting` | 親しみやすい文体で文章を作成・レビューする。 |
-| `/task` | タスクを細分化し、実行可能な単位に分割する。 |
+| `/task` | 専用エージェントを起動して、複雑な検索・調査・分析タスクを自律的に実行する。 |
 | `/tech-debt` | プロジェクトの技術的負債を分析し、優先順位付けされた改善計画を作成する。 |
-| `/ultrathink` | 複雑な課題や重要な決定に対して、段階的で構造化された深い思考プロセスを実行する。 |
-| `/update-flutter-deps` | Flutter プロジェクトの依存関係を更新する。 |
-| `/update-node-deps` | Node.js プロジェクトの依存関係を更新する。 |
-| `/update-rust-deps` | Rust プロジェクトの依存関係を更新する。 |
+| `/ultrathink` | 複雑な課題や重要な決定に対して、段階的で構造化された思考プロセスを実行する。 |
+| `/update-flutter-deps` | Flutter プロジェクトの依存関係を安全に更新する。 |
+| `/update-node-deps` | Node.js プロジェクトの依存関係を安全に更新する。 |
+| `/update-rust-deps` | Rust プロジェクトの依存関係を安全に更新する。 |
 
 ### Roles（役割設定）
 
