@@ -89,7 +89,7 @@
           },
           {
             "type": "command",
-            "command": "if jq -r '.tool_input.command' | grep -q '^git commit' && jq -r '.tool_input.command' | grep -q '🤖 Generated with'; then echo 'Error: コミットメッセージに AI 署名が含まれている' 1>&2; exit 2; fi"
+            "command": "~/.claude/scripts/check-ai-commit.sh"
           }
         ]
       }

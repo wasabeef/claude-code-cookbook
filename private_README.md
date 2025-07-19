@@ -24,12 +24,12 @@ Claude をもっと便利に使うための設定集です。
 | 実行スクリプト | イベント | 説明 |
 | :--- | :--- | :--- |
 | `deny-check.sh` | `PreToolUse` | `rm -rf /` のような危険なコマンドの実行を未然に防ぐ。 |
-| （inline script） | `PreToolUse` | `git commit` でコミットメッセージに AI の署名が含まれている場合にエラーを出す。 |
+| `check-ai-commit.sh` | `PreToolUse` | `git commit` でコミットメッセージに AI の署名が含まれている場合にエラーを出す。 |
 | `ja-space-format.sh` | `PostToolUse` | ファイル保存時に、日本語と英数字の間のスペースを自動で整形する。 |
 | `auto-comment.sh` | `PostToolUse` | 新規ファイル作成時や大幅な編集時に、docstring や API ドキュメントの追加を促す。 |
-| （osascript） | `Notification` | Claude がユーザーの確認を待っている時に、macOS の通知センターでお知らせする。 |
+| `notify-waiting` | `Notification` | Claude がユーザーの確認を待っている時に、macOS の通知センターでお知らせする。 |
 | `check-continue.sh` | `Stop` | タスク完了時に、継続可能なタスクがないか確認する。 |
-| （osascript） | `Stop` | 全タスク完了時に、macOS の通知センターで完了を知らせる。 |
+| `notify-complete` | `Stop` | 全タスク完了時に、macOS の通知センターで完了を知らせる。 |
 
 ### Commands（カスタムコマンド）
 
