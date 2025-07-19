@@ -12,17 +12,17 @@
 
 #### 専門分析ロール（SuperClaude Evidence-First 統合）
 
-- `security` : セキュリティ監査専門家（OWASP Top 10・脅威モデリング・Zero Trust原則・CVE照合）
-- `performance` : パフォーマンス最適化専門家（Core Web Vitals・RAIL モデル・段階的最適化・ROI分析）
-- `analyzer` : 根本原因分析専門家（5 Whys・システム思考・仮説駆動・認知バイアス対策）
-- `frontend` : フロントエンド・UI/UX 専門家（WCAG 2.1・デザインシステム・ユーザー中心設計）
+- `security` : セキュリティ監査専門家（OWASP Top 10 ・脅威モデリング・ Zero Trust 原則・ CVE 照合）
+- `performance` : パフォーマンス最適化専門家（Core Web Vitals ・ RAIL モデル・段階的最適化・ ROI 分析）
+- `analyzer` : 根本原因分析専門家（5 Whys ・システム思考・仮説駆動・認知バイアス対策）
+- `frontend` : フロントエンド・ UI/UX 専門家（WCAG 2.1 ・デザインシステム・ユーザー中心設計）
 
 #### 開発支援ロール
 
 - `reviewer` : コードレビュー専門家（可読性・保守性・パフォーマンス・リファクタリング提案）
-- `architect` : システムアーキテクト（Evidence-First 設計・MECE分析・進化的アーキテクチャ）
-- `qa` : テストエンジニア（テストカバレッジ・E2E/統合/単体戦略・自動化提案）
-- `mobile` : モバイル開発専門家（iOS HIG・Android Material Design・クロスプラットフォーム戦略）
+- `architect` : システムアーキテクト（Evidence-First 設計・ MECE 分析・進化的アーキテクチャ）
+- `qa` : テストエンジニア（テストカバレッジ・ E2E/統合/単体戦略・自動化提案）
+- `mobile` : モバイル開発専門家（iOS HIG ・ Android Material Design ・クロスプラットフォーム戦略）
 
 ### 基本例
 
@@ -90,7 +90,7 @@ git diff HEAD~1
 
 # ロール固有の出力形式
 /role security
-🔒 セキュリティ分析結果
+セキュリティ分析結果
 ━━━━━━━━━━━━━━━━━━━━━
 脆弱性: SQL インジェクション
 深刻度: High
@@ -107,7 +107,7 @@ git diff HEAD~1
 #### 共通特徴
 
 - **公式ドキュメント準拠**: 各分野の権威ある公式ガイドラインを優先参照
-- **MECE分析**: 漏れなく重複なく体系的な問題分解
+- **MECE 分析**: 漏れなく重複なく体系的な問題分解
 - **多角的評価**: 技術・ビジネス・運用・ユーザーの複数視点
 - **認知バイアス対策**: 確証バイアス等の排除メカニズム
 - **議論特性**: ロール固有の専門的議論スタンス
@@ -118,36 +118,36 @@ git diff HEAD~1
 
 **Evidence-Based セキュリティ監査**
 
-- OWASP Top 10・Testing Guide・SAMM による体系的評価
-- CVE・NVD データベース照合による既知脆弱性チェック
-- STRIDE・Attack Tree・PASTA による脅威モデリング
+- OWASP Top 10 ・ Testing Guide ・ SAMM による体系的評価
+- CVE ・ NVD データベース照合による既知脆弱性チェック
+- STRIDE ・ Attack Tree ・ PASTA による脅威モデリング
 - Zero Trust 原則・最小権限による設計評価
 
 **専門的報告形式**
 
 ```
-🔒 Evidence-Based セキュリティ監査結果
+Evidence-Based セキュリティ監査結果
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-OWASP Top 10 準拠度: XX% / CVE照合: 完了
-脅威モデリング: STRIDE分析済み
+OWASP Top 10 準拠度: XX% / CVE 照合: 完了
+脅威モデリング: STRIDE 分析済み
 ```
 
 #### performance（パフォーマンス最適化専門家）
 
 **Evidence-First パフォーマンス最適化**
 
-- Core Web Vitals（LCP・FID・CLS）・RAIL モデル準拠
+- Core Web Vitals（LCP ・ FID ・ CLS）・ RAIL モデル準拠
 - Google PageSpeed Insights 推奨事項の実装
 - 段階的最適化プロセス（測定→分析→優先順位→実装）
-- ROI分析による投資対効果の定量評価
+- ROI 分析による投資対効果の定量評価
 
 **専門的報告形式**
 
 ```
-⚡ Evidence-First パフォーマンス分析
+Evidence-First パフォーマンス分析
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
-Performance Budget: XX% / ROI分析: XX% 改善予測
+Performance Budget: XX% / ROI 分析: XX% 改善予測
 ```
 
 #### analyzer（根本原因分析専門家）
@@ -155,25 +155,25 @@ Performance Budget: XX% / ROI分析: XX% 改善予測
 **Evidence-First 根本原因分析**
 
 - 5 Whys + α手法（反証検討含む）
-- システム思考による構造分析（Peter Senge原則）
+- システム思考による構造分析（Peter Senge 原則）
 - 認知バイアス対策（確証バイアス・アンカリング等の排除）
 - 仮説駆動分析の徹底（複数仮説の並行検証）
 
 **専門的報告形式**
 
 ```
-🔍 Evidence-First 根本原因分析
+Evidence-First 根本原因分析
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 分析信頼度: 高 / バイアス対策: 実施済み
 仮説検証マトリックス: XX% 確信度
 ```
 
-#### frontend（フロントエンド・UI/UX専門家）
+#### frontend（フロントエンド・ UI/UX 専門家）
 
 **Evidence-First フロントエンド開発**
 
 - WCAG 2.1 アクセシビリティ準拠
-- Material Design・iOS HIG 公式ガイドライン準拠
+- Material Design ・ iOS HIG 公式ガイドライン準拠
 - ユーザー中心設計・デザインシステム標準適用
 - A/B テスト・ユーザー行動分析による検証
 
@@ -187,20 +187,20 @@ Performance Budget: XX% / ROI分析: XX% 改善予測
 
 #### architect（システムアーキテクト）
 
-- Evidence-First 設計原則・MECE分析による段階的思考
+- Evidence-First 設計原則・ MECE 分析による段階的思考
 - 進化的アーキテクチャ・複数視点評価（技術・ビジネス・運用・ユーザー）
 - 公式アーキテクチャパターン・ベストプラクティス参照
 
 #### qa（テストエンジニア）
 
-- テストカバレッジ分析・E2E/統合/単体テスト戦略
+- テストカバレッジ分析・ E2E/統合/単体テスト戦略
 - テスト自動化提案・品質メトリクス設計
 
 #### mobile（モバイル開発専門家）
 
-- iOS HIG・Android Material Design 公式ガイドライン準拠
-- クロスプラットフォーム戦略・Touch-First設計
-- ストア審査ガイドライン・モバイル特化UX最適化
+- iOS HIG ・ Android Material Design 公式ガイドライン準拠
+- クロスプラットフォーム戦略・ Touch-First 設計
+- ストア審査ガイドライン・モバイル特化 UX 最適化
 
 ### ロール固有の議論特性
 
@@ -209,15 +209,15 @@ Performance Budget: XX% / ROI分析: XX% 改善予測
 #### security ロールの議論特性
 
 - **スタンス**: 保守的アプローチ・リスク最小化優先・最悪ケース想定
-- **論拠**: OWASP ガイドライン・NIST フレームワーク・実際の攻撃事例
+- **論拠**: OWASP ガイドライン・ NIST フレームワーク・実際の攻撃事例
 - **強み**: リスク評価の精度・規制要件の深い知識・攻撃手法の包括的理解
-- **注意**: 過度な保守性・UXへの配慮不足・実装コストの軽視
+- **注意**: 過度な保守性・ UX への配慮不足・実装コストの軽視
 
 #### performance ロールの議論特性
 
 - **スタンス**: データ駆動判断・効率性重視・ユーザー体験優先・継続的改善
-- **論拠**: Core Web Vitals・ベンチマーク結果・ユーザー行動データ・業界標準
-- **強み**: 定量的評価能力・ボトルネック特定の精度・ROI分析
+- **論拠**: Core Web Vitals ・ベンチマーク結果・ユーザー行動データ・業界標準
+- **強み**: 定量的評価能力・ボトルネック特定の精度・ ROI 分析
 - **注意**: セキュリティの軽視・保守性への配慮不足・計測偏重
 
 #### analyzer ロールの議論特性
@@ -230,7 +230,7 @@ Performance Budget: XX% / ROI分析: XX% 改善予測
 #### frontend ロールの議論特性
 
 - **スタンス**: ユーザー中心・アクセシビリティ重視・デザイン原則準拠・体験価値優先
-- **論拠**: UX調査・アクセシビリティ標準・デザインシステム・ユーザビリティテスト
+- **論拠**: UX 調査・アクセシビリティ標準・デザインシステム・ユーザビリティテスト
 - **強み**: ユーザー視点・デザイン原則・アクセシビリティ・体験設計
 - **注意**: 技術制約の軽視・パフォーマンスへの配慮不足・実装複雑性
 
@@ -254,8 +254,8 @@ Performance Budget: XX% / ROI分析: XX% 改善予測
 
 ### マルチロール協調
 
-- `/multi-role <ロール1>,<ロール2>` : 複数ロール同時分析
-- `/role-debate <ロール1>,<ロール2>` : ロール間議論
+- `/multi-role <ロール 1>,<ロール 2>` : 複数ロール同時分析
+- `/role-debate <ロール 1>,<ロール 2>` : ロール間議論
 
 ### 使用例
 
@@ -277,7 +277,7 @@ Performance Budget: XX% / ROI分析: XX% 改善予測
 → セキュリティとパフォーマンスの両面から統合分析
 
 /role-debate frontend,security
-「2段階認証の UX について議論して」
+「2 段階認証の UX について議論して」
 → ユーザビリティとセキュリティの観点で議論
 ```
 
@@ -310,6 +310,6 @@ Performance Budget: XX% / ROI分析: XX% 改善予測
 ### ロール設定の詳細
 
 - 各ロールの詳細設定・專門知識・議論特性は `.claude/roles/` ディレクトリ内で定義
-- SuperClaude 統合機能・Evidence-First 手法・認知バイアス対策も含む
+- SuperClaude 統合機能・ Evidence-First 手法・認知バイアス対策も含む
 - ロール固有のトリガーフレーズで自動的に特化モードが有効化
-- 実際のロールファイルは200行超の専門的内容で構成
+- 実際のロールファイルは 200 行超の専門的内容で構成

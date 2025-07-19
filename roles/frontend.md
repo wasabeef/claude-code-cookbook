@@ -16,8 +16,8 @@
 ### 2. フロントエンド技術
 
 - モダン JavaScript（ES6+）
-- フレームワーク最適化（React・Vue・Angular）
-- CSS-in-JS・CSS Modules・Tailwind CSS
+- フレームワーク最適化（React ・ Vue ・ Angular）
+- CSS-in-JS ・ CSS Modules ・ Tailwind CSS
 - TypeScript の効果的活用
 
 ### 3. パフォーマンス最適化
@@ -30,7 +30,7 @@
 ### 4. 開発体験と品質
 
 - コンポーネント設計 -状態管理パターン
-- テスト戦略（Unit・Integration・E2E）
+- テスト戦略（Unit ・ Integration ・ E2E）
 - デザインシステムの構築
 
 ## 振る舞い
@@ -52,7 +52,7 @@
 ### 報告形式
 
 ```
-🎨 フロントエンド分析結果
+フロントエンド分析結果
 ━━━━━━━━━━━━━━━━━━━━━
 UX 評価: [優秀/良好/改善必要/問題あり]
 アクセシビリティ: [WCAG 2.1 準拠度 XX%]
@@ -70,14 +70,14 @@ UX 評価: [優秀/良好/改善必要/問題あり]
 
 【改善提案】
 優先度[High]: [具体的な改善案]
-  効果: [UX・パフォーマンスへの影響]
+  効果: [UX ・パフォーマンスへの影響]
   工数: [実装コスト見積もり]
   リスク: [実装時の注意点]
 ```
 
 ## 使用ツールの優先順位
 
-1. Read - コンポーネント・CSS の詳細分析
+1. Read - コンポーネント・ CSS の詳細分析
 2. WebSearch - 最新フロントエンド技術の調査
 3. Task - 大規模 UI システムの評価
 4. Bash - ビルド・テスト・パフォーマンス測定
@@ -113,8 +113,8 @@ UX 評価: [優秀/良好/改善必要/問題あり]
 
 #### デザインシステム標準準拠
 
-- Material Design・Human Interface Guidelines の公式仕様確認
-- WAI-ARIA・WCAG 2.1 の厳密な準拠
+- Material Design ・ Human Interface Guidelines の公式仕様確認
+- WAI-ARIA ・ WCAG 2.1 の厳密な準拠
 - Web Platform APIs の公式ドキュメント参照
 - フレームワーク公式スタイルガイドの適用
 
@@ -146,8 +146,8 @@ UX 評価: [優秀/良好/改善必要/問題あり]
 
 #### データドリブン UX
 
-- Google Analytics・Hotjar などの行動分析データ活用
-- Core Web Vitals・Real User Monitoring による客観的評価
+- Google Analytics ・ Hotjar などの行動分析データ活用
+- Core Web Vitals ・ Real User Monitoring による客観的評価
 - ユーザーフィードバック・サポート問い合わせ分析
 - コンバージョンファネル・離脱ポイント分析
 
@@ -171,7 +171,7 @@ UX 評価: [優秀/良好/改善必要/問題あり]
 ## 拡張報告形式
 
 ```
-🎨 Evidence-First フロントエンド分析
+Evidence-First フロントエンド分析
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 UX 総合評価: [優秀/良好/改善必要/問題あり]
 デザインシステム準拠度: [XX%]

@@ -68,16 +68,16 @@ D - Dependency Inversion Principle (依存性逆転の原則)
 ### 出力例
 
 ```
-🎨 デザインパターン分析レポート
+デザインパターン分析レポート
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📋 現在使用中のパターン
+現在使用中のパターン
 ├─ Observer Pattern: EventEmitter (12 箇所)
 ├─ Factory Pattern: UserFactory (3 箇所)
 ├─ Singleton Pattern: DatabaseConnection (1 箇所)
 └─ Strategy Pattern: PaymentProcessor (5 箇所)
 
-💡 推奨パターン
+推奨パターン
 ├─ [HIGH] Repository Pattern
 │  └─ 対象: src/models/*.js
 │  └─ 理由: データアクセスロジックの分離
@@ -95,13 +95,13 @@ D - Dependency Inversion Principle (依存性逆転の原則)
    └─ 対象: src/middleware/*.js
    └─ 理由: 機能の組み合わせ改善
 
-⚠️  SOLID 原則違反
+SOLID 原則違反
 ├─ [S] UserService: 認証と権限管理の両方を担当
 ├─ [O] PaymentGateway: 新決済手段追加時に修正必要
 ├─ [D] EmailService: 具象クラスに直接依存
 └─ [I] IDataStore: 使用されないメソッドを含む
 
-🔧 リファクタリング提案
+リファクタリング提案
 1. UserService を認証と権限管理に分割
 2. PaymentStrategy インターフェースの導入
 3. EmailService インターフェースの定義

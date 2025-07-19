@@ -43,7 +43,7 @@
 
 ```bash
 $ /smart-review src/auth/login.js
-→ 「🔒 認証ファイルを検出しました」
+→ 「認証ファイルを検出しました」
 → 「security ロールでの分析を推奨します」
 → 「実行しますか？ [y]es / [n]o / [m]ore options」
 ```

@@ -42,7 +42,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-## 🎯 核心的な設計原則
+## 核心的な設計原則
 
 ### 原則 1: 解釈の余地を完全に排除
 
