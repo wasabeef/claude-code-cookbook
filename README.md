@@ -1,13 +1,13 @@
 # Claude Code Cookbook
 
-Claude をもっと便利に使うための設定集です。
+Claude Code をもっと便利に使うための設定集です。
 
 細かい確認を省いて自動的に作業を進めてくれるので、本来やりたいことに集中できます。
-コードの修正やテストの実行、ドキュメントの更新など、よくある作業は Claude が判断して実行します。
+コードの修正やテストの実行、ドキュメントの更新など、よくある作業は Claude Code が判断して実行します。
 
 ## 主要機能
 
-3 つの機能で Claude の動作をカスタマイズできます。
+3 つの機能で Claude Code の動作をカスタマイズできます。
 
 - **Hooks**: 特定のタイミングでスクリプトを自動実行
 - **Commands**: `/` で始まるショートカットコマンド
@@ -29,7 +29,7 @@ Claude をもっと便利に使うための設定集です。
 | `auto-comment.sh` | `PostToolUse` | 新規ファイル作成時や大幅な編集時に、docstring や API ドキュメントの追加を促す。 |
 | `notify-waiting` | `Notification` | Claude がユーザーの確認を待っている時に、macOS の通知センターでお知らせする。 |
 | `check-continue.sh` | `Stop` | タスク完了時に、継続可能なタスクがないか確認する。 |
-| `notify-complete` | `Stop` | 全タスク完了時に、macOS の通知センターで完了を知らせる。 |
+| `(osascript)` | `Stop` | 全タスク完了時に、macOS の通知センターで完了を知らせる。 |
 
 ### Commands（カスタムコマンド）
 
