@@ -1,4 +1,4 @@
-# PR Auto Update
+## PR Auto Update
 
 ## 概要
 

@@ -1,16 +1,16 @@
-# Role Help
+## Role Help
 
 どのロールを使うべきか迷った時の選択ガイドとヘルプシステム。
 
-## 使い方
+### 使い方
 
 ```bash
 /role-help                      # 全般的なロール選択ガイド
 /role-help <状況/問題>          # 特定状況での推奨ロール
-/role-help compare <ロール1>,<ロール2> # ロール比較
+/role-help compare <ロール 1>,<ロール 2> # ロール比較
 ```
 
-## 基本例
+### 基本例
 
 ```bash
 # 一般的なガイダンス
@@ -26,7 +26,7 @@
 → frontend と mobile の違いと使い分け
 ```
 
-## 状況別ロール選択ガイド
+### 状況別ロール選択ガイド
 
 ### 🔒 セキュリティ関連
 
@@ -60,8 +60,8 @@
 こんな時は performance ロール:
 ✅ アプリケーションが遅い
 ✅ データベースクエリの最適化
-✅ Webページの読み込み速度改善
-✅ メモリ・CPU 使用量の最適化
+✅ Web ページの読み込み速度改善
+✅ メモリ・ CPU 使用量の最適化
 ✅ スケーリング・負荷対策
 
 使い方: /role performance
@@ -80,7 +80,7 @@
 使い方: /role analyzer
 ```
 
-### 🎨 フロントエンド・UI/UX
+### 🎨 フロントエンド・ UI/UX
 
 ```
 こんな時は frontend ロール:
@@ -97,11 +97,11 @@
 
 ```
 こんな時は mobile ロール:
-✅ iOS・Android アプリの最適化
+✅ iOS ・ Android アプリの最適化
 ✅ モバイル特有の UX 設計
 ✅ タッチインターフェース最適化
 ✅ オフライン対応・同期機能
-✅ App Store・Google Play 対応
+✅ App Store ・ Google Play 対応
 
 使い方: /role mobile
 ```
@@ -114,7 +114,7 @@
 ✅ 可読性・保守性の評価
 ✅ コーディング規約の確認
 ✅ リファクタリング提案
-✅ PR・コミットのレビュー
+✅ PR ・コミットのレビュー
 
 使い方: /role reviewer
 ```
@@ -132,7 +132,7 @@
 使い方: /role qa
 ```
 
-## 複数ロールが必要な場合
+### 複数ロールが必要な場合
 
 ### 🔄 multi-role (並行分析)
 
@@ -170,7 +170,7 @@
 例: /smart-review
 ```
 
-## ロール比較表
+### ロール比較表
 
 ### セキュリティ系
 
@@ -200,7 +200,7 @@
 | frontend | Web UI/UX | ブラウザ、アクセシビリティ | サーバーサイド、DB |
 | mobile | モバイル UX | タッチ、オフライン対応 | サーバーサイド、Web |
 
-## 迷った時のフローチャート
+### 迷った時のフローチャート
 
 ```
 問題の性質は？
@@ -219,14 +219,14 @@
 └─ 判断に迷う → smart-review
 ```
 
-## よくある質問
+### よくある質問
 
 ### Q: frontend と mobile の違いは？
 
 ```
 A: 
 frontend: Web ブラウザ中心、HTML/CSS/JavaScript
-mobile: モバイルアプリ中心、iOS/Android ネイティブ・React Native など
+mobile: モバイルアプリ中心、iOS/Android ネイティブ・ React Native など
 
 両方関連する場合は multi-role frontend,mobile がおすすめ
 ```
@@ -251,7 +251,7 @@ performance: 具体的な速度・効率の改善
 大規模システムの性能設計なら multi-role architect,performance
 ```
 
-## Claude との連携
+### Claude との連携
 
 ```bash
 # 状況説明と組み合わせ
@@ -268,7 +268,7 @@ cat problem-description.md
 「JWT トークンの有効期限問題でどちらのロールが適切？」
 ```
 
-## 注意事項
+### 注意事項
 
 - 複雑な問題ほど複数ロールの組み合わせが効果的です
 - 緊急性が高い場合は single role で迅速に対応

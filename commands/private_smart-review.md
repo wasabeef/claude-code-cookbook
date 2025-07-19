@@ -1,15 +1,15 @@
-# Smart Review
+## Smart Review
 
 現在の状況を分析し、最適なロール・アプローチを自動提案するコマンド。
 
-## 使い方
+### 使い方
 
 ```bash
 /smart-review                    # 現在のディレクトリを分析
 /smart-review <ファイル/ディレクトリ> # 特定対象を分析
 ```
 
-## 自動判定ロジック
+### 自動判定ロジック
 
 ### ファイル拡張子による判定
 
@@ -37,7 +37,7 @@
 - `memory leak`, `high CPU`, `slow query` → **performance + analyzer**
 - `SQL injection`, `XSS`, `CSRF` → **security + analyzer**
 
-## 提案パターン
+### 提案パターン
 
 ### 単一ロール提案
 
@@ -83,7 +83,7 @@ $ /smart-review architecture-design.md
 → 「[代替] /multi-role architect,security,performance」
 ```
 
-## 提案ロジックの詳細
+### 提案ロジックの詳細
 
 ### 優先度判定
 
@@ -96,12 +96,28 @@ $ /smart-review architecture-design.md
 
 ### 議論推奨条件
 
-- 3つ以上のロールが関連する場合
+- 3 つ以上のロールが関連する場合
 - セキュリティ vs パフォーマンスのトレードオフがある場合
 - アーキテクチャの大幅変更が含まれる場合
 - モバイル + Web の両方に影響がある場合
 
-## 実行例
+### 基本例
+
+```bash
+# 現在のディレクトリを分析
+/smart-review
+「最適なロールとアプローチを提案して」
+
+# 特定ファイルを分析
+/smart-review src/auth/login.js
+「このファイルに最適なレビュー方法を提案して」
+
+# エラーログを分析
+/smart-review error.log
+「このエラーの解決に最適なアプローチを提案して」
+```
+
+### 実裁例
 
 ### プロジェクト全体の分析
 
@@ -129,10 +145,10 @@ $ /smart-review "JWT の有効期限をどう設定すべきか"
 → 「」
 → 「推奨アプローチ:」
 → 「/role-debate security,performance,frontend」
-→ 「理由: セキュリティ・パフォーマンス・UX のバランスが重要」
+→ 「理由: セキュリティ・パフォーマンス・ UX のバランスが重要」
 ```
 
-## Claude との連携
+### Claude との連携
 
 ```bash
 # ファイル内容と組み合わせた分析
@@ -150,7 +166,7 @@ npm run build 2>&1 | tee build-error.log
 「React Native と Progressive Web App のどちらを選ぶべきか議論して」
 ```
 
-## 注意事項
+### 注意事項
 
 - 提案は参考情報です。最終的な判断はユーザーが行ってください
 - 複雑な問題ほど議論形式（role-debate）を推奨します
