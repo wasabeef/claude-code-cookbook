@@ -26,34 +26,34 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 ```
 オープン Issue 一覧（優先順位順）
 
-### 🔴 高優先度
+### 高優先度
 #番号 タイトル [ラベル] | 作者 | オープンから経過時間 | コメント数 | 担当者
       ├─ 概要 1 行目
       └─ 概要 2 行目
       https://github.com/owner/repo/issues/番号
 
-### 🟡 中優先度
+### 中優先度
 （同様の形式）
 
-### 🟢 低優先度
+### 低優先度
 （同様の形式）
 ```
 
 ### 優先度の判定基準
 
-**高優先度 (🔴)**
+**高優先度**
 
 - `bug` ラベルが付いている Issue
 - `critical` や `urgent` ラベルが付いている Issue
 - `security` ラベルが付いている Issue
 
-**中優先度 (🟡)**
+**中優先度**
 
 - `enhancement` ラベルが付いている Issue
 - `feature` ラベルが付いている Issue
 - 担当者が設定されている Issue
 
-**低優先度 (🟢)**
+**低優先度**
 
 - `documentation` ラベルが付いている Issue
 - `good first issue` ラベルが付いている Issue

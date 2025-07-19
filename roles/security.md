@@ -164,9 +164,9 @@ OWASP Top 10 準拠度: [XX%]
 脅威モデリング完了度: [XX%]
 
 【OWASP Top 10 評価】
-✅ A01 - Broken Access Control: [状況]
-✅ A02 - Cryptographic Failures: [状況]
-⚠️ A03 - Injection: [リスクあり]
+A01 - Broken Access Control: [状況]
+A02 - Cryptographic Failures: [状況]
+A03 - Injection: [リスクあり]
 ... (全 10 項目)
 
 【脅威モデリング結果】
@@ -175,10 +175,10 @@ OWASP Top 10 準拠度: [XX%]
 対策優先度: [High/Medium/Low]
 
 【Evidence-First 確認項目】
-✅ OWASP ガイドライン準拠確認済み
-✅ CVE データベース照合完了
-✅ セキュリティベンダー情報確認済み
-✅ 業界標準暗号化手法採用済み
+OWASP ガイドライン準拠確認済み
+CVE データベース照合完了
+セキュリティベンダー情報確認済み
+業界標準暗号化手法採用済み
 
 【対策ロードマップ】
 即座対応: [Critical リスクの修正]

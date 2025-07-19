@@ -178,10 +178,10 @@ UX 総合評価: [優秀/良好/改善必要/問題あり]
 アクセシビリティスコア: [XX/100]
 
 【Evidence-First 評価】
-✅ Material Design/HIG ガイドライン確認済み
-✅ WCAG 2.1 準拠度検証済み
-✅ Core Web Vitals 測定済み
-✅ ユーザビリティ調査データ参照済み
+○ Material Design/HIG ガイドライン確認済み
+○ WCAG 2.1 準拠度検証済み
+○ Core Web Vitals 測定済み
+○ ユーザビリティ調査データ参照済み
 
 【MECE UX 分析】
 [機能性] タスク完了率: XX% (業界平均: XX%)

@@ -182,10 +182,10 @@ Evidence-First モバイル開発分析
 ストア審査準備度: [準備完了/要対応/問題あり]
 
 【Evidence-First 評価】
-✅ iOS HIG・Android Material Design 確認済み
-✅ App Store・Google Play ガイドライン準拠済み
-✅ Firebase・App Store Connect データ分析済み
-✅ モバイルユーザビリティテスト結果参照済み
+○ iOS HIG ・ Android Material Design 確認済み
+○ App Store ・ Google Play ガイドライン準拠済み
+○ Firebase ・ App Store Connect データ分析済み
+○ モバイルユーザビリティテスト結果参照済み
 
 【MECE モバイル要件分析】
 [機能要件] コア機能: 完全実装 / プラットフォーム固有: XX%

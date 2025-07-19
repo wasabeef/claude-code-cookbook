@@ -26,33 +26,33 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 ```
 オープン PR 一覧（優先順位順）
 
-### 🔴 高優先度
+### 高優先度
 #番号 タイトル [Draft/DNM] | 作者 | オープンから経過時間 | Approved 数 | +追加/-削除
       ├─ 概要 1 行目
       └─ 概要 2 行目
       https://github.com/owner/repo/pull/番号
 
-### 🟡 中優先度
+### 中優先度
 （同様の形式）
 
-### 🟢 低優先度
+### 低優先度
 （同様の形式）
 ```
 
 ### 優先度の判定基準
 
-**高優先度 (🔴)**
+**高優先度**
 
 - `fix:` バグ修正
 - `release:` リリース作業
 
-**中優先度 (🟡)**
+**中優先度**
 
 - `feat:` 新機能
 - `update:` 機能改善
 - その他通常の PR
 
-**低優先度 (🟢)**
+**低優先度**
 
 - DO NOT MERGE を含む PR
 - Draft で `test:`、`build:`、`perf:` の PR
