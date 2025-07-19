@@ -1,4 +1,4 @@
-# Claude Code Settings
+# Claude Code Cookbook
 
 AI コーディングアシスタント「Claude」の能力を最大限に引き出すための、高度にカスタマイズされた設定リポジトリ。
 
