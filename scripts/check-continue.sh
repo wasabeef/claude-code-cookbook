@@ -60,6 +60,15 @@ if [ -n "$transcript_path" ] && [ -f "$transcript_path" ]; then
     exit 0
   fi
 
+  # /spec 関連の作業パターンチェック
+  if echo "$last_message" | grep -qi "/spec" ||
+    echo "$last_message" | grep -qi "spec-driven development" ||
+    echo "$last_message" | grep -qi "Phase [0-9]" ||
+    echo "$last_message" | grep -qi "requirements\.md\\|design\.md\\|tasks\.md"; then
+    # /spec 関連の作業中は継続を促さない（正常終了）
+    exit 0
+  fi
+
   # 合い言葉チェック
   if echo "$last_message" | grep -q "$COMPLETION_PHRASE"; then
     # 合い言葉があれば何もしない（正常終了）
