@@ -60,8 +60,6 @@
       "Bash(git checkout *)",
       "Bash(git restore *)",
       "Bash(git config *)",
-      "Bash(git pull *)",
-      "Bash(git push *)",
       "Bash(git push --force *)",
       "Bash(git rebase *)",
       "Bash(git reset --hard HEAD~*)",
