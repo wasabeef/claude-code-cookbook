@@ -197,8 +197,8 @@ generate_from_template() {
   local changes="$2"
   
   if [ -n "$template" ]; then
-    # テンプレートに基づいて生成
-    echo "$template" | sed "s/<!-- .* -->//g"  # プレースホルダーを削除
+    # テンプレートをそのまま使用（HTML コメント保持）
+    echo "$template"
   else
     # デフォルトフォーマットで生成
     echo "## What does this change?"
@@ -315,10 +315,12 @@ update_pr() {
     local repo=$(echo "$repo_info" | jq -r .name)
     
     # GitHub API を使用して本文を更新（HTML コメント保持）
+    # JSON エスケープを適切に処理
+    local escaped_body=$(echo "$description" | jq -R -s .)
     gh api \
       --method PATCH \
       "/repos/$owner/$repo/pulls/$pr_number" \
-      -f body="$description"
+      --field body="$description"
     
     # ラベルは通常の gh コマンドで問題なし
     if [ -n "$labels" ]; then
@@ -441,13 +443,14 @@ GitHub Actions ワークフローを改善しました。{効果}を実現しま
 
 ### GitHub CLI の HTML コメントエスケープ問題
 
-**重要**: GitHub CLI (`gh pr edit`) は HTML コメントを自動エスケープします。`<` が `&lt;` に、`>` が `&gt;` に変換されるため、`<!-- -->` は `&lt;!-- --&gt;` になります。これは GitHub CLI の仕様で回避不可です。
+**重要**: GitHub CLI (`gh pr edit`) は HTML コメントを自動エスケープします。また、シェルのリダイレクト処理で `EOF < /dev/null` などの不正な文字列が混入する場合があります。
 
-#### 対処方法
+#### 根本的解決策
 
-1. **GitHub API を直接使用**: `gh api` コマンドで PR を更新することでエスケープを回避
-2. **重要な HTML コメントは PR 作成時に含める**: Copilot review rule などは最初から入れる
-3. **ラベル操作は通常の gh コマンドを使用**: ラベルはエスケープの影響を受けない
+1. **GitHub API の --field オプション使用**: `--field` を使用して適切なエスケープ処理
+2. **シェル処理の簡素化**: 複雑なリダイレクトやパイプ処理を避ける
+3. **テンプレート処理の単純化**: HTML コメント除去処理を廃止し、完全保持
+4. **JSON エスケープの適切な処理**: 特殊文字を正しく処理
 
 ### デバッグオプション
 
