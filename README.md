@@ -97,7 +97,7 @@ Claude Code をもっと便利に使うための設定集です。
 
 ### 導入手順
 
-1. **リポジトリをクローン**: `git clone https://github.com/<your-username>/claude-code-settings.git ~/.claude`
+1. **リポジトリをクローン**: `git clone https://github.com/wasabeef/claude-code-cookbook.git ~/.claude`
 2. **クライアントでパスを設定**: Claude のクライアントで、上記ディレクトリのパスを指定します
 3. **パスの確認**: `settings.json` 内のスクリプトパスが環境と一致しているか確認します
 
