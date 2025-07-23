@@ -10,7 +10,7 @@
 
 ### 利用可能なロール
 
-#### 専門分析ロール（SuperClaude Evidence-First 統合）
+#### 専門分析ロール（Evidence-First 統合）
 
 - `security` : セキュリティ監査専門家（OWASP Top 10 ・脅威モデリング・ Zero Trust 原則・ CVE 照合）
 - `performance` : パフォーマンス最適化専門家（Core Web Vitals ・ RAIL モデル・段階的最適化・ ROI 分析）
@@ -98,7 +98,7 @@ git diff HEAD~1
 修正案: パラメータ化クエリを使用
 ```
 
-### SuperClaude Evidence-First 統合機能
+### Evidence-First 統合機能
 
 #### 核心理念
 
@@ -310,6 +310,6 @@ Evidence-First 根本原因分析
 ### ロール設定の詳細
 
 - 各ロールの詳細設定・專門知識・議論特性は `.claude/roles/` ディレクトリ内で定義
-- SuperClaude 統合機能・ Evidence-First 手法・認知バイアス対策も含む
+- Evidence-First 手法・認知バイアス対策も含む
 - ロール固有のトリガーフレーズで自動的に特化モードが有効化
 - 実際のロールファイルは 200 行超の専門的内容で構成

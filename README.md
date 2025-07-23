@@ -9,27 +9,13 @@ Claude Code をもっと便利に使うための設定集です。
 
 3 つの機能で Claude Code の動作をカスタマイズできます。
 
-- **Hooks**: 特定のタイミングでスクリプトを自動実行
-- **Commands**: `/` で始まるショートカットコマンド
+- **Commands**: `/` で始まるカスタムコマンド
 - **Roles**: 専門家の視点で回答するための役割設定
+- **Hooks**: 特定のタイミングでスクリプトを自動実行
 
 ---
 
 ## 機能一覧
-
-### Hooks（自動化スクリプト）
-
-`settings.json` で設定して、開発作業を自動化できます。
-
-| 実行スクリプト | イベント | 説明 |
-| :--- | :--- | :--- |
-| `deny-check.sh` | `PreToolUse` | `rm -rf /` のような危険なコマンドの実行を未然に防ぐ。 |
-| `check-ai-commit.sh` | `PreToolUse` | `git commit` でコミットメッセージに AI の署名が含まれている場合にエラーを出す。 |
-| `ja-space-format.sh` | `PostToolUse` | ファイル保存時に、日本語と英数字の間のスペースを自動で整形する。 |
-| `auto-comment.sh` | `PostToolUse` | 新規ファイル作成時や大幅な編集時に、docstring や API ドキュメントの追加を促す。 |
-| `notify-waiting` | `Notification` | Claude がユーザーの確認を待っている時に、macOS の通知センターでお知らせする。 |
-| `check-continue.sh` | `Stop` | タスク完了時に、継続可能なタスクがないか確認する。 |
-| `(osascript)` | `Stop` | 全タスク完了時に、macOS の通知センターで完了を知らせる。 |
 
 ### Commands（カスタムコマンド）
 
@@ -90,6 +76,21 @@ Claude Code をもっと便利に使うための設定集です。
 | `/role qa` | QA エンジニアとして、テスト計画や品質保証の観点からレビューする。 |
 | `/role reviewer` | コードレビュアーとして、可読性や保守性の観点からコードを評価する。 |
 | `/role security` | セキュリティ専門家として、脆弱性やセキュリティリスクを指摘する。 |
+
+### Hooks（自動化スクリプト）
+
+`settings.json` で設定して、開発作業を自動化できます。
+
+| 実行スクリプト | イベント | 説明 |
+| :--- | :--- | :--- |
+| `deny-check.sh` | `PreToolUse` | `rm -rf /` のような危険なコマンドの実行を未然に防ぐ。 |
+| `check-ai-commit.sh` | `PreToolUse` | `git commit` でコミットメッセージに AI の署名が含まれている場合にエラーを出す。 |
+| `ja-space-format.sh` | `PostToolUse` | ファイル保存時に、日本語と英数字の間のスペースを自動で整形する。 |
+| `auto-comment.sh` | `PostToolUse` | 新規ファイル作成時や大幅な編集時に、docstring や API ドキュメントの追加を促す。 |
+| `notify-waiting` | `Notification` | Claude がユーザーの確認を待っている時に、macOS の通知センターでお知らせする。 |
+| `check-continue.sh` | `Stop` | タスク完了時に、継続可能なタスクがないか確認する。 |
+| `(osascript)` | `Stop` | 全タスク完了時に、macOS の通知センターで完了を知らせる。 |
+
 
 ---
 

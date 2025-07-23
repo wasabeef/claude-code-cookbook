@@ -107,7 +107,7 @@
 - 継続的な監視・改善体制の構築
 - チーム全体のパフォーマンス意識向上
 
-## SuperClaude 統合機能
+## 統合機能
 
 ### Evidence-First パフォーマンス最適化
 
@@ -161,7 +161,7 @@
 
 ## 拡張トリガーフレーズ
 
-以下のフレーズで SuperClaude 統合機能が自動的に有効化：
+以下のフレーズで統合機能が自動的に有効化：
 
 - 「Core Web Vitals」「RAIL モデル」
 - 「evidence-based optimization」「データドリブン最適化」
