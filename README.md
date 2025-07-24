@@ -110,18 +110,34 @@ flowchart TB
     TaskType -->|リファクタリング| Refactor["/refactor<br/>改善"]
     TaskType -->|レビュー| Review["/pr-review<br/>レビュー"]
 
-    Plan --> Implementation[実装・テスト]
+    Plan --> Design["/role architect<br/>/role-debate<br/>設計相談"]
+    Design --> Implementation[実装・テスト]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> CI["/check-github-ci<br/>CI 状況確認"]
-    CI --> Commit["/semantic-commit<br/>目的単位でコミット<br/>or<br/>/commit-message<br/>コミットメッセージ生成"]
-    Commit --> PR["/pr-create<br/>PR 自動作成<br/>or<br/>/pr-auto-update<br/>PR 説明更新"]
-    PR --> End([完了])
+    Implementation --> Check["/smart-review<br/>品質チェック"]
+    Check --> CI["/check-github-ci<br/>CI 状況確認"]
+    CI --> Commit["/semantic-commit<br/>目的単位でコミット"]
+    Commit --> PR["/pr-create<br/>PR 自動作成"]
 
-    classDef commandBox fill:none,stroke:#333,stroke-width:2px
-    class PRList,PRIssue,Plan,Fix,Refactor,Review,CI,Commit,PR commandBox
+    PR --> Status{問題あり？}
+    Status -->|はい| Feedback["修正対応<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|いいえ| End([完了])
+
+    Feedback --> Implementation
+
+    classDef commandBox fill:#e0f2fe,stroke:#0369a1,stroke-width:2px,rx:5,ry:5,color:#0c4a6e
+    classDef processBox fill:#f0f9ff,stroke:#0ea5e9,stroke-width:1px,rx:5,ry:5,color:#075985
+    classDef decisionBox fill:#fef3c7,stroke:#f59e0b,stroke-width:2px,rx:5,ry:5,color:#78350f
+    classDef startEnd fill:#86efac,stroke:#22c55e,stroke-width:2px,rx:20,ry:20,color:#14532d
+
+    class PRList,PRIssue,Plan,Fix,Refactor,Review,Design,Check,CI,Commit,PR,Feedback commandBox
+    class Implementation processBox
+    class TaskType,Status decisionBox
+    class Start,End startEnd
+
+    %%{init: {'theme':'base', 'themeVariables': { 'primaryColor':'#e0f2fe', 'primaryTextColor':'#0c4a6e', 'primaryBorderColor':'#0369a1', 'lineColor':'#64748b', 'secondaryColor':'#f0f9ff', 'background':'#ffffff', 'mainBkg':'#ffffff', 'fontSize': '14px'}}}%%
 ```
 
 ---
