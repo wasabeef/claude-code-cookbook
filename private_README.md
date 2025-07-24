@@ -93,6 +93,39 @@ Claude Code をもっと便利に使うための設定集です。
 
 ---
 
+## 開発フローとコマンド使用ガイド
+
+### 一般的な開発フローでのコマンド活用例
+
+```mermaid
+flowchart TB
+    Start([タスク確認]) --> PRList["/pr-list<br/>オープン PR 一覧"]
+    Start --> PRIssue["/pr-issue<br/>オープン Issue 一覧"]
+
+    PRList --> TaskType{種類は？}
+    PRIssue --> TaskType
+
+    TaskType -->|新機能| Plan["/spec<br/>要件定義・設計"]
+    TaskType -->|バグ修正| Fix["/fix-error<br/>エラー分析"]
+    TaskType -->|リファクタリング| Refactor["/refactor<br/>改善"]
+    TaskType -->|レビュー| Review["/pr-review<br/>レビュー"]
+
+    Plan --> Implementation[実装・テスト]
+    Fix --> Implementation
+    Refactor --> Implementation
+    Review --> Implementation
+
+    Implementation --> CI["/check-github-ci<br/>CI 状況確認"]
+    CI --> Commit["/semantic-commit<br/>目的単位でコミット<br/>or<br/>/commit-message<br/>コミットメッセージ生成"]
+    Commit --> PR["/pr-create<br/>PR 自動作成<br/>or<br/>/pr-auto-update<br/>PR 説明更新"]
+    PR --> End([完了])
+
+    classDef commandBox fill:none,stroke:#333,stroke-width:2px
+    class PRList,PRIssue,Plan,Fix,Refactor,Review,CI,Commit,PR commandBox
+```
+
+---
+
 ## 導入とカスタマイズ
 
 ### 導入手順
