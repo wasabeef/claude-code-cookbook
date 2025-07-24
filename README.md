@@ -29,13 +29,13 @@ Claude Code をもっと便利に使うための設定集です。
 | `/check-github-ci` | GitHub Actions の CI 状況を監視し、完了まで追跡する。 |
 | `/check-prompt` | 現在のプロンプトの内容をレビューし、改善案を提示する。 |
 | `/commit-message` | 変更内容に基づいてコミットメッセージだけを生成する。 |
-| `/context7` | context7 MCP を使用してコンテキスト管理を行う。 |
+| `/context7` | Context7 MCP を使用してコンテキスト管理を行う。 |
 | `/design-patterns` | デザインパターンに基づいた実装を提案・レビューする。 |
 | `/explain-code` | 選択されたコードの機能やロジックを分かりやすく説明する。 |
 | `/fix-error` | エラーメッセージを元に、コードの修正案を提示する。 |
 | `/multi-role` | 複数の役割（Role）を組み合わせて、同じ対象を並行分析し統合レポートを生成する。 |
 | `/plan` | 実装前の計画立案モードを起動し、詳細な実装戦略を策定する。 |
-| `/pr-auto-update` | Pull Request の内容を自動で更新する。 |
+| `/pr-auto-update` | Pull Request の内容(説明、ラベル)を自動で更新する。 |
 | `/pr-create` | Git 変更分析に基づく自動 PR 作成で効率的な Pull Request ワークフローを実現する。 |
 | `/pr-feedback` | Pull Request のレビューコメントを効率的に対応し、エラー分析 3 段階アプローチで根本解決を図る。 |
 | `/pr-issue` | 現在のリポジトリのオープン Issue 一覧を優先順位付きで表示する。 |
@@ -48,7 +48,7 @@ Claude Code をもっと便利に使うための設定集です。
 | `/screenshot` | 画面のスクリーンショットを取得し解析する |
 | `/search-gemini` | Gemini を使って Web 検索を行う。 |
 | `/semantic-commit` | 大きな変更を意味のある最小単位に分割し、セマンティックなコミットメッセージで順次コミットする。 |
-| `/sequential-thinking` | 複雑な問題を順を追って段階的に考え、結論を導き出す。 |
+| `/sequential-thinking` | Sequential Thinking MCP を使用して複雑な問題を順を追って段階的に考え、結論を導き出す。 |
 | `/show-plan` | 現在の実行計画を表示する。 |
 | `/smart-review` | 高度なレビューを行い、コード品質を向上させる。 |
 | `/spec` | 要求事項から、Kiro の spec-driven development に準拠した詳細な仕様書を段階的に作成する。 |
