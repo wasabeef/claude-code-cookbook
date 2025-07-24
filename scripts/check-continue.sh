@@ -60,6 +60,13 @@ if [ -n "$transcript_path" ] && [ -f "$transcript_path" ]; then
     exit 0
   fi
 
+  # y/n で確認を求められている場合
+  if echo "$last_message" | grep -qi "y/n" ||
+    echo "$full_entry_text" | grep -qi "y/n"; then
+    # 計画承認済み → 作業継続（ブロックしない）
+    exit 0
+  fi
+
   # /spec 関連の作業パターンチェック
   if echo "$last_message" | grep -qi "spec" ||
     echo "$last_message" | grep -qi "spec-driven" ||
