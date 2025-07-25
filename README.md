@@ -121,7 +121,7 @@ flowchart TB
     Commit --> PR["/pr-create<br/>PR 自動作成"]
     PR --> CI["/check-github-ci<br/>CI 状況確認"]
 
-    PR --> Status{問題あり？}
+    CI --> Status{問題あり？}
     Status -->|はい| Feedback["修正対応<br/>/pr-feedback<br/>/fix-error"]
     Status -->|いいえ| End([完了])
 
