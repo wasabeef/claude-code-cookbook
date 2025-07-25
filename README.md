@@ -35,7 +35,7 @@ Claude Code をもっと便利に使うための設定集です。
 | `/fix-error` | エラーメッセージを元に、コードの修正案を提示する。 |
 | `/multi-role` | 複数の役割（Role）を組み合わせて、同じ対象を並行分析し統合レポートを生成する。 |
 | `/plan` | 実装前の計画立案モードを起動し、詳細な実装戦略を策定する。 |
-| `/pr-auto-update` | Pull Request の内容(説明、ラベル)を自動で更新する。 |
+| `/pr-auto-update` | Pull Request の内容（説明、ラベル）を自動で更新する。 |
 | `/pr-create` | Git 変更分析に基づく自動 PR 作成で効率的な Pull Request ワークフローを実現する。 |
 | `/pr-feedback` | Pull Request のレビューコメントを効率的に対応し、エラー分析 3 段階アプローチで根本解決を図る。 |
 | `/pr-issue` | 現在のリポジトリのオープン Issue 一覧を優先順位付きで表示する。 |
@@ -117,9 +117,9 @@ flowchart TB
     Review --> Implementation
 
     Implementation --> Check["/smart-review<br/>品質チェック"]
-    Check --> CI["/check-github-ci<br/>CI 状況確認"]
-    CI --> Commit["/semantic-commit<br/>目的単位でコミット"]
+    Check --> Commit["/semantic-commit<br/>目的単位でコミット"]
     Commit --> PR["/pr-create<br/>PR 自動作成"]
+    PR --> CI["/check-github-ci<br/>CI 状況確認"]
 
     PR --> Status{問題あり？}
     Status -->|はい| Feedback["修正対応<br/>/pr-feedback<br/>/fix-error"]

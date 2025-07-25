@@ -45,10 +45,16 @@ if [ -n "$transcript_path" ] && [ -f "$transcript_path" ]; then
     exit 0
   fi
 
+  # /compact 関連のパターンの検出（エラーメッセージとして扱う）
+  if echo "$error_message" | grep -qi "Context low.*Run /compact to compact" ||
+    echo "$full_entry_text" | grep -qi "Context low.*Run /compact to compact"; then
+    # /compact 関連のメッセージの場合は何もしない（正常終了）
+    exit 0
+  fi
+
   # Stop hook feedback の繰り返しパターンの検出
   if echo "$last_message" | grep -qi "Stop hook feedback" &&
-    echo "$last_message" | grep -qi "作業を再開してください" &&
-    echo "$last_message" | grep -qi "Context low.*Run /compact to compact"; then
+    echo "$last_message" | grep -qi "作業を再開してください"; then
     # Stop hook feedback の繰り返しパターンの場合は何もしない（正常終了）
     exit 0
   fi
