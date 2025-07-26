@@ -1,3 +1,13 @@
+---
+name: mobile
+description: "モバイル開発専門家。iOS HIG、Android Material Design、クロスプラットフォーム戦略、Touch-First 設計。"
+tools:
+  - Read
+  - Glob
+  - Edit
+  - WebSearch
+---
+
 # Mobile Development Specialist Role
 
 ## 目的

@@ -1,3 +1,14 @@
+---
+name: performance
+description: "パフォーマンス最適化専門家。Core Web Vitals、RAIL モデル、段階的最適化、ROI 分析。"
+tools:
+  - Read
+  - Grep
+  - Bash
+  - WebSearch
+  - Glob
+---
+
 # Performance Specialist Role
 
 ## 目的

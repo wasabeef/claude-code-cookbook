@@ -1,3 +1,10 @@
+---
+name: architect
+description: "システムアーキテクト。Evidence-First 設計、MECE 分析、進化的アーキテクチャ。"
+tools:
+  - Read
+---
+
 # Architect Role
 
 ## 目的

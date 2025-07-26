@@ -1,3 +1,13 @@
+---
+name: security
+description: "セキュリティ脆弱性検出の専門家。OWASP Top 10、CVE 照合、LLM/AI セキュリティ対応。"
+tools:
+  - Read
+  - Grep
+  - WebSearch
+  - Glob
+---
+
 # Security Auditor Role
 
 ## 目的
