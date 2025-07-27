@@ -5,13 +5,20 @@
 ### 使い方
 
 ```bash
-/multi-role <ロール 1>,<ロール 2> [分析対象] [--agent|-a]
-/multi-role <ロール 1>,<ロール 2>,<ロール 3> [分析対象] [--agent|-a]
+/multi-role <ロール 1>,<ロール 2> [--agent|-a] [分析対象]
+/multi-role <ロール 1>,<ロール 2>,<ロール 3> [--agent|-a] [分析対象]
 ```
+
+**重要**: 
+- `--agent` オプションはロール指定の直後に配置してください
+- メッセージは `--agent` の後に記述してください
+- 正しい例: `/multi-role qa,architect --agent 計画を評価して`
+- 間違った例: `/multi-role qa,architect 計画を評価して --agent`
 
 ### オプション
 
 - `--agent` または `-a` : 各ロールをサブエージェントとして並列実行（大規模分析時推奨）
+  - このオプションを使用すると、各ロールの description に自動委任促進フレーズ（"use PROACTIVELY" など）が含まれている場合、より積極的な自動委任が有効になります
 
 ### 基本例
 
@@ -28,8 +35,8 @@
 /multi-role frontend,mobile,performance
 「この画面の最適化案を検討して」
 
-# アーキテクチャ設計の多角的評価
-/multi-role architect,security,performance
+# アーキテクチャ設計の多角的評価（サブエージェント）
+/multi-role architect,security,performance --agent
 「マイクロサービス化の設計を評価して」
 ```
 
@@ -231,6 +238,12 @@ cat performance-issues.log
 ### サブエージェント並列実行（--agent）
 
 `--agent` オプションを使用すると、各ロールが独立したサブエージェントとして並列実行されます。
+
+#### 自動委任の促進
+ロールファイルの description フィールドに以下のようなフレーズが含まれている場合、`--agent` 使用時により積極的な自動委任が有効化されます：
+- "use PROACTIVELY"
+- "MUST BE USED"
+- その他の強調表現
 
 #### 実行フロー
 ```
