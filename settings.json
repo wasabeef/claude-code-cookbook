@@ -96,6 +96,15 @@
             "command": "~/.claude/scripts/check-ai-commit.sh"
           }
         ]
+      },
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/preserve-file-permissions.sh"
+          }
+        ]
       }
     ],
     "PostToolUse": [
@@ -109,6 +118,15 @@
           {
             "type": "command",
             "command": "~/.claude/scripts/auto-comment.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/scripts/preserve-file-permissions.sh"
           }
         ]
       }
