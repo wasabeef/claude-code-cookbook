@@ -1,0 +1,61 @@
+# git-cliff ~ configuration file
+# https://git-cliff.org/docs/configuration
+
+[changelog]
+# A Tera template to be rendered as the changelog's header.
+# See https://keats.github.io/tera/docs/#introduction
+header = ""
+# A Tera template to be rendered for each release in the changelog.
+# See https://keats.github.io/tera/docs/#introduction
+body = """
+{% for group, commits in commits | group_by(attribute="group") %}
+### {{ group }}
+
+{% for commit in commits -%}
+- {{ commit.message | split(pat="\n") | first | trim | trim_start_matches(pat="feat: ") | trim_start_matches(pat="fix: ") | trim_start_matches(pat="chore: ") | trim_start_matches(pat="docs: ") | trim_start_matches(pat="style: ") | trim_start_matches(pat="refactor: ") | trim_start_matches(pat="perf: ") | trim_start_matches(pat="test: ") | trim_start_matches(pat="build: ") | trim_start_matches(pat="ci: ") }}
+{% endfor %}
+{% endfor %}"""
+# A Tera template to be rendered as the changelog's footer.
+# See https://keats.github.io/tera/docs/#introduction
+footer = ""
+# Remove leading and trailing whitespaces from the changelog's body.
+trim = true
+
+[git]
+# Parse commits according to the conventional commits specification.
+# See https://www.conventionalcommits.org
+conventional_commits = true
+# Exclude commits that do not match the conventional commits specification.
+filter_unconventional = false
+# An array of regex based parsers for extracting data from the commit message.
+# Assigns commits to groups.
+# Optionally sets the commit's scope and can decide to exclude commits from further processing.
+commit_parsers = [
+    { message = "^Sync from dotfiles/dot_claude", skip = true },
+    { message = "^feat", group = "Added" },
+    { message = "^add", group = "Added" },
+    { message = "^support", group = "Added" },
+    { message = "^fix", group = "Fixed" },
+    { message = "^perf", group = "Fixed" },
+    { message = "^refactor", group = "Changed" },
+    { message = "^style", group = "Changed" },
+    { message = "^test", group = "Changed" },
+    { message = "^chore", group = "Changed" },
+    { message = "^docs", group = "Changed" },
+    { message = "^ci", group = "Changed" },
+    { message = "^build", group = "Changed" },
+    { message = "^remove", group = "Removed" },
+    { message = "^delete", group = "Removed" },
+    { message = ".*deprecated", group = "Deprecated" },
+    { message = ".*security", group = "Security" },
+    { message = "^.*", group = "Changed" },
+]
+# Prevent commits that are breaking from being excluded by commit parsers.
+filter_commits = false
+# Order releases topologically instead of chronologically.
+topo_order = false
+# Order of commits in each group/release within the changelog.
+# Allowed values: newest, oldest
+sort_commits = "oldest"
+
+
