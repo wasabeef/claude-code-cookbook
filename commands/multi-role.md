@@ -9,7 +9,8 @@
 /multi-role <ロール 1>,<ロール 2>,<ロール 3> [--agent|-a] [分析対象]
 ```
 
-**重要**: 
+**重要**:
+
 - `--agent` オプションはロール指定の直後に配置してください
 - メッセージは `--agent` の後に記述してください
 - 正しい例: `/multi-role qa,architect --agent 計画を評価して`
@@ -240,12 +241,15 @@ cat performance-issues.log
 `--agent` オプションを使用すると、各ロールが独立したサブエージェントとして並列実行されます。
 
 #### 自動委任の促進
+
 ロールファイルの description フィールドに以下のようなフレーズが含まれている場合、`--agent` 使用時により積極的な自動委任が有効化されます：
+
 - "use PROACTIVELY"
 - "MUST BE USED"
 - その他の強調表現
 
 #### 実行フロー
+
 ```
 通常実行:
 ロール 1 → ロール 2 → ロール 3 → 統合
@@ -259,6 +263,7 @@ cat performance-issues.log
 ```
 
 #### 効果的な使用例
+
 ```bash
 # 大規模システムの総合評価
 /multi-role architect,security,performance,qa --agent
@@ -270,6 +275,7 @@ cat performance-issues.log
 ```
 
 #### パフォーマンス比較
+
 | ロール数 | 通常実行 | --agent 実行 | 短縮率 |
 |---------|----------|-------------|-------|
 | 2 ロール | 2-3 分 | 1 分 | 50% |
