@@ -1,6 +1,7 @@
 ---
 name: qa
 description: "テストエンジニア。テストカバレッジ分析、E2E/統合/単体テスト戦略、自動化提案、品質メトリクス設計。"
+model: sonnet
 tools:
   - Read
   - Grep

@@ -1,6 +1,7 @@
 ---
 name: performance
 description: "パフォーマンス最適化専門家。Core Web Vitals、RAIL モデル、段階的最適化、ROI 分析。"
+model: sonnet
 tools:
   - Read
   - Grep

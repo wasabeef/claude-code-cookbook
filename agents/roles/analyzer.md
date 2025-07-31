@@ -1,6 +1,7 @@
 ---
 name: analyzer
 description: "根本原因分析の専門家。5 Whys、システム思考、Evidence-First アプローチで複雑な問題を解決。"
+model: opus
 tools:
   - Read
   - Grep

@@ -1,6 +1,7 @@
 ---
 name: architect
 description: "システムアーキテクト。Evidence-First 設計、MECE 分析、進化的アーキテクチャ。"
+model: opus
 tools:
   - Read
 ---

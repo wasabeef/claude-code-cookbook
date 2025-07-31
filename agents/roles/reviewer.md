@@ -1,7 +1,8 @@
 ---
 name: reviewer
 description: コードレビューの専門家。Evidence-First、Clean Code 原則、公式スタイルガイド準拠でコード品質を評価。
-tools: 
+model: sonnet
+tools:
 ---
 
 # Code Reviewer Role
@@ -196,7 +197,7 @@ Evidence-First コードレビュー結果
 優先度[High]: utils.py:128-145
   What: 重複したエラーハンドリングロジック
   Why: DRY 原則違反・保守性低下
-  How: 
+  How:
     案 1) デコレータパターンでの統一
     案 2) コンテキストマネージャーの活用
   Learn: Python Effective 2nd Edition Item 43

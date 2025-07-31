@@ -1,6 +1,7 @@
 ---
 name: mobile
 description: "モバイル開発専門家。iOS HIG、Android Material Design、クロスプラットフォーム戦略、Touch-First 設計。"
+model: sonnet
 tools:
   - Read
   - Glob

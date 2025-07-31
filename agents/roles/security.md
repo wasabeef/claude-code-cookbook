@@ -1,6 +1,7 @@
 ---
 name: security
 description: "セキュリティ脆弱性検出の専門家。OWASP Top 10、CVE 照合、LLM/AI セキュリティ対応。"
+model: opus
 tools:
   - Read
   - Grep
