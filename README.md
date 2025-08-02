@@ -1,148 +1,147 @@
 # Claude Code Cookbook
 
-Claude Code をもっと便利に使うための設定集です。
+A collection of settings to make Claude Code more useful.
 
-細かい確認を省いて自動的に作業を進めてくれるので、本来やりたいことに集中できます。
-コードの修正やテストの実行、ドキュメントの更新など、よくある作業は Claude Code が判断して実行します。
+It automatically proceeds with work without unnecessary confirmations, allowing you to focus on what you really want to do. Claude Code judges and executes common tasks like code fixes, test runs, and documentation updates.
 
-## 主要機能
+## Key Features
 
-3 つの機能で Claude Code の動作をカスタマイズできます。
+You can customize Claude Code's behavior with three features:
 
-- **Commands**: `/` で始まるカスタムコマンド
-- **Roles**: 専門家の視点で回答するための役割設定
-- **Hooks**: 特定のタイミングでスクリプトを自動実行
+- **Commands**: Custom commands starting with `/`
+- **Roles**: Role settings to answer from an expert's perspective
+- **Hooks**: Automatically execute scripts at specific times
 
 ---
 
-## 機能一覧
+## Feature List
 
-### Commands（カスタムコマンド）
+### Commands
 
-`/commands` ディレクトリ内の Markdown ファイルとして保存されています。`/` に続けてファイル名を入力すると実行できます。
+Stored as Markdown files in the `/commands` directory. Execute by entering the filename after `/`.
 
-| コマンド | 説明 |
+| Command | Description |
 | :--- | :--- |
-| `/analyze-dependencies` | プロジェクトの依存関係を分析し、循環依存や構造的な問題を視覚化する。 |
-| `/analyze-performance` | アプリケーションのパフォーマンス問題を分析し、技術的負債の観点から改善策を提案する。 |
-| `/check-fact` | プロジェクト内のコードベース、ドキュメントを参照し、与えられた情報の正誤を確認する。 |
-| `/check-github-ci` | GitHub Actions の CI 状況を監視し、完了まで追跡する。 |
-| `/check-prompt` | 現在のプロンプトの内容をレビューし、改善案を提示する。 |
-| `/commit-message` | 変更内容に基づいてコミットメッセージだけを生成する。 |
-| `/context7` | Context7 MCP を使用してコンテキスト管理を行う。 |
-| `/design-patterns` | デザインパターンに基づいた実装を提案・レビューする。 |
-| `/explain-code` | 選択されたコードの機能やロジックを分かりやすく説明する。 |
-| `/fix-error` | エラーメッセージを元に、コードの修正案を提示する。 |
-| `/multi-role` | 複数の役割（Role）を組み合わせて、同じ対象を並行分析し統合レポートを生成する。 |
-| `/plan` | 実装前の計画立案モードを起動し、詳細な実装戦略を策定する。 |
-| `/pr-auto-update` | Pull Request の内容（説明、ラベル）を自動で更新する。 |
-| `/pr-create` | Git 変更分析に基づく自動 PR 作成で効率的な Pull Request ワークフローを実現する。 |
-| `/pr-feedback` | Pull Request のレビューコメントを効率的に対応し、エラー分析 3 段階アプローチで根本解決を図る。 |
-| `/pr-issue` | 現在のリポジトリのオープン Issue 一覧を優先順位付きで表示する。 |
-| `/pr-list` | 現在のリポジトリのオープン PR 一覧を優先順位付きで表示する。 |
-| `/pr-review` | Pull Request の体系的レビューでコード品質とアーキテクチャの健全性を確保する。 |
-| `/refactor` | 安全で段階的なコードリファクタリングを実施し、SOLID 原則の遵守状況を評価する。 |
-| `/role-debate` | 複数の役割（Role）で、特定のテーマについて討論させる。 |
-| `/role-help` | 利用可能な Role の一覧と説明を表示する。 |
-| `/role` | 指定した役割（Role）として振る舞う。 |
-| `/screenshot` | 画面のスクリーンショットを取得し解析する |
-| `/search-gemini` | Gemini を使って Web 検索を行う。 |
-| `/semantic-commit` | 大きな変更を意味のある最小単位に分割し、セマンティックなコミットメッセージで順次コミットする。 |
-| `/sequential-thinking` | Sequential Thinking MCP を使用して複雑な問題を順を追って段階的に考え、結論を導き出す。 |
-| `/show-plan` | 現在の実行計画を表示する。 |
-| `/smart-review` | 高度なレビューを行い、コード品質を向上させる。 |
-| `/spec` | 要求事項から、Kiro の spec-driven development に準拠した詳細な仕様書を段階的に作成する。 |
-| `/style-ai-writting` | AI が生成したような不自然な文章を検出し、修正する。 |
-| `/task` | 専用エージェントを起動して、複雑な検索・調査・分析タスクを自律的に実行する。 |
-| `/tech-debt` | プロジェクトの技術的負債を分析し、優先順位付けされた改善計画を作成する。 |
-| `/ultrathink` | 複雑な課題や重要な決定に対して、段階的で構造化された思考プロセスを実行する。 |
-| `/update-dart-doc` | Dart ファイルの DartDoc コメントを体系的に管理し、高品質な日本語ドキュメントを維持する。 |
-| `/update-doc-string` | 複数言語対応のドキュメント文字列を統一的に管理・更新する。 |
-| `/update-flutter-deps` | Flutter プロジェクトの依存関係を安全に更新する。 |
-| `/update-node-deps` | Node.js プロジェクトの依存関係を安全に更新する。 |
-| `/update-rust-deps` | Rust プロジェクトの依存関係を安全に更新する。 |
+| `/analyze-dependencies` | Analyze project dependencies and visualize circular dependencies and structural issues. |
+| `/analyze-performance` | Analyze application performance issues and propose improvements from a technical debt perspective. |
+| `/check-fact` | Check the accuracy of given information by referring to the project's codebase and documentation. |
+| `/check-github-ci` | Monitor GitHub Actions CI status and track until completion. |
+| `/check-prompt` | Review the current prompt content and suggest improvements. |
+| `/commit-message` | Generate only commit messages based on changes. |
+| `/context7` | Perform context management using Context7 MCP. |
+| `/design-patterns` | Propose and review implementations based on design patterns. |
+| `/explain-code` | Clearly explain the functionality and logic of selected code. |
+| `/fix-error` | Suggest code fixes based on error messages. |
+| `/multi-role` | Combine multiple roles to analyze the same target in parallel and generate an integrated report. |
+| `/plan` |启动 implementation planning mode before implementation and formulate detailed implementation strategies. |
+| `/pr-auto-update` | Automatically update Pull Request content (description, labels). |
+| `/pr-create` | Enable efficient Pull Request workflows with automatic PR creation based on Git change analysis. |
+| `/pr-feedback` | Efficiently respond to Pull Request review comments and aim for root solutions with a 3-stage error analysis approach. |
+| `/pr-issue` | Display a prioritized list of open Issues in the current repository. |
+| `/pr-list` | Display a prioritized list of open PRs in the current repository. |
+| `/pr-review` | Ensure code quality and architectural soundness through systematic review of Pull Requests. |
+| `/refactor` | Perform safe, step-by-step code refactoring and evaluate adherence to SOLID principles. |
+| `/role-debate` | Have multiple roles debate specific topics. |
+| `/role-help` | Display a list and description of available Roles. |
+| `/role` | Act as the specified role. |
+| `/screenshot` | Capture and analyze screen screenshots |
+| `/search-gemini` | Perform web searches using Gemini. |
+| `/semantic-commit` | Divide large changes into meaningful minimum units and commit sequentially with semantic commit messages. |
+| `/sequential-thinking` | Use Sequential Thinking MCP to think through complex problems step by step and reach conclusions. |
+| `/show-plan` | Display the current execution plan. |
+| `/smart-review` | Perform advanced reviews to improve code quality. |
+| `/spec` | Create detailed specifications step by step from requirements, following Kiro's spec-driven development. |
+| `/style-ai-writing` | Detect and correct unnatural AI-generated text. |
+| `/task` |启动 dedicated agents to autonomously execute complex search, research, and analysis tasks. |
+| `/tech-debt` | Analyze project technical debt and create prioritized improvement plans. |
+| `/ultrathink` | Perform step-by-step structured thinking processes for complex issues and important decisions. |
+| `/update-dart-doc` | Systematically manage DartDoc comments in Dart files and maintain high-quality Japanese documentation. |
+| `/update-doc-string` | Uniquely manage and update documentation strings supporting multiple languages. |
+| `/update-flutter-deps` | Safely update dependencies in Flutter projects. |
+| `/update-node-deps` | Safely update dependencies in Node.js projects. |
+| `/update-rust-deps` | Safely update dependencies in Rust projects. |
 
-### Roles（役割設定）
+### Roles
 
-`agents/roles/` ディレクトリ内の Markdown ファイルで定義されています。Claude に専門家の視点を持たせて、より的確な回答を得られます。
+Defined in Markdown files in the `agents/roles/` directory. Give Claude an expert perspective for more accurate answers.
 
-各ロールは**サブエージェントとして独立実行**することも可能です。`--agent` オプションを使用すると、メインの会話コンテキストを妨げることなく、大規模な分析や専門的な処理を並列実行できます。
+Each role can also be executed **independently as a sub-agent**. Using the `--agent` option allows parallel execution of large-scale analysis and specialized processing without interfering with the main conversation context.
 
-| ロール | 説明 |
+| Role | Description |
 | :--- | :--- |
-| `/role analyzer` | システム分析の専門家として、コードやアーキテクチャの分析を行う。 |
-| `/role architect` | ソフトウェアアーキテクトとして、設計に関するレビューや提案を行う。 |
-| `/role frontend` | フロントエンドの専門家として、UI/UX やパフォーマンスに関する助言をする。 |
-| `/role mobile` | モバイルアプリ開発の専門家として、iOS/Android のベストプラクティスに基づいた回答をする。 |
-| `/role performance` | パフォーマンス最適化の専門家として、速度やメモリ使用量の改善を提案する。 |
-| `/role qa` | QA エンジニアとして、テスト計画や品質保証の観点からレビューする。 |
-| `/role reviewer` | コードレビュアーとして、可読性や保守性の観点からコードを評価する。 |
-| `/role security` | セキュリティ専門家として、脆弱性やセキュリティリスクを指摘する。 |
+| `/role analyzer` | Analyze code and architecture as a system analysis expert. |
+| `/role architect` | Review and propose designs as a software architect. |
+| `/role frontend` | Advise on UI/UX and performance as a frontend expert. |
+| `/role mobile` | Answer based on iOS/Android best practices as a mobile app development expert. |
+| `/role performance` | Suggest improvements to speed and memory usage as a performance optimization expert. |
+| `/role qa` | Review from a test planning and quality assurance perspective as a QA engineer. |
+| `/role reviewer` | Evaluate code from readability and maintainability perspectives as a code reviewer. |
+| `/role security` | Point out vulnerabilities and security risks as a security expert. |
 
-#### サブエージェント実行例
+#### Sub-agent Execution Examples
 
 ```bash
-# 通常モード（メインコンテキストで実行）
+# Normal mode (execute in main context)
 /role security
-「このプロジェクトのセキュリティチェック」
+"Security check for this project"
 
-# サブエージェントモード（独立コンテキストで実行）
+# Sub-agent mode (execute in independent context)
 /role security --agent
-「プロジェクト全体のセキュリティ監査を実行」
+"Perform a comprehensive security audit of the project"
 
-# 複数ロールの並列分析
+# Parallel analysis with multiple roles
 /multi-role security,performance --agent
-「システム全体のセキュリティとパフォーマンスを包括的に分析」
+"Comprehensively analyze the system's security and performance"
 ```
 
-### Hooks（自動化スクリプト）
+### Hooks
 
-`settings.json` で設定して、開発作業を自動化できます。
+Configure in `settings.json` to automate development work.
 
-| 実行スクリプト | イベント | 説明 |
+| Execution Script | Event | Description |
 | :--- | :--- | :--- |
-| `deny-check.sh` | `PreToolUse` | `rm -rf /` のような危険なコマンドの実行を未然に防ぐ。 |
-| `check-ai-commit.sh` | `PreToolUse` | `git commit` でコミットメッセージに AI の署名が含まれている場合にエラーを出す。 |
-| `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | ファイル編集前に元の権限を保存し、編集後に復元する。Claude Code が権限を変更するのを防ぐ。 |
-| `ja-space-format.sh` | `PostToolUse` | ファイル保存時に、日本語と英数字の間のスペースを自動で整形する。 |
-| `auto-comment.sh` | `PostToolUse` | 新規ファイル作成時や大幅な編集時に、docstring や API ドキュメントの追加を促す。 |
-| `notify-waiting` | `Notification` | Claude がユーザーの確認を待っている時に、macOS の通知センターでお知らせする。 |
-| `check-continue.sh` | `Stop` | タスク完了時に、継続可能なタスクがないか確認する。 |
-| `(osascript)` | `Stop` | 全タスク完了時に、macOS の通知センターで完了を知らせる。 |
+| `deny-check.sh` | `PreToolUse` | Prevent execution of dangerous commands like `rm -rf /`. |
+| `check-ai-commit.sh` | `PreToolUse` | Error when commit messages include AI signatures in `git commit`. |
+| `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | Save original permissions before file editing and restore after editing. Prevent Claude Code from changing permissions. |
+| `ja-space-format.sh` | `PostToolUse` | Automatically format spaces between Japanese and alphanumeric characters when saving files. |
+| `auto-comment.sh` | `PostToolUse` | Prompt for addition of docstrings and API documentation when creating new files or making major edits. |
+| `notify-waiting` | `Notification` | Notify via macOS Notification Center when Claude is waiting for user confirmation. |
+| `check-continue.sh` | `Stop` | Check for continuable tasks when tasks are completed. |
+| `(osascript)` | `Stop` | Notify completion via macOS Notification Center when all tasks are completed. |
 
 ---
 
-## 開発フローとコマンド使用ガイド
+## Development Flow and Command Usage Guide
 
-### 一般的な開発フローでのコマンド活用例
+### Example of Command Utilization in General Development Flow
 
 ```mermaid
 flowchart TB
-    Start([タスク確認]) --> PRList["/pr-list<br/>オープン PR 一覧"]
-    Start --> PRIssue["/pr-issue<br/>オープン Issue 一覧"]
+    Start([Task Confirmation]) --> PRList["/pr-list<br/>Open PR List"]
+    Start --> PRIssue["/pr-issue<br/>Open Issue List"]
 
-    PRList --> TaskType{種類は？}
+    PRList --> TaskType{Type?}
     PRIssue --> TaskType
 
-    TaskType -->|新機能| Plan["/spec<br/>要件定義・設計"]
-    TaskType -->|バグ修正| Fix["/fix-error<br/>エラー分析"]
-    TaskType -->|リファクタリング| Refactor["/refactor<br/>改善"]
-    TaskType -->|レビュー| Review["/pr-review<br/>レビュー"]
+    TaskType -->|New Feature| Plan["/spec<br/>Requirements Definition & Design"]
+    TaskType -->|Bug Fix| Fix["/fix-error<br/>Error Analysis"]
+    TaskType -->|Refactoring| Refactor["/refactor<br/>Improvement"]
+    TaskType -->|Review| Review["/pr-review<br/>Review"]
 
-    Plan --> Design["/role architect<br/>/role-debate<br/>設計相談"]
-    Design --> Implementation[実装・テスト]
+    Plan --> Design["/role architect<br/>/role-debate<br/>Design Consultation"]
+    Design --> Implementation[Implementation & Testing]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> Check["/smart-review<br/>品質チェック"]
-    Check --> Commit["/semantic-commit<br/>目的単位でコミット"]
-    Commit --> PR["/pr-create<br/>PR 自動作成"]
-    PR --> CI["/check-github-ci<br/>CI 状況確認"]
+    Implementation --> Check["/smart-review<br/>Quality Check"]
+    Check --> Commit["/semantic-commit<br/>Commit by Purpose"]
+    Commit --> PR["/pr-create<br/>Automatic PR Creation"]
+    PR --> CI["/check-github-ci<br/>CI Status Check"]
 
-    CI --> Status{問題あり？}
-    Status -->|はい| Feedback["修正対応<br/>/pr-feedback<br/>/fix-error"]
-    Status -->|いいえ| End([完了])
+    CI --> Status{Any Issues?}
+    Status -->|Yes| Feedback["Fix Response<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|No| End([Completion])
 
     Feedback --> Implementation
 
@@ -161,16 +160,16 @@ flowchart TB
 
 ---
 
-## 導入とカスタマイズ
+## Installation and Customization
 
-### 導入手順
+### Installation Steps
 
-1. **リポジトリをクローン**: `git clone https://github.com/wasabeef/claude-code-cookbook.git ~/.claude`
-2. **クライアントでパスを設定**: Claude のクライアントで、上記ディレクトリのパスを指定します
-3. **パスの確認**: `settings.json` 内のスクリプトパスが環境と一致しているか確認します
+1. **Clone the repository**: `git clone https://github.com/wasabeef/claude-code-cookbook.git ~/.claude`
+2. **Set the path in client**: Specify the path to the above directory in Claude's client
+3. **Check paths**: Verify that script paths in `settings.json` match your environment
 
-### カスタマイズ
+### Customization
 
-- **コマンドの追加**: `commands/` に `.md` ファイルを追加するだけです
-- **ロールの追加**: `agents/roles/` に `.md` ファイルを追加するだけです
-- **Hooks の編集**: `settings.json` を編集して、自動化処理を変更できます
+- **Add commands**: Simply add `.md` files to `commands/`
+- **Add roles**: Simply add `.md` files to `agents/roles/`
+- **Edit hooks**: Edit `settings.json` to change automation processes
