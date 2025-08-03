@@ -1,90 +1,90 @@
 ## Sequential Thinking
 
-動的で反復的な思考プロセスを通じて、複雑な問題を段階的に解決します。思考の途中で方向転換や見直しができる柔軟なアプローチです。
+Solve complex problems step-by-step through a dynamic, iterative thinking process. This flexible approach allows for course corrections and revisions during the thinking process.
 
-### 使い方
+### Usage
 
 ```bash
-# Claude に段階的思考を依頼
-「[課題] について sequential-thinking で検討して」
+# Request Claude to think sequentially
+"Analyze [task] using sequential-thinking"
 ```
 
-### 基本例
+### Basic Examples
 
 ```bash
-# アルゴリズム設計
-「効率的なキャッシュ戦略を sequential-thinking で設計して」
+# Algorithm design
+"Design an efficient caching strategy using sequential-thinking"
 
-# 問題解決
-「データベースのパフォーマンス問題を sequential-thinking で解決して」
+# Problem solving
+"Solve database performance issues using sequential-thinking"
 
-# 設計検討
-「リアルタイム通知システムの設計を sequential-thinking で検討して」
+# Design review
+"Examine real-time notification system design using sequential-thinking"
 ```
 
-### Claude との連携
+### Collaboration with Claude
 
 ```bash
-# 複雑な実装方針
-「認証システムの実装方針を sequential-thinking で検討して。OAuth2、JWT、セッション管理を考慮して」
+# Complex implementation strategy
+"Examine authentication system implementation strategy using sequential-thinking. Consider OAuth2, JWT, and session management"
 
-# バグ原因分析
-「メモリリークの原因を sequential-thinking で分析して。コードレビューとプロファイリング結果を含めて」
+# Bug cause analysis
+"Analyze memory leak causes using sequential-thinking. Include code review and profiling results"
 
-# リファクタリング戦略
+# Refactoring strategy
 cat src/complex_module.js
-「このモジュールのリファクタリング戦略を sequential-thinking で立案して」
+"Develop a refactoring strategy for this module using sequential-thinking"
 
-# 技術選定
-「フロントエンドフレームワークの選択を sequential-thinking で分析して。プロジェクト要件と制約を考慮して」
+# Technology selection
+"Analyze front-end framework selection using sequential-thinking. Consider project requirements and constraints"
 ```
 
-### 思考プロセス
+### Thinking Process
 
-1. **初期分析** - 問題の基本的な理解と分解
-2. **仮説生成** - 解決案の仮説を立てる
-3. **検証と修正** - 仮説を検証し、必要に応じて修正
-4. **分岐と探索** - 複数の解決パスを探索
-5. **統合と結論** - 最適解を導き出す
+1. **Initial Analysis** - Basic understanding and decomposition of the problem
+2. **Hypothesis Generation** - Formulate hypotheses for solutions
+3. **Verification and Revision** - Verify hypotheses and revise as needed
+4. **Branching and Exploration** - Explore multiple solution paths
+5. **Integration and Conclusion** - Derive optimal solution
 
-### 特徴
+### Features
 
-- **動的調整** - 思考の途中で方向転換可能
-- **仮説検証** - 仮説を立てて検証するサイクル
-- **分岐思考** - 複数の思考パスを同時に探索
-- **段階的洗練** - 段階的に解決案を洗練
-- **柔軟性** - 新たな情報に基づく方針変更
+- **Dynamic Adjustment** - Ability to change direction during thinking
+- **Hypothesis Testing** - Cycle of forming and testing hypotheses
+- **Branching Thinking** - Simultaneously explore multiple thought paths
+- **Gradual Refinement** - Step-by-step refinement of solutions
+- **Flexibility** - Policy changes based on new information
 
-### 詳細例
+### Detailed Examples
 
 ```bash
-# 複雑なシステム設計
-「EC サイトのマイクロサービス設計を sequential-thinking で検討して。注文処理、在庫管理、決済の連携を含めて」
+# Complex system design
+"Examine e-commerce site microservice design using sequential-thinking. Include order processing, inventory management, and payment integration"
 
-# セキュリティ設計
-「API セキュリティの設計を sequential-thinking で検討して。認証、認可、レート制限、監査ログを含めて」
+# Security design
+"Examine API security design using sequential-thinking. Include authentication, authorization, rate limiting, and audit logging"
 
-# パフォーマンス最適化
-「大規模データ処理の最適化を sequential-thinking で検討して。メモリ使用量、処理速度、スケーラビリティを考慮して」
+# Performance optimization
+"Examine large-scale data processing optimization using sequential-thinking. Consider memory usage, processing speed, and scalability"
 
-# 依存関係管理
-「モノレポの依存関係管理戦略を sequential-thinking で検討して。ビルド時間、デプロイ、テスト実行を含めて」
+# Dependency management
+"Examine monorepo dependency management strategy using sequential-thinking. Include build time, deployment, and test execution"
 ```
 
-### 注意事項
+### Notes
 
-sequential-thinking は段階的に思考を深化させる必要がある複雑な問題に最適です。単純な質問や明確な答えがある場合は、通常の質問形式を使用してください。
+Sequential-thinking is ideal for complex problems that require deepening thought in stages. For simple questions or those with clear answers, use normal question format.
 
-### 実行例
+### Execution Example
 
 ```bash
-# 使用例
-「GraphQL スキーマの設計を sequential-thinking で検討して」
+# Usage example
+"Examine GraphQL schema design using sequential-thinking"
 
-# 期待される動作
-# 1. 初期分析: GraphQL スキーマの基本要件を分析
-# 2. 仮説生成: 複数の設計パターンを検討
-# 3. 検証: 各パターンの長所・短所を検証
-# 4. 分岐: 必要に応じて新しいアプローチを探索
-# 5. 統合: 最適なスキーマ設計を提案
+# Expected behavior
+# 1. Initial analysis: Analyze basic requirements for GraphQL schema
+# 2. Hypothesis generation: Examine multiple design patterns
+# 3. Verification: Verify advantages and disadvantages of each pattern
+# 4. Branching: Explore new approaches as needed
+# 5. Integration: Propose optimal schema design
 ```

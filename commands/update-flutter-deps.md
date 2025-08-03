@@ -1,102 +1,101 @@
 ## Flutter Dependencies Update
 
-Flutter プロジェクトの依存関係を安全に更新します。
+Safely update dependencies in your Flutter project.
 
-### 使い方
+### Usage
 
 ```bash
-# 依存関係の状態を確認して Claude に依頼
+# Check dependency status and request Claude's help
 flutter pub deps --style=compact
-「pubspec.yaml の依存関係を最新バージョンに更新して」
+"Please update the dependencies in pubspec.yaml to their latest versions"
 ```
 
-### 基本例
+### Basic Examples
 
 ```bash
-# 現在の依存関係を確認
+# Check current dependencies
 cat pubspec.yaml
-「この Flutter プロジェクトの依存関係を分析して更新可能なパッケージを教えて」
+"Analyze this Flutter project's dependencies and tell me which packages can be updated"
 
-# アップグレード後の確認
+# Check before upgrading
 flutter pub upgrade --dry-run
-「このアップグレード予定の内容から破壊的変更があるか確認して」
+"Check if there are any breaking changes in this planned upgrade"
 ```
 
-### Claude との連携
+### Integration with Claude
 
 ```bash
-# 包括的な依存関係更新
+# Comprehensive dependency update
 cat pubspec.yaml
-「Flutter の依存関係を分析し、以下を実行して：
-1. 各パッケージの最新バージョンを調査
-2. 破壊的変更の有無を確認
-3. 危険度を評価（安全・注意・危険）
-4. 必要なコード変更を提案
-5. 更新版 pubspec.yaml を生成」
+"Analyze Flutter dependencies and perform the following:
+1. Research the latest version of each package
+2. Check for breaking changes
+3. Evaluate risk level (safe, caution, dangerous)
+4. Suggest necessary code changes
+5. Generate updated pubspec.yaml"
 
-# 安全な段階的更新
+# Safe, gradual update
 flutter pub outdated
-「メジャーバージョンアップを避けて、安全にアップデート可能なパッケージのみ更新して」
+"Update only packages that can be safely updated, avoiding major version upgrades"
 
-# 特定パッケージの更新影響分析
-「provider を最新バージョンに更新した場合の影響と必要な変更を教えて」
+# Impact analysis for specific package update
+"Tell me the impact and necessary changes when updating provider to the latest version"
 ```
 
-### 詳細例
+### Detailed Examples
 
 ```bash
-# Release Notes を含む詳細分析
+# Detailed analysis including release notes
 cat pubspec.yaml && flutter pub outdated
-「依存関係を分析し、各パッケージについて：
-1. 現在 → 最新バージョン
-2. 危険度評価（安全・注意・危険）
-3. 主な変更点（CHANGELOG から）
-4. 必要なコード修正
-をテーブル形式で提示して」
+"Analyze dependencies and provide the following for each package in table format:
+1. Current → Latest version
+2. Risk evaluation (safe, caution, dangerous)
+3. Main changes (from CHANGELOG)
+4. Required code fixes"
 
-# Null Safety 移行の分析
+# Null Safety migration analysis
 cat pubspec.yaml
-「Null Safety に対応していないパッケージを特定し、移行計画を立てて」
+"Identify packages not compatible with Null Safety and create a migration plan"
 ```
 
-### 危険度の基準
+### Risk Criteria
 
 ```
-安全（🟢）：
-- パッチバージョンアップ（1.2.3 → 1.2.4）
-- バグ修正のみ
-- 後方互換性保証
+Safe (🟢):
+- Patch version upgrade (1.2.3 → 1.2.4)
+- Bug fixes only
+- Backward compatibility guaranteed
 
-注意（🟡）：
-- マイナーバージョンアップ（1.2.3 → 1.3.0）
-- 新機能追加
-- 非推奨警告あり
+Caution (🟡):
+- Minor version upgrade (1.2.3 → 1.3.0)
+- New features added
+- Deprecation warnings
 
-危険（🔴）：
-- メジャーバージョンアップ（1.2.3 → 2.0.0）
-- 破壊的変更
-- API の削除・変更
+Dangerous (🔴):
+- Major version upgrade (1.2.3 → 2.0.0)
+- Breaking changes
+- API removals or modifications
 ```
 
-### 更新の実行
+### Execution of Update
 
 ```bash
-# バックアップ作成
+# Create backups
 cp pubspec.yaml pubspec.yaml.backup
 cp pubspec.lock pubspec.lock.backup
 
-# 更新実行
+# Execute update
 flutter pub upgrade
 
-# 更新後の確認
+# Verify after update
 flutter analyze
 flutter test
 flutter pub deps --style=compact
 ```
 
-### 注意事項
+### Notes
 
-更新後は必ず動作確認を実施してください。問題が発生した場合は以下で復元：
+Always verify functionality after updates. If issues occur, restore with:
 
 ```bash
 cp pubspec.yaml.backup pubspec.yaml

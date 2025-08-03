@@ -1,291 +1,291 @@
 ## Multi Role
 
-複数のロールで同じ対象を並行分析し、統合レポートを生成するコマンド。
+A command that analyzes the same target in parallel with multiple roles and generates an integrated report.
 
-### 使い方
+### Usage
 
 ```bash
-/multi-role <ロール 1>,<ロール 2> [--agent|-a] [分析対象]
-/multi-role <ロール 1>,<ロール 2>,<ロール 3> [--agent|-a] [分析対象]
+/multi-role <role1>,<role2> [--agent|-a] [analysis_target]
+/multi-role <role1>,<role2>,<role3> [--agent|-a] [analysis_target]
 ```
 
-**重要**:
+**Important**:
 
-- `--agent` オプションはロール指定の直後に配置してください
-- メッセージは `--agent` の後に記述してください
-- 正しい例: `/multi-role qa,architect --agent 計画を評価して`
-- 間違った例: `/multi-role qa,architect 計画を評価して --agent`
+- Place the `--agent` option immediately after specifying roles
+- Write your message after `--agent`
+- Correct example: `/multi-role qa,architect --agent Evaluate the plan`
+- Incorrect example: `/multi-role qa,architect Evaluate the plan --agent`
 
-### オプション
+### Options
 
-- `--agent` または `-a` : 各ロールをサブエージェントとして並列実行（大規模分析時推奨）
-  - このオプションを使用すると、各ロールの description に自動委任促進フレーズ（"use PROACTIVELY" など）が含まれている場合、より積極的な自動委任が有効になります
+- `--agent` or `-a`: Execute each role as a sub-agent in parallel (recommended for large-scale analysis)
+  - When using this option, if role descriptions include proactive delegation phrases (like "use PROACTIVELY"), more aggressive automatic delegation becomes enabled
 
-### 基本例
+### Basic Examples
 
 ```bash
-# セキュリティとパフォーマンスの両面分析（通常）
+# Dual analysis of security and performance (normal)
 /multi-role security,performance
-「この API エンドポイントを評価して」
+"Evaluate this API endpoint"
 
-# 大規模システムの並列分析（サブエージェント）
+# Parallel analysis of large-scale system (sub-agents)
 /multi-role security,performance --agent
-「システム全体のセキュリティとパフォーマンスを包括的に分析」
+"Comprehensively analyze system security and performance"
 
-# フロントエンド・モバイル・パフォーマンスの統合分析
+# Integrated analysis of frontend, mobile, and performance
 /multi-role frontend,mobile,performance
-「この画面の最適化案を検討して」
+"Consider optimization proposals for this screen"
 
-# アーキテクチャ設計の多角的評価（サブエージェント）
+# Multifaceted evaluation of architecture design (sub-agents)
 /multi-role architect,security,performance --agent
-「マイクロサービス化の設計を評価して」
+"Evaluate microservices design"
 ```
 
-### 分析プロセス
+### Analysis Process
 
-### Phase 1: 並行分析
+### Phase 1: Parallel Analysis
 
-各ロールが独立して同じ対象を分析
+Each role independently analyzes the same target
 
-- 専門視点からの評価実行
-- ロール固有の基準で判定
-- 独立した推奨事項の生成
+- Perform evaluation from specialized perspective
+- Make judgments based on role-specific criteria
+- Generate independent recommendations
 
-### Phase 2: 統合分析
+### Phase 2: Integrated Analysis
 
-結果を構造化して統合
+Structure and integrate results
 
-- 各ロールの評価結果整理
-- 重複・矛盾点の特定
-- 補完関係の明確化
+- Organize evaluation results from each role
+- Identify overlaps and contradictions
+- Clarify complementary relationships
 
-### Phase 3: 統合レポート
+### Phase 3: Integrated Report
 
-最終的な推奨事項の生成
+Generate final recommendations
 
-- 優先度付きアクションプラン
-- トレードオフの明示
-- 実装ロードマップ提示
+- Prioritized action plan
+- Explicit trade-offs
+- Implementation roadmap
 
-### 出力フォーマット例
+### Output Format Examples
 
-### 2 ロール分析の場合
+### For 2-role Analysis
 
 ```
-マルチロール分析: Security + Performance
+Multi-role Analysis: Security + Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-分析対象: API エンドポイント /api/users
+Analysis Target: API endpoint /api/users
 
-Security 分析結果:
-認証: JWT 検証が適切に実装
-認可: ロールベースアクセス制御が不完全
-暗号化: API キーが平文でログ出力
+Security Analysis Results:
+Authentication: JWT verification properly implemented
+Authorization: Role-based access control incomplete
+Encryption: API keys logged in plain text
 
-評価スコア: 65/100
-重要度: High（機密データアクセスのため）
+Evaluation Score: 65/100
+Importance: High (due to sensitive data access)
 
-Performance 分析結果:
-レスポンス時間: 平均 180ms（目標 200ms 以内）
-データベースクエリ: N+1 問題を検出
-キャッシュ: Redis キャッシュ未実装
+Performance Analysis Results:
+Response Time: Average 180ms (within target of 200ms)
+Database Queries: N+1 problem detected
+Caching: Redis cache not implemented
 
-評価スコア: 70/100
-重要度: Medium（現状は許容範囲内）
+Evaluation Score: 70/100
+Importance: Medium (currently within acceptable range)
 
-相互関連分析:
-相乗効果の機会:
-- Redis キャッシュ実装時に暗号化も同時考慮
-- ログ出力の改善でセキュリティ＋パフォーマンス向上
+Interrelated Analysis:
+Synergistic Opportunities:
+- Consider encryption when implementing Redis cache
+- Improve logging for both security and performance gains
 
-トレードオフポイント:
-- 認可チェック強化 ↔ レスポンス時間への影響
-- ログ暗号化 ↔ デバッグ効率の低下
+Trade-off Points:
+- Authorization check strengthening ↔ Impact on response time
+- Log encryption ↔ Reduced debugging efficiency
 
-統合優先度:
-Critical: API キー平文出力の修正
-High: N+1 クエリの解決
-Medium: Redis キャッシュ + 暗号化の実装
-Low: 認可制御の詳細化
+Integrated Priorities:
+Critical: Fix API key plain text output
+High: Resolve N+1 queries
+Medium: Implement Redis cache + encryption
+Low: Refine authorization control
 
-実装ロードマップ:
-週 1: API キーのマスキング実装
-週 2: データベースクエリ最適化
-週 3-4: キャッシュレイヤーの設計・実装
-月 2: 認可制御の段階的強化
+Implementation Roadmap:
+Week 1: Implement API key masking
+Week 2: Database query optimization
+Weeks 3-4: Cache layer design and implementation
+Month 2: Progressive strengthening of authorization control
 ```
 
-### 3 ロール分析の場合
+### For 3-role Analysis
 
 ```
-マルチロール分析: Frontend + Mobile + Performance
+Multi-role Analysis: Frontend + Mobile + Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-分析対象: ユーザープロフィール画面
+Analysis Target: User Profile Screen
 
-Frontend 分析結果:
-ユーザビリティ: 直感的なレイアウト
-アクセシビリティ: WCAG 2.1 準拠率 85%
-レスポンシブ: タブレット表示に課題
+Frontend Analysis Results:
+Usability: Intuitive layout
+Accessibility: 85% WCAG 2.1 compliance
+Responsive: Issues with tablet display
 
-Mobile 分析結果:
-タッチターゲット: 44pt 以上確保
-片手操作: 重要ボタンが上部に配置
-オフライン対応: 未実装
+Mobile Analysis Results:
+Touch Targets: 44pt+ ensured
+One-handed Operation: Important buttons placed at top
+Offline Support: Not implemented
 
-Performance 分析結果:
-初期表示: LCP 2.1 秒（良好）
-画像最適化: WebP 未対応
-遅延読み込み: 未実装
+Performance Analysis Results:
+Initial Display: LCP 2.1s (good)
+Image Optimization: WebP not supported
+Lazy Loading: Not implemented
 
-統合推奨事項:
-1. モバイル最適化（片手操作 + オフライン対応）
-2. 画像最適化（WebP + 遅延読み込み）
-3. タブレット UI の改善
+Integrated Recommendations:
+1. Mobile optimization (one-handed operation + offline support)
+2. Image optimization (WebP + lazy loading)
+3. Tablet UI improvements
 
-優先度: Mobile > Performance > Frontend
-実装期間: 3-4 週間
+Priority: Mobile > Performance > Frontend
+Implementation Period: 3-4 weeks
 ```
 
-### 効果的な組み合わせパターン
+### Effective Combination Patterns
 
-### セキュリティ重視
+### Security-focused
 
 ```bash
 /multi-role security,architect
-「認証システムの設計」
+"Authentication system design"
 
-/multi-role security,frontend  
-「ログイン画面のセキュリティ」
+/multi-role security,frontend
+"Login screen security"
 
 /multi-role security,mobile
-「モバイルアプリのデータ保護」
+"Mobile app data protection"
 ```
 
-### パフォーマンス重視
+### Performance-focused
 
 ```bash
 /multi-role performance,architect
-「スケーラビリティ設計」
+"Scalability design"
 
 /multi-role performance,frontend
-「Web ページの高速化」
+"Web page speed optimization"
 
 /multi-role performance,mobile
-「アプリの動作最適化」
+"App performance optimization"
 ```
 
-### ユーザー体験重視
+### User Experience-focused
 
 ```bash
 /multi-role frontend,mobile
-「クロスプラットフォーム UI」
+"Cross-platform UI"
 
 /multi-role frontend,performance
-「UX とパフォーマンスのバランス」
+"Balance between UX and performance"
 
 /multi-role mobile,performance
-「モバイル UX の最適化」
+"Mobile UX optimization"
 ```
 
-### 包括的分析
+### Comprehensive Analysis
 
 ```bash
 /multi-role architect,security,performance
-「システム全体の評価」
+"Overall system evaluation"
 
 /multi-role frontend,mobile,performance
-「ユーザー体験の総合評価」
+"Comprehensive user experience evaluation"
 
 /multi-role security,performance,mobile
-「モバイルアプリの総合診断」
+"Comprehensive mobile app diagnosis"
 ```
 
-### Claude との連携
+### Collaboration with Claude
 
 ```bash
-# ファイル分析と組み合わせ
+# Combine with file analysis
 cat src/components/UserProfile.tsx
 /multi-role frontend,mobile
-「このコンポーネントを複数の視点で評価して」
+"Evaluate this component from multiple perspectives"
 
-# 設計ドキュメントの評価
+# Evaluate design documents
 cat architecture-design.md
 /multi-role architect,security,performance
-「この設計を複数の専門分野で評価して」
+"Evaluate this design across multiple specialties"
 
-# エラー分析
+# Error analysis
 cat performance-issues.log
 /multi-role performance,analyzer
-「パフォーマンス問題を多角的に分析して」
+"Analyze performance issues from multiple angles"
 ```
 
-### multi-role vs role-debate の使い分け
+### Choosing between multi-role and role-debate
 
-### multi-role を使う場面
+### When to use multi-role
 
-- 各専門分野の独立した評価が欲しい
-- 統合的な改善計画を立てたい
-- 矛盾や重複を整理したい
-- 実装優先度を決めたい
+- You want independent evaluations from each specialty
+- You want to create an integrated improvement plan
+- You want to organize contradictions and overlaps
+- You want to determine implementation priorities
 
-### role-debate を使う場面
+### When to use role-debate
 
-- 専門分野間でトレードオフがある
-- 技術選定で意見が分かれそう
-- 設計方針を議論で決めたい
-- 異なる視点での議論を聞きたい
+- There are trade-offs between specialties
+- Opinions might differ on technology selection
+- You want to decide design policies through discussion
+- You want to hear debates from different perspectives
 
-### サブエージェント並列実行（--agent）
+### Sub-agent Parallel Execution (--agent)
 
-`--agent` オプションを使用すると、各ロールが独立したサブエージェントとして並列実行されます。
+Using the `--agent` option executes each role as an independent sub-agent in parallel.
 
-#### 自動委任の促進
+#### Promoting Automatic Delegation
 
-ロールファイルの description フィールドに以下のようなフレーズが含まれている場合、`--agent` 使用時により積極的な自動委任が有効化されます：
+If role file descriptions include phrases like these, more proactive automatic delegation is enabled when using `--agent`:
 
 - "use PROACTIVELY"
 - "MUST BE USED"
-- その他の強調表現
+- Other emphasis expressions
 
-#### 実行フロー
+#### Execution Flow
 
 ```
-通常実行:
-ロール 1 → ロール 2 → ロール 3 → 統合
-（順次実行、約 3-5 分）
+Normal execution:
+Role 1 → Role 2 → Role 3 → Integration
+(Sequential execution, approx. 3-5 minutes)
 
---agent 実行:
-ロール 1 ─┐
-ロール 2 ─┼→ 統合
-ロール 3 ─┘
-（並列実行、約 1-2 分）
+--agent execution:
+Role 1 ─┐
+Role 2 ─┼→ Integration
+Role 3 ─┘
+(Parallel execution, approx. 1-2 minutes)
 ```
 
-#### 効果的な使用例
+#### Effective Usage Examples
 
 ```bash
-# 大規模システムの総合評価
+# Comprehensive evaluation of large-scale system
 /multi-role architect,security,performance,qa --agent
-「新システムの包括的評価」
+"Comprehensive evaluation of new system"
 
-# 複数観点での詳細分析
+# Detailed analysis from multiple perspectives
 /multi-role frontend,mobile,performance --agent
-「全画面の UX 最適化分析」
+"Full screen UX optimization analysis"
 ```
 
-#### パフォーマンス比較
+#### Performance Comparison
 
-| ロール数 | 通常実行 | --agent 実行 | 短縮率 |
-|---------|----------|-------------|-------|
-| 2 ロール | 2-3 分 | 1 分 | 50% |
-| 3 ロール | 3-5 分 | 1-2 分 | 60% |
-| 4 ロール | 5-8 分 | 2-3 分 | 65% |
+| Number of Roles | Normal Execution | --agent Execution | Reduction Rate |
+|----------------|-----------------|------------------|---------------|
+| 2 roles        | 2-3 minutes     | 1 minute         | 50%           |
+| 3 roles        | 3-5 minutes     | 1-2 minutes      | 60%           |
+| 4 roles        | 5-8 minutes     | 2-3 minutes      | 65%           |
 
-### 注意事項
+### Notes
 
-- 3 つ以上のロールを同時実行すると出力が長くなります
-- 複雑な分析ほど実行時間が長くなる可能性があります
-- 相互矛盾する推奨事項が出た場合は、role-debate も検討してください
-- 最終的な判断は統合結果を参考にユーザーが行ってください
-- **--agent 使用時**: より多くのリソースを使用しますが、大規模分析では効率的です
+- Executing 3 or more roles simultaneously results in longer output
+- Complex analyses may take longer to execute
+- If conflicting recommendations arise, consider using role-debate
+- Final judgments should be made by the user with reference to integrated results
+- **When using --agent**: Consumes more resources but is efficient for large-scale analyses

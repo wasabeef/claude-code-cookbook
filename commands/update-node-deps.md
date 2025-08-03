@@ -1,102 +1,101 @@
 ## Node Dependencies Update
 
-Node.js プロジェクトの依存関係を安全に更新します。
+Safely update dependencies in your Node.js project.
 
-### 使い方
+### Usage
 
 ```bash
-# 依存関係の状態を確認して Claude に依頼
+# Check dependency status and request Claude's help
 npm outdated
-「package.json の依存関係を最新バージョンに更新して」
+"Please update the dependencies in package.json to their latest versions"
 ```
 
-### 基本例
+### Basic Examples
 
 ```bash
-# 現在の依存関係を確認
+# Check current dependencies
 cat package.json
-「この Node.js プロジェクトの依存関係を分析して更新可能なパッケージを教えて」
+"Analyze this Node.js project's dependencies and tell me which packages can be updated"
 
-# アップデート可能な一覧を確認
+# Check list of updatable packages
 npm outdated
-「これらのパッケージの更新における危険度を分析して」
+"Analyze the risk level of updating these packages"
 ```
 
-### Claude との連携
+### Integration with Claude
 
 ```bash
-# 包括的な依存関係更新
+# Comprehensive dependency update
 cat package.json
-「Node.js の依存関係を分析し、以下を実行して：
-1. 各パッケージの最新バージョンを調査
-2. 破壊的変更の有無を確認
-3. 危険度を評価（安全・注意・危険）
-4. 必要なコード変更を提案
-5. 更新版 package.json を生成」
+"Analyze Node.js dependencies and perform the following:
+1. Research the latest version of each package
+2. Check for breaking changes
+3. Evaluate risk level (safe, caution, dangerous)
+4. Suggest necessary code changes
+5. Generate updated package.json"
 
-# 安全な段階的更新
+# Safe, gradual update
 npm outdated
-「メジャーバージョンアップを避けて、安全にアップデート可能なパッケージのみ更新して」
+"Update only packages that can be safely updated, avoiding major version upgrades"
 
-# 特定パッケージの更新影響分析
-「express を最新バージョンに更新した場合の影響と必要な変更を教えて」
+# Impact analysis for specific package update
+"Tell me the impact and necessary changes when updating express to the latest version"
 ```
 
-### 詳細例
+### Detailed Examples
 
 ```bash
-# Release Notes を含む詳細分析
+# Detailed analysis including release notes
 cat package.json && npm outdated
-「依存関係を分析し、各パッケージについて：
-1. 現在 → 最新バージョン
-2. 危険度評価（安全・注意・危険）
-3. 主な変更点（CHANGELOG から）
-4. 必要なコード修正
-をテーブル形式で提示して」
+"Analyze dependencies and provide the following for each package in table format:
+1. Current → Latest version
+2. Risk evaluation (safe, caution, dangerous)
+3. Main changes (from CHANGELOG)
+4. Required code fixes"
 
-# TypeScript プロジェクトの型定義考慮
+# TypeScript project with type definitions consideration
 cat package.json tsconfig.json
-「TypeScript の型定義も含めて依存関係を更新し、型エラーが発生しないように更新計画を立てて」
+"Update dependencies including TypeScript type definitions and create an update plan that avoids type errors"
 ```
 
-### 危険度の基準
+### Risk Criteria
 
 ```
-安全（🟢）：
-- パッチバージョンアップ（1.2.3 → 1.2.4）
-- バグ修正のみ
-- 後方互換性保証
+Safe (🟢):
+- Patch version upgrade (1.2.3 → 1.2.4)
+- Bug fixes only
+- Backward compatibility guaranteed
 
-注意（🟡）：
-- マイナーバージョンアップ（1.2.3 → 1.3.0）
-- 新機能追加
-- 非推奨警告あり
+Caution (🟡):
+- Minor version upgrade (1.2.3 → 1.3.0)
+- New features added
+- Deprecation warnings
 
-危険（🔴）：
-- メジャーバージョンアップ（1.2.3 → 2.0.0）
-- 破壊的変更
-- API の削除・変更
+Dangerous (🔴):
+- Major version upgrade (1.2.3 → 2.0.0)
+- Breaking changes
+- API removals or modifications
 ```
 
-### 更新の実行
+### Execution of Update
 
 ```bash
-# バックアップ作成
+# Create backups
 cp package.json package.json.backup
 cp package-lock.json package-lock.json.backup
 
-# 更新実行
+# Execute update
 npm update
 
-# 更新後の確認
+# Verify after update
 npm test
 npm run build
 npm audit
 ```
 
-### 注意事項
+### Notes
 
-更新後は必ず動作確認を実施してください。問題が発生した場合は以下で復元：
+Always verify functionality after updates. If issues occur, restore with:
 
 ```bash
 cp package.json.backup package.json

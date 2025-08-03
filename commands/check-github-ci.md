@@ -1,36 +1,36 @@
-## GitHub CI 監視
+## GitHub CI Monitoring
 
-GitHub Actions CI 状況を監視して、完了まで追跡します。
+Monitors GitHub Actions CI status and tracks until completion.
 
-### 使い方
+### Usage
 
 ```bash
-# CI チェック状況を確認
+# Check CI status
 gh pr checks
 ```
 
-### 基本例
+### Basic Examples
 
 ```bash
-# PR 作成後の CI 確認
-gh pr create --title "新機能の追加" --body "説明"
+# Check CI after creating PR
+gh pr create --title "Add new feature" --body "Description"
 gh pr checks
 ```
 
-### Claude との連携
+### Collaboration with Claude
 
 ```bash
-# CI 確認から修正までの流れ
+# Flow from CI check to correction
 gh pr checks
-「CI チェック結果を分析し、失敗項目があれば修正方法を提案して」
+"Analyze CI check results and suggest fixes if there are failures"
 
-# 修正後の再確認
+# Recheck after correction
 git push origin feature-branch
 gh pr checks
-「修正後の CI 結果を確認して、問題がないことを確認して」
+"Check CI results after correction to confirm no issues"
 ```
 
-### 実行結果の例
+### Example Execution Results
 
 ```
 All checks were successful
@@ -46,8 +46,8 @@ All checks were successful
 -  Visual Test (pull_request)                                                  https://github.com/user/repo/actions/runs/123456789
 ```
 
-### 注意事項
+### Notes
 
-- 失敗時は詳細確認
-- 全チェック完了まで待機してからマージ
-- 必要に応じて `gh pr checks` を再実行
+- Check details when failed
+- Wait for all checks to complete before merging
+- Re-run `gh pr checks` as needed

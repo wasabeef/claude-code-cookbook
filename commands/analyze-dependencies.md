@@ -1,101 +1,101 @@
 ## Dependency Analysis
 
-プロジェクトの依存関係を分析し、アーキテクチャの健全性を評価します。
+Analyzes project dependencies and evaluates architecture health.
 
-### 使い方
+### Usage
 
 ```bash
-/dependency-analysis [オプション]
+/dependency-analysis [options]
 ```
 
-### オプション
+### Options
 
-- `--visual` : 依存関係を視覚的に表示
-- `--circular` : 循環依存のみを検出
-- `--depth <数値>` : 分析の深さを指定（デフォルト: 3）
-- `--focus <パス>` : 特定のモジュール/ディレクトリに焦点
+- `--visual`: Visually display dependencies
+- `--circular`: Detect only circular dependencies
+- `--depth <number>`: Specify analysis depth (default: 3)
+- `--focus <path>`: Focus on specific module/directory
 
-### 基本例
+### Basic Examples
 
 ```bash
-# プロジェクト全体の依存関係分析
+# Analyze dependencies for entire project
 /dependency-analysis
 
-# 循環依存の検出
+# Detect circular dependencies
 /dependency-analysis --circular
 
-# 特定モジュールの詳細分析
+# Detailed analysis of specific module
 /dependency-analysis --focus src/core --depth 5
 ```
 
-### 分析項目
+### Analysis Items
 
-#### 1. 依存関係マトリックス
+#### 1. Dependency Matrix
 
-モジュール間の依存関係を数値化して表示：
+Quantifies and displays dependencies between modules:
 
-- 直接依存
-- 間接依存
-- 依存の深さ
-- ファンイン/ファンアウト
+- Direct dependencies
+- Indirect dependencies
+- Dependency depth
+- Fan-in/fan-out
 
-#### 2. アーキテクチャ違反検出
+#### 2. Architecture Violation Detection
 
-- レイヤー違反（下位層が上位層に依存）
-- 循環依存
-- 過度な結合（高い依存度）
-- 孤立したモジュール
+- Layer violations (lower layers depending on upper layers)
+- Circular dependencies
+- Excessive coupling (high dependency degree)
+- Isolated modules
 
-#### 3. Clean Architecture 準拠チェック
+#### 3. Clean Architecture Compliance Check
 
-- ドメイン層の独立性
-- インフラ層の適切な分離
-- ユースケース層の依存方向
-- インターフェースの適用状況
+- Domain layer independence
+- Proper separation of infrastructure layer
+- Dependency direction of use case layer
+- Interface application status
 
-### 出力例
+### Output Example
 
 ```
-依存関係分析レポート
+Dependency Analysis Report
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📊 メトリクス概要
-├─ 総モジュール数: 42
-├─ 平均依存数: 3.2
-├─ 最大依存深度: 5
-└─ 循環依存: 2 件検出
+📊 Metrics Overview
+├─ Total modules: 42
+├─ Average dependencies: 3.2
+├─ Maximum dependency depth: 5
+└─ Circular dependencies: 2 detected
 
-⚠️  アーキテクチャ違反
+⚠️  Architecture Violations
 ├─ [HIGH] src/domain/user.js → src/infra/database.js
-│  └─ ドメイン層がインフラ層に直接依存
+│  └─ Domain layer directly depends on infrastructure layer
 ├─ [MED] src/api/auth.js ⟲ src/services/user.js
-│  └─ 循環依存を検出
+│  └─ Circular dependency detected
 └─ [LOW] src/utils/helper.js → 12 modules
-   └─ 過度なファンアウト
+   └─ Excessive fan-out
 
-✅ 推奨アクション
-1. UserRepository インターフェースを導入
-2. 認証サービスの責務を再設計
-3. ヘルパー関数を機能別に分割
+✅ Recommended Actions
+1. Introduce UserRepository interface
+2. Redesign authentication service responsibilities
+3. Split helper functions by functionality
 
-📈 依存関係グラフ
-[視覚的な依存関係図を ASCII アートで表示]
+📈 Dependency Graph
+[Visual dependency diagram displayed in ASCII art]
 ```
 
-### 高度な使用例
+### Advanced Usage Examples
 
 ```bash
-# CI/CD パイプラインでの自動チェック
+# Automatic checks in CI/CD pipeline
 /dependency-analysis --circular --fail-on-violation
 
-# アーキテクチャルールの定義と検証
+# Define and verify architecture rules
 /dependency-analysis --rules .architecture-rules.yml
 
-# 時系列での依存関係の変化を追跡
+# Track changes in dependencies over time
 /dependency-analysis --compare HEAD~10
 ```
 
-### 設定ファイル例 (.dependency-analysis.yml)
+### Configuration File Example (.dependency-analysis.yml)
 
 ```yaml
 rules:
@@ -118,41 +118,41 @@ ignore:
   - "**/mocks/**"
 ```
 
-### 統合ツール
+### Integrated Tools
 
-- `madge` : JavaScript/TypeScript の依存関係可視化
-- `dep-cruiser` : 依存関係のルール検証
-- `nx` : モノレポの依存関係管理
-- `plato` : 複雑度と依存関係の統合分析
+- `madge`: JavaScript/TypeScript dependency visualization
+- `dep-cruiser`: Dependency rule validation
+- `nx`: Monorepo dependency management
+- `plato`: Integrated analysis of complexity and dependencies
 
-### Claude との連携
+### Collaboration with Claude
 
 ```bash
-# package.json を含めた分析
+# Analysis including package.json
 cat package.json
 /analyze-dependencies
-「このプロジェクトの依存関係の問題点を分析して」
+"Analyze the dependency issues in this project"
 
-# 特定モジュールのソースコードと組み合わせ
+# Combine with source code of specific module
 ls -la src/core/
 /analyze-dependencies --focus src/core
-「コアモジュールの依存関係を詳細に評価して」
+"Evaluate the dependencies of the core module in detail"
 
-# アーキテクチャドキュメントとの比較
+# Compare with architecture documentation
 cat docs/architecture.md
 /analyze-dependencies --visual
-「設計ドキュメントと実装の乖離を確認して」
+"Check for discrepancies between design documentation and implementation"
 ```
 
-### 注意事項
+### Notes
 
-- **前提条件**: プロジェクトルートでの実行が必要
-- **制限事項**: 大規模プロジェクトでは分析に時間がかかる場合があります
-- **推奨事項**: 循環依存が発見された場合は即座に対処を検討してください
+- **Prerequisite**: Must be executed at project root
+- **Limitations**: Analysis may take time for large-scale projects
+- **Recommendation**: If circular dependencies are found, consider addressing them immediately
 
-### ベストプラクティス
+### Best Practices
 
-1. **定期的な分析**: 週次で依存関係の健全性をチェック
-2. **ルールの明文化**: アーキテクチャルールを設定ファイルで管理
-3. **段階的改善**: 大規模なリファクタリングは避け、漸進的に改善
-4. **メトリクス追跡**: 依存関係の複雑度を時系列で監視
+1. **Regular Analysis**: Check dependency health weekly
+2. **Explicit Rules**: Manage architecture rules in configuration files
+3. **Incremental Improvement**: Avoid large-scale refactoring, improve gradually
+4. **Metrics Tracking**: Monitor dependency complexity over time

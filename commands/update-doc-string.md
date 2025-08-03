@@ -1,84 +1,84 @@
 ## Update Doc String
 
-多言語対応の docstring/コメントを体系的に管理し、高品質なドキュメントを維持します。
+Systematically manage multilingual docstrings/comments and maintain high-quality documentation.
 
-### 使い方
+### Usage
 
 ```bash
-# 言語を自動検出して実行
-「docstring がないクラス・関数に追加し、基準を満たさないコメントを更新してください」
+# Run with automatic language detection
+"Please add docstrings to classes and functions without them, and update comments that don't meet standards"
 
-# 言語を指定して実行
+# Run with specified language
 /update-doc-string --lang python
-「Python ファイルの docstring を PEP 257 準拠で更新してください」
+"Please update docstrings in Python files to comply with PEP 257"
 
-# 特定ディレクトリのドキュメント整備
-「src/components/ 配下の関数に JSDoc を追加してください」
+# Maintain documentation for specific directories
+"Please add JSDoc to functions under src/components/"
 ```
 
-### オプション
+### Options
 
-- `--lang <en|ja>` : ドキュメントの記述言語（デフォルト: 既存コメントから自動判定、なければ en）
-- `--style <スタイル>` : ドキュメントスタイルを指定（言語固有のデフォルトあり）
-- `--marker <true|false>` : Claude マーカーを付与するか（デフォルト: true）
+- `--lang <en|ja>` : Documentation language (default: auto-detected from existing comments, otherwise en)
+- `--style <style>` : Specify documentation style (has language-specific defaults)
+- `--marker <true|false>` : Whether to add Claude markers (default: true)
 
-### 基本例
+### Basic Examples
 
 ```bash
-# 1. 対象ファイルの分析（プログラミング言語は自動検出）
+# 1. Analyze target files (programming language is auto-detected)
 find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart" -o -name "*.go" -o -name "*.rs" \) | grep -v test
-「docstring が不足している要素（コメント行数 0 または 30 文字未満）を特定してください」
+"Please identify elements with insufficient docstrings (0 comment lines or fewer than 30 characters)"
 
-# 2. ドキュメント追加（言語自動判定）
-「特定された要素に言語固有の必須要素を含む docstring を追加してください」
-# → 既存コメントに日本語があれば日本語で、なければ英語で記述
+# 2. Add documentation (auto language detection)
+"Please add docstrings containing language-specific required elements to the identified elements"
+# → If existing comments contain Japanese, write in Japanese; otherwise, write in English
 
-# 3. ドキュメント追加（明示的に英語指定）
+# 3. Add documentation (explicitly specify English)
 /update-doc-string --lang en
-「Add docstrings with required elements to the identified elements」
+"Add docstrings with required elements to the identified elements"
 
-# 4. マーカー確認
-「追加・更新したすべての docstring に Claude マーカーがあることを確認してください」
+# 4. Check markers
+"Please confirm that all added/updated docstrings have Claude markers"
 ```
 
-### 実行手順
+### Execution Steps
 
-#### 1. 対象要素の優先順位
+#### 1. Priority of Target Elements
 
-1. 🔴 **最優先**: docstring/コメントがない要素（コメント行数 0）
-2. 🟡 **次優先**: 基準を満たさない要素（30 文字未満または必須要素欠如）
-3. 🟢 **確認対象**: Claude マーカーがない既存コメント
+1. 🔴 **Highest Priority**: Elements without docstrings/comments (0 comment lines)
+2. 🟡 **Next Priority**: Elements not meeting standards (fewer than 30 characters or missing required elements)
+3. 🟢 **Verification Target**: Existing comments without Claude markers
 
-**対象要素（言語共通）**:
+**Target Elements (Common Across Languages)**:
 
-- Class/クラス定義
-- Function/関数・メソッド
-- Module/モジュール（Python, Go）
-- Enum/列挙型
-- Interface/インターフェース（TypeScript, Go）
+- Class definitions
+- Functions/methods
+- Modules (Python, Go)
+- Enums
+- Interfaces (TypeScript, Go)
 
-#### 2. 言語別記述ルール
+#### 2. Language-Specific Documentation Rules
 
 **Python (PEP 257)**:
 
 ```python
-# 日本語版（デフォルト）
+# Japanese version (default)
 def calculate_total(items: List[Item]) -> float:
-    """アイテムリストの合計金額を計算します。（30-60 文字）
+    """Calculate the total amount for a list of items. (30-60 characters)
 
-    各アイテムの価格と数量を掛け合わせ、税込み合計を返します。
-    空のリストの場合は 0.0 を返します。（50-200 文字）
+    Multiplies the price and quantity of each item and returns
+    the total with tax. Returns 0.0 for empty lists. (50-200 characters)
 
     Args:
-        items: 計算対象のアイテムリスト
+        items: List of items to calculate
 
     Returns:
-        税込み合計金額
+        Total amount with tax
 
     Generated by Claude 🤖
     """
 
-# 英語版（--lang en）
+# English version (--lang en)
 def calculate_total(items: List[Item]) -> float:
     """Calculate the total amount for a list of items. (30-60 chars)
 
@@ -99,81 +99,81 @@ def calculate_total(items: List[Item]) -> float:
 
 ```javascript
 /**
- * ユーザープロフィールを表示するコンポーネントです。（30-60 文字）
+ * Component that displays a user profile. (30-60 characters)
  *
- * アバター画像、ユーザー名、ステータス情報を表示し、
- * クリック時にプロフィール詳細画面へ遷移します。（50-200 文字）
+ * Displays avatar image, username, and status information,
+ * and navigates to the profile detail screen when clicked. (50-200 characters)
  *
- * @param {Object} props - コンポーネントのプロパティ
- * @param {string} props.userId - ユーザー ID
- * @param {boolean} [props.showStatus=true] - ステータス表示フラグ
- * @returns {JSX.Element} レンダリングされたコンポーネント
+ * @param {Object} props - Component properties
+ * @param {string} props.userId - User ID
+ * @param {boolean} [props.showStatus=true] - Status display flag
+ * @returns {JSX.Element} Rendered component
  *
  * @generated by Claude 🤖
  */
 const UserProfile = ({ userId, showStatus = true }) => {
 ```
 
-**Go**:
+**Go**: 
 
 ```go
-// CalculateTotal はアイテムリストの合計金額を計算します。（30-60 文字）
+// CalculateTotal calculates the total amount for a list of items. (30-60 characters)
 //
-// 各アイテムの価格と数量を掛け合わせ、税込み合計を返します。
-// 空のスライスの場合は 0.0 を返します。（50-200 文字）
+// Multiplies the price and quantity of each item and returns
+// the total with tax. Returns 0.0 for empty slices. (50-200 characters)
 //
 // Generated by Claude 🤖
 func CalculateTotal(items []Item) float64 {
 ```
 
-**Rust**:
+**Rust**: 
 
 ```rust
-/// アイテムリストの合計金額を計算します。（30-60 文字）
+/// Calculate the total amount for a list of items. (30-60 characters)
 ///
-/// 各アイテムの価格と数量を掛け合わせ、税込み合計を返します。
-/// 空のベクタの場合は 0.0 を返します。（50-200 文字）
+/// Multiplies the price and quantity of each item and returns
+/// the total with tax. Returns 0.0 for empty vectors. (50-200 characters)
 ///
 /// Generated by Claude 🤖
 pub fn calculate_total(items: &[Item]) -> f64 {
 ```
 
-**Dart (DartDoc)**:
+**Dart (DartDoc)**: 
 
 ```dart
-/// ユーザープロフィールを表示する Widget です。（30-60 文字）
+/// Widget that displays a user profile. (30-60 characters)
 ///
-/// アバター画像、ユーザー名、ステータス情報を縦に配置し、
-/// タップ時にプロフィール詳細画面へ遷移します。（50-200 文字）
+/// Vertically arranges avatar image, username, and status information,
+/// and navigates to the profile detail screen when tapped. (50-200 characters)
 ///
 /// Generated by Claude 🤖
 class UserProfileWidget extends StatelessWidget {
 ```
 
-#### 3. 既存コンテンツ保持ルール
+#### 3. Existing Content Retention Rules
 
-1. **既存コメントが基準を満たす場合**: そのまま保持（新規追加しない）
-   - 基準: 30 文字以上かつ必須要素（概要・詳細・マーカー）を含む
-2. **既存コメントが基準を満たさない場合**: 完全に置き換え（重複させない）
-3. **既存コメントがない場合**: 新しいコメントを追加
+1. **If existing comments meet standards**: Keep as-is (do not add new ones)
+   - Standards: At least 30 characters and includes required elements (summary, details, marker)
+2. **If existing comments do not meet standards**: Completely replace (no duplication)
+3. **If no existing comments**: Add new comments
 
-**保持すべき重要情報**:
+**Important Information to Retain**:
 
-- URL やリンク: `See also:`, `@see`, `参照:` など
-- TODO コメント: `TODO:`, `FIXME:`, `XXX:` 形式
-- 注意事項: `Note:`, `Warning:`, `注意:` など
-- 使用例: `Example:`, `例:`, `# Examples` など
-- 既存のパラメータ・戻り値説明
+- URLs and links: `See also:`, `@see`, `参照:` etc.
+- TODO comments: `TODO:`, `FIXME:`, `XXX:` format
+- Notes: `Note:`, `Warning:`, `注意:` etc.
+- Examples: `Example:`, `例:`, `# Examples` etc.
+- Existing parameter and return value descriptions
 
-### 言語別設定
+### Language-Specific Settings
 
 ```yaml
-# 言語別デフォルト設定
+# Language-specific default settings
 languages:
   python:
     style: "google"  # google, numpy, sphinx
     indent: 4
-    quotes: '"""'
+    quotes: '"""
 
   javascript:
     style: "jsdoc"
@@ -203,42 +203,42 @@ languages:
     prefix: "///"
 ```
 
-### 品質チェックリスト
+### Quality Checklist
 
-- ✅ **文字数**: 概要 30-60 文字、詳細 50-200 文字を厳守
-- ✅ **必須要素**: 概要・詳細説明・ Claude マーカーの 3 要素を必ず含む
-- ✅ **完全性**: 役割・使用コンテキスト・注意点を記載
-- ✅ **言語規約**: 各言語の公式スタイルガイドに準拠
-- ✅ **例外**: エラー・例外の説明（該当する場合）
-- ✅ **正確性**: 実装を分析し、事実に基づいた記述のみ
+- ✅ **Character Count**: Strictly adhere to 30-60 characters for summary, 50-200 for details
+- ✅ **Required Elements**: Always include summary, detailed description, and Claude marker
+- ✅ **Completeness**: Describe role, usage context, and notes
+- ✅ **Language Conventions**: Comply with official style guides for each language
+- ✅ **Exceptions**: Explain errors and exceptions (when applicable)
+- ✅ **Accuracy**: Analyze implementation and only include fact-based descriptions
 
-### 注意事項
+### Notes
 
-**🔴 絶対禁止事項**:
+**🔴 Strict Prohibitions**:
 
-- ❌ ドキュメントコメント以外のコード変更
-- ❌ 実装詳細に関する推測（事実のみ記載）
-- ❌ 言語規約に反するフォーマット
-- ❌ 既存の型アノテーションの削除・変更
-- ❌ 既存コメントとの重複
-- ❌ テストファイルへの文字数基準未満のコメント
+- ❌ Code changes other than documentation comments
+- ❌ Speculation about implementation details (only facts)
+- ❌ Formats that violate language conventions
+- ❌ Deletion or modification of existing type annotations
+- ❌ Duplication with existing comments
+- ❌ Comments below character count standards in test files
 
-**実行と検証**:
+**Execution and Verification**:
 
 ```bash
-# 実行結果の記録
+# Record execution results
 ADDED_COMMENTS=0
 UPDATED_COMMENTS=0
 ERRORS=0
 
-# 既存コメントから言語を自動判定
-# 日本語文字（ひらがな・カタカナ・漢字）を検出したら ja、それ以外は en
-DOC_LANGUAGE="en"  # デフォルト
+# Auto-detect language from existing comments
+# If Japanese characters (hiragana, katakana, kanji) are detected, use ja; otherwise, use en
+DOC_LANGUAGE="en"  # Default
 if grep -r '[ぁ-んァ-ヶー一-龠]' --include="*.py" --include="*.js" --include="*.ts" --include="*.dart" --include="*.go" --include="*.rs" . 2>/dev/null | head -n 1; then
   DOC_LANGUAGE="ja"
 fi
 
-# プログラミング言語の自動検出と静的解析
+# Auto-detect programming language and perform static analysis
 if [ -f "*.py" ]; then
   pylint --disable=all --enable=missing-docstring .
 elif [ -f "*.js" ] || [ -f "*.ts" ]; then
@@ -252,55 +252,12 @@ elif [ -f "*.dart" ]; then
 fi
 
 if [ $? -ne 0 ]; then
-  echo "🔴 エラー: 静的解析が失敗しました"
+  echo "🔴 Error: Static analysis failed"
   exit 1
 fi
 
-# 実行サマリーの出力
-echo "📊 実行結果:"
-echo "- ドキュメント言語: $DOC_LANGUAGE"
-echo "- 追加したコメント: $ADDED_COMMENTS 件"
-echo "- 更新したコメント: $UPDATED_COMMENTS 件"
-echo "- エラー発生数: $ERRORS 件"
-```
-
-### 実行成功基準
-
-1. **完了判定**: 以下をすべて満たす場合に成功
-   - 言語固有の静的解析が PASSED
-   - エラー発生数が 0
-   - 追加・更新したコメントがすべて基準を満たす
-
-2. **部分成功**: 以下の場合
-   - エラー発生数が 5 件未満
-   - 全体の 90% 以上が基準を満たす
-
-3. **失敗**: 以下の場合
-   - 静的解析が FAILED
-   - エラー発生数が 5 件以上
-
-### Claude との連携
-
-```bash
-# プロジェクト全体の分析（言語自動判定）
-find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" \)
-/update-doc-string
-「このプロジェクトの docstring を言語別のベストプラクティスに従って更新して」
-# → 既存コメントに日本語があれば ja、なければ en で実行
-
-# 明示的に英語ドキュメントで実行
-/update-doc-string --lang en
-"Update docstrings following language-specific best practices"
-
-# 明示的に日本語ドキュメントで実行
-/update-doc-string --lang ja
-「このプロジェクトの docstring を言語別のベストプラクティスに従って更新して」
-
-# マーカーなしで実行（言語自動判定）
-/update-doc-string --marker false
-"Improve existing docstrings without adding Claude markers"
-
-# 英語ドキュメント、マーカーなし
-/update-doc-string --lang en --marker false
-"Improve existing docstrings without adding Claude markers"
-```
+# Output execution summary
+echo "📊 Execution Results:"
+echo "- Documentation Language: $DOC_LANGUAGE"
+echo "- Added Comments: $ADDED_COMMENTS"
+echo "- Updated Comments: $UPDATED_COMMENTS

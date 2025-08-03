@@ -1,25 +1,25 @@
 #!/bin/bash
 
-# 現在のセッションでプランが存在するかチェック
+# Check if a project plan exists in the current session
 check_project_plan() {
   local todos_dir="$HOME/.claude/todos"
 
-  # 現在のセッション ID を取得
+  # Get current session ID
   local current_session_id="$CLAUDE_SESSION_ID"
   if [ -z "$current_session_id" ]; then
     return 1
   fi
 
-  # 現在のセッションの TODO ファイルが存在するかチェック
+  # Check if TODO file for current session exists
   local plan_file="$todos_dir/$current_session_id.json"
   if [ -f "$plan_file" ]; then
-    return 0 # 現在のセッションの TODO が存在
+    return 0 # TODO for current session exists
   else
-    return 1 # 現在のセッションの TODO が存在しない
+    return 1 # TODO for current session does not exist
   fi
 }
 
-# メイン処理
+# Main processing
 if check_project_plan; then
-  echo '{"continue": false, "stopReason": "💡 /show-plan でプランを確認"}'
+  echo '{"continue": false, "stopReason": "💡 Check the plan with /show-plan"}'
 fi

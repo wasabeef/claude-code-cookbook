@@ -1,87 +1,87 @@
 ## Tech Debt
 
-プロジェクトの技術的負債を分析し、優先順位付けされた改善計画を作成します。
+Analyze project technical debt and create a prioritized improvement plan.
 
-### 使い方
+### Usage
 
 ```bash
-# プロジェクトの構成を確認して技術的負債を分析
+# Check project structure and analyze technical debt
 ls -la
-「このプロジェクトの技術的負債を分析して改善計画を作成して」
+"Analyze the technical debt of this project and create an improvement plan"
 ```
 
-### 基本例
+### Basic Examples
 
 ```bash
-# TODO/FIXME コメントの分析
+# Analyze TODO/FIXME comments
 grep -r "TODO\|FIXME\|HACK\|XXX\|WORKAROUND" . --exclude-dir=node_modules --exclude-dir=.git
-「これらの TODO コメントを優先度順に整理して改善計画を立てて」
+"Organize these TODO comments in priority order and create an improvement plan"
 
-# プロジェクトの依存関係確認
+# Check project dependencies
 ls -la | grep -E "package.json|Cargo.toml|pubspec.yaml|go.mod|requirements.txt"
-「プロジェクトの依存関係を分析して古くなっているものとリスクを特定して」
+"Analyze the project dependencies, identify outdated ones and their risks"
 
-# 大きなファイルや複雑な関数の検出
+# Detect large files and complex functions
 find . -type f -not -path "*/\.*" -not -path "*/node_modules/*" -exec wc -l {} + | sort -rn | head -10
-「大きすぎるファイルや複雑な構造を特定して改善案を提示して」
+"Identify oversized files and complex structures, then suggest improvements"
 ```
 
-### Claude との連携
+### Collaboration with Claude
 
 ```bash
-# 包括的な技術的負債分析
+# Comprehensive technical debt analysis
 ls -la && find . -name "*.md" -maxdepth 2 -exec head -20 {} \;
-「このプロジェクトの技術的負債を以下の観点で分析して：
-1. コード品質（複雑度、重複、保守性）
-2. 依存関係の健全性
-3. セキュリティリスク
-4. パフォーマンス問題
-5. テストカバレッジ不足」
+"Analyze this project's technical debt from the following perspectives:
+1. Code quality (complexity, duplication, maintainability)
+2. Dependency health
+3. Security risks
+4. Performance issues
+5. Test coverage gaps"
 
-# アーキテクチャの負債分析
+# Architectural debt analysis
 find . -type d -name "src" -o -name "lib" -o -name "app" | head -10 | xargs ls -la
-「アーキテクチャレベルの技術的負債を特定し、リファクタリング計画を提案して」
+"Identify architectural-level technical debt and propose a refactoring plan"
 
-# 優先順位付けされた改善計画
-「技術的負債を以下の基準で評価して表形式で提示：
-- 影響度（高/中/低）
-- 修正コスト（時間）
-- ビジネスリスク
-- 改善による効果
-- 推奨実施時期」
+# Prioritized improvement plan
+"Evaluate technical debt using the following criteria and present in table format:
+- Impact (High/Medium/Low)
+- Fix cost (time)
+- Business risk
+- Improvement benefit
+- Recommended implementation time"
 ```
 
-### 詳細例
+### Detailed Examples
 
 ```bash
-# プロジェクトタイプの自動検出と分析
+# Automatic project type detection and analysis
 find . -maxdepth 2 -type f \( -name "package.json" -o -name "Cargo.toml" -o -name "pubspec.yaml" -o -name "go.mod" -o -name "pom.xml" \)
-「検出されたプロジェクトタイプに基づいて、以下を分析：
-1. 言語・フレームワーク固有の技術的負債
-2. ベストプラクティスからの逸脱
-3. モダナイゼーションの機会
-4. 段階的な改善戦略」
+"Based on the detected project type, analyze:
+1. Language/framework-specific technical debt
+2. Deviations from best practices
+3. Modernization opportunities
+4. Phased improvement strategy"
 
-# コードの品質メトリクス分析
+# Code quality metrics analysis
 find . -type f -name "*" | grep -E "\.(js|ts|py|rs|go|dart|kotlin|swift|java)$" | wc -l
-「プロジェクトのコード品質を分析し、以下のメトリクスを提示：
-- 循環的複雑度が高い関数
-- 重複コードの検出
-- 長すぎるファイル/関数
-- 適切なエラーハンドリングの欠如」
+"Analyze project code quality and provide the following metrics:
+- Functions with high cyclomatic complexity
+- Detection of duplicate code
+- Files/functions that are too long
+- Lack of proper error handling"
 
-# セキュリティ負債の検出
+# Security debt detection
 grep -r "password\|secret\|key\|token" . --exclude-dir=.git --exclude-dir=node_modules | grep -v ".env.example"
-「セキュリティに関する技術的負債を検出し、修正優先度と対策を提案して」
+"Detect security-related technical debt and propose correction priorities and countermeasures"
 
-# テスト不足の分析
+# Test insufficiency analysis
 find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f -name "*.md" | xargs grep -l "test"
-「テストカバレッジの技術的負債を分析し、テスト戦略を提案して」
+"Analyze the technical debt of test coverage and propose a testing strategy"
 ```
 
-### 注意事項
+### Notes
 
-- プロジェクトの言語やフレームワークを自動検出し、それに応じた分析を行います
-- 技術的負債は「すぐに修正すべき重要な問題」と「長期的に改善する項目」に分類されます
-- ビジネス価値と技術的改善のバランスを考慮した現実的な計画を提供します
-- 改善による ROI（投資対効果）も考慮に入れます
+- Automatically detects the project's language and framework and performs analysis accordingly
+- Technical debt is categorized into "critical issues that need immediate fixing" and "items to improve in the long term"
+- Provides realistic plans that balance business value and technical improvement
+- Also considers the ROI (return on investment) of improvements

@@ -1,104 +1,104 @@
 ## Check Fact
 
-プロジェクト内のコードベース、ドキュメント（docs/、README.md など）を参照し、与えられた情報の正誤を確認するためのコマンド。
+A command to verify the accuracy of given information by referring to the project's codebase, documents (docs/, README.md, etc.).
 
-### 使い方
-
-```bash
-# 基本的な使い方
-/check-fact "Flutter アプリでは Riverpod を使用している"
-
-# 複数の情報を一度に確認
-/check-fact "このプロジェクトは GraphQL を使用し、auto_route でルーティングを管理している"
-
-# 特定の技術仕様について確認
-/check-fact "認証には JWT を使用し、Firebase Auth は使っていない"
-```
-
-### 確認プロセス
-
-1. **情報源の優先順位**
-   - コードベース（最も信頼性が高い）
-   - README.md、docs/ 内ドキュメント
-   - package.json、pubspec.yaml 等の設定ファイル
-   - Issue、Pull Request の議論履歴
-
-2. **判定結果の分類**
-   - `✅ 正しい` - 情報がコードベースと完全に一致
-   - `❌ 誤り` - 情報が明確に間違っている
-   - `⚠️ 一部正しい` - 部分的に正確だが不完全
-   - `❓ 判断不可` - 確認に必要な情報が不足
-
-3. **根拠の明示**
-   - 該当ファイル名と行番号
-   - 関連するコードスニペット
-   - ドキュメントの該当箇所
-
-### 報告形式
-
-```
-## ファクトチェック結果
-
-### 検証対象
-「[ユーザーが提供した情報]」
-
-### 結論
-[✅/❌/⚠️/❓] [判定結果]
-
-### 根拠
-- **ファイル**: `path/to/file.dart:123`
-- **内容**: [該当するコード/文章]
-- **補足**: [追加説明]
-
-### 詳細説明
-[誤りの場合は正しい情報を提示]
-[一部正しいの場合は正確でない部分を指摘]
-[判断不可の場合は不足している情報を説明]
-```
-
-### 基本例
+### Usage
 
 ```bash
-# プロジェクト技術スタック確認
-/check-fact "このアプリは Flutter + Riverpod + GraphQL の構成になっている"
+# Basic usage
+/check-fact "The Flutter app uses Riverpod"
 
-# 実装状況確認  
-/check-fact "ダークモード機能が実装済みで、ユーザー設定から切り替え可能"
+# Verify multiple pieces of information at once
+/check-fact "This project uses GraphQL and manages routing with auto_route"
 
-# アーキテクチャ確認
-/check-fact "状態管理は全て Riverpod で行い、BLoC は使用していない"
-
-# セキュリティ実装確認
-/check-fact "認証トークンは secure storage に暗号化して保存している"
+# Check specific technical specifications
+/check-fact "JWT is used for authentication, and Firebase Auth is not used"
 ```
 
-### Claude との連携
+### Verification Process
+
+1. **Information Source Priority**
+   - Codebase (most reliable)
+   - README.md, documents in docs/
+   - Configuration files like package.json, pubspec.yaml
+   - Issue and Pull Request discussion history
+
+2. **Classification of Judgment Results**
+   - `✅ Correct` - Information completely matches the codebase
+   - `❌ Incorrect` - Information is clearly wrong
+   - `⚠️ Partially correct` - Partially accurate but incomplete
+   - `❓ Cannot determine` - Insufficient information for verification
+
+3. **Explicit Evidence**
+   - Relevant file name and line number
+   - Related code snippets
+   - Corresponding parts of documents
+
+### Report Format
+
+```
+## Fact Check Results
+
+### Verification Target
+"[User-provided information]"
+
+### Conclusion
+[✅/❌/⚠️/❓] [Judgment result]
+
+### Evidence
+- **File**: `path/to/file.dart:123`
+- **Content**: [Relevant code/text]
+- **Supplement**: [Additional explanation]
+
+### Detailed Explanation
+[If incorrect, present correct information]
+[If partially correct, point out inaccurate parts]
+[If cannot determine, explain missing information]
+```
+
+### Basic Examples
 
 ```bash
-# コードベース全体の分析後に確認
+# Check project technology stack
+/check-fact "This app is built with Flutter + Riverpod + GraphQL"
+
+# Check implementation status
+/check-fact "Dark mode is implemented and can be switched from user settings"
+
+# Check architecture
+/check-fact "All state management is done with Riverpod, BLoC is not used"
+
+# Check security implementation
+/check-fact "Authentication tokens are encrypted and stored in secure storage"
+```
+
+### Collaboration with Claude
+
+```bash
+# Check after analyzing the entire codebase
 ls -la && find . -name "pubspec.yaml" -exec cat {} \;
-/check-fact "このプロジェクトで使用している主要な依存関係は..."
+/check-fact "The main dependencies used in this project are..."
 
-# 特定機能の実装状況確認
+# Check implementation status of specific feature
 grep -r "authentication" . --include="*.dart"
-/check-fact "認証機能はカスタム実装で、第三者認証は使用していない"
+/check-fact "Authentication is custom implemented, third-party authentication is not used"
 
-# ドキュメントとの整合性確認
+# Check consistency with documentation
 cat README.md
-/check-fact "README に記載されている機能は全て実装済み"
+/check-fact "All features described in the README are implemented"
 ```
 
-### 活用シーン
+### Use Cases
 
-- 技術仕様書作成時: 記載内容の正確性確認
-- プロジェクト引き継ぎ時: 既存実装の理解確認
-- クライアント報告前: 実装状況の事実確認
-- 技術ブログ執筆時: 記事内容の正確性検証
-- 面接・説明資料作成時: プロジェクト概要の正確性確認
+- When creating technical specifications: Verify accuracy of content
+- When taking over a project: Confirm understanding of existing implementation
+- Before client reporting: Verify facts about implementation status
+- When writing technical blogs: Validate accuracy of article content
+- When creating interview/explanatory materials: Confirm accuracy of project overview
 
-### 注意事項
+### Notes
 
-- コードベースが最も信頼性の高い情報源です
-- ドキュメントが古い場合は、実装を優先します
-- 判断に必要な情報が不足している場合は素直に「判断不可」とします
-- セキュリティに関わる情報は特に慎重に検証します
+- The codebase is the most reliable information source
+- If documentation is outdated, implementation takes precedence
+- If information necessary for judgment is insufficient, honestly state "Cannot determine"
+- Exercise particular caution when verifying security-related information

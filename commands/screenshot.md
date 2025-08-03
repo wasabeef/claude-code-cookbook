@@ -1,103 +1,103 @@
 ## Screenshot
 
-macOS でスクリーンショットを撮影し、画像を解析します。
+Capture screenshots on macOS and analyze the images.
 
-### 使い方
+### Usage
 
 ```bash
-/screenshot [オプション]
+/screenshot [options]
 ```
 
-### オプション
+### Options
 
-- なし : ウィンドウを選択（Claude がオプションを確認）
-- `--window` : ウィンドウを指定して撮影
-- `--full` : 画面全体を撮影
-- `--crop` : 範囲を選択して撮影
+- None: Select window (Claude will confirm options)
+- `--window`: Capture a specific window
+- `--full`: Capture the entire screen
+- `--crop`: Select a region to capture
 
-### 基本例
+### Basic Examples
 
 ```bash
-# ウィンドウを撮影して解析
+# Capture and analyze a window
 /screenshot --window
-「撮影した画面を解析して」
+"Analyze the captured screen"
 
-# 範囲を選択して解析
+# Select a region and analyze
 /screenshot --crop
-「選択した範囲の内容を説明して」
+"Explain the content of the selected region"
 
-# 全画面を撮影して解析
+# Capture full screen and analyze
 /screenshot --full
-「画面全体の構成を分析して」
+"Analyze the overall screen composition"
 ```
 
-### Claude との連携
+### Collaboration with Claude
 
 ```bash
-# 特定の問題なし - 状況解析
+# No specific problem - situation analysis
 /screenshot --crop
-（Claude が自動的に画面の内容を解析し、要素や構成を説明）
+(Claude will automatically analyze screen content, explaining elements and composition)
 
-# UI/UX の問題分析
+# UI/UX problem analysis
 /screenshot --window
-「この UI の問題点と改善案を提案して」
+"Propose problems and improvements for this UI"
 
-# エラー解析
+# Error analysis
 /screenshot --window
-「このエラーメッセージの原因と解決方法を教えて」
+"Tell me the cause and solution for this error message"
 
-# デザインレビュー
+# Design review
 /screenshot --full
-「このデザインを UX の観点から評価して」
+"Evaluate this design from a UX perspective"
 
-# コード解析
+# Code analysis
 /screenshot --crop
-「このコードの問題点を指摘して」
+"Point out problems in this code"
 
-# データ可視化の分析
+# Data visualization analysis
 /screenshot --crop
-「このグラフから読み取れる傾向を分析して」
+"Analyze trends visible in this graph"
 ```
 
-### 詳細例
+### Detailed Examples
 
 ```bash
-# 複数の観点から分析
+# Analysis from multiple perspectives
 /screenshot --window
-「この画面について以下を分析して：
-1. UI の一貫性
-2. アクセシビリティの問題
-3. 改善提案」
+"Analyze this screen regarding:
+1. UI consistency
+2. Accessibility issues
+3. Improvement proposals"
 
-# 比較分析用に複数撮影
+# Multiple captures for comparative analysis
 /screenshot --window
-# （before の画像を保存）
-# 変更を加える
+# (Save before image)
+# Make changes
 /screenshot --window
-# （after の画像を保存）
-「before と after の画像を比較して、変更点と改善効果を分析して」
+# (Save after image)
+"Compare before and after images, analyzing changes and improvement effects"
 
-# 特定要素にフォーカス
+# Focus on specific elements
 /screenshot --crop
-「選択したボタンのデザインが他の要素と調和しているか評価して」
+"Evaluate whether the selected button design harmonizes with other elements"
 ```
 
-### 禁止事項
+### Prohibited Items
 
-- **スクリーンショットを撮影していないのに「撮影しました」と言うことは禁止**
-- **存在しない画像ファイルの解析を試みることは禁止**
-- **`/screenshot` コマンドは実際のスクリーンショット撮影を行わない**
+- **Prohibited to say "captured" when no screenshot was taken**
+- **Prohibited to attempt analysis of non-existent image files**
+- **The `/screenshot` command does not actually capture screenshots**
 
-### 注意事項
+### Notes
 
-- オプションを指定しない場合、以下の選択肢を提示してください：
+- If no option is specified, please present the following choices:
 
   ```
-  「どの方法でスクリーンショットを撮影しますか？
-  1. ウィンドウを選択 (--window) → screencapture -W
-  2. 画面全体 (--full) → screencapture -x
-  3. 範囲を選択 (--crop) → screencapture -i」
+  "How would you like to capture the screenshot?
+  1. Select window (--window) → screencapture -W
+  2. Full screen (--full) → screencapture -x
+  3. Select region (--crop) → screencapture -i"
   ```
 
-- ユーザーが screencapture コマンドを実行した後に画像解析を開始してください
-- 具体的な問題や観点を指定すると、より焦点を絞った分析が可能です
+- Start image analysis after the user has executed the screencapture command
+- Specifying specific problems or perspectives enables more focused analysis

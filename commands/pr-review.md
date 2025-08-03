@@ -1,142 +1,142 @@
 ## PR Review
 
-Pull Request の体系的レビューでコード品質とアーキテクチャの健全性を確保します。
+Ensure code quality and architectural soundness through systematic Pull Request reviews.
 
-### 使い方
+### Usage
 
 ```bash
-# PR の包括的レビュー
+# Comprehensive PR review
 gh pr view 123 --comments
-「この PR を体系的にレビューしてコード品質、セキュリティ、アーキテクチャの観点からフィードバックしてください」
+"Systematically review this PR and provide feedback from code quality, security, and architecture perspectives"
 
-# セキュリティ特化レビュー
+# Security-focused review
 gh pr diff 123
-「セキュリティリスクと脆弱性に焦点を当ててレビューしてください」
+"Focus on reviewing security risks and vulnerabilities"
 
-# アーキテクチャ観点のレビュー
+# Architecture perspective review
 gh pr checkout 123 && find . -name "*.js" | head -10
-「レイヤー分離、依存関係、SOLID 原則の観点からアーキテクチャを評価してください」
+"Evaluate the architecture from the perspectives of layer separation, dependencies, and SOLID principles"
 ```
 
-### 基本例
+### Basic Examples
 
 ```bash
-# コード品質の数値的評価
+# Quantitative code quality assessment
 find . -name "*.js" -exec wc -l {} + | sort -rn | head -5
-"コードの複雑度、関数サイズ、重複度を評価して改善点を指摘してください"
+"Evaluate code complexity, function size, and duplication, and point out improvements"
 
-# セキュリティ脆弱性チェック
+# Security vulnerability check
 grep -r "password\|secret\|token" . --include="*.js" | head -10
-"機密情報の漏洩、ハードコーディング、認証バイパスのリスクをチェックしてください"
+"Check for risks of sensitive information leakage, hardcoding, and authentication bypass"
 
-# アーキテクチャ違反の検出
+# Architecture violation detection
 grep -r "import.*from.*\.\./\.\." . --include="*.js"
-"レイヤー違反、循環依存、結合度の問題を評価してください"
+"Evaluate layer violations, circular dependencies, and coupling issues"
 ```
 
-### コメント分類体系
+### Comment Classification System
 
 ```
-🔴 critical.must: 致命的問題
-├─ セキュリティ脆弱性
-├─ データ整合性問題
-└─ システム障害リスク
+🔴 critical.must: Critical issues
+├─ Security vulnerabilities
+├─ Data integrity problems
+└─ System failure risks
 
-🟡 high.imo: 高優先度改善
-├─ 機能不全のリスク
-├─ パフォーマンス問題
-└─ 保守性の大幅低下
+🟡 high.imo: High-priority improvements
+├─ Risk of malfunction
+├─ Performance issues
+└─ Significant decrease in maintainability
 
-🟢 medium.imo: 中優先度改善
-├─ 可読性の向上
-├─ コード構造改善
-└─ テスト品質向上
+🟢 medium.imo: Medium-priority improvements
+├─ Readability enhancement
+├─ Code structure improvement
+└─ Test quality improvement
 
-🟢 low.nits: 軽微な指摘
-├─ スタイル統一
-├─ タイポ修正
-└─ コメント追加
+🟢 low.nits: Minor points
+├─ Style unification
+├─ Typo fixes
+└─ Comment additions
 
-🔵 info.q: 質問・情報提供
-├─ 実装意図の確認
-├─ 設計判断の背景
-└─ ベストプラクティスの共有
+🔵 info.q: Questions/information
+├─ Implementation intent confirmation
+├─ Design decision background
+└─ Best practices sharing
 ```
 
-### レビュー観点
+### Review Perspectives
 
-#### 1. コード正確性
+#### 1. Code Correctness
 
-- **ロジックエラー**: 境界値、Null チェック、例外処理
-- **データ整合性**: 型安全性、バリデーション
-- **エラーハンドリング**: 網羅性、適切な処理
+- **Logic errors**: Boundary values, null checks, exception handling
+- **Data integrity**: Type safety, validation
+- **Error handling**: Completeness, appropriate processing
 
-#### 2. セキュリティ
+#### 2. Security
 
-- **認証・認可**: 適切なチェック、権限管理
-- **入力検証**: SQL インジェクション、XSS 対策
-- **機密情報**: ログ出力禁止、暗号化
+- **Authentication/authorization**: Appropriate checks, permission management
+- **Input validation**: SQL injection, XSS countermeasures
+- **Sensitive information**: Logging restrictions, encryption
 
-#### 3. パフォーマンス
+#### 3. Performance
 
-- **アルゴリズム**: 時間計算量、メモリ効率
-- **データベース**: N+1 クエリ、インデックス最適化
-- **リソース**: メモリリーク、キャッシュ活用
+- **Algorithms**: Time complexity, memory efficiency
+- **Database**: N+1 queries, index optimization
+- **Resources**: Memory leaks, cache utilization
 
-#### 4. アーキテクチャ
+#### 4. Architecture
 
-- **レイヤー分離**: 依存方向、適切な分離
-- **結合度**: 疑結合、インターフェース活用
-- **SOLID 原則**: 単一責任、開放閉鎖、依存性逆転
+- **Layer separation**: Dependency direction, appropriate separation
+- **Coupling**: Tight coupling, interface utilization
+- **SOLID principles**: Single responsibility, open-closed, dependency inversion
 
-### レビューフロー
+### Review Flow
 
-1. **事前確認**: PR 情報、変更差分、関連 Issue
-2. **体系的チェック**: セキュリティ → 正確性 → パフォーマンス → アーキテクチャ
-3. **建設的フィードバック**: 具体的な改善案とコード例
-4. **フォローアップ**: 修正確認、CI 状態、最終承認
+1. **Pre-check**: PR information, change diff, related issues
+2. **Systematic checks**: Security → Correctness → Performance → Architecture
+3. **Constructive feedback**: Specific improvement suggestions and code examples
+4. **Follow-up**: Fix confirmation, CI status, final approval
 
-### 効果的なコメント例
+### Effective Comment Examples
 
-**セキュリティ問題**
+**Security Issues**
 
 ```markdown
-**critical.must.** パスワードが平文で保存されています
+**critical.must.** Password is stored in plaintext
 
 ```javascript
-// 修正案
+// Proposed fix
 const bcrypt = require('bcrypt');
 const hashedPassword = await bcrypt.hash(password, 12);
 ```
 
-セキュリティリスクを防ぐためハッシュ化が必須です。
+Hashing is required to prevent security risks.
 
 ```
 
-**パフォーマンス改善**
+**Performance Improvement**
 ```markdown
-**high.imo.** N+1 クエリ問題が発生します
+**high.imo.** N+1 query problem occurs
 
 ```javascript
-// 改善案: Eager Loading
+// Improvement: Eager Loading
 const users = await User.findAll({ include: [Post] });
 ```
 
-クエリ数を大幅に削減できます。
+This can significantly reduce the number of queries.
 
 ```
 
-**アーキテクチャ違反**
+**Architecture Violation**
 ```markdown
-**high.must.** レイヤー違反が発生しています
+**high.must.** Layer violation occurred
 
-ドメイン層がインフラ層に直接依存しています。
-依存性逆転の原則でインターフェースを導入してください。
+The domain layer directly depends on the infrastructure layer.
+Please introduce an interface following the dependency inversion principle.
 ```
 
-### 注意事項
+### Notes
 
-- **建設的トーン**: 攻撃的ではなく協調的なコミュニケーション
-- **具体的提案**: 問題の指摘だけでなく解決案を提示
-- **優先度付け**: Critical → High → Medium → Low の順で対応
-- **継続改善**: レビュー結果をナレッジベース化
+- **Constructive tone**: Collaborative rather than aggressive communication
+- **Specific suggestions**: Provide solutions along with pointing out problems
+- **Prioritization**: Address in order of Critical → High → Medium → Low
+- **Continuous improvement**: Document review results in a knowledge base

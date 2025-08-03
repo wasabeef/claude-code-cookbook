@@ -1,16 +1,16 @@
 #!/bin/bash
-# トリガーベースのコメントチェック
+# Trigger-based comment check
 
 input="$CLAUDE_TOOL_INPUT"
 file_path=$(echo "$input" | jq -r '.tool_input.file_path // empty')
 [ -z "$file_path" ] || [ ! -f "$file_path" ] && exit 0
 
-# 新規ファイル作成時のみチェック
+# Check only when creating new files
 if echo "$input" | jq -e '.tool == "Write"' >/dev/null; then
-  jq -n '{decision: "block", reason: "新規ファイルを作成しました。コードファイルの場合は適切な docstring（関数・クラス・モジュールレベルの API ドキュメント）を追加することを検討してください。"}'
+  jq -n '{decision: "block", reason: "A new file has been created. If this is a code file, consider adding appropriate docstrings (function, class, or module-level API documentation)."}'
 fi
 
-# 大幅な編集時（MultiEdit 使用時）のみチェック
+# Check only when making significant edits (using MultiEdit)
 if echo "$input" | jq -e '.tool == "MultiEdit"' >/dev/null; then
-  jq -n '{decision: "block", reason: "複数の編集を行いました。変更に合わせて docstring や API ドキュメントの更新が必要か確認してください。"}'
+  jq -n '{decision: "block", reason: "Multiple edits have been made. Please check if docstrings or API documentation need to be updated according to the changes."}'
 fi
