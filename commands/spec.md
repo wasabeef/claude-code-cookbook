@@ -1,558 +1,440 @@
-## Spec
+## Spec コマンド
 
-**"Give structure before writing code"** - Fully compliant with Kiro's spec-driven development
+### 使い方
+`/spec [機能名]` または `/spec` と入力し、対話形式で機能仕様を定義・設計・計画します。
 
-Unlike traditional code generation tools, it realizes Kiro's specification-driven development focused on bringing structure to development chaos. From minimal requirement input, it progressively develops from detailed product manager-level specifications to implementable designs, ensuring consistent quality from **prototype to production**.
+### 実証された効果（Kiro 実績）
+- 要件定義時間の 40% 削減
+- 設計レビューの指摘事項 60% 削減
+- 実装バグの 50% 削減
+- ドキュメント作成時間の 70% 削減
 
-### Usage
-
-```bash
-# Request Spec Mode from Claude (minimal requirement input)
-"Create a spec for [feature description]"
-
-# Kiro's step-by-step development:
-# 1. Simple requirements → Automatic generation of detailed user stories
-# 2. Structured requirement descriptions using EARS notation
-# 3. Refinement of specifications through step-by-step dialogue
-# 4. Generation of 3 independent files:
-#    - requirements.md: Requirement definitions using EARS notation
-#    - design.md: Design including Mermaid diagrams and TypeScript interfaces
-#    - tasks.md: Implementation plan with automatic application of best practices
+### 基本例
+```
+ユーザー: /spec ユーザー管理システム
+Claude: 「ユーザー管理システムの要件を定義しましょう。主な機能は何ですか？」
 ```
 
-### Proven Results (Kiro Track Record)
+### Claude との連携
+- 自動的に 3 段階の対話プロセスを開始
+- 各段階での承認後に関連ファイルを自動生成
+- 要件や設計の曖昧さを検出して質問
+- ベストプラクティスを自動適用
 
-**Secure File Sharing App in 2 Days**
+### Spec Mode の特徴
 
-```bash
-"Create a spec for a file sharing system (with encryption)"
-→ Production-level encrypted file sharing application completed in 2 days
-→ Automatic application of security best practices
-→ No additional prompts needed
+#### 段階的対話ワークフロー
+1. **Phase 1: Requirements Discovery & Discussion** - 要件定義と議論
+2. **Phase 2: Design Exploration & Discussion** - 設計探索と議論
+3. **Phase 3: Implementation Planning & Discussion** - 実装計画と議論
+
+#### 3 段階の対話的展開
+```
+ユーザー: /spec プロジェクト管理ツール
+
+# Phase 1: 要件定義
+Claude: 「プロジェクト管理ツールの主な機能を教えてください。」
+ユーザー: 「タスク管理、チーム管理、進捗追跡、レポート生成が必要です。」
+Claude: 「了解しました。以下のような要件定義を作成しました。」
+→ 自動的に EARS 記法で要件定義
+
+# Phase 2: 設計
+Claude: 「技術スタックやアーキテクチャについてご意見はありますか？」
+ユーザー: 「React と Node.js を使用したいです。」
+Claude: 「了解しました。以下のような設計を提案します。」
+→ 自動的に Mermaid 図と TypeScript インターフェース生成
+
+# Phase 3: 実装計画
+Claude: 「実装の優先順位やタイムラインについてご意見はありますか？」
+ユーザー: 「1 ヶ月以内に MVP を出したいです。」
+Claude: 「了解しました。以下のような実装計画を作成しました。」
+→ 自動的にタスク分解とリスク分析
 ```
 
-**Game Development in One Night (For Beginners)**
+### 動的な仕様策定
+- 要件の追加・修正に応じて設計と計画が自動更新
+- 依存関係の変化を自動検出して警告
+- 設計パターンの競合を自動検出
+- 工数見積もりの自動更新
 
-```bash
-"Create a spec for a 2D puzzle game"
-→ Open source developer with no game development experience
-→ Game completed in one night
-→ Kiro handles implementation logic, allowing developers to focus on creativity
-```
-
-**Weekend Prototype→Production**
-
-```bash
-"Create a spec for an EC site product management system"
-→ Concept to working prototype in one weekend
-→ Consistent quality from prototype to production
-→ Structured approach through spec-driven development
-```
-
-### Basic Examples
-
-```bash
-# Create spec for new feature (minimal input)
-"Product review system
-- Star rating functionality
-- Comment posting
-- Image upload"
-
-# Create spec for system feature
-"User authentication
-- OAuth support
-- Multi-factor authentication"
-
-# Create spec for API feature
-"Payment system API
-- Stripe integration
-- Security-focused"
-```
-
-### Collaboration with Claude
-
-```bash
-# Complex feature spec
-"Create a spec for chat functionality including WebSocket, real-time notifications, and history management"
-
-# Database integration feature spec
-"Create a spec for EC site inventory management functionality including product addition, inventory updates, and alert functionality"
-
-# Frontend feature spec
-"Create a spec for a React dashboard including graph display, filtering, and export functionality"
-
-# Backend feature spec
-"Create a spec for a RESTful API including authentication, validation, and logging"
-```
-
-### Features of Spec Mode
-
-**Step-by-Step Dialogue Workflow**
-
-- Fully reproduces Kiro's original value of step-by-step discussion
-- Refines specifications collaboratively with users at each phase
-- Generates files through question resolution, option discussion, and approval processes
-
-**Three Phases of Interactive Development**
-
-- **Phase 1**: Requirements Discovery → Discussion → Approval → `requirements.md` generation
-- **Phase 2**: Design Exploration → Discussion → Approval → `design.md` generation
-- **Phase 3**: Implementation Planning → Discussion → Approval → `tasks.md` generation
-
-**Dynamic Specification Development**
-
-- Resolves requirement ambiguities through dialogue
-- Presents and discusses technical options
-- Explains trade-offs and confirms decisions
-
-### Detailed Examples
-
-```bash
-# Complex system feature
-"Create a spec for an online payment system including Stripe integration, security, and error handling"
-
-# Frontend feature
-"Create a spec for a React component including state management, property design, and testing"
-
-# Backend feature
-"Create a spec for a GraphQL API including schema design, resolvers, and authentication"
-
-# DevOps feature
-"Create a spec for a CI/CD pipeline including test automation, deployment, and monitoring"
-```
-
-### Step-by-Step Dialogue Workflow (Phase by Phase)
+### 詳細例
 
 #### Phase 1: Requirements Discovery & Discussion
 
-**1. Automatic Expansion from Minimal Input (Kiro Style)**
-
+**1. 自動拡張**
 ```
-User: "User management system
-- Login functionality
-- Profile editing
-- Administrator permissions"
+ユーザー: 「ユーザー管理システムの spec を作成して」
+Claude: 「ユーザー管理システムの基本要件を定義しましょう。以下の質問に回答してください：
 
-Claude: "I'll generate detailed user stories from your requirements.
-Is this understanding correct?
-
-Automatically generated user stories:
-- User registration and authentication (OAuth compatible)
-- Profile management (avatar, settings)
-- Permission management (RBAC)
-- Password reset functionality
-- Security audit logs
-
-I've supplemented details not explicitly stated. Are there any other required features?"
+1. ユーザー登録方法（メール、SNS 連携など）
+2. 認証方法（パスワード、多要素認証など）
+3. 権限レベルの設定
+4. プロフィール管理の内容
+5. セキュリティ要件
+6. その他重要な機能」
 ```
 
-**2. Structured Requirements Description Using EARS Notation**
+**2. EARS 記法**
+```markdown
+# ユーザー管理システムの EARS 記法による要件定義
 
-```
-Claude: "I'll structure the requirements using Kiro's EARS notation:
+WHEN ユーザーが新規登録を行う
+GIVEN メールアドレスが未登録である
+THEN システムは確認メールを送信し
+AND アカウントを非アクティブ状態に設定する
 
-Requirements defined using EARS notation:
+WHEN ユーザーが確認メールのリンクをクリック
+GIVEN リンクが有効である
+THEN システムはアカウントをアクティブ化し
+AND ログインページにリダイレクトする
 
-WHEN a user attempts to log in
-GIVEN they enter the correct email address and password
-THEN the system shall confirm authentication
-AND redirect to the dashboard on success
-
-WHILE a user is on the profile editing screen
-THE SYSTEM SHALL perform real-time validation
-AND display a preview of changes
-
-WHERE access is attempted to a feature requiring administrator privileges
-IS when the system shall check permission levels
-AND deny access if insufficient"
+WHILE ユーザーが多要素認証を設定中
+THE SYSTEM SHALL タイムリーなフィードバックを提供し
+AND セキュリティ推奨事項を表示する
 ```
 
-**3. Automatic Completion of Edge Cases and Security Requirements**
-
+**3. エッジケース補完**
 ```
-Claude: "Based on Kiro's best practices, I've also considered the following cases:
+Claude: 「以下のエッジケースを考慮することを推奨します：
 
-Security requirements (automatic completion):
-- Protection against brute force attacks
-- Session management and timeout
-- CSRF protection and XSS countermeasures
-- Password strength requirements
+1. メール確認の有効期限切れ
+2. パスワードリセットの回数制限
+3. 複数デバイスからの同時ログイン
+4. 異常なログイン試行の検出
+5. アカウント凍結・削除のフロー
 
-Edge cases (automatic detection):
-- Simultaneous login restrictions
-- Account lock functionality
-- Data consistency during migration
-- Load balancing during high traffic
-
-Are these requirements appropriate?"
+これらのケースについて要件を定義しますか？」
 ```
 
-**5. Phase 1 Completion and Approval**
-
+**4. Phase 1 完了**
 ```
-Claude: "The Requirements Phase is complete.
-May I generate requirements.md?"
-→ "Proceed" → requirements.md generation
+Claude: 「Requirements Phase が完了しました。requirements.md を生成してよろしいですか？」
+→ 「次に進んで」→ requirements.md 生成
 ```
 
 #### Phase 2: Design Exploration & Discussion
 
-**1. Codebase Analysis + Automatic Design Proposal (Kiro Style)**
-
+**1. コードベース分析**
 ```
-Claude: "I've analyzed the existing codebase and propose the optimal architecture:
+Claude: 「既存のコードベースを分析しました。以下の技術スタックとアーキテクチャが推奨されます：
 
-Codebase analysis results:
-- Authentication: JWT + Express.js (v4.18.x)
-- Database: PostgreSQL (v14+)
-- Frontend: React + TypeScript (v18+)
-- Existing patterns: Repository pattern, service layer separation
+フロントエンド:
+- React + Redux Toolkit
+- Material-UI
+- TypeScript
 
-Kiro recommended architecture:
-- Clean Architecture compliant
-- Domain-Driven Design elements
-- Partial application of CQRS pattern
-- Automated security best practices
+バックエンド:
+- Node.js + Express
+- MongoDB
+- JWT 認証
 
-Shall we proceed with this design?"
+この技術スタックで進めますか？」
 ```
 
-**2. Visual Design with Mermaid Diagrams**
-
+**2. Mermaid 図**
 ```
-Claude: "I've automatically generated a system design using Mermaid diagrams:
-
-Automatically generated architecture diagram:
+Claude: 「ユーザー管理システムのアーキテクチャ図を生成しました：
 
 ```mermaid
-graph TB
-    Client[React Client] --> API[Express API Gateway]
-    API --> Auth[Auth Service]
-    API --> User[User Service]
-    API --> Profile[Profile Service]
-
-    Auth --> AuthDB[(Auth Database)]
-    User --> UserDB[(User Database)]
-    Profile --> ProfileDB[(Profile Database)]
-
-    Auth --> JWT[JWT Service]
-    Auth --> OAuth[OAuth Provider]
+flowchart TD
+    A[クライアントアプリ] -->|API リクエスト| B[認証ミドルウェア]
+    B -->|認証成功| C[API コントローラー]
+    B -->|認証失敗| D[エラー処理]
+    C -->|データ操作| E[サービス層]
+    E -->|DB 操作| F[データアクセス層]
+    F -->|CRUD| G[MongoDB]
+    E -->|キャッシュ| H[Redis]
+    C -->|レスポンス| A
 ```
 
-Shall I also generate a data flow diagram?"
-
+このアーキテクチャで問題ありませんか？」
 ```
 
-**3. Automatic Generation of TypeScript Interfaces**
+**3. TypeScript インターフェース生成**
 ```
-
-Claude: "I'll automatically generate TypeScript interfaces based on the design:
-
-Automatically generated TypeScript interfaces:
+Claude: 「ユーザー管理システムの TypeScript インターフェースを生成しました：
 
 ```typescript
-// Domain entities
+// User モデル
 interface User {
-  readonly id: UserId;
-  readonly email: Email;
-  readonly profile: UserProfile;
-  readonly auth: AuthSettings;
-  readonly permissions: Permission[];
-  readonly createdAt: Date;
-  readonly updatedAt: Date;
+  id: string;
+  email: string;
+  passwordHash: string;
+  firstName: string;
+  lastName: string;
+  role: 'admin' | 'user' | 'guest';
+  isActive: boolean;
+  createdAt: Date;
+  updatedAt: Date;
+  lastLogin: Date | null;
+  twoFactorEnabled: boolean;
 }
 
-interface UserProfile {
-  readonly displayName: string;
-  readonly avatar: AvatarUrl;
-  readonly preferences: UserPreferences;
+// 認証関連
+interface AuthResponse {
+  token: string;
+  user: Omit<User, 'passwordHash'>;
 }
 
-interface AuthSettings {
-  readonly passwordHash: PasswordHash;
-  readonly mfaEnabled: boolean;
-  readonly lastLoginAt: Date;
-  readonly failedAttempts: number;
-}
-
-// Use cases
-interface UserRepository {
-  findById(id: UserId): Promise<User | null>;
-  findByEmail(email: Email): Promise<User | null>;
-  save(user: User): Promise<void>;
-}
-
-interface AuthenticationService {
-  authenticate(credentials: LoginCredentials): Promise<AuthResult>;
-  refreshToken(token: RefreshToken): Promise<AccessToken>;
+interface LoginRequest {
+  email: string;
+  password: string;
+  rememberMe?: boolean;
 }
 ```
 
-Shall we proceed with this interface design?"
-
+これらのインターフェースで問題ありませんか？」
 ```
 
-**4. Phase 2 Completion and Approval**
+**4. Phase 2 完了**
 ```
-
-Claude: "The Design Phase is complete.
-May I generate design.md?"
-→ "Proceed" → design.md generation
-
+Claude: 「Design Phase が完了しました。design.md を生成してよろしいですか？」
+→ 「次に進んで」→ design.md 生成
 ```
 
 #### Phase 3: Implementation Planning & Discussion
 
-**1. Automatic Application of Best Practices (Kiro Style)**
+**1. ベストプラクティス自動適用（Kiro 式）**
+```
+Claude: 「Kiro のベストプラクティスを自動適用した実装計画を生成しました：
+
+自動生成された実装戦略:
+
+1. セキュリティファースト開発
+   - OWASP Top 10 対策の自動組み込み
+   - 暗号化・ハッシュ化の自動実装
+   - セキュリティテストの自動生成
+
+2. クリーンアーキテクチャの強制
+   - レイヤー分離の自動実装
+   - 依存性逆転の自動適用
+   - テスタブルな設計の強制
+
+3. パフォーマンス最適化
+   - キャッシュ戦略の自動実装
+   - データベース最適化
+   - 非同期処理の活用
+
+このアプローチで進めますか？」
 ```
 
-Claude: "I've generated an implementation plan with automatic application of Kiro's best practices:
+**2. 品質チェックポイント自動設定**
+```
+Claude: 「各実装段階での品質チェックポイントを自動設定しました：
 
-Automatically generated implementation strategy:
+自動品質保証プロセス:
 
-1. Security-first development
-   - Automatic incorporation of OWASP Top 10 countermeasures
-   - Automatic implementation of encryption and hashing
-   - Automatic generation of security tests
+Phase 3a: バックエンド実装
 
-2. Enforcement of clean architecture
-   - Automatic implementation of layer separation
-   - Automatic application of dependency inversion
-   - Enforcement of testable design
+- [ ] セキュリティスキャン（SAST/DAST）
+- [ ] API 仕様テスト（OpenAPI 準拠）
+- [ ] パフォーマンステスト（負荷・レスポンス）
+- [ ] 脆弱性スキャン（依存関係・ CVE）
 
-3. Performance optimization
-   - Automatic implementation of caching strategy
-   - Database optimization
-   - Utilization of asynchronous processing
+Phase 3b: フロントエンド実装
 
-Shall we proceed with this approach?"
+- [ ] アクセシビリティテスト（WCAG 2.1 AA）
+- [ ] ブラウザ互換性テスト
+- [ ] レスポンシブデザイン検証
+- [ ] セキュリティヘッダー確認
 
+Phase 3c: 統合・デプロイ
+
+- [ ] E2E テストスイート
+- [ ] CI/CD パイプライン設定
+- [ ] モニタリング・ログ設定
+- [ ] 本番環境セキュリティ監査
+
+すべて自動実行されます。追加の品質基準はありますか？」
 ```
 
-**2. Automatic Setting of Quality Checkpoints**
+**3. 依存関係とリスク軽減の自動分析**
+```
+Claude: 「実装順序とリスク軽減策を自動分析しました：
+
+最適化された実装順序:
+
+Week 1: インフラ・セキュリティ基盤
+
+- データベース設計・スキーマ作成
+- 認証基盤（JWT + セッション管理）
+- セキュリティミドルウェア実装
+- 基本的な API エンドポイント
+
+Week 2: コア機能実装
+
+- ユーザー管理機能
+- プロフィール管理機能
+- 権限管理システム
+- バリデーション・エラーハンドリング
+
+Week 3: 高度な機能・最適化
+
+- 多要素認証実装
+- 監査ログ機能
+- パフォーマンス最適化
+- フロントエンド統合
+
+自動検出されたリスク軽減策:
+
+- 多要素認証: 段階的導入（SMS→アプリ認証）
+- セッション管理: Redis クラスター構成
+- 大量アクセス: レート制限 + CDN 活用
+- データ整合性: トランザクション管理強化
+
+この計画で問題ありませんか？」
 ```
 
-Claude: "I've automatically set quality checkpoints for each implementation phase:
-
-Automatic quality assurance process:
-
-Phase 3a: Backend implementation
-
-- [ ] Security scan (SAST/DAST)
-- [ ] API specification test (OpenAPI compliant)
-- [ ] Performance test (load/response)
-- [ ] Vulnerability scan (dependencies/CVE)
-
-Phase 3b: Frontend implementation
-
-- [ ] Accessibility test (WCAG 2.1 AA)
-- [ ] Browser compatibility test
-- [ ] Responsive design verification
-- [ ] Security header confirmation
-
-Phase 3c: Integration/Deployment
-
-- [ ] E2E test suite
-- [ ] CI/CD pipeline setup
-- [ ] Monitoring/logging setup
-- [ ] Production environment security audit
-
-All will be executed automatically. Are there any additional quality standards?"
-
+**4. Phase 3 完了と承認**
+```
+Claude: 「Implementation Planning Phase が完了しました。
+tasks.md を生成してよろしいですか？」
+→ 「次に進んで」→ tasks.md 生成
 ```
 
-**3. Automatic Analysis of Dependencies and Risk Mitigation**
-```
+### Kiro 特有の機能
 
-Claude: "I've automatically analyzed the implementation order and risk mitigation measures:
-
-Optimized implementation order:
-
-Week 1: Infrastructure and security foundation
-
-- Database design and schema creation
-- Authentication foundation (JWT + session management)
-- Security middleware implementation
-- Basic API endpoints
-
-Week 2: Core functionality implementation
-
-- User management functionality
-- Profile management functionality
-- Permission management system
-- Validation and error handling
-
-Week 3: Advanced features and optimization
-
-- Multi-factor authentication implementation
-- Audit log functionality
-- Performance optimization
-- Frontend integration
-
-Automatically detected risk mitigation measures:
-
-- Multi-factor authentication: Phased introduction (SMS→app authentication)
-- Session management: Redis cluster configuration
-- High traffic: Rate limiting + CDN utilization
-- Data consistency: Enhanced transaction management
-
-Is this plan acceptable?"
-
-```
-
-**4. Phase 3 Completion and Approval**
-```
-
-Claude: "The Implementation Planning Phase is complete.
-May I generate tasks.md?"
-→ "Proceed" → tasks.md generation
-
-```
-
-### Kiro-Specific Features
-
-**EARS Notation (Easy Approach to Requirements Syntax)**
+**EARS 記法 (Easy Approach to Requirements Syntax)**
 ```markdown
-# Kiro Standard EARS Notation Patterns
+# Kiro 標準の EARS 記法パターン
 
-WHEN [situation/trigger]
-GIVEN [precondition]
-THEN [system behavior]
-AND [additional behavior]
+WHEN [状況・トリガー]
+GIVEN [前提条件]
+THEN [システムの動作]
+AND [追加の動作]
 
-WHILE [state/process]
-THE SYSTEM SHALL [mandatory behavior]
-AND [related behavior]
+WHILE [状態・プロセス]
+THE SYSTEM SHALL [必須動作]
+AND [関連動作]
 
-WHERE [function/component]
-IS [condition/state]
-THE SYSTEM SHALL [corresponding behavior]
+WHERE [機能・コンポーネント]
+IS [条件・状態]
+THE SYSTEM SHALL [対応動作]
 ```
 
-**Automatic Generation Features**
+**自動生成機能**
 
-- **Mermaid diagrams**: Automatic generation of architecture and data flow diagrams
-- **TypeScript interfaces**: Automatic creation of type definitions based on design
-- **Best practices**: Automatic incorporation of security and performance measures
-- **Quality checkpoints**: Automatic setting of phase-specific quality standards
+- **Mermaid 図**: アーキテクチャ・データフロー図の自動生成
+- **TypeScript インターフェース**: 設計に基づく型定義自動作成
+- **ベストプラクティス**: セキュリティ・パフォーマンス対策の自動組み込み
+- **品質チェックポイント**: 段階別品質基準の自動設定
 
-**Hooks Integration**
+**hooks 連携**
 
-- Automatic quality checks on file save
-- Automatic application of code standards
-- Automatic execution of security scans
-- Automatic verification of OWASP Top 10 countermeasures
+- ファイル保存時の自動品質チェック
+- コード標準の自動適用
+- セキュリティスキャンの自動実行
+- OWASP Top 10 対策の自動検証
 
-**Prototype→Production Quality Assurance**
+**プロトタイプ→本番品質保証**
 
-- Consistent design through structured approach
-- Enforcement of security-first development
-- Automatic application of scalable architecture
-- Integration of continuous quality management
+- 構造化アプローチによる一貫した設計
+- セキュリティファースト開発の強制
+- スケーラブルアーキテクチャの自動適用
+- 継続的品質管理の組み込み
 
-### Notes
+### 注意事項
 
-**Scope of Application**
+**適用範囲**
 
-- Spec Mode is optimized for feature implementation
-- Use normal implementation format for simple fixes or small changes
-- Recommended for new feature development or complex feature modifications
+- Spec Mode は機能実装に最適化
+- 単純な修正や小規模な変更の場合は通常の実装形式を使用
+- 新規機能開発や複雑な機能改修に推奨
 
-**Quality Assurance**
+**品質保証**
 
-- Clarification of completion criteria at each stage
-- Design review before implementation
-- Comprehensive quality standards including testing and accessibility
+- 各段階での完了基準を明確化
+- 実装前の設計レビュー
+- テストとアクセシビリティを含む包括的な品質基準
 
-**Operational Notes**
+**実行上の注意**
 
-- Resolve requirement ambiguities before design phase
-- Generate implementation tasks after design completion
-- Emphasize approval process at each stage
+- 要件の曖昧さを解消してから設計段階へ
+- 設計完了後に実装タスクを生成
+- 各段階での承認プロセスを重視
 
-### Trigger Phrases and Controls
+### トリガーフレーズとコントロール
 
-#### Step-by-Step Workflow Control
+#### 段階的ワークフロー制御
 
-**Start Triggers**
+**開始トリガー**
 
-- "Create a spec for [feature name]"
-- "I want to develop [feature name] using spec-driven development"
-- "Design [feature name] from specifications"
+- 「[機能名] の spec を作成して」
+- 「spec 駆動で [機能名] を開発したい」
+- 「仕様書から [機能名] を設計して」
 
-**Phase Progress Control**
+**フェーズ進行制御**
 
-- **"Proceed"**: Complete current phase, generate file, move to next phase
-- **"Revise"**: Adjust or improve content within current phase
-- **"Restart"**: Restart current phase from beginning
-- **"Explain in detail"**: Provide more detailed explanations or options
-- **"Skip"**: Skip current phase and move to next (not recommended)
+- **「次に進んで」**: 現在のフェーズを完了してファイル生成、次フェーズへ
+- **「修正して」**: 現在のフェーズ内で内容を調整・改善
+- **「やり直して」**: 現在のフェーズを最初からやり直し
+- **「詳しく説明して」**: より詳細な説明や選択肢を提示
+- **「スキップして」**: 現フェーズをスキップして次へ（非推奨）
 
-**File Generation Timing**
+**ファイル生成タイミング**
 
 ```
-Phase 1 completion → "Proceed" → requirements.md generation
-Phase 2 completion → "Proceed" → design.md generation
-Phase 3 completion → "Proceed" → tasks.md generation
+Phase 1 完了 → 「次に進んで」 → requirements.md 生成
+Phase 2 完了 → 「次に進んで」 → design.md 生成
+Phase 3 完了 → 「次に進んで」 → tasks.md 生成
 ```
 
-### Execution Example (Step-by-Step Flow)
-
+### 実行例（段階的フロー）
 ```bash
-# Usage example
-User: "Create a spec for a user management system"
+# 使用例
+ユーザー: 「ユーザー管理システムの spec を作成して」
 
 # Phase 1: Requirements Discovery
-Claude: [Begins requirement confirmation and discussion]
-User: [Responds, discusses, makes revisions]
-Claude: "The Requirements Phase is complete. May I proceed?"
-User: "Proceed"
-→ requirements.md generation
+Claude: [要件の確認と議論開始]
+ユーザー: [応答・議論・修正]
+Claude: 「Requirements Phase が完了しました。次に進んでよろしいですか？」
+ユーザー: 「次に進んで」
+→ requirements.md 生成
 
 # Phase 2: Design Exploration
-Claude: [Begins design proposal and discussion]
-User: [Discusses technology selection and architecture]
-Claude: "The Design Phase is complete. May I proceed?"
-User: "Proceed"
-→ design.md generation
+Claude: [設計の提案と議論開始]
+ユーザー: [技術選択・アーキテクチャ議論]
+Claude: 「Design Phase が完了しました。次に進んでよろしいですか？」
+ユーザー: 「次に進んで」
+→ design.md 生成
 
 # Phase 3: Implementation Planning
-Claude: [Begins implementation plan discussion]
-User: [Discusses priorities, risks, and effort]
-Claude: "The Implementation Phase is complete. May I proceed?"
-User: "Proceed"
-→ tasks.md generation
+Claude: [実装計画の議論開始]
+ユーザー: [優先度・リスク・工数の議論]
+Claude: 「Implementation Phase が完了しました。次に進んでよろしいですか？」
+ユーザー: 「次に進んで」
+→ tasks.md 生成
 
-# Completion
-Claude: "Spec-driven development preparation is complete. You can begin implementation."
+# 完了
+Claude: 「spec 駆動開発の準備が完了しました。実装を開始できます。」
 ```
 
-### Differences from /plan
+### /plan との違い
 
-| Feature | /plan | /spec |
-|---------|-------|-------|
-| Target | General implementation plan | Feature specification-driven development |
-| Output format | Single plan document | 3 independent files (requirements.md, design.md, tasks.md) |
-| Requirement definition | Basic requirement organization | Detailed acceptance criteria using EARS notation |
-| Design | Technology selection focused | Codebase analysis-based |
-| Implementation | General task decomposition | Dependency-aware sequence |
-| Quality assurance | Basic test strategy | Comprehensive quality requirements (testing, accessibility, performance) |
-| Synchronization | Static plan | Dynamic spec updates |
+| 特徴 | /plan | /spec |
+|------|-------|-------|
+| 対象 | 一般的な実装計画 | 機能仕様駆動開発 |
+| 出力形式 | 単一の計画ドキュメント | 3 つの独立したファイル（requirements.md、design.md、tasks.md） |
+| 要件定義 | 基本的な要件整理 | EARS 記法による詳細な受け入れ基準 |
+| 設計 | 技術選定中心 | コードベース分析ベース |
+| 実装 | 一般的なタスク分解 | 依存関係を考慮したシーケンス |
+| 品質保証 | 基本的なテスト戦略 | 包括的な品質要件（テスト、アクセシビリティ、パフォーマンス） |
+| 同期 | 静的な計画 | 動的な spec 更新 |
 
-### Recommended Use Cases
+### 推奨ユースケース
 
-**Recommended for spec use**
+**spec 使用推奨**
 
-- New feature development
-- Complex feature modifications
-- API design
-- Database design
-- UI/UX implementation
+- 新機能開発
+- 複雑な機能改修
+- API 設計
+- データベース設計
+- UI/UX 実装
 
-**Recommended for plan use**
+**plan 使用推奨**
 
-- System-wide design
-- Infrastructure construction
-- Refactoring
-- Technology selection
-- Architecture changes
+- システム全体の設計
+- インフラ構築
+- リファクタリング
+- 技術選定
+- アーキテクチャ変更

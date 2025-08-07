@@ -1,50 +1,50 @@
 ## Refactor
 
-Perform safe and incremental code refactoring and evaluate compliance with SOLID principles.
+安全で段階的なコードリファクタリングを実施し、SOLID 原則の遵守状況を評価します。
 
-### Usage
+### 使い方
 
 ```bash
-# Identify complex code and create refactoring plan
+# 複雑なコードの特定とリファクタリング計画
 find . -name "*.js" -exec wc -l {} + | sort -rn | head -10
-"Refactor large files to reduce complexity"
+「大きなファイルをリファクタリングして複雑度を削減してください」
 
-# Detect and integrate duplicate code
+# 重複コードの検出と統合
 grep -r "function processUser" . --include="*.js"
-"Commonalize duplicate functions using Extract Method"
+「重複した関数を Extract Method で共通化してください」
 
-# Detect SOLID principle violations
+# SOLID 原則違反の検出
 grep -r "class.*Service" . --include="*.js" | head -10
-"Evaluate whether these classes follow the single responsibility principle"
+「これらのクラスが単一責任の原則に従っているか評価してください」
 ```
 
-### Basic Examples
+### 基本例
 
 ```bash
-# Detect long methods
+# 長いメソッドの検出
 grep -A 50 "function" src/*.js | grep -B 50 -A 50 "return" | wc -l
-"Split methods longer than 50 lines using Extract Method"
+"50 行以上のメソッドを Extract Method で分割してください"
 
-# Condition complexity
+# 条件分岐の複雑度
 grep -r "if.*if.*if" . --include="*.js"
-"Improve nested conditionals using Strategy pattern"
+"ネストした条件文を Strategy パターンで改善してください"
 
-# Detect code smells
+# コードの臭いの検出
 grep -r "TODO\|FIXME\|HACK" . --exclude-dir=node_modules
-"Resolve comments that have become technical debt"
+"技術的負債となっているコメントを解決してください"
 ```
 
-### Refactoring Techniques
+### リファクタリング技法
 
-#### Extract Method
+#### Extract Method（メソッド抽出）
 
 ```javascript
-// Before: Long method
+// Before: 長大なメソッド
 function processOrder(order) {
-  // 50 lines of complex processing
+  // 50 行の複雑な処理
 }
 
-// After: Separation of responsibilities
+// After: 責任分離
 function processOrder(order) {
   validateOrder(order);
   calculateTotal(order);
@@ -55,93 +55,93 @@ function processOrder(order) {
 #### Replace Conditional with Polymorphism
 
 ```javascript
-// Before: switch statement
+// Before: switch 文
 function getPrice(user) {
   switch (user.type) {
-    case 'premium': return basePrice * 0.8;
+    case 'premium': return basPrice * 0.8;
     case 'regular': return basePrice;
   }
 }
 
-// After: Strategy pattern
+// After: Strategy パターン
 class PremiumPricing {
   calculate(basePrice) { return basePrice * 0.8; }
 }
 ```
 
-### SOLID Principles Check
+### SOLID 原則チェック
 
 ```
 S - Single Responsibility
-├─ Each class has a single responsibility
-├─ Limited to one reason for change
-└─ Clear responsibility boundaries
+├─ 各クラスが単一の責任を持つ
+├─ 変更理由が 1 つに限定される
+└─ 責任の境界が明確
 
 O - Open/Closed
-├─ Open for extension
-├─ Closed for modification
-└─ Protection of existing code when adding new features
+├─ 拡張に対して開かれている
+├─ 修正に対して閉じている
+└─ 新機能追加時の既存コード保護
 
 L - Liskov Substitution
-├─ Substitutability of derived classes
-├─ Contract compliance
-└─ Maintenance of expected behavior
+├─ 派生クラスの置換可能性
+├─ 契約の遵守
+└─ 期待される動作の維持
 
 I - Interface Segregation
-├─ Appropriately granular interfaces
-├─ Avoid dependencies on unused methods
-└─ Role-specific interface definitions
+├─ 適切な粒度のインターフェース
+├─ 使用しないメソッドへの依存回避
+└─ 役割別インターフェース定義
 
 D - Dependency Inversion
-├─ Dependency on abstractions
-├─ Separation from concrete implementations
-└─ Utilization of dependency injection
+├─ 抽象への依存
+├─ 具象実装からの分離
+└─ 依存性注入の活用
 ```
 
-### Refactoring Steps
+### リファクタリングプロセス
 
-1. **Current state analysis**
-   - Complexity measurement (cyclomatic complexity)
-   - Duplicate code detection
-   - Dependency analysis
+1. **現状分析**
+   - 複雑度測定（循環的複雑度）
+   - 重複コード検出
+   - 依存関係の分析
 
-2. **Incremental execution**
-   - Small steps (15-30 minute units)
-   - Test execution after each change
-   - Frequent commits
+2. **段階的実行**
+   - 小さなステップ（15-30 分単位）
+   - 各変更後のテスト実行
+   - 頻繁なコミット
 
-3. **Quality confirmation**
-   - Maintain test coverage
-   - Performance measurement
-   - Code review
+3. **品質確認**
+   - テストカバレッジ維持
+   - パフォーマンス測定
+   - コードレビュー
 
-### Common Code Smells
+### よくあるコードの臭い
 
-- **God Object**: Class with excessively many responsibilities
-- **Long Method**: Method longer than 50 lines
-- **Duplicate Code**: Repetition of the same logic
-- **Large Class**: Class larger than 300 lines
-- **Long Parameter List**: 4 or more parameters
+- **God Object**: 過度に多くの責務を持つクラス
+- **Long Method**: 50 行を超える長いメソッド
+- **Duplicate Code**: 同じロジックの重複
+- **Large Class**: 300 行を超える大きなクラス
+- **Long Parameter List**: 4 個以上のパラメータ
 
-### Automation Support
+### 自動化支援
 
 ```bash
-# Static analysis
+# 静的解析
 npx complexity-report src/
 sonar-scanner
 
-# Code formatting
+# コードフォーマット
 npm run lint:fix
 prettier --write src/
 
-# Test execution
+# テスト実行
 npm test
 npm run test:coverage
 ```
 
-### Notes
+### 注意事項
 
-- **No functionality changes**: Do not alter external behavior
-- **Test first**: Add tests before refactoring
-- **Incremental approach**: Avoid large changes at once
-- **Continuous verification**: Execute tests at each step
+- **機能変更の禁止**: 外部動作を変えない
+- **テストファースト**: リファクタリング前にテスト追加
+- **段階的アプローチ**: 一度に大きな変更をしない
+- **継続的検証**: 各ステップでのテスト実行

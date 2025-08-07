@@ -1,75 +1,75 @@
 ## Code Explain
 
-Provides detailed explanations of code behavior.
+コードの動作を詳しく解説します。
 
-### Usage
+### 使い方
 
 ```bash
-# Display file contents and request Claude
+# ファイル内容を表示して Claude に依頼
 cat <file>
-"Explain how this code works"
+「このコードの動作を解説して」
 ```
 
-### Basic Examples
+### 基本例
 
 ```bash
-# Understand Rust ownership
-git main.rs
-"Explain from the perspective of Rust ownership and lifetimes"
+# Rust の所有権を理解
+cat main.rs
+「Rust の所有権とライフタイムの観点から解説して」
 
-# Algorithm explanation
+# アルゴリズムの解説
 grep -A 50 "quicksort" sort.rs
-"Explain how this sorting algorithm works and its computational complexity"
+「このソートアルゴリズムの仕組みと計算量を解説して」
 
-# Design pattern explanation
+# デザインパターンの説明
 cat factory.rs
-"Explain the design pattern used and its benefits"
+「使用されているデザインパターンとその利点を説明して」
 ```
 
-### Collaboration with Claude
+### Claude との連携
 
 ```bash
-# Beginner-friendly explanation
+# 初心者向け解説
 cat complex_function.py
-"Explain this code line by line in an easy-to-understand way for beginners"
+「このコードを初心者にもわかりやすく 1 行ずつ解説して」
 
-# Performance analysis
+# パフォーマンス分析
 cat algorithm.rs
-"Identify performance issues in this code and suggest improvements"
+「このコードのパフォーマンス上の問題点と改善案を提示して」
 
-# Explanation with diagrams
+# 図解付き説明
 cat state_machine.js
-"Explain the flow of this code with ASCII art diagrams"
+「このコードの処理の流れを ASCII アートの図解付きで説明して」
 
-# Security review
+# セキュリティレビュー
 cat auth_handler.go
-"Identify security concerns in this code"
+「このコードのセキュリティ上の懸念点を指摘して」
 ```
 
-### Detailed Examples
+### 詳細例
 
 ```bash
-# Complex logic explanation
+# 複雑なロジックの解説
 cat recursive_parser.rs
-"Explain how this recursive parser works from the following perspectives:
-1. Overall processing flow
-2. Role and responsibility of each function
-3. Edge case handling
-4. Areas for improvement"
+「この再帰パーサーの動作を以下の観点で解説して：
+1. 全体的な処理フロー
+2. 各関数の役割と責任
+3. エッジケースの処理
+4. 改善可能な点」
 
-# Asynchronous processing explanation
+# 非同期処理の解説
 cat async_handler.ts
-"Explain this asynchronous processing including:
-1. Flow of the Promise chain
-2. Error handling mechanism
-3. Presence of parallel processing
-4. Potential for deadlocks"
+「この非同期処理について以下を解説して：
+1. Promise チェーンの流れ
+2. エラーハンドリングの仕組み
+3. 並行処理の有無
+4. デッドロックの可能性」
 
-# Architecture explanation
+# アーキテクチャの説明
 ls -la src/ && cat src/main.rs src/lib.rs
-"Explain the architecture and module structure of this project"
+「このプロジェクトのアーキテクチャとモジュール構成を解説して」
 ```
 
-### Notes
+### 注意事項
 
-In code explanations, we not only describe what the code does, but also provide deeper insights such as why it's implemented that way, what benefits it offers, and what potential issues might exist.
+コード解説では、単に動作を説明するだけでなく、なぜそのような実装になっているか、どのような利点があるか、潜在的な問題点は何かといった深い洞察も提供します。

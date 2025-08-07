@@ -1,60 +1,66 @@
 ## Gemini Web Search
 
-Execute web searches via Gemini CLI to obtain the latest information.
+Gemini CLI で Web 検索を実行して最新情報を取得します。
 
-### Usage
+### 使い方
 
 ```bash
-# Web search via Gemini CLI (required)
-gemini --prompt "WebSearch: <search_query>"
+# Gemini CLI 経由で Web 検索（必須）
+gemini --prompt "WebSearch: <検索クエリ>"
 ```
 
-### Basic Examples
+### 基本例
 
 ```bash
-# Using Gemini CLI
-gemini --prompt "WebSearch: React 19 new features"
-gemini --prompt "WebSearch: TypeError Cannot read property of undefined solution"
+# Gemini CLI を使用
+gemini --prompt "WebSearch: React 19 新機能"
+gemini --prompt "WebSearch: TypeError Cannot read property of undefined 解決方法"
 ```
 
-### Collaboration with Claude
+### Claude との連携
 
 ```bash
-# Document search and summarization
-gemini --prompt "WebSearch: Next.js 14 App Router official documentation"
-"Summarize the search results and explain the main features"
+# ドキュメント検索と要約
+gemini --prompt "WebSearch: Next.js 14 App Router 公式ドキュメント"
+「検索結果を要約して主要な機能を説明して」
 
-# Error investigation
+# エラー調査
 cat error.log
-gemini --prompt "WebSearch: [error_message] solution"
-"Propose the most appropriate solution from the search results"
+gemini --prompt "WebSearch: [エラーメッセージ] 解決方法"
+「検索結果から最も適切な解決方法を提案して」
 
-# Technology comparison
+# 技術比較
 gemini --prompt "WebSearch: Rust vs Go performance benchmark 2024"
-"Summarize the performance differences from the search results"
+「検索結果からパフォーマンスの違いをまとめて」
 ```
 
-### Detailed Examples
+### 詳細例
 
 ```bash
-# Information gathering from multiple sources
+# 複数ソースからの情報収集
 gemini --prompt "WebSearch: GraphQL best practices 2024 multiple sources"
-"Summarize information from multiple reliable sources in the search results"
+「検索結果から複数の信頼できるソースの情報をまとめて」
 
-# Investigating changes over time
+# 時系列での変化を調査
 gemini --prompt "WebSearch: JavaScript ES2015 ES2016 ES2017 ES2018 ES2019 ES2020 ES2021 ES2022 ES2023 ES2024 features"
-"Summarize the main changes in each version in chronological order"
+「各バージョンの主要な変更点を時系列でまとめて」
 
-# Search limited to specific domain
+# 特定ドメインに絞った検索
 gemini --prompt "WebSearch: site:github.com Rust WebAssembly projects stars:>1000"
-"List the top 10 projects by number of stars"
+「スター数の多い順に 10 個のプロジェクトをリストアップして」
 
-# Latest security information
+# 最新のセキュリティ情報
 gemini --prompt "WebSearch: CVE-2024 Node.js vulnerabilities"
-"Summarize the impact and countermeasures of found vulnerabilities"
+「見つかった脆弱性の影響と対策をまとめて」
 ```
 
-### Prohibited Items
+### 禁止事項
 
-- **Prohibited to use Claude's built-in WebSearch tool**
-- When web search is needed, always use `gemini --prompt
+- **Claude の組み込み WebSearch ツールの使用は禁止**
+- Web 検索が必要な場合は、必ず `gemini --prompt "WebSearch: ..."` を使用すること
+
+### 注意事項
+
+- **Gemini CLI が利用可能な場合は、必ず `gemini --prompt "WebSearch: ..."` を使用してください**
+- Web 検索結果は常に最新とは限りません
+- 重要な情報は公式ドキュメントや信頼できるソースで確認することをお勧めします

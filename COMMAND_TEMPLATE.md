@@ -1,122 +1,122 @@
 ## Command Name
 
-A concise description of the command (explain what the command does in one line).
+コマンドの簡潔な説明（1 行で何をするコマンドか説明）。
 
-<!--
-Notes for using the template:
-- Required sections: Title, Description, Usage, Basic Examples, Integration with Claude, Notes
-- Optional sections: Options, Detailed Features, Output Examples, Best Practices, Related Commands
-- Use only the necessary sections according to the complexity of the command
+<!-- 
+テンプレート使用時の注意:
+- 必須セクション: タイトル、説明、使い方、基本例、Claude との連携、注意事項
+- オプションセクション: オプション、詳細機能、出力例、ベストプラクティス、関連コマンド
+- コマンドの複雑さに応じて必要なセクションのみを使用してください
 -->
 
-### Usage
+### 使い方
 
 ```bash
-/command-name [options]
+/command-name [オプション]
 ```
 
-### Options
+### オプション
 
-- None : Default behavior
-- `--option1` : Description of option 1
-- `--option2 <value>` : Description of option that takes a parameter
-- `--flag` : Description of flag option
+- なし : デフォルトの動作
+- `--option1` : オプション 1 の説明
+- `--option2 <値>` : パラメータを取るオプションの説明
+- `--flag` : フラグオプションの説明
 
-*You can omit this entire section if the command doesn't require options.*
+※ オプションが不要なコマンドの場合は、このセクション全体を省略可能です。
 
-### Basic Examples
+### 基本例
 
 ```bash
-# Basic usage
+# 基本的な使い方
 /command-name
-"Explanation when executing"
+「実行する際の説明」
 
-# Example with option
+# オプション付きの例
 /command-name --option1
-"Explanation when using option 1"
+「オプション 1 を使った場合の説明」
 
-# Example with parameterized option
+# パラメータ付きオプションの例
 /command-name --option2 value
-"Example of using parameterized option"
+「パラメータ付きオプションの使用例」
 
-# Combination of multiple options
+# 複数オプションの組み合わせ
 /command-name --option1 --flag
-"Example of combining multiple options"
+「複数オプションを組み合わせた例」
 ```
 
-### Detailed Features (Optional)
+### 詳細機能（オプション）
 
-#### Feature Category 1
+#### 機能カテゴリ 1
 
-Detailed description of the feature and its usage scenarios.
+機能の詳細説明と使用場面の説明。
 
 ```bash
-# Specific code example
+# 具体的なコード例
 command example
 ```
 
-#### Feature Category 2
+#### 機能カテゴリ 2
 
-Detailed description of another feature.
+別の機能の詳細説明。
 
-- **Feature 1**: Description
-- **Feature 2**: Description
-- **Feature 3**: Description
+- **特徴 1**: 説明
+- **特徴 2**: 説明
+- **特徴 3**: 説明
 
-*You can omit this section for simple commands.*
+※ シンプルなコマンドの場合、このセクションは省略可能です。
 
-### Output Examples (Optional)
+### 出力例（オプション）
 
 ```
-Example of expected output format
+期待される出力フォーマットの例
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Sample actual output content
-├─ Item 1: Value
-├─ Item 2: Value
-└─ Item 3: Value
+実際の出力内容のサンプル
+├─ 項目 1: 値
+├─ 項目 2: 値
+└─ 項目 3: 値
 ```
 
-*You can omit this section if the output is simple or sufficiently explained in the basic examples.*
+※ 出力が単純な場合や、基本例で十分説明できる場合は、このセクションは省略可能です。
 
-### Integration with Claude
+### Claude との連携
 
 ```bash
-# Example of usage with files
+# ファイルと組み合わせた使用例
 cat file.txt
 /command-name
-"Request analysis including file contents"
+「ファイル内容を含めた分析を依頼」
 
-# Example of usage in a pipeline
+# パイプラインでの使用例
 command1 | command2
 /command-name
-"Processing using output from previous command"
+「前のコマンドの出力を使った処理」
 
-# Example of complex analysis
+# 複雑な分析の例
 ls -la && cat config.json
 /command-name --option1
-"Analysis combining multiple information sources"
+「複数の情報を組み合わせた分析」
 ```
 
-### Notes
+### 注意事項
 
-- **Prerequisites**: Requirements needed to execute the command
-- **Limitations**: Functional limitations and points to note
-- **Recommendations**: Recommendations for effective usage
+- **前提条件**: コマンド実行に必要な前提条件
+- **制限事項**: 機能の制限や注意すべき点
+- **推奨事項**: 効果的な使用方法の推奨
 
-### Best Practices (Optional)
+### ベストプラクティス（オプション）
 
-1. **Principle 1**: Explanation of recommended usage
-2. **Principle 2**: Explanation of usage to avoid
-3. **Principle 3**: Recommendations regarding performance and efficiency
-4. **Principle 4**: Recommendations regarding security and safety
+1. **原則 1**: 推奨される使用方法の説明
+2. **原則 2**: 避けるべき使用方法の説明
+3. **原則 3**: パフォーマンスや効率に関する推奨
+4. **原則 4**: セキュリティや安全性に関する推奨
 
-*You can omit this section for simple commands with no special considerations.*
+※ シンプルなコマンドで特別な注意点がない場合は、このセクションは省略可能です。
 
-### Related Commands (Optional)
+### 関連コマンド（オプション）
 
-- `/related-command1` : Command with related functionality
-- `/related-command2` : Command that works effectively in combination
-- `/related-command3` : Command that can be used as an alternative
+- `/related-command1` : 関連する機能を持つコマンド
+- `/related-command2` : 組み合わせて使うと効果的なコマンド
+- `/related-command3` : 代替として使えるコマンド
 
-*You can omit this section if there are no related commands.*
+※ 関連するコマンドがない場合は、このセクションは省略可能です。

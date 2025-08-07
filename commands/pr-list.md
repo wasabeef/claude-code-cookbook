@@ -1,66 +1,66 @@
 ## PR List
 
-Displays a prioritized list of open PRs in the current repository.
+現在のリポジトリのオープン PR 一覧を優先順位付きで表示します。
 
-### Usage
+### 使い方
 
 ```bash
-# Request from Claude
-"Show a prioritized list of open PRs"
+# Claude に依頼
+「オープン PR 一覧を優先順位付きで表示して」
 ```
 
-### Basic Examples
+### 基本例
 
 ```bash
-# Get repository information
+# リポジトリ情報を取得
 gh repo view --json nameWithOwner | jq -r '.nameWithOwner'
 
-# Get open PR information and request from Claude
+# オープン PR 情報を取得して Claude に依頼
 gh pr list --state open --draft=false --json number,title,author,createdAt,additions,deletions,reviews --limit 30
 
-"Organize the above PRs by priority, including a 2-line summary for each PR. Generate URLs using the repository name obtained above"
+「上記の PR を優先度別に整理して、各 PR の 2 行概要も含めて表示して。URL は上記で取得したリポジトリ名を使用して生成して」
 ```
 
-### Display Format
+### 表示形式
 
 ```
-Open PRs List (by Priority)
+オープン PR 一覧（優先順位順）
 
-### High Priority
-#number Title [Draft/DNM] | Author | Time since opened | Approved count | +additions/-deletions
-      ├─ Summary line 1
-      └─ Summary line 2
-      https://github.com/owner/repo/pull/number
+### 高優先度
+#番号 タイトル [Draft/DNM] | 作者 | オープンから経過時間 | Approved 数 | +追加/-削除
+      ├─ 概要 1 行目
+      └─ 概要 2 行目
+      https://github.com/owner/repo/pull/番号
 
-### Medium Priority
-(Similar format)
+### 中優先度
+（同様の形式）
 
-### Low Priority
-(Similar format)
+### 低優先度
+（同様の形式）
 ```
 
-### Priority Determination Criteria
+### 優先度の判定基準
 
-**High Priority**
+**高優先度**
 
-- `fix:` Bug fixes
-- `release:` Release work
+- `fix:` バグ修正
+- `release:` リリース作業
 
-**Medium Priority**
+**中優先度**
 
-- `feat:` New features
-- `update:` Feature improvements
-- Other regular PRs
+- `feat:` 新機能
+- `update:` 機能改善
+- その他通常の PR
 
-**Low Priority**
+**低優先度**
 
-- PRs containing DO NOT MERGE
-- Draft PRs with `test:`, `build:`, `perf:`
+- DO NOT MERGE を含む PR
+- Draft で `test:`、`build:`、`perf:` の PR
 
-### Notes
+### 注意事項
 
-- Requires GitHub CLI (`gh`)
-- Only displays PRs in open state (Drafts are excluded)
-- Shows maximum 30 PRs
-- Elapsed time is from when the PR was opened
-- PR URLs are automatically generated from the actual repository name
+- GitHub CLI (`gh`) が必要です
+- オープン状態の PR のみ表示します（Draft は除外）
+- 最大 30 件の PR を表示します
+- 経過時間は PR がオープンされてからの時間です
+- PR の URL は実際のリポジトリ名から自動生成されます

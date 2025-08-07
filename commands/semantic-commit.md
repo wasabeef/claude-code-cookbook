@@ -1,288 +1,287 @@
 ## Semantic Commit
 
-Split large changes into meaningful最小 units and commit them sequentially with semantic commit messages. No external tools required, only uses standard git commands.
+大きな変更を意味のある最小単位に分割して、セマンティックなコミットメッセージと共に順次コミットします。外部ツールに依存せず、git 標準コマンドのみを使用します。
 
-### Usage
+### 使い方
 
 ```bash
-/semantic-commit [options]
+/semantic-commit [オプション]
 ```
 
-### Options
+### オプション
 
-- `--dry-run`: Show proposed commit splits without actually committing
-- `--lang <language>`: Force language for commit messages (en, ja)
-- `--max-commits <number>`: Specify maximum number of commits (default: 10)
+- `--dry-run` : 実際のコミットは行わず、提案されるコミット分割のみを表示
+- `--lang <言語>` : コミットメッセージの言語を強制指定（en, ja）
+- `--max-commits <数>` : 最大コミット数を指定（デフォルト: 10）
 
-### Basic Examples
+### 基本例
 
 ```bash
-# Analyze current changes and commit in logical units
+# 現在の変更を分析して、論理的な単位でコミット
 /semantic-commit
 
-# Check split proposal only (no actual commit)
+# 分割案のみを確認（実際のコミットなし）
 /semantic-commit --dry-run
 
-# Generate commit messages in English
+# 英語でコミットメッセージを生成
 /semantic-commit --lang en
 
-# Split into maximum 5 commits
+# 最大 5 個のコミットに分割
 /semantic-commit --max-commits 5
 ```
 
-### Workflow
+### 動作フロー
 
-1. **Change Analysis**: Get all changes with `git diff HEAD`
-2. **File Classification**: Logically group changed files
-3. **Commit Proposal**: Generate semantic commit messages for each group
-4. **Sequential Execution**: Commit each group sequentially after user confirmation
+1. **変更分析**: `git diff HEAD` で全変更を取得
+2. **ファイル分類**: 変更されたファイルを論理的にグループ化
+3. **コミット提案**: 各グループに対してセマンティックなコミットメッセージを生成
+4. **順次実行**: ユーザー確認後、各グループを順次コミット
 
-### Core Features for Change Splitting
+### 変更分割の核心機能
 
-#### Detecting "Large Changes"
+#### 「大きな変更」の検出
 
-Changes are detected as large under the following conditions:
+以下の条件で大きな変更として検出：
 
-1. **Changed Files**: 5 or more files changed
-2. **Changed Lines**: 100 or more lines changed
-3. **Multiple Features**: Changes spanning 2 or more functional areas
-4. **Mixed Patterns**: Mix of feat + fix + docs
+1. **変更ファイル数**: 5 ファイル以上の変更
+2. **変更行数**: 100 行以上の変更
+3. **複数機能**: 2 つ以上の機能領域にまたがる変更
+4. **混在パターン**: feat + fix + docs が混在
 
 ```bash
-# Analyze change scale
+# 変更規模の分析
 CHANGED_FILES=$(git diff HEAD --name-only | wc -l)
 CHANGED_LINES=$(git diff HEAD --stat | tail -1 | grep -o '[0-9]\+ insertions\|[0-9]\+ deletions' | awk '{sum+=$1} END {print sum}')
 
 if [ $CHANGED_FILES -ge 5 ] || [ $CHANGED_LINES -ge 100 ]; then
-  echo "Large change detected: splitting recommended"
+  echo "大きな変更を検出: 分割を推奨"
 fi
 ```
 
-#### Strategies for Splitting into "Meaningful Minimum Units"
+#### 「意味のある最小単位」への分割戦略
 
-##### 1. Splitting by Functional Boundaries
+##### 1. 機能境界による分割
 
 ```bash
-# Identify functional units from directory structure
+# ディレクトリ構造から機能単位を特定
 git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq
-# → src/auth, src/api, components/ui, etc.
+# → src/auth, src/api, components/ui など
 ```
 
-##### 2. Separation by Change Type
+##### 2. 変更種別による分離
 
 ```bash
-# New files vs existing file modifications
-git diff HEAD --name-status | grep '^A' # New files
-git diff HEAD --name-status | grep '^M' # Modified files
-git diff HEAD --name-status | grep '^D' # Deleted files
+# 新規ファイル vs 既存ファイル修正
+git diff HEAD --name-status | grep '^A' # 新規ファイル
+git diff HEAD --name-status | grep '^M' # 修正ファイル
+git diff HEAD --name-status | grep '^D' # 削除ファイル
 ```
 
-##### 3. Dependency Analysis
+##### 3. 依存関係の分析
 
 ```bash
-# Detect import relationship changes
+# インポート関係の変更を検出
 git diff HEAD | grep -E '^[+-].*import|^[+-].*require' | \
 cut -d' ' -f2- | sort | uniq
 ```
 
-#### Detailed File Analysis
+#### ファイル単位の詳細分析
 
 ```bash
-# Get list of changed files
+# 変更されたファイル一覧を取得
 git diff HEAD --name-only
 
-# Analyze each file's changes individually
+# 各ファイルの変更内容を個別に分析
 git diff HEAD -- <file>
 
-# Determine change type for files
+# ファイルの変更タイプを判定
 git diff HEAD --name-status | while read status file; do
   case $status in
-    A) echo "$file: New creation" ;;    
-    M) echo "$file: Modification" ;;    
-    D) echo "$file: Deletion" ;;    
-    R*) echo "$file: Renamed" ;;    
+    A) echo "$file: 新規作成" ;; 
+    D) echo "$file: 削除" ;; 
+    R*) echo "$file: リネーム" ;; 
   esac
 done
 ```
 
-#### Criteria for Logical Grouping
+#### 論理的グループ化の基準
 
-1. **Functional Unit**: Files related to the same function
-   - Files under `src/auth/` → Authentication function
-   - Files under `components/` → UI components
+1. **機能単位**: 同一機能に関連するファイル
+   - `src/auth/` 配下のファイル → 認証機能
+   - `components/` 配下のファイル → UI コンポーネント
 
-2. **Change Type**: Same type of change
-   - Test files only → `test:`
-   - Documentation only → `docs:`
-   - Configuration files only → `chore:`
+2. **変更種別**: 同じ種類の変更
+   - テストファイルのみ → `test:`
+   - ドキュメントのみ → `docs:`
+   - 設定ファイルのみ → `chore:`
 
-3. **Dependencies**: Mutually related files
-   - Model + Migration
-   - Component + Style
+3. **依存関係**: 相互に関連するファイル
+   - モデル + マイグレーション
+   - コンポーネント + スタイル
 
-4. **Change Scale**: Maintain appropriate commit size
-   - No more than 10 files per commit
-   - Group highly related files
+4. **変更規模**: 適切なコミットサイズの維持
+   - 1 コミットあたり 10 ファイル以下
+   - 関連性の高いファイルをグループ化
 
-### Output Example
+### 出力例
 
 ```bash
 $ /semantic-commit
 
-Analyzing changes...
+変更分析中...
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-Detected changes:
-• src/auth/login.ts (modified)
-• src/auth/register.ts (new)
-• src/auth/types.ts (modified)
-• tests/auth.test.ts (new)
-• docs/authentication.md (new)
+検出された変更:
+• src/auth/login.ts (修正)
+• src/auth/register.ts (新規)
+• src/auth/types.ts (修正)
+• tests/auth.test.ts (新規)
+• docs/authentication.md (新規)
 
-Proposed commit splits:
+提案されるコミット分割:
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Commit 1/3
+コミット 1/3
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Message: feat: implement user registration and login system
-Included files:
+メッセージ: feat: implement user registration and login system
+含まれるファイル:
   • src/auth/login.ts
-  • src/auth/register.ts
+  • src/auth/register.ts  
   • src/auth/types.ts
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Commit 2/3
+コミット 2/3
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Message: test: add comprehensive tests for authentication system
-Included files:
+メッセージ: test: add comprehensive tests for authentication system
+含まれるファイル:
   • tests/auth.test.ts
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Commit 3/3
+コミット 3/3
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Message: docs: add authentication system documentation
-Included files:
+メッセージ: docs: add authentication system documentation
+含まれるファイル:
   • docs/authentication.md
 
-Execute commit with this split plan? (y/n/edit):
+この分割案でコミットを実行しますか？ (y/n/edit): 
 ```
 
-### Runtime Options
+### 実行時の選択肢
 
-- `y`: Execute with proposed commit split
-- `n`: Cancel
-- `edit`: Edit commit messages individually
-- `merge <number1> <number2>`: Merge specified commits
-- `split <number>`: Split specified commit further
+- `y` : 提案されたコミット分割で実行
+- `n` : キャンセル
+- `edit` : コミットメッセージを個別に編集
+- `merge <番号 1> <番号 2>` : 指定したコミットをマージ
+- `split <番号>` : 指定したコミットをさらに分割
 
-### Dry Run Mode
+### Dry Run モード
 
 ```bash
 $ /semantic-commit --dry-run
 
-Analyzing changes... (DRY RUN)
+変更分析中... (DRY RUN)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-[Commit split proposal display]
+[コミット分割提案の表示]
 
-ℹ️  DRY RUN mode: No actual commits will be executed
-💡 To execute, run again without --dry-run option
+ℹ️  DRY RUN モード: 実際のコミットは実行されません
+💡 実行する場合は --dry-run オプションを除いて再実行してください
 ```
 
-### Smart Analysis Features
+### スマート分析機能
 
-#### 1. Project Structure Understanding
+#### 1. プロジェクト構造の理解
 
-- Determine project type from `package.json`, `Cargo.toml`, `pom.xml`, etc.
-- Infer functional units from folder structure
+- `package.json`, `Cargo.toml`, `pom.xml` などからプロジェクト種別を判定
+- フォルダ構造から機能単位を推測
 
-#### 2. Change Pattern Recognition
+#### 2. 変更パターンの認識
 
-```bash
-# Detect bug fix patterns
-- Keywords like "fix", "bug", "error"
-- Addition of exception handling
-- Condition branch fixes
+```
+# バグ修正パターンの検出
+- "fix", "bug", "error" などのキーワード
+- 例外処理の追加
+- 条件分岐の修正
 
-# Detect new feature patterns
-- New file creation
-- New method additions
-- API endpoint additions
+# 新機能パターンの検出  
+- 新ファイル作成
+- 新メソッド追加
+- API エンドポイント追加
 ```
 
-#### 3. Dependency Analysis
+#### 3. 依存関係の分析
 
-- Changes to import statements
-- Addition/modification of type definitions
-- Relationship with configuration files
+- インポート文の変更
+- 型定義の追加/修正
+- 設定ファイルとの関連性
 
-### Technical Implementation
+### 技術的実装
 
-#### Sequential Commit Implementation Using Git Standard Commands
+#### Git 標準コマンドによる順次コミット実装
 
-##### 1. Preprocessing: Save Current State
+##### 1. 前処理: 現在の状態を保存
 
 ```bash
-# Reset unstaged changes if any
+# 未ステージの変更がある場合は一旦リセット
 git reset HEAD
 git status --porcelain > /tmp/original_state.txt
 
-# Check working branch
+# 作業ブランチの確認
 CURRENT_BRANCH=$(git branch --show-current)
-echo "Working branch: $CURRENT_BRANCH"
+echo "作業中のブランチ: $CURRENT_BRANCH"
 ```
 
-##### 2. Sequential Commit Execution by Group
+##### 2. グループ別の順次コミット実行
 
 ```bash
-# Read split plan
+# 分割計画の読み込み
 while IFS= read -r commit_plan; do
   group_num=$(echo "$commit_plan" | cut -d':' -f1)
   files=$(echo "$commit_plan" | cut -d':' -f2- | tr ' ' '\n')
   
-  echo "=== Executing commit $group_num ==="
+  echo "=== コミット $group_num の実行 ==="
   
-  # Stage only relevant files
+  # 該当ファイルのみをステージング
   echo "$files" | while read file; do
     if [ -f "$file" ]; then
       git add "$file"
-      echo "Staged: $file"
+      echo "ステージング: $file"
     fi
   done
   
-  # Check staging status
+  # ステージング状態の確認
   staged_files=$(git diff --staged --name-only)
   if [ -z "$staged_files" ]; then
-    echo "Warning: No files staged"
+    echo "警告: ステージングされたファイルがありません"
     continue
   fi
   
-  # Generate commit message (LLM analysis)
+  # コミットメッセージの生成（LLM による分析）
   commit_msg=$(generate_commit_message_for_staged_files)
   
-  # User confirmation
-  echo "Proposed commit message: $commit_msg"
-  echo "Staged files:"
+  # ユーザー確認
+  echo "提案コミットメッセージ: $commit_msg"
+  echo "ステージングされたファイル:"
   echo "$staged_files"
-  read -p "Execute this commit? (y/n): " confirm
+  read -p "このコミットを実行しますか? (y/n): " confirm
   
   if [ "$confirm" = "y" ]; then
-    # Execute commit
+    # コミット実行
     git commit -m "$commit_msg"
-    echo "✅ Commit $group_num completed"
+    echo "✅ コミット $group_num 完了"
   else
-    # Cancel staging
+    # ステージングを取り消し
     git reset HEAD
-    echo "❌ Skipped commit $group_num"
+    echo "❌ コミット $group_num をスキップ"
   fi
   
 done < /tmp/commit_plan.txt
 ```
 
-##### 3. Error Handling and Rollback
+##### 3. エラーハンドリングとロールバック
 
 ```bash
-# Handle pre-commit hook failures
+# プリコミットフック失敗時の処理
 commit_with_retry() {
   local commit_msg="$1"
   local max_retries=2
@@ -290,107 +289,106 @@ commit_with_retry() {
   
   while [ $retry_count -lt $max_retries ]; do
     if git commit -m "$commit_msg"; then
-      echo "✅ Commit successful"
+      echo "✅ コミット成功"
       return 0
     else
-      echo "❌ Commit failed (attempt $((retry_count + 1))/$max_retries)"
+      echo "❌ コミット失敗 (試行 $((retry_count + 1))/$max_retries)"
       
-      # Incorporate automatic fixes from pre-commit hooks
+      # プリコミットフックによる自動修正を取り込み
       if git diff --staged --quiet; then
-        echo "Changes automatically fixed by pre-commit hook"
-        git add -u
+        echo "プリコミットフックにより変更が自動修正されました"
       fi
       
       retry_count=$((retry_count + 1))
     fi
   done
   
-  echo "❌ Failed to commit. Please check manually."
+  echo "❌ コミットに失敗しました。手動で確認してください。"
   return 1
 }
 
-# Recover from interruptions
+# 中断からの復旧
 resume_from_failure() {
-  echo "Detected interrupted commit process"
-  echo "Current staging status:"
+  echo "中断されたコミット処理を検出しました"
+  echo "現在のステージング状態:"
   git status --porcelain
   
-  read -p "Continue processing? (y/n): " resume
+  read -p "処理を続行しますか? (y/n): " resume
   if [ "$resume" = "y" ]; then
-    # Resume from last commit
+    # 最後のコミット位置から再開
     last_commit=$(git log --oneline -1 --pretty=format:"%s")
-    echo "Last commit: $last_commit"
+    echo "最後のコミット: $last_commit"
   else
-    # Full reset
+    # 完全リセット
     git reset HEAD
-    echo "Process reset"
+    echo "処理をリセットしました"
   fi
 }
 ```
 
-##### 4. Post-Completion Verification
+##### 4. 完了後の検証
 
 ```bash
-# Verify all changes committed
+# 全変更がコミットされたかの確認
 remaining_changes=$(git status --porcelain | wc -l)
 if [ $remaining_changes -eq 0 ]; then
-  echo "✅ All changes committed"
+  echo "✅ すべての変更がコミットされました"
 else
-  echo "⚠️  Uncommitted changes remain:"
+  echo "⚠️  未コミットの変更が残っています:"
   git status --short
 fi
 
-# Display commit history
-echo "Created commits:"
+# コミット履歴の表示
+echo "作成されたコミット:"
 git log --oneline -n 10 --graph
 ```
 
-##### 5. Suppress Automatic Push
+##### 5. 自動プッシュの抑制
 
 ```bash
-# Note: No automatic push
-echo "📝 Note: Automatic push not performed"
-echo "If needed, push with the following command:"
+# 注意: 自動プッシュは行わない
+echo "📝 注意: 自動プッシュは実行されません"
+echo "必要に応じて以下のコマンドでプッシュしてください:"
 echo "  git push origin $CURRENT_BRANCH"
 ```
 
-#### Split Algorithm Details
+#### 分割アルゴリズムの詳細
 
-##### Step 1: Initial Analysis
+##### ステップ 1: 初期分析
 
 ```bash
-# Get and classify all changed files
+# 全変更ファイルの取得と分類
 git diff HEAD --name-status | while read status file; do
   echo "$status:$file"
 done > /tmp/changes.txt
 
-# Statistics of changes by functional directory
+# 機能ディレクトリ別の変更統計
 git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq -c
 ```
 
-##### Step 2: Initial Grouping by Functional Boundaries
+##### ステップ 2: 機能境界による初期グループ化
 
 ```bash
-# Directory-based grouping
+# ディレクトリベースのグループ化
 GROUPS=$(git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq)
 for group in $GROUPS; do
-  echo "=== Group: $group ==="
+  echo "=== グループ: $group ==="
   git diff HEAD --name-only | grep "^$group" | head -10
 done
 ```
 
-##### Step 3: Similarity Analysis of Changes
+##### ステップ 3: 変更内容の類似性分析
 
 ```bash
-# Analyze change type for each file
+# 各ファイルの変更タイプを分析
 git diff HEAD --name-only | while read file; do
-  # Detect new function/class additions
+  # 新規関数/クラス追加の検出
   NEW_FUNCTIONS=$(git diff HEAD -- "$file" | grep -c '^+.*function\|^+.*class\|^+.*def ')
   
-  # Detect bug fix patterns
+  # バグ修正パターンの検出
   BUG_FIXES=$(git diff HEAD -- "$file" | grep -c '^+.*fix\|^+.*bug\|^-.*error')
   
-  # Determine if test file
+  # テストファイルかの判定
   if [[ "$file" =~ test|spec ]]; then
     echo "$file: TEST"
   elif [ $NEW_FUNCTIONS -gt 0 ]; then
@@ -398,34 +396,34 @@ git diff HEAD --name-only | while read file; do
   elif [ $BUG_FIXES -gt 0 ]; then
     echo "$file: FIX"
   else
-    echo "$file: REFACTOR"
+    echo "$file: OTHER"
   fi
 done
 ```
 
-##### Step 4: Dependency-based Adjustments
+##### ステップ 4: 依存関係による調整
 
 ```bash
-# Analyze import relationships
+# インポート関係の分析
 git diff HEAD | grep -E '^[+-].*import|^[+-].*from.*import' | \
 while read line; do
   echo "$line" | sed 's/^[+-]//' | awk '{print $2}'
 done | sort | uniq > /tmp/imports.txt
 
-# Group related files
+# 関連ファイルのグループ化
 git diff HEAD --name-only | while read file; do
   basename=$(basename "$file" .js .ts .py)
   related=$(git diff HEAD --name-only | grep "$basename" | grep -v "^$file$")
   if [ -n "$related" ]; then
-    echo "Related files: $file <-> $related"
+    echo "関連ファイル群: $file <-> $related"
   fi
 done
 ```
 
-##### Step 5: Commit Size Optimization
+##### ステップ 5: コミットサイズの最適化
 
 ```bash
-# Adjust group size
+# グループサイズの調整
 MAX_FILES_PER_COMMIT=8
 current_group=1
 file_count=0
@@ -435,25 +433,25 @@ git diff HEAD --name-only | while read file; do
     current_group=$((current_group + 1))
     file_count=0
   fi
-  echo "Commit $current_group: $file"
+  echo "コミット $current_group: $file"
   file_count=$((file_count + 1))
 done
 ```
 
-##### Step 6: Final Group Determination
+##### ステップ 6: 最終グループ決定
 
 ```bash
-# Verify split results
+# 分割結果の検証
 for group in $(seq 1 $current_group); do
-  files=$(grep "Commit $group:" /tmp/commit_plan.txt | cut -d':' -f2-)
+  files=$(grep "コミット $group:" /tmp/commit_plan.txt | cut -d':' -f2-)
   lines=$(echo "$files" | xargs git diff HEAD -- | wc -l)
-  echo "Commit $group: $(echo "$files" | wc -w) files, $lines lines changed"
+  echo "コミット $group: $(echo "$files" | wc -w) ファイル, $lines 行変更"
 done
 ```
 
-### Conventional Commits Compliance
+### Conventional Commits 準拠
 
-#### Basic Format
+#### 基本形式
 
 ```
 <type>[optional scope]: <description>
@@ -463,27 +461,27 @@ done
 [optional footer(s)]
 ```
 
-#### Standard Types
+#### 標準タイプ
 
-**Required Types**:
+**必須タイプ**:
 
-- `feat`: New feature (user-visible feature addition)
-- `fix`: Bug fix
+- `feat`: 新機能（ユーザーに見える機能追加）
+- `fix`: バグ修正
 
-**Optional Types**:
+**任意タイプ**:
 
-- `build`: Changes to build system or external dependencies
-- `chore`: Other changes (no impact on release)
-- `ci`: Changes to CI configuration files or scripts
-- `docs`: Documentation-only changes
-- `style`: Changes that do not affect code meaning (whitespace, formatting, semicolons, etc.)
-- `refactor`: Code changes without bug fixes or feature additions
-- `perf`: Performance improvements
-- `test`: Adding or modifying tests
+- `build`: ビルドシステムや外部依存関係の変更
+- `chore`: その他の変更（リリースに影響しない）
+- `ci`: CI 設定ファイルやスクリプトの変更
+- `docs`: ドキュメントのみの変更
+- `style`: コードの意味に影響しない変更（空白、フォーマット、セミコロンなど）
+- `refactor`: バグ修正や機能追加を伴わないコード変更
+- `perf`: パフォーマンス改善
+- `test`: テストの追加や修正
 
-#### Scope (Optional)
+#### スコープ（任意）
 
-Indicates the affected area of the change:
+変更の影響範囲を示す：
 
 ```
 feat(api): add user authentication endpoint
@@ -493,26 +491,25 @@ docs(readme): update installation instructions
 
 #### Breaking Change
 
-When there are breaking API changes:
+API の破壊的変更がある場合：
 
 ```
 feat!: change user API response format
-
 ```
 
-or
+または
 
 ```
 feat(api)!: change authentication flow
 ```
 
-#### Automatic Detection of Project Conventions
+#### プロジェクト規約の自動検出
 
-**Important**: If project-specific conventions exist, they take precedence.
+**重要**: プロジェクト独自の規約が存在する場合は、それを優先します。
 
-##### 1. Check CommitLint Configuration
+##### 1. CommitLint 設定の確認
 
-Automatically detect configuration from the following files:
+以下のファイルから設定を自動検出：
 
 - `commitlint.config.js`
 - `commitlint.config.mjs`
@@ -522,18 +519,18 @@ Automatically detect configuration from the following files:
 - `.commitlintrc.json`
 - `.commitlintrc.yml`
 - `.commitlintrc.yaml`
-- `commitlint` section in `package.json`
+- `package.json` の `commitlint` セクション
 
 ```bash
-# Check example configuration files
+# 設定ファイル例の確認
 cat commitlint.config.mjs
 cat .commitlintrc.json
 grep -A 10 '"commitlint"' package.json
 ```
 
-##### 2. Detection of Custom Types
+##### 2. カスタムタイプの検出
 
-Example of project-specific types:
+プロジェクト独自のタイプ例：
 
 ```javascript
 // commitlint.config.mjs
@@ -545,44 +542,44 @@ export default {
       'always',
       [
         'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // Work in progress
-        'hotfix',   // Emergency fix
-        'release',  // Release
-        'deps',     // Dependency update
-        'config'    // Configuration change
+        'wip',      // 作業中
+        'hotfix',   // 緊急修正
+        'release',  // リリース
+        'deps',     // 依存関係更新
+        'config'    // 設定変更
       ]
     ]
   }
 }
 ```
 
-##### 3. Language Setting Detection
+##### 3. 言語設定の検出
 
 ```javascript
-// When project uses Japanese messages
+// プロジェクトが日本語メッセージを使用する場合
 export default {
   rules: {
-    'subject-case': [0],  // Disable for Japanese support
-    'subject-max-length': [2, 'always', 72]  // Adjust character limit for Japanese
+    'subject-case': [0],  // 日本語対応のため無効化
+    'subject-max-length': [2, 'always', 72]  // 日本語は文字数制限を調整
   }
 }
 ```
 
-#### Automatic Analysis Flow
+#### 自動分析の流れ
 
-1. **Configuration File Search**
+1. **設定ファイル検索**
 
    ```bash
    find . -name "commitlint.config.*" -o -name ".commitlintrc.*" | head -1
    ```
 
-2. **Existing Commit Analysis**
+2. **既存コミット分析**
 
    ```bash
    git log --oneline -50 --pretty=format:"%s"
    ```
 
-3. **Type Usage Statistics**
+3. **使用タイプ統計**
 
    ```bash
    git log --oneline -100 --pretty=format:"%s" | \
@@ -590,17 +587,16 @@ export default {
    sort | uniq -c | sort -nr
    ```
 
-#### Examples of Project Conventions
+#### プロジェクト規約の例
 
-##### Angular Style
+##### Angular スタイル
 
 ```
 feat(scope): add new feature
 fix(scope): fix bug
-docs(scope): update documentation
 ```
 
-##### Gitmoji Combined Style
+##### Gitmoji 併用スタイル
 
 ```
 ✨ feat: add user registration
@@ -608,7 +604,7 @@ docs(scope): update documentation
 📚 docs: update API docs
 ```
 
-##### Japanese Projects
+##### 日本語プロジェクト
 
 ```
 feat: ユーザー登録機能を追加
@@ -616,74 +612,74 @@ fix: ログイン処理のバグを修正
 docs: API ドキュメントを更新
 ```
 
-### Language Determination
+### 言語判定
 
-Language determination logic in this command:
+このコマンドで完結する言語判定ロジック：
 
-1. **Check CommitLint Settings** for language configuration
+1. **CommitLint 設定**から言語設定を確認
 
    ```bash
-   # Determine Japanese if subject-case rule is disabled
-   grep -E '"subject-case".*\[0\]|subject-case.*0' commitlint.config.*
+   # subject-case ルールが無効化されている場合は日本語と判定
+grep -E '"subject-case".*\[0\]|subject-case.*0' commitlint.config.*
    ```
 
-2. **Git log analysis** for automatic determination
+2. **git log 分析**による自動判定
 
    ```bash
-   # Analyze language of last 20 commits
-   git log --oneline -20 --pretty=format:"%s" | \
-   grep -E '^[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' | wc -l
-   # Japanese mode if over 50% are Japanese
+   # 最近 20 コミットの言語を分析
+git log --oneline -20 --pretty=format:"%s" | \
+grep -E '^[あ-ん]|[ア-ン]|[一-龯]' | wc -l
+# 50% 以上が日本語なら日本語モード
    ```
 
-3. **Project files** language settings
+3. **プロジェクトファイル**の言語設定
 
    ```bash
-   # Check README.md language
-   head -10 README.md | grep -E '^[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' | wc -l
+   # README.md の言語確認
+head -10 README.md | grep -E '^[あ-ん]|[ア-ン]|[一-龯]' | wc -l
    
-   # Check package.json description
-   grep -E '"description".*[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' package.json
+# package.json の description 確認
+grep -E '"description".*[あ-ん]|[ア-ン]|[一-龯]' package.json
    ```
 
-4. **Comments and strings** analysis in changed files
+4. **変更ファイル内**のコメント・文字列分析
 
    ```bash
-   # Check comment language in changed files
-   git diff HEAD | grep -E '^[+-].*//.*[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' | wc -l
+   # 変更されたファイルのコメント言語を確認
+git diff HEAD | grep -E '^[+-].*//.*[あ-ん]|[ア-ン]|[一-龯]' | wc -l
    ```
 
-#### Determination Algorithm
+#### 判定アルゴリズム
 
 ```bash
-# Calculate language score
+# 言語判定スコア計算
 JAPANESE_SCORE=0
 
-# 1. CommitLint settings (+3 points)
+# 1. CommitLint 設定 (+3 点)
 if grep -q '"subject-case".*\[0\]' commitlint.config.* 2>/dev/null; then
   JAPANESE_SCORE=$((JAPANESE_SCORE + 3))
 fi
 
-# 2. Git log analysis (max +2 points)
+# 2. git log 分析 (最大+2 点)
 JAPANESE_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
-  grep -cE '[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' 2>/dev/null || echo 0)
+  grep -cE '[あ-ん]|[ア-ン]|[一-龯]' 2>/dev/null || echo 0)
 if [ $JAPANESE_COMMITS -gt 10 ]; then
   JAPANESE_SCORE=$((JAPANESE_SCORE + 2))
 elif [ $JAPANESE_COMMITS -gt 5 ]; then
   JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
 fi
 
-# 3. README.md check (+1 point)
-if head -5 README.md 2>/dev/null | grep -qE '[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]'; then
+# 3. README.md 確認 (+1 点)
+if head -5 README.md 2>/dev/null | grep -qE '[あ-ん]|[ア-ン]|[一-龯]'; then
   JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
 fi
 
-# 4. Changed files content check (+1 point)
-if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]'; then
+# 4. 変更ファイル内容確認 (+1 点)
+if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[あ-ん]|[ア-ン]|[一-龯]'; then
   JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
 fi
 
-# Determine: Japanese mode if score >= 3
+# 判定: 3 点以上で日本語モード
 if [ $JAPANESE_SCORE -ge 3 ]; then
   LANGUAGE="ja"
 else
@@ -691,44 +687,42 @@ else
 fi
 ```
 
-### Automatic Configuration File Loading
+### 設定ファイル自動読み込み
 
-#### Runtime Behavior
+#### 実行時の動作
 
-When the command is executed, it checks for configuration in the following order:
+コマンド実行時に以下の順序で設定を確認：
 
-1. **Search for CommitLint configuration files**
+```bash
+# 以下の順序で検索し、最初に見つかったファイルを使用
+commitlint.config.mjs
+commitlint.config.js  
+commitlint.config.cjs
+commitlint.config.ts
+.commitlintrc.js
+.commitlintrc.json
+.commitlintrc.yml
+.commitlintrc.yaml
+package.json (commitlint セクション)
+```
 
-   ```bash
-   # Search in this order, use first found file
-   commitlint.config.mjs
-   commitlint.config.js
-   commitlint.config.cjs
-   commitlint.config.ts
-   .commitlintrc.js
-   .commitlintrc.json
-   .commitlintrc.yml
-   .commitlintrc.yaml
-   package.json (commitlint section)
-   ```
+2. **設定内容の解析**
+   - 使用可能なタイプの一覧を抽出
+   - スコープの制限があるかを確認
+   - メッセージ長制限の取得
+   - 言語設定の確認
 
-2. **Parse configuration content**
-   - Extract list of available types
-   - Check for scope restrictions
-   - Get message length limits
-   - Check language settings
-
-3. **Analyze existing commit history**
+3. **既存コミット履歴の分析**
 
    ```bash
-   # Learn usage patterns from recent commits
-   git log --oneline -100 --pretty=format:"%s" | \
-   head -20
+   # 最近のコミットから使用パターンを学習
+git log --oneline -100 --pretty=format:"%s" | \
+head -20
    ```
 
-#### Analysis of Configuration Examples
+#### 設定例の分析
 
-**Standard commitlint.config.mjs**:
+**標準的な commitlint.config.mjs**:
 
 ```javascript
 export default {
@@ -748,13 +742,13 @@ export default {
 }
 ```
 
-**Japanese-compatible configuration**:
+**日本語対応の設定**:
 
 ```javascript
 export default {
   extends: ['@commitlint/config-conventional'],
   rules: {
-    'subject-case': [0],  // Disable for Japanese
+    'subject-case': [0],  // 日本語のため無効化
     'subject-max-length': [2, 'always', 72],
     'type-enum': [
       2,
@@ -765,7 +759,7 @@ export default {
 }
 ```
 
-**Configuration with custom types**:
+**カスタムタイプを含む設定**:
 
 ```javascript
 export default {
@@ -777,87 +771,87 @@ export default {
       [
         'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
         'wip',      // Work in Progress
-        'hotfix',   // Emergency fix
-        'release',  // Release preparation
-        'deps',     // Dependency update
-        'config'    // Configuration change
+        'hotfix',   // 緊急修正
+        'release',  // リリース準備
+        'deps',     // 依存関係更新
+        'config'    // 設定変更
       ]
     ]
   }
 }
 ```
 
-#### Fallback Behavior
+#### フォールバック動作
 
-If no configuration file is found:
+設定ファイルが見つからない場合：
 
-1. **Automatic inference** through git log analysis
+1. **git log 分析**による自動推測
 
    ```bash
-   # Extract types from last 100 commits
-   git log --oneline -100 --pretty=format:"%s" | \
-   grep -oE '^[a-z]+(\([^)]+\))?' | \
-   sort | uniq -c | sort -nr
+   # 最近 100 コミットからタイプを抽出
+git log --oneline -100 --pretty=format:"%s" | \
+grep -oE '^[a-z]+(\([^)]+\))?' | \
+sort | uniq -c | sort -nr
    ```
 
-2. **Default to Conventional Commits standard**
+2. **Conventional Commits 標準**をデフォルト使用
 
    ```
    feat, fix, docs, style, refactor, perf, test, chore, build, ci
    ```
 
-3. **Language determination**
-   - Japanese mode if over 50% of commits are in Japanese
-   - English mode otherwise
+3. **言語判定**
+   - 日本語コミットが 50% 以上 → 日本語モード
+   - その他 → 英語モード
 
-### Prerequisites
+### 前提条件
 
-- Executed within a Git repository
-- Uncommitted changes exist
-- Staged changes will be reset temporarily
+- Git リポジトリ内で実行
+- 未コミットの変更が存在すること
+- ステージングされた変更は一旦リセットされます
 
-### Notes
+### 注意事項
 
-- **No automatic push**: `git push` after commit must be executed manually
-- **No branch creation**: Commits in current branch
-- **Backup recommended**: Use `git stash` before important changes
+- **自動プッシュなし**: コミット後の `git push` は手動実行
+- **ブランチ作成なし**: 現在のブランチでコミット
+- **バックアップ推奨**: 重要な変更前には `git stash` でバックアップ
 
-### Priority of Project Conventions
+### プロジェクト規約の優先度
 
-Priority when generating commit messages:
+コミットメッセージ生成時の優先度：
 
-1. **CommitLint settings** (highest priority)
-   - Settings in `commitlint.config.*` files
-   - Custom types and scope restrictions
-   - Message length and case restrictions
+1. **CommitLint 設定** (最優先)
+   - `commitlint.config.*` ファイルの設定
+   - カスタムタイプやスコープの制限
+   - メッセージ長やケースの制限
 
-2. **Existing commit history** (second priority)
-   - Statistics of actually used types
-   - Message language (Japanese/English)
-   - Scope usage patterns
+2. **既存コミット履歴** (第 2 優先)
+   - 実際に使用されているタイプの統計
+   - メッセージの言語（日本語/英語）
+   - スコープの使用パターン
 
-3. **Project type** (third priority)
-   - `package.json` → Node.js project
-   - `Cargo.toml` → Rust project
-   - `pom.xml` → Java project
+3. **プロジェクト種別** (第 3 優先)
+   - `package.json` → Node.js プロジェクト
+   - `Cargo.toml` → Rust プロジェクト  
+   - `pom.xml` → Java プロジェクト
 
-4. **Conventional Commits standard** (fallback)
-   - Standard behavior when no settings found
+4. **Conventional Commits 標準** (フォールバック)
+   - 設定が見つからない場合の標準動作
 
-#### Examples of Convention Detection
+#### 規約検出の実例
 
-**Automatic scope detection in Monorepo**:
+**Monorepo での scope 自動検出**:
 
 ```bash
-# Infer scopes from packages/ folder
+# packages/ フォルダから scope を推測
 ls packages/ | head -10
-# → Propose api, ui, core, auth, etc. as scopes
+# → api, ui, core, auth などを scope として提案
 ```
 
-**Framework-specific conventions**:
+**フレームワーク固有の規約**:
 
 ```javascript
-// For Angular projects
+// Angular プロジェクトの場合
 {
   'scope-enum': [2, 'always', [
     'animations', 'common', 'core', 'forms', 'http', 'platform-browser',
@@ -865,7 +859,7 @@ ls packages/ | head -10
   ]]
 }
 
-// For React projects
+// React プロジェクトの場合  
 {
   'scope-enum': [2, 'always', [
     'components', 'hooks', 'utils', 'types', 'styles', 'api'
@@ -873,253 +867,253 @@ ls packages/ | head -10
 }
 ```
 
-**Company/team-specific conventions**:
+**企業・チーム固有の規約**:
 
 ```javascript
-// Common pattern in Japanese companies
+// 日本の企業でよく見られるパターン
 {
   'type-enum': [2, 'always', [
     'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-    'wip',      // Work in progress (for pull requests)
-    'hotfix',   // Emergency fix
-    'release'   // Release preparation
+    'wip',      // 作業中（プルリクエスト用）
+    'hotfix',   // 緊急修正
+    'release'   // リリース準備
   ]],
-  'subject-case': [0],  // Support Japanese
-  'subject-max-length': [2, 'always', 72]  // Longer limit for Japanese
+  'subject-case': [0],  // 日本語対応
+  'subject-max-length': [2, 'always', 72]  // 日本語は長めに設定
 }
 ```
 
-### Best Practices
+### ベストプラクティス
 
-1. **Respect project conventions**: Follow existing settings and patterns
-2. **Small change units**: One commit per logical change
-3. **Clear messages**: Clearly state what was changed
-4. **Emphasize relevance**: Group functionally related files
-5. **Separate tests**: Keep test files in separate commits
-6. **Utilize configuration files**: Introduce CommitLint to unify team conventions
+1. **プロジェクト規約の尊重**: 既存の設定やパターンに従う
+2. **小さな変更単位**: 1 つのコミットは 1 つの論理的変更
+3. **明確なメッセージ**: 何を変更したかが明確
+4. **関連性の重視**: 機能的に関連するファイルをグループ化
+5. **テストの分離**: テストファイルは別コミットに
+6. **設定ファイルの活用**: CommitLint を導入してチーム全体で規約を統一
 
-### Real-world Split Examples (Before/After)
+### 実際の分割例（Before/After）
 
-#### Example 1: Large Authentication System Addition
+#### 例 1: 大規模な認証システム追加
 
-**Before (one massive commit):**
+**Before（1 つの巨大なコミット）:**
 
 ```bash
-# Changed files (15 files, 850 lines changed)
-src/auth/login.js          # New
-src/auth/register.js       # New
-src/auth/password.js       # New
-src/auth/types.js          # New
-src/api/auth-routes.js     # New
-src/middleware/auth.js     # New
-src/database/migrations/001_users.sql  # New
-src/database/models/user.js            # New
-tests/auth/login.test.js   # New
-tests/auth/register.test.js # New
-tests/api/auth-routes.test.js # New
-docs/authentication.md    # New
-package.json              # Dependency addition
-README.md                 # Usage addition
-.env.example             # Environment variable example
+# 変更されたファイル（15 ファイル、850 行変更）
+src/auth/login.js          # 新規作成
+src/auth/register.js       # 新規作成  
+src/auth/password.js       # 新規作成
+src/auth/types.js          # 新規作成
+src/api/auth-routes.js     # 新規作成
+src/middleware/auth.js     # 新規作成
+src/database/migrations/001_users.sql  # 新規作成
+src/database/models/user.js            # 新規作成
+tests/auth/login.test.js   # 新規作成
+tests/auth/register.test.js # 新規作成
+tests/api/auth-routes.test.js # 新規作成
+docs/authentication.md    # 新規作成
+package.json              # 依存関係追加
+README.md                 # 使用方法追加
+.env.example             # 環境変数例追加
 
-# Problematic conventional commit
+# 従来の問題のあるコミット
 feat: implement complete user authentication system with login, registration, password reset, API routes, database models, tests and documentation
 ```
 
-**After (split into 5 meaningful commits):**
+**After（意味のある 5 つのコミットに分割）:**
 
 ```bash
-# Commit 1: Database foundation
+# コミット 1: データベース基盤
 feat(db): add user model and authentication schema
 
-Included files:
+含まれるファイル:
 - src/database/migrations/001_users.sql
 - src/database/models/user.js
 - src/auth/types.js
 
-Reason: Database structure is the foundation for other features, committed first
+理由: データベース構造は他の機能の基盤となるため最初にコミット
 
-# Commit 2: Authentication logic
-feat(auth): implement core authentication functionality
+# コミット 2: 認証ロジック
+feat(auth): implement core authentication functionality  
 
-Included files:
+含まれるファイル:
 - src/auth/login.js
 - src/auth/register.js
 - src/auth/password.js
 - src/middleware/auth.js
 
-Reason: Core authentication business logic committed together
+理由: 認証の核となるビジネスロジックを一括でコミット
 
-# Commit 3: API endpoints
+# コミット 3: API エンドポイント
 feat(api): add authentication API routes
 
-Included files:
+含まれるファイル:
 - src/api/auth-routes.js
 
-Reason: API layer depends on authentication logic, committed later
+理由: API レイヤーは認証ロジックに依存するため後でコミット
 
-# Commit 4: Comprehensive tests
+# コミット 4: 包括的なテスト
 test(auth): add comprehensive authentication tests
 
-Included files:
+含まれるファイル:
 - tests/auth/login.test.js
-- tests/auth/register.test.js
+- tests/auth/register.test.js  
 - tests/api/auth-routes.test.js
 
-Reason: Tests added after implementation is complete
+理由: 実装完了後にテストを一括追加
 
-# Commit 5: Documentation and configuration
+# コミット 5: 設定とドキュメント
 docs(auth): add authentication documentation and configuration
 
-Included files:
+含まれるファイル:
 - docs/authentication.md
 - package.json
 - README.md
 - .env.example
 
-Reason: Documentation and configuration committed together at the end
+理由: ドキュメントと設定は最後にまとめてコミット
 ```
 
-#### Example 2: Mixed Bug Fixes and Refactoring
+#### 例 2: バグ修正とリファクタリングの混在
 
-**Before (problematic mixed commit):**
+**Before（混在した問題のあるコミット）:**
 
 ```bash
-# Changed files (8 files, 320 lines changed)
-src/user/service.js       # Bug fixes + Refactoring
-src/user/validator.js     # New (refactoring)
-src/auth/middleware.js    # Bug fix
-src/api/user-routes.js    # Bug fix + Error handling improvement
-tests/user.test.js        # Test addition
-tests/auth.test.js        # Bug fix test addition
-docs/user-api.md          # Documentation update
-package.json              # Dependency update
+# 変更されたファイル（8 ファイル、320 行変更）
+src/user/service.js       # バグ修正 + リファクタリング
+src/user/validator.js     # 新規作成（リファクタリング）
+src/auth/middleware.js    # バグ修正
+src/api/user-routes.js    # バグ修正 + エラーハンドリング改善
+tests/user.test.js        # テスト追加
+tests/auth.test.js        # バグ修正テスト追加
+docs/user-api.md          # ドキュメント更新
+package.json              # 依存関係更新
 
-# Problematic commit
+# 問題のあるコミット
 fix: resolve user validation bugs and refactor validation logic with improved error handling
 ```
 
-**After (split into 3 commits by type):**
+**After（種別別に 3 つのコミットに分割）:**
 
 ```bash
-# Commit 1: Critical bug fixes
+# コミット 1: 緊急バグ修正
 fix: resolve user validation and authentication bugs
 
-Included files:
-- src/user/service.js (bug fix portion only)
+含まれるファイル:
+- src/user/service.js（バグ修正部分のみ）
 - src/auth/middleware.js
-- tests/auth.test.js (bug fix tests only)
+- tests/auth.test.js（バグ修正テストのみ）
 
-Reason: Production-affecting bugs fixed with highest priority
+理由: 本番環境に影響するバグは最優先で修正
 
-# Commit 2: Validation logic refactoring
+# コミット 2: バリデーションロジックのリファクタリング  
 refactor: extract and improve user validation logic
 
-Included files:
-- src/user/service.js (refactoring portion)
+含まれるファイル:
+- src/user/service.js（リファクタリング部分）
 - src/user/validator.js
 - src/api/user-routes.js
 - tests/user.test.js
 
-Reason: Structural improvements committed as functional units
+理由: 構造改善は機能単位でまとめてコミット
 
-# Commit 3: Documentation and dependency update
+# コミット 3: ドキュメントと依存関係更新
 chore: update documentation and dependencies
 
-Included files:
+含まれるファイル:
 - docs/user-api.md
 - package.json
 
-Reason: Development environment improvements committed together at the end
+理由: 開発環境の整備は最後にまとめてコミット
 ```
 
-#### Example 3: Simultaneous Development of Multiple Features
+#### 例 3: 複数機能の同時開発
 
-**Before (cross-functional massive commit):**
+**Before（機能横断の巨大コミット）:**
 
 ```bash
-# Changed files (12 files, 600 lines changed)
-src/user/profile.js       # New feature A
-src/user/avatar.js        # New feature A
-src/notification/email.js # New feature B
-src/notification/sms.js   # New feature B
-src/api/profile-routes.js # New feature A API
-src/api/notification-routes.js # New feature B API
-src/dashboard/widgets.js  # New feature C
-src/dashboard/charts.js   # New feature C
-tests/profile.test.js     # New feature A tests
-tests/notification.test.js # New feature B tests
-tests/dashboard.test.js   # New feature C tests
-package.json              # All features' dependencies
+# 変更されたファイル（12 ファイル、600 行変更）
+src/user/profile.js       # 新機能 A
+src/user/avatar.js        # 新機能 A  
+src/notification/email.js # 新機能 B
+src/notification/sms.js   # 新機能 B
+src/api/profile-routes.js # 新機能 A 用 API
+src/api/notification-routes.js # 新機能 B 用 API
+src/dashboard/widgets.js  # 新機能 C
+src/dashboard/charts.js   # 新機能 C
+tests/profile.test.js     # 新機能 A 用テスト
+tests/notification.test.js # 新機能 B 用テスト  
+tests/dashboard.test.js   # 新機能 C 用テスト
+package.json              # 全機能の依存関係
 
-# Problematic commit
+# 問題のあるコミット  
 feat: add user profile management, notification system and dashboard widgets
 ```
 
-**After (split into 4 commits by feature):**
+**After（機能別に 4 つのコミットに分割）:**
 
 ```bash
-# Commit 1: User profile feature
+# コミット 1: ユーザープロフィール機能
 feat(profile): add user profile management
 
-Included files:
+含まれるファイル:
 - src/user/profile.js
 - src/user/avatar.js
 - src/api/profile-routes.js
 - tests/profile.test.js
 
-Reason: Profile feature is an independent functional unit
+理由: プロフィール機能は独立した機能単位
 
-# Commit 2: Notification system
+# コミット 2: 通知システム
 feat(notification): implement email and SMS notifications
 
-Included files:
+含まれるファイル:
 - src/notification/email.js
-- src/notification/sms.js
+- src/notification/sms.js  
 - src/api/notification-routes.js
 - tests/notification.test.js
 
-Reason: Notification feature is an independent functional unit
+理由: 通知機能は独立した機能単位
 
-# Commit 3: Dashboard widgets
+# コミット 3: ダッシュボードウィジェット
 feat(dashboard): add interactive widgets and charts
 
-Included files:
+含まれるファイル:
 - src/dashboard/widgets.js
 - src/dashboard/charts.js
 - tests/dashboard.test.js
 
-Reason: Dashboard feature is an independent functional unit
+理由: ダッシュボード機能は独立した機能単位
 
-# Commit 4: Dependencies and infrastructure update
+# コミット 4: 依存関係とインフラ更新
 chore: update dependencies for new features
 
-Included files:
+含まれるファイル:
 - package.json
 
-Reason: Common dependency updates committed together at the end
+理由: 共通の依存関係更新は最後にまとめて
 ```
 
-### Comparison of Splitting Effects
+### 分割効果の比較
 
-| Item | Before (Massive Commit) | After (Proper Splitting) |
+| 項目 | Before（巨大コミット） | After（適切な分割） |
 |------|---------------------|-------------------|
-| **Reviewability** | ❌ Very difficult | ✅ Each commit is small and reviewable |
-| **Bug Tracking** | ❌ Difficult to identify problem location | ✅ Problematic commits can be immediately identified |
-| **Reverting** | ❌ Need to revert everything | ✅ Can pinpoint and revert only problematic parts |
-| **Parallel Development** | ❌ Conflict-prone | ✅ Feature-based merging is easy |
-| **Deployment** | ❌ All features deployed at once | ✅ Staged deployment possible |
+| **レビュー性** | ❌ 非常に困難 | ✅ 各コミットが小さくレビュー可能 |
+| **バグ追跡** | ❌ 問題箇所の特定が困難 | ✅ 問題のあるコミットを即座に特定 |
+| **リバート** | ❌ 全体をリバートする必要 | ✅ 問題部分のみをピンポイントでリバート |
+| **並行開発** | ❌ コンフリクトが発生しやすい | ✅ 機能別でマージが容易 |
+| **デプロイ** | ❌ 全機能を一括デプロイ | ✅ 段階的なデプロイが可能 |
 
-### Troubleshooting
+### トラブルシューティング
 
-#### When Commit Fails
+#### コミット失敗時
 
-- Check pre-commit hooks
-- Resolve dependencies
-- Retry with individual files
+- プリコミットフックの確認
+- 依存関係の解決
+- 個別ファイルでの再試行
 
-#### When Splitting is Inappropriate
+#### 分割が適切でない場合
 
-- Adjust with `--max-commits` option
-- Use manual `edit` mode
-- Re-run with finer granularity
+- `--max-commits` オプションで調整
+- 手動での `edit` モード使用
+- より細かい単位での再実行
