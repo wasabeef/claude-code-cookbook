@@ -1,5 +1,7 @@
 # Claude Code Cookbook
 
+[[Chinese]](README_zh.md) or [[Japanese]](README.md)
+
 A collection of settings to make Claude Code more useful.
 
 It automatically proceeds with work without unnecessary confirmations, allowing you to focus on what you really want to do. Claude Code judges and executes common tasks like code fixes, test runs, and documentation updates.
@@ -165,8 +167,9 @@ flowchart TB
 ### Installation Steps
 
 1. **Clone the repository**: `git clone https://github.com/wasabeef/claude-code-cookbook.git ~/.claude`
-2. **Set the path in client**: Specify the path to the above directory in Claude's client
-3. **Check paths**: Verify that script paths in `settings.json` match your environment
+2. **Set language**: `./scripts/set-lang.sh en` (Set to English)
+3. **Set the path in client**: Specify the path to the above directory in Claude's client
+4. **Check paths**: Verify that script paths in `settings.json` match your environment
 
 ### Customization
 

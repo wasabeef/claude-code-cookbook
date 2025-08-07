@@ -1,5 +1,7 @@
 # Claude 代码食谱
 
+[[English]](README_en.md) or [[Japanese]](README.md)
+
 这个项目是为了让 Claude Code 更加方便使用的设置集合。
 
 它可以省去繁琐的确认步骤，自动推进工作流程，让你能够专注于真正想做的事情。代码修改、测试执行、文档更新等常见工作，Claude Code 会自主判断并执行。
@@ -165,8 +167,9 @@ flowchart TB
 ### 安装步骤
 
 1. **克隆仓库**: `git clone https://github.com/wasabeef/claude-code-cookbook.git ~/.claude`
-2. **在客户端设置路径**: 在 Claude 客户端中指定上述目录的路径
-3. **确认路径**: 确认 `settings.json` 中的脚本路径与环境匹配
+2. **设置语言**: `./scripts/set-lang.sh zh` (设置为中文)
+3. **在客户端设置路径**: 在 Claude 客户端中指定上述目录的路径
+4. **确认路径**: 确认 `settings.json` 中的脚本路径与环境匹配
 
 ### 自定义
 
