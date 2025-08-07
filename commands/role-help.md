@@ -1,276 +1,275 @@
 ## Role Help
 
-A selection guide and help system when you're unsure which role to use.
+どのロールを使うべきか迷った時の選択ガイドとヘルプシステム。
 
-### Usage
+### 使い方
 
 ```bash
-/role-help                      # General role selection guide
-/role-help <situation/problem>  # Recommended roles for specific situations
-/role-help compare <Role 1>,<Role 2> # Compare roles
+/role-help                      # 全般的なロール選択ガイド
+/role-help <状況/問題>          # 特定状況での推奨ロール
+/role-help compare <ロール 1>,<ロール 2> # ロール比較
 ```
 
-### Basic Examples
+### 基本例
 
 ```bash
-# General guidance
+# 一般的なガイダンス
 /role-help
-→ List of available roles and their characteristics
+→ 利用可能なロールと特徴の一覧表示
 
-# Situation-specific recommendation
-/role-help "Concerned about API security"
-→ Recommendation and usage of security role
+# 状況別の推奨
+/role-help "API のセキュリティが心配"
+→ security ロールの推奨と使用方法
 
-# Role comparison
+# ロール比較
 /role-help compare frontend,mobile
-→ Differences and appropriate usage between frontend and mobile roles
+→ frontend と mobile の違いと使い分け
 ```
 
-### Situation-Based Role Selection Guide
+### 状況別ロール選択ガイド
 
-### Security-Related
-
-```
-Use security role for:
-✅ Implementation of login/authentication functions
-✅ Security vulnerability checks for APIs
-✅ Data encryption and privacy protection
-✅ Security compliance verification
-✅ Penetration testing
-
-Usage: /role security
-```
-
-### 🏗️ Architecture & Design
+### セキュリティ関連
 
 ```
-Use architect role for:
-✅ Evaluation of overall system design
-✅ Microservices vs monolith decisions
-✅ Database design and technology selection
-✅ Scalability and extensibility considerations
-✅ Technical debt assessment and improvement planning
+こんな時は security ロール:
+✅ ログイン・認証機能の実装
+✅ API のセキュリティ脆弱性チェック
+✅ データ暗号化・プライバシー保護
+✅ セキュリティコンプライアンス確認
+✅ 侵入テスト・ペネトレーションテスト
 
-Usage: /role architect
+使い方: /role security
 ```
 
-### ⚡ Performance Issues
+### 🏗️ アーキテクチャ・設計
 
 ```
-Use performance role for:
-✅ Slow applications
-✅ Database query optimization
-✅ Web page loading speed improvement
-✅ Memory and CPU usage optimization
-✅ Scaling and load countermeasures
+こんな時は architect ロール:
+✅ システム全体の設計評価
+✅ マイクロサービス vs モノリス判断
+✅ データベース設計・技術選定
+✅ スケーラビリティ・拡張性の検討
+✅ 技術的負債の評価・改善計画
 
-Usage: /role performance
+使い方: /role architect
 ```
 
-### 🔍 Problem Root Cause Investigation
+### ⚡ パフォーマンス問題
 
 ```
-Use analyzer role for:
-✅ Root cause analysis of bugs and errors
-✅ Investigation of system failures
-✅ Structural analysis of complex problems
-✅ Data analysis and statistical research
-✅ Understanding why problems occur
+こんな時は performance ロール:
+✅ アプリケーションが遅い
+✅ データベースクエリの最適化
+✅ Web ページの読み込み速度改善
+✅ メモリ・ CPU 使用量の最適化
+✅ スケーリング・負荷対策
 
-Usage: /role analyzer
+使い方: /role performance
 ```
 
-### 🎨 Frontend & UI/UX
+### 🔍 問題の原因調査
 
 ```
-Use frontend role for:
-✅ User interface improvements
-✅ Accessibility compliance
-✅ Responsive design
-✅ Usability and ease of use enhancement
-✅ General web frontend technologies
+こんな時は analyzer ロール:
+✅ バグ・エラーの根本原因分析
+✅ システム障害の原因究明
+✅ 複雑な問題の構造的分析
+✅ データ分析・統計的調査
+✅ なぜこの問題が起きたかの解明
 
-Usage: /role frontend
+使い方: /role analyzer
 ```
 
-### 📱 Mobile App Development
+### 🎨 フロントエンド・ UI/UX
 
 ```
-Use mobile role for:
-✅ iOS and Android app optimization
-✅ Mobile-specific UX design
-✅ Touch interface optimization
-✅ Offline support and synchronization functions
-✅ App Store and Google Play compliance
+こんな時は frontend ロール:
+✅ ユーザーインターフェースの改善
+✅ アクセシビリティ対応
+✅ レスポンシブデザイン
+✅ ユーザビリティ・使いやすさ向上
+✅ Web フロントエンド技術全般
 
-Usage: /role mobile
+使い方: /role frontend
 ```
 
-### 👀 Code Review & Quality
+### 📱 モバイルアプリ開発
 
 ```
-Use reviewer role for:
-✅ Code quality checks
-✅ Readability and maintainability evaluation
-✅ Coding convention verification
-✅ Refactoring proposals
-✅ PR and commit reviews
+こんな時は mobile ロール:
+✅ iOS ・ Android アプリの最適化
+✅ タッチインターフェース最適化
+✅ オフライン対応・同期機能
+✅ App Store ・ Google Play 対応
 
-Usage: /role reviewer
+使い方: /role mobile
 ```
 
-### 🧪 Testing & Quality Assurance
+### 👀 コードレビュー・品質
 
 ```
-Use qa role for:
-✅ Test strategy planning
-✅ Test coverage evaluation
-✅ Automated test implementation guidelines
-✅ Bug prevention and quality improvement measures
-✅ Test automation in CI/CD
+こんな時は reviewer ロール:
+✅ コードの品質チェック
+✅ 可読性・保守性の評価
+✅ コーディング規約の確認
+✅ リファクタリング提案
+✅ PR ・コミットのレビュー
 
-Usage: /role qa
+使い方: /role reviewer
 ```
 
-### When Multiple Roles Are Needed
-
-### 🔄 multi-role (Parallel Analysis)
+### 🧪 テスト・品質保証
 
 ```
-Use multi-role for:
-✅ Evaluation from multiple professional perspectives
-✅ Creating integrated improvement plans
-✅ Comparing evaluations from different fields
-✅ Organizing contradictions and overlaps
+こんな時は qa ロール:
+✅ テスト戦略の立案
+✅ テストカバレッジの評価
+✅ 自動テストの実装方針
+✅ バグ防止・品質向上策
+✅ CI/CD でのテスト自動化
 
-Example: /multi-role security,performance
+使い方: /role qa
 ```
 
-### 🗣️ role-debate (Discussion)
+### 複数ロールが必要な場合
+
+### 🔄 multi-role (並行分析)
 
 ```
-Use role-debate for:
-✅ Trade-offs between specialized fields
-✅ Divided opinions on technology selection
-✅ Making design decisions through discussion
-✅ Hearing debates from different perspectives
+こんな時は multi-role:
+✅ 複数の専門視点での評価が欲しい
+✅ 統合的な改善計画を立てたい
+✅ 各分野の評価を比較したい
+✅ 矛盾・重複を整理したい
 
-Example: /role-debate security,performance
+例: /multi-role security,performance
 ```
 
-### 🤖 smart-review (Automatic Proposal)
+### 🗣️ role-debate (議論)
 
 ```
-Use smart-review for:
-✅ Uncertainty about which role to use
-✅ Wanting to know the optimal approach for current situation
-✅ Choosing from multiple options
-✅ Beginner indecision
+こんな時は role-debate:
+✅ 専門分野間でトレードオフがある
+✅ 技術選定で意見が分かれる
+✅ 設計方針を議論で決めたい
+✅ 異なる視点の議論を聞きたい
 
-Example: /smart-review
+例: /role-debate security,performance
 ```
 
-### Role Comparison Table
-
-### Security Category
-
-| Role | Main Use | Strengths | Weaknesses |
-|------|----------|----------|----------|
-| security | Vulnerability and attack countermeasures | Threat analysis, authentication design | UX, performance |
-| analyzer | Root cause analysis | Logical analysis, evidence collection | Preventive measures, future planning |
-
-### Design Category
-
-| Role | Main Use | Strengths | Weaknesses |
-|------|----------|----------|----------|
-| architect | System design | Long-term perspective, overall optimization | Detailed implementation, short-term solutions |
-| reviewer | Code quality | Implementation level, maintainability | Business requirements, UX |
-
-### Performance Category
-
-| Role | Main Use | Strengths | Weaknesses |
-|------|----------|----------|----------|
-| performance | Speed improvement and optimization | Measurement, bottleneck identification | Security, UX |
-| qa | Quality assurance | Testing, automation | Design, architecture |
-
-### User Experience Category
-
-| Role | Main Use | Strengths | Weaknesses |
-|------|----------|----------|----------|
-| frontend | Web UI/UX | Browser, accessibility | Server-side, DB |
-| mobile | Mobile UX | Touch, offline support | Server-side, Web |
-
-### Decision Flowchart When Unsure
+### 🤖 smart-review (自動提案)
 
 ```
-What is the nature of the problem?
-├─ Security-related → security
-├─ Performance issues → performance
-├─ Bug/failure investigation → analyzer
-├─ UI/UX improvement → frontend or mobile
-├─ Design/architecture → architect
-├─ Code quality → reviewer
-├─ Testing-related → qa
-└─ Complex/composite → smart-review for proposal
+こんな時は smart-review:
+✅ どのロールを使うべきか分からない
+✅ 現在の状況に最適なアプローチを知りたい
+✅ 複数の選択肢から選びたい
+✅ 初心者で判断に迷う
 
-Spans multiple fields?
-├─ Want integrated analysis → multi-role
-├─ Discussion/trade-offs → role-debate
-└─ Unsure → smart-review
+例: /smart-review
 ```
 
-### Frequently Asked Questions
+### ロール比較表
 
-### Q: What's the difference between frontend and mobile roles?
+### セキュリティ系
+
+| ロール | 主な用途 | 得意分野 | 苦手分野 |
+|--------|----------|----------|----------|
+| security | 脆弱性・攻撃対策 | 脅威分析、認証設計 | UX、パフォーマンス |
+| analyzer | 根本原因分析 | 論理的分析、証拠収集 | 予防策、将来計画 |
+
+### 設計系
+
+| ロール | 主な用途 | 得意分野 | 苦手分野 |
+|--------|----------|----------|----------|
+| architect | システム設計 | 長期視点、全体最適 | 詳細実装、短期解決 |
+| reviewer | コード品質 | 実装レベル、保守性 | ビジネス要件、UX |
+
+### パフォーマンス系
+
+| ロール | 主な用途 | 得意分野 | 苦手分野 |
+|--------|----------|----------|----------|
+| performance | 高速化・最適化 | 測定、ボトルネック | セキュリティ、UX |
+| qa | 品質保証 | テスト、自動化 | 設計、アーキテクチャ |
+
+### ユーザー体験系
+
+| ロール | 主な用途 | 得意分野 | 苦手分野 |
+|--------|----------|----------|----------|
+| frontend | Web UI/UX | ブラウザ、アクセシビリティ | サーバーサイド、DB |
+| mobile | モバイル UX | タッチ、オフライン対応 | サーバーサイド、Web |
+
+### 迷った時のフローチャート
 
 ```
-A:
-frontend: Web browser-focused, HTML/CSS/JavaScript
-mobile: Mobile app-focused, iOS/Android native, React Native, etc.
+問題の性質は？
+├─ セキュリティ関連 → security
+├─ パフォーマンス問題 → performance  
+├─ バグ・障害調査 → analyzer
+├─ UI/UX 改善 → frontend or mobile
+├─ 設計・アーキテクチャ → architect
+├─ コード品質 → reviewer
+├─ テスト関連 → qa
+└─ 複合的・複雑 → smart-review で提案
 
-For issues related to both, multi-role frontend,mobile is recommended
+複数の分野にまたがる？
+├─ 統合分析したい → multi-role
+├─ 議論・トレードオフ → role-debate
+└─ 判断に迷う → smart-review
 ```
 
-### Q: How to choose between security and analyzer roles?
+### よくある質問
+
+### Q: frontend と mobile の違いは？
 
 ```
-A:
-security: Prevention of attacks and threats, security design
-analyzer: Analysis of causes of existing problems, investigation
+A: 
+frontend: Web ブラウザ中心、HTML/CSS/JavaScript
+mobile: モバイルアプリ中心、iOS/Android ネイティブ・ React Native など
 
-For security incident investigations, use multi-role security,analyzer
+両方関連する場合は multi-role frontend,mobile がおすすめ
 ```
 
-### Q: What's the difference between architect and performance roles?
+### Q: security と analyzer の使い分けは？
 
 ```
 A:
-architect: Long-term design of entire systems, scalability
-performance: Specific speed and efficiency improvements
+security: 攻撃・脅威の予防、セキュリティ設計
+analyzer: 既に起きた問題の原因分析、調査
 
-For performance design of large-scale systems, use multi-role architect,performance
+セキュリティインシデントの調査なら multi-role security,analyzer
 ```
 
-### Collaboration with Claude
+### Q: architect と performance の違いは？
+
+```
+A:
+architect: システム全体の長期的設計、拡張性
+performance: 具体的な速度・効率の改善
+
+大規模システムの性能設計なら multi-role architect,performance
+```
+
+### Claude との連携
 
 ```bash
-# Combined with situation description
+# 状況説明と組み合わせ
 /role-help
-"React app page loading is slow, receiving complaints from users"
+「React アプリのページ読み込みが遅くて、ユーザーから苦情が来ている」
 
-# Combined with file content
+# ファイル内容と組み合わせ
 cat problem-description.md
 /role-help
-"Recommend the most suitable role for this problem"
+「この問題に最適なロールを推奨して」
 
-# When unsure between specific options
+# 特定の選択肢で迷っている場合
 /role-help compare security,performance
-"Which role is appropriate for JWT token expiration issues?"
+「JWT トークンの有効期限問題でどちらのロールが適切？」
 ```
 
-### Notes
+### 注意事項
 
-- For complex problems, combining multiple roles is more effective
-- For urgent matters, use single role for quick response
-- When unsure, it's recommended to use smart-review for automatic proposals
-- The final decision should be made by the user considering the nature of the problem
+- 複雑な問題ほど複数ロールの組み合わせが効果的です
+- 緊急性が高い場合は single role で迅速に対応
+- 迷った時は smart-review で自動提案を受けることをおすすめします
+- 最終的な判断はユーザーが問題の性質を考慮して決定してください

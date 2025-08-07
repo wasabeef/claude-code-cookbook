@@ -1,73 +1,69 @@
 #!/bin/bash
 
-# Read JSON input and extract command and tool name
+# JSON 入力を読み取り、コマンドとツール名を抽出
 input=$(cat)
 command=$(echo "$input" | jq -r '.tool_input.command' 2>/dev/null || echo "")
 tool_name=$(echo "$input" | jq -r '.tool_name' 2>/dev/null || echo "")
 
-# Only check Bash commands
+# Bash コマンドのみをチェック
 if [ "$tool_name" != "Bash" ]; then
   exit 0
 fi
 
-# Read deny patterns from settings.json
+# settings.json から拒否パターンを読み取り
 settings_file="$HOME/.claude/settings.json"
 
-# Get all deny patterns for Bash commands
+# Bash コマンドの全拒否パターンを取得
 deny_patterns=$(jq -r '.permissions.deny[] | select(startswith("Bash(")) | gsub("^Bash\\("; "") | gsub("\\)$"; "")' "$settings_file" 2>/dev/null)
 
-# Function to check if command matches deny pattern
+# コマンドが拒否パターンにマッチするかチェックする関数
 matches_deny_pattern() {
   local cmd="$1"
   local pattern="$2"
 
-  # Remove leading and trailing whitespace
-  cmd="${cmd#"${cmd%%[![:space:]]*}"}" # Remove leading whitespace
-  cmd="${cmd%"${cmd##*[![:space:]]}"}" # Remove trailing whitespace
+  # 先頭・末尾の空白を削除
+  cmd="${cmd#"${cmd%%[![:space:]]*}"}" # 先頭の空白を削除
+  cmd="${cmd%"${cmd##*[![:space:]]}"}" # 末尾の空白を削除
 
-  # Glob pattern matching (supports wildcards)
+  # glob パターンマッチング（ワイルドカード対応）
   [[ "$cmd" == $pattern ]]
 }
 
-# First check the entire command
+# まずコマンド全体をチェック
 while IFS= read -r pattern; do
-  # Skip empty lines
+  # 空行をスキップ
   [ -z "$pattern" ] && continue
 
-  # Check if the entire command matches the pattern
+  # コマンド全体がパターンにマッチするかチェック
   if matches_deny_pattern "$command" "$pattern"; then
-    echo "Error: Command denied: '$command' (pattern: '$pattern')" >&2
+    echo "Error: コマンドが拒否されました: '$command' (パターン: '$pattern')" >&2
     exit 2
   fi
 done <<<"$deny_patterns"
 
-# Split command by logical operators and check each part
-# Split by semicolon, && and || (do not split pipe | and single &)
-temp_command="${command//;/$'
-'}"
-temp_command="${temp_command//&&/$'
-'}"
-temp_command="${temp_command//\|\|/$'
-'}"
+# コマンドを論理演算子で分割し、各部分もチェック
+# セミコロン、&& と || で分割（パイプ | と単一 & は分割しない）
+temp_command="${command//;/$'\n'}"
+temp_command="${temp_command//&&/$'\n'}"
+temp_command="${temp_command//\|\|/$'\n'}"
 
-IFS=$'
-'
+IFS=$'\n'
 for cmd_part in $temp_command; do
-  # Skip empty parts
+  # 空の部分をスキップ
   [ -z "$(echo "$cmd_part" | tr -d '[:space:]')" ] && continue
 
-  # Check against each deny pattern
+  # 各拒否パターンに対してチェック
   while IFS= read -r pattern; do
-    # Skip empty lines
+    # 空行をスキップ
     [ -z "$pattern" ] && continue
 
-    # Check if this command part matches the pattern
+    # このコマンド部分がパターンにマッチするかチェック
     if matches_deny_pattern "$cmd_part" "$pattern"; then
-      echo "Error: Command denied: '$cmd_part' (pattern: '$pattern')" >&2
+      echo "Error: コマンドが拒否されました: '$cmd_part' (パターン: '$pattern')" >&2
       exit 2
     fi
-done <<<"$deny_patterns"
+  done <<<"$deny_patterns"
 done
 
-# Command is allowed
+# コマンドを許可
 exit 0

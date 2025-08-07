@@ -1,116 +1,99 @@
 ## Analyze Performance
 
-Analyzes application performance issues and proposes improvements from a technical debt perspective.
+アプリケーションのパフォーマンス問題を分析し、技術的負債の観点から改善策を提案します。
 
-### Usage
+### 使い方
 
 ```bash
-# Comprehensive analysis of performance issues
+# パフォーマンス問題の包括的分析
 find . -name "*.js" -o -name "*.ts" | xargs wc -l | sort -rn | head -10
-"Identify large files and performance issues, and suggest improvements"
+「大きなファイルとパフォーマンス問題を特定して改善案を提示して」
 
-# Detect inefficient code patterns
+# 非効率なコードパターンの検出
 grep -r "for.*await\|forEach.*await" . --include="*.js"
-"Analyze N+1 query problems and performance bottlenecks"
+「N+1 クエリ問題とパフォーマンスボトルネックを分析して」
 
-# Potential memory leaks
+# メモリリークの可能性
 grep -r "addEventListener\|setInterval" . --include="*.js" | grep -v "removeEventListener\|clearInterval"
-"Evaluate memory leak risks and countermeasures"
+「メモリリークのリスクと対策を評価して」
 ```
 
-### Basic Examples
+### 基本例
 
 ```bash
-# Bundle size and load time
+# バンドルサイズとロード時間
 npm ls --depth=0 && find ./public -name "*.js" -o -name "*.css" | xargs ls -lh
-"Identify improvements for bundle size and asset optimization"
+"バンドルサイズとアセット最適化の改善点を特定して"
 
-# Database performance
+# データベースパフォーマンス
 grep -r "SELECT\|findAll\|query" . --include="*.js" | head -20
-"Analyze optimization points for database queries"
+"データベースクエリの最適化ポイントを分析して"
 
-# Performance impact of dependencies
+# 依存関係のパフォーマンス影響
 npm outdated && npm audit
-"Evaluate the performance impact of outdated dependencies"
+"古い依存関係がパフォーマンスに与える影響を評価して"
 ```
 
-### Analysis Perspectives
+### 分析観点
 
-#### 1. Code-Level Issues
+#### 1. コードレベルの問題
 
-- **O(n²) Algorithms**: Detection of inefficient array operations
-- **Synchronous I/O**: Identification of blocking operations
-- **Redundant Processing**: Elimination of unnecessary calculations and requests
-- **Memory Leaks**: Management of event listeners and timers
+- **O(n²) アルゴリズム**: 非効率な配列操作の検出
+- **同期 I/O**: ブロッキング処理の特定
+- **重複処理**: 不要な計算やリクエストの削除
+- **メモリリーク**: イベントリスナーやタイマーの管理
 
-#### 2. Architecture-Level Issues
+#### 2. アーキテクチャレベルの問題
 
-- **N+1 Queries**: Database access patterns
-- **Insufficient Caching**: Repeated calculations and API calls
-- **Bundle Size**: Unnecessary libraries and code splitting
-- **Resource Management**: Connection pools and thread usage
+- **N+1 クエリ**: データベースアクセスパターン
+- **キャッシュ不足**: 繰り返し計算や API 呼び出し
+- **バンドルサイズ**: 不要なライブラリやコード分割
+- **リソース管理**: 接続プールやスレッド使用量
 
-#### 3. Impact of Technical Debt
+#### 3. 技術的負債による影響
 
-- **Legacy Code**: Performance degradation due to old implementations
-- **Design Issues**: High coupling due to insufficient responsibility distribution
-- **Insufficient Testing**: Missed detection of performance regressions
-- **Insufficient Monitoring**: Early detection system for issues
+- **レガシーコード**: 古い実装による性能劣化
+- **設計の問題**: 責任分散不足による結合度の高さ
+- **テスト不足**: パフォーマンス回帰の検出漏れ
+- **監視不足**: 問題の早期発見体制
 
-### Improvement Priorities
+### 改善優先度
 
 ```
-🔴 Critical: System failure risk
-├─ Memory leaks (server crashes)
-├─ N+1 queries (database load)
-└─ Synchronous I/O (response delays)
+🔴 Critical: システム障害リスク
+├─ メモリリーク (サーバークラッシュ)
+├─ N+1 クエリ (データベース負荷)
+└─ 同期 I/O (レスポンス遅延)
 
-🟡 High: User experience impact
-├─ Bundle size (initial load time)
-├─ Image optimization (display speed)
-└─ Caching strategy (response speed)
+🟡 High: ユーザー体験影響
+├─ バンドルサイズ (初回ロード時間)
+├─ 画像最適化 (表示速度)
+└─ キャッシュ戦略 (反応速度)
 
-🟢 Medium: Operational efficiency
-├─ Dependency updates (security)
-├─ Code duplication (maintainability)
-└─ Enhanced monitoring (operational load)
+🟢 Medium: 運用効率
+├─ 依存関係更新 (セキュリティ)
+├─ コード重複 (保守性)
+└─ 監視強化 (運用負荷)
 ```
 
-### Measurement and Tools
+### 測定とツール
 
 #### Node.js / JavaScript
 
 ```bash
-# Profiling
+# プロファイリング
 node --prof app.js
 clinic doctor -- node app.js
 
-# Bundle analysis
+# バンドル分析
 npx webpack-bundle-analyzer
 lighthouse --chrome-flags="--headless"
 ```
 
-#### Database
+#### データベース
 
 ```sql
--- Query analysis
+-- クエリ分析
 EXPLAIN ANALYZE SELECT ...
 SHOW SLOW LOG;
 ```
-
-#### Frontend
-
-```bash
-# React performance
-grep -r "useMemo\|useCallback" . --include="*.jsx"
-
-# Resource analysis
-find ./src -name "*.png" -o -name "*.jpg" | xargs ls -lh
-```
-
-### Continuous Improvement
-
-- **Regular Audits**: Weekly performance test execution
-- **Metrics Collection**: Tracking of response times and memory usage
-- **Alert Configuration**: Automatic notifications when thresholds are exceeded
-- **Team Sharing**: Documentation of improvement cases and anti-patterns

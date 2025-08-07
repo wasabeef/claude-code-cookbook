@@ -1,60 +1,60 @@
 ## Commit Message
 
-Generates appropriate commit messages from staged changes (git diff --staged). Does not execute git commands, only generates messages and copies them to the clipboard.
+ステージングされた変更（git diff --staged）から適切なコミットメッセージを生成します。git コマンドの実行は行わず、メッセージの生成とクリップボードへのコピーのみを行います。
 
-### Usage
+### 使い方
 
 ```bash
-/commit-message [options]
+/commit-message [オプション]
 ```
 
-### Options
+### オプション
 
-- `--format <format>`: Specify message format (conventional, gitmoji, angular)
-- `--lang <language>`: Force message language (en, ja)
-- `--breaking`: Detect and mark breaking changes
+- `--format <形式>` : メッセージ形式を指定（conventional, gitmoji, angular）
+- `--lang <言語>` : メッセージ言語を強制指定（en, ja）
+- `--breaking` : Breaking Change の検出と記載
 
-### Basic Examples
+### 基本例
 
 ```bash
-# Generate message from staged changes (automatic language detection)
-# Main candidate is automatically copied to clipboard
+# ステージングされた変更からメッセージ生成（言語自動判定）
+# メイン候補が自動的にクリップボードにコピーされます
 /commit-message
 
-# Force language specification
+# 言語を強制的に指定
 /commit-message --lang ja
 /commit-message --lang en
 
-# Detect breaking changes
+# Breaking Change を検出
 /commit-message --breaking
 ```
 
-### Prerequisites
+### 前提条件
 
-**Important**: This command only analyzes staged changes. You must stage changes with `git add` beforehand.
+**重要**: このコマンドはステージングされた変更のみを分析します。事前に `git add` で変更をステージングしておく必要があります。
 
 ```bash
-# Warning will be displayed if no changes are staged
+# ステージングされていない場合は警告が表示されます
 $ /commit-message
-No staged changes found. Please run git add first.
+ステージングされた変更がありません。先に git add を実行してください。
 ```
 
-### Automatic Clipboard Function
+### 自動クリップボード機能
 
-The generated main candidate is automatically copied to the clipboard in the complete format `git commit -m "message"`. You can paste and execute it directly in the terminal.
+生成されたメイン候補は `git commit -m "メッセージ"` の完全な形式で自動的にクリップボードにコピーされます。ターミナルでそのまま貼り付けて実行できます。
 
-**Implementation Notes**:
+**実装時の注意**:
 
-- When passing the commit command to `pbcopy`, execute it in a separate process from message output
-- Use `printf` instead of `echo` to avoid trailing newlines
+- コミットコマンドを `pbcopy` に渡す際は、メッセージ出力とは別プロセスで実行すること
+- `echo` の代わりに `printf` を使用して末尾の改行を避けること
 
-### Automatic Detection of Project Conventions
+### プロジェクト規約の自動検出
 
-**Important**: If project-specific conventions exist, they take precedence.
+**重要**: プロジェクト独自の規約が存在する場合は、それを優先します。
 
-#### 1. CommitLint Configuration Check
+#### 1. CommitLint 設定の確認
 
-Automatically detects settings from the following files:
+以下のファイルから設定を自動検出：
 
 - `commitlint.config.js`
 - `commitlint.config.mjs`
@@ -64,16 +64,16 @@ Automatically detects settings from the following files:
 - `.commitlintrc.json`
 - `.commitlintrc.yml`
 - `.commitlintrc.yaml`
-- `commitlint` section in `package.json`
+- `package.json` の `commitlint` セクション
 
 ```bash
-# Search for configuration files
+# 設定ファイルの検索
 find . -name "commitlint.config.*" -o -name ".commitlintrc.*" | head -1
 ```
 
-#### 2. Custom Type Detection
+#### 2. カスタムタイプの検出
 
-Examples of project-specific types:
+プロジェクト独自のタイプ例：
 
 ```javascript
 // commitlint.config.mjs
@@ -85,34 +85,118 @@ export default {
       'always',
       [
         'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // Work in progress
-        'hotfix',   // Emergency fix
-        'release',  // Release
-        'deps',     // Dependency update
-        'config'    // Configuration change
+        'wip',      // 作業中
+        'hotfix',   // 緊急修正
+        'release',  // リリース
+        'deps',     // 依存関係更新
+        'config'    // 設定変更
       ]
     ]
   }
 }
 ```
 
-#### 3. Language Setting Detection
+#### 3. 言語設定の検出
 
 ```javascript
-// When project uses Japanese messages
+// プロジェクトが日本語メッセージを使用する場合
 export default {
   rules: {
-    'subject-case': [0],  // Disabled for Japanese support
-    'subject-max-length': [2, 'always', 72]  // Adjust character limit for Japanese
+    'subject-case': [0],  // 日本語対応のため無効化
+    'subject-max-length': [2, 'always', 72]  // 日本語は文字数制限を調整
   }
 }
 ```
 
-#### 4. Existing Commit History Analysis
+#### 4. 既存コミット履歴の分析
 
 ```bash
-# Learn usage patterns from recent commits
+# 最近のコミットから使用パターンを学習
 git log --oneline -50 --pretty=format:"%s"
 
-# Type statistics
-git log --oneline -100 --pretty=format:
+# 使用タイプ統計
+git log --oneline -100 --pretty=format:"%s" | \
+grep -oE '^[a-z]+(\([^)]+\))?' | \
+sort | uniq -c | sort -nr
+```
+
+### 言語の自動判定
+
+以下の条件で自動的に日本語/英語を切り替えます：
+
+1. **CommitLint 設定**から言語設定を確認
+2. **git log 分析**による自動判定
+3. **プロジェクトファイル**の言語設定
+4. **変更ファイル内**のコメント・文字列分析
+
+デフォルトは英語。日本語プロジェクトと判定された場合は日本語で生成。
+
+### メッセージ形式
+
+#### Conventional Commits (デフォルト)
+
+```
+<type>: <description>
+```
+
+**重要**: 必ず 1 行のコミットメッセージを生成します。複数行のメッセージは生成しません。
+
+**注意**: プロジェクト独自の規約がある場合は、それを優先します。
+
+### 標準タイプ
+
+**必須タイプ**:
+
+- `feat`: 新機能（ユーザーに見える機能追加）
+- `fix`: バグ修正
+
+**任意タイプ**:
+
+- `build`: ビルドシステムや外部依存関係の変更
+- `chore`: その他の変更（リリースに影響しない）
+- `ci`: CI 設定ファイルやスクリプトの変更
+- `docs`: ドキュメントのみの変更
+- `style`: コードの意味に影響しない変更（空白、フォーマット、セミコロンなど）
+- `refactor`: バグ修正や機能追加を伴わないコード変更
+- `perf`: パフォーマンス改善
+- `test`: テストの追加や修正
+
+### 出力例（英語プロジェクト）
+
+```bash
+$ /commit-message
+
+📝 コミットメッセージ提案
+━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ メイン候補:
+feat: implement JWT-based authentication system
+
+📋 代替案:
+1. feat: add user authentication with JWT tokens
+2. fix: resolve token validation error in auth middleware
+3. refactor: extract auth logic into separate module
+
+✅ `git commit -m "feat: implement JWT-based authentication system"` をクリップボードにコピーしました
+```
+
+**実装例（修正版）**:
+
+```bash
+# コミットコマンドを先にクリップボードにコピー（改行なし）
+printf 'git commit -m "%s"' "$COMMIT_MESSAGE" | pbcopy
+
+# その後でメッセージを表示
+cat << EOF
+📝 コミットメッセージ提案
+━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✨ メイン候補:
+$COMMIT_MESSAGE
+
+📋 代替案:
+1. ...
+2. ...
+3. ...
+
+✅ \`git commit -m
