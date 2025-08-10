@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[[Chinese]](README_zh.md) or [[Japanese]](README.md)
+[English](README_en.md) | [中文](README_zh.md) | [日本語](README.md)
 
 A collection of settings to make Claude Code more useful.
 
@@ -35,7 +35,7 @@ Stored as Markdown files in the `/commands` directory. Execute by entering the f
 | `/explain-code` | Clearly explain the functionality and logic of selected code. |
 | `/fix-error` | Suggest code fixes based on error messages. |
 | `/multi-role` | Combine multiple roles to analyze the same target in parallel and generate an integrated report. |
-| `/plan` |启动 implementation planning mode before implementation and formulate detailed implementation strategies. |
+| `/plan` | Activate implementation planning mode before implementation and formulate detailed implementation strategies. |
 | `/pr-auto-update` | Automatically update Pull Request content (description, labels). |
 | `/pr-create` | Enable efficient Pull Request workflows with automatic PR creation based on Git change analysis. |
 | `/pr-feedback` | Efficiently respond to Pull Request review comments and aim for root solutions with a 3-stage error analysis approach. |
@@ -162,14 +162,23 @@ flowchart TB
 
 ---
 
-## Installation and Customization
+## Installation
 
-### Installation Steps
+```bash
+# Clone repository
+git clone https://github.com/wasabeef/claude-code-cookbook.git
+cd claude-code-cookbook
 
-1. **Clone the repository**: `git clone https://github.com/wasabeef/claude-code-cookbook.git ~/.claude`
-2. **Set language**: `./scripts/set-lang.sh en` (Set to English)
-3. **Set the path in client**: Specify the path to the above directory in Claude's client
-4. **Check paths**: Verify that script paths in `settings.json` match your environment
+# Install (auto-detect language)
+./scripts/install.sh
+
+# Or specify language
+./scripts/install.sh --lang en    # English
+./scripts/install.sh --lang ja    # Japanese
+./scripts/install.sh --lang zh    # Chinese
+```
+
+Set Custom Instructions path to `~/.claude` in Claude Desktop and you're done.
 
 ### Customization
 

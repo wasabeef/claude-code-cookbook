@@ -1,6 +1,6 @@
 # Claude 代码食谱
 
-[[English]](README_en.md) or [[Japanese]](README.md)
+[English](README_en.md) | [中文](README_zh.md) | [日本語](README.md)
 
 这个项目是为了让 Claude Code 更加方便使用的设置集合。
 
@@ -162,14 +162,23 @@ flowchart TB
 
 ---
 
-## 安装和自定义
+## 安装
 
-### 安装步骤
+```bash
+# 克隆仓库
+git clone https://github.com/wasabeef/claude-code-cookbook.git
+cd claude-code-cookbook
 
-1. **克隆仓库**: `git clone https://github.com/wasabeef/claude-code-cookbook.git ~/.claude`
-2. **设置语言**: `./scripts/set-lang.sh zh` (设置为中文)
-3. **在客户端设置路径**: 在 Claude 客户端中指定上述目录的路径
-4. **确认路径**: 确认 `settings.json` 中的脚本路径与环境匹配
+# 安装（自动检测语言）
+./scripts/install.sh
+
+# 或指定语言
+./scripts/install.sh --lang zh    # 中文
+./scripts/install.sh --lang en    # 英文
+./scripts/install.sh --lang ja    # 日文
+```
+
+在 Claude Desktop 中将 Custom Instructions 路径设置为 `~/.claude` 即可完成。
 
 ### 自定义
 
