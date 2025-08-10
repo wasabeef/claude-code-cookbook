@@ -1,12 +1,12 @@
-## PR列表
+## PR 列表
 
-按优先级显示当前仓库的开放PR列表。
+显示当前仓库的开放 PR 列表，并按优先级排序。
 
 ### 使用方法
 
 ```bash
-# 向Claude请求
-「请按优先级显示开放PR列表」
+# 向 Claude 请求
+「请按优先级显示开放的 PR 列表」
 ```
 
 ### 基本示例
@@ -15,53 +15,52 @@
 # 获取仓库信息
 gh repo view --json nameWithOwner | jq -r '.nameWithOwner'
 
-# 获取开放PR信息并向Claude请求
+# 获取开放 PR 信息并请求 Claude
 gh pr list --state open --draft=false --json number,title,author,createdAt,additions,deletions,reviews --limit 30
 
-「请将上述PR按优先级整理，并包含每个PR的2行概要。URL使用上述获取的仓库名生成」
+「请按优先级整理上述 PR，并包含每个 PR 的 2 行概要。使用上面获取的仓库名生成 URL」
 ```
 
 ### 显示格式
 
 ```
-开放PR列表（按优先级排序）
+开放 PR 列表（按优先级排序）
 
 ### 高优先级
-#编号 标题 [Draft/DNM] | 作者 | 开放时间 | Approved数 | +添加/-删除
-      ├─ 概要第1行
-      └─ 概要第2行
-      https://github.com/owner/repo/pull/番号
+#编号 标题 [Draft/DNM] | 作者 | 开放时长 | 批准数 | +添加/-删除
+      ├─ 概要第 1 行
+      └─ 概要第 2 行
+      https://github.com/owner/repo/pull/编号
 
 ### 中优先级
-（类似格式）
+（相同格式）
 
 ### 低优先级
-（类似格式）
+（相同格式）
 ```
 
 ### 优先级判定标准
 
 **高优先级**
 
-- `fix:` 错误修复
+- `fix:` Bug 修复
 - `release:` 发布工作
 
 **中优先级**
 
 - `feat:` 新功能
 - `update:` 功能改进
-- 其他普通PR
+- 其他常规 PR
 
 **低优先级**
 
-- 包含DO NOT MERGE的PR
-- Draft状态且包含`test:`、`build:`、`perf:`的PR
+- 包含 DO NOT MERGE 的 PR
+- Draft 状态的 `test:`、`build:`、`perf:` PR
 
 ### 注意事项
 
-- 需要GitHub CLI (`gh`)
-- 仅显示开放状态的PR（排除Draft）
-- 最多显示30个PR
-- 经过时间是从PR开放以来的时间
-- PR的URL会从实际仓库名自动生成
-```
+- 需要安装 GitHub CLI (`gh`)
+- 仅显示开放状态的 PR（排除 Draft）
+- 最多显示 30 个 PR
+- 时长是从 PR 开放至今的时间
+- PR URL 根据实际仓库名自动生成
