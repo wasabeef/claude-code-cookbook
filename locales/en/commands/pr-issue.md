@@ -39,7 +39,7 @@ Open Issues List (by Priority)
 (Similar format)
 ```
 
-### Priority Determination Criteria
+### Priority Assessment Criteria
 
 **High Priority**
 

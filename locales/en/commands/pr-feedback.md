@@ -94,7 +94,7 @@ git diff HEAD~1
 ### Response Flow
 
 1. **Comment analysis**: Classification by priority
-2. **Fix plan**: Determination of response order
+2. **Fix plan**: Determining response order
 3. **Phased fixes**: Critical → High → Medium → Low
 4. **Quality confirmation**: Testing, linting, building
 5. **Progress report**: Description of specific fixes

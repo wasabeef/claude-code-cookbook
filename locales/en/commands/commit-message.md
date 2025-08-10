@@ -96,7 +96,7 @@ export default {
 }
 ```
 
-#### 3. Language Setting Detection
+#### 3. Detecting Language Settings
 
 ```javascript
 // When project uses Japanese messages

@@ -379,7 +379,7 @@ for group in $GROUPS; do
 done
 ```
 
-##### Step 3: Similarity Analysis of Changes
+##### Step 3: Analyzing Change Similarity
 
 ```bash
 # Analyze change type for each file
@@ -440,7 +440,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### Step 6: Final Group Determination
+##### Step 6: Determining Final Groups
 
 ```bash
 # Verify split results
@@ -506,7 +506,7 @@ or
 feat(api)!: change authentication flow
 ```
 
-#### Automatic Detection of Project Conventions
+#### Automatically Detecting Project Conventions
 
 **Important**: If project-specific conventions exist, they take precedence.
 
@@ -531,7 +531,7 @@ cat .commitlintrc.json
 grep -A 10 '"commitlint"' package.json
 ```
 
-##### 2. Detection of Custom Types
+##### 2. Detecting Custom Types
 
 Example of project-specific types:
 
@@ -556,7 +556,7 @@ export default {
 }
 ```
 
-##### 3. Language Setting Detection
+##### 3. Detecting Language Settings
 
 ```javascript
 // When project uses Japanese messages
@@ -726,7 +726,7 @@ We check for config files in this order:
    head -20
    ```
 
-#### Analysis of Configuration Examples
+#### Analyzing Configuration Examples
 
 **Standard commitlint.config.mjs**:
 
