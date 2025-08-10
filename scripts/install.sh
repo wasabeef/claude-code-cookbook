@@ -16,11 +16,13 @@ show_usage() {
   echo "  ja  - Japanese (default)"
   echo "  en  - English"
   echo "  zh  - Chinese"
+  echo "  ko  - Korean"
   echo ""
   echo "Examples:"
   echo "  $0 en    # Switch to English"
   echo "  $0 ja    # Switch to Japanese (default)"
   echo "  $0 zh    # Switch to Chinese"
+  echo "  $0 ko    # Switch to Korean"
 }
 
 # Argument check
@@ -43,6 +45,10 @@ en)
 zh | cn)
   LANG_CODE="zh"
   LANG_NAME="Chinese"
+  ;;
+ko | kr)
+  LANG_CODE="ko"
+  LANG_NAME="Korean"
   ;;
 *)
   echo "❌ Error: Unsupported language code '$LANG_CODE'"
