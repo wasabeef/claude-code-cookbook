@@ -57,4 +57,10 @@ gemini --prompt "WebSearch: CVE-2024 Node.js vulnerabilities"
 ### Prohibited Items
 
 - **Prohibited to use Claude's built-in WebSearch tool**
-- When web search is needed, always use `gemini --prompt
+- When web search is needed, always use `gemini --prompt "WebSearch: ..."`
+
+### Important Notes
+
+- **When Gemini CLI is available, always use `gemini --prompt "WebSearch: ..."`**
+- Web search results are not always the latest
+- It is recommended to verify important information with official documentation or reliable sources

@@ -234,7 +234,7 @@ ERRORS=0
 # Auto-detect language from existing comments
 # If Japanese characters (hiragana, katakana, kanji) are detected, use ja; otherwise, use en
 DOC_LANGUAGE="en"  # Default
-if grep -r '[ぁ-んァ-ヶー一-龠]' --include="*.py" --include="*.js" --include="*.ts" --include="*.dart" --include="*.go" --include="*.rs" . 2>/dev/null | head -n 1; then
+if grep -E -r '[\u3040-\u309F\u30A0-\u30FF\u4E00-\u9FAF]' --include="*.py" --include="*.js" --include="*.ts" --include="*.dart" --include="*.go" --include="*.rs" . 2>/dev/null | head -n 1; then
   DOC_LANGUAGE="ja"
 fi
 
@@ -260,4 +260,47 @@ fi
 echo "📊 Execution Results:"
 echo "- Documentation Language: $DOC_LANGUAGE"
 echo "- Added Comments: $ADDED_COMMENTS"
-echo "- Updated Comments: $UPDATED_COMMENTS
+echo "- Updated Comments: $UPDATED_COMMENTS"
+echo "- Errors: $ERRORS"
+```
+
+### Success Criteria
+
+1. **Completion Criteria**: Success when all of the following are met:
+   - Language-specific static analysis PASSED
+   - Error count is 0
+   - All added/updated comments meet standards
+
+2. **Partial Success**: In the following cases:
+   - Error count is less than 5
+   - More than 90% meet standards
+
+3. **Failure**: In the following cases:
+   - Static analysis FAILED
+   - Error count is 5 or more
+
+### Integration with Claude
+
+```bash
+# Analyze entire project (auto language detection)
+find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" \)
+/update-doc-string
+"Update this project's docstrings following language-specific best practices"
+# → If existing comments contain Japanese, run with ja; otherwise, run with en
+
+# Explicitly run with English documentation
+/update-doc-string --lang en
+"Update docstrings following language-specific best practices"
+
+# Explicitly run with Japanese documentation
+/update-doc-string --lang ja
+"Update this project's docstrings following language-specific best practices"
+
+# Run without markers (auto language detection)
+/update-doc-string --marker false
+"Improve existing docstrings without adding Claude markers"
+
+# English documentation, no markers
+/update-doc-string --lang en --marker false
+"Improve existing docstrings without adding Claude markers"
+```
