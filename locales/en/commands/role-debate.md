@@ -164,7 +164,7 @@ Integrated Conclusion:
 Implementation Details:
 1. Access token: 30-minute expiry
 2. Refresh token: 7-day expiry
-3. High-risk operations:强制 reauthentication every 15 minutes
+3. High-risk operations: Enforce reauthentication every 15 minutes
 4. Auto-logout after 30 minutes of inactivity
 
 Phased Implementation:
@@ -444,7 +444,7 @@ debate_strengths:
 potential_biases:
   - Analysis paralysis (insufficient action)
   - Perfectionism (downplaying practicality)
-  - Data万能主义
+  - Data absolutism
 ```
 
 ### Debate Progression Templates

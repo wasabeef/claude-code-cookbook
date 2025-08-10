@@ -1,42 +1,42 @@
 ## Refactor
 
-Perform safe and incremental code refactoring and evaluate compliance with SOLID principles.
+Cleans up code safely step-by-step and checks SOLID principles.
 
 ### Usage
 
 ```bash
-# Identify complex code and create refactoring plan
+# Find complex code to refactor
 find . -name "*.js" -exec wc -l {} + | sort -rn | head -10
-"Refactor large files to reduce complexity"
+"Make these big files simpler"
 
-# Detect and integrate duplicate code
+# Find duplicate code
 grep -r "function processUser" . --include="*.js"
-"Commonalize duplicate functions using Extract Method"
+"Combine these duplicate functions"
 
-# Detect SOLID principle violations
+# Check SOLID principles
 grep -r "class.*Service" . --include="*.js" | head -10
-"Evaluate whether these classes follow the single responsibility principle"
+"Do these classes have just one job?"
 ```
 
 ### Basic Examples
 
 ```bash
-# Detect long methods
+# Find long methods
 grep -A 50 "function" src/*.js | grep -B 50 -A 50 "return" | wc -l
-"Split methods longer than 50 lines using Extract Method"
+"Break up methods over 50 lines"
 
-# Condition complexity
+# Find complex conditions
 grep -r "if.*if.*if" . --include="*.js"
-"Improve nested conditionals using Strategy pattern"
+"Simplify these nested ifs"
 
-# Detect code smells
+# Find code smells
 grep -r "TODO\|FIXME\|HACK" . --exclude-dir=node_modules
-"Resolve comments that have become technical debt"
+"Fix these TODO comments"
 ```
 
 ### Refactoring Techniques
 
-#### Extract Method
+#### Extract Method (Split Big Functions)
 
 ```javascript
 // Before: Long method
@@ -52,7 +52,7 @@ function processOrder(order) {
 }
 ```
 
-#### Replace Conditional with Polymorphism
+#### Replace Conditional with Polymorphism (Remove Switch/If Chains)
 
 ```javascript
 // Before: switch statement
@@ -69,59 +69,59 @@ class PremiumPricing {
 }
 ```
 
-### SOLID Principles Check
+### SOLID Principles We Check
 
 ```
 S - Single Responsibility
-├─ Each class has a single responsibility
-├─ Limited to one reason for change
-└─ Clear responsibility boundaries
+├─ One class = one job
+├─ Only one reason to change
+└─ Clear boundaries
 
 O - Open/Closed
-├─ Open for extension
-├─ Closed for modification
-└─ Protection of existing code when adding new features
+├─ Easy to extend
+├─ Don't modify existing code
+└─ Add features without breaking things
 
 L - Liskov Substitution
-├─ Substitutability of derived classes
-├─ Contract compliance
-└─ Maintenance of expected behavior
+├─ Child classes can replace parents
+├─ Keep the same behavior
+└─ Don't break expectations
 
 I - Interface Segregation
-├─ Appropriately granular interfaces
-├─ Avoid dependencies on unused methods
-└─ Role-specific interface definitions
+├─ Small, focused interfaces
+├─ No unused methods
+└─ Each interface for a specific role
 
 D - Dependency Inversion
-├─ Dependency on abstractions
-├─ Separation from concrete implementations
-└─ Utilization of dependency injection
+├─ Depend on interfaces, not classes
+├─ Keep implementations separate
+└─ Use dependency injection
 ```
 
-### Refactoring Steps
+### How to Refactor Safely
 
-1. **Current state analysis**
-   - Complexity measurement (cyclomatic complexity)
-   - Duplicate code detection
-   - Dependency analysis
+1. **Check the current state**
+   - Measure complexity
+   - Find duplicate code
+   - Map dependencies
 
-2. **Incremental execution**
-   - Small steps (15-30 minute units)
-   - Test execution after each change
-   - Frequent commits
+2. **Make small changes**
+   - 15-30 minute chunks
+   - Test after each change
+   - Commit often
 
-3. **Quality confirmation**
-   - Maintain test coverage
-   - Performance measurement
-   - Code review
+3. **Verify quality**
+   - Keep tests passing
+   - Check performance
+   - Get code reviewed
 
-### Common Code Smells
+### Code Smells to Fix
 
-- **God Object**: Class with excessively many responsibilities
-- **Long Method**: Method longer than 50 lines
-- **Duplicate Code**: Repetition of the same logic
-- **Large Class**: Class larger than 300 lines
-- **Long Parameter List**: 4 or more parameters
+- **God Object**: Classes that do everything
+- **Long Method**: Functions over 50 lines
+- **Duplicate Code**: Same logic in multiple places
+- **Large Class**: Classes over 300 lines
+- **Long Parameter List**: More than 3 parameters
 
 ### Automation Support
 
@@ -139,9 +139,9 @@ npm test
 npm run test:coverage
 ```
 
-### Notes
+### Important Rules
 
-- **No functionality changes**: Do not alter external behavior
-- **Test first**: Add tests before refactoring
-- **Incremental approach**: Avoid large changes at once
-- **Continuous verification**: Execute tests at each step
+- **Don't break things**: Keep the same behavior
+- **Test first**: Write tests before changing code
+- **Small steps**: No huge changes all at once
+- **Test often**: Run tests after every change

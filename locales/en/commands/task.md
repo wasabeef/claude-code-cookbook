@@ -1,6 +1,6 @@
 ## Task
 
-Launches a dedicated agent to autonomously execute complex search, investigation, and analysis tasks. It emphasizes context efficiency in large-scale information processing that combines multiple tools.
+Launches a smart agent to handle complex searches and investigations. Great for large-scale work without eating up context.
 
 ### Usage
 
@@ -9,25 +9,25 @@ Launches a dedicated agent to autonomously execute complex search, investigation
 "Investigate [task] using Task"
 ```
 
-### Features of Task
+### What Task Does
 
-**Autonomous Execution**
+**Works Independently**
 
-- Automatically combines and executes multiple tools
-- Step-by-step information collection and analysis
-- Integration of results and structured reporting
+- Combines multiple tools automatically
+- Gathers and analyzes step by step
+- Puts results together in clear reports
 
-**Efficient Information Processing**
+**Saves Context**
 
-- Optimization of context consumption
-- Large-scale file search and analysis
-- Data collection from external sources
+- Uses less memory than manual searching
+- Searches lots of files efficiently
+- Pulls data from outside sources
 
-**Quality Assurance**
+**Ensures Quality**
 
-- Reliability checks of information sources
-- Verification from multiple perspectives
-- Automatic completion of missing information
+- Checks if sources are reliable
+- Verifies from different angles
+- Fills in missing pieces
 
 ### Basic Examples
 
@@ -58,9 +58,9 @@ Launches a dedicated agent to autonomously execute complex search, investigation
 "Analyze dependencies of this microservice using Task"
 ```
 
-### Differentiation from Other Commands
+### Task vs Other Commands
 
-#### Task vs Other Commands
+#### When to Use What
 
 | Command | Main Use Case | Execution Method | Information Collection |
 |---------|---------------|-----------------|------------------------|
@@ -69,35 +69,35 @@ Launches a dedicated agent to autonomously execute complex search, investigation
 | sequential-thinking | Problem-solving, design | Step-by-step thinking | As needed |
 | plan | Implementation planning | Approval process | Requirement analysis |
 
-#### Decision Flowchart
+#### Quick Decision Guide
 
 ```
-Is information collection needed?
-├─ Yes → Multiple sources or large-scale?
-│          ├─ Yes → **Task**
-│          └─ No → Normal question
-└─ No → Is deep thinking needed?
-          ├─ Yes → ultrathink/sequential-thinking
-          └─ No → Normal question
+Need to gather info?
+├─ Yes → From many places or lots of files?
+│          ├─ Yes → **Use Task**
+│          └─ No → Just ask normally
+└─ No → Need deep thinking?
+          ├─ Yes → Use ultrathink/sequential-thinking
+          └─ No → Just ask normally
 ```
 
-### Effective and Ineffective Cases
+### When Task Works Best
 
-**Effective Cases**
+**Great For**
 
-- Complex codebase investigation (dependencies, architecture analysis)
-- Large-scale file search (specific implementation patterns, configuration files)
-- External information collection and organization (technology trends, library investigation)
-- Information integration from multiple sources (log analysis, metrics analysis)
-- Repetitive investigation tasks (security audits, technical debt investigation)
-- Large-scale analysis where context consumption should be avoided
+- Exploring complex codebases (dependencies, architecture)
+- Searching many files (patterns, configs)
+- Gathering external info (tech trends, libraries)
+- Combining data from multiple places (logs, metrics)
+- Repetitive investigations (audits, debt checks)
+- Big searches that would eat too much context
 
-**Ineffective Cases**
+**Not Great For**
 
-- Simple questions or content answerable with existing knowledge
-- One-off tasks that complete quickly
-- Tasks requiring interactive confirmation or consultation
-- Implementation or design decisions (plan or thinking commands are more appropriate)
+- Simple questions I already know
+- Quick one-time tasks
+- Things needing back-and-forth discussion
+- Design decisions (use plan or thinking commands instead)
 
 ### Detailed Examples by Category
 

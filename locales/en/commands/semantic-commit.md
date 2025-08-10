@@ -1,6 +1,6 @@
 ## Semantic Commit
 
-Split large changes into meaningful最小 units and commit them sequentially with semantic commit messages. No external tools required, only uses standard git commands.
+Breaks big changes into small, meaningful commits with proper messages. Uses only standard git commands.
 
 ### Usage
 
@@ -30,23 +30,23 @@ Split large changes into meaningful最小 units and commit them sequentially wit
 /semantic-commit --max-commits 5
 ```
 
-### Workflow
+### How It Works
 
-1. **Change Analysis**: Get all changes with `git diff HEAD`
-2. **File Classification**: Logically group changed files
-3. **Commit Proposal**: Generate semantic commit messages for each group
-4. **Sequential Execution**: Commit each group sequentially after user confirmation
+1. **Analyze Changes**: Check what changed with `git diff HEAD`
+2. **Group Files**: Put related files together
+3. **Create Messages**: Write semantic commit messages for each group
+4. **Commit Step by Step**: Commit each group after you approve
 
-### Core Features for Change Splitting
+### When to Split Changes
 
-#### Detecting "Large Changes"
+#### What Makes a Change "Large"
 
-Changes are detected as large under the following conditions:
+We split when we see:
 
-1. **Changed Files**: 5 or more files changed
-2. **Changed Lines**: 100 or more lines changed
-3. **Multiple Features**: Changes spanning 2 or more functional areas
-4. **Mixed Patterns**: Mix of feat + fix + docs
+1. **Many Files**: 5+ files changed
+2. **Many Lines**: 100+ lines changed
+3. **Multiple Features**: Changes in 2+ areas
+4. **Mixed Types**: feat + fix + docs together
 
 ```bash
 # Analyze change scale
@@ -58,7 +58,7 @@ if [ $CHANGED_FILES -ge 5 ] || [ $CHANGED_LINES -ge 100 ]; then
 fi
 ```
 
-#### Strategies for Splitting into "Meaningful Minimum Units"
+#### How to Split into Small, Meaningful Commits
 
 ##### 1. Splitting by Functional Boundaries
 
@@ -105,24 +105,24 @@ git diff HEAD --name-status | while read status file; do
 done
 ```
 
-#### Criteria for Logical Grouping
+#### How to Group Files
 
-1. **Functional Unit**: Files related to the same function
-   - Files under `src/auth/` → Authentication function
-   - Files under `components/` → UI components
+1. **By Feature**: Keep related functions together
+   - `src/auth/` files → Authentication
+   - `components/` files → UI components
 
-2. **Change Type**: Same type of change
-   - Test files only → `test:`
-   - Documentation only → `docs:`
-   - Configuration files only → `chore:`
+2. **By Type**: Same kind of changes
+   - Only tests → `test:`
+   - Only docs → `docs:`
+   - Only config → `chore:`
 
-3. **Dependencies**: Mutually related files
+3. **By Dependencies**: Files that need each other
    - Model + Migration
    - Component + Style
 
-4. **Change Scale**: Maintain appropriate commit size
-   - No more than 10 files per commit
-   - Group highly related files
+4. **By Size**: Keep commits manageable
+   - Max 10 files per commit
+   - Keep related files together
 
 ### Output Example
 
@@ -167,13 +167,13 @@ Included files:
 Execute commit with this split plan? (y/n/edit):
 ```
 
-### Runtime Options
+### Your Options
 
-- `y`: Execute with proposed commit split
-- `n`: Cancel
-- `edit`: Edit commit messages individually
-- `merge <number1> <number2>`: Merge specified commits
-- `split <number>`: Split specified commit further
+- `y`: Go with the proposed split
+- `n`: Cancel everything
+- `edit`: Change commit messages
+- `merge <number1> <number2>`: Combine commits
+- `split <number>`: Break up a commit more
 
 ### Dry Run Mode
 
@@ -189,12 +189,12 @@ Analyzing changes... (DRY RUN)
 💡 To execute, run again without --dry-run option
 ```
 
-### Smart Analysis Features
+### Smart Features
 
-#### 1. Project Structure Understanding
+#### 1. Understands Your Project
 
-- Determine project type from `package.json`, `Cargo.toml`, `pom.xml`, etc.
-- Infer functional units from folder structure
+- Detects project type from config files
+- Figures out features from folder structure
 
 #### 2. Change Pattern Recognition
 
@@ -216,9 +216,9 @@ Analyzing changes... (DRY RUN)
 - Addition/modification of type definitions
 - Relationship with configuration files
 
-### Technical Implementation
+### How It's Built
 
-#### Sequential Commit Implementation Using Git Standard Commands
+#### Step-by-Step Commits with Git
 
 ##### 1. Preprocessing: Save Current State
 
@@ -611,14 +611,14 @@ docs(scope): update documentation
 ##### Japanese Projects
 
 ```
-feat: ユーザー登録機能を追加
-fix: ログイン処理のバグを修正
-docs: API ドキュメントを更新
+feat: add user registration functionality
+fix: resolve login process bug
+docs: update API documentation
 ```
 
-### Language Determination
+### Language Detection
 
-Language determination logic in this command:
+How we figure out your language:
 
 1. **Check CommitLint Settings** for language configuration
 
@@ -691,11 +691,11 @@ else
 fi
 ```
 
-### Automatic Configuration File Loading
+### Auto-Loading Config
 
-#### Runtime Behavior
+#### What Happens at Runtime
 
-When the command is executed, it checks for configuration in the following order:
+We check for config files in this order:
 
 1. **Search for CommitLint configuration files**
 
@@ -810,21 +810,21 @@ If no configuration file is found:
    - Japanese mode if over 50% of commits are in Japanese
    - English mode otherwise
 
-### Prerequisites
+### Requirements
 
-- Executed within a Git repository
-- Uncommitted changes exist
-- Staged changes will be reset temporarily
+- Must be in a Git repo
+- Need uncommitted changes
+- Staged changes get reset temporarily
 
-### Notes
+### Important
 
-- **No automatic push**: `git push` after commit must be executed manually
-- **No branch creation**: Commits in current branch
-- **Backup recommended**: Use `git stash` before important changes
+- **Won't push**: You need to `git push` yourself
+- **Same branch**: Commits stay in current branch
+- **Back up first**: Consider `git stash` for safety
 
-### Priority of Project Conventions
+### Which Rules Win
 
-Priority when generating commit messages:
+When making commit messages, we follow this order:
 
 1. **CommitLint settings** (highest priority)
    - Settings in `commitlint.config.*` files
@@ -891,12 +891,12 @@ ls packages/ | head -10
 
 ### Best Practices
 
-1. **Respect project conventions**: Follow existing settings and patterns
-2. **Small change units**: One commit per logical change
-3. **Clear messages**: Clearly state what was changed
-4. **Emphasize relevance**: Group functionally related files
-5. **Separate tests**: Keep test files in separate commits
-6. **Utilize configuration files**: Introduce CommitLint to unify team conventions
+1. **Follow the rules**: Use existing patterns
+2. **Keep it small**: One logical change per commit
+3. **Be clear**: Say what changed
+4. **Group smart**: Related files together
+5. **Tests separate**: Test commits on their own
+6. **Use configs**: CommitLint helps teams stay consistent
 
 ### Real-world Split Examples (Before/After)
 

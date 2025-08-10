@@ -234,7 +234,7 @@ Each role has unique discussion stances, evidence sources, and strengths accordi
 - **Stance**: Evidence-focused, hypothesis verification, structural thinking, bias elimination
 - **Evidence**: Measured data, statistical methods, systems thinking theory, cognitive bias research
 - **Strengths**: Logical analysis ability, objectivity in evidence evaluation, ability to discover structural problems
-- **Caution**: Analysis paralysis, perfectionism, data万能主义, excessive skepticism
+- **Caution**: Analysis paralysis, perfectionism, data absolutism, excessive skepticism
 
 #### frontend Role Discussion Characteristics
 
@@ -305,7 +305,7 @@ Combining roles with different discussion characteristics enables balanced analy
 ### About Role Behavior
 
 - When switching roles, Claude's **behavior, priorities, analysis methods, and report formats** become specialized
-- Each role优先 applies official guidelines and proven methods through an **Evidence-First approach**
+- Each role prioritizes applying official guidelines and proven methods through an **Evidence-First approach**
 - Return to normal mode with `default` (role specialization is removed)
 - Roles are only effective within the current session
 

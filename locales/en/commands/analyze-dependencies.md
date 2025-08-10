@@ -1,6 +1,6 @@
 ## Dependency Analysis
 
-Analyzes project dependencies and evaluates architecture health.
+Analyzes your project's dependencies and checks architecture health.
 
 ### Usage
 
@@ -28,30 +28,30 @@ Analyzes project dependencies and evaluates architecture health.
 /dependency-analysis --focus src/core --depth 5
 ```
 
-### Analysis Items
+### What Gets Analyzed
 
 #### 1. Dependency Matrix
 
-Quantifies and displays dependencies between modules:
+Shows how modules connect to each other:
 
 - Direct dependencies
 - Indirect dependencies
 - Dependency depth
 - Fan-in/fan-out
 
-#### 2. Architecture Violation Detection
+#### 2. Architecture Violations
 
-- Layer violations (lower layers depending on upper layers)
+- Layer violations (when lower layers depend on upper ones)
 - Circular dependencies
-- Excessive coupling (high dependency degree)
-- Isolated modules
+- Excessive coupling (too many connections)
+- Orphaned modules
 
-#### 3. Clean Architecture Compliance Check
+#### 3. Clean Architecture Check
 
-- Domain layer independence
-- Proper separation of infrastructure layer
-- Dependency direction of use case layer
-- Interface application status
+- Is the domain layer independent?
+- Is infrastructure properly separated?
+- Do use case dependencies flow correctly?
+- Are interfaces being used properly?
 
 ### Output Example
 
@@ -85,13 +85,13 @@ Dependency Analysis Report
 ### Advanced Usage Examples
 
 ```bash
-# Automatic checks in CI/CD pipeline
+# Automatic CI/CD checks
 /dependency-analysis --circular --fail-on-violation
 
-# Define and verify architecture rules
+# Check against architecture rules
 /dependency-analysis --rules .architecture-rules.yml
 
-# Track changes in dependencies over time
+# See how dependencies changed
 /dependency-analysis --compare HEAD~10
 ```
 
@@ -118,41 +118,41 @@ ignore:
   - "**/mocks/**"
 ```
 
-### Integrated Tools
+### Tools We Use
 
-- `madge`: JavaScript/TypeScript dependency visualization
-- `dep-cruiser`: Dependency rule validation
-- `nx`: Monorepo dependency management
-- `plato`: Integrated analysis of complexity and dependencies
+- `madge`: Shows JavaScript/TypeScript dependencies visually
+- `dep-cruiser`: Checks dependency rules
+- `nx`: Manages monorepo dependencies
+- `plato`: Analyzes complexity and dependencies together
 
 ### Collaboration with Claude
 
 ```bash
-# Analysis including package.json
+# Check dependencies with package.json
 cat package.json
 /analyze-dependencies
-"Analyze the dependency issues in this project"
+"Find dependency issues in this project"
 
-# Combine with source code of specific module
+# Deep dive into a specific module
 ls -la src/core/
 /analyze-dependencies --focus src/core
-"Evaluate the dependencies of the core module in detail"
+"Check the core module's dependencies in detail"
 
-# Compare with architecture documentation
+# Compare design vs reality
 cat docs/architecture.md
 /analyze-dependencies --visual
-"Check for discrepancies between design documentation and implementation"
+"Does our implementation match the architecture docs?"
 ```
 
 ### Notes
 
-- **Prerequisite**: Must be executed at project root
-- **Limitations**: Analysis may take time for large-scale projects
-- **Recommendation**: If circular dependencies are found, consider addressing them immediately
+- **Run from**: Project root directory
+- **Be patient**: Large projects take time to analyze
+- **Act fast**: Fix circular dependencies as soon as you find them
 
 ### Best Practices
 
-1. **Regular Analysis**: Check dependency health weekly
-2. **Explicit Rules**: Manage architecture rules in configuration files
-3. **Incremental Improvement**: Avoid large-scale refactoring, improve gradually
-4. **Metrics Tracking**: Monitor dependency complexity over time
+1. **Check weekly**: Keep an eye on dependency health
+2. **Write rules down**: Put architecture rules in config files
+3. **Small steps**: Fix things gradually, not all at once
+4. **Track trends**: Watch how complexity changes over time

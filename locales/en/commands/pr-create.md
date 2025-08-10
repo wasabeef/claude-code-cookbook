@@ -1,21 +1,21 @@
 ## PR Create
 
-Automate Pull Request creation based on Git change analysis for an efficient PR workflow.
+Creates Pull Requests automatically by analyzing your Git changes for a smoother workflow.
 
 ### Usage
 
 ```bash
-# Create PR automatically based on change analysis
+# Auto-create PR from your changes
 git add . && git commit -m "feat: Implement user authentication"
-"Analyze changes and create a Draft PR with appropriate description and labels"
+"Create a Draft PR with the right description and labels"
 
-# Update while preserving existing template
+# Keep your existing template
 cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
-"Complete the change details while fully preserving the template structure"
+"Fill in the blanks but keep the template structure intact"
 
-# Gradual quality improvement
+# Mark as ready when done
 gh pr ready
-"Change to Ready for Review after quality confirmation"
+"Switch to Ready for Review after checking quality"
 ```
 
 ### Basic Examples
@@ -28,14 +28,14 @@ git add . && git commit -m "feat: Implement user profile feature"
 git push -u origin feat-user-profile
 
 # 2. Create PR
-"Create a PR with the following steps:
-1. Check changes with git diff --cached
-2. Create description using .github/PULL_REQUEST_TEMPLATE.md
-3. Select up to 3 appropriate labels based on changes
-4. Create as Draft PR (preserve HTML comments)"
+"Please create a PR:
+1. Check what changed with git diff --cached
+2. Use the PR template from .github/PULL_REQUEST_TEMPLATE.md
+3. Pick up to 3 labels that match the changes
+4. Create it as a Draft (keep HTML comments)"
 
-# 3. Mark as Ready after CI check
-"Change PR to Ready for Review once CI passes"
+# 3. Make it ready after CI passes
+"Once CI is green, mark the PR as Ready for Review"
 ```
 
 ### Execution Steps
@@ -43,32 +43,32 @@ git push -u origin feat-user-profile
 #### 1. Create Branch
 
 ```bash
-# Naming convention following guidelines: {type}-{subject}
+# Branch naming: {type}-{subject}
 git checkout main
 git pull
 git checkout -b feat-user-authentication
 
-# Check branch (display current branch name)
+# Confirm you're on the right branch
 git branch --show-current
 ```
 
 #### 2. Commit
 
 ```bash
-# Stage changes
+# Stage your changes
 git add .
 
-# Commit message following guidelines
+# Commit with a clear message
 git commit -m "feat: Implement user authentication API"
 ```
 
 #### 3. Push to Remote
 
 ```bash
-# First push (set upstream)
+# First push (sets upstream)
 git push -u origin feat-user-authentication
 
-# Subsequent pushes
+# Later pushes
 git push
 ```
 
@@ -77,23 +77,23 @@ git push
 **Step 1: Analyze Changes**
 
 ```bash
-# Get file changes (check staged changes)
+# See what files changed
 git diff --cached --name-only
 
-# Content analysis (max 1000 lines)
+# Review the actual changes (first 1000 lines)
 git diff --cached | head -1000
 ```
 
 **Step 2: Auto-generate Description**
 
 ```bash
-# Template processing priority
-# 1. Existing PR description (fully preserved)
-# 2. .github/PULL_REQUEST_TEMPLATE.md
-# 3. Default template
+# Template priority:
+# 1. Keep existing PR description as-is
+# 2. Use .github/PULL_REQUEST_TEMPLATE.md
+# 3. Fall back to default template
 
 cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
-# Complete only empty sections while preserving HTML comments and separators
+# Fill empty sections only - don't touch HTML comments or separators
 ```
 
 **Step 3: Auto-select Labels**
@@ -148,9 +148,9 @@ mcp_github_create_pull_request({
 
 #### Content Based Determination
 
-- **Bug fixes**: `fix|bug|error|crash|修正` → `bug|fix`
-- **New features**: `feat|feature|add|implement|新機能|実装` → `feature|enhancement|feat`
-- **Refactoring**: `refactor|clean|リファクタ` → `refactor|cleanup|clean`
+- **Bug fixes**: `fix|bug|error|crash|repair` → `bug|fix`
+- **New features**: `feat|feature|add|implement|new-feature|implementation` → `feature|enhancement|feat`
+- **Refactoring**: `refactor|clean|restructure` → `refactor|cleanup|clean`
 - **Performance**: `performance|perf|optimize` → `performance|perf`
 - **Security**: `security|secure` → `security`
 
@@ -196,32 +196,32 @@ Examples:
 
 #### Processing Priority
 
-1. **Existing PR description**: **Fully follow** any already written content
-2. **Project template**: Maintain `.github/PULL_REQUEST_TEMPLATE.md` structure
-3. **Default template**: If above don't exist
+1. **Existing PR description**: Keep everything that's already written
+2. **Project template**: Use `.github/PULL_REQUEST_TEMPLATE.md`
+3. **Default template**: Use this if nothing else exists
 
 #### Existing Content Preservation Rules
 
-- **Do not change a single character**: Content already written
-- **Complete only empty sections**: Fill placeholder parts with change details
-- **Preserve functional comments**: Maintain `<!-- Copilot review rule -->` etc.
-- **Preserve HTML comments**: Fully maintain `<!-- ... -->`
-- **Preserve separators**: Maintain structures like `---`
+- **Don't touch existing content**: Leave what's already there alone
+- **Fill in the blanks only**: Add content where it's missing
+- **Keep functional comments**: Like `<!-- Copilot review rule -->`
+- **Keep HTML comments**: All `<!-- ... -->` stay as-is
+- **Keep separators**: Things like `---` stay put
 
 #### Handling HTML Comment Preservation
 
-**Important**: GitHub CLI (`gh pr edit`) automatically escapes HTML comments, and shell processing can introduce invalid strings like `EOF < /dev/null`.
+**Heads up**: GitHub CLI (`gh pr edit`) escapes HTML comments, and shell processing can mess things up with strings like `EOF < /dev/null`.
 
-**Fundamental Solutions**:
+**How to fix this**:
 
-1. **Use GitHub API --field option**: Proper escaping to preserve HTML comments
-2. **Simplify template processing**: Avoid complex pipe operations and redirects
-3. **Full preservation approach**: Abolish HTML comment removal and fully maintain templates
+1. **Use GitHub API's --field option**: This handles escaping properly
+2. **Keep it simple**: Skip complex pipes and redirects
+3. **Don't remove anything**: Keep all HTML comments and templates intact
 
 ### Review Comment Responses
 
 ```bash
-# Re-commit after changes
+# Commit your fixes
 git add .
 git commit -m "fix: Address review feedback"
 git push
@@ -231,19 +231,19 @@ git push
 
 #### Importance of HTML Comment Preservation
 
-- **GitHub CLI limitations**: `gh pr edit` escapes HTML comments and may introduce invalid strings
-- **Fundamental workaround**: Use GitHub API's `--field` option for proper escaping
-- **Full template preservation**: Abolish HTML comment removal and maintain complete structure
+- **GitHub CLI issue**: `gh pr edit` escapes HTML comments and can break things
+- **The fix**: Use GitHub API's `--field` option for proper handling
+- **Keep everything**: Don't remove HTML comments - keep the whole template
 
 #### Automation Constraints
 
-- **Prohibited new labels**: Cannot create labels not defined in `.github/labels.yml`
-- **Max 3 labels**: Upper limit for automatic selection
-- **Existing content priority**: Never modify manually written content
+- **No new labels**: Can only use labels from `.github/labels.yml`
+- **3 labels max**: That's the limit for auto-selection
+- **Hands off manual content**: Never change what someone wrote
 
-#### Gradual Quality Improvement
+#### Step-by-Step Quality
 
-- **Draft required**: All PRs start as Draft
-- **CI check**: Verify status with `gh pr checks`
-- **Ready transition**: Use `gh pr ready` after quality confirmation
-- **Full template compliance**: Maintain project-specific structure
+- **Start with Draft**: Every PR begins as a draft
+- **Check CI**: Run `gh pr checks` to see the status
+- **Mark as ready**: Use `gh pr ready` when quality looks good
+- **Follow the template**: Stick to your project's structure

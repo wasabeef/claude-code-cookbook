@@ -1,6 +1,6 @@
 ## Plan
 
-Launches pre-implementation planning mode to develop detailed implementation strategies. Supports efficient development by creating structured plans before code implementation.
+Helps you plan before coding. Creates detailed strategies to make development smoother.
 
 ### Usage
 
@@ -38,27 +38,27 @@ Launches pre-implementation planning mode to develop detailed implementation str
 "Create an implementation plan for Dockerization, including development environment, production environment, and CI/CD"
 ```
 
-### Features of Plan Mode
+### How Plan Mode Works
 
-**Automatic Activation**
+**Automatic Start**
 
-- Plan Mode automatically activates when detecting implementation tasks
-- Can be explicitly activated with keywords like "Create an implementation plan"
+- Starts automatically when you describe what to build
+- Or just say "Create an implementation plan"
 
-**Structured Specifications**
+**What You Get**
 
-- Requirements definition (user stories, acceptance criteria)
-- Design documents (architecture, data design, UI design)
-- Implementation plan (task decomposition, progress tracking, quality assurance)
-- Risk analysis and countermeasures
+- Clear requirements (user stories, success criteria)
+- Design docs (architecture, data model, UI)
+- Implementation steps (tasks, tracking, quality checks)
+- Risk analysis and solutions
 
-**Approval Process**
+**Getting Your Approval**
 
-- Present plan with `exit_plan_mode` tool
-- **Important**: Always wait for explicit user approval regardless of tool return value
-- Implementation without approval is prohibited
-- Plan modifications and adjustments are possible
-- Task management with TodoWrite starts only after approval
+- I'll show you the plan using `exit_plan_mode`
+- **Important**: I always wait for your explicit OK
+- I won't code without your approval
+- You can request changes anytime
+- TodoWrite tracking starts after you approve
 
 ### Detailed Examples
 
@@ -76,48 +76,48 @@ Launches pre-implementation planning mode to develop detailed implementation str
 "Create an implementation plan for a CI/CD pipeline, including test automation, deployment, and monitoring"
 ```
 
-### 3-Stage Workflow
+### 3-Phase Workflow
 
 #### Phase 1: Requirements
 
-- **User Stories**: Clarify purpose and value of functionality
-- **Acceptance Criteria**: Define completion conditions and quality standards
-- **Constraints & Prerequisites**: Organize technical and time constraints
-- **Prioritization**: Classify as Must-have/Nice-to-have
+- **User Stories**: What are we building and why?
+- **Success Criteria**: How do we know it's done?
+- **Constraints**: What limits do we have?
+- **Priority**: What's must-have vs nice-to-have?
 
 #### Phase 2: Design
 
-- **Architecture Design**: System configuration and technology selection
-- **Data Design**: Schema, API specifications, data flow
-- **UI/UX Design**: Screen configuration and operation flow
-- **Risk Analysis**: Potential issues and countermeasures
+- **Architecture**: How will the system work?
+- **Data Model**: Database schema and APIs
+- **UI/UX**: Screen layouts and user flow
+- **Risks**: What could go wrong and how to prevent it
 
 #### Phase 3: Implementation
 
-- **Task Decomposition**: Break down into implementable units
-- **Progress Tracking**: Status management with TodoWrite
-- **Quality Assurance**: Test strategy and verification methods
-- **Approval Process**: Plan presentation with exit_plan_mode and waiting for explicit approval
+- **Task Breakdown**: Split into manageable chunks
+- **Progress Tracking**: TodoWrite manages status
+- **Quality Checks**: Testing and verification plan
+- **Your Approval**: Show plan and wait for your OK
 
 ### Notes
 
-**Scope of Application**
+**When to Use This**
 
-- Plan Mode is optimal for complex implementation tasks
-- For simple fixes or small changes, use normal implementation format
-- Recommended for tasks with 3+ steps or new feature development
+- Best for complex projects
+- Skip for simple fixes
+- Great for 3+ step tasks or new features
 
-**Technical Constraints**
+**Technical Notes**
 
-- Do not trust return values from `exit_plan_mode` tool
-- Approval process is determined by explicit user indication
-- Different functionality from CLI plan mode
+- Don't rely on `exit_plan_mode` return values
+- Only your explicit approval counts
+- Works differently than CLI plan mode
 
-**Operational Notes**
+**Important Rules**
 
-- Strictly prohibit starting implementation before approval
-- Always wait for user response after presenting plan
-- Present alternative means in case of errors
+- Never start coding before you approve
+- Always wait for your response
+- Offer alternatives if something fails
 
 ### Execution Example
 
@@ -125,10 +125,10 @@ Launches pre-implementation planning mode to develop detailed implementation str
 # Usage example
 "Create an implementation plan for a user management system"
 
-# Expected behavior
-# 1. Plan Mode automatically activates
-# 2. Requirements analysis and technology selection
-# 3. Structuring of implementation steps
-# 4. Plan presentation with exit_plan_mode
-# 5. Implementation starts after approval
+# What happens:
+# 1. Plan Mode starts
+# 2. Analyze requirements and pick tech
+# 3. Structure the implementation
+# 4. Show you the plan
+# 5. Start coding after you approve
 ```

@@ -159,10 +159,10 @@ class UserProfileWidget extends StatelessWidget {
 
 **Important Information to Retain**:
 
-- URLs and links: `See also:`, `@see`, `参照:` etc.
+- URLs and links: `See also:`, `@see`, `References:` etc.
 - TODO comments: `TODO:`, `FIXME:`, `XXX:` format
-- Notes: `Note:`, `Warning:`, `注意:` etc.
-- Examples: `Example:`, `例:`, `# Examples` etc.
+- Notes: `Note:`, `Warning:`, `Important:` etc.
+- Examples: `Example:`, `Usage:`, `# Examples` etc.
 - Existing parameter and return value descriptions
 
 ### Language-Specific Settings

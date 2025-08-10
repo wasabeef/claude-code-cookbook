@@ -1,6 +1,6 @@
 ## Check Fact
 
-A command to verify the accuracy of given information by referring to the project's codebase, documents (docs/, README.md, etc.).
+Verifies if a statement is true by checking your project's code and documentation.
 
 ### Usage
 
@@ -8,97 +8,97 @@ A command to verify the accuracy of given information by referring to the projec
 # Basic usage
 /check-fact "The Flutter app uses Riverpod"
 
-# Verify multiple pieces of information at once
+# Check multiple facts at once
 /check-fact "This project uses GraphQL and manages routing with auto_route"
 
-# Check specific technical specifications
+# Check technical details
 /check-fact "JWT is used for authentication, and Firebase Auth is not used"
 ```
 
-### Verification Process
+### How It Works
 
-1. **Information Source Priority**
-   - Codebase (most reliable)
-   - README.md, documents in docs/
-   - Configuration files like package.json, pubspec.yaml
-   - Issue and Pull Request discussion history
+1. **Where I Look (in order)**
+   - The actual code (most trustworthy)
+   - README.md and docs/ folder
+   - Config files (package.json, pubspec.yaml, etc.)
+   - Issues and PR discussions
 
-2. **Classification of Judgment Results**
-   - `✅ Correct` - Information completely matches the codebase
-   - `❌ Incorrect` - Information is clearly wrong
-   - `⚠️ Partially correct` - Partially accurate but incomplete
-   - `❓ Cannot determine` - Insufficient information for verification
+2. **What You'll See**
+   - `✅ Correct` - Statement matches the code exactly
+   - `❌ Incorrect` - Statement is wrong
+   - `⚠️ Partially correct` - Some parts are right, some aren't
+   - `❓ Cannot determine` - Not enough info to check
 
-3. **Explicit Evidence**
-   - Relevant file name and line number
-   - Related code snippets
-   - Corresponding parts of documents
+3. **Proof I Provide**
+   - File name and line number
+   - Relevant code snippets
+   - Matching documentation
 
 ### Report Format
 
 ```
 ## Fact Check Results
 
-### Verification Target
-"[User-provided information]"
+### What You Asked
+"[Your statement]"
 
-### Conclusion
-[✅/❌/⚠️/❓] [Judgment result]
+### Verdict
+[✅/❌/⚠️/❓] [True/False/Partial/Unknown]
 
 ### Evidence
 - **File**: `path/to/file.dart:123`
-- **Content**: [Relevant code/text]
-- **Supplement**: [Additional explanation]
+- **Code**: [The actual code]
+- **Note**: [Why this proves it]
 
-### Detailed Explanation
-[If incorrect, present correct information]
-[If partially correct, point out inaccurate parts]
-[If cannot determine, explain missing information]
+### Details
+[If wrong, here's what's actually true]
+[If partial, here's what's missing]
+[If unknown, here's what I'd need to check]
 ```
 
 ### Basic Examples
 
 ```bash
-# Check project technology stack
+# Check the tech stack
 /check-fact "This app is built with Flutter + Riverpod + GraphQL"
 
-# Check implementation status
+# Check if a feature exists
 /check-fact "Dark mode is implemented and can be switched from user settings"
 
-# Check architecture
+# Check architecture choices
 /check-fact "All state management is done with Riverpod, BLoC is not used"
 
-# Check security implementation
+# Check security setup
 /check-fact "Authentication tokens are encrypted and stored in secure storage"
 ```
 
 ### Collaboration with Claude
 
 ```bash
-# Check after analyzing the entire codebase
+# Check dependencies
 ls -la && find . -name "pubspec.yaml" -exec cat {} \;
 /check-fact "The main dependencies used in this project are..."
 
-# Check implementation status of specific feature
+# Check how something is built
 grep -r "authentication" . --include="*.dart"
-/check-fact "Authentication is custom implemented, third-party authentication is not used"
+/check-fact "Authentication is custom built, not using third-party auth"
 
-# Check consistency with documentation
+# Check if docs match reality
 cat README.md
-/check-fact "All features described in the README are implemented"
+/check-fact "Everything in the README is actually implemented"
 ```
 
-### Use Cases
+### When to Use This
 
-- When creating technical specifications: Verify accuracy of content
-- When taking over a project: Confirm understanding of existing implementation
-- Before client reporting: Verify facts about implementation status
-- When writing technical blogs: Validate accuracy of article content
-- When creating interview/explanatory materials: Confirm accuracy of project overview
+- Writing specs: Make sure your descriptions are accurate
+- Taking over a project: Check if you understand it correctly  
+- Client updates: Verify what's actually built
+- Blog posts: Fact-check your technical content
+- Presentations: Confirm project details before presenting
 
-### Notes
+### Important
 
-- The codebase is the most reliable information source
-- If documentation is outdated, implementation takes precedence
-- If information necessary for judgment is insufficient, honestly state "Cannot determine"
-- Exercise particular caution when verifying security-related information
+- Code beats docs: If they disagree, the code is right
+- Old docs happen: Implementation is what matters
+- No guessing: If I can't verify it, I'll say so
+- Security matters: Extra careful with security-related facts

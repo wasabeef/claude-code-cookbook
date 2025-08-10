@@ -1,87 +1,87 @@
 ## Tech Debt
 
-Analyze project technical debt and create a prioritized improvement plan.
+Finds technical debt in your project and creates a fix-it plan.
 
 ### Usage
 
 ```bash
-# Check project structure and analyze technical debt
+# Check project structure for tech debt
 ls -la
-"Analyze the technical debt of this project and create an improvement plan"
+"Find the technical debt in this project and make a plan to fix it"
 ```
 
 ### Basic Examples
 
 ```bash
-# Analyze TODO/FIXME comments
+# Find TODO/FIXME comments
 grep -r "TODO\|FIXME\|HACK\|XXX\|WORKAROUND" . --exclude-dir=node_modules --exclude-dir=.git
-"Organize these TODO comments in priority order and create an improvement plan"
+"Sort these TODOs by priority and tell me how to fix them"
 
-# Check project dependencies
+# Check dependencies
 ls -la | grep -E "package.json|Cargo.toml|pubspec.yaml|go.mod|requirements.txt"
-"Analyze the project dependencies, identify outdated ones and their risks"
+"Which dependencies are outdated? What are the risks?"
 
-# Detect large files and complex functions
+# Find big files and complex code
 find . -type f -not -path "*/\.*" -not -path "*/node_modules/*" -exec wc -l {} + | sort -rn | head -10
-"Identify oversized files and complex structures, then suggest improvements"
+"Which files are too big? How should we split them up?"
 ```
 
 ### Collaboration with Claude
 
 ```bash
-# Comprehensive technical debt analysis
+# Full tech debt analysis
 ls -la && find . -name "*.md" -maxdepth 2 -exec head -20 {} \;
-"Analyze this project's technical debt from the following perspectives:
-1. Code quality (complexity, duplication, maintainability)
-2. Dependency health
-3. Security risks
-4. Performance issues
-5. Test coverage gaps"
+"Check this project's tech debt:
+1. Code quality (too complex? duplicated? hard to maintain?)
+2. Are dependencies healthy?
+3. Security problems?
+4. Performance issues?
+5. Missing tests?"
 
-# Architectural debt analysis
+# Architecture debt check
 find . -type d -name "src" -o -name "lib" -o -name "app" | head -10 | xargs ls -la
-"Identify architectural-level technical debt and propose a refactoring plan"
+"What's wrong with the architecture? How do we fix it?"
 
-# Prioritized improvement plan
-"Evaluate technical debt using the following criteria and present in table format:
+# Make a priority list
+"Rate the tech debt and show me a table with:
 - Impact (High/Medium/Low)
-- Fix cost (time)
+- Time to fix
 - Business risk
-- Improvement benefit
-- Recommended implementation time"
+- What we gain
+- When to do it"
 ```
 
 ### Detailed Examples
 
 ```bash
-# Automatic project type detection and analysis
+# Auto-detect project type and analyze
 find . -maxdepth 2 -type f \( -name "package.json" -o -name "Cargo.toml" -o -name "pubspec.yaml" -o -name "go.mod" -o -name "pom.xml" \)
-"Based on the detected project type, analyze:
-1. Language/framework-specific technical debt
-2. Deviations from best practices
-3. Modernization opportunities
-4. Phased improvement strategy"
+"For this project type, check:
+1. Language-specific debt
+2. Where we break best practices
+3. What can be modernized
+4. Step-by-step fix plan"
 
-# Code quality metrics analysis
+# Code quality check
 find . -type f -name "*" | grep -E "\.(js|ts|py|rs|go|dart|kotlin|swift|java)$" | wc -l
-"Analyze project code quality and provide the following metrics:
-- Functions with high cyclomatic complexity
-- Detection of duplicate code
-- Files/functions that are too long
-- Lack of proper error handling"
+"Check code quality:
+- Which functions are too complex?
+- Where's the duplicate code?
+- What's too long?
+- Where's error handling missing?"
 
-# Security debt detection
+# Security debt check
 grep -r "password\|secret\|key\|token" . --exclude-dir=.git --exclude-dir=node_modules | grep -v ".env.example"
-"Detect security-related technical debt and propose correction priorities and countermeasures"
+"Find security problems and tell me what to fix first"
 
-# Test insufficiency analysis
+# Test coverage check
 find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f -name "*.md" | xargs grep -l "test"
-"Analyze the technical debt of test coverage and propose a testing strategy"
+"Where are tests missing? What's our testing strategy?"
 ```
 
 ### Notes
 
-- Automatically detects the project's language and framework and performs analysis accordingly
-- Technical debt is categorized into "critical issues that need immediate fixing" and "items to improve in the long term"
-- Provides realistic plans that balance business value and technical improvement
-- Also considers the ROI (return on investment) of improvements
+- Auto-detects your language and framework
+- Splits debt into "fix now" vs "fix later"
+- Balances business needs with tech improvements
+- Shows ROI - what you get for the effort

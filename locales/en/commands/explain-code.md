@@ -1,11 +1,11 @@
 ## Code Explain
 
-Provides detailed explanations of code behavior.
+Explains how code works in detail.
 
 ### Usage
 
 ```bash
-# Display file contents and request Claude
+# Show a file and ask for explanation
 cat <file>
 "Explain how this code works"
 ```
@@ -14,16 +14,16 @@ cat <file>
 
 ```bash
 # Understand Rust ownership
-git main.rs
-"Explain from the perspective of Rust ownership and lifetimes"
+cat main.rs
+"Explain the ownership and lifetimes in this Rust code"
 
-# Algorithm explanation
+# Explain an algorithm
 grep -A 50 "quicksort" sort.rs
-"Explain how this sorting algorithm works and its computational complexity"
+"How does this sorting work? What's its time complexity?"
 
-# Design pattern explanation
+# Explain design patterns
 cat factory.rs
-"Explain the design pattern used and its benefits"
+"What design pattern is this? What are the benefits?"
 ```
 
 ### Collaboration with Claude
@@ -31,45 +31,49 @@ cat factory.rs
 ```bash
 # Beginner-friendly explanation
 cat complex_function.py
-"Explain this code line by line in an easy-to-understand way for beginners"
+"Explain this code line by line for someone new to programming"
 
-# Performance analysis
+# Performance check
 cat algorithm.rs
-"Identify performance issues in this code and suggest improvements"
+"Find performance problems and how to fix them"
 
-# Explanation with diagrams
+# Visual explanation
 cat state_machine.js
-"Explain the flow of this code with ASCII art diagrams"
+"Show me the flow with ASCII diagrams"
 
-# Security review
+# Security check
 cat auth_handler.go
-"Identify security concerns in this code"
+"What security issues do you see?"
 ```
 
 ### Detailed Examples
 
 ```bash
-# Complex logic explanation
+# Complex logic breakdown
 cat recursive_parser.rs
-"Explain how this recursive parser works from the following perspectives:
-1. Overall processing flow
-2. Role and responsibility of each function
-3. Edge case handling
-4. Areas for improvement"
+"Break down this recursive parser:
+1. How does it flow?
+2. What does each function do?
+3. How are edge cases handled?
+4. What could be better?"
 
-# Asynchronous processing explanation
+# Async code explanation
 cat async_handler.ts
-"Explain this asynchronous processing including:
-1. Flow of the Promise chain
-2. Error handling mechanism
-3. Presence of parallel processing
-4. Potential for deadlocks"
+"Explain this async code:
+1. How do the Promises flow?
+2. How are errors handled?
+3. What runs in parallel?
+4. Could this deadlock?"
 
-# Architecture explanation
+# Architecture overview
 ls -la src/ && cat src/main.rs src/lib.rs
-"Explain the architecture and module structure of this project"
+"Explain how this project is structured"
 ```
 
-### Notes
+### What You'll Get
 
-In code explanations, we not only describe what the code does, but also provide deeper insights such as why it's implemented that way, what benefits it offers, and what potential issues might exist.
+Not just what the code does, but also:
+
+- Why it's written that way
+- What benefits it provides
+- What problems might come up

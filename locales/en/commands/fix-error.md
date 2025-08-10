@@ -1,6 +1,6 @@
 ## Error Fix
 
-Identifies root causes from error messages and suggests proven solutions.
+Analyzes error messages to find root causes and suggest proven fixes.
 
 ### Usage
 
@@ -11,9 +11,9 @@ Identifies root causes from error messages and suggests proven solutions.
 ### Options
 
 - None: Standard error analysis
-- `--deep`: Deep analysis mode (includes dependencies and environmental factors)
-- `--preventive`: Analysis focused on preventive measures
-- `--quick`: Show only immediately applicable fixes
+- `--deep`: Deep dive including dependencies and environment
+- `--preventive`: Focus on preventing future occurrences
+- `--quick`: Quick fixes only
 
 ### Basic Examples
 
@@ -21,22 +21,22 @@ Identifies root causes from error messages and suggests proven solutions.
 # Standard error analysis
 npm run build 2>&1
 /fix-error
-"Analyze build errors and suggest fixes"
+"Analyze this build error and suggest fixes"
 
 # Deep analysis mode
 python app.py 2>&1
 /fix-error --deep
-"Analyze root cause including environmental factors"
+"Find the root cause, including environment issues"
 
-# Focus on immediate fixes
+# Quick fixes only
 cargo test 2>&1
 /fix-error --quick
-"Suggest fixes that can be applied immediately"
+"Just give me a quick fix"
 
-# Focus on preventive measures
+# Prevention-focused
 ./app 2>&1 | tail -50
 /fix-error --preventive
-"Suggest fixes and future preventive measures"
+"Fix this and help me prevent it next time"
 ```
 
 ### Collaboration with Claude
@@ -45,40 +45,40 @@ cargo test 2>&1
 # Analyze error logs
 cat error.log
 /fix-error
-"Identify root cause and suggest fixes"
+"What's causing this error and how do I fix it?"
 
 # Resolve test failures
 npm test 2>&1
 /fix-error --quick
-"Analyze failed tests and suggest immediate fixes"
+"These tests are failing - need a quick fix"
 
 # Analyze stack traces
 python script.py 2>&1
 /fix-error --deep
-"Identify issues from this stack trace including environmental factors"
+"Dig into this stack trace and check for environment issues"
 
-# Solve multiple errors at once
+# Handle multiple errors
 grep -E "ERROR|WARN" app.log | tail -20
 /fix-error
-"Classify these errors and warnings by priority and suggest solutions for each"
+"Sort these by priority and tell me how to fix each one"
 ```
 
 ### Error Analysis Priorities
 
-#### Urgency: High (Immediate action required)
+#### Urgency: High (Fix now!)
 
 - **Application downtime**: Crashes, infinite loops, deadlocks
 - **Data loss risk**: Database errors, file corruption
 - **Security vulnerabilities**: Authentication failures, permission errors, injections
 - **Production impact**: Deployment failures, service outages
 
-#### 🟡 Urgency: Medium (Early action recommended)
+#### 🟡 Urgency: Medium (Fix soon)
 
 - **Performance issues**: Memory leaks, delays, timeouts
 - **Partial functionality failure**: Errors in specific features, UI glitches
 - **Reduced development efficiency**: Build errors, test failures
 
-#### 🟢 Urgency: Low (Planned action)
+#### 🟢 Urgency: Low (Fix when convenient)
 
 - **Warning messages**: Deprecation, lint errors
 - **Development environment only**: Issues only in local environments
@@ -89,56 +89,56 @@ grep -E "ERROR|WARN" app.log | tail -20
 #### Phase 1: Error Information Collection
 
 ```bash
-🔴 Must execute:
-- Obtain complete error messages
-- Check stack traces
-- Identify occurrence conditions (reproducibility)
+🔴 Must have:
+- Full error message
+- Stack trace
+- Steps to reproduce
 
-🟡 Early execution:
-- Collect environment information (OS, versions, dependencies)
-- Recent change history (git log, recent commits)
-- Check related logs
+🟡 Should have:
+- Environment details (OS, versions, dependencies)
+- Recent changes (git log, commits)
+- Related logs
 
-🟢 Additional execution:
-- System resource status
-- Network status
-- External service status
+🟢 Nice to have:
+- System resources
+- Network state
+- External services
 ```
 
 #### Phase 2: Root Cause Analysis
 
-1. **Organize surface symptoms**
-   - Exact error message content
-   - Timing and patterns of occurrence
-   - Identification of impact scope
+1. **Identify symptoms**
+   - Exact error message
+   - When and how it happens
+   - What's affected
 
-2. **Identify deep causes**
-   - Apply 5 Whys analysis
-   - Track dependencies
-   - Check environmental differences
+2. **Find root causes**
+   - Use 5 Whys analysis
+   - Check dependencies
+   - Compare environments
 
-3. **Verify hypotheses**
-   - Create minimal reproduction code
-   - Run isolation tests
-   - Narrow down causes
+3. **Test your theory**
+   - Create minimal repro
+   - Isolate the issue
+   - Confirm the cause
 
 #### Phase 3: Solution Implementation
 
 ```bash
-🔴 Immediate response (hotfix):
-- Minimal fixes to suppress symptoms
-- Apply temporary workarounds
-- Prepare for emergency deployment
+🔴 Quick fix (hotfix):
+- Stop the bleeding
+- Apply workarounds
+- Get ready to deploy
 
-🟡 Fundamental solution:
-- Essential fixes for the root cause
-- Add test cases
-- Update documentation
+🟡 Root cause fix:
+- Fix the actual problem
+- Add tests
+- Update docs
 
-🟢 Implement preventive measures:
-- Strengthen error handling
-- Set up monitoring and alerts
-- Improve CI/CD pipeline
+🟢 Prevent future issues:
+- Better error handling
+- Add monitoring
+- Improve CI/CD
 ```
 
 ### Output Example

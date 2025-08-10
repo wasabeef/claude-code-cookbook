@@ -121,7 +121,7 @@ Unlike traditional code generation tools, it realizes Kiro's specification-drive
 "Create a spec for a CI/CD pipeline including test automation, deployment, and monitoring"
 ```
 
-### Step-by-Step Dialogue Workflow (Phase by Phase)
+### Phase-by-Phase Dialogue Workflow
 
 #### Phase 1: Requirements Discovery & Discussion
 
@@ -143,15 +143,15 @@ Automatically generated user stories:
 - Password reset functionality
 - Security audit logs
 
-I've supplemented details not explicitly stated. Are there any other required features?"
+I've added some details you didn't mention. Anything else we need?"
 ```
 
 **2. Structured Requirements Description Using EARS Notation**
 
 ```
-Claude: "I'll structure the requirements using Kiro's EARS notation:
+Claude: "Let me structure this using EARS notation:
 
-Requirements defined using EARS notation:
+Here are the requirements in EARS format:
 
 WHEN a user attempts to log in
 GIVEN they enter the correct email address and password
@@ -170,29 +170,29 @@ AND deny access if insufficient"
 **3. Automatic Completion of Edge Cases and Security Requirements**
 
 ```
-Claude: "Based on Kiro's best practices, I've also considered the following cases:
+Claude: "Following best practices, I've also thought of these:
 
-Security requirements (automatic completion):
-- Protection against brute force attacks
-- Session management and timeout
-- CSRF protection and XSS countermeasures
-- Password strength requirements
+Security requirements (auto-added):
+- Brute force protection
+- Session management and timeouts
+- CSRF and XSS protection
+- Password strength rules
 
-Edge cases (automatic detection):
-- Simultaneous login restrictions
-- Account lock functionality
+Edge cases (auto-detected):
+- Multiple login handling
+- Account lockout
 - Data consistency during migration
-- Load balancing during high traffic
+- High traffic handling
 
-Are these requirements appropriate?"
+Do these look good?"
 ```
 
 **5. Phase 1 Completion and Approval**
 
 ```
-Claude: "The Requirements Phase is complete.
-May I generate requirements.md?"
-→ "Proceed" → requirements.md generation
+Claude: "Requirements phase done.
+Should I create requirements.md?"
+→ "Yes" → generates requirements.md
 ```
 
 #### Phase 2: Design Exploration & Discussion
@@ -200,7 +200,7 @@ May I generate requirements.md?"
 **1. Codebase Analysis + Automatic Design Proposal (Kiro Style)**
 
 ```
-Claude: "I've analyzed the existing codebase and propose the optimal architecture:
+Claude: "After analyzing your codebase, here's my recommended architecture:
 
 Codebase analysis results:
 - Authentication: JWT + Express.js (v4.18.x)
@@ -391,7 +391,7 @@ Week 3: Advanced features and optimization
 
 Automatically detected risk mitigation measures:
 
-- Multi-factor authentication: Phased introduction (SMS→app authentication)
+- Multi-factor authentication: Gradual rollout (SMS→app authentication)
 - Session management: Redis cluster configuration
 - High traffic: Rate limiting + CDN utilization
 - Data consistency: Enhanced transaction management

@@ -101,7 +101,7 @@ for DIR in "${DIRS[@]}"; do
     else
       # For Japanese, restore from locales/ja if exists, otherwise keep current
       JA_FILE="$PROJECT_ROOT/locales/ja/$REL_PATH/$BASE_NAME.md"
-      
+
       if [ -f "$JA_FILE" ]; then
         echo "  📝 Restoring Japanese version of $BASE_NAME.md..."
         cp "$JA_FILE" "$BASE_FILE"

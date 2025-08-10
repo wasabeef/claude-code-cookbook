@@ -1,6 +1,6 @@
 ## Commit Message
 
-Generate appropriate commit messages from staged changes (git diff --staged). Does not execute git commands, only generates messages and copies to clipboard.
+Generates commit messages from staged changes (git diff --staged). This command only creates messages and copies them to your clipboard—it doesn't run any git commands.
 
 ### Usage
 
@@ -10,43 +10,43 @@ Generate appropriate commit messages from staged changes (git diff --staged). Do
 
 ### Options
 
-- `--format <format>` : Specify message format (conventional, gitmoji, angular)
-- `--lang <language>` : Force message language (en, ja)
-- `--breaking` : Detect and include Breaking Changes
+- `--format <format>` : Choose message format (conventional, gitmoji, angular)
+- `--lang <language>` : Set language explicitly (en, ja)
+- `--breaking` : Include breaking change detection
 
 ### Basic Examples
 
 ```bash
-# Generate message from staged changes (auto-detect language)
-# Main candidate is automatically copied to clipboard
+# Generate message from staged changes (language auto-detected)
+# The top suggestion is automatically copied to your clipboard
 /commit-message
 
-# Force language specification
+# Specify language explicitly
 /commit-message --lang ja
 /commit-message --lang en
 
-# Detect Breaking Changes
+# Include breaking change detection
 /commit-message --breaking
 ```
 
 ### Prerequisites
 
-**Important**: This command only analyzes staged changes. You must stage changes with `git add` beforehand.
+**Important**: This command only works with staged changes. Run `git add` first to stage your changes.
 
 ```bash
-# Warning displayed if nothing is staged
+# If nothing is staged, you'll see:
 $ /commit-message
 No staged changes found. Please run git add first.
 ```
 
 ### Automatic Clipboard Feature
 
-The generated main candidate is automatically copied to clipboard in the complete format `git commit -m "message"`. You can paste and execute directly in the terminal.
+The top suggestion gets copied to your clipboard as a complete command: `git commit -m "message"`. Just paste and run it in your terminal.
 
 **Implementation Notes**:
 
-- When passing commit command to `pbcopy`, execute in separate process from message output
-- Use `printf` instead of `echo` to avoid trailing newlines
+- Run `pbcopy` in a separate process from the message output
+- Use `printf` instead of `echo` to avoid unwanted newlines
 
 ### Automatic Project Convention Detection
 
