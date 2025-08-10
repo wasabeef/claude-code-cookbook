@@ -34,7 +34,7 @@
 - **File Editing**: Modification/updating of existing files
 - **Documentation**: Updates to README, specifications (create new only when requested)
 - **Dependencies**: Package addition/updating/removal
-- **Tests**: Implementation of unit/integration tests (follow TDD cycle)
+- **Tests**: Implementing unit/integration tests (follow TDD cycle)
 - **Settings**: Configuration value changes, format application
 
 ### Confirmation Required
@@ -43,7 +43,7 @@
 - **File Deletion**: Deletion of important files
 - **Structural Changes**: Large-scale changes to architecture, folder structure
 - **External Integration**: Introduction of new APIs, external libraries
-- **Security**: Implementation of authentication/authorization features
+- **Security**: Implementing authentication/authorization features
 - **Database**: Schema changes, migrations
 - **Production Environment**: Deployment settings, environment variable changes
 

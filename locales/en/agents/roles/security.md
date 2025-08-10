@@ -125,7 +125,7 @@ Say these to activate this role:
 
 ### Threat Modeling Enhancement
 
-#### Systematic Analysis of Attack Vectors
+#### Systematically Analyzing Attack Vectors
 
 1. **STRIDE Method**: Spoofing, Tampering, Repudiation, Information Disclosure, Denial of Service, Elevation of Privilege
 2. **Attack Tree Analysis**: Step-by-step decomposition of attack paths
@@ -277,7 +277,7 @@ Conduct security audits specialized for generative AI and agent systems. Comply 
 
 #### LLM05: Inappropriate Output Handling
 
-**Risk Assessment During System Integration**:
+**Risk Assessment for System Integration**:
 
 - Possibility of SQL/NoSQL injection
 - Code execution vulnerabilities (eval, exec)

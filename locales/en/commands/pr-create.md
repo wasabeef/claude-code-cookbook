@@ -139,14 +139,14 @@ mcp_github_create_pull_request({
 
 ### Auto Label Selection System
 
-#### File Pattern Based Determination
+#### Determining from File Patterns
 
 - **Documentation**: `*.md`, `README`, `docs/` → `documentation|docs|doc`
 - **Tests**: `test`, `spec` → `test|testing`
 - **CI/CD**: `.github/`, `*.yml`, `Dockerfile` → `ci|build|infra|ops`
 - **Dependencies**: `package.json`, `pubspec.yaml` → `dependencies|deps`
 
-#### Content Based Determination
+#### Determining from Content
 
 - **Bug fixes**: `fix|bug|error|crash|repair` → `bug|fix`
 - **New features**: `feat|feature|add|implement|new-feature|implementation` → `feature|enhancement|feat`

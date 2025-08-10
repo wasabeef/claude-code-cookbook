@@ -184,7 +184,7 @@ cat devin/playbooks/code-review.md
 - [ ] Machine learning-based analysis of failure patterns
 - [ ] Automatic update mechanism for best practices
 
-#### 6.2 Implementation of Learning Functions (5 points)
+#### 6.2 Implementing Learning Functions (5 points)
 
 - [ ] Automatic detection and classification of new patterns
 - [ ] Continuous monitoring of effectiveness of existing rules
@@ -302,7 +302,7 @@ Bonus elements:
 Final score = Basic score + Bonus - Penalties
 ```
 
-### Quality Level Judgment
+### Quality Level Assessment
 
 ```
 95-100 points: World's highest standard (Recommended as industry standard)
@@ -407,7 +407,7 @@ Quality score: 90/100 points (+20 points improvement)
 - Error handling: 90% of problems solved automatically
 
 Actual improvement effects:
-- Judgment errors: 85% reduction
+- Assessment errors: 85% reduction
 - Execution time: 40% reduction
 - Error occurrence rate: 70% reduction
 - User satisfaction: 95% improvement

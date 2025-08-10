@@ -226,7 +226,7 @@ Technical Debt: 2.5 days (Requires action)
 ### Typical Discussion Points
 
 - Optimization of "readability vs performance"
-- Judgment of "DRY vs YAGNI"
+- Evaluating "DRY vs YAGNI"
 - Appropriateness of "abstraction level"
 - "Test coverage vs development speed"
 

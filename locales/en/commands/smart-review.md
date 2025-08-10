@@ -9,9 +9,9 @@ A command that analyzes the current situation and automatically suggests the opt
 /smart-review <file/directory>   # Analyze specific target
 ```
 
-### Automatic Judgment Logic
+### Automatic Analysis Logic
 
-### Judgment by File Extension
+### Analysis by File Extension
 
 - `package.json`, `*.tsx`, `*.jsx`, `*.css`, `*.scss` → **frontend**
 - `Dockerfile`, `docker-compose.yml`, `*.yaml` → **architect**
@@ -24,7 +24,7 @@ A command that analyzes the current situation and automatically suggests the opt
 - `login.tsx`, `signup.js`, `jwt.js` → **security + frontend**
 - `api/auth/`, `middleware/auth/` → **security + architect**
 
-### Complex Judgment Patterns
+### Complex Analysis Patterns
 
 - `mobile/` + `*.swift`, `*.kt`, `react-native/` → **mobile**
 - `webpack.config.js`, `vite.config.js`, `large-dataset/` → **performance**
@@ -60,7 +60,7 @@ $ /smart-review src/mobile/components/
 → "[4] role-debate mobile,frontend"
 ```
 
-### Suggestion During Problem Analysis
+### Suggestions for Problem Analysis
 
 ```bash
 $ /smart-review error.log
@@ -73,7 +73,7 @@ $ /smart-review slow-api.log
 → "Recommended: [1]/role performance [2]/role-debate performance,analyzer"
 ```
 
-### Suggestion During Complex Design Decisions
+### Suggestions for Complex Design Decisions
 
 ```bash
 $ /smart-review architecture-design.md
@@ -83,9 +83,9 @@ $ /smart-review architecture-design.md
 → "[Alternative] /multi-role architect,security,performance"
 ```
 
-### Details of Suggestion Logic
+### Suggestion Logic Details
 
-### Priority Judgment
+### Priority Assessment
 
 1. **Security** - Authentication, authorization, and encryption are top priorities
 2. **Critical Errors** - System outages and data loss are urgent
