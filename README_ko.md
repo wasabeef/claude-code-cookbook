@@ -2,10 +2,10 @@
 
 [English](README_en.md) | [中文](README_zh.md) | [日本語](README.md) | [한국어](README_ko.md)
 
-Claude Code를 더 편리하게 사용하기 위한 설정 모음입니다.
+Claude Code 를 더 편리하게 사용하기 위한 설정 모음입니다.
 
 불필요한 확인 과정을 생략하고 자동으로 작업을 진행해서, 정말 중요한 일에 집중할 수 있게 해줍니다.
-코드 수정이나 테스트 실행, 문서 업데이트 같은 일상적인 작업을 Claude Code가 알아서 판단하고 실행합니다.
+코드 수정이나 테스트 실행, 문서 업데이트 같은 일상적인 작업을 Claude Code 가 알아서 판단하고 실행합니다.
 
 ## 주요 기능
 
@@ -105,9 +105,9 @@ Claude Code를 더 편리하게 사용하기 위한 설정 모음입니다.
 | :--- | :--- | :--- |
 | `deny-check.sh` | `PreToolUse` | `rm -rf /` 같은 위험한 명령 실행을 방지합니다. |
 | `check-ai-commit.sh` | `PreToolUse` | `git commit` 메시지에 AI 서명이 포함되면 에러를 발생시킵니다. |
-| `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | 편집 전 원본 권한을 저장하고 편집 후 복원합니다. Claude Code가 권한을 변경하는 것을 방지합니다. |
+| `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | 편집 전 원본 권한을 저장하고 편집 후 복원합니다. Claude Code 가 권한을 변경하는 것을 방지합니다. |
 | `ja-space-format.sh` | `PostToolUse` | 파일 저장 시 일본어와 영숫자 사이 공백을 자동으로 포맷합니다. |
-| `auto-comment.sh` | `PostToolUse` | 새 파일 생성이나 주요 편집 시 docstring이나 API 문서 추가를 유도합니다. |
+| `auto-comment.sh` | `PostToolUse` | 새 파일 생성이나 주요 편집 시 docstring 이나 API 문서 추가를 유도합니다. |
 | `notify-waiting` | `Notification` | Claude가 사용자 확인을 기다릴 때 macOS 알림 센터로 알립니다. |
 | `check-continue.sh` | `Stop` | 작업 완료 시 계속할 작업이 있는지 확인합니다. |
 | `(osascript)` | `Stop` | 모든 작업 완료 시 macOS 알림 센터로 완료를 알립니다. |
