@@ -81,10 +81,10 @@ for DIR in "${DIRS[@]}"; do
     BASE_NAME=$(basename "$BASE_FILE" .md)
     REL_PATH=${DIR#$PROJECT_ROOT/}
 
-    # For non-Japanese languages, copy from lang directory
+    # For non-Japanese languages, copy from locales directory
     if [ "$LANG_CODE" != "ja" ]; then
-      # Language-specific file path in lang directory
-      LANG_FILE="$PROJECT_ROOT/lang/$LANG_CODE/$REL_PATH/$BASE_NAME.md"
+      # Language-specific file path in locales directory
+      LANG_FILE="$PROJECT_ROOT/locales/$LANG_CODE/$REL_PATH/$BASE_NAME.md"
 
       if [ -f "$LANG_FILE" ]; then
         echo "  📝 Updating $BASE_NAME.md with ${LANG_NAME} version..."
@@ -99,8 +99,8 @@ for DIR in "${DIRS[@]}"; do
         ((SKIP_COUNT++))
       fi
     else
-      # For Japanese, restore from lang/ja if exists, otherwise keep current
-      JA_FILE="$PROJECT_ROOT/lang/ja/$REL_PATH/$BASE_NAME.md"
+      # For Japanese, restore from locales/ja if exists, otherwise keep current
+      JA_FILE="$PROJECT_ROOT/locales/ja/$REL_PATH/$BASE_NAME.md"
       
       if [ -f "$JA_FILE" ]; then
         echo "  📝 Restoring Japanese version of $BASE_NAME.md..."
