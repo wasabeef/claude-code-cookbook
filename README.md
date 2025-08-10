@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[[English]](README_en.md) or [[Chinese]](README_zh.md)
+[English](README_en.md) | [中文](README_zh.md) | [日本語](README.md)
 
 Claude Code をもっと便利に使うための設定集です。
 
@@ -168,7 +168,7 @@ flowchart TB
 ### 導入手順
 
 1. **リポジトリをクローン**: `git clone https://github.com/wasabeef/claude-code-cookbook.git ~/.claude`
-2. **言語を設定**: `./scripts/set-lang.sh ja` (日本語に設定)
+2. **言語を設定**: `./scripts/install.sh ja` (日本語に設定)
 3. **クライアントでパスを設定**: Claude のクライアントで、上記ディレクトリのパスを指定します
 4. **パスの確認**: `settings.json` 内のスクリプトパスが環境と一致しているか確認します
 

@@ -1,10 +1,10 @@
 #!/bin/bash
 
-# Language configuration script
-# Usage: ./scripts/set-lang.sh <language>
-# Example: ./scripts/set-lang.sh en
-#          ./scripts/set-lang.sh ja
-#          ./scripts/set-lang.sh zh
+# Language installation script
+# Usage: ./scripts/install.sh <language>
+# Example: ./scripts/install.sh en
+#          ./scripts/install.sh ja
+#          ./scripts/install.sh zh
 
 set -e
 
@@ -36,16 +36,13 @@ case "$LANG_CODE" in
 ja | jp)
   LANG_CODE="ja"
   LANG_NAME="Japanese"
-  SUFFIX=""
   ;;
 en)
   LANG_NAME="English"
-  SUFFIX="_en"
   ;;
 zh | cn)
   LANG_CODE="zh"
   LANG_NAME="Chinese"
-  SUFFIX="_zh"
   ;;
 *)
   echo "❌ Error: Unsupported language code '$LANG_CODE'"
@@ -62,7 +59,7 @@ PROJECT_ROOT="$(dirname "$SCRIPT_DIR")"
 echo "🔄 Setting language to ${LANG_NAME} (${LANG_CODE})..."
 
 # Target directories
-DIRS=("$PROJECT_ROOT/commands" "$PROJECT_ROOT/agents")
+DIRS=("$PROJECT_ROOT/commands" "$PROJECT_ROOT/agents/roles")
 
 # Success/failure counters
 SUCCESS_COUNT=0
@@ -78,19 +75,16 @@ for DIR in "${DIRS[@]}"; do
 
   echo "📁 Processing: $DIR"
 
-  # Find all .md files
+  # Find all .md files (excluding language-specific ones)
   while IFS= read -r BASE_FILE; do
-    # Get base filename
+    # Get base filename and relative path
     BASE_NAME=$(basename "$BASE_FILE" .md)
-    DIR_NAME=$(dirname "$BASE_FILE")
+    REL_PATH=${DIR#$PROJECT_ROOT/}
 
-    # Search for language-specific files
-    if [ "$LANG_CODE" = "ja" ]; then
-      # Skip for Japanese as base files are already in Japanese
-      continue
-    else
-      # Language-specific file path
-      LANG_FILE="$DIR_NAME/${BASE_NAME}${SUFFIX}.md"
+    # For non-Japanese languages, copy from lang directory
+    if [ "$LANG_CODE" != "ja" ]; then
+      # Language-specific file path in lang directory
+      LANG_FILE="$PROJECT_ROOT/lang/$LANG_CODE/$REL_PATH/$BASE_NAME.md"
 
       if [ -f "$LANG_FILE" ]; then
         echo "  📝 Updating $BASE_NAME.md with ${LANG_NAME} version..."
@@ -101,22 +95,24 @@ for DIR in "${DIRS[@]}"; do
         echo "  ✅ Updated $BASE_NAME.md"
         ((SUCCESS_COUNT++))
       else
-        echo "  ⚠️  ${LANG_NAME} version does not exist: $BASE_NAME${SUFFIX}.md"
+        echo "  ⚠️  ${LANG_NAME} version does not exist: $LANG_FILE"
+        ((SKIP_COUNT++))
+      fi
+    else
+      # For Japanese, restore from lang/ja if exists, otherwise keep current
+      JA_FILE="$PROJECT_ROOT/lang/ja/$REL_PATH/$BASE_NAME.md"
+      
+      if [ -f "$JA_FILE" ]; then
+        echo "  📝 Restoring Japanese version of $BASE_NAME.md..."
+        cp "$JA_FILE" "$BASE_FILE"
+        echo "  ✅ Restored $BASE_NAME.md"
+        ((SUCCESS_COUNT++))
+      else
+        echo "  ℹ️  Using existing Japanese version: $BASE_NAME.md"
         ((SKIP_COUNT++))
       fi
     fi
-  done < <(find "$DIR" -name "*.md" -type f ! -name "*_*")
-
-  # Remove other language files
-  echo "  🗑️  Removing unnecessary language files..."
-
-  # Remove all language-specific files regardless of target language
-  for lang_suffix in "_en" "_zh" "_ja"; do
-    while IFS= read -r lang_file; do
-      rm "$lang_file"
-      echo "    🗑️  Removed: $(basename "$lang_file")"
-    done < <(find "$DIR" -name "*${lang_suffix}.md" -type f)
-  done
+  done < <(find "$DIR" -name "*.md" -type f)
 done
 
 echo ""
