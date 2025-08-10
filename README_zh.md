@@ -169,13 +169,12 @@ flowchart TB
 git clone https://github.com/wasabeef/claude-code-cookbook.git
 cd claude-code-cookbook
 
-# 安装（自动检测语言）
-./scripts/install.sh
-
-# 或指定语言
-./scripts/install.sh --lang zh    # 中文
-./scripts/install.sh --lang en    # 英文
-./scripts/install.sh --lang ja    # 日文
+# 指定语言安装
+./scripts/install.sh zh    # 中文
+./scripts/install.sh en    # 英文
+./scripts/install.sh ja    # 日文（默认）
+./scripts/install.sh ko    # 韩文
+./scripts/install.sh pt    # 葡萄牙文
 ```
 
 在 Claude Desktop 中将 Custom Instructions 路径设置为 `~/.claude` 即可完成。

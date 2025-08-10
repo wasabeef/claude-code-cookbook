@@ -169,13 +169,12 @@ flowchart TB
 git clone https://github.com/wasabeef/claude-code-cookbook.git
 cd claude-code-cookbook
 
-# Install (auto-detect language)
-./scripts/install.sh
-
-# Or specify language
-./scripts/install.sh --lang en    # English
-./scripts/install.sh --lang ja    # Japanese
-./scripts/install.sh --lang zh    # Chinese
+# Install with language specification
+./scripts/install.sh en    # English
+./scripts/install.sh ja    # Japanese (default)
+./scripts/install.sh ko    # Korean
+./scripts/install.sh pt    # Portuguese
+./scripts/install.sh zh    # Chinese
 ```
 
 Set Custom Instructions path to `~/.claude` in Claude Desktop and you're done.
