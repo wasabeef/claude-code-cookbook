@@ -172,7 +172,7 @@ $ /semantic-commit
 - `y` : 按建议的拆分执行
 - `n` : 取消
 - `edit` : 逐个编辑提交消息
-- `merge <编号1> <编号2>` : 合并指定的提交
+- `merge <编号 1> <编号 2>` : 合并指定的提交
 - `split <编号>` : 进一步拆分指定的提交
 
 ### Dry Run 模式
@@ -354,6 +354,103 @@ echo "如需推送请执行以下命令:"
 echo "  git push origin $CURRENT_BRANCH"
 ```
 
+#### 拆分算法的详细说明
+
+##### 步骤 1: 初始分析
+
+```bash
+# 获取所有变更文件并分类
+git diff HEAD --name-status | while read status file; do
+  echo "$status:$file"
+done > /tmp/changes.txt
+
+# 按功能目录统计变更
+git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq -c
+```
+
+##### 步骤 2: 基于功能边界的初始分组
+
+```bash
+# 基于目录的分组
+GROUPS=$(git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq)
+for group in $GROUPS; do
+  echo "=== 组别: $group ==="
+  git diff HEAD --name-only | grep "^$group" | head -10
+done
+```
+
+##### 步骤 3: 变更内容相似性分析
+
+```bash
+# 分析各文件的变更类型
+git diff HEAD --name-only | while read file; do
+  # 检测新函数/类的添加
+  NEW_FUNCTIONS=$(git diff HEAD -- "$file" | grep -c '^+.*function\|^+.*class\|^+.*def ')
+  
+  # 检测 Bug 修复模式
+  BUG_FIXES=$(git diff HEAD -- "$file" | grep -c '^+.*fix\|^+.*bug\|^-.*error')
+  
+  # 判断是否为测试文件
+  if [[ "$file" =~ test|spec ]]; then
+    echo "$file: TEST"
+  elif [ $NEW_FUNCTIONS -gt 0 ]; then
+    echo "$file: FEAT"
+  elif [ $BUG_FIXES -gt 0 ]; then
+    echo "$file: FIX"
+  else
+    echo "$file: REFACTOR"
+  fi
+done
+```
+
+##### 步骤 4: 基于依赖关系的调整
+
+```bash
+# 分析导入关系
+git diff HEAD | grep -E '^[+-].*import|^[+-].*from.*import' | \
+while read line; do
+  echo "$line" | sed 's/^[+-]//' | awk '{print $2}'
+done | sort | uniq > /tmp/imports.txt
+
+# 相关文件的分组
+git diff HEAD --name-only | while read file; do
+  basename=$(basename "$file" .js .ts .py)
+  related=$(git diff HEAD --name-only | grep "$basename" | grep -v "^$file$")
+  if [ -n "$related" ]; then
+    echo "相关文件组: $file <-> $related"
+  fi
+done
+```
+
+##### 步骤 5: 提交大小优化
+
+```bash
+# 调整组别大小
+MAX_FILES_PER_COMMIT=8
+current_group=1
+file_count=0
+
+git diff HEAD --name-only | while read file; do
+  if [ $file_count -ge $MAX_FILES_PER_COMMIT ]; then
+    current_group=$((current_group + 1))
+    file_count=0
+  fi
+  echo "提交 $current_group: $file"
+  file_count=$((file_count + 1))
+done
+```
+
+##### 步骤 6: 最终分组确定
+
+```bash
+# 验证拆分结果
+for group in $(seq 1 $current_group); do
+  files=$(grep "提交 $group:" /tmp/commit_plan.txt | cut -d':' -f2-)
+  lines=$(echo "$files" | xargs git diff HEAD -- | wc -l)
+  echo "提交 $group: $(echo "$files" | wc -w) 个文件, $lines 行变更"
+done
+```
+
 ### Conventional Commits 规范
 
 #### 基本格式
@@ -494,6 +591,32 @@ export default {
    sort | uniq -c | sort -nr
    ```
 
+#### 项目规约示例
+
+##### Angular 风格
+
+```
+feat(scope): 添加新功能
+fix(scope): 修复 Bug
+docs(scope): 更新文档
+```
+
+##### Gitmoji 结合风格
+
+```
+✨ feat: 添加用户注册
+🐛 fix: 解决登录问题
+📚 docs: 更新 API 文档
+```
+
+##### 中文项目
+
+```
+feat: 新增用户注册功能
+fix: 修复登录处理的 Bug
+docs: 更新 API 文档
+```
+
 ### 语言判定
 
 此命令完整的语言判定逻辑：
@@ -510,7 +633,7 @@ export default {
    ```bash
    # 分析最近 20 个提交的语言
    git log --oneline -20 --pretty=format:"%s" | \
-   grep -E '[一-龥]' | wc -l
+   grep -E '[一-龥]|[ひらがな]|[カタカナ]' | wc -l
    # 50% 以上是中文则使用中文模式
    ```
 
@@ -518,18 +641,56 @@ export default {
 
    ```bash
    # 确认 README.md 的语言
-   head -10 README.md | grep -E '[一-龥]' | wc -l
+   head -10 README.md | grep -E '[一-龥]|[ひらがな]|[カタカナ]' | wc -l
    
    # 确认 package.json 的 description
-   grep -E '"description".*[一-龥]' package.json
+   grep -E '"description".*[一-龥]|[ひらがな]|[カタカナ]' package.json
    ```
 
 4. **变更文件内**的注释·字符串分析
 
    ```bash
    # 确认变更文件的注释语言
-   git diff HEAD | grep -E '^[+-].*//.*[一-龥]' | wc -l
+   git diff HEAD | grep -E '^[+-].*//.*[一-龥]|[ひらがな]|[カタカナ]' | wc -l
    ```
+
+#### 判定算法
+
+```bash
+# 语言判定分数计算
+JAPANESE_SCORE=0
+
+# 1. CommitLint 配置（+3 分）
+if grep -q '"subject-case".*\[0\]' commitlint.config.* 2>/dev/null; then
+  JAPANESE_SCORE=$((JAPANESE_SCORE + 3))
+fi
+
+# 2. git log 分析（最大 +2 分）
+JAPANESE_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
+  grep -cE '[一-龥]|[ひらがな]|[カタカナ]' 2>/dev/null || echo 0)
+if [ $JAPANESE_COMMITS -gt 10 ]; then
+  JAPANESE_SCORE=$((JAPANESE_SCORE + 2))
+elif [ $JAPANESE_COMMITS -gt 5 ]; then
+  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
+fi
+
+# 3. README.md 确认（+1 分）
+if head -5 README.md 2>/dev/null | grep -qE '[一-龥]|[ひらがな]|[カタカナ]'; then
+  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
+fi
+
+# 4. 变更文件内容确认（+1 分）
+if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[一-龥]|[ひらがな]|[カタカナ]'; then
+  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
+fi
+
+# 判定: 3 分以上为中文模式
+if [ $JAPANESE_SCORE -ge 3 ]; then
+  LANGUAGE="ja"
+else
+  LANGUAGE="en"
+fi
+```
 
 ### 设置文件自动加载
 
@@ -566,6 +727,90 @@ export default {
    head -20
    ```
 
+#### 配置示例分析
+
+**标准 commitlint.config.mjs**:
+
+```javascript
+export default {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'type-enum': [
+      2,
+      'always',
+      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'chore']
+    ],
+    'scope-enum': [
+      2,
+      'always',
+      ['api', 'ui', 'core', 'auth', 'db']
+    ]
+  }
+}
+```
+
+**中文对应配置**:
+
+```javascript
+export default {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'subject-case': [0],  // 为中文禁用
+    'subject-max-length': [2, 'always', 72],
+    'type-enum': [
+      2,
+      'always',
+      ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore']
+    ]
+  }
+}
+```
+
+**包含自定义类型的配置**:
+
+```javascript
+export default {
+  extends: ['@commitlint/config-conventional'],
+  rules: {
+    'type-enum': [
+      2,
+      'always',
+      [
+        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
+        'wip',      // Work in Progress
+        'hotfix',   // 紧急修复
+        'release',  // 发布准备
+        'deps',     // 依赖更新
+        'config'    // 配置变更
+      ]
+    ]
+  }
+}
+```
+
+#### 后备行为
+
+找不到配置文件时：
+
+1. **基于 git log 分析**的自动推测
+
+   ```bash
+   # 从最近 100 个提交中提取类型
+   git log --oneline -100 --pretty=format:"%s" | \
+   grep -oE '^[a-z]+(\([^)]+\))?' | \
+   sort | uniq -c | sort -nr
+   ```
+
+2. **使用 Conventional Commits 标准**作为默认
+
+   ```
+   feat, fix, docs, style, refactor, perf, test, chore, build, ci
+   ```
+
+3. **语言判定**
+   - 中文提交 50% 以上 → 中文模式
+   - 其他 → 英文模式
+
 ### 先决条件
 
 - 在 Git 仓库内执行
@@ -600,6 +845,51 @@ export default {
 4. **Conventional Commits 标准** (后备)
    - 未找到配置时的标准行为
 
+#### 规约检测实例
+
+**Monorepo 的 scope 自动检测**:
+
+```bash
+# 从 packages/ 文件夹推测 scope
+ls packages/ | head -10
+# → api, ui, core, auth 等作为 scope 建议
+```
+
+**框架特定规约**:
+
+```javascript
+// Angular 项目情况
+{
+  'scope-enum': [2, 'always', [
+    'animations', 'common', 'core', 'forms', 'http', 'platform-browser',
+    'platform-server', 'router', 'service-worker', 'upgrade'
+  ]]
+}
+
+// React 项目情况  
+{
+  'scope-enum': [2, 'always', [
+    'components', 'hooks', 'utils', 'types', 'styles', 'api'
+  ]]
+}
+```
+
+**企业·团队特有规约**:
+
+```javascript
+// 中国企业常见模式
+{
+  'type-enum': [2, 'always', [
+    'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
+    'wip',      // 进行中（Pull Request 用）
+    'hotfix',   // 紧急修复
+    'release'   // 发布准备
+  ]],
+  'subject-case': [0],  // 中文对应
+  'subject-max-length': [2, 'always', 72]  // 中文设置较长
+}
+```
+
 ### 最佳实践
 
 1. **尊重项目规约**: 遵循现有的设置和模式
@@ -608,6 +898,218 @@ export default {
 4. **重视关联性**: 将功能相关的文件分组
 5. **分离测试**: 测试文件单独提交
 6. **利用配置文件**: 引入 CommitLint 统一团队规约
+
+### 实际拆分示例（Before/After）
+
+#### 示例 1: 大规模认证系统添加
+
+**Before（1 个巨大提交）:**
+
+```bash
+# 变更文件（15 个文件，850 行变更）
+src/auth/login.js          # 新建
+src/auth/register.js       # 新建  
+src/auth/password.js       # 新建
+src/auth/types.js          # 新建
+src/api/auth-routes.js     # 新建
+src/middleware/auth.js     # 新建
+src/database/migrations/001_users.sql  # 新建
+src/database/models/user.js            # 新建
+tests/auth/login.test.js   # 新建
+tests/auth/register.test.js # 新建
+tests/api/auth-routes.test.js # 新建
+docs/authentication.md    # 新建
+package.json              # 依赖添加
+README.md                 # 使用方法添加
+.env.example             # 环境变量示例添加
+
+# 传统的问题提交
+feat: 实现完整的用户认证系统，包含登录、注册、密码重置、API 路由、数据库模型、测试和文档
+```
+
+**After（拆分为有意义的 5 个提交）:**
+
+```bash
+# 提交 1: 数据库基础
+feat(db): 添加用户模型和认证架构
+
+包含文件:
+- src/database/migrations/001_users.sql
+- src/database/models/user.js
+- src/auth/types.js
+
+理由: 数据库结构是其他功能的基础，因此最先提交
+
+# 提交 2: 认证逻辑
+feat(auth): 实现核心认证功能  
+
+包含文件:
+- src/auth/login.js
+- src/auth/register.js
+- src/auth/password.js
+- src/middleware/auth.js
+
+理由: 认证的核心业务逻辑批量提交
+
+# 提交 3: API 端点
+feat(api): 添加认证 API 路由
+
+包含文件:
+- src/api/auth-routes.js
+
+理由: API 层依赖认证逻辑，因此后提交
+
+# 提交 4: 全面测试
+test(auth): 添加认证系统的全面测试
+
+包含文件:
+- tests/auth/login.test.js
+- tests/auth/register.test.js  
+- tests/api/auth-routes.test.js
+
+理由: 实现完成后批量添加测试
+
+# 提交 5: 配置和文档
+docs(auth): 添加认证文档和配置
+
+包含文件:
+- docs/authentication.md
+- package.json
+- README.md
+- .env.example
+
+理由: 文档和配置最后汇总提交
+```
+
+#### 示例 2: Bug 修复和重构混合
+
+**Before（混合的问题提交）:**
+
+```bash
+# 变更文件（8 个文件，320 行变更）
+src/user/service.js       # Bug 修复 + 重构
+src/user/validator.js     # 新建（重构）
+src/auth/middleware.js    # Bug 修复
+src/api/user-routes.js    # Bug 修复 + 错误处理改进
+tests/user.test.js        # 测试添加
+tests/auth.test.js        # Bug 修复测试添加
+docs/user-api.md          # 文档更新
+package.json              # 依赖更新
+
+# 问题提交
+fix: 解决用户验证 Bug 并重构验证逻辑，改进错误处理
+```
+
+**After（按类型拆分为 3 个提交）:**
+
+```bash
+# 提交 1: 紧急 Bug 修复
+fix: 解决用户验证和认证 Bug
+
+包含文件:
+- src/user/service.js（仅 Bug 修复部分）
+- src/auth/middleware.js
+- tests/auth.test.js（仅 Bug 修复测试）
+
+理由: 影响生产环境的 Bug 最优先修复
+
+# 提交 2: 验证逻辑重构  
+refactor: 提取并改进用户验证逻辑
+
+包含文件:
+- src/user/service.js（重构部分）
+- src/user/validator.js
+- src/api/user-routes.js
+- tests/user.test.js
+
+理由: 结构改进按功能单位汇总提交
+
+# 提交 3: 文档和依赖更新
+chore: 更新文档和依赖
+
+包含文件:
+- docs/user-api.md
+- package.json
+
+理由: 开发环境整备最后汇总提交
+```
+
+#### 示例 3: 多功能并行开发
+
+**Before（跨功能的巨大提交）:**
+
+```bash
+# 变更文件（12 个文件，600 行变更）
+src/user/profile.js       # 新功能 A
+src/user/avatar.js        # 新功能 A  
+src/notification/email.js # 新功能 B
+src/notification/sms.js   # 新功能 B
+src/api/profile-routes.js # 新功能 A 用 API
+src/api/notification-routes.js # 新功能 B 用 API
+src/dashboard/widgets.js  # 新功能 C
+src/dashboard/charts.js   # 新功能 C
+tests/profile.test.js     # 新功能 A 用测试
+tests/notification.test.js # 新功能 B 用测试  
+tests/dashboard.test.js   # 新功能 C 用测试
+package.json              # 全功能依赖
+
+# 问题提交  
+feat: 添加用户档案管理、通知系统和仪表板组件
+```
+
+**After（按功能拆分为 4 个提交）:**
+
+```bash
+# 提交 1: 用户档案功能
+feat(profile): 添加用户档案管理
+
+包含文件:
+- src/user/profile.js
+- src/user/avatar.js
+- src/api/profile-routes.js
+- tests/profile.test.js
+
+理由: 档案功能是独立的功能单位
+
+# 提交 2: 通知系统
+feat(notification): 实现邮件和短信通知
+
+包含文件:
+- src/notification/email.js
+- src/notification/sms.js  
+- src/api/notification-routes.js
+- tests/notification.test.js
+
+理由: 通知功能是独立的功能单位
+
+# 提交 3: 仪表板组件
+feat(dashboard): 添加交互式组件和图表
+
+包含文件:
+- src/dashboard/widgets.js
+- src/dashboard/charts.js
+- tests/dashboard.test.js
+
+理由: 仪表板功能是独立的功能单位
+
+# 提交 4: 依赖和基础设施更新
+chore: 为新功能更新依赖
+
+包含文件:
+- package.json
+
+理由: 通用依赖更新最后汇总
+```
+
+### 拆分效果比较
+
+| 项目 | Before（巨大提交） | After（适当拆分） |
+|------|---------------------|-------------------|
+| **代码审查性** | ❌ 非常困难 | ✅ 各提交小巧易审查 |
+| **Bug 追踪** | ❌ 问题位置难以确定 | ✅ 即时定位问题提交 |
+| **回滚** | ❌ 必须整体回滚 | ✅ 精准回滚问题部分 |
+| **并行开发** | ❌ 容易发生冲突 | ✅ 按功能合并容易 |
+| **部署** | ❌ 功能批量部署 | ✅ 可逐步部署 |
 
 ### 故障排除
 

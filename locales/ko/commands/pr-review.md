@@ -110,6 +110,7 @@ const hashedPassword = await bcrypt.hash(password, 12);
 ```
 
 보안 리스크를 방지하기 위해 해싱화가 필수입니다.
+
 ```
 
 **성능 개선**
@@ -122,6 +123,7 @@ const users = await User.findAll({ include: [Post] });
 ```
 
 쿼리 수를 대폭 줄일 수 있습니다.
+
 ```
 
 **아키텍처 위반**
