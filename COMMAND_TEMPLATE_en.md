@@ -22,7 +22,7 @@ Notes for using the template:
 - `--option2 <value>` : Description of option that takes a parameter
 - `--flag` : Description of flag option
 
-*You can omit this entire section if the command doesn't require options.*
+_You can omit this entire section if the command doesn't require options._
 
 ### Basic Examples
 
@@ -63,7 +63,7 @@ Detailed description of another feature.
 - **Feature 2**: Description
 - **Feature 3**: Description
 
-*You can omit this section for simple commands.*
+_You can omit this section for simple commands._
 
 ### Output Examples (Optional)
 
@@ -77,7 +77,7 @@ Sample actual output content
 └─ Item 3: Value
 ```
 
-*You can omit this section if the output is simple or sufficiently explained in the basic examples.*
+_You can omit this section if the output is simple or sufficiently explained in the basic examples._
 
 ### Integration with Claude
 
@@ -111,7 +111,7 @@ ls -la && cat config.json
 3. **Principle 3**: Recommendations regarding performance and efficiency
 4. **Principle 4**: Recommendations regarding security and safety
 
-*You can omit this section for simple commands with no special considerations.*
+_You can omit this section for simple commands with no special considerations._
 
 ### Related Commands (Optional)
 
@@ -119,4 +119,4 @@ ls -la && cat config.json
 - `/related-command2` : Command that works effectively in combination
 - `/related-command3` : Command that can be used as an alternative
 
-*You can omit this section if there are no related commands.*
+_You can omit this section if there are no related commands._

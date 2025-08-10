@@ -72,14 +72,14 @@ When work is completely finished and there are no more tasks to continue, report
 May the Force be with you.
 ```
 
-**Usage Conditions (must meet all)**: 
+**Usage Conditions (must meet all)**:
 
 - ✅ All tasks are 100% complete
 - ✅ All TODO items are completed (TODO list managed by TodoWrite tool is empty)
 - ✅ Zero errors
 - ✅ No tasks that can continue unless new instructions are given
 
-**Prohibited Items**: 
+**Prohibited Items**:
 
 - ❌ If there are incomplete tasks in the TODO list
 - ❌ If you describe plans to continue such as "next steps", "remaining tasks", or "current remaining main tasks:"
@@ -105,6 +105,7 @@ When work is partially completed and there are continuing tasks, use the followi
 ### Actions When Continuation is Needed
 
 If conditions for the password are not met:
+
 - Do not use the password
 - Clearly indicate progress and next actions
 - Clearly communicate if there are remaining tasks
@@ -159,6 +160,7 @@ Execute commits only when all the following conditions are met:
 - ✅ Commit message clearly explains the change
 
 **Recommendations**:
+
 - Small, frequent commits
 - Each commit has independent meaning
 - Granularity that makes history easy to follow later

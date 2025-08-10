@@ -110,6 +110,7 @@ const hashedPassword = await bcrypt.hash(password, 12);
 ```
 
 为防止安全风险，必须进行哈希处理。
+
 ```
 
 **性能改进**
@@ -122,6 +123,7 @@ const users = await User.findAll({ include: [Post] });
 ```
 
 可以大幅减少查询数量。
+
 ```
 
 **架构违规**

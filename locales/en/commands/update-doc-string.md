@@ -114,7 +114,7 @@ def calculate_total(items: List[Item]) -> float:
 const UserProfile = ({ userId, showStatus = true }) => {
 ```
 
-**Go**: 
+**Go**:
 
 ```go
 // CalculateTotal calculates the total amount for a list of items. (30-60 characters)
@@ -126,7 +126,7 @@ const UserProfile = ({ userId, showStatus = true }) => {
 func CalculateTotal(items []Item) float64 {
 ```
 
-**Rust**: 
+**Rust**:
 
 ```rust
 /// Calculate the total amount for a list of items. (30-60 characters)
@@ -138,7 +138,7 @@ func CalculateTotal(items []Item) float64 {
 pub fn calculate_total(items: &[Item]) -> f64 {
 ```
 
-**Dart (DartDoc)**: 
+**Dart (DartDoc)**:
 
 ```dart
 /// Widget that displays a user profile. (30-60 characters)

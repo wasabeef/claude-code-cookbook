@@ -248,6 +248,7 @@ Payback Period: [XX months]
 ### Biases to Watch For
 
 -轻视 security (speed prioritization)
+
 - Insufficient consideration for maintainability
 - Premature optimization
 - Excessive focus on easily measurable metrics

@@ -67,11 +67,13 @@ git diff HEAD~1
 #### Stage 1: Information Collection
 
 **Required actions**
+
 - Full error message capture
 - Stack trace review
 - Reproduction condition identification
 
 **Recommended actions**
+
 - Environment information collection
 - Recent change history
 - Related logs review

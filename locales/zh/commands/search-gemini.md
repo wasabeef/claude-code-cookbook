@@ -61,6 +61,6 @@ gemini --prompt "WebSearch: CVE-2024 Node.js vulnerabilities"
 
 ### 注意事项
 
-- **如果 Gemini CLI 可用，必须使用 `gemini --prompt "WebSearch: ..."` **
+- **如果 Gemini CLI 可用，必须使用 `gemini --prompt "WebSearch: ..."`**
 - 网络搜索结果不一定总是最新的
 - 重要信息建议通过官方文档或可靠来源确认
