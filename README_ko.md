@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [中文](README_zh.md) | [日本語](README.md) | [한국어](README_ko.md)
+[English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [日本語](README.md)
 
 Claude Code 를 더 편리하게 사용하기 위한 설정 모음입니다.
 
