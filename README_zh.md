@@ -1,6 +1,6 @@
 # Claude 代码食谱
 
-[English](README_en.md) | [中文](README_zh.md) | [日本語](README.md)
+[English](README_en.md) | [中文](README_zh.md) | [日本語](README.md) | [한국어](README_ko.md)
 
 这个项目是为了让 Claude Code 更加方便使用的设置集合。
 

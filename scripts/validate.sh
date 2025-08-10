@@ -51,9 +51,9 @@ print_error() {
 check_structure() {
     local locale="$1"
     local locale_dir="$LOCALES_DIR/$locale"
-    
+
     print_info "Checking directory structure for $locale..."
-    
+
     for dir in "${REQUIRED_DIRS[@]}"; do
         TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
         if [[ -d "$locale_dir/$dir" ]]; then
@@ -68,15 +68,15 @@ check_structure() {
 count_files() {
     local locale="$1"
     local locale_dir="$LOCALES_DIR/$locale"
-    
+
     print_info "File counts for $locale:"
-    
+
     # Count command files
     if [[ -d "$locale_dir/commands" ]]; then
         local cmd_count=$(find "$locale_dir/commands" -name "*.md" -type f | wc -l)
         echo "  Commands: $cmd_count files"
     fi
-    
+
     # Count role files
     if [[ -d "$locale_dir/agents/roles" ]]; then
         local role_count=$(find "$locale_dir/agents/roles" -name "*.md" -type f | wc -l)
@@ -89,9 +89,9 @@ check_language_content() {
     local locale="$1"
     local locale_dir="$LOCALES_DIR/$locale"
     local verbose="${2:-false}"
-    
+
     print_info "Checking language content for $locale..."
-    
+
     # Define expected language patterns
     case "$locale" in
         zh)
@@ -113,14 +113,14 @@ check_language_content() {
                 while IFS= read -r file; do
                     contaminated_files+=("$(basename "$file")")
                 done < <(grep -l '[ぁ-んァ-ヶー一-龯]' "$locale_dir/commands"/*.md 2>/dev/null)
-                
+
                 local total_files=$(find "$locale_dir/commands" -name "*.md" -type f | wc -l)
                 local clean_files=$((total_files - ${#contaminated_files[@]}))
-                
+
                 if [[ $clean_files -gt 0 ]]; then
                     print_success "Found $clean_files files without CJK content"
                 fi
-                
+
                 if [[ ${#contaminated_files[@]} -gt 0 ]]; then
                     print_warning "Found CJK content in ${#contaminated_files[@]} files (should be English only):"
                     for file in "${contaminated_files[@]}"; do
@@ -139,14 +139,14 @@ check_language_content() {
 compare_with_base() {
     local locale="$1"
     local locale_dir="$LOCALES_DIR/$locale"
-    
+
     print_info "Comparing $locale with Japanese base files..."
-    
+
     # Compare command counts
     if [[ -d "$COMMANDS_DIR" ]] && [[ -d "$locale_dir/commands" ]]; then
         local base_count=$(find "$COMMANDS_DIR" -name "*.md" -type f | wc -l)
         local locale_count=$(find "$locale_dir/commands" -name "*.md" -type f | wc -l)
-        
+
         TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
         if [[ $locale_count -eq $base_count ]]; then
             print_success "Command file count matches base ($base_count files)"
@@ -154,12 +154,12 @@ compare_with_base() {
             print_warning "Command file count differs from base (base: $base_count, $locale: $locale_count)"
         fi
     fi
-    
+
     # Compare role counts
     if [[ -d "$AGENTS_DIR/roles" ]] && [[ -d "$locale_dir/agents/roles" ]]; then
         local base_count=$(find "$AGENTS_DIR/roles" -name "*.md" -type f | wc -l)
         local locale_count=$(find "$locale_dir/agents/roles" -name "*.md" -type f | wc -l)
-        
+
         TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
         if [[ $locale_count -eq $base_count ]]; then
             print_success "Role file count matches base ($base_count files)"
@@ -167,11 +167,11 @@ compare_with_base() {
             print_warning "Role file count differs from base (base: $base_count, $locale: $locale_count)"
         fi
     fi
-    
+
     # Check for missing files
     print_info "Checking for missing files in $locale..."
     local missing_files=0
-    
+
     for file in "$COMMANDS_DIR"/*.md; do
         if [[ -f "$file" ]]; then
             local basename=$(basename "$file")
@@ -181,9 +181,12 @@ compare_with_base() {
             fi
         fi
     done
-    
+
+    TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
     if [[ $missing_files -eq 0 ]]; then
         print_success "All command files have corresponding translations"
+    else
+        print_error "$missing_files command files are missing translations"
     fi
 }
 
@@ -191,14 +194,14 @@ compare_with_base() {
 compare_locales() {
     local locale1="$1"
     local locale2="$2"
-    
+
     print_info "Comparing $locale1 and $locale2..."
-    
+
     # Compare command counts
     if [[ -d "$LOCALES_DIR/$locale1/commands" ]] && [[ -d "$LOCALES_DIR/$locale2/commands" ]]; then
         local count1=$(find "$LOCALES_DIR/$locale1/commands" -name "*.md" -type f | wc -l)
         local count2=$(find "$LOCALES_DIR/$locale2/commands" -name "*.md" -type f | wc -l)
-        
+
         TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
         if [[ $count1 -eq $count2 ]]; then
             print_success "Command file count matches ($count1 files)"
@@ -206,12 +209,12 @@ compare_locales() {
             print_error "Command file count mismatch ($locale1: $count1, $locale2: $count2)"
         fi
     fi
-    
+
     # Compare role counts
     if [[ -d "$LOCALES_DIR/$locale1/agents/roles" ]] && [[ -d "$LOCALES_DIR/$locale2/agents/roles" ]]; then
         local count1=$(find "$LOCALES_DIR/$locale1/agents/roles" -name "*.md" -type f | wc -l)
         local count2=$(find "$LOCALES_DIR/$locale2/agents/roles" -name "*.md" -type f | wc -l)
-        
+
         TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
         if [[ $count1 -eq $count2 ]]; then
             print_success "Role file count matches ($count1 files)"
@@ -225,9 +228,9 @@ compare_locales() {
 check_quality_metrics() {
     local locale="$1"
     local locale_dir="$LOCALES_DIR/$locale"
-    
+
     print_info "Quality metrics for $locale..."
-    
+
     if [[ -d "$locale_dir/commands" ]]; then
         # Calculate average file size
         local total_size=0
@@ -236,25 +239,25 @@ check_quality_metrics() {
         local smallest_size=999999
         local largest_file=""
         local largest_size=0
-        
+
         for file in "$locale_dir/commands"/*.md; do
             if [[ -f "$file" ]]; then
                 local size=$(wc -c < "$file")
                 total_size=$((total_size + size))
                 file_count=$((file_count + 1))
-                
+
                 if [[ $size -lt $smallest_size ]]; then
                     smallest_size=$size
                     smallest_file=$(basename "$file")
                 fi
-                
+
                 if [[ $size -gt $largest_size ]]; then
                     largest_size=$size
                     largest_file=$(basename "$file")
                 fi
             fi
         done
-        
+
         if [[ $file_count -gt 0 ]]; then
             local avg_size=$((total_size / file_count))
             echo "  📊 Average file size: $(format_bytes $avg_size)"
@@ -288,15 +291,15 @@ generate_report() {
     echo -e "  • ${GREEN}✅ Passed: $PASSED_CHECKS${NC}"
     echo -e "  • ${RED}❌ Failed: $FAILED_CHECKS${NC}"
     echo -e "  • ${YELLOW}⚠️  Warnings: $WARNINGS${NC}"
-    
+
     local success_rate=0
     if [[ $TOTAL_CHECKS -gt 0 ]]; then
         success_rate=$((PASSED_CHECKS * 100 / TOTAL_CHECKS))
     fi
-    
+
     echo ""
     echo "📊 Success Rate: ${success_rate}%"
-    
+
     # Progress bar
     echo -n "   ["
     local bar_length=30
@@ -308,12 +311,12 @@ generate_report() {
         echo -n "░"
     done
     echo "]"
-    
+
     echo ""
     if [[ $FAILED_CHECKS -eq 0 ]]; then
-        echo -e "${GREEN}╔════════════════════════════════╗${NC}"
+        echo -e "${GREEN}╔═══════════════════════════════════╗${NC}"
         echo -e "${GREEN}║  🎉 All validation checks passed! ║${NC}"
-        echo -e "${GREEN}╚════════════════════════════════╝${NC}"
+        echo -e "${GREEN}╚═══════════════════════════════════╝${NC}"
         return 0
     else
         echo -e "${RED}╔════════════════════════════════╗${NC}"
@@ -327,18 +330,18 @@ generate_report() {
 check_translation_completeness() {
     local locale="$1"
     local locale_dir="$LOCALES_DIR/$locale"
-    
+
     print_info "Translation completeness for $locale..."
-    
+
     if [[ -d "$locale_dir/commands" ]]; then
         local empty_files=0
         local incomplete_files=()
-        
+
         for file in "$locale_dir/commands"/*.md; do
             if [[ -f "$file" ]]; then
                 local lines=$(wc -l < "$file")
                 local size=$(wc -c < "$file")
-                
+
                 if [[ $size -lt 100 ]]; then
                     empty_files=$((empty_files + 1))
                     incomplete_files+=("$(basename "$file")")
@@ -347,7 +350,7 @@ check_translation_completeness() {
                 fi
             fi
         done
-        
+
         if [[ $empty_files -eq 0 && ${#incomplete_files[@]} -eq 0 ]]; then
             print_success "All files appear to be fully translated"
         else
@@ -376,36 +379,36 @@ main() {
     echo "║   Enhanced validation & reporting     ║"
     echo "╚═══════════════════════════════════════╝"
     echo ""
-    
+
     # Check if locales directory exists
     if [[ ! -d "$LOCALES_DIR" ]]; then
         print_warning "Locales directory not found: $LOCALES_DIR"
         print_info "This project uses Japanese as the base language in commands/ and agents/"
     fi
-    
+
     # Parse arguments
     if [[ $# -eq 0 ]]; then
         # Check base Japanese files first
         echo "────────────────────────────────"
         echo "Base Files (Japanese)"
         echo "────────────────────────────────"
-        
+
         if [[ -d "$COMMANDS_DIR" ]]; then
             local ja_cmd_count=$(find "$COMMANDS_DIR" -name "*.md" -type f | wc -l)
             echo "  Commands: $ja_cmd_count files"
         fi
-        
+
         if [[ -d "$AGENTS_DIR/roles" ]]; then
             local ja_role_count=$(find "$AGENTS_DIR/roles" -name "*.md" -type f | wc -l)
             echo "  Roles: $ja_role_count files"
         fi
         echo ""
-        
+
         # Validate all locales if directory exists
         if [[ -d "$LOCALES_DIR" ]]; then
             print_info "Validating all locales..."
             echo ""
-            
+
             for locale_dir in "$LOCALES_DIR"/*; do
                 if [[ -d "$locale_dir" ]]; then
                     local locale=$(basename "$locale_dir")
@@ -421,7 +424,7 @@ main() {
                     echo ""
                 fi
             done
-            
+
             # Compare locales if multiple exist
             local locales=($(ls -d "$LOCALES_DIR"/*/ 2>/dev/null | xargs -n 1 basename))
             if [[ ${#locales[@]} -ge 2 ]]; then
@@ -431,11 +434,11 @@ main() {
                 compare_locales "${locales[0]}" "${locales[1]}"
             fi
         fi
-        
+
     else
         # Validate specific locale
         local locale="$1"
-        
+
         if [[ ! -d "$LOCALES_DIR/$locale" ]]; then
             print_error "Locale not found: $locale"
             print_info "Available locales:"
@@ -446,19 +449,19 @@ main() {
             done
             exit 1
         fi
-        
+
         check_structure "$locale"
         count_files "$locale"
         check_language_content "$locale"
         compare_with_base "$locale"
-        
+
         # If second argument provided, compare with it
         if [[ -n "${2:-}" ]]; then
             echo ""
             compare_locales "$locale" "$2"
         fi
     fi
-    
+
     generate_report
 }
 
