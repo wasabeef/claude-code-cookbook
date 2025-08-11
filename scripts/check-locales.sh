@@ -73,13 +73,15 @@ count_files() {
 
   # Count command files
   if [[ -d "$locale_dir/commands" ]]; then
-    local cmd_count=$(find "$locale_dir/commands" -name "*.md" -type f | wc -l)
+    local cmd_count
+    cmd_count=$(find "$locale_dir/commands" -name "*.md" -type f -exec printf '.' \; | wc -c)
     echo "  Commands: $cmd_count files"
   fi
 
   # Count role files
   if [[ -d "$locale_dir/agents/roles" ]]; then
-    local role_count=$(find "$locale_dir/agents/roles" -name "*.md" -type f | wc -l)
+    local role_count
+    role_count=$(find "$locale_dir/agents/roles" -name "*.md" -type f -exec printf '.' \; | wc -c)
     echo "  Roles: $role_count files"
   fi
 }
@@ -88,7 +90,6 @@ count_files() {
 check_language_content() {
   local locale="$1"
   local locale_dir="$LOCALES_DIR/$locale"
-  local verbose="${2:-false}"
 
   print_info "Checking language content for $locale..."
 
@@ -97,7 +98,9 @@ check_language_content() {
   zh)
     # Check for Chinese content
     if [[ -d "$locale_dir/commands" ]]; then
-      local zh_files=$(grep -l '[一-龯]' "$locale_dir/commands"/*.md 2>/dev/null | wc -l)
+      local zh_files
+      zh_files=$(grep -c '[一-龯]' "$locale_dir/commands"/*.md 2>/dev/null | grep -cv ':0' || echo "0")
+      TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
       if [[ $zh_files -gt 0 ]]; then
         print_success "Found Chinese content in $zh_files command files"
       else
@@ -114,9 +117,11 @@ check_language_content() {
         contaminated_files+=("$(basename "$file")")
       done < <(grep -l '[ぁ-んァ-ヶー一-龯]' "$locale_dir/commands"/*.md 2>/dev/null)
 
-      local total_files=$(find "$locale_dir/commands" -name "*.md" -type f | wc -l)
+      local total_files
+      total_files=$(find "$locale_dir/commands" -name "*.md" -type f -exec printf '.' \; | wc -c)
       local clean_files=$((total_files - ${#contaminated_files[@]}))
 
+      TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
       if [[ $clean_files -gt 0 ]]; then
         print_success "Found $clean_files files without CJK content"
       fi
@@ -144,8 +149,10 @@ compare_with_base() {
 
   # Compare command counts
   if [[ -d "$COMMANDS_DIR" ]] && [[ -d "$locale_dir/commands" ]]; then
-    local base_count=$(find "$COMMANDS_DIR" -name "*.md" -type f | wc -l)
-    local locale_count=$(find "$locale_dir/commands" -name "*.md" -type f | wc -l)
+    local base_count
+    base_count=$(find "$COMMANDS_DIR" -name "*.md" -type f -exec printf '.' \; | wc -c)
+    local locale_count
+    locale_count=$(find "$locale_dir/commands" -name "*.md" -type f -exec printf '.' \; | wc -c)
 
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
     if [[ $locale_count -eq $base_count ]]; then
@@ -157,8 +164,10 @@ compare_with_base() {
 
   # Compare role counts
   if [[ -d "$AGENTS_DIR/roles" ]] && [[ -d "$locale_dir/agents/roles" ]]; then
-    local base_count=$(find "$AGENTS_DIR/roles" -name "*.md" -type f | wc -l)
-    local locale_count=$(find "$locale_dir/agents/roles" -name "*.md" -type f | wc -l)
+    local base_count
+    base_count=$(find "$AGENTS_DIR/roles" -name "*.md" -type f -exec printf '.' \; | wc -c)
+    local locale_count
+    locale_count=$(find "$locale_dir/agents/roles" -name "*.md" -type f -exec printf '.' \; | wc -c)
 
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
     if [[ $locale_count -eq $base_count ]]; then
@@ -174,7 +183,8 @@ compare_with_base() {
 
   for file in "$COMMANDS_DIR"/*.md; do
     if [[ -f "$file" ]]; then
-      local basename=$(basename "$file")
+      local basename
+      basename=$(basename "$file")
       if [[ ! -f "$locale_dir/commands/$basename" ]]; then
         print_warning "Missing in $locale: commands/$basename"
         missing_files=$((missing_files + 1))
@@ -197,13 +207,18 @@ compare_with_base() {
   # Check command files
   for file in "$COMMANDS_DIR"/*.md; do
     if [[ -f "$file" ]]; then
-      local basename=$(basename "$file")
+      local basename
+      basename=$(basename "$file")
       local locale_file="$locale_dir/commands/$basename"
       if [[ -f "$locale_file" ]]; then
-        local ja_lines=$(wc -l <"$file")
-        local locale_lines=$(wc -l <"$locale_file")
-        local ja_sections=$(grep "^#" "$file" | wc -l)
-        local locale_sections=$(grep "^#" "$locale_file" | wc -l)
+        local ja_lines
+        ja_lines=$(wc -l <"$file")
+        local locale_lines
+        locale_lines=$(wc -l <"$locale_file")
+        local ja_sections
+        ja_sections=$(grep -c "^#" "$file" || echo 0)
+        local locale_sections
+        locale_sections=$(grep -c "^#" "$locale_file" || echo 0)
 
         # Check line count difference (more than 50% difference)
         if [[ $ja_lines -gt 0 ]]; then
@@ -226,13 +241,18 @@ compare_with_base() {
   # Check role files
   for file in "$AGENTS_DIR/roles"/*.md; do
     if [[ -f "$file" ]]; then
-      local basename=$(basename "$file")
+      local basename
+      basename=$(basename "$file")
       local locale_file="$locale_dir/agents/roles/$basename"
       if [[ -f "$locale_file" ]]; then
-        local ja_lines=$(wc -l <"$file")
-        local locale_lines=$(wc -l <"$locale_file")
-        local ja_sections=$(grep "^#" "$file" | wc -l)
-        local locale_sections=$(grep "^#" "$locale_file" | wc -l)
+        local ja_lines
+        ja_lines=$(wc -l <"$file")
+        local locale_lines
+        locale_lines=$(wc -l <"$locale_file")
+        local ja_sections
+        ja_sections=$(grep -c "^#" "$file" || echo 0)
+        local locale_sections
+        locale_sections=$(grep -c "^#" "$locale_file" || echo 0)
 
         # Check line count difference (more than 50% difference)
         if [[ $ja_lines -gt 0 ]]; then
@@ -273,8 +293,10 @@ compare_locales() {
 
   # Compare command counts
   if [[ -d "$LOCALES_DIR/$locale1/commands" ]] && [[ -d "$LOCALES_DIR/$locale2/commands" ]]; then
-    local count1=$(find "$LOCALES_DIR/$locale1/commands" -name "*.md" -type f | wc -l)
-    local count2=$(find "$LOCALES_DIR/$locale2/commands" -name "*.md" -type f | wc -l)
+    local count1
+    count1=$(find "$LOCALES_DIR/$locale1/commands" -name "*.md" -type f -exec printf '.' \; | wc -c)
+    local count2
+    count2=$(find "$LOCALES_DIR/$locale2/commands" -name "*.md" -type f -exec printf '.' \; | wc -c)
 
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
     if [[ $count1 -eq $count2 ]]; then
@@ -286,8 +308,10 @@ compare_locales() {
 
   # Compare role counts
   if [[ -d "$LOCALES_DIR/$locale1/agents/roles" ]] && [[ -d "$LOCALES_DIR/$locale2/agents/roles" ]]; then
-    local count1=$(find "$LOCALES_DIR/$locale1/agents/roles" -name "*.md" -type f | wc -l)
-    local count2=$(find "$LOCALES_DIR/$locale2/agents/roles" -name "*.md" -type f | wc -l)
+    local count1
+    count1=$(find "$LOCALES_DIR/$locale1/agents/roles" -name "*.md" -type f -exec printf '.' \; | wc -c)
+    local count2
+    count2=$(find "$LOCALES_DIR/$locale2/agents/roles" -name "*.md" -type f -exec printf '.' \; | wc -c)
 
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
     if [[ $count1 -eq $count2 ]]; then
@@ -316,7 +340,8 @@ check_quality_metrics() {
 
     for file in "$locale_dir/commands"/*.md; do
       if [[ -f "$file" ]]; then
-        local size=$(wc -c <"$file")
+        local size
+        size=$(wc -c <"$file")
         total_size=$((total_size + size))
         file_count=$((file_count + 1))
 
@@ -334,9 +359,9 @@ check_quality_metrics() {
 
     if [[ $file_count -gt 0 ]]; then
       local avg_size=$((total_size / file_count))
-      echo "  📊 Average file size: $(format_bytes $avg_size)"
-      echo "  📄 Smallest: $smallest_file ($(format_bytes $smallest_size))"
-      echo "  📄 Largest: $largest_file ($(format_bytes $largest_size))"
+      echo "  📊 Average file size: $(format_bytes "$avg_size")"
+      echo "  📄 Smallest: $smallest_file ($(format_bytes "$smallest_size"))"
+      echo "  📄 Largest: $largest_file ($(format_bytes "$largest_size"))"
     fi
   fi
 }
@@ -357,7 +382,7 @@ format_bytes() {
 generate_report() {
   echo ""
   echo "╔════════════════════════════════╗"
-  echo "║     Validation Summary Report  ║"
+  echo "║         Validation Report      ║"
   echo "╚════════════════════════════════╝"
   echo ""
   echo "📈 Statistics:"
@@ -403,109 +428,117 @@ generate_report() {
 # Function to check documentation files (README, CLAUDE, COMMAND_TEMPLATE)
 check_documentation_files() {
   local locale="$1"
-  
+
   print_info "Checking documentation files for $locale..."
-  
+
   local doc_files=(
     "README_${locale}.md"
     "CLAUDE_${locale}.md"
     "docs/templates/COMMAND_TEMPLATE_${locale}.md"
   )
-  
+
   local base_files=(
     "README.md"
     "CLAUDE.md"
     "docs/templates/COMMAND_TEMPLATE.md"
   )
-  
+
   local missing_docs=()
   local found_docs=0
   local content_issues=0
-  
+
   for i in "${!doc_files[@]}"; do
     local doc_file="${doc_files[$i]}"
     local base_file="${base_files[$i]}"
     local file_path="$PROJECT_ROOT/$doc_file"
     local base_path="$PROJECT_ROOT/$base_file"
-    
+
     TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
-    
+
     if [[ -f "$file_path" ]]; then
       print_success "$(basename "$doc_file") exists"
       found_docs=$((found_docs + 1))
-      PASSED_CHECKS=$((PASSED_CHECKS + 1))
-      
+
       # Check if file has substantial content
-      local size=$(wc -c <"$file_path")
+      local size
+      size=$(wc -c <"$file_path")
       if [[ $size -lt 500 ]]; then
         print_warning "  ⚠️  $(basename "$doc_file") seems too small (${size} bytes)"
         WARNINGS=$((WARNINGS + 1))
       fi
-      
+
       # Compare sections with base file (excluding code blocks)
       if [[ -f "$base_path" ]]; then
         # Count sections excluding those in code blocks
         # Method: Remove code blocks first, then count headers
-        local base_sections=$(sed '/^```/,/^```/d' "$base_path" 2>/dev/null | grep -E "^#{1,3} " | wc -l | tr -d ' ')
-        local locale_sections=$(sed '/^```/,/^```/d' "$file_path" 2>/dev/null | grep -E "^#{1,3} " | wc -l | tr -d ' ')
-        
+        local base_sections
+        base_sections=$(sed '/^```/,/^```/d' "$base_path" 2>/dev/null | grep -c -E "^#{1,3} " || echo "0")
+        local locale_sections
+        locale_sections=$(sed '/^```/,/^```/d' "$file_path" 2>/dev/null | grep -c -E "^#{1,3} " || echo "0")
+
         # If sed fails, fallback to simple grep
         if [[ -z "$base_sections" || "$base_sections" -eq 0 ]]; then
-          base_sections=$(grep -E "^#{1,3} " "$base_path" | wc -l | tr -d ' ')
+          base_sections=$(grep -c -E "^#{1,3} " "$base_path" || echo "0")
         fi
         if [[ -z "$locale_sections" || "$locale_sections" -eq 0 ]]; then
-          locale_sections=$(grep -E "^#{1,3} " "$file_path" | wc -l | tr -d ' ')
+          locale_sections=$(grep -c -E "^#{1,3} " "$file_path" || echo "0")
         fi
-        
+
         # Check section differences - warn if any difference
         if [[ $locale_sections -ne $base_sections ]]; then
           print_warning "  ⚠️  Section count mismatch in $(basename "$doc_file"): Base=$base_sections, $locale=$locale_sections"
           content_issues=$((content_issues + 1))
           WARNINGS=$((WARNINGS + 1))
         fi
-        
+
         # Check line count differences - warn if > 5%
-        local base_lines=$(wc -l < "$base_path" | tr -d ' ')
-        local locale_lines=$(wc -l < "$file_path" | tr -d ' ')
-        
+        local base_lines
+        base_lines=$(wc -l <"$base_path" | tr -d ' ')
+        local locale_lines
+        locale_lines=$(wc -l <"$file_path" | tr -d ' ')
+
         if [[ $base_lines -gt 0 ]]; then
           local line_diff=$((locale_lines - base_lines))
           if [[ $line_diff -lt 0 ]]; then
             line_diff=$((-line_diff))
           fi
           local diff_percent=$((line_diff * 100 / base_lines))
-          
+
           if [[ $diff_percent -gt 5 ]]; then
             print_warning "  ⚠️  Line count difference > 5% in $(basename "$doc_file"): Base=$base_lines lines, $locale=$locale_lines lines (${diff_percent}% difference)"
             WARNINGS=$((WARNINGS + 1))
           fi
         fi
-        
+
         # Check for Spanish-specific quality issues
         if [[ "$locale" == "es" ]]; then
           # Check for common Spanish translation issues
           local quality_issues=0
-          
+
           # Check for missing accents in common words
           if grep -q -E "\b(mas|tambien|facil|rapido|faciles|despues|mas)\b" "$file_path" 2>/dev/null; then
             print_warning "  ⚠️  Possible missing accents detected in $(basename "$doc_file")"
             quality_issues=$((quality_issues + 1))
           fi
-          
+
           # Check for incorrect verb forms or anglicisms
-          if grep -q -E "(hacer click|clickear|setear|testear)" "$file_path" 2>/dev/null; then
+          if grep -q -E "(hacer click|hacer clic|setear|testear)" "$file_path" 2>/dev/null; then
             print_warning "  ⚠️  Possible anglicisms detected in $(basename "$doc_file")"
             quality_issues=$((quality_issues + 1))
           fi
-          
+
           # Check for proper Spanish punctuation (¿ and ¡)
-          local questions=$(grep -c "?" "$file_path" 2>/dev/null | tr -d ' ' || echo "0")
-          local spanish_questions=$(grep -c "¿" "$file_path" 2>/dev/null | tr -d ' ' || echo "0")
+          local questions
+          questions=$(grep -c "?" "$file_path" 2>/dev/null || echo 0)
+          questions=${questions//[^0-9]/} # Remove non-digit characters
+          local spanish_questions
+          spanish_questions=$(grep -c "¿" "$file_path" 2>/dev/null || echo 0)
+          spanish_questions=${spanish_questions//[^0-9]/} # Remove non-digit characters
           if [[ $questions -gt 0 ]] && [[ $spanish_questions -eq 0 ]]; then
             print_warning "  ⚠️  Missing Spanish question marks (¿) in $(basename "$doc_file")"
             quality_issues=$((quality_issues + 1))
           fi
-          
+
           if [[ $quality_issues -gt 0 ]]; then
             WARNINGS=$((WARNINGS + quality_issues))
           fi
@@ -517,7 +550,7 @@ check_documentation_files() {
       FAILED_CHECKS=$((FAILED_CHECKS + 1))
     fi
   done
-  
+
   # Summary
   if [[ ${#missing_docs[@]} -eq 0 ]]; then
     if [[ $content_issues -eq 0 ]]; then
@@ -543,8 +576,10 @@ check_translation_completeness() {
 
     for file in "$locale_dir/commands"/*.md; do
       if [[ -f "$file" ]]; then
-        local lines=$(wc -l <"$file")
-        local size=$(wc -c <"$file")
+        local lines
+        lines=$(wc -l <"$file")
+        local size
+        size=$(wc -c <"$file")
 
         if [[ $size -lt 100 ]]; then
           empty_files=$((empty_files + 1))
@@ -555,6 +590,7 @@ check_translation_completeness() {
       fi
     done
 
+    TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
     if [[ $empty_files -eq 0 && ${#incomplete_files[@]} -eq 0 ]]; then
       print_success "All files appear to be fully translated"
     else
@@ -598,21 +634,23 @@ main() {
     echo "────────────────────────────────"
 
     if [[ -d "$COMMANDS_DIR" ]]; then
-      local ja_cmd_count=$(find "$COMMANDS_DIR" -name "*.md" -type f | wc -l)
+      local ja_cmd_count
+      ja_cmd_count=$(find "$COMMANDS_DIR" -name "*.md" -type f -exec printf '.' \; | wc -c)
       echo "  Commands: $ja_cmd_count files"
     fi
 
     if [[ -d "$AGENTS_DIR/roles" ]]; then
-      local ja_role_count=$(find "$AGENTS_DIR/roles" -name "*.md" -type f | wc -l)
+      local ja_role_count
+      ja_role_count=$(find "$AGENTS_DIR/roles" -name "*.md" -type f -exec printf '.' \; | wc -c)
       echo "  Roles: $ja_role_count files"
     fi
-    
+
     # Check for main documentation files
     local main_docs=()
     [[ -f "$PROJECT_ROOT/README.md" ]] && main_docs+=("README.md")
     [[ -f "$PROJECT_ROOT/CLAUDE.md" ]] && main_docs+=("CLAUDE.md")
     [[ -f "$PROJECT_ROOT/docs/templates/COMMAND_TEMPLATE.md" ]] && main_docs+=("COMMAND_TEMPLATE.md")
-    
+
     if [[ ${#main_docs[@]} -gt 0 ]]; then
       echo "  Documentation: ${#main_docs[@]} files (${main_docs[*]})"
     fi
@@ -625,7 +663,8 @@ main() {
 
       for locale_dir in "$LOCALES_DIR"/*; do
         if [[ -d "$locale_dir" ]]; then
-          local locale=$(basename "$locale_dir")
+          local locale
+          locale=$(basename "$locale_dir")
           echo "────────────────────────────────"
           echo "Locale: $locale"
           echo "────────────────────────────────"
@@ -641,7 +680,10 @@ main() {
       done
 
       # Compare locales if multiple exist
-      local locales=($(ls -d "$LOCALES_DIR"/*/ 2>/dev/null | xargs -n 1 basename))
+      local locales=()
+      while IFS= read -r dir; do
+        locales+=("$(basename "$dir")")
+      done < <(find "$LOCALES_DIR" -mindepth 1 -maxdepth 1 -type d)
       if [[ ${#locales[@]} -ge 2 ]]; then
         echo "────────────────────────────────"
         echo "Locale Comparison"
