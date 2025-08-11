@@ -1,4 +1,4 @@
-# Claude 代码食谱
+# Claude Code Cookbook
 
 [English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [日本語](README.md)
 
@@ -10,9 +10,9 @@
 
 通过 3 个功能可以自定义 Claude Code 的行为：
 
-- **命令（Commands）**：以 `/` 开头的自定义命令
-- **角色（Roles）**：让 Claude 以专家视角回答问题的角色设置
-- **钩子（Hooks）**：在特定时机自动执行脚本的机制
+- **Commands**：以 `/` 开头的自定义命令
+- **Roles**：让 Claude 以专家视角回答问题的角色设置
+- **Hooks**：在特定时机自动执行脚本的机制
 
 ---
 
