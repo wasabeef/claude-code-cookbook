@@ -17,12 +17,16 @@ show_usage() {
   echo "  en  - English"
   echo "  zh  - Chinese"
   echo "  ko  - Korean"
+  echo "  pt  - Portuguese"
+  echo "  es  - Spanish"
   echo ""
   echo "Examples:"
-  echo "  $0 en    # Switch to English"
   echo "  $0 ja    # Switch to Japanese (default)"
+  echo "  $0 en    # Switch to English"
   echo "  $0 zh    # Switch to Chinese"
   echo "  $0 ko    # Switch to Korean"
+  echo "  $0 pt    # Switch to Portuguese"
+  echo "  $0 es    # Switch to Spanish"
 }
 
 # Argument check
@@ -49,6 +53,13 @@ zh | cn)
 ko | kr)
   LANG_CODE="ko"
   LANG_NAME="Korean"
+  ;;
+pt | br)
+  LANG_CODE="pt"
+  LANG_NAME="Portuguese"
+  ;;
+es)
+  LANG_NAME="Spanish"
   ;;
 *)
   echo "❌ Error: Unsupported language code '$LANG_CODE'"
@@ -120,6 +131,31 @@ for DIR in "${DIRS[@]}"; do
     fi
   done < <(find "$DIR" -name "*.md" -type f)
 done
+
+# Copy CLAUDE.md and COMMAND_TEMPLATE.md files for the selected language (Japanese is default, no copy needed)
+if [ "$LANG_CODE" != "ja" ]; then
+  # Copy CLAUDE.md
+  CLAUDE_FILE="$PROJECT_ROOT/CLAUDE.md"
+  LANG_CLAUDE="$PROJECT_ROOT/locales/$LANG_CODE/CLAUDE.md"
+  if [ -f "$LANG_CLAUDE" ]; then
+    echo "📝 Updating CLAUDE.md with ${LANG_NAME} version..."
+    cp "$LANG_CLAUDE" "$CLAUDE_FILE"
+    echo "✅ Updated CLAUDE.md"
+  else
+    echo "⚠️  ${LANG_NAME} version of CLAUDE.md does not exist"
+  fi
+
+  # Copy COMMAND_TEMPLATE.md
+  TEMPLATE_FILE="$PROJECT_ROOT/COMMAND_TEMPLATE.md"
+  LANG_TEMPLATE="$PROJECT_ROOT/locales/$LANG_CODE/COMMAND_TEMPLATE.md"
+  if [ -f "$LANG_TEMPLATE" ]; then
+    echo "📝 Updating COMMAND_TEMPLATE.md with ${LANG_NAME} version..."
+    cp "$LANG_TEMPLATE" "$TEMPLATE_FILE"
+    echo "✅ Updated COMMAND_TEMPLATE.md"
+  else
+    echo "⚠️  ${LANG_NAME} version of COMMAND_TEMPLATE.md does not exist"
+  fi
+fi
 
 echo ""
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"

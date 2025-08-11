@@ -177,6 +177,22 @@ compare_with_base() {
     fi
   fi
 
+  # Check for CLAUDE.md
+  TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+  if [[ -f "$locale_dir/CLAUDE.md" ]]; then
+    print_success "CLAUDE.md exists"
+  else
+    print_error "CLAUDE.md is missing"
+  fi
+
+  # Check for COMMAND_TEMPLATE.md
+  TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+  if [[ -f "$locale_dir/COMMAND_TEMPLATE.md" ]]; then
+    print_success "COMMAND_TEMPLATE.md exists"
+  else
+    print_error "COMMAND_TEMPLATE.md is missing"
+  fi
+
   # Check for missing files
   print_info "Checking for missing files in $locale..."
   local missing_files=0
@@ -425,22 +441,24 @@ generate_report() {
   fi
 }
 
-# Function to check documentation files (README, CLAUDE, COMMAND_TEMPLATE)
+# Function to check documentation files (README in root, CLAUDE and COMMAND_TEMPLATE in locales)
 check_documentation_files() {
   local locale="$1"
 
   print_info "Checking documentation files for $locale..."
 
+  # README files are in root with suffix
+  # CLAUDE.md and COMMAND_TEMPLATE.md are in locales without suffix
   local doc_files=(
     "README_${locale}.md"
-    "CLAUDE_${locale}.md"
-    "docs/templates/COMMAND_TEMPLATE_${locale}.md"
+    "locales/${locale}/CLAUDE.md"
+    "locales/${locale}/COMMAND_TEMPLATE.md"
   )
 
   local base_files=(
     "README.md"
     "CLAUDE.md"
-    "docs/templates/COMMAND_TEMPLATE.md"
+    "COMMAND_TEMPLATE.md"
   )
 
   local missing_docs=()
