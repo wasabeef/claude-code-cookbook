@@ -176,6 +176,7 @@ cd claude-code-cookbook
 ./scripts/install.sh ja    # Japonês (padrão)
 ./scripts/install.sh ko    # Coreano
 ./scripts/install.sh zh    # Chinês
+./scripts/install.sh es    # Espanhol
 ```
 
 Configure o caminho de Custom Instructions para `~/.claude` no Claude Desktop e está concluído.

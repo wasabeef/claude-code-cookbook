@@ -176,6 +176,7 @@ cd claude-code-cookbook
 ./scripts/install.sh ja    # 일본어 (기본값)
 ./scripts/install.sh pt    # 포르투갈어
 ./scripts/install.sh zh    # 중국어
+./scripts/install.sh es    # 스페인어
 ```
 
 Claude Desktop에서 Custom Instructions 경로를 `~/.claude`로 설정하면 완료입니다.

@@ -176,6 +176,7 @@ cd claude-code-cookbook
 ./scripts/install.sh ko    # 韓国語
 ./scripts/install.sh pt    # ポルトガル語
 ./scripts/install.sh zh    # 中国語
+./scripts/install.sh es    # スペイン語
 ```
 
 Claude Desktop で Custom Instructions のパスを `~/.claude` に設定すれば完了です。

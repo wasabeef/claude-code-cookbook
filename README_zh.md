@@ -175,6 +175,7 @@ cd claude-code-cookbook
 ./scripts/install.sh ja    # 日文（默认）
 ./scripts/install.sh ko    # 韩文
 ./scripts/install.sh pt    # 葡萄牙文
+./scripts/install.sh es    # 西班牙文
 ```
 
 在 Claude Desktop 中将 Custom Instructions 路径设置为 `~/.claude` 即可完成。
