@@ -400,6 +400,136 @@ generate_report() {
   fi
 }
 
+# Function to check documentation files (README, CLAUDE, COMMAND_TEMPLATE)
+check_documentation_files() {
+  local locale="$1"
+  
+  print_info "Checking documentation files for $locale..."
+  
+  local doc_files=(
+    "README_${locale}.md"
+    "CLAUDE_${locale}.md"
+    "docs/templates/COMMAND_TEMPLATE_${locale}.md"
+  )
+  
+  local base_files=(
+    "README.md"
+    "CLAUDE.md"
+    "docs/templates/COMMAND_TEMPLATE.md"
+  )
+  
+  local missing_docs=()
+  local found_docs=0
+  local content_issues=0
+  
+  for i in "${!doc_files[@]}"; do
+    local doc_file="${doc_files[$i]}"
+    local base_file="${base_files[$i]}"
+    local file_path="$PROJECT_ROOT/$doc_file"
+    local base_path="$PROJECT_ROOT/$base_file"
+    
+    TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+    
+    if [[ -f "$file_path" ]]; then
+      print_success "$(basename "$doc_file") exists"
+      found_docs=$((found_docs + 1))
+      PASSED_CHECKS=$((PASSED_CHECKS + 1))
+      
+      # Check if file has substantial content
+      local size=$(wc -c <"$file_path")
+      if [[ $size -lt 500 ]]; then
+        print_warning "  ⚠️  $(basename "$doc_file") seems too small (${size} bytes)"
+        WARNINGS=$((WARNINGS + 1))
+      fi
+      
+      # Compare sections with base file (excluding code blocks)
+      if [[ -f "$base_path" ]]; then
+        # Count sections excluding those in code blocks
+        # Method: Remove code blocks first, then count headers
+        local base_sections=$(sed '/^```/,/^```/d' "$base_path" 2>/dev/null | grep -E "^#{1,3} " | wc -l | tr -d ' ')
+        local locale_sections=$(sed '/^```/,/^```/d' "$file_path" 2>/dev/null | grep -E "^#{1,3} " | wc -l | tr -d ' ')
+        
+        # If sed fails, fallback to simple grep
+        if [[ -z "$base_sections" || "$base_sections" -eq 0 ]]; then
+          base_sections=$(grep -E "^#{1,3} " "$base_path" | wc -l | tr -d ' ')
+        fi
+        if [[ -z "$locale_sections" || "$locale_sections" -eq 0 ]]; then
+          locale_sections=$(grep -E "^#{1,3} " "$file_path" | wc -l | tr -d ' ')
+        fi
+        
+        # Check section differences - warn if any difference
+        if [[ $locale_sections -ne $base_sections ]]; then
+          print_warning "  ⚠️  Section count mismatch in $(basename "$doc_file"): Base=$base_sections, $locale=$locale_sections"
+          content_issues=$((content_issues + 1))
+          WARNINGS=$((WARNINGS + 1))
+        fi
+        
+        # Check line count differences - warn if > 5%
+        local base_lines=$(wc -l < "$base_path" | tr -d ' ')
+        local locale_lines=$(wc -l < "$file_path" | tr -d ' ')
+        
+        if [[ $base_lines -gt 0 ]]; then
+          local line_diff=$((locale_lines - base_lines))
+          if [[ $line_diff -lt 0 ]]; then
+            line_diff=$((-line_diff))
+          fi
+          local diff_percent=$((line_diff * 100 / base_lines))
+          
+          if [[ $diff_percent -gt 5 ]]; then
+            print_warning "  ⚠️  Line count difference > 5% in $(basename "$doc_file"): Base=$base_lines lines, $locale=$locale_lines lines (${diff_percent}% difference)"
+            WARNINGS=$((WARNINGS + 1))
+          fi
+        fi
+        
+        # Check for Spanish-specific quality issues
+        if [[ "$locale" == "es" ]]; then
+          # Check for common Spanish translation issues
+          local quality_issues=0
+          
+          # Check for missing accents in common words
+          if grep -q -E "\b(mas|tambien|facil|rapido|faciles|despues|mas)\b" "$file_path" 2>/dev/null; then
+            print_warning "  ⚠️  Possible missing accents detected in $(basename "$doc_file")"
+            quality_issues=$((quality_issues + 1))
+          fi
+          
+          # Check for incorrect verb forms or anglicisms
+          if grep -q -E "(hacer click|clickear|setear|testear)" "$file_path" 2>/dev/null; then
+            print_warning "  ⚠️  Possible anglicisms detected in $(basename "$doc_file")"
+            quality_issues=$((quality_issues + 1))
+          fi
+          
+          # Check for proper Spanish punctuation (¿ and ¡)
+          local questions=$(grep -c "?" "$file_path" 2>/dev/null | tr -d ' ' || echo "0")
+          local spanish_questions=$(grep -c "¿" "$file_path" 2>/dev/null | tr -d ' ' || echo "0")
+          if [[ $questions -gt 0 ]] && [[ $spanish_questions -eq 0 ]]; then
+            print_warning "  ⚠️  Missing Spanish question marks (¿) in $(basename "$doc_file")"
+            quality_issues=$((quality_issues + 1))
+          fi
+          
+          if [[ $quality_issues -gt 0 ]]; then
+            WARNINGS=$((WARNINGS + quality_issues))
+          fi
+        fi
+      fi
+    else
+      print_error "$(basename "$doc_file") is missing"
+      missing_docs+=("$(basename "$doc_file")")
+      FAILED_CHECKS=$((FAILED_CHECKS + 1))
+    fi
+  done
+  
+  # Summary
+  if [[ ${#missing_docs[@]} -eq 0 ]]; then
+    if [[ $content_issues -eq 0 ]]; then
+      print_info "All documentation files present and consistent for $locale"
+    else
+      print_warning "Documentation files present but with $content_issues content issues for $locale"
+    fi
+  else
+    print_warning "Missing documentation files: ${missing_docs[*]}"
+  fi
+}
+
 # Function to check for translation completeness
 check_translation_completeness() {
   local locale="$1"
@@ -476,6 +606,16 @@ main() {
       local ja_role_count=$(find "$AGENTS_DIR/roles" -name "*.md" -type f | wc -l)
       echo "  Roles: $ja_role_count files"
     fi
+    
+    # Check for main documentation files
+    local main_docs=()
+    [[ -f "$PROJECT_ROOT/README.md" ]] && main_docs+=("README.md")
+    [[ -f "$PROJECT_ROOT/CLAUDE.md" ]] && main_docs+=("CLAUDE.md")
+    [[ -f "$PROJECT_ROOT/docs/templates/COMMAND_TEMPLATE.md" ]] && main_docs+=("COMMAND_TEMPLATE.md")
+    
+    if [[ ${#main_docs[@]} -gt 0 ]]; then
+      echo "  Documentation: ${#main_docs[@]} files (${main_docs[*]})"
+    fi
     echo ""
 
     # Validate all locales if directory exists
@@ -494,6 +634,7 @@ main() {
           check_language_content "$locale"
           check_quality_metrics "$locale"
           check_translation_completeness "$locale"
+          check_documentation_files "$locale"
           compare_with_base "$locale"
           echo ""
         fi
@@ -527,6 +668,9 @@ main() {
     check_structure "$locale"
     count_files "$locale"
     check_language_content "$locale"
+    check_quality_metrics "$locale"
+    check_translation_completeness "$locale"
+    check_documentation_files "$locale"
     compare_with_base "$locale"
 
     # If second argument provided, compare with it
