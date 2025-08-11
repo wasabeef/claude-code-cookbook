@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [日本語](README.md)
+[English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [日本語](README.md)
 
 Claude Code 를 더 편리하게 사용하기 위한 설정 모음입니다.
 
@@ -176,6 +176,7 @@ cd claude-code-cookbook
 ./scripts/install.sh ja    # 일본어 (기본값)
 ./scripts/install.sh pt    # 포르투갈어
 ./scripts/install.sh zh    # 중국어
+./scripts/install.sh es    # 스페인어
 ```
 
 Claude Desktop에서 Custom Instructions 경로를 `~/.claude`로 설정하면 완료입니다.

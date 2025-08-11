@@ -1,6 +1,6 @@
 # Claude 代码食谱
 
-[English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [日本語](README.md)
+[English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [日本語](README.md)
 
 这个项目是为了让 Claude Code 更加方便使用的设置集合。
 
@@ -175,6 +175,7 @@ cd claude-code-cookbook
 ./scripts/install.sh ja    # 日文（默认）
 ./scripts/install.sh ko    # 韩文
 ./scripts/install.sh pt    # 葡萄牙文
+./scripts/install.sh es    # 西班牙文
 ```
 
 在 Claude Desktop 中将 Custom Instructions 路径设置为 `~/.claude` 即可完成。

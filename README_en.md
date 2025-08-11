@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [日本語](README.md)
+[English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [日本語](README.md)
 
 A collection of settings to make Claude Code more useful.
 
@@ -175,6 +175,7 @@ cd claude-code-cookbook
 ./scripts/install.sh ko    # Korean
 ./scripts/install.sh pt    # Portuguese
 ./scripts/install.sh zh    # Chinese
+./scripts/install.sh es    # Spanish
 ```
 
 Set Custom Instructions path to `~/.claude` in Claude Desktop and you're done.
