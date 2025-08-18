@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [日本語](README.md)
+[English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [日本語](README.md) | [locales/](locales/)
 
 这个项目是为了让 Claude Code 更加方便使用的设置集合。
 
