@@ -59,6 +59,15 @@
 4. Completion report
 ```
 
+## Context Management
+
+### Pure Task Isolation
+
+Break complex tasks into "pure tasks" where only the result matters, executing them independently to keep the main context clean.
+
+- **Pure task examples**: Bug fixes, test execution, code generation
+- **Context cleanup**: When context grows large during extensive work, using the `/compact` command is recommended
+
 ## Rules for Work Completion Reports
 
 ### Types of Completion Reports
@@ -271,10 +280,3 @@ Priorities for efficient implementation:
 - New pattern detection → Immediately learn and apply
 - Feedback → Automatically reflect in next execution
 - Best practices → Update as needed
-
-## Constraints
-
-### Web Search Constraints
-
-- **WebSearch tool is prohibited** — Usage is forbidden
-- **Alternative**: `gemini --prompt "WebSearch: <search query>` — Search via Gemini","rewrite":false}}}

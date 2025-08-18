@@ -60,6 +60,15 @@
 4. Informe de finalización
 ```
 
+## Gestión del Contexto
+
+### Aislamiento de Tareas Puras
+
+Descomponer tareas complejas en "tareas puras" donde solo importa el resultado, ejecutándolas de forma independiente para mantener limpio el contexto principal.
+
+- **Ejemplos de tareas puras**: Corrección de bugs, ejecución de pruebas, generación de código
+- **Limpieza de contexto**: Cuando el contexto crece durante trabajos extensos, se recomienda usar el comando `/compact`
+
 ## Reglas de Informe de Finalización
 
 ### Tipos de Informe de Finalización
@@ -272,10 +281,3 @@ Prioridades para implementación eficiente:
 - Detectar nuevo patrón → Aprender y aplicar inmediatamente
 - Feedback → Reflejar automáticamente en próxima ejecución
 - Mejores prácticas → Actualizar constantemente
-
-## Restricciones
-
-### Restricciones de Búsqueda Web
-
-- **Herramienta WebSearch prohibida** — Su uso está prohibido
-- **Alternativa**: `gemini --prompt "WebSearch: <consulta de búsqueda>"` — Búsqueda vía Gemini

@@ -60,6 +60,15 @@
 4. Relatório de Conclusão
 ```
 
+## Gestão de Contexto
+
+### Isolamento de Tarefas Puras
+
+Divida tarefas complexas em "tarefas puras" onde apenas o resultado importa, executando-as de forma independente para manter o contexto principal limpo.
+
+- **Exemplos de tarefas puras**: Correção de bugs, execução de testes, geração de código
+- **Limpeza de contexto**: Quando o contexto crescer durante trabalhos extensos, recomenda-se usar o comando `/compact`
+
 ## Regras para Reportar Conclusão de Tarefas
 
 ### Tipos de Relatório
@@ -272,10 +281,3 @@ Estratégias para implementação eficiente:
 - Novos padrões identificados → Aplicação imediata
 - Feedback recebido → Incorporação automática nas próximas execuções
 - Melhores práticas → Atualização constante
-
-## Restrições
-
-### Limitações de Busca Web
-
-- **WebSearch está desabilitado** — Não utilize esta ferramenta
-- **Alternativa disponível**: `gemini --prompt "WebSearch: <termo de busca>"` — Pesquise através do Gemini
