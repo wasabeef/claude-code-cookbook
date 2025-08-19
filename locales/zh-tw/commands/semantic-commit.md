@@ -295,9 +295,9 @@ commit_with_retry() {
     else
       echo "❌ 提交失败 (尝試 $((retry_count + 1))/$max_retries)"
       
-      # 合並預提交钩子的自動修正
+      # 合並預提交钩子的自動更正
       if git diff --staged --quiet; then
-        echo "預提交钩子自動修正了變更"
+        echo "預提交钩子自動更正了變更"
         git add -u
       fi
       
@@ -479,7 +479,7 @@ done
 - `style`: 不影響代碼含義的變更（空白、格式、分号等）
 - `refactor`: 既不修復 Bug 也不添加功能的代碼變更
 - `perf`: 性能改進
-- `test`: 添加或修正測試
+- `test`: 添加或更正測試
 
 #### 作用域（可選）
 
@@ -633,7 +633,7 @@ docs: 更新 API 文檔
    ```bash
    # 分析最近 20 個提交的語言
    git log --oneline -20 --pretty=format:"%s" | \
-   grep -E '[一-龥]|[ひらがな]|[カタカナ]' | wc -l
+   grep -E '[一-龥]' | wc -l
    # 50% 以上是中文則使用中文模式
    ```
 
@@ -641,52 +641,52 @@ docs: 更新 API 文檔
 
    ```bash
    # 確認 README.md 的語言
-   head -10 README.md | grep -E '[一-龥]|[ひらがな]|[カタカナ]' | wc -l
+   head -10 README.md | grep -E '[一-龥]' | wc -l
    
    # 確認 package.json 的 description
-   grep -E '"description".*[一-龥]|[ひらがな]|[カタカナ]' package.json
+   grep -E '"description".*[一-龥]' package.json
    ```
 
 4. **變更文件內**的注釋·字符串分析
 
    ```bash
    # 確認變更文件的注釋語言
-   git diff HEAD | grep -E '^[+-].*//.*[一-龥]|[ひらがな]|[カタカナ]' | wc -l
+   git diff HEAD | grep -E '^[+-].*//.*[一-龥]' | wc -l
    ```
 
 #### 判定算法
 
 ```bash
 # 語言判定分數計算
-JAPANESE_SCORE=0
+CHINESE_SCORE=0
 
 # 1. CommitLint 配置（+3 分）
 if grep -q '"subject-case".*\[0\]' commitlint.config.* 2>/dev/null; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 3))
+  CHINESE_SCORE=$((CHINESE_SCORE + 3))
 fi
 
 # 2. git log 分析（最大 +2 分）
-JAPANESE_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
-  grep -cE '[一-龥]|[ひらがな]|[カタカナ]' 2>/dev/null || echo 0)
-if [ $JAPANESE_COMMITS -gt 10 ]; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 2))
-elif [ $JAPANESE_COMMITS -gt 5 ]; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
+CHINESE_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
+  grep -cE '[一-龥]' 2>/dev/null || echo 0)
+if [ $CHINESE_COMMITS -gt 10 ]; then
+  CHINESE_SCORE=$((CHINESE_SCORE + 2))
+elif [ $CHINESE_COMMITS -gt 5 ]; then
+  CHINESE_SCORE=$((CHINESE_SCORE + 1))
 fi
 
 # 3. README.md 確認（+1 分）
-if head -5 README.md 2>/dev/null | grep -qE '[一-龥]|[ひらがな]|[カタカナ]'; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
+if head -5 README.md 2>/dev/null | grep -qE '[一-龥]'; then
+  CHINESE_SCORE=$((CHINESE_SCORE + 1))
 fi
 
 # 4. 變更文件內容確認（+1 分）
-if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[一-龥]|[ひらがな]|[カタカナ]'; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
+if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[一-龥]'; then
+  CHINESE_SCORE=$((CHINESE_SCORE + 1))
 fi
 
 # 判定: 3 分以上為中文模式
-if [ $JAPANESE_SCORE -ge 3 ]; then
-  LANGUAGE="ja"
+if [ $CHINESE_SCORE -ge 3 ]; then
+  LANGUAGE="zh"
 else
   LANGUAGE="en"
 fi

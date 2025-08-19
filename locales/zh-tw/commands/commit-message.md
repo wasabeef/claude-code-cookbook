@@ -159,7 +159,7 @@ sort | uniq -c | sort -nr
 - `style`: 不影響代碼含義的更改（空格、格式、分号等）
 - `refactor`: 既不修復缺陷也不添加功能的代碼更改
 - `perf`: 性能改進
-- `test`: 添加或修正測試
+- `test`: 添加或更正測試
 
 ### 輸出示例（英文項目）
 
@@ -180,7 +180,7 @@ feat: implement JWT-based authentication system
 ✅ `git commit -m "feat: implement JWT-based authentication system"` 已復制到剪贴板
 ```
 
-**實現示例（修正版）**:
+**實現示例（更正版）**:
 
 ```bash
 # 先將提交命令復制到剪贴板（無換行）
