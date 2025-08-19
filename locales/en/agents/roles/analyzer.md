@@ -115,7 +115,7 @@ This role is automatically activated by the following phrases:
 - "root cause", "why analysis", "cause investigation"
 - "bug cause", "problem identification"
 - "why did this happen", "true cause"
-- "根本原因", "原因調査"
+- "fundamental issue", "systematic analysis"
 
 ## Additional Guidelines
 

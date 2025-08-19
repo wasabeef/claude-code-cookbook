@@ -159,10 +159,10 @@ class UserProfileWidget extends StatelessWidget {
 
 **Informações importantes a preservar**:
 
-- URLs e links: `See also:`, `@see`, `参照:` etc.
+- URLs e links: `See also:`, `@see`, `Veja também:` etc.
 - Comentários TODO: Formatos `TODO:`, `FIXME:`, `XXX:`
-- Avisos: `Note:`, `Warning:`, `注意:` etc.
-- Exemplos de uso: `Example:`, `例:`, `# Examples` etc.
+- Avisos: `Note:`, `Warning:`, `Atenção:` etc.
+- Exemplos de uso: `Example:`, `Exemplo:`, `# Examples` etc.
 - Descrições existentes de parâmetros e valores de retorno
 
 ### Configurações por idioma
@@ -232,10 +232,10 @@ UPDATED_COMMENTS=0
 ERRORS=0
 
 # Detecção automática de idioma dos comentários existentes
-# Se detectar caracteres japoneses (hiragana, katakana, kanji) → ja, senão en
+# Se detectar padrões portugueses comuns → pt, senão en
 DOC_LANGUAGE="en"  # padrão
-if grep -r '[ぁ-んァ-ヶー一-龠]' --include="*.py" --include="*.js" --include="*.ts" --include="*.dart" --include="*.go" --include="*.rs" . 2>/dev/null | head -n 1; then
-  DOC_LANGUAGE="ja"
+if grep -r 'ção\|ões\|agem\|ário\|ória\|ência\|português\|brasil' --include="*.py" --include="*.js" --include="*.ts" --include="*.dart" --include="*.go" --include="*.rs" . 2>/dev/null | head -n 1; then
+  DOC_LANGUAGE="pt"
 fi
 
 # Detecção automática de linguagem de programação e análise estática

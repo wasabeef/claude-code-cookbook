@@ -633,60 +633,60 @@ Lógica de detecção de idioma completa neste comando:
    ```bash
    # Analisa idioma dos últimos 20 commits
    git log --oneline -20 --pretty=format:"%s" | \
-   grep -E '^[あ-ん]|[ア-ン]|[一-龯]' | wc -l
-   # Se 50% ou mais for em japonês, modo japonês
+   grep -E 'ção|ões|agem|ário|ória|ência|português|brasil' | wc -l
+   # Se 50% ou mais for em português, modo português
    ```
 
 3. **Configurações de idioma dos arquivos do projeto**
 
    ```bash
    # Verificar idioma do README.md
-   head -10 README.md | grep -E '^[あ-ん]|[ア-ン]|[一-龯]' | wc -l
+   head -10 README.md | grep -E 'ção|ões|agem|ário|ória|ência|português|brasil' | wc -l
    
    # Verificar description do package.json
-   grep -E '"description".*[あ-ん]|[ア-ン]|[一-龯]' package.json
+   grep -E '"description".*(ção|ões|agem|ário|ória|ência|português|brasil)' package.json
    ```
 
 4. **Análise de comentários e strings** nos arquivos alterados
 
    ```bash
    # Verificar idioma dos comentários nos arquivos alterados
-   git diff HEAD | grep -E '^[+-].*//.*[あ-ん]|[ア-ン]|[一-龯]' | wc -l
+   git diff HEAD | grep -E '^[+-].*//.*ção|ões|agem|ário|ória|ência|português|brasil' | wc -l
    ```
 
 #### Algoritmo de Detecção
 
 ```bash
 # Cálculo de pontuação para detecção de idioma
-JAPANESE_SCORE=0
+PORTUGUESE_SCORE=0
 
 # 1. Configuração CommitLint (+3 pontos)
 if grep -q '"subject-case".*\[0\]' commitlint.config.* 2>/dev/null; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 3))
+  PORTUGUESE_SCORE=$((PORTUGUESE_SCORE + 3))
 fi
 
 # 2. Análise do git log (máximo +2 pontos)
-JAPANESE_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
-  grep -cE '[あ-ん]|[ア-ン]|[一-龯]' 2>/dev/null || echo 0)
-if [ $JAPANESE_COMMITS -gt 10 ]; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 2))
-elif [ $JAPANESE_COMMITS -gt 5 ]; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
+PORTUGUESE_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
+  grep -cE '(ção|ões|agem|ário|ória|ência|português|brasil)' 2>/dev/null || echo 0)
+if [ $PORTUGUESE_COMMITS -gt 10 ]; then
+  PORTUGUESE_SCORE=$((PORTUGUESE_SCORE + 2))
+elif [ $PORTUGUESE_COMMITS -gt 5 ]; then
+  PORTUGUESE_SCORE=$((PORTUGUESE_SCORE + 1))
 fi
 
 # 3. Verificação do README.md (+1 ponto)
-if head -5 README.md 2>/dev/null | grep -qE '[あ-ん]|[ア-ン]|[一-龯]'; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
+if head -5 README.md 2>/dev/null | grep -qE '(ção|ões|agem|ário|ória|ência|português|brasil)'; then
+  PORTUGUESE_SCORE=$((PORTUGUESE_SCORE + 1))
 fi
 
 # 4. Verificação do conteúdo dos arquivos alterados (+1 ponto)
-if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[あ-ん]|[ア-ン]|[一-龯]'; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
+if git diff HEAD 2>/dev/null | grep -qE '^[+-].*(ção|ões|agem|ário|ória|ência|português|brasil)'; then
+  PORTUGUESE_SCORE=$((PORTUGUESE_SCORE + 1))
 fi
 
 # Detecção: 3 pontos ou mais para modo japonês
-if [ $JAPANESE_SCORE -ge 3 ]; then
-  LANGUAGE="ja"
+if [ $PORTUGUESE_SCORE -ge 3 ]; then
+  LANGUAGE="pt"
 else
   LANGUAGE="en"
 fi

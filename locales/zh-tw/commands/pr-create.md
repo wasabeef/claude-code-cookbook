@@ -225,7 +225,7 @@ mcp_github_create_pull_request({
 ```bash
 # 變更後重新提交
 git add .
-git commit -m "fix: 基于審查反饋的修正"
+git commit -m "fix: 基于審查反饋的更正"
 git push
 ```
 

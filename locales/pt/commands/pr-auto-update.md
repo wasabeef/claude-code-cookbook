@@ -112,11 +112,11 @@ parse_template_structure() {
 
 **Baseado no Conteúdo das Alterações**:
 
-- Correção de Bug: `fix|bug|error|crash|修正` → rótulos contendo `bug|fix`
-- Nova Funcionalidade: `feat|feature|add|implement|新機能|実装` → rótulos contendo `feature|enhancement|feat`
-- Refatoração: `refactor|clean|リファクタ` → rótulos contendo `refactor|cleanup|clean`
-- Performance: `performance|perf|optimize|パフォーマンス` → rótulos contendo `performance|perf`
-- Segurança: `security|secure|セキュリティ` → rótulos contendo `security`
+- Correção de Bug: `fix|bug|error|crash|corrigir` → rótulos contendo `bug|fix`
+- Nova Funcionalidade: `feat|feature|add|implement|novo|adicionar` → rótulos contendo `feature|enhancement|feat`
+- Refatoração: `refactor|clean|refatorar|limpar` → rótulos contendo `refactor|cleanup|clean`
+- Performance: `performance|perf|optimize|otimizar|desempenho` → rótulos contendo `performance|perf`
+- Segurança: `security|secure|segurança|proteger` → rótulos contendo `security`
 
 #### Restrições
 
@@ -252,11 +252,11 @@ analyze_change_patterns() {
   fi
   
   # Determinação por conteúdo das alterações
-  if echo "$changes" | grep -iq "fix\|bug\|error\|crash\|修正"; then
+  if echo "$changes" | grep -iq "fix\|bug\|error\|crash\|correção\|erro"; then
     add_matching_label "bug\|fix" available_ref suggested_ref
   fi
   
-  if echo "$changes" | grep -iq "feat\|feature\|add\|implement\|新機能\|実装"; then
+  if echo "$changes" | grep -iq "feat\|feature\|add\|implement\|funcionalidade\|implementar"; then
     add_matching_label "feature\|enhancement\|feat" available_ref suggested_ref
   fi
 }

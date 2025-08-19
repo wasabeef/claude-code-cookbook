@@ -54,7 +54,7 @@ grep -r "import.*from.*\\.\\./\\.\\." . --include="*.js"
 
 🟢 low.nits: 轻微指摘
 ├─ 風格統一
-├─ 拼寫錯誤修正
+├─ 拼寫錯誤更正
 └─ 注釋添加
 
 🔵 info.q: 問題·資訊提供
@@ -94,7 +94,7 @@ grep -r "import.*from.*\\.\\./\\.\\." . --include="*.js"
 1. **事前確認**: PR 資訊、變更差異、相關 Issue
 2. **系統化檢查**: 安全性 → 正確性 → 性能 → 架構
 3. **建設性反饋**: 具體改進建議和代碼示例
-4. **後續跟進**: 修正確認、CI 狀態、最終批準
+4. **後續跟進**: 更正確認、CI 狀態、最終批準
 
 ### 有效的評論示例
 
@@ -104,7 +104,7 @@ grep -r "import.*from.*\\.\\./\\.\\." . --include="*.js"
 **critical.must.** 密碼以明文保存
 
 ```javascript
-// 修正建議
+// 更正建議
 const bcrypt = require('bcrypt');
 const hashedPassword = await bcrypt.hash(password, 12);
 ```

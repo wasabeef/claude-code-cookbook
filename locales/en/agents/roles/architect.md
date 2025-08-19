@@ -98,8 +98,8 @@ This role is automatically activated by the following phrases:
 
 - "architecture review"
 - "system design"
-- "アーキテクチャレビュー"
-- "技術選定"
+- "architecture evaluation"
+- "technology selection"
 
 ## Additional Guidelines
 
