@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [中文](README_zh.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [日本語](README.md) | [📁 locales/](locales/)
+[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [日本語](README.md) | [📁 locales/](locales/)
 
 Claude Code をもっと便利に使うための設定集です。
 
@@ -175,7 +175,8 @@ cd claude-code-cookbook
 ./scripts/install.sh en    # 英語
 ./scripts/install.sh ko    # 韓国語
 ./scripts/install.sh pt    # ポルトガル語
-./scripts/install.sh zh    # 中国語
+./scripts/install.sh zh-cn # 簡体中国語
+./scripts/install.sh zh-tw # 繁体中国語
 ./scripts/install.sh es    # スペイン語
 ```
 
