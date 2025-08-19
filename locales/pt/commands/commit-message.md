@@ -212,14 +212,14 @@ $ /commit-message
 ━━━━━━━━━━━━━━━━━━━━━━━━━
 
 ✨ Candidato principal:
-feat: JWT 認証システムを実装
+feat: implementar sistema de autenticação JWT
 
 📋 Alternativas:
-1. feat: JWT トークンによるユーザー認証を追加
-2. fix: 認証ミドルウェアのトークン検証エラーを解決
-3. docs: 認証ロジックを別モジュールに分離
+1. feat: adicionar autenticação de usuário com token JWT
+2. fix: resolver erro de validação de token no middleware de autenticação
+3. docs: separar lógica de autenticação em módulo independente
 
-✅ `git commit -m "feat: JWT 認証システムを実装"` copiado para a área de transferência
+✅ `git commit -m "feat: implementar sistema de autenticação JWT"` copiado para a área de transferência
 ```
 
 ### Visão Geral da Operação
@@ -282,18 +282,18 @@ ou
 feat(api)!: change authentication flow
 ```
 
-**Japonês**:
+**Exemplo de Breaking Change**:
 
 ```bash
-feat!: ユーザー API レスポンス形式を変更
+feat!: alterar formato de resposta da API de usuários
 
-BREAKING CHANGE: レスポンスに追加のメタデータが含まれるようになりました
+BREAKING CHANGE: A resposta agora inclui metadados adicionais
 ```
 
 ou
 
 ```bash
-feat(api)!: 認証フローを変更
+feat(api)!: modificar fluxo de autenticação
 ```
 
 ### Melhores Práticas
@@ -314,12 +314,12 @@ fix: resolve memory leak in cache manager
 docs: update API documentation
 ```
 
-**Japonês**:
+**Exemplo com múltiplas mudanças**:
 
 ```
-feat: ユーザー登録エンドポイントを追加
-fix: キャッシュマネージャーのメモリリークを解決
-docs: API ドキュメントを更新
+feat: adicionar endpoint de registro de usuários
+fix: resolver vazamento de memória no gerenciador de cache
+docs: atualizar documentação da API
 ```
 
 ### Integração com Claude

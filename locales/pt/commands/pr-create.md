@@ -148,9 +148,9 @@ mcp_github_create_pull_request({
 
 #### Determinação Baseada em Conteúdo das Mudanças
 
-- **Correção de bug**: `fix|bug|error|crash|修正` → `bug|fix`
-- **Nova funcionalidade**: `feat|feature|add|implement|新機能|実装` → `feature|enhancement|feat`
-- **Refatoração**: `refactor|clean|リファクタ` → `refactor|cleanup|clean`
+- **Correção de bug**: `fix|bug|error|crash|corrigir` → `bug|fix`
+- **Nova funcionalidade**: `feat|feature|add|implement|novo|adicionar` → `feature|enhancement|feat`
+- **Refatoração**: `refactor|clean|refatorar|limpar` → `refactor|cleanup|clean`
 - **Performance**: `performance|perf|optimize` → `performance|perf`
 - **Segurança**: `security|secure` → `security`
 
