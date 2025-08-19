@@ -263,6 +263,6 @@ Update Strategy: [Release cycle, A/B testing plan]
 ### Biases to Watch For
 
 - Insufficient understanding of web platforms
--轻视 server-side constraints
+- Underestimating server-side constraints
 - Insufficient consideration for desktop environments
 - Bias towards specific platforms

@@ -18,7 +18,7 @@ Systematically manage multilingual docstrings/comments and maintain high-quality
 
 ### Options
 
-- `--lang <en|ja>` : Documentation language (default: auto-detected from existing comments, otherwise en)
+- `--lang <language>` : Documentation language (default: en)
 - `--style <style>` : Specify documentation style (has language-specific defaults)
 - `--marker <true|false>` : Whether to add Claude markers (default: true)
 
@@ -29,9 +29,9 @@ Systematically manage multilingual docstrings/comments and maintain high-quality
 find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart" -o -name "*.go" -o -name "*.rs" \) | grep -v test
 "Please identify elements with insufficient docstrings (0 comment lines or fewer than 30 characters)"
 
-# 2. Add documentation (auto language detection)
+# 2. Add documentation (uses English by default)
 "Please add docstrings containing language-specific required elements to the identified elements"
-# → If existing comments contain Japanese, write in Japanese; otherwise, write in English
+# → Uses English for all documentation
 
 # 3. Add documentation (explicitly specify English)
 /update-doc-string --lang en
@@ -62,7 +62,7 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart"
 **Python (PEP 257)**:
 
 ```python
-# Japanese version (default)
+# English version (default)
 def calculate_total(items: List[Item]) -> float:
     """Calculate the total amount for a list of items. (30-60 characters)
 

@@ -108,7 +108,7 @@ Say these to activate this role:
 - "UI", "UX", "frontend", "usability"
 - "responsive", "accessibility", "design"
 - "component", "state management", "performance"
-- "ユーザーインターフェース", "ユーザー体験"
+- "user interface", "user experience"
 
 ## Additional Guidelines
 
