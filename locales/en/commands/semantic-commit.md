@@ -656,39 +656,8 @@ How we figure out your language:
 #### Determination Algorithm
 
 ```bash
-# Calculate language score
-JAPANESE_SCORE=0
-
-# 1. CommitLint settings (+3 points)
-if grep -q '"subject-case".*\[0\]' commitlint.config.* 2>/dev/null; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 3))
-fi
-
-# 2. Git log analysis (max +2 points)
-JAPANESE_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
-  grep -cE '[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' 2>/dev/null || echo 0)
-if [ $JAPANESE_COMMITS -gt 10 ]; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 2))
-elif [ $JAPANESE_COMMITS -gt 5 ]; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
-fi
-
-# 3. README.md check (+1 point)
-if head -5 README.md 2>/dev/null | grep -qE '[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]'; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
-fi
-
-# 4. Changed files content check (+1 point)
-if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]'; then
-  JAPANESE_SCORE=$((JAPANESE_SCORE + 1))
-fi
-
-# Determine: Japanese mode if score >= 3
-if [ $JAPANESE_SCORE -ge 3 ]; then
-  LANGUAGE="ja"
-else
-  LANGUAGE="en"
-fi
+# English version always uses English
+LANGUAGE="en"
 ```
 
 ### Auto-Loading Config
