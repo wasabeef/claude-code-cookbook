@@ -26,6 +26,9 @@ Divide grandes mudanças em unidades mínimas significativas e faz commits seque
 # Gera mensagens de commit em inglês
 /semantic-commit --lang en
 
+# Gera mensagens de commit em português
+/semantic-commit --lang pt
+
 # Divide em no máximo 5 commits
 /semantic-commit --max-commits 5
 ```

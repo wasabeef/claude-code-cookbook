@@ -23,6 +23,9 @@ Divide cambios grandes en commits pequeños y significativos con mensajes apropi
 # Verificar propuesta de división únicamente (sin commit real)
 /semantic-commit --dry-run
 
+# Generar mensajes de commit en inglés
+/semantic-commit --lang en
+
 # Generar mensajes de commit en español
 /semantic-commit --lang es
 

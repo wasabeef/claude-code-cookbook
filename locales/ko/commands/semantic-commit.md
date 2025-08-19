@@ -26,6 +26,9 @@
 # 영어로 커밋 메시지 생성
 /semantic-commit --lang en
 
+# 한국어로 커밋 메시지 생성
+/semantic-commit --lang ko
+
 # 최대 5 개 커밋으로 분할
 /semantic-commit --max-commits 5
 ```
