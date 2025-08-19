@@ -250,6 +250,35 @@ check_language_content() {
       fi
     fi
     ;;
+  fr)
+    # Check for French content and no Japanese
+    if [[ -d "$locale_dir/commands" ]]; then
+      local contaminated_files=()
+      # Check for Japanese (hiragana, katakana)
+      while IFS= read -r file; do
+        contaminated_files+=("$(basename "$file"): Japanese")
+      done < <(grep -l '[ぁ-んァ-ヶー]' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      # Check for Japanese sentence patterns (more reliable than individual kanji)
+      while IFS= read -r file; do
+        # Skip if already detected
+        if ! echo "${contaminated_files[@]}" | grep -q "$(basename "$file")"; then
+          contaminated_files+=("$(basename "$file"): Japanese patterns")
+        fi
+      done < <(grep -lE 'です|ます|である|により|において|について|に関して' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+      if [[ ${#contaminated_files[@]} -eq 0 ]]; then
+        print_success "No Japanese contamination found in fr files"
+      else
+        print_warning "Found Japanese contamination in ${#contaminated_files[@]} French files:"
+        for file in "${contaminated_files[@]}"; do
+          echo "    ⚠️  $file"
+        done
+        WARNINGS=$((WARNINGS + 1))
+      fi
+    fi
+    ;;
   zh-cn)
     # Check for Simplified Chinese and no Japanese/Traditional Chinese
     if [[ -d "$locale_dir/commands" ]]; then
