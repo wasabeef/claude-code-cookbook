@@ -23,6 +23,9 @@
 # 仅確認拆分方案（不實際提交）
 /semantic-commit --dry-run
 
+# 用英語生成提交消息
+/semantic-commit --lang en
+
 # 用繁体字中文生成提交消息
 /semantic-commit --lang zh-tw
 

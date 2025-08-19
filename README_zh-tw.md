@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [日本語](README.md) | [📁 locales/](locales/)
+[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [Français](README_fr.md) | [日本語](README.md) | [📁 locales/](locales/)
 
 這個專案是為了讓 Claude Code 更加方便使用的設定集合。
 
@@ -170,13 +170,14 @@ git clone https://github.com/wasabeef/claude-code-cookbook.git
 cd claude-code-cookbook
 
 # 指定語言安裝
-./scripts/install.sh zh-tw  # 繁體中文
-./scripts/install.sh zh-cn  # 簡體中文
-./scripts/install.sh en     # 英文
 ./scripts/install.sh ja     # 日文（預設）
+./scripts/install.sh en     # 英文
 ./scripts/install.sh ko     # 韓文
 ./scripts/install.sh pt     # 葡萄牙文
+./scripts/install.sh zh-cn  # 簡體中文
+./scripts/install.sh zh-tw  # 繁體中文
 ./scripts/install.sh es     # 西班牙文
+./scripts/install.sh fr     # 法文
 ```
 
 在 Claude Desktop 中將 Custom Instructions 路徑設定為 `~/.claude` 即可完成。

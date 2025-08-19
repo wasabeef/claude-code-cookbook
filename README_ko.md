@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [日本語](README.md) | [📁 locales/](locales/)
+[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [Français](README_fr.md) | [日本語](README.md) | [📁 locales/](locales/)
 
 Claude Code 를 더 편리하게 사용하기 위한 설정 모음입니다.
 
@@ -171,12 +171,14 @@ git clone https://github.com/wasabeef/claude-code-cookbook.git
 cd claude-code-cookbook
 
 # 언어 지정 설치
-./scripts/install.sh ko    # 한국어
-./scripts/install.sh en    # 영어
 ./scripts/install.sh ja    # 일본어 (기본값)
+./scripts/install.sh en    # 영어
+./scripts/install.sh ko    # 한국어
 ./scripts/install.sh pt    # 포르투갈어
-./scripts/install.sh zh    # 중국어
+./scripts/install.sh zh-cn # 중국어 간체
+./scripts/install.sh zh-tw # 중국어 번체
 ./scripts/install.sh es    # 스페인어
+./scripts/install.sh fr    # 프랑스어
 ```
 
 Claude Desktop에서 Custom Instructions 경로를 `~/.claude`로 설정하면 완료입니다.

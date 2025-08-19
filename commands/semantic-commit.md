@@ -26,6 +26,9 @@
 # 英語でコミットメッセージを生成
 /semantic-commit --lang en
 
+# 日本語でコミットメッセージを生成
+/semantic-commit --lang ja
+
 # 最大 5 個のコミットに分割
 /semantic-commit --max-commits 5
 ```
