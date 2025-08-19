@@ -96,8 +96,34 @@ check_language_content() {
   # Define expected language patterns
   case "$locale" in
   zh)
-    # Check for Chinese content
+    # Check for Chinese content and no Japanese
     if [[ -d "$locale_dir/commands" ]]; then
+      local contaminated_files=()
+      # Check for Japanese (hiragana, katakana)
+      while IFS= read -r file; do
+        contaminated_files+=("$(basename "$file"): Japanese")
+      done < <(grep -l '[ぁ-んァ-ヶー]' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      # Check for Japanese sentence patterns (more reliable than individual kanji)
+      while IFS= read -r file; do
+        # Skip if already detected
+        if ! echo "${contaminated_files[@]}" | grep -q "$(basename "$file")"; then
+          contaminated_files+=("$(basename "$file"): Japanese patterns")
+        fi
+      done < <(grep -lE 'です|ます|である|により|において|について|に関して' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+      if [[ ${#contaminated_files[@]} -eq 0 ]]; then
+        print_success "No Japanese contamination found in Chinese files"
+      else
+        print_warning "Found Japanese contamination in ${#contaminated_files[@]} Chinese files:"
+        for file in "${contaminated_files[@]}"; do
+          echo "    ⚠️  $file"
+        done
+        WARNINGS=$((WARNINGS + 1))
+      fi
+      
+      # Also check for Chinese content
       local zh_files
       zh_files=$(grep -c '[一-龯]' "$locale_dir/commands"/*.md 2>/dev/null | grep -cv ':0' || echo "0")
       TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
@@ -109,33 +135,224 @@ check_language_content() {
     fi
     ;;
   en)
-    # Check for English content and no Japanese/Chinese
+    # Check for English content and no Japanese
     if [[ -d "$locale_dir/commands" ]]; then
-      # Find files with CJK contamination
       local contaminated_files=()
+      # Check for Japanese (hiragana, katakana, kanji frequently used in Japanese)
       while IFS= read -r file; do
-        contaminated_files+=("$(basename "$file")")
-      done < <(grep -l '[ぁ-んァ-ヶー一-龯]' "$locale_dir/commands"/*.md 2>/dev/null)
-
-      local total_files
-      total_files=$(find "$locale_dir/commands" -name "*.md" -type f -exec printf '.' \; | wc -c)
-      local clean_files=$((total_files - ${#contaminated_files[@]}))
+        contaminated_files+=("$(basename "$file"): Japanese")
+      done < <(grep -l '[ぁ-んァ-ヶー]' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      # Also check for common Japanese kanji patterns
+      while IFS= read -r file; do
+        # Skip if already detected
+        if ! echo "${contaminated_files[@]}" | grep -q "$(basename "$file")"; then
+          contaminated_files+=("$(basename "$file"): Japanese kanji")
+        fi
+      done < <(grep -lE '調査|実装|機能|開発|修正|追加|削除|更新|確認|設定' "$locale_dir"/**/*.md 2>/dev/null)
 
       TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
-      if [[ $clean_files -gt 0 ]]; then
-        print_success "Found $clean_files files without CJK content"
-      fi
-
-      if [[ ${#contaminated_files[@]} -gt 0 ]]; then
-        print_warning "Found CJK content in ${#contaminated_files[@]} files (should be English only):"
+      if [[ ${#contaminated_files[@]} -eq 0 ]]; then
+        print_success "No Japanese contamination found in English files"
+      else
+        print_warning "Found language contamination in ${#contaminated_files[@]} English files:"
         for file in "${contaminated_files[@]}"; do
-          echo "    📄 $file"
+          echo "    ⚠️  $file"
         done
+        WARNINGS=$((WARNINGS + 1))
+      fi
+    fi
+    ;;
+  es)
+    # Check for Spanish content and no Japanese
+    if [[ -d "$locale_dir/commands" ]]; then
+      local contaminated_files=()
+      # Check for Japanese (hiragana, katakana)
+      while IFS= read -r file; do
+        contaminated_files+=("$(basename "$file"): Japanese")
+      done < <(grep -l '[ぁ-んァ-ヶー]' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      # Check for Japanese sentence patterns (more reliable than individual kanji)
+      while IFS= read -r file; do
+        # Skip if already detected
+        if ! echo "${contaminated_files[@]}" | grep -q "$(basename "$file")"; then
+          contaminated_files+=("$(basename "$file"): Japanese patterns")
+        fi
+      done < <(grep -lE 'です|ます|である|により|において|について|に関して' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+      if [[ ${#contaminated_files[@]} -eq 0 ]]; then
+        print_success "No Japanese contamination found in Spanish files"
+      else
+        print_warning "Found Japanese contamination in ${#contaminated_files[@]} Spanish files:"
+        for file in "${contaminated_files[@]}"; do
+          echo "    ⚠️  $file"
+        done
+        WARNINGS=$((WARNINGS + 1))
+      fi
+    fi
+    ;;
+  ko)
+    # Check for Korean content and no Japanese
+    if [[ -d "$locale_dir/commands" ]]; then
+      local contaminated_files=()
+      # Check for Japanese (hiragana, katakana)
+      while IFS= read -r file; do
+        contaminated_files+=("$(basename "$file"): Japanese")
+      done < <(grep -l '[ぁ-んァ-ヶー]' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      # Check for common Japanese kanji patterns (different from Korean hanja usage)
+      while IFS= read -r file; do
+        # Skip if already detected
+        if ! echo "${contaminated_files[@]}" | grep -q "$(basename "$file")"; then
+          contaminated_files+=("$(basename "$file"): Japanese kanji")
+        fi
+      done < <(grep -lE '調査|実装|機能|開発|修正|追加|削除|更新|確認|設定' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+      if [[ ${#contaminated_files[@]} -eq 0 ]]; then
+        print_success "No Japanese contamination found in Korean files"
+      else
+        print_warning "Found Japanese contamination in ${#contaminated_files[@]} Korean files:"
+        for file in "${contaminated_files[@]}"; do
+          echo "    ⚠️  $file"
+        done
+        WARNINGS=$((WARNINGS + 1))
+      fi
+    fi
+    ;;
+  pt)
+    # Check for Portuguese content and no Japanese
+    if [[ -d "$locale_dir/commands" ]]; then
+      local contaminated_files=()
+      # Check for Japanese (hiragana, katakana)
+      while IFS= read -r file; do
+        contaminated_files+=("$(basename "$file"): Japanese")
+      done < <(grep -l '[ぁ-んァ-ヶー]' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      # Check for Japanese sentence patterns (more reliable than individual kanji)
+      while IFS= read -r file; do
+        # Skip if already detected
+        if ! echo "${contaminated_files[@]}" | grep -q "$(basename "$file")"; then
+          contaminated_files+=("$(basename "$file"): Japanese patterns")
+        fi
+      done < <(grep -lE 'です|ます|である|により|において|について|に関して' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+      if [[ ${#contaminated_files[@]} -eq 0 ]]; then
+        print_success "No Japanese contamination found in Portuguese files"
+      else
+        print_warning "Found Japanese contamination in ${#contaminated_files[@]} Portuguese files:"
+        for file in "${contaminated_files[@]}"; do
+          echo "    ⚠️  $file"
+        done
+        WARNINGS=$((WARNINGS + 1))
+      fi
+    fi
+    ;;
+  zh-cn)
+    # Check for Simplified Chinese and no Japanese/Traditional Chinese
+    if [[ -d "$locale_dir/commands" ]]; then
+      local contaminated_files=()
+      # Check for Japanese-specific characters (hiragana, katakana)
+      while IFS= read -r file; do
+        contaminated_files+=("$(basename "$file"): Japanese")
+      done < <(grep -l '[ぁ-んァ-ヶー]' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      # Check for Japanese sentence patterns (more reliable than individual kanji)
+      while IFS= read -r file; do
+        # Skip if already detected
+        if ! echo "${contaminated_files[@]}" | grep -q "$(basename "$file")"; then
+          contaminated_files+=("$(basename "$file"): Japanese patterns")
+        fi
+      done < <(grep -lE 'です|ます|である|により|において|について|に関して' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      # Check for Traditional Chinese specific characters (avoiding false positives)
+      # Note: 繁 is excluded as it appears in valid simplified words like 频繁
+      while IFS= read -r file; do
+        # Skip if already detected
+        if ! echo "${contaminated_files[@]}" | grep -q "$(basename "$file")"; then
+          contaminated_files+=("$(basename "$file"): Traditional Chinese")
+        fi
+      done < <(grep -lE '體|憂|鬱|臺|灣|關係|發現|實現|專|業|檔|產|學|雜|難|應|轉|變' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+      if [[ ${#contaminated_files[@]} -eq 0 ]]; then
+        print_success "No foreign language contamination found in Simplified Chinese files"
+      else
+        print_warning "Found language contamination in ${#contaminated_files[@]} Simplified Chinese files:"
+        for file in "${contaminated_files[@]}"; do
+          echo "    ⚠️  $file"
+        done
+        WARNINGS=$((WARNINGS + 1))
+      fi
+    fi
+    ;;
+  zh-tw)
+    # Check for Traditional Chinese and no Japanese/Simplified Chinese
+    if [[ -d "$locale_dir/commands" ]]; then
+      local contaminated_files=()
+      # Check for Japanese-specific characters (hiragana, katakana)
+      while IFS= read -r file; do
+        contaminated_files+=("$(basename "$file"): Japanese")
+      done < <(grep -l '[ぁ-んァ-ヶー]' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      # Check for Japanese sentence patterns (more reliable than individual kanji)
+      while IFS= read -r file; do
+        # Skip if already detected
+        if ! echo "${contaminated_files[@]}" | grep -q "$(basename "$file")"; then
+          contaminated_files+=("$(basename "$file"): Japanese patterns")
+        fi
+      done < <(grep -lE 'です|ます|である|により|において|について|に関して' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      # Check for Simplified Chinese specific characters (avoiding false positives)
+      while IFS= read -r file; do
+        # Skip if already detected
+        if ! echo "${contaminated_files[@]}" | grep -q "$(basename "$file")"; then
+          contaminated_files+=("$(basename "$file"): Simplified Chinese")
+        fi
+      done < <(grep -lE '简体|发现|实现|关系|忧郁|台湾|专业|档案|产品|学习|杂志|应用|转换|变化' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+      if [[ ${#contaminated_files[@]} -eq 0 ]]; then
+        print_success "No foreign language contamination found in Traditional Chinese files"
+      else
+        print_warning "Found language contamination in ${#contaminated_files[@]} Traditional Chinese files:"
+        for file in "${contaminated_files[@]}"; do
+          echo "    ⚠️  $file"
+        done
+        WARNINGS=$((WARNINGS + 1))
       fi
     fi
     ;;
   *)
-    print_info "No specific language checks for $locale"
+    # Default: Check for Japanese contamination in all other locales
+    if [[ -d "$locale_dir/commands" ]]; then
+      local contaminated_files=()
+      # Check for Japanese (hiragana, katakana)
+      while IFS= read -r file; do
+        contaminated_files+=("$(basename "$file"): Japanese")
+      done < <(grep -l '[ぁ-んァ-ヶー]' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      # Check for Japanese sentence patterns (more reliable than individual kanji)
+      while IFS= read -r file; do
+        # Skip if already detected
+        if ! echo "${contaminated_files[@]}" | grep -q "$(basename "$file")"; then
+          contaminated_files+=("$(basename "$file"): Japanese patterns")
+        fi
+      done < <(grep -lE 'です|ます|である|により|において|について|に関して' "$locale_dir"/**/*.md 2>/dev/null)
+      
+      TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+      if [[ ${#contaminated_files[@]} -eq 0 ]]; then
+        print_success "No Japanese contamination found in $locale files"
+      else
+        print_warning "Found Japanese contamination in ${#contaminated_files[@]} $locale files:"
+        for file in "${contaminated_files[@]}"; do
+          echo "    ⚠️  $file"
+        done
+        WARNINGS=$((WARNINGS + 1))
+      fi
+    fi
     ;;
   esac
 }
