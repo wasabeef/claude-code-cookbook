@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [日本語](README.md) | [📁 locales/](locales/)
+[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [Français](README_fr.md) | [日本語](README.md) | [📁 locales/](locales/)
 
 A collection of settings to make Claude Code more useful.
 
@@ -170,12 +170,14 @@ git clone https://github.com/wasabeef/claude-code-cookbook.git
 cd claude-code-cookbook
 
 # Install with language specification
-./scripts/install.sh en    # English
 ./scripts/install.sh ja    # Japanese (default)
+./scripts/install.sh en    # English
 ./scripts/install.sh ko    # Korean
 ./scripts/install.sh pt    # Portuguese
-./scripts/install.sh zh    # Chinese
+./scripts/install.sh zh-cn # Simplified Chinese
+./scripts/install.sh zh-tw # Traditional Chinese
 ./scripts/install.sh es    # Spanish
+./scripts/install.sh fr    # French
 ```
 
 Set Custom Instructions path to `~/.claude` in Claude Desktop and you're done.
