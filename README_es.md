@@ -54,7 +54,7 @@ Guardados como archivos Markdown en el directorio `/commands`. Se ejecutan escri
 | `/show-plan` | Muestra el plan de ejecución actual. |
 | `/smart-review` | Realiza revisiones avanzadas para mejorar la calidad del código. |
 | `/spec` | Crea especificaciones detalladas paso a paso siguiendo el desarrollo dirigido por especificaciones de Kiro. |
-| `/style-ai-writting` | Detecta y corrige texto antinatural generado por IA. |
+| `/style-ai-writing` | Detecta y corrige texto antinatural generado por IA. |
 | `/task` | Lanza agentes dedicados para ejecutar tareas complejas de búsqueda, investigación y análisis de forma autónoma. |
 | `/tech-debt` | Analiza la deuda técnica del proyecto y crea un plan de mejora priorizado. |
 | `/ultrathink` | Ejecuta un proceso de pensamiento estructurado y gradual para problemas complejos o decisiones importantes. |

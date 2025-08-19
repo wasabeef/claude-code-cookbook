@@ -54,7 +54,7 @@ Stored as Markdown files in the `/commands` directory. Execute by entering the f
 | `/smart-review` | Perform advanced reviews to improve code quality. |
 | `/spec` | Create detailed specifications step by step from requirements, following Kiro's spec-driven development. |
 | `/style-ai-writing` | Detect and correct unnatural AI-generated text. |
-| `/task` |启动 dedicated agents to autonomously execute complex search, research, and analysis tasks. |
+| `/task` | Launch dedicated agents to autonomously execute complex search, research, and analysis tasks. |
 | `/tech-debt` | Analyze project technical debt and create prioritized improvement plans. |
 | `/ultrathink` | Perform step-by-step structured thinking processes for complex issues and important decisions. |
 | `/update-dart-doc` | Systematically manage DartDoc comments in Dart files and maintain high-quality Japanese documentation. |
