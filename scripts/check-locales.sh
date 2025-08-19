@@ -357,6 +357,92 @@ check_language_content() {
   esac
 }
 
+# Function to check language codes in specific command files
+check_language_codes() {
+  local locale="$1"
+  local locale_dir="$LOCALES_DIR/$locale"
+  
+  print_info "Checking language codes in command files for $locale..."
+  
+  # Files that should have language-specific --lang options
+  local target_files=("semantic-commit.md" "commit-message.md" "pr-auto-update.md" "update-doc-string.md")
+  local issues_found=0
+  
+  # Define expected language codes for each locale
+  local expected_lang=""
+  local allow_ja_in_option=false
+  case "$locale" in
+    ja) 
+      expected_lang="ja"
+      allow_ja_in_option=true
+      ;;
+    en) 
+      expected_lang="en"
+      # English version should only support English
+      ;;
+    es) expected_lang="es" ;;
+    fr) expected_lang="fr" ;;
+    ko) expected_lang="ko" ;;
+    pt) expected_lang="pt" ;;
+    zh-cn) expected_lang="zh-cn" ;;
+    zh-tw) expected_lang="zh-tw" ;;
+    *) expected_lang="$locale" ;;
+  esac
+  
+  for file in "${target_files[@]}"; do
+    local file_path="$locale_dir/commands/$file"
+    if [[ -f "$file_path" ]]; then
+      # Check for incorrect language codes
+      if [[ "$locale" == "en" ]]; then
+        # English version should only have 'en', not 'ja' or other languages
+        if grep -qE "\-\-lang.*[\(（].*[,，]" "$file_path" 2>/dev/null; then
+          print_error "$file contains multiple language options in English version (should be 'en' only)"
+          issues_found=$((issues_found + 1))
+        fi
+        if grep -qE "\-\-lang.*[\(（].*ja[,\)）]" "$file_path" 2>/dev/null; then
+          print_error "$file contains Japanese language code 'ja' in English version"
+          issues_found=$((issues_found + 1))
+        fi
+      elif [[ "$locale" != "ja" ]]; then
+        # Non-Japanese, non-English locales should not have 'ja'
+        if grep -qE "\-\-lang.*[\(（].*ja[,\)）]" "$file_path" 2>/dev/null; then
+          print_error "$file contains Japanese language code 'ja' instead of '$expected_lang'"
+          issues_found=$((issues_found + 1))
+        fi
+        
+        # Check for JSON examples with "language": "ja"
+        if grep -qE '"language":\s*"ja"' "$file_path" 2>/dev/null; then
+          print_error "$file contains JSON with Japanese language code in 'language' field"
+          issues_found=$((issues_found + 1))
+        fi
+        
+        # Check if the file contains the correct language code
+        # Look for patterns like (en, pt) or <en|pt> or （en, zh-cn）(full-width parentheses)
+        if ! grep -qE "(\-\-lang.*[\(（].*$expected_lang[,\)）]|\-\-lang.*<.*\|?$expected_lang>)" "$file_path" 2>/dev/null; then
+          print_warning "$file may be missing the correct language code '$expected_lang'"
+          WARNINGS=$((WARNINGS + 1))
+        fi
+        
+        # Special check for update-doc-string.md - DOC_LANGUAGE variable
+        if [[ "$file" == "update-doc-string.md" ]]; then
+          if grep -qE 'DOC_LANGUAGE="ja"' "$file_path" 2>/dev/null; then
+            print_error "$file contains DOC_LANGUAGE=\"ja\" instead of \"$expected_lang\""
+            issues_found=$((issues_found + 1))
+          fi
+        fi
+      fi
+    fi
+  done
+  
+  TOTAL_CHECKS=$((TOTAL_CHECKS + 1))
+  if [[ $issues_found -eq 0 ]]; then
+    print_success "All language codes are correct for $locale"
+  else
+    print_error "Found $issues_found language code issues in $locale"
+    ERRORS=$((ERRORS + 1))
+  fi
+}
+
 # Function to compare with Japanese base files
 compare_with_base() {
   local locale="$1"
@@ -906,6 +992,7 @@ main() {
           check_structure "$locale"
           count_files "$locale"
           check_language_content "$locale"
+          check_language_codes "$locale"
           check_quality_metrics "$locale"
           check_translation_completeness "$locale"
           check_documentation_files "$locale"
@@ -945,6 +1032,7 @@ main() {
     check_structure "$locale"
     count_files "$locale"
     check_language_content "$locale"
+    check_language_codes "$locale"
     check_quality_metrics "$locale"
     check_translation_completeness "$locale"
     check_documentation_files "$locale"

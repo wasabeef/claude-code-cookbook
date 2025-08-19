@@ -11,7 +11,7 @@ Genera mensajes de commit a partir de cambios staged (git diff --staged). Este c
 ### Opciones
 
 - `--format <formato>` : Elegir formato de mensaje (conventional, gitmoji, angular)
-- `--lang <idioma>` : Establecer idioma explícitamente (en, es, ja)
+- `--lang <idioma>` : Establecer idioma explícitamente (en, es)
 - `--breaking` : Incluir detección de cambios disruptivos
 
 ### Ejemplos Básicos

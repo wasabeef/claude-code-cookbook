@@ -11,7 +11,7 @@
 ### 选项
 
 - `--dry-run` : 不实际提交，仅显示建议的提交拆分
-- `--lang <语言>` : 强制指定提交消息语言（en, ja）
+- `--lang <语言>` : 强制指定提交消息语言（en, zh-cn）
 - `--max-commits <数>` : 指定最大提交数（默认: 10）
 
 ### 基本示例
@@ -23,8 +23,8 @@
 # 仅确认拆分方案（不实际提交）
 /semantic-commit --dry-run
 
-# 用英文生成提交消息
-/semantic-commit --lang en
+# 用中文生成提交消息
+/semantic-commit --lang zh-cn
 
 # 最多拆分为 5 个提交
 /semantic-commit --max-commits 5
@@ -633,8 +633,8 @@ docs: 更新 API 文档
    ```bash
    # 分析最近 20 个提交的语言
    git log --oneline -20 --pretty=format:"%s" | \
-   grep -E '[一-龥]' | wc -l
-   # 50% 以上是中文则使用中文模式
+   grep -E '[一-龥]|添加|修复|更新|删除|实现|优化|重构|测试|文档' | wc -l
+   # 50% 以上包含中文字符或中文技术词汇则使用中文模式
    ```
 
 3. **项目文件**的语言设置
@@ -651,7 +651,7 @@ docs: 更新 API 文档
 
    ```bash
    # 确认变更文件的注释语言
-   git diff HEAD | grep -E '^[+-].*//.*[一-龥]' | wc -l
+   git diff HEAD | grep -E '^[+-].*//.*[一-龥]|^[+-].*//.*添加|^[+-].*//.*修复|^[+-].*//.*更新' | wc -l
    ```
 
 #### 判定算法
@@ -667,7 +667,7 @@ fi
 
 # 2. git log 分析（最大 +2 分）
 CHINESE_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
-  grep -cE '[一-龥]' 2>/dev/null || echo 0)
+  grep -cE '[一-龥]|添加|修复|更新|删除|实现|优化|重构|测试|文档' 2>/dev/null || echo 0)
 if [ $CHINESE_COMMITS -gt 10 ]; then
   CHINESE_SCORE=$((CHINESE_SCORE + 2))
 elif [ $CHINESE_COMMITS -gt 5 ]; then
@@ -680,7 +680,7 @@ if head -5 README.md 2>/dev/null | grep -qE '[一-龥]'; then
 fi
 
 # 4. 变更文件内容确认（+1 分）
-if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[一-龥]'; then
+if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[一-龥]|^[+-].*添加|^[+-].*修复|^[+-].*更新'; then
   CHINESE_SCORE=$((CHINESE_SCORE + 1))
 fi
 

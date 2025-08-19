@@ -11,7 +11,7 @@ Divide grandes mudanças em unidades mínimas significativas e faz commits seque
 ### Opções
 
 - `--dry-run` : Mostra apenas as divisões de commit propostas sem fazer commits reais
-- `--lang <idioma>` : Força especificação do idioma das mensagens de commit (en, ja)
+- `--lang <idioma>` : Força especificação do idioma das mensagens de commit (en, pt)
 - `--max-commits <número>` : Especifica o número máximo de commits (padrão: 10)
 
 ### Exemplos Básicos
@@ -684,7 +684,7 @@ if git diff HEAD 2>/dev/null | grep -qE '^[+-].*(ção|ões|agem|ário|ória|ên
   PORTUGUESE_SCORE=$((PORTUGUESE_SCORE + 1))
 fi
 
-# Detecção: 3 pontos ou mais para modo japonês
+# Detecção: 3 pontos ou mais para modo português
 if [ $PORTUGUESE_SCORE -ge 3 ]; then
   LANGUAGE="pt"
 else
@@ -808,7 +808,7 @@ Quando nenhum arquivo de configuração é encontrado:
    ```
 
 3. **Detecção de idioma**
-   - Commits em japonês 50% ou mais → modo japonês
+   - Commits em português 50% ou mais → modo português
    - Outros → modo inglês
 
 ### Pré-requisitos

@@ -11,7 +11,7 @@
 ### 选项
 
 - `--format <格式>` : 指定消息格式（conventional, gitmoji, angular）
-- `--lang <语言>` : 强制指定消息语言（en, ja）
+- `--lang <语言>` : 强制指定消息语言（en, zh-cn）
 - `--breaking` : 检测并记录 Breaking Change
 
 ### 基本示例
@@ -22,7 +22,7 @@
 /commit-message
 
 # 强制指定语言
-/commit-message --lang ja
+/commit-message --lang zh-cn
 /commit-message --lang en
 
 # 检测 Breaking Change
@@ -332,7 +332,7 @@ git add -p  # 交互式暂存
 
 # 仅暂存特定文件后分析
 git add src/auth/*.js
-/commit-message --lang en
+/commit-message --lang zh-cn
 "为认证相关更改生成合适的消息"
 
 # Breaking Change 检测和应对

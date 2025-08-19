@@ -11,7 +11,7 @@
 ### 選項
 
 - `--dry-run` : 不實際提交，仅顯示建議的提交拆分
-- `--lang <語言>` : 強制指定提交消息語言（en, ja）
+- `--lang <語言>` : 強制指定提交消息語言（en, zh-tw）
 - `--max-commits <數>` : 指定最大提交數（默認: 10）
 
 ### 基本示例
@@ -23,8 +23,8 @@
 # 仅確認拆分方案（不實際提交）
 /semantic-commit --dry-run
 
-# 用英文生成提交消息
-/semantic-commit --lang en
+# 用繁体字中文生成提交消息
+/semantic-commit --lang zh-tw
 
 # 最多拆分為 5 個提交
 /semantic-commit --max-commits 5
@@ -631,62 +631,62 @@ docs: 更新 API 文檔
 2. **通過 git log 分析**自動判定
 
    ```bash
-   # 分析最近 20 個提交的語言
+   # 分析最近 20 個提交的語言（繁体字中文）
    git log --oneline -20 --pretty=format:"%s" | \
-   grep -E '[一-龥]' | wc -l
-   # 50% 以上是中文則使用中文模式
+   grep -E '[一-龯]' | wc -l
+   # 50% 以上是繁体字中文則使用繁体字中文模式
    ```
 
 3. **項目文件**的語言設置
 
    ```bash
-   # 確認 README.md 的語言
-   head -10 README.md | grep -E '[一-龥]' | wc -l
+   # 確認 README.md 的語言（繁体字中文）
+   head -10 README.md | grep -E '[一-龯]' | wc -l
    
-   # 確認 package.json 的 description
-   grep -E '"description".*[一-龥]' package.json
+   # 確認 package.json 的 description（繁体字中文）
+   grep -E '"description".*[一-龯]' package.json
    ```
 
 4. **變更文件內**的注釋·字符串分析
 
    ```bash
-   # 確認變更文件的注釋語言
-   git diff HEAD | grep -E '^[+-].*//.*[一-龥]' | wc -l
+   # 確認變更文件的注釋語言（繁体字中文）
+   git diff HEAD | grep -E '^[+-].*//.*[一-龯]' | wc -l
    ```
 
 #### 判定算法
 
 ```bash
-# 語言判定分數計算
-CHINESE_SCORE=0
+# 語言判定分數計算（繁体字中文）
+ZH_TW_SCORE=0
 
 # 1. CommitLint 配置（+3 分）
 if grep -q '"subject-case".*\[0\]' commitlint.config.* 2>/dev/null; then
-  CHINESE_SCORE=$((CHINESE_SCORE + 3))
+  ZH_TW_SCORE=$((ZH_TW_SCORE + 3))
 fi
 
 # 2. git log 分析（最大 +2 分）
-CHINESE_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
-  grep -cE '[一-龥]' 2>/dev/null || echo 0)
-if [ $CHINESE_COMMITS -gt 10 ]; then
-  CHINESE_SCORE=$((CHINESE_SCORE + 2))
-elif [ $CHINESE_COMMITS -gt 5 ]; then
-  CHINESE_SCORE=$((CHINESE_SCORE + 1))
+ZH_TW_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
+  grep -cE '[一-龯]' 2>/dev/null || echo 0)
+if [ $ZH_TW_COMMITS -gt 10 ]; then
+  ZH_TW_SCORE=$((ZH_TW_SCORE + 2))
+elif [ $ZH_TW_COMMITS -gt 5 ]; then
+  ZH_TW_SCORE=$((ZH_TW_SCORE + 1))
 fi
 
 # 3. README.md 確認（+1 分）
-if head -5 README.md 2>/dev/null | grep -qE '[一-龥]'; then
-  CHINESE_SCORE=$((CHINESE_SCORE + 1))
+if head -5 README.md 2>/dev/null | grep -qE '[一-龯]'; then
+  ZH_TW_SCORE=$((ZH_TW_SCORE + 1))
 fi
 
 # 4. 變更文件內容確認（+1 分）
-if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[一-龥]'; then
-  CHINESE_SCORE=$((CHINESE_SCORE + 1))
+if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[一-龯]'; then
+  ZH_TW_SCORE=$((ZH_TW_SCORE + 1))
 fi
 
-# 判定: 3 分以上為中文模式
-if [ $CHINESE_SCORE -ge 3 ]; then
-  LANGUAGE="zh"
+# 判定: 3 分以上為繁体字中文模式
+if [ $ZH_TW_SCORE -ge 3 ]; then
+  LANGUAGE="zh-tw"
 else
   LANGUAGE="en"
 fi

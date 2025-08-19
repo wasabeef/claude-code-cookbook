@@ -11,7 +11,7 @@ Generates commit messages from staged changes (git diff --staged). This command 
 ### Options
 
 - `--format <format>` : Choose message format (conventional, gitmoji, angular)
-- `--lang <language>` : Set language explicitly (en, ja)
+- `--lang <language>` : Set language explicitly (en)
 - `--breaking` : Include breaking change detection
 
 ### Basic Examples

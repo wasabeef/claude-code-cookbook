@@ -11,7 +11,7 @@
 ### 옵션
 
 - `--format <형식>` : 메시지 형식 지정（conventional, gitmoji, angular）
-- `--lang <언어>` : 메시지 언어 강제 지정（en, ja, ko）
+- `--lang <언어>` : 메시지 언어 강제 지정（en, ko）
 - `--breaking` : Breaking Change 감지 및 표시
 
 ### 기본 예제

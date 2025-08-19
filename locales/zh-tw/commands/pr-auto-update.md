@@ -16,7 +16,7 @@
 - `--description-only` : 仅更新描述（不修改標簽）
 - `--labels-only` : 仅更新標簽（不修改描述）
 - `--dry-run` : 不執行實際更新，仅顯示生成的內容
-- `--lang <語言>` : 指定語言（ja, en）
+- `--lang <語言>` : 指定語言（zh-tw, en）
 
 ### 基本示例
 
@@ -336,7 +336,7 @@ update_pr() {
 
 ```json
 {
-  "language": "ja",
+  "language": "zh-tw",
   "max_labels": 3
 }
 ```

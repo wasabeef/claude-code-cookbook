@@ -11,7 +11,7 @@ Breaks big changes into small, meaningful commits with proper messages. Uses onl
 ### Options
 
 - `--dry-run`: Show proposed commit splits without actually committing
-- `--lang <language>`: Force language for commit messages (en, ja)
+- `--lang <language>`: Force language for commit messages (en)
 - `--max-commits <number>`: Specify maximum number of commits (default: 10)
 
 ### Basic Examples

@@ -11,7 +11,7 @@
 ### 選項
 
 - `--format <格式>` : 指定消息格式（conventional, gitmoji, angular）
-- `--lang <語言>` : 強制指定消息語言（en, ja）
+- `--lang <語言>` : 強制指定消息語言（en, zh-tw）
 - `--breaking` : 檢測並記錄 Breaking Change
 
 ### 基本示例
@@ -22,7 +22,7 @@
 /commit-message
 
 # 強制指定語言
-/commit-message --lang ja
+/commit-message --lang zh-tw
 /commit-message --lang en
 
 # 檢測 Breaking Change
@@ -99,11 +99,11 @@ export default {
 #### 3. 語言設置檢測
 
 ```javascript
-// 項目使用中文消息時
+// 項目使用繁体字中文消息時
 export default {
   rules: {
-    'subject-case': [0],  // 為支持中文而禁用
-    'subject-max-length': [2, 'always', 72]  // 為中文調整字符數限制
+    'subject-case': [0],  // 為支持繁体字中文而禁用
+    'subject-max-length': [2, 'always', 72]  // 為繁体字中文調整字符數限制
   }
 }
 ```
@@ -122,14 +122,14 @@ sort | uniq -c | sort -nr
 
 ### 語言自動判定
 
-根據以下條件自動切換中文/英文：
+根據以下條件自動切換繁体字中文/英文：
 
 1. **CommitLint 配置**中的語言設置
 2. **git log 分析**的自動判定
 3. **項目文件**的語言設置
 4. **更改文件**中的注釋和字符串分析
 
-默認為英文。判定為中文項目時生成中文消息。
+默認為英文。判定為繁体字中文項目時生成繁体字中文消息。
 
 ### 消息格式
 
@@ -203,7 +203,7 @@ $COMMIT_MESSAGE
 EOF
 ```
 
-### 輸出示例（中文項目）
+### 輸出示例（繁体字中文項目）
 
 ```bash
 $ /commit-message
@@ -282,7 +282,7 @@ BREAKING CHANGE: user response now includes additional metadata
 feat(api)!: change authentication flow
 ```
 
-**中文**:
+**繁体字中文**:
 
 ```bash
 feat!: 更改用戶 API 響應格式
@@ -314,7 +314,7 @@ fix: resolve memory leak in cache manager
 docs: update API documentation
 ```
 
-**中文**:
+**繁体字中文**:
 
 ```
 feat: 添加用戶注冊端點
@@ -332,7 +332,7 @@ git add -p  # 交互式暂存
 
 # 仅暂存特定文件後分析
 git add src/auth/*.js
-/commit-message --lang en
+/commit-message --lang zh-tw
 "為認證相關更改生成合適的消息"
 
 # Breaking Change 檢測和應對

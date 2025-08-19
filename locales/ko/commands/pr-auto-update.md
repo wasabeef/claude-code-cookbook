@@ -16,7 +16,7 @@ Pull Request 의 설명과 라벨을 자동으로 업데이트하는 명령어�
 - `--description-only` : 설명문만 업데이트 (라벨은 변경하지 않음)
 - `--labels-only` : 라벨만 업데이트 (설명문은 변경하지 않음)
 - `--dry-run` : 실제 업데이트는 하지 않고 생성될 내용만 표시
-- `--lang <언어>` : 언어 지정 (ja, en)
+- `--lang <언어>` : 언어 지정 (ko, en)
 
 ### 기본 예제
 
@@ -336,7 +336,7 @@ update_pr() {
 
 ```json
 {
-  "language": "ja",
+  "language": "ko",
   "max_labels": 3
 }
 ```

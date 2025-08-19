@@ -16,7 +16,7 @@ Comando para atualizar automaticamente a descrição e rótulos de Pull Requests
 - `--description-only` : Atualiza apenas a descrição (não altera os rótulos)
 - `--labels-only` : Atualiza apenas os rótulos (não altera a descrição)
 - `--dry-run` : Não executa a atualização real, apenas exibe o conteúdo que seria gerado
-- `--lang <idioma>` : Especifica o idioma (ja, en)
+- `--lang <idioma>` : Especifica o idioma (pt, en)
 
 ### Exemplos Básicos
 
@@ -336,7 +336,7 @@ update_pr() {
 
 ```json
 {
-  "language": "ja",
+  "language": "pt",
   "max_labels": 3
 }
 ```

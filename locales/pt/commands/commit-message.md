@@ -11,7 +11,7 @@ Gera mensagens de commit apropriadas a partir de mudanças staged (git diff --st
 ### Opções
 
 - `--format <formato>` : Especifica formato da mensagem (conventional, gitmoji, angular)
-- `--lang <idioma>` : Força especificação do idioma da mensagem (en, ja)
+- `--lang <idioma>` : Força especificação do idioma da mensagem (en, pt)
 - `--breaking` : Detecção e descrição de Breaking Change
 
 ### Exemplos Básicos
@@ -22,7 +22,7 @@ Gera mensagens de commit apropriadas a partir de mudanças staged (git diff --st
 /commit-message
 
 # Forçar especificação de idioma
-/commit-message --lang ja
+/commit-message --lang pt
 /commit-message --lang en
 
 # Detectar Breaking Change

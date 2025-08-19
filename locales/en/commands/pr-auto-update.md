@@ -16,7 +16,7 @@ A command that automatically updates Pull Request descriptions and labels. Analy
 - `--description-only`: Update only the description (keep labels unchanged)
 - `--labels-only`: Update only labels (keep description unchanged)
 - `--dry-run`: Show generated content without making actual updates
-- `--lang <language>`: Specify language (ja, en)
+- `--lang <language>`: Specify language (en)
 
 ### Basic Examples
 

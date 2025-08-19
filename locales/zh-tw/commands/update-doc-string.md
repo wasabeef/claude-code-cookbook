@@ -18,7 +18,7 @@
 
 ### 選項
 
-- `--lang <en|ja>` : 文檔記述語言（默認：從現有注釋自動判定，無則為 en）
+- `--lang <en|zh-tw>` : 文檔記述語言（默認：從現有注釋自動判定，無則為 en）
 - `--style <風格>` : 指定文檔風格（有語言特定的默認值）
 - `--marker <true|false>` : 是否添加 Claude 標記（默認：true）
 
@@ -232,10 +232,10 @@ UPDATED_COMMENTS=0
 ERRORS=0
 
 # 從現有注釋自動判定語言
-# 檢測中文字符（平假名、片假名、汉字）則為 ja，否則為 en
+# 檢測中文字符則為 zh-tw，否則為 en
 DOC_LANGUAGE="en"  # 默認
 if grep -r '[一-龥]' --include="*.py" --include="*.js" --include="*.ts" --include="*.dart" --include="*.go" --include="*.rs" . 2>/dev/null | head -n 1; then
-  DOC_LANGUAGE="ja"
+  DOC_LANGUAGE="zh-tw"
 fi
 
 # 自動檢測編程語言並執行靜態分析
@@ -293,7 +293,7 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" \)
 "Update docstrings following language-specific best practices"
 
 # 明確指定中文文檔
-/update-doc-string --lang ja
+/update-doc-string --lang zh-tw
 「按照語言特定的最佳實践更新這個項目的 docstring」
 
 # 不带標記執行（自動判定語言）

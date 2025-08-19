@@ -18,7 +18,7 @@ Gerencia sistematicamente docstrings/comentários multilíngues e mantém docume
 
 ### Opções
 
-- `--lang <en|ja>` : Idioma de descrição da documentação (padrão: detecção automática dos comentários existentes, en se não houver)
+- `--lang <en|pt>` : Idioma de descrição da documentação (padrão: detecção automática dos comentários existentes, pt se não houver)
 - `--style <estilo>` : Especificar estilo de documentação (com padrões específicos por idioma)
 - `--marker <true|false>` : Se deve adicionar marcadores Claude (padrão: true)
 
@@ -293,7 +293,7 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" \)
 "Update docstrings following language-specific best practices"
 
 # Execução explícita em japonês
-/update-doc-string --lang ja
+/update-doc-string --lang pt
 "Atualize as docstrings deste projeto seguindo as melhores práticas específicas de cada linguagem"
 
 # Execução sem marcador (detecção automática de idioma)

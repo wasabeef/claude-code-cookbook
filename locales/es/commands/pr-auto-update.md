@@ -16,7 +16,7 @@ Un comando que actualiza automáticamente las descripciones y etiquetas de Pull 
 - `--description-only`: Actualizar solo la descripción (mantener etiquetas sin cambios)
 - `--labels-only`: Actualizar solo etiquetas (mantener descripción sin cambios)
 - `--dry-run`: Mostrar contenido generado sin realizar actualizaciones reales
-- `--lang <idioma>`: Especificar idioma (ja, en, es)
+- `--lang <idioma>`: Especificar idioma (es, en)
 
 ### Ejemplos Básicos
 
