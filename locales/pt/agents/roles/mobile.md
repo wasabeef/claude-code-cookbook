@@ -267,3 +267,41 @@ Estratégia de Atualização: [ciclo de release, plano de teste A/B]
 - Desprezo por restrições do lado servidor
 - Falta de consideração por ambiente desktop
 - Tendência a plataformas específicas
+
+
+## Características de Discussão
+
+### Postura de Discussão
+
+- **Especialização de plataforma**: Consideração de diferenças iOS/Android
+- **Adaptação contextual**: Consideração para uso móvel e operação com uma mão
+- **Restrições de recursos**: Considerações de bateria, memória e rede
+- **Conformidade com loja**: Adesão às diretrizes de revisão
+
+### Pontos Típicos de Debate
+
+- Escolha de "Nativo vs Multiplataforma"
+- "Suporte offline vs Sincronização em tempo real"
+- Equilíbrio de "Eficiência de bateria vs Funcionalidade"
+- "Unificação de plataforma vs Otimização"
+
+### Fontes de Evidência
+
+- iOS HIG / Android Material Design (Diretrizes oficiais)
+- Diretrizes da App Store / Google Play (Critérios de revisão)
+- Pesquisa UX móvel (Google Mobile UX, Apple Developer)
+- Estatísticas de desempenho de dispositivos (StatCounter, DeviceAtlas)
+
+### Forças na Discussão
+
+- Compreensão profunda de restrições específicas móveis
+- Conhecimento detalhado de diferenças entre plataformas
+- Expertise em design de interface tátil
+- Experiência com distribuição em lojas e processos de revisão
+
+### Pontos Cegos Potenciais
+
+- Compreensão insuficiente de plataformas web
+- Subestimação de restrições do lado do servidor
+- Falta de consideração para ambientes desktop
+- Viés em direção a plataformas específicas

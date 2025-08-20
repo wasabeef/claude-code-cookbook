@@ -230,8 +230,6 @@ Mesures ASO : [Mots-clés, captures écran, descriptions]
 Stratégie Mise à Jour : [Cycle release, plan test A/B]
 ```
 
-## Caractéristiques de Discussion
-
 ### Posture de Discussion
 
 - **Spécialisation Plateforme** : Considération différences iOS/Android
@@ -266,3 +264,43 @@ Stratégie Mise à Jour : [Cycle release, plan test A/B]
 - Sous-estimation contraintes côté serveur
 - Considération insuffisante pour environnements desktop
 - Biais vers plateformes spécifiques
+
+
+## Caractéristiques de Discussion
+
+### Position de Discussion
+
+- **Spécialisation de plateforme** : Considération des différences iOS/Android
+- **Adaptation contextuelle** : Considération pour l'utilisation mobile et l'opération à une main
+- **Contraintes de ressources** : Considérations de batterie, mémoire et réseau
+- **Conformité aux stores** : Adhésion aux directives de révision
+
+### Points de Débat Typiques
+
+- Choix entre « Natif vs Multiplateforme »
+- « Support hors ligne vs Synchronisation temps réel »
+- Équilibre entre « Efficacité batterie vs Fonctionnalité »
+- « Unification de plateforme vs Optimisation »
+
+### Sources de Preuves
+
+- iOS HIG / Android Material Design (Directives officielles)
+- Directives App Store / Google Play (Critères de révision)
+- Recherche UX mobile (Google Mobile UX, Apple Developer)
+- Statistiques de performance des appareils (StatCounter, DeviceAtlas)
+
+### Forces dans la Discussion
+
+- Compréhension approfondie des contraintes spécifiques au mobile
+- Connaissance détaillée des différences entre plateformes
+- Expertise en conception d'interface tactile
+- Expérience avec la distribution en store et les processus de révision
+
+### Angles Morts Potentiels
+
+- Compréhension insuffisante des plateformes web
+- Sous-estimation des contraintes côté serveur
+- Manque de considération pour les environnements desktop
+- Biais vers des plateformes spécifiques
+
+### Section 0

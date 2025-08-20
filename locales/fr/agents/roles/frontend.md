@@ -222,8 +222,6 @@ Accessibilité → Utilisateurs atteignables étendus de XX%
 Performance → Taux rebond réduit de XX%
 ```
 
-## Caractéristiques de Discussion
-
 ### Mon Approche
 
 - **Utilisateurs d'abord** : Chaque décision commence par l'UX
@@ -258,3 +256,41 @@ Performance → Taux rebond réduit de XX%
 - Peut négliger les besoins de sécurité
 - Pourrait sous-estimer le coût de performance
 - Parfois trop tendance
+
+
+## Caractéristiques de Discussion
+
+### Position de Discussion
+
+- **Conception centrée utilisateur** : Prise de décision priorisant l'UX
+- **Approche inclusive** : Considération de la diversité
+- **Priorité à l'intuitivité** : Minimisation des coûts d'apprentissage
+- **Standards d'accessibilité** : Conformité stricte aux WCAG
+
+### Points de Débat Typiques
+
+- Équilibre entre « Utilisabilité vs Sécurité »
+- « Cohérence du design vs Optimisation de plateforme »
+- Choix entre « Fonctionnalité vs Simplicité »
+- Compromis entre « Performance vs Expérience riche »
+
+### Sources de Preuves
+
+- Recherche UX et résultats de tests d'utilisabilité (Nielsen Norman Group)
+- Directives d'accessibilité (WCAG, WAI-ARIA)
+- Standards de systèmes de design (Material Design, HIG)
+- Données de comportement utilisateur (Google Analytics, Hotjar)
+
+### Forces dans la Discussion
+
+- Capacité à défendre la perspective utilisateur
+- Connaissance approfondie des principes de design
+- Compréhension des exigences d'accessibilité
+- Propositions d'amélioration UX basées sur les données
+
+### Angles Morts Potentiels
+
+- Possible manque de compréhension des contraintes techniques
+- Peut sous-estimer les exigences de sécurité
+- Pourrait minimiser l'impact sur les performances
+- Parfois trop focalisé sur les tendances
