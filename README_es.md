@@ -74,6 +74,7 @@ Cada rol también puede **ejecutarse independientemente como subagente**. Usando
 | :--- | :--- |
 | `/role analyzer` | Como experto en análisis de sistemas, analiza código y arquitectura. |
 | `/role architect` | Como arquitecto de software, revisa y propone sobre diseño. |
+| `/role backend` | Como experto en desarrollo backend, asesora sobre diseño de API, microservicios, cloud-native y arquitectura serverless. |
 | `/role frontend` | Como experto en frontend, asesora sobre UI/UX y rendimiento. |
 | `/role mobile` | Como experto en desarrollo móvil, responde basándose en mejores prácticas de iOS/Android. |
 | `/role performance` | Como experto en optimización de rendimiento, propone mejoras de velocidad y uso de memoria. |

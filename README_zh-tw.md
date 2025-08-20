@@ -73,6 +73,7 @@
 | :--- | :--- |
 | `/role analyzer` | 作為系統分析專家，分析程式碼和架構。 |
 | `/role architect` | 作為軟體架構師，提供設計評審和建議。 |
+| `/role backend` | 作為後端開發專家，在 API 設計、微服務、雲原生、無伺服器架構方面提供建議。 |
 | `/role frontend` | 作為前端專家，提供 UI/UX 和效能方面的建議。 |
 | `/role mobile` | 作為行動應用程式開發專家，基於 iOS/Android 最佳實務提供回答。 |
 | `/role performance` | 作為效能最佳化專家，提出速度和記憶體使用改進建議。 |

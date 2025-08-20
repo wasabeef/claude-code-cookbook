@@ -73,6 +73,7 @@
 | :--- | :--- |
 | `/role analyzer` | 作为系统分析专家，分析代码和架构。 |
 | `/role architect` | 作为软件架构师，提供设计评审和建议。 |
+| `/role backend` | 作为后端开发专家，在 API 设计、微服务、云原生、无服务器架构方面提供建议。 |
 | `/role frontend` | 作为前端专家，提供 UI/UX 和性能方面的建议。 |
 | `/role mobile` | 作为移动应用开发专家，基于 iOS/Android 最佳实践提供回答。 |
 | `/role performance` | 作为性能优化专家，提出速度和内存使用改进建议。 |

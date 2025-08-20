@@ -73,6 +73,7 @@ Each role can also be executed **independently as a sub-agent**. Using the `--ag
 | :--- | :--- |
 | `/role analyzer` | Analyze code and architecture as a system analysis expert. |
 | `/role architect` | Review and propose designs as a software architect. |
+| `/role backend` | Provide advice on API design, microservices, cloud-native, and serverless architecture as a backend development expert. |
 | `/role frontend` | Advise on UI/UX and performance as a frontend expert. |
 | `/role mobile` | Answer based on iOS/Android best practices as a mobile app development expert. |
 | `/role performance` | Suggest improvements to speed and memory usage as a performance optimization expert. |

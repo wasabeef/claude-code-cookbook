@@ -74,6 +74,7 @@ Cada papel pode ser **executado de forma independente como subagente**. Com a op
 | :--- | :--- |
 | `/role analyzer` | Como especialista em análise de sistemas, analisa código e arquitetura. |
 | `/role architect` | Como arquiteto de software, fornece revisões e sugestões sobre design. |
+| `/role backend` | Como especialista em desenvolvimento backend, fornece conselhos sobre design de API, microsserviços, cloud-native e arquitetura serverless. |
 | `/role frontend` | Como especialista em frontend, fornece conselhos sobre UI/UX e desempenho. |
 | `/role mobile` | Como especialista em desenvolvimento mobile, responde baseado nas melhores práticas de iOS/Android. |
 | `/role performance` | Como especialista em otimização de desempenho, propõe melhorias de velocidade e uso de memória. |

@@ -73,6 +73,7 @@ Chaque rôle peut également **s'exécuter de façon indépendante comme sous-ag
 | :--- | :--- |
 | `/role analyzer` | En tant qu'expert d'analyse système, analyser le code ou l'architecture. |
 | `/role architect` | En tant qu'architecte logiciel, effectuer des révisions et propositions liées à la conception. |
+| `/role backend` | En tant qu'expert en développement backend, conseiller sur la conception d'API, les microservices, le cloud-native et l'architecture serverless. |
 | `/role frontend` | En tant qu'expert frontend, donner des conseils sur UI/UX et les performances. |
 | `/role mobile` | En tant qu'expert en développement d'applications mobiles, répondre basé sur les meilleures pratiques iOS/Android. |
 | `/role performance` | En tant qu'expert en optimisation de performance, proposer des améliorations de vitesse et d'utilisation mémoire. |
