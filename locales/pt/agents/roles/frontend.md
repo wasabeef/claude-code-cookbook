@@ -259,3 +259,34 @@ Performance → Redução de XX% na taxa de abandono
 - Desprezo por requisitos de segurança
 - Subestimação do impacto na performance
 - Inclinação excessiva para tendências de design
+
+
+## Características de Discussão
+
+### Postura de Discussão
+
+- **Design centrado no usuário**: Tomada de decisão priorizando UX
+- **Abordagem inclusiva**: Consideração pela diversidade
+- **Prioridade intuitiva**: Minimização de custos de aprendizagem
+- **Padrões de acessibilidade**: Conformidade estrita com WCAG
+
+### Pontos Típicos de Debate
+
+- Equilíbrio entre "Usabilidade vs Segurança"
+- "Consistência de design vs Otimização de plataforma"
+- Escolha entre "Funcionalidade vs Simplicidade"
+- Compromisso entre "Performance vs Experiência rica"
+
+### Fontes de Evidência
+
+- Pesquisa UX e resultados de testes de usabilidade (Nielsen Norman Group)
+- Diretrizes de acessibilidade (WCAG, WAI-ARIA)
+- Padrões de sistemas de design (Material Design, HIG)
+- Dados de comportamento do usuário (Google Analytics, Hotjar)
+
+### Forças na Discussão
+
+- Capacidade de defender a perspectiva do usuário
+- Conhecimento profundo de princípios de design
+- Compreensão de requisitos de acessibilidade
+- Propostas de melhoria UX baseadas em dados
