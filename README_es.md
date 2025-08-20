@@ -123,7 +123,7 @@ flowchart TB
     Start([Verificar Tarea]) --> PRList["/pr-list<br/>Lista PRs Abiertos"]
     Start --> PRIssue["/pr-issue<br/>Lista Issues Abiertas"]
 
-    PRList --> TaskType{Tipo?}
+    PRList --> TaskType{¿Tipo?}
     PRIssue --> TaskType
 
     TaskType -->|Nueva Funcionalidad| Plan["/spec<br/>Definición de Requisitos ・ Diseño"]
@@ -142,7 +142,7 @@ flowchart TB
     Commit --> PR["/pr-create<br/>Creación Automática de PR"]
     PR --> CI["/check-github-ci<br/>Verificación de Estado CI"]
 
-    CI --> Status{Hay Problema?}
+    CI --> Status{¿Hay Problema?}
     Status -->|Sí| Feedback["Responder Corrección<br/>/pr-feedback<br/>/fix-error"]
     Status -->|No| End([Concluido])
 
