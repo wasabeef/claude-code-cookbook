@@ -15,7 +15,7 @@ show_usage() {
   echo "Supported languages:"
   echo "  ja  - Japanese (default)"
   echo "  en  - English"
-  echo "  zh  - Chinese"
+  echo "  zh-cn, zh, cn  - Chinese"
   echo "  ko  - Korean"
   echo "  pt  - Portuguese"
   echo "  es  - Spanish"
@@ -23,7 +23,7 @@ show_usage() {
   echo "Examples:"
   echo "  $0 ja    # Switch to Japanese (default)"
   echo "  $0 en    # Switch to English"
-  echo "  $0 zh    # Switch to Chinese"
+  echo "  $0 zh-cn # Switch to Chinese"
   echo "  $0 ko    # Switch to Korean"
   echo "  $0 pt    # Switch to Portuguese"
   echo "  $0 es    # Switch to Spanish"
@@ -46,8 +46,8 @@ ja | jp)
 en)
   LANG_NAME="English"
   ;;
-zh | cn)
-  LANG_CODE="zh"
+zh | cn | zh-cn)
+  LANG_CODE="zh-cn"
   LANG_NAME="Chinese"
   ;;
 ko | kr)
