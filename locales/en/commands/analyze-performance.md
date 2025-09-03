@@ -1,80 +1,132 @@
 ## Analyze Performance
 
-Finds performance bottlenecks and suggests fixes based on technical debt analysis.
+Analyzes application performance from a user experience perspective and quantifies experience improvements from optimizations. Calculates UX scores based on Core Web Vitals and proposes prioritized optimization strategies.
+
+### UX Performance Score
+
+```
+User Experience Score: B+ (78/100)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏱️ Core Web Vitals
+├─ LCP (Loading): 2.3s [Good] Target<2.5s ✅
+├─ FID (Interaction): 95ms [Good] Target<100ms ✅
+├─ CLS (Visual Stability): 0.08 [Good] Target<0.1 ✅
+├─ FCP (First Paint): 1.8s [Good] Target<1.8s ✅
+├─ TTFB (Server): 450ms [Needs Work] Target<200ms ⚠️
+└─ TTI (Interactive): 3.5s [Needs Work] Target<3.8s ⚠️
+
+📊 Perceived Speed
+├─ Initial Load: 2.3s [Industry avg: 3.0s]
+├─ Page Navigation: 1.1s [Industry avg: 1.5s]
+├─ Search Results: 0.8s [Industry avg: 1.2s]
+├─ Form Submission: 1.5s [Industry avg: 2.0s]
+└─ Image Loading: Lazy loading implemented ✅
+
+😊 User Satisfaction Prediction
+├─ Bounce Rate: 12% (Industry avg: 20%)
+├─ Completion Rate: 78% (Target: 85%)
+├─ NPS Score: +24 (Industry avg: +15)
+└─ Return Rate: 65% (Target: 70%)
+
+📊 User Experience Impact
+├─ 0.5s faster display → -7% bounce rate
+├─ 5% bounce reduction → +15% session length
+├─ Search improvement → +15% time on site
+└─ Overall UX improvement: +25%
+
+🎯 Expected Improvement Effects (Priority Order)
+├─ [P0] TTFB improvement (CDN) → LCP -0.3s = +15% perceived speed
+├─ [P1] JS bundle optimization → TTI -0.8s = -20% interactive time
+├─ [P2] Image optimization (WebP) → -40% transfer = -25% load time
+└─ [P3] Cache strategy → 50% faster repeat visits
+```
 
 ### Usage
 
 ```bash
-# Find performance issues comprehensively
+# Comprehensive UX score analysis
 find . -name "*.js" -o -name "*.ts" | xargs wc -l | sort -rn | head -10
-"Show me the big files and performance problems, then suggest fixes"
+"Calculate UX performance score and evaluate Core Web Vitals"
 
-# Spot inefficient patterns
+# Performance bottleneck detection
 grep -r "for.*await\|forEach.*await" . --include="*.js"
-"Find N+1 queries and other performance killers"
+"Detect async processing bottlenecks and analyze UX impact"
 
-# Check for memory leaks
+# User experience impact analysis
 grep -r "addEventListener\|setInterval" . --include="*.js" | grep -v "removeEventListener\|clearInterval"
-"Where might we have memory leaks and how do we fix them?"
+"Analyze performance impact on user experience"
 ```
 
 ### Basic Examples
 
 ```bash
-# Check bundle size and load time
+# Bundle size and load time
 npm ls --depth=0 && find ./public -name "*.js" -o -name "*.css" | xargs ls -lh
-"How can we shrink bundles and optimize assets?"
+"Identify bundle size and asset optimization improvements"
 
-# Database query performance
+# Database performance
 grep -r "SELECT\|findAll\|query" . --include="*.js" | head -20
-"Which database queries need optimization?"
+"Analyze database query optimization points"
 
 # Dependency performance impact
 npm outdated && npm audit
-"Are outdated dependencies slowing us down?"
+"Evaluate performance impact of outdated dependencies"
 ```
 
-### What We Look For
+### Analysis Perspectives
 
 #### 1. Code-Level Problems
 
-- **O(n²) Algorithms**: Slow array operations that don't scale
-- **Synchronous I/O**: Blocking operations that freeze everything
-- **Redundant Processing**: Doing the same work over and over
-- **Memory Leaks**: Event listeners and timers left running
+- **O(n²) Algorithms**: Detect inefficient array operations
+- **Synchronous I/O**: Identify blocking processes
+- **Redundant Processing**: Remove unnecessary calculations or requests
+- **Memory Leaks**: Manage event listeners and timers
 
-#### 2. Architecture Problems
+#### 2. Architecture-Level Problems
 
-- **N+1 Queries**: Too many database round trips
-- **Missing Cache**: Repeating expensive operations
-- **Bundle Bloat**: Shipping code users don't need
-- **Resource Waste**: Poor connection and thread management
+- **N+1 Queries**: Database access patterns
+- **Missing Cache**: Repeated calculations or API calls
+- **Bundle Size**: Unnecessary libraries or code splitting
+- **Resource Management**: Connection pools and thread usage
 
 #### 3. Technical Debt Impact
 
-- **Legacy Code**: Old implementations dragging us down
-- **Poor Design**: Everything's too tightly coupled
-- **Missing Tests**: Performance regressions slip through
-- **Blind Spots**: Can't see problems until it's too late
+- **Legacy Code**: Performance degradation from old implementations
+- **Design Issues**: High coupling from poor responsibility distribution
+- **Insufficient Testing**: Missing performance regression detection
+- **Monitoring Gaps**: Early problem detection system
 
-### Improvement Priorities
+### Performance Improvement ROI Matrix
 
 ```
-🔴 Critical: System failure risk
-├─ Memory leaks (server crashes)
-├─ N+1 queries (database load)
-└─ Synchronous I/O (response delays)
-
-🟡 High: User experience impact
-├─ Bundle size (initial load time)
-├─ Image optimization (display speed)
-└─ Caching strategy (response speed)
-
-🟢 Medium: Operational efficiency
-├─ Dependency updates (security)
-├─ Code duplication (maintainability)
-└─ Enhanced monitoring (operational load)
+Improvement ROI = (Time Savings + Quality Improvement) ÷ Implementation Effort
 ```
+
+| Priority | UX Impact | Implementation Difficulty | Time Savings | Example | Effort | Effect |
+|----------|-----------|-------------------------|-------------|---------|--------|--------|
+| **[P0] Implement Now** | High | Low | > 50% | CDN implementation | 8h | Response -60% |
+| **[P1] Early Implementation** | High | Medium | 20-50% | Image optimization | 16h | Load -30% |
+| **[P2] Planned Implementation** | Low | High | 10-20% | Code splitting | 40h | Initial -15% |
+| **[P3] Hold/Monitor** | Low | Low | < 10% | Minor optimizations | 20h | Partial -5% |
+
+#### Priority Criteria
+
+- **P0 (Immediate)**: High UX impact × Low difficulty = Maximum ROI
+- **P1 (Early)**: High UX impact × Medium difficulty = High ROI
+- **P2 (Planned)**: Low UX impact × High difficulty = Medium ROI
+- **P3 (Hold)**: Low UX impact × Low difficulty = Low ROI
+
+### Performance Metrics and UX Improvement Correlation
+
+| Metric | Improvement | Perceived Speed | User Satisfaction | Implementation Effort |
+|--------|-------------|-----------------|-------------------|--------------------|
+| **LCP (Loading)** | -0.5s | +30% | -7% bounce rate | 16h |
+| **FID (Interaction)** | -50ms | +15% | -20% stress | 8h |
+| **CLS (Visual Stability)** | -0.05 | +10% | -50% misclicks | 4h |
+| **TTFB (Server)** | -200ms | +25% | +40% perceived speed | 24h |
+| **TTI (Interactive)** | -1.0s | +35% | +15% completion rate | 32h |
+| **Bundle Size** | -30% | +20% | +25% first visit | 16h |
 
 ### Measurement and Tools
 
@@ -108,9 +160,9 @@ grep -r "useMemo\|useCallback" . --include="*.jsx"
 find ./src -name "*.png" -o -name "*.jpg" | xargs ls -lh
 ```
 
-### Keep Improving
+### Continuous Improvement
 
-- **Weekly checks**: Run performance tests regularly
-- **Track metrics**: Watch response times and memory usage
-- **Set alerts**: Get notified when things slow down
-- **Share knowledge**: Document what works and what doesn't
+- **Regular Audits**: Run weekly performance tests
+- **Metrics Collection**: Track response times and memory usage
+- **Alert Setup**: Automatic notifications for threshold violations
+- **Team Sharing**: Document improvement cases and anti-patterns

@@ -1,6 +1,6 @@
 ## Error Fix
 
-Identifica a causa raiz a partir de mensagens de erro e propõe soluções comprovadas.
+Identifica a causa raiz a partir de mensagens de erro, prediz o tempo de resolução e propõe soluções comprovadas. Aprende padrões de erros similares e apresenta imediatamente o método de resolução apropriado.
 
 ### Uso
 
@@ -63,26 +63,79 @@ grep -E "ERROR|WARN" app.log | tail -20
 "Classifique esses erros e avisos por ordem de prioridade e proponha métodos de resolução para cada um"
 ```
 
-### Prioridades na Análise de Erro
+### Previsão de Tempo de Resolução de Erro
 
-#### 🔴 Urgência: Alta (resposta imediata necessária)
+```
+🚀 Correção Imediata（menos de 5 min）
+├─ Erro de digitação, import esquecido
+├─ Variável de ambiente não definida
+├─ Referência a variável indefinida
+└─ Tempo previsto: 2-5 min
 
-- **Parada da aplicação**: Crash, loop infinito, deadlock
-- **Risco de perda de dados**: Erro de banco de dados, corrupção de arquivo
-- **Vulnerabilidade de segurança**: Falha de autenticação, erro de permissão, injeção
-- **Impacto no ambiente de produção**: Falha de deploy, parada de serviço
+⚡ Correção Rápida（menos de 30 min）
+├─ Inconsistência de dependência
+├─ Erro de arquivo de configuração
+├─ Incompatibilidade de tipo
+└─ Tempo previsto: 10-30 min
 
-#### 🟡 Urgência: Média (resposta antecipada recomendada)
+🔧 Investigação Necessária（menos de 2 horas）
+├─ Erro de lógica complexa
+├─ Conflito de processamento assíncrono
+├─ Problema de integração de API
+└─ Tempo previsto: 30 min-2 horas
 
-- **Problemas de performance**: Vazamento de memória, atraso, timeout
-- **Disfunção parcial**: Erro em funcionalidade específica, falha na UI
-- **Redução de eficiência de desenvolvimento**: Erro de build, falha em teste
+🔬 Análise Profunda（mais de meio dia）
+├─ Originado da arquitetura
+├─ Integração multi-sistema
+├─ Degradação de performance
+└─ Tempo previsto: 4 horas-vários dias
+```
 
-#### 🟢 Urgência: Baixa (resposta planejada)
+### Banco de Dados de Padrões de Erro Similares
 
-- **Mensagens de aviso**: deprecation, erro de lint
-- **Limitado ao ambiente de desenvolvimento**: Problema apenas no ambiente local
-- **Risco futuro**: Dívida técnica, problema de manutenibilidade
+```
+Erros Frequentes e Soluções Imediatas
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📊 "Cannot read property 'X' of undefined/null" (Frequência: Muito Alta)
+├─ Causa principal: Falta de verificação de null do objeto
+├─ Tempo de resolução: 5-10 min
+└─ Solução: Adicionar Optional chaining (?.) ou verificação de null
+
+📊 "ECONNREFUSED" / "ENOTFOUND" (Frequência: Alta)
+├─ Causa principal: Serviço não iniciado ou erro de configuração de URL
+├─ Tempo de resolução: 5-15 min
+└─ Solução: Verificar inicialização do serviço, checar variáveis de ambiente
+
+📊 "Module not found" / "Cannot resolve" (Frequência: Alta)
+├─ Causa principal: Pacote não instalado, erro de especificação de caminho
+├─ Tempo de resolução: 2-5 min
+└─ Solução: Executar npm install, verificar caminho relativo
+
+📊 "Unexpected token" / "SyntaxError" (Frequência: Média)
+├─ Causa principal: Parênteses・aspas inconsistentes, uso de palavra reservada
+├─ Tempo de resolução: 2-10 min
+└─ Solução: Verificar syntax highlight, executar Linter
+
+📊 "CORS policy" / "Access-Control-Allow-Origin" (Frequência: Média)
+├─ Causa principal: Falta de configuração CORS no servidor
+├─ Tempo de resolução: 15-30 min
+└─ Solução: Configuração CORS do servidor, configuração de proxy
+
+📊 "Maximum call stack size exceeded" (Frequência: Baixa)
+├─ Causa principal: Loop infinito・recursão, referência circular
+├─ Tempo de resolução: 30 min-2 horas
+└─ Solução: Verificar condição de parada da recursão, resolver referência circular
+```
+
+### Matriz de Prioridade da Análise de Erro
+
+| Prioridade | Ícone | Alcance do Impacto | Dificuldade de Resolução | Prazo de Resposta | Descrição |
+|--------|---------|---------|-----------|---------|------|
+| **Critical** | 🔴 Resposta Urgente | Amplo | Baixa | Iniciar em 15 min | Parada total do sistema, risco de perda de dados |
+| **High Priority** | 🟠 Resposta Antecipada | Amplo | Alta | Iniciar em 1 hora | Parada de funcionalidade principal, impacto em muitos usuários |
+| **Medium** | 🟡 Resposta Planejada | Restrito | Alta | Resposta no mesmo dia | Restrição de funcionalidade parcial, solução alternativa disponível |
+| **Low** | 🟢 Observação | Restrito | Baixa | Na próxima correção | Falha menor, pequeno impacto na UX |
 
 ### Processo de Análise
 
@@ -105,40 +158,40 @@ grep -E "ERROR|WARN" app.log | tail -20
 - Estado de serviços externos
 ```
 
-#### Fase 2: Análise da Causa Raiz
+#### Fase 2: Análise de Causa Raiz
 
-1. **Organização dos sintomas superficiais**
+1. **Organização de Sintomas Superficiais**
    - Conteúdo exato da mensagem de erro
-   - Timing e padrões de ocorrência
-   - Identificação do escopo de impacto
+   - Timing de ocorrência e padrão
+   - Identificação do alcance do impacto
 
-2. **Identificação de causas profundas**
+2. **Identificação de Causa Profunda**
    - Aplicação da análise 5 Whys
-   - Rastreamento de dependências
+   - Rastreamento de relações de dependência
    - Verificação de diferenças ambientais
 
-3. **Verificação de hipóteses**
+3. **Verificação de Hipóteses**
    - Criação de código de reprodução mínima
    - Execução de testes isolados
    - Refinamento da causa
 
-#### Fase 3: Implementação de Soluções
+#### Fase 3: Implementação da Solução
 
 ```bash
-🔴 Tratamento imediato (hotfix):
+🔴 Resposta Imediata（hotfix）:
 - Correção mínima para suprimir sintomas
 - Aplicação de solução temporária
-- Preparação para deploy emergencial
+- Preparação para deploy de emergência
 
-🟡 Solução fundamental:
+🟡 Solução Fundamental:
 - Correção essencial para a causa
 - Adição de casos de teste
-- Atualização da documentação
+- Atualização de documentação
 
-🟢 Implementação de medidas preventivas:
-- Fortalecimento do tratamento de erros
-- Configuração de monitoramento e alertas
-- Melhoria do pipeline CI/CD
+🟢 Implementação de Prevenção:
+- Fortalecimento do tratamento de erro
+- Configuração de monitoramento・alerta
+- Melhoria do pipeline de CI/CD
 ```
 
 ### Exemplo de Saída
@@ -148,81 +201,81 @@ grep -E "ERROR|WARN" app.log | tail -20
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
 📍 Resumo do Erro
-├─ Tipo: [Compilação/Tempo de execução/Lógico/Ambiente]
+├─ Tipo: [Compilação/Runtime/Lógico/Ambiente]
 ├─ Urgência: 🔴 Alta / 🟡 Média / 🟢 Baixa
-├─ Escopo de impacto: [Nome da funcionalidade/Componente]
-└─ Reprodutibilidade: [100% / Intermitente / Condição específica]
+├─ Alcance do Impacto: [Nome da Funcionalidade/Componente]
+└─ Reprodutibilidade: [100% / Intermitente / Condição Específica]
 
 🔍 Causa Raiz
-├─ Causa direta: [Causa específica]
-├─ Fatores de contexto: [Ambiente/Configuração/Dependências]
-└─ Gatilho: [Condições de ocorrência]
+├─ Causa Direta: [Causa específica]
+├─ Fatores de Fundo: [Ambiente/Configuração/Dependência]
+└─ Gatilho: [Condição de ocorrência]
 
-💡 Soluções
-🔴 Tratamento imediato:
-1. [Comando/código de correção específico]
+💡 Solução
+🔴 Resposta Imediata:
+1. [Comando/código de correção específica]
 2. [Solução temporária]
 
-🟡 Solução fundamental:
+🟡 Solução Fundamental:
 1. [Método de correção essencial]
 2. [Refatoração necessária]
 
-🟢 Medidas preventivas:
-1. [Melhoria do tratamento de erros]
-2. [Adição de testes]
+🟢 Prevenção:
+1. [Melhoria do tratamento de erro]
+2. [Adição de teste]
 3. [Configuração de monitoramento]
 
-📝 Procedimentos de Verificação
+📝 Procedimento de Verificação
 1. [Método de verificação após aplicação da correção]
-2. [Comando de execução de testes]
-3. [Itens de verificação de funcionamento]
+2. [Comando de execução de teste]
+3. [Itens de verificação de operação]
 ```
 
-### Métodos de Análise por Tipo de Erro
+### Técnicas de Análise por Tipo de Erro
 
-#### Erros de Compilação/Build
+#### Erro de Compilação/Build
 
 ```bash
 # Erro de tipo TypeScript
-Verificação obrigatória (Alta):
+Verificação obrigatória（Alta）:
 - Configuração do tsconfig.json
-- Existência de arquivos de definição de tipo (.d.ts)
-- Precisão das declarações import
+- Existência de arquivo de definição de tipo（.d.ts）
+- Precisão da declaração import
 
 # Erro de lifetime do Rust
-Verificação obrigatória (Alta):
-- Movimentação de ownership
-- Período de validade de referências
+Verificação obrigatória（Alta）:
+- Movimento de propriedade
+- Período de validade da referência
 - Conflito de mutabilidade
 ```
 
-#### Erros de Tempo de Execução
+#### Erro de Runtime
 
 ```bash
 # Referência Null/Undefined
-Verificação obrigatória (Alta):
+Verificação obrigatória（Alta）:
 - Falta de optional chaining
 - Timing de inicialização
-- Espera pela conclusão de processamento assíncrono
+- Espera pela conclusão do processamento assíncrono
 
-# Erros relacionados à memória
-Verificação obrigatória (Alta):
+# Erro relacionado à memória
+Verificação obrigatória（Alta）:
 - Obtenção de heap dump
 - Análise de log GC
 - Detecção de referência circular
 ```
 
-#### Erros de Dependência
+#### Erro de Dependência
 
 ```bash
 # Conflito de versão
-Verificação obrigatória (Alta):
+Verificação obrigatória（Alta）:
 - Integridade do arquivo lock
 - Requisitos de peer dependencies
-- Dependências transitivas
+- Dependência transitiva
 
 # Erro de resolução de módulo
-Verificação obrigatória (Alta):
+Verificação obrigatória（Alta）:
 - Configuração NODE_PATH
 - Configuração de alias de caminho
 - Link simbólico
@@ -231,25 +284,25 @@ Verificação obrigatória (Alta):
 ### Observações
 
 - **Absolutamente proibido**: Julgamento baseado apenas em parte da mensagem de erro, aplicação de soluções do Stack Overflow sem verificação
-- **Condições de exceção**: Soluções temporárias são permitidas apenas nas seguintes 3 condições:
-  1. Resposta de emergência no ambiente de produção (solução fundamental obrigatória em 24 horas)
-  2. Falha de serviço externo (meio alternativo durante espera pela recuperação)
-  3. Bug conhecido do framework (aguardando lançamento da versão corrigida)
-- **Recomendação**: Priorizar identificação da causa raiz e evitar correções superficiais
+- **Condições de exceção**: Soluções temporárias são permitidas apenas nas seguintes 3 condições
+  1. Resposta de emergência no ambiente de produção（resolução fundamental obrigatória em 24 horas）
+  2. Falha de serviço externo（meio alternativo durante espera de recuperação）
+  3. Bug conhecido do framework（esperando lançamento de versão corrigida）
+- **Recomendação**: Priorizar a identificação da causa raiz e evitar correções superficiais
 
 ### Melhores Práticas
 
 1. **Coleta completa de informações**: Verificar mensagem de erro do início ao fim
-2. **Verificação de reprodutibilidade**: Priorizar criação de código de reprodução mínima
-3. **Abordagem por etapas**: Começar com pequenas correções e verificar
-4. **Documentação**: Registrar o processo de resolução para compartilhar conhecimento
+2. **Confirmação de reprodutibilidade**: Priorizar criação de código de reprodução mínima
+3. **Abordagem gradual**: Começar com pequenas correções e verificar
+4. **Documentação**: Registrar processo de resolução para compartilhamento de conhecimento
 
-#### Armadilhas Comuns
+#### Erros Comuns
 
-- **Tratamento de sintomas**: Correção superficial que perde de vista a causa raiz
-- **Generalização excessiva**: Aplicação ampla de solução para caso específico
-- **Omissão de verificação**: Não verificar efeitos colaterais após correção
-- **Conhecimento personalizado**: Não documentar métodos de resolução
+- **Lidar com sintomas**: Correção superficial que perde a causa raiz
+- **Generalização excessiva**: Aplicar amplamente solução de caso específico
+- **Omitir verificação**: Não verificar efeitos colaterais após correção
+- **Personalização do conhecimento**: Não documentar método de resolução
 
 ### Comandos Relacionados
 
