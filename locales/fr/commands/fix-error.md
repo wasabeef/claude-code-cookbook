@@ -1,6 +1,6 @@
-## Correction d'erreur
+## Error Fix
 
-Analyse les messages d'erreur pour identifier les causes racines et suggérer des corrections éprouvées.
+Identifie la cause racine du message d'erreur, prédit le temps de résolution et propose des solutions éprouvées. Apprend les modèles d'erreurs similaires et présente immédiatement la solution appropriée.
 
 ### Utilisation
 
@@ -11,248 +11,301 @@ Analyse les messages d'erreur pour identifier les causes racines et suggérer de
 ### Options
 
 - Aucune : Analyse d'erreur standard
-- `--deep` : Analyse approfondie incluant les dépendances et l'environnement
-- `--preventive` : Focus sur la prévention des occurrences futures
-- `--quick` : Corrections rapides uniquement
+- `--deep` : Mode d'analyse approfondie (inclut les dépendances et facteurs environnementaux)
+- `--preventive` : Analyse axée sur les mesures préventives
+- `--quick` : Présente uniquement les corrections applicables immédiatement
 
-### Exemples de base
+### Exemples de Base
 
 ```bash
 # Analyse d'erreur standard
 npm run build 2>&1
 /fix-error
-"Analysez cette erreur de build et suggérez des corrections"
+「Analyser l'erreur de compilation et présenter la méthode de correction」
 
-# Mode analyse approfondie
+# Mode d'analyse approfondie
 python app.py 2>&1
 /fix-error --deep
-"Trouvez la cause racine, y compris les problèmes d'environnement"
+「Analyser la cause racine de l'erreur y compris les facteurs environnementaux」
 
-# Corrections rapides uniquement
+# Focus sur la correction immédiate
 cargo test 2>&1
 /fix-error --quick
-"Donnez-moi juste une correction rapide"
+「Présenter la méthode de correction applicable immédiatement」
 
-# Focus sur la prévention
+# Focus sur les mesures préventives
 ./app 2>&1 | tail -50
 /fix-error --preventive
-"Corrigez ceci et aidez-moi à le prévenir la prochaine fois"
+「Présenter la correction de l'erreur et les mesures préventives futures」
 ```
 
 ### Collaboration avec Claude
 
 ```bash
-# Analyser les journaux d'erreur
+# Analyse de log d'erreur
 cat error.log
 /fix-error
-"Qu'est-ce qui cause cette erreur et comment la corriger ?"
+「Identifier la cause racine de l'erreur et proposer la méthode de correction」
 
-# Résoudre les échecs de test
+# Résolution d'échec de test
 npm test 2>&1
 /fix-error --quick
-"Ces tests échouent - j'ai besoin d'une correction rapide"
+「Analyser le test échoué et présenter une proposition de correction applicable immédiatement」
 
-# Analyser les traces de pile
+# Analyse de stack trace
 python script.py 2>&1
 /fix-error --deep
-"Creusez dans cette trace de pile et vérifiez les problèmes d'environnement"
+「Identifier l'emplacement du problème à partir de cette stack trace et analyser y compris les facteurs environnementaux」
 
-# Gérer plusieurs erreurs
+# Résoudre plusieurs erreurs ensemble
 grep -E "ERROR|WARN" app.log | tail -20
 /fix-error
-"Triez celles-ci par priorité et dites-moi comment corriger chacune"
+「Classer ces erreurs et avertissements par priorité et proposer la méthode de résolution pour chacun」
 ```
 
-### Priorités d'analyse des erreurs
+### Prédiction du Temps de Résolution d'Erreur
 
-#### 🔴 Urgence : Élevée (À corriger maintenant !)
+```
+🚀 Correction immédiate (dans les 5 minutes)
+├─ Fautes de frappe, imports oubliés
+├─ Variables d'environnement non configurées
+├─ Référence de variables non définies
+└─ Temps prédit : 2-5 minutes
 
-- **Arrêt de l'application** : Plantages, boucles infinies, interblocages
-- **Risque de perte de données** : Erreurs de base de données, corruption de fichiers
-- **Vulnérabilités de sécurité** : Échecs d'authentification, erreurs de permissions, injections
-- **Impact en production** : Échecs de déploiement, pannes de service
+⚡ Correction rapide (dans les 30 minutes)
+├─ Incohérence des dépendances
+├─ Erreur de fichier de configuration
+├─ Discordance de types
+└─ Temps prédit : 10-30 minutes
 
-#### 🟡 Urgence : Moyenne (À corriger bientôt)
+🔧 Investigation nécessaire (dans les 2 heures)
+├─ Erreur de logique complexe
+├─ Conflit de traitement asynchrone
+├─ Problème d'intégration API
+└─ Temps prédit : 30 minutes-2 heures
 
-- **Problèmes de performance** : Fuites mémoire, délais, timeouts
-- **Échec partiel de fonctionnalité** : Erreurs dans des fonctionnalités spécifiques, bugs d'interface
-- **Réduction de l'efficacité de développement** : Erreurs de build, échecs de tests
+🔬 Analyse approfondie (demi-journée ou plus)
+├─ Originaire de l'architecture
+├─ Collaboration de multiples systèmes
+├─ Dégradation des performances
+└─ Temps prédit : 4 heures-plusieurs jours
+```
 
-#### 🟢 Urgence : Faible (À corriger quand c'est pratique)
+### Base de Données de Modèles d'Erreurs Similaires
 
-- **Messages d'avertissement** : Dépréciation, erreurs de lint
-- **Environnement de développement uniquement** : Problèmes seulement dans les environnements locaux
-- **Risques futurs** : Dette technique, problèmes de maintenabilité
+```
+Erreurs fréquentes et solutions immédiates
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-### Processus d'analyse
+📊 "Cannot read property 'X' of undefined/null" (fréquence : extrêmement élevée)
+├─ Cause principale : Manque de vérification null de l'objet
+├─ Temps de résolution : 5-10 minutes
+└─ Solution : Ajouter optional chaining (?.) ou vérification null
 
-#### Phase 1 : Collecte d'informations sur l'erreur
+📊 "ECONNREFUSED" / "ENOTFOUND" (fréquence : élevée)
+├─ Cause principale : Service non démarré ou erreur de configuration URL
+├─ Temps de résolution : 5-15 minutes
+└─ Solution : Confirmer le démarrage du service, vérifier les variables d'environnement
+
+📊 "Module not found" / "Cannot resolve" (fréquence : élevée)
+├─ Cause principale : Package non installé, erreur de spécification de chemin
+├─ Temps de résolution : 2-5 minutes
+└─ Solution : Exécuter npm install, vérifier le chemin relatif
+
+📊 "Unexpected token" / "SyntaxError" (fréquence : moyenne)
+├─ Cause principale : Discordance des parenthèses/guillemets, utilisation de mot réservé
+├─ Temps de résolution : 2-10 minutes
+└─ Solution : Vérifier le syntax highlighting, exécuter Linter
+
+📊 "CORS policy" / "Access-Control-Allow-Origin" (fréquence : moyenne)
+├─ Cause principale : Manque de configuration CORS côté serveur
+├─ Temps de résolution : 15-30 minutes
+└─ Solution : Configuration CORS du serveur, configuration proxy
+
+📊 "Maximum call stack size exceeded" (fréquence : faible)
+├─ Cause principale : Boucle infinie/récursion, référence circulaire
+├─ Temps de résolution : 30 minutes-2 heures
+└─ Solution : Vérifier la condition de terminaison de récursion, résoudre la référence circulaire
+```
+
+### Matrice de Priorité d'Analyse d'Erreur
+
+| Priorité | Icône | Portée d'Impact | Difficulté de Résolution | Délai de Réponse | Description |
+|----------|-------|----------------|-------------------------|-----------------|-------------|
+| **Critical** | 🔴 Réponse urgente | Large | Faible | Début dans 15 min | Arrêt total du système, risque de perte de données |
+| **High Priority** | 🟠 Réponse précoce | Large | Élevée | Début dans 1 heure | Arrêt de fonction principale, affecte de nombreux utilisateurs |
+| **Medium** | 🟡 Réponse planifiée | Limitée | Élevée | Réponse le jour même | Restriction de fonction partielle, solution alternative existe |
+| **Low** | 🟢 Observation | Limitée | Faible | Prochaine modification | Défaut mineur, petit impact sur UX |
+
+### Processus d'Analyse
+
+#### Phase 1 : Collecte d'Informations d'Erreur
 
 ```bash
-🔴 Indispensable :
-- Message d'erreur complet
-- Trace de pile
-- Étapes pour reproduire
+🔴 Exécution obligatoire :
+- Obtention complète du message d'erreur
+- Vérification de la stack trace
+- Identification des conditions d'occurrence (reproductibilité)
 
-🟡 Souhaitable :
-- Détails d'environnement (OS, versions, dépendances)
-- Changements récents (git log, commits)
-- Journaux associés
+🟡 Exécution précoce :
+- Collecte d'informations d'environnement (OS, version, dépendances)
+- Historique des changements immédiats (git log, commits récents)
+- Vérification des logs connexes
 
-🟢 Bonus :
-- Ressources système
-- État réseau
-- Services externes
+🟢 Exécution supplémentaire :
+- État des ressources système
+- État du réseau
+- État des services externes
 ```
 
-#### Phase 2 : Analyse des causes racines
+#### Phase 2 : Analyse de Cause Racine
 
-1. **Identifier les symptômes**
-   - Message d'erreur exact
-   - Quand et comment cela arrive
-   - Ce qui est affecté
+1. **Organisation des symptômes de surface**
+   - Contenu exact du message d'erreur
+   - Timing et modèle d'occurrence
+   - Identification de la portée d'impact
 
-2. **Trouver les causes racines**
-   - Utiliser l'analyse des 5 Pourquoi
-   - Vérifier les dépendances
-   - Comparer les environnements
+2. **Identification de la cause profonde**
+   - Application de l'analyse 5 Pourquoi
+   - Traçage des dépendances
+   - Vérification des différences environnementales
 
-3. **Tester votre théorie**
-   - Créer une reproduction minimale
-   - Isoler le problème
-   - Confirmer la cause
+3. **Vérification d'hypothèse**
+   - Création de code minimal de reproduction
+   - Exécution de test d'isolement
+   - Affinement des causes
 
-#### Phase 3 : Implémentation de la solution
+#### Phase 3 : Implémentation de Solution
 
 ```bash
-🔴 Correction rapide (hotfix) :
-- Arrêter l'hémorragie
-- Appliquer des contournements
-- Se préparer à déployer
+🔴 Gestion immédiate (hotfix) :
+- Correction minimale pour supprimer les symptômes
+- Application de solution temporaire
+- Préparation pour déploiement d'urgence
 
-🟡 Correction de la cause racine :
-- Corriger le problème réel
-- Ajouter des tests
-- Mettre à jour la documentation
+🟡 Résolution fondamentale :
+- Correction essentielle pour la cause
+- Ajout de cas de test
+- Mise à jour de documentation
 
-🟢 Prévenir les problèmes futurs :
-- Meilleure gestion d'erreurs
-- Ajouter la surveillance
-- Améliorer CI/CD
+🟢 Implémentation de mesures préventives :
+- Renforcement de la gestion d'erreurs
+- Configuration de surveillance/alertes
+- Amélioration du pipeline CI/CD
 ```
 
-### Exemple de sortie
+### Exemple de Sortie
 
 ```
-🚨 Rapport d'analyse d'erreur
+🚨 Rapport d'Analyse d'Erreur
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-📍 Aperçu de l'erreur
-├─ Type : [Compilation/Runtime/Logique/Environnemental]
+📍 Résumé de l'Erreur
+├─ Type : [Compilation/Temps d'exécution/Logique/Environnemental]
 ├─ Urgence : 🔴 Élevée / 🟡 Moyenne / 🟢 Faible
-├─ Portée d'impact : [Nom de fonctionnalité/Composant]
-└─ Reproductibilité : [100% / Intermittent / Conditions spécifiques]
+├─ Portée d'impact : [Nom de fonction/Composant]
+└─ Reproductibilité : [100% / Intermittent / Condition spécifique]
 
-🔍 Cause racine
+🔍 Cause Racine
 ├─ Cause directe : [Cause spécifique]
-├─ Facteurs contextuels : [Environnement/Configuration/Dépendances]
-└─ Déclencheur : [Conditions d'occurrence]
+├─ Facteur de contexte : [Environnement/Configuration/Dépendances]
+└─ Déclencheur : [Condition d'occurrence]
 
-💡 Solutions
-🔴 Réponse immédiate :
+💡 Solution
+🔴 Gestion immédiate :
 1. [Commande/code de correction spécifique]
-2. [Contournement temporaire]
+2. [Mesure temporaire]
 
-🟡 Solution fondamentale :
+🟡 Résolution fondamentale :
 1. [Méthode de correction essentielle]
-2. [Refactorisation nécessaire]
+2. [Refactoring nécessaire]
 
 🟢 Mesures préventives :
 1. [Amélioration de la gestion d'erreurs]
-2. [Ajouter des tests]
+2. [Ajout de tests]
 3. [Configuration de surveillance]
 
-📝 Procédure de vérification
-1. [Méthode pour confirmer après application de la correction]
-2. [Commande d'exécution de test]
-3. [Éléments de vérification d'opération]
+📝 Procédure de Vérification
+1. [Méthode de vérification après application de correction]
+2. [Commande d'exécution de tests]
+3. [Éléments de vérification de fonctionnement]
 ```
 
-### Méthodes d'analyse par type d'erreur
+### Méthode d'Analyse par Type d'Erreur
 
-#### Erreurs de compilation/build
+#### Erreur de Compilation/Build
 
 ```bash
-# Erreurs de type TypeScript
-À vérifier (élevé) :
-- Paramètres tsconfig.json
-- Présence des fichiers de définition de type (.d.ts)
-- Exactitude des déclarations d'import
+# Erreur de type TypeScript
+Vérification obligatoire (élevée) :
+- Configuration de tsconfig.json
+- Existence de fichiers de définition de type (.d.ts)
+- Exactitude des déclarations import
 
-# Erreurs de durée de vie Rust
-À vérifier (élevé) :
-- Mouvement de propriété
-- Périodes de validité des références
-- Conflits de mutabilité
+# Erreur de lifetime Rust
+Vérification obligatoire (élevée) :
+- Mouvement d'ownership
+- Période de validité de référence
+- Conflit de mutabilité
 ```
 
-#### Erreurs d'exécution
+#### Erreur de Temps d'Exécution
 
 ```bash
-# Références Null/Undefined
-À vérifier (élevé) :
-- Chaînage optionnel insuffisant
+# Référence Null/Undefined
+Vérification obligatoire (élevée) :
+- Manque d'optional chaining
 - Timing d'initialisation
-- Attente de complétion de traitement async
+- Attente de complétion de traitement asynchrone
 
-# Erreurs liées à la mémoire
-À vérifier (élevé) :
-- Acquisition de dump heap
-- Analyse des journaux GC
-- Détection de références circulaires
+# Erreur liée à la mémoire
+Vérification obligatoire (élevée) :
+- Obtention de heap dump
+- Analyse de log GC
+- Détection de référence circulaire
 ```
 
-#### Erreurs de dépendances
+#### Erreur de Dépendances
 
 ```bash
-# Conflits de versions
-À vérifier (élevé) :
-- Cohérence du fichier de verrouillage
-- Exigences des dépendances pairs
+# Conflit de version
+Vérification obligatoire (élevée) :
+- Cohérence du fichier lock
+- Exigences des peer dependencies
 - Dépendances transitives
 
-# Erreurs de résolution de modules
-À vérifier (élevé) :
-- Paramètres NODE_PATH
+# Erreur de résolution de module
+Vérification obligatoire (élevée) :
+- Configuration NODE_PATH
 - Configuration d'alias de chemin
 - Liens symboliques
 ```
 
-### Remarques
+### Précautions
 
-- **Absolument interdit** : Porter des jugements basés uniquement sur une partie d'un message d'erreur, appliquer des solutions Stack Overflow sans vérification
-- **Conditions d'exception** : Les contournements temporaires ne sont autorisés que dans ces 3 conditions :
-  1. Réponse d'urgence en environnement de production (solution racine requise dans les 24 heures)
-  2. Pannes de service externe (moyens alternatifs en attendant la récupération)
-  3. Bugs connus du framework (en attendant la sortie de version corrigée)
-- **Recommandation** : Priorisez l'identification des causes racines et évitez les corrections superficielles
+- **Absolument interdit** : Jugement basé sur une partie seulement du message d'erreur, application de solution Stack Overflow sans vérification
+- **Conditions d'exception** : Mesures temporaires autorisées uniquement sous ces 3 conditions :
+  1. Réponse d'urgence en environnement de production (résolution fondamentale obligatoire dans les 24 heures)
+  2. Panne de service externe (moyen alternatif pendant l'attente de récupération)
+  3. Bug connu du framework (en attente de sortie de version corrigée)
+- **Recommandation** : Prioriser l'identification de la cause racine, éviter la correction superficielle
 
-### Bonnes pratiques
+### Meilleures Pratiques
 
-1. **Collecte d'informations complète** : Vérifiez les messages d'erreur du début à la fin
-2. **Confirmation de reproductibilité** : Priorisez la création de code de reproduction minimal
-3. **Approche étape par étape** : Commencez par de petites corrections et vérifiez
-4. **Documentation** : Enregistrez le processus de solution pour le partage de connaissances
+1. **Collecte complète d'informations** : Vérifier le message d'erreur du début à la fin
+2. **Vérification de reproductibilité** : Prioriser la création de code minimal de reproduction
+3. **Approche graduelle** : Commencer par de petites corrections et vérifier
+4. **Documentation** : Enregistrer le processus de résolution pour partager les connaissances
 
-#### Pièges courants
+#### Pièges Courants
 
-- **Traitement des symptômes** : Corrections superficielles qui ratent les causes racines
-- **Surgénéralisation** : Application large de solutions pour des cas spécifiques
-- **Vérification omise** : Ne pas vérifier les effets de bord après les corrections
-- **Individualisation des connaissances** : Ne pas documenter les méthodes de solution
+- **Gestion des symptômes** : Correction superficielle qui ignore la cause racine
+- **Généralisation excessive** : Appliquer largement la solution d'un cas spécifique
+- **Omission de vérification** : Ne pas confirmer les effets secondaires après correction
+- **Personnalisation des connaissances** : Ne pas documenter la méthode de résolution
 
-### Commandes associées
+### Commandes Connexes
 
-- `/design-patterns` : Analyser les problèmes de structure de code et suggérer des patterns
-- `/tech-debt` : Analyser les causes racines d'erreurs du point de vue de la dette technique
-- `/analyzer` : Pour les cas nécessitant une analyse plus approfondie des causes racines
+- `/design-patterns` : Analyser les problèmes de structure de code et proposer des modèles
+- `/tech-debt` : Analyser la cause racine des erreurs du point de vue de la dette technique
+- `/analyzer` : Quand une analyse de cause racine plus approfondie est nécessaire

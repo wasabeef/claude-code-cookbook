@@ -1,80 +1,132 @@
-## Analizar Rendimiento
+## Analyze Performance
 
-Encuentra cuellos de botella de rendimiento y sugiere correcciones basadas en el análisis de deuda técnica.
+Analiza el rendimiento de la aplicación desde la perspectiva de la experiencia del usuario y cuantifica las mejoras de velocidad percibida mediante optimizaciones. Calcula puntajes UX basados en Core Web Vitals y propone estrategias de optimización priorizadas.
+
+### Puntaje de Rendimiento UX
+
+```
+Puntaje de Experiencia de Usuario: B+ (78/100)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+⏱️ Core Web Vitals
+├─ LCP (carga): 2.3 seg [Bueno] Objetivo<2.5 seg ✅
+├─ FID (respuesta): 95ms [Bueno] Objetivo<100ms ✅
+├─ CLS (estabilidad): 0.08 [Bueno] Objetivo<0.1 ✅
+├─ FCP (primer dibujo): 1.8 seg [Bueno] Objetivo<1.8 seg ✅
+├─ TTFB (servidor): 450ms [Necesita trabajo] Objetivo<200ms ⚠️
+└─ TTI (interactivo): 3.5 seg [Necesita trabajo] Objetivo<3.8 seg ⚠️
+
+📊 Velocidad Percibida del Usuario
+├─ Visualización inicial: 2.3 seg [Promedio industria: 3.0 seg]
+├─ Transición de página: 1.1 seg [Promedio industria: 1.5 seg]
+├─ Mostrar resultados búsqueda: 0.8 seg [Promedio industria: 1.2 seg]
+├─ Envío de formulario: 1.5 seg [Promedio industria: 2.0 seg]
+└─ Carga de imágenes: lazy loading implementado ✅
+
+😊 Predicción de Satisfacción del Usuario
+├─ Predicción tasa abandono: 12% (promedio industria: 20%)
+├─ Predicción tasa finalización: 78% (objetivo: 85%)
+├─ NPS recomendado: +24 (promedio industria: +15)
+└─ Tasa retorno: 65% (objetivo: 70%)
+
+📊 Impacto en Experiencia del Usuario
+├─ Acortar visualización 0.5 seg → tasa abandono -7%
+├─ Reducir tasa abandono 5% → duración sesión +15%
+├─ Mejorar búsqueda → tiempo permanencia +15%
+└─ Mejora UX integral: +25%
+
+🎯 Efectos Esperados de Mejora (orden de prioridad)
+├─ [P0] Mejora TTFB (introducir CDN) → LCP -0.3 seg = velocidad percibida +15%
+├─ [P1] Optimización bundle JS → TTI -0.8 seg = tiempo interactivo -20%
+├─ [P2] Optimización imágenes (WebP) → volumen transferencia -40% = tiempo carga -25%
+└─ [P3] Estrategia caché → 50% más rápido en visitas repetidas
+```
 
 ### Uso
 
 ```bash
-# Encontrar problemas de rendimiento comprensivamente
+# Análisis integral del puntaje UX
 find . -name "*.js" -o -name "*.ts" | xargs wc -l | sort -rn | head -10
-"Muéstrame los archivos grandes y problemas de rendimiento, luego sugiere correcciones"
+「Calcular puntaje de rendimiento UX y evaluar Core Web Vitals」
 
-# Detectar patrones ineficientes
+# Detección de cuellos de botella de rendimiento
 grep -r "for.*await\|forEach.*await" . --include="*.js"
-"Encontrar consultas N+1 y otros asesinos del rendimiento"
+「Detectar cuellos de botella de procesamiento asíncrono y analizar impacto en experiencia del usuario」
 
-# Verificar fugas de memoria
+# Análisis de impacto en experiencia del usuario
 grep -r "addEventListener\|setInterval" . --include="*.js" | grep -v "removeEventListener\|clearInterval"
-"¿Dónde podríamos tener fugas de memoria y cómo las arreglamos?"
+「Analizar el impacto de problemas de rendimiento en la experiencia del usuario」
 ```
 
 ### Ejemplos Básicos
 
 ```bash
-# Verificar tamaño de bundle y tiempo de carga
+# Tamaño de bundle y tiempo de carga
 npm ls --depth=0 && find ./public -name "*.js" -o -name "*.css" | xargs ls -lh
-"¿Cómo podemos reducir los bundles y optimizar los assets?"
+"Identificar puntos de mejora en tamaño de bundle y optimización de assets"
 
-# Rendimiento de consultas de base de datos
+# Rendimiento de base de datos
 grep -r "SELECT\|findAll\|query" . --include="*.js" | head -20
-"¿Qué consultas de base de datos necesitan optimización?"
+"Analizar puntos de optimización de consultas de base de datos"
 
-# Impacto del rendimiento de dependencias
+# Impacto de rendimiento de dependencias
 npm outdated && npm audit
-"¿Las dependencias obsoletas nos están frenando?"
+"Evaluar el impacto de dependencias antiguas en el rendimiento"
 ```
 
-### Qué Buscamos
+### Perspectivas de Análisis
 
 #### 1. Problemas a Nivel de Código
 
-- **Algoritmos O(n²)**: Operaciones de array lentas que no escalan
-- **I/O Síncrono**: Operaciones bloqueantes que congelan todo
-- **Procesamiento Redundante**: Hacer el mismo trabajo una y otra vez
-- **Fugas de Memoria**: Event listeners y timers que siguen ejecutándose
+- **Algoritmos O(n²)**: Detección de operaciones de array ineficientes
+- **I/O síncrono**: Identificación de procesos bloqueantes
+- **Procesamiento duplicado**: Eliminación de cálculos y requests innecesarios
+- **Fugas de memoria**: Gestión de event listeners y timers
 
-#### 2. Problemas de Arquitectura
+#### 2. Problemas a Nivel de Arquitectura
 
-- **Consultas N+1**: Demasiados viajes de ida y vuelta a la base de datos
-- **Caché Faltante**: Repetir operaciones costosas
-- **Hinchazón del Bundle**: Enviar código que los usuarios no necesitan
-- **Desperdicio de Recursos**: Gestión pobre de conexiones y threads
+- **Consultas N+1**: Patrones de acceso a base de datos
+- **Falta de caché**: Cálculos repetidos y llamadas API
+- **Tamaño de bundle**: Librerías innecesarias y división de código
+- **Gestión de recursos**: Uso de connection pools y threads
 
-#### 3. Impacto de la Deuda Técnica
+#### 3. Impacto de Deuda Técnica
 
-- **Código Legacy**: Implementaciones antiguas que nos frenan
-- **Diseño Pobre**: Todo está demasiado acoplado
-- **Pruebas Faltantes**: Las regresiones de rendimiento pasan inadvertidas
-- **Puntos Ciegos**: No podemos ver problemas hasta que es demasiado tarde
+- **Código legacy**: Degradación de rendimiento por implementaciones antiguas
+- **Problemas de diseño**: Alto acoplamiento por falta de distribución de responsabilidades
+- **Falta de pruebas**: Falta de detección de regresiones de rendimiento
+- **Falta de monitoreo**: Sistema de detección temprana de problemas
 
-### Prioridades de Mejora
+### Matriz ROI de Mejora de Rendimiento
 
 ```
-🔴 Crítico: Riesgo de falla del sistema
-├─ Fugas de memoria (crashes del servidor)
-├─ Consultas N+1 (carga de la base de datos)
-└─ I/O Síncrono (retrasos de respuesta)
-
-🟡 Alto: Impacto en experiencia del usuario
-├─ Tamaño del bundle (tiempo de carga inicial)
-├─ Optimización de imágenes (velocidad de visualización)
-└─ Estrategia de caché (velocidad de respuesta)
-
-🟢 Medio: Eficiencia operacional
-├─ Actualizaciones de dependencias (seguridad)
-├─ Duplicación de código (mantenibilidad)
-└─ Monitoreo mejorado (carga operacional)
+ROI de mejora = (efecto reducción tiempo + mejora calidad) ÷ horas implementación
 ```
+
+| Prioridad | Mejora Experiencia Usuario | Dificultad Implementación | Efecto Reducción Tiempo | Ejemplo Concreto | Horas | Efecto |
+|-----------|----------------------------|---------------------------|-------------------------|------------------|--------|--------|
+| **[P0] Implementar inmediatamente** | Alta | Baja | > 50% | Introducir CDN | 8h | Respuesta -60% |
+| **[P1] Implementar pronto** | Alta | Media | 20-50% | Optimizar imágenes | 16h | Carga -30% |
+| **[P2] Implementar planificadamente** | Baja | Alta | 10-20% | División código | 40h | Inicial -15% |
+| **[P3] Retener/observar** | Baja | Baja | < 10% | Optimizaciones menores | 20h | Parcial -5% |
+
+#### Criterios de Determinación de Prioridad
+
+- **P0 (implementar inmediatamente)**: Mejora UX "Alta" × Dificultad "Baja" = ROI máximo
+- **P1 (implementar pronto)**: Mejora UX "Alta" × Dificultad "Media" = ROI alto
+- **P2 (planificadamente)**: Mejora UX "Baja" × Dificultad "Alta" = ROI medio
+- **P3 (retener)**: Mejora UX "Baja" × Dificultad "Baja" = ROI bajo
+
+### Correlación entre Métricas de Rendimiento y Mejora UX
+
+| Métrica | Rango Mejora | Mejora Velocidad Percibida | Satisfacción Usuario | Horas Implementación |
+|---------|--------------|---------------------------|---------------------|---------------------|
+| **LCP (carga)** | -0.5 seg | +30% | Tasa abandono -7% | 16h |
+| **FID (respuesta)** | -50ms | +15% | Estrés -20% | 8h |
+| **CLS (estabilidad)** | -0.05 | +10% | Operación errónea -50% | 4h |
+| **TTFB (servidor)** | -200ms | +25% | Velocidad percibida +40% | 24h |
+| **TTI (interactivo)** | -1.0 seg | +35% | Tasa finalización +15% | 32h |
+| **Tamaño bundle** | -30% | +20% | Primera visita +25% | 16h |
 
 ### Medición y Herramientas
 
@@ -101,16 +153,16 @@ SHOW SLOW LOG;
 #### Frontend
 
 ```bash
-# Rendimiento de React
+# Rendimiento React
 grep -r "useMemo\|useCallback" . --include="*.jsx"
 
 # Análisis de recursos
 find ./src -name "*.png" -o -name "*.jpg" | xargs ls -lh
 ```
 
-### Seguir Mejorando
+### Mejora Continua
 
-- **Verificaciones semanales**: Ejecutar pruebas de rendimiento regularmente
-- **Hacer seguimiento de métricas**: Observar tiempos de respuesta y uso de memoria
-- **Configurar alertas**: Recibir notificaciones cuando las cosas se ralenticen
-- **Compartir conocimiento**: Documentar qué funciona y qué no
+- **Auditoría regular**: Ejecutar pruebas de rendimiento semanales
+- **Recolección de métricas**: Seguimiento de tiempo de respuesta y uso de memoria
+- **Configuración de alertas**: Notificación automática cuando se superan umbrales
+- **Compartir con equipo**: Documentación de casos de mejora y antipatrones
