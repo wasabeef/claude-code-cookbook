@@ -96,39 +96,61 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 3. **Constructive feedback**: Specific improvement suggestions and code examples
 4. **Follow-up**: Fix confirmation, CI status, final approval
 
-### Effective Comment Examples
+### Comment Templates
 
-**Security Issues**
+#### Security Issues Template
 
-```markdown
-**critical.must.** Password is stored in plaintext
+**Format:**
 
-```javascript
-// Proposed fix
+- Priority: `critical.must.`
+- Issue: Clear description of the problem
+- Code example: Proposed fix
+- Rationale: Why this is necessary
+
+**Example:**
+
+```text
+critical.must. Password is stored in plaintext
+
+Proposed fix:
 const bcrypt = require('bcrypt');
 const hashedPassword = await bcrypt.hash(password, 12);
-```
 
 Hashing is required to prevent security risks.
-
 ```
 
-**Performance Improvement**
-```markdown
-**high.imo.** N+1 query problem occurs
+#### Performance Improvement Template
 
-```javascript
-// Improvement: Eager Loading
+**Format:**
+
+- Priority: `high.imo.`
+- Issue: Explain performance impact
+- Code example: Proposed improvement
+- Effect: Describe expected improvement
+
+**Example:**
+
+```text
+high.imo. N+1 query problem occurs
+
+Improvement: Eager Loading
 const users = await User.findAll({ include: [Post] });
-```
 
 This can significantly reduce the number of queries.
-
 ```
 
-**Architecture Violation**
-```markdown
-**high.must.** Layer violation occurred
+#### Architecture Violation Template
+
+**Format:**
+
+- Priority: `high.must.`
+- Issue: Point out architectural principle violation
+- Recommendation: Specific improvement method
+
+**Example:**
+
+```text
+high.must. Layer violation occurred
 
 The domain layer directly depends on the infrastructure layer.
 Please introduce an interface following the dependency inversion principle.
