@@ -98,36 +98,64 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 
 ### 효과적인 코멘트 예시
 
-**보안 문제**
+#### 보안 문제 템플릿
 
-```markdown
+**포맷**:
+```text
+**critical.must.** [문제점 요약]
+
+[구체적인 위험 설명]
+
+권장 해결방안:
+[해결 방법]
+```
+
+**예시**:
+```text
 **critical.must.** 패스워드가 평문으로 저장되고 있습니다
 
-```javascript
-// 수정안
+보안 리스크를 방지하기 위해 해싱화가 필수입니다.
+
+권장 해결방안:
 const bcrypt = require('bcrypt');
 const hashedPassword = await bcrypt.hash(password, 12);
 ```
 
-보안 리스크를 방지하기 위해 해싱화가 필수입니다.
+#### 성능 개선 템플릿
 
+**포맷**:
+```text
+**high.imo.** [성능 문제점]
+
+[문제 상황 설명]
+
+개선안:
+[최적화 방법]
 ```
 
-**성능 개선**
-```markdown
+**예시**:
+```text
 **high.imo.** N+1 쿼리 문제가 발생합니다
-
-```javascript
-// 개선안: Eager Loading
-const users = await User.findAll({ include: [Post] });
-```
 
 쿼리 수를 대폭 줄일 수 있습니다.
 
+개선안:
+// Eager Loading 사용
+const users = await User.findAll({ include: [Post] });
 ```
 
-**아키텍처 위반**
-```markdown
+#### 아키텍처 위반 템플릿
+
+**포맷**:
+```text
+**high.must.** [아키텍처 문제점]
+
+[위반 내용 설명]
+[개선 방향 제시]
+```
+
+**예시**:
+```text
 **high.must.** 레이어 위반이 발생하고 있습니다
 
 도메인 레이어가 인프라 레이어에 직접 의존하고 있습니다.

@@ -220,12 +220,11 @@ Kiro 권장 아키텍처:
 
 **2. Mermaid 다이어그램을 통한 시각적 설계**
 
-```
+```text
 Claude: "시스템 설계를 Mermaid 다이어그램으로 자동 생성했습니다:
 
 자동 생성된 아키텍처 다이어그램:
 
-```mermaid
 graph TB
     Client[React Client] --> API[Express API Gateway]
     API --> Auth[Auth Service]
@@ -238,21 +237,17 @@ graph TB
 
     Auth --> JWT[JWT Service]
     Auth --> OAuth[OAuth Provider]
-```
 
 데이터 플로 다이어그램도 생성하겠습니까?"
-
 ```
 
 **3. TypeScript 인터페이스 자동 생성**
 
-```
-
+```text
 Claude: "설계에 기반해 TypeScript 인터페이스를 자동 생성합니다:
 
 자동 생성 TypeScript 인터페이스:
 
-```typescript
 // Domain entities
 interface User {
   readonly id: UserId;
@@ -288,28 +283,23 @@ interface AuthenticationService {
   authenticate(credentials: LoginCredentials): Promise<AuthResult>;
   refreshToken(token: RefreshToken): Promise<AccessToken>;
 }
-```
 
 이 인터페이스 설계로 진행하겠습니까?"
-
 ```
 
 **4. Phase 2 완료와 승인**
 
-```
-
+```text
 Claude: "Design Phase 가 완료되었습니다.
 design.md 를 생성해도 되겠습니까?"
 → "다음으로 진행하세요" → design.md 생성
-
 ```
 
 #### Phase 3: Implementation Planning & Discussion
 
 **1. 베스트 프랙티스 자동 적용 (Kiro 식)**
 
-```
-
+```text
 Claude: "Kiro 의 베스트 프랙티스를 자동 적용한 구현 계획을 생성했습니다:
 
 자동 생성된 구현 전략:
@@ -330,13 +320,11 @@ Claude: "Kiro 의 베스트 프랙티스를 자동 적용한 구현 계획을 �
    - 비동기 처리의 활용
 
 이 접근법으로 진행하겠습니까?"
-
 ```
 
 **2. 품질 체크포인트 자동 설정**
 
-```
-
+```text
 Claude: "각 구현 단계의 품질 체크포인트를 자동 설정했습니다:
 
 자동 품질 보증 프로세스:
@@ -363,13 +351,11 @@ Phase 3c: 통합·배포
 - [ ] 프로덕션 환경 보안 감사
 
 모든 것이 자동 실행됩니다. 추가 품질 기준이 있습니까?"
-
 ```
 
 **3. 의존 관계와 위험 완화의 자동 분석**
 
-```
-
+```text
 Claude: "구현 순서와 위험 완화책을 자동 분석했습니다:
 
 최적화된 구현 순서:
@@ -403,17 +389,14 @@ Week 3: 고급 기능·최적화
 - 데이터 정합성: 트랜잭션 관리 강화
 
 이 계획에 문제없습니까?"
-
 ```
 
 **4. Phase 3 완료와 승인**
 
-```
-
+```text
 Claude: "Implementation Planning Phase 가 완료되었습니다.
 tasks.md 를 생성해도 되겠습니까?"
 → "다음으로 진행하세요" → tasks.md 생성
-
 ```
 
 ### Kiro 고유 기능
