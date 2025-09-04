@@ -12,11 +12,11 @@ Pull Request の説明とラベルを自動的に更新するコマンドです�
 
 ### オプション
 
-- `--pr <番号>` : 対象の PR 番号を指定（省略時は現在のブランチから自動検出）
-- `--description-only` : 説明文のみ更新（ラベルは変更しない）
-- `--labels-only` : ラベルのみ更新（説明文は変更しない）
+- `--pr <番号>` : 対象の PR 番号を指定(省略時は現在のブランチから自動検出)
+- `--description-only` : 説明文のみ更新(ラベルは変更しない)
+- `--labels-only` : ラベルのみ更新(説明文は変更しない)
 - `--dry-run` : 実際の更新は行わず、生成される内容のみ表示
-- `--lang <言語>` : 言語を指定（ja, en）
+- `--lang <言語>` : 言語を指定(ja, en)
 
 ### 基本例
 
@@ -70,7 +70,7 @@ gh pr list --head $(git branch --show-current) --json number,title,url
 
 - 書かれているセクションは保持
 - 空のセクションのみ補完
-- 機能的なコメント（Copilot review rule など）は保持
+- 機能的なコメント(Copilot review rule など)は保持
 
 #### プロジェクトテンプレートの使用
 
@@ -197,7 +197,7 @@ generate_from_template() {
   local changes="$2"
   
   if [ -n "$template" ]; then
-    # テンプレートをそのまま使用（HTML コメント保持）
+    # テンプレートをそのまま使用(HTML コメント保持)
     echo "$template"
   else
     # デフォルトフォーマットで生成
@@ -314,7 +314,7 @@ update_pr() {
     local owner=$(echo "$repo_info" | jq -r .owner.login)
     local repo=$(echo "$repo_info" | jq -r .name)
     
-    # GitHub API を使用して本文を更新（HTML コメント保持）
+    # GitHub API を使用して本文を更新(HTML コメント保持)
     # JSON エスケープを適切に処理
     local escaped_body=$(echo "$description" | jq -R -s .)
     gh api \
@@ -330,7 +330,7 @@ update_pr() {
 }
 ```
 
-## 設定ファイル（今後の拡張用）
+## 設定ファイル(今後の拡張用)
 
 `~/.claude/pr-auto-update.config`:
 
@@ -429,7 +429,7 @@ GitHub Actions ワークフローを改善しました。{効果}を実現しま
 
 5. **一貫性の維持**:
    - プロジェクトの既存 PR スタイルに合わせる
-   - 言語（日本語/英語）の統一
+   - 言語(日本語/英語)の統一
    - ラベリング規則の継承
 
 ## トラブルシューティング
@@ -455,6 +455,6 @@ GitHub Actions ワークフローを改善しました。{効果}を実現しま
 ### デバッグオプション
 
 ```bash
-# 詳細ログ出力（実装時に追加）
+# 詳細ログ出力(実装時に追加)
 /pr-auto-update --verbose
 ```

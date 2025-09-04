@@ -5,7 +5,7 @@ Gemini CLI で Web 検索を実行して最新情報を取得します。
 ### 使い方
 
 ```bash
-# Gemini CLI 経由で Web 検索（必須）
+# Gemini CLI 経由で Web 検索(必須)
 gemini --prompt "WebSearch: <検索クエリ>"
 ```
 

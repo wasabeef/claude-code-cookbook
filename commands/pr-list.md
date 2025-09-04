@@ -24,7 +24,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 ### 表示形式
 
 ```
-オープン PR 一覧（優先順位順）
+オープン PR 一覧(優先順位順)
 
 ### 高優先度
 #番号 タイトル [Draft/DNM] | 作者 | オープンから経過時間 | Approved 数 | +追加/-削除
@@ -33,10 +33,10 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
       https://github.com/owner/repo/pull/番号
 
 ### 中優先度
-（同様の形式）
+(同様の形式)
 
 ### 低優先度
-（同様の形式）
+(同様の形式)
 ```
 
 ### 優先度の判定基準
@@ -60,7 +60,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 ### 注意事項
 
 - GitHub CLI (`gh`) が必要です
-- オープン状態の PR のみ表示します（Draft は除外）
+- オープン状態の PR のみ表示します(Draft は除外)
 - 最大 30 件の PR を表示します
 - 経過時間は PR がオープンされてからの時間です
 - PR の URL は実際のリポジトリ名から自動生成されます

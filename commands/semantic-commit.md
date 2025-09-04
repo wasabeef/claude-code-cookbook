@@ -11,8 +11,8 @@
 ### オプション
 
 - `--dry-run` : 実際のコミットは行わず、提案されるコミット分割のみを表示
-- `--lang <言語>` : コミットメッセージの言語を強制指定（en, ja）
-- `--max-commits <数>` : 最大コミット数を指定（デフォルト: 10）
+- `--lang <言語>` : コミットメッセージの言語を強制指定(en, ja)
+- `--max-commits <数>` : 最大コミット数を指定(デフォルト: 10)
 
 ### 基本例
 
@@ -20,7 +20,7 @@
 # 現在の変更を分析して、論理的な単位でコミット
 /semantic-commit
 
-# 分割案のみを確認（実際のコミットなし）
+# 分割案のみを確認(実際のコミットなし)
 /semantic-commit --dry-run
 
 # 英語でコミットメッセージを生成
@@ -260,7 +260,7 @@ while IFS= read -r commit_plan; do
     continue
   fi
   
-  # コミットメッセージの生成（LLM による分析）
+  # コミットメッセージの生成(LLM による分析)
   commit_msg=$(generate_commit_message_for_staged_files)
   
   # ユーザー確認
@@ -470,21 +470,21 @@ done
 
 **必須タイプ**:
 
-- `feat`: 新機能（ユーザーに見える機能追加）
+- `feat`: 新機能(ユーザーに見える機能追加)
 - `fix`: バグ修正
 
 **任意タイプ**:
 
 - `build`: ビルドシステムや外部依存関係の変更
-- `chore`: その他の変更（リリースに影響しない）
+- `chore`: その他の変更(リリースに影響しない)
 - `ci`: CI 設定ファイルやスクリプトの変更
 - `docs`: ドキュメントのみの変更
-- `style`: コードの意味に影響しない変更（空白、フォーマット、セミコロンなど）
+- `style`: コードの意味に影響しない変更(空白、フォーマット、セミコロンなど)
 - `refactor`: バグ修正や機能追加を伴わないコード変更
 - `perf`: パフォーマンス改善
 - `test`: テストの追加や修正
 
-#### スコープ（任意）
+#### スコープ(任意)
 
 変更の影響範囲を示す：
 
@@ -837,7 +837,7 @@ export default {
 
 2. **既存コミット履歴** (第 2 優先)
    - 実際に使用されているタイプの統計
-   - メッセージの言語（日本語/英語）
+   - メッセージの言語(日本語/英語)
    - スコープの使用パターン
 
 3. **プロジェクト種別** (第 3 優先)
@@ -884,7 +884,7 @@ ls packages/ | head -10
 {
   'type-enum': [2, 'always', [
     'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-    'wip',      // 作業中（プルリクエスト用）
+    'wip',      // 作業中(プルリクエスト用)
     'hotfix',   // 緊急修正
     'release'   // リリース準備
   ]],
@@ -902,14 +902,14 @@ ls packages/ | head -10
 5. **テストの分離**: テストファイルは別コミットに
 6. **設定ファイルの活用**: CommitLint を導入してチーム全体で規約を統一
 
-### 実際の分割例（Before/After）
+### 実際の分割例(Before/After)
 
 #### 例 1: 大規模な認証システム追加
 
-**Before（1 つの巨大なコミット）:**
+**Before(1 つの巨大なコミット):**
 
 ```bash
-# 変更されたファイル（15 ファイル、850 行変更）
+# 変更されたファイル(15 ファイル、850 行変更)
 src/auth/login.js          # 新規作成
 src/auth/register.js       # 新規作成  
 src/auth/password.js       # 新規作成
@@ -930,7 +930,7 @@ README.md                 # 使用方法追加
 feat: implement complete user authentication system with login, registration, password reset, API routes, database models, tests and documentation
 ```
 
-**After（意味のある 5 つのコミットに分割）:**
+**After(意味のある 5 つのコミットに分割):**
 
 ```bash
 # コミット 1: データベース基盤
@@ -986,12 +986,12 @@ docs(auth): add authentication documentation and configuration
 
 #### 例 2: バグ修正とリファクタリングの混在
 
-**Before（混在した問題のあるコミット）:**
+**Before(混在した問題のあるコミット):**
 
 ```bash
-# 変更されたファイル（8 ファイル、320 行変更）
+# 変更されたファイル(8 ファイル、320 行変更)
 src/user/service.js       # バグ修正 + リファクタリング
-src/user/validator.js     # 新規作成（リファクタリング）
+src/user/validator.js     # 新規作成(リファクタリング)
 src/auth/middleware.js    # バグ修正
 src/api/user-routes.js    # バグ修正 + エラーハンドリング改善
 tests/user.test.js        # テスト追加
@@ -1003,16 +1003,16 @@ package.json              # 依存関係更新
 fix: resolve user validation bugs and refactor validation logic with improved error handling
 ```
 
-**After（種別別に 3 つのコミットに分割）:**
+**After(種別別に 3 つのコミットに分割):**
 
 ```bash
 # コミット 1: 緊急バグ修正
 fix: resolve user validation and authentication bugs
 
 含まれるファイル:
-- src/user/service.js（バグ修正部分のみ）
+- src/user/service.js(バグ修正部分のみ)
 - src/auth/middleware.js
-- tests/auth.test.js（バグ修正テストのみ）
+- tests/auth.test.js(バグ修正テストのみ)
 
 理由: 本番環境に影響するバグは最優先で修正
 
@@ -1020,7 +1020,7 @@ fix: resolve user validation and authentication bugs
 refactor: extract and improve user validation logic
 
 含まれるファイル:
-- src/user/service.js（リファクタリング部分）
+- src/user/service.js(リファクタリング部分)
 - src/user/validator.js
 - src/api/user-routes.js
 - tests/user.test.js
@@ -1039,10 +1039,10 @@ chore: update documentation and dependencies
 
 #### 例 3: 複数機能の同時開発
 
-**Before（機能横断の巨大コミット）:**
+**Before(機能横断の巨大コミット):**
 
 ```bash
-# 変更されたファイル（12 ファイル、600 行変更）
+# 変更されたファイル(12 ファイル、600 行変更)
 src/user/profile.js       # 新機能 A
 src/user/avatar.js        # 新機能 A  
 src/notification/email.js # 新機能 B
@@ -1060,7 +1060,7 @@ package.json              # 全機能の依存関係
 feat: add user profile management, notification system and dashboard widgets
 ```
 
-**After（機能別に 4 つのコミットに分割）:**
+**After(機能別に 4 つのコミットに分割):**
 
 ```bash
 # コミット 1: ユーザープロフィール機能
@@ -1106,7 +1106,7 @@ chore: update dependencies for new features
 
 ### 分割効果の比較
 
-| 項目 | Before（巨大コミット） | After（適切な分割） |
+| 項目 | Before(巨大コミット) | After(適切な分割) |
 |------|---------------------|-------------------|
 | **レビュー性** | ❌ 非常に困難 | ✅ 各コミットが小さくレビュー可能 |
 | **バグ追跡** | ❌ 問題箇所の特定が困難 | ✅ 問題のあるコミットを即座に特定 |
