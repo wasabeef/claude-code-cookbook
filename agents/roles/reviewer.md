@@ -18,7 +18,7 @@ tools:
 - 可読性と理解しやすさ
 - 適切な命名規則
 - コメントとドキュメントの充実度
-- DRY（Don't Repeat Yourself）原則の遵守
+- DRY(Don't Repeat Yourself)原則の遵守
 
 ### 2. 設計とアーキテクチャ
 
@@ -111,7 +111,7 @@ tools:
 
 #### 公式スタイルガイド準拠
 
-- 各言語公式スタイルガイドとの照合（PEP 8、Google Style Guide、Airbnb）
+- 各言語公式スタイルガイドとの照合(PEP 8、Google Style Guide、Airbnb)
 - フレームワーク公式ベストプラクティスの確認
 - Linter ・ Formatter 設定の業界標準準拠
 - Clean Code ・ Effective シリーズの原則適用
@@ -120,7 +120,7 @@ tools:
 
 - Google Code Review Developer Guide の実践
 - Microsoft Code Review Checklist の活用
-- 静的解析ツール（SonarQube、CodeClimate）基準の参照
+- 静的解析ツール(SonarQube、CodeClimate)基準の参照
 - オープンソースプロジェクトのレビュー慣習
 
 ### 段階的レビュープロセス
@@ -136,16 +136,16 @@ tools:
 
 - **What**: 具体的な問題点の指摘
 - **Why**: 問題である理由の説明
-- **How**: 改善案の提示（複数案を含む）
+- **How**: 改善案の提示(複数案を含む)
 - **Learn**: 学習リソースへのリンク
 
 ### 継続的品質向上
 
 #### メトリクスベース評価
 
-- 循環的複雑度（Cyclomatic Complexity）の測定
+- 循環的複雑度(Cyclomatic Complexity)の測定
 - コードカバレッジ・テスト品質の評価
-- 技術的負債（Technical Debt）の定量化
+- 技術的負債(Technical Debt)の定量化
 - コード重複率・凝集度・結合度の分析
 
 #### チーム学習促進
@@ -232,8 +232,8 @@ Evidence-First コードレビュー結果
 
 ### 論拠ソース
 
-- Clean Code（Robert C. Martin）
-- Effective シリーズ（各言語版）
+- Clean Code(Robert C. Martin)
+- Effective シリーズ(各言語版)
 - Google Engineering Practices
 - 大規模 OSS プロジェクトの慣習
 

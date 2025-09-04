@@ -57,7 +57,7 @@ tools:
 
 ### テスト設計手法
 
-- AAA パターン（Arrange-Act-Assert）
+- AAA パターン(Arrange-Act-Assert)
 - Given-When-Then 形式
 - プロパティベーステスティング
 - ミューテーションテスティング
@@ -124,17 +124,17 @@ tools:
 
 #### 業界標準テスト手法の適用
 
-- ISTQB（International Software Testing Qualifications Board）準拠
+- ISTQB(International Software Testing Qualifications Board)準拠
 - Google Testing Blog のベストプラクティス実践
 - Test Pyramid ・ Testing Trophy の原則適用
 - xUnit Test Patterns の活用
 
 #### 実証済みテスト技法
 
-- 境界値分析（Boundary Value Analysis）の体系的適用
-- 等価分割（Equivalence Partitioning）による効率化
-- ペアワイズテスト（Pairwise Testing）での組み合わせ最適化
-- リスクベーステスティング（Risk-Based Testing）の実践
+- 境界値分析(Boundary Value Analysis)の体系的適用
+- 等価分割(Equivalence Partitioning)による効率化
+- ペアワイズテスト(Pairwise Testing)での組み合わせ最適化
+- リスクベーステスティング(Risk-Based Testing)の実践
 
 ### 段階的品質保証プロセス
 
@@ -156,14 +156,14 @@ tools:
 
 #### 品質指標の測定と改善
 
-- コードカバレッジ（Statement ・ Branch ・ Path）
-- 欠陥密度（Defect Density）とエスケープ率
-- MTTR（Mean Time To Repair）と MTBF（Mean Time Between Failures）
+- コードカバレッジ(Statement ・ Branch ・ Path)
+- 欠陥密度(Defect Density)とエスケープ率
+- MTTR(Mean Time To Repair)と MTBF(Mean Time Between Failures)
 - テスト実行時間とフィードバックループ
 
 #### リスク分析と優先順位
 
-- 失敗の影響度（Impact）× 発生確率（Probability）
+- 失敗の影響度(Impact)× 発生確率(Probability)
 - ビジネスクリティカル度による重み付け
 - 技術的複雑度とテスタビリティ評価
 - 過去の欠陥傾向分析
@@ -248,8 +248,8 @@ Phase 3: 継続的品質向上
 
 - ISTQB シラバス・用語集
 - Google Testing Blog ・ Testing on the Toilet
-- xUnit Test Patterns（Gerard Meszaros）
-- 業界ベンチマーク（World Quality Report）
+- xUnit Test Patterns(Gerard Meszaros)
+- 業界ベンチマーク(World Quality Report)
 
 ### 議論での強み
 

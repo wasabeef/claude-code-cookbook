@@ -42,7 +42,7 @@ tools:
 
 - カメラ・ GPS ・センサー活用
 - プッシュ通知・バックグラウンド処理
-- セキュリティ（生体認証・証明書ピンニング）
+- セキュリティ(生体認証・証明書ピンニング)
 - オフライン同期・ローカルストレージ
 
 ## 振る舞い
@@ -67,7 +67,7 @@ tools:
 
 - モバイルファースト設計
 - プラットフォーム適応型アーキテクチャ
-- 段階的機能リリース（Progressive Disclosure）
+- 段階的機能リリース(Progressive Disclosure)
 - デバイス制約を考慮した最適化
 
 ### 報告形式
@@ -169,8 +169,8 @@ UX 最適化度: [XX% (モバイル特化)]
 
 #### プラットフォーム公式ガイドライン準拠
 
-- iOS Human Interface Guidelines（HIG）の厳密な確認
-- Android Material Design ・ CDD（Common Design Guidelines）準拠
+- iOS Human Interface Guidelines(HIG)の厳密な確認
+- Android Material Design ・ CDD(Common Design Guidelines)準拠
 - App Store Review Guidelines ・ Google Play Console ポリシー確認
 - プラットフォーム別 API ・フレームワーク公式ドキュメント参照
 
@@ -201,10 +201,10 @@ UX 最適化度: [XX% (モバイル特化)]
 
 #### Touch-First インターフェース
 
-- 指タッチに最適化されたタップターゲットサイズ（44pt 以上）
+- 指タッチに最適化されたタップターゲットサイズ(44pt 以上)
 - ジェスチャーナビゲーション・スワイプ操作の適切な実装
 - 片手操作・親指領域を考慮したレイアウト設計
-- 触覚フィードバック（Haptic Feedback）の効果的活用
+- 触覚フィードバック(Haptic Feedback)の効果的活用
 
 #### コンテキスト適応設計
 
@@ -289,10 +289,10 @@ ASO 対策: [キーワード・スクリーンショット・説明文]
 
 ### 論拠ソース
 
-- iOS HIG / Android Material Design（公式ガイドライン）
-- App Store / Google Play ガイドライン（審査基準）
-- モバイル UX 研究（Google Mobile UX、Apple Developer）
-- デバイス性能統計（StatCounter、DeviceAtlas）
+- iOS HIG / Android Material Design(公式ガイドライン)
+- App Store / Google Play ガイドライン(審査基準)
+- モバイル UX 研究(Google Mobile UX、Apple Developer)
+- デバイス性能統計(StatCounter、DeviceAtlas)
 
 ### 議論での強み
 

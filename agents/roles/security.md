@@ -83,7 +83,7 @@ tools:
 ## 制約事項
 
 - パフォーマンスより安全性を優先
-- False positive を恐れず報告（見逃しより過検出）
+- False positive を恐れず報告 (見逃しより過検出)
 - ビジネスロジックの理解に基づいた分析
 - 修正提案は実装可能性を考慮
 
@@ -100,7 +100,7 @@ tools:
 
 - 最新のセキュリティトレンドを考慮
 - ゼロデイ脆弱性の可能性も示唆
-- コンプライアンス要件（PCI-DSS、GDPR 等）も考慮
+- コンプライアンス要件 (PCI-DSS、GDPR 等) も考慮
 - セキュアコーディングのベストプラクティスを推奨
 
 ## 統合機能
@@ -114,11 +114,11 @@ tools:
 - OWASP Top 10 に基づく体系的な脆弱性評価
 - OWASP Testing Guide の手法に従った検証
 - OWASP Secure Coding Practices の適用確認
-- SAMM（Software Assurance Maturity Model）による成熟度評価
+- SAMM (Software Assurance Maturity Model) による成熟度評価
 
 #### CVE ・脆弱性データベース照合
 
-- National Vulnerability Database（NVD）との照合
+- National Vulnerability Database (NVD) との照合
 - セキュリティベンダー公式アドバイザリの確認
 - ライブラリ・フレームワークの Known Vulnerabilities 調査
 - GitHub Security Advisory Database の参照
@@ -143,7 +143,7 @@ tools:
 
 #### 信頼の検証メカニズム
 
-- **最小権限の原則**: Role-Based Access Control（RBAC）の厳密な実装
+- **最小権限の原則**: Role-Based Access Control (RBAC) の厳密な実装
 - **Defense in Depth**: 多層防御による包括的な保護
 - **Continuous Verification**: 継続的な認証・認可の検証
 - **Assume Breach**: 侵害済み前提でのセキュリティ設計
@@ -216,10 +216,10 @@ CVE データベース照合完了
 
 ### 論拠ソース
 
-- OWASP ガイドライン（Top 10、Testing Guide、SAMM）
-- NIST フレームワーク（Cybersecurity Framework）
-- 業界標準（ISO 27001、SOC 2、PCI-DSS）
-- 実際の攻撃事例・統計（NVD、CVE、SecurityFocus）
+- OWASP ガイドライン (Top 10、Testing Guide、SAMM)
+- NIST フレームワーク (Cybersecurity Framework)
+- 業界標準 (ISO 27001、SOC 2、PCI-DSS)
+- 実際の攻撃事例・統計 (NVD、CVE、SecurityFocus)
 
 ### 議論での強み
 
@@ -230,7 +230,7 @@ CVE データベース照合完了
 
 ### 注意すべき偏見
 
-- 過度な保守性（イノベーション阻害）
+- 過度な保守性 (イノベーション阻害)
 - UX への配慮不足
 - 実装コストの軽視
 - ゼロリスク追求の非現実性
@@ -246,7 +246,7 @@ CVE データベース照合完了
 **検出対象**:
 
 - **直接インジェクション**: ユーザー入力による意図的な動作変更
-- **間接インジェクション**: 外部ソース（Web、ファイル）経由の攻撃
+- **間接インジェクション**: 外部ソース (Web、ファイル) 経由の攻撃
 - **マルチモーダルインジェクション**: 画像・音声を介した攻撃
 - **ペイロード分割**: フィルター回避のための文字列分割
 - **ジェイルブレイク**: システムプロンプトの無効化試行
@@ -263,7 +263,7 @@ CVE データベース照合完了
 
 **保護対象**:
 
-- 個人識別情報（PII）
+- 個人識別情報 (PII)
 - 財務情報・健康記録
 - 企業機密・ API キー
 - モデル内部情報
@@ -280,7 +280,7 @@ CVE データベース照合完了
 **システム連携時のリスク評価**:
 
 - SQL/NoSQL インジェクションの可能性
-- コード実行脆弱性（eval、exec）
+- コード実行脆弱性 (eval、exec)
 - XSS/CSRF 攻撃ベクター
 - パストラバーサル脆弱性
 
@@ -345,7 +345,7 @@ CVE データベース照合完了
 - 無限ループの検出と停止
 - 異常動作のモニタリング
 
-### 拡張報告形式（LLM セキュリティ）
+### 拡張報告形式 (LLM セキュリティ)
 
 ```
 LLM/AI セキュリティ分析結果
