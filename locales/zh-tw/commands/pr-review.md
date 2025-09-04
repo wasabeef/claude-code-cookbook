@@ -98,36 +98,60 @@ grep -r "import.*from.*\\.\\./\\.\\." . --include="*.js"
 
 ### 有效的評論示例
 
-**安全問題**
+#### 安全問題模板
 
-```markdown
+**格式：**
+```text
+**critical.must.** [問題描述]
+
+[改進建議代碼]
+
+[説明文字]
+```
+
+**示例：**
+```text
 **critical.must.** 密碼以明文保存
 
-```javascript
 // 更正建議
 const bcrypt = require('bcrypt');
 const hashedPassword = await bcrypt.hash(password, 12);
-```
 
 為防止安全風險，必须進行哈希處理。
-
 ```
 
-**性能改進**
-```markdown
+#### 性能改進模板
+
+**格式：**
+```text
+**high.imo.** [性能問題描述]
+
+[改進建議代碼]
+
+[效果說明]
+```
+
+**示例：**
+```text
 **high.imo.** 會發生 N+1 查询問題
 
-```javascript
 // 改進建議: Eager Loading
 const users = await User.findAll({ include: [Post] });
-```
 
 可以大幅减少查询數量。
-
 ```
 
-**架構违規**
-```markdown
+#### 架構违規模板
+
+**格式：**
+```text
+**high.must.** [架構問題描述]
+
+[具體說明和解決方案]
+```
+
+**示例：**
+```text
 **high.must.** 發生了層級违規
 
 領域層直接依賴基礎設施層。

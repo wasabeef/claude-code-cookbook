@@ -96,39 +96,62 @@ grep -r "import.*from.*\\.\\./\\.\\." . --include="*.js"
 3. **建设性反馈**: 具体改进建议和代码示例
 4. **后续跟进**: 修正确认、CI 状态、最终批准
 
-### 有效的评论示例
+### 评论模板
 
-**安全问题**
+#### 安全问题模板
 
-```markdown
-**critical.must.** 密码以明文保存
+**格式：**
 
-```javascript
-// 修正建议
+- 严重程度：`critical.must.`
+- 问题：明确描述问题
+- 代码示例：提供修复方案
+- 理由：解释为什么需要修复
+
+**示例：**
+
+```text
+critical.must. 密码以明文保存
+
+修复方案：
 const bcrypt = require('bcrypt');
 const hashedPassword = await bcrypt.hash(password, 12);
-```
 
 为防止安全风险，必须进行哈希处理。
-
 ```
 
-**性能改进**
-```markdown
-**high.imo.** 会发生 N+1 查询问题
+#### 性能改进模板
 
-```javascript
-// 改进建议: Eager Loading
+**格式：**
+
+- 严重程度：`high.imo.`
+- 问题：解释性能影响
+- 代码示例：提供改进方案
+- 效果：描述预期改进
+
+**示例：**
+
+```text
+high.imo. 会发生 N+1 查询问题
+
+改进方案：Eager Loading
 const users = await User.findAll({ include: [Post] });
-```
 
 可以大幅减少查询数量。
-
 ```
 
-**架构违规**
-```markdown
-**high.must.** 发生了层级违规
+#### 架构违规模板
+
+**格式：**
+
+- 严重程度：`high.must.`
+- 问题：指出架构原则违规
+- 解决方案：提供架构改进方向
+- 原则：引用相关设计原则
+
+**示例：**
+
+```text
+high.must. 发生了层级违规
 
 领域层直接依赖基础设施层。
 请通过依赖倒置原则引入接口。

@@ -225,7 +225,6 @@ Claude：「自动生成系统设计的 Mermaid 图：
 
 自动生成的架构图：
 
-```mermaid
 graph TB
     Client[React Client] --> API[Express API Gateway]
     API --> Auth[Auth Service]
@@ -238,20 +237,17 @@ graph TB
 
     Auth --> JWT[JWT Service]
     Auth --> OAuth[OAuth Provider]
-```
 
 还需要生成数据流图吗？」
-
 ```
 
 **3. TypeScript 接口自动生成**
-```
 
+```
 Claude：「基于设计自动生成 TypeScript 接口：
 
 自动生成的 TypeScript 接口：
 
-```typescript
 // Domain entities
 interface User {
   readonly id: UserId;
@@ -287,10 +283,8 @@ interface AuthenticationService {
   authenticate(credentials: LoginCredentials): Promise<AuthResult>;
   refreshToken(token: RefreshToken): Promise<AccessToken>;
 }
-```
 
 使用这个接口设计吗？」
-
 ```
 
 **4. Phase 2 完成和批准**
@@ -413,7 +407,8 @@ Claude：「Implementation Planning Phase 已完成。
 ### Kiro 特有的功能
 
 **EARS 记法 (Easy Approach to Requirements Syntax)**
-```markdown
+
+```
 # Kiro 标准的 EARS 记法模式
 
 WHEN [情况・触发器]
