@@ -25,7 +25,7 @@ matches_deny_pattern() {
   cmd="${cmd#"${cmd%%[![:space:]]*}"}" # 先頭の空白を削除
   cmd="${cmd%"${cmd##*[![:space:]]}"}" # 末尾の空白を削除
 
-  # glob パターンマッチング（ワイルドカード対応）
+  # glob パターンマッチング(ワイルドカード対応)
   [[ "$cmd" == $pattern ]]
 }
 
@@ -42,7 +42,7 @@ while IFS= read -r pattern; do
 done <<<"$deny_patterns"
 
 # コマンドを論理演算子で分割し、各部分もチェック
-# セミコロン、&& と || で分割（パイプ | と単一 & は分割しない）
+# セミコロン、&& と || で分割(パイプ | と単一 & は分割しない)
 temp_command="${command//;/$'\n'}"
 temp_command="${temp_command//&&/$'\n'}"
 temp_command="${temp_command//\|\|/$'\n'}"

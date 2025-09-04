@@ -36,7 +36,7 @@ fi
 if [ "$hook_type" = "PreToolUse" ]; then
   # ファイルが存在する場合、現在の権限を記録
   if [ -f "$file_path" ]; then
-    # 権限を取得（8 進数形式）
+    # 権限を取得(8 進数形式)
     current_perms=$(stat -f "%OLp" "$file_path" 2>/dev/null || stat -c "%a" "$file_path" 2>/dev/null)
     if [ -n "$current_perms" ]; then
       # ファイルパスと権限を保存
@@ -79,5 +79,5 @@ elif [ "$hook_type" = "PostToolUse" ]; then
   fi
 fi
 
-# 入力をそのまま出力（変更なし）
+# 入力をそのまま出力(変更なし)
 echo "$input_json"
