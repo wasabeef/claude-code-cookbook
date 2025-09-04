@@ -98,36 +98,60 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 
 ### Ejemplos de Comentarios Efectivos
 
-**Problemas de Seguridad**
+#### Problemas de Seguridad
 
-```markdown
+**Formato:**
+```text
+**critical.must.** [Descripción del problema]
+
+[Código propuesto]
+
+[Explicación de la necesidad]
+```
+
+**Ejemplo:**
+```text
 **critical.must.** La contraseña se almacena en texto plano
 
-```javascript
 // Corrección propuesta
 const bcrypt = require('bcrypt');
 const hashedPassword = await bcrypt.hash(password, 12);
-```
 
 Se requiere hashing para prevenir riesgos de seguridad.
-
 ```
 
-**Mejora de Rendimiento**
-```markdown
+#### Mejora de Rendimiento
+
+**Formato:**
+```text
+**high.imo.** [Descripción del problema]
+
+[Código de mejora]
+
+[Explicación del beneficio]
+```
+
+**Ejemplo:**
+```text
 **high.imo.** Ocurre problema de consulta N+1
 
-```javascript
 // Mejora: Eager Loading
 const users = await User.findAll({ include: [Post] });
-```
 
 Esto puede reducir significativamente el número de consultas.
-
 ```
 
-**Violación de Arquitectura**
-```markdown
+#### Violación de Arquitectura
+
+**Formato:**
+```text
+**high.must.** [Descripción de la violación]
+
+[Explicación detallada y solución recomendada]
+```
+
+**Ejemplo:**
+```text
 **high.must.** Ocurrió violación de capa
 
 La capa de dominio depende directamente de la capa de infraestructura.

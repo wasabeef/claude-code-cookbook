@@ -225,7 +225,6 @@ Claude: "Gerei automaticamente o design de sistema com diagrama Mermaid:
 
 Diagrama de arquitetura gerado automaticamente:
 
-```mermaid
 graph TB
     Client[React Client] --> API[Express API Gateway]
     API --> Auth[Auth Service]
@@ -238,21 +237,17 @@ graph TB
 
     Auth --> JWT[JWT Service]
     Auth --> OAuth[OAuth Provider]
-```
 
 Também gerar diagrama de fluxo de dados?"
-
 ```
 
 **3. Geração automática de interfaces TypeScript**
 
 ```
-
 Claude: "Vou gerar automaticamente interfaces TypeScript baseadas no design:
 
 Interfaces TypeScript geradas automaticamente:
 
-```typescript
 // Domain entities
 interface User {
   readonly id: UserId;
@@ -288,10 +283,8 @@ interface AuthenticationService {
   authenticate(credentials: LoginCredentials): Promise<AuthResult>;
   refreshToken(token: RefreshToken): Promise<AccessToken>;
 }
-```
 
 Proceder com este design de interface?"
-
 ```
 
 **4. Conclusão e aprovação da Phase 2**
@@ -420,7 +413,7 @@ Posso gerar tasks.md?"
 
 **Notação EARS (Easy Approach to Requirements Syntax)**
 
-```markdown
+```
 # Padrões padrão de notação EARS do Kiro
 
 WHEN [situação / trigger]

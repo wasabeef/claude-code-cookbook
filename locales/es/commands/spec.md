@@ -166,10 +166,9 @@ Arquitectura recomendada por Kiro:
 
 **2. Diseño Visual con Diagramas Mermaid**
 
-```
+```text
 Claude: "He generado automáticamente un diseño de sistema usando diagramas Mermaid:
 
-```mermaid
 graph TB
     Client[React Client] --> API[Express API Gateway]
     API --> Auth[Auth Service]
@@ -177,10 +176,8 @@ graph TB
     
     Auth --> AuthDB[(Auth Database)]
     User --> UserDB[(User Database)]
-```
 
 ¿También genero un diagrama de flujo de datos?"
-
 ```
 
 #### Fase 3: Planificación e Implementación y Discusión
@@ -211,7 +208,7 @@ Estrategia de implementación generada automáticamente:
 
 **Notación EARS (Easy Approach to Requirements Syntax)**
 
-```markdown
+```text
 # Patrones de Notación EARS Estándar de Kiro
 
 WHEN [situación/disparador]
@@ -264,7 +261,7 @@ Completitud Fase 3 → "Proceder" → generación de tasks.md
 
 **Notación EARS (Easy Approach to Requirements Syntax)**
 
-```markdown
+```text
 # Patrones estándar de notación EARS de Kiro
 
 WHEN [situación/trigger]

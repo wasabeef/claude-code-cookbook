@@ -224,7 +224,7 @@ Claude : "J'ai automatiquement généré une conception système utilisant les d
 
 Diagramme d'architecture généré automatiquement :
 
-```mermaid
+```text
 graph TB
     Client[Client React] --> API[Express API Gateway]
     API --> Auth[Service Auth]
@@ -244,13 +244,13 @@ Dois-je également générer un diagramme de flux de données ?"
 ```
 
 **3. Génération automatique d'interfaces TypeScript**
-```
 
+```
 Claude : "Je vais automatiquement générer les interfaces TypeScript basées sur la conception :
 
 Interfaces TypeScript générées automatiquement :
 
-```typescript
+```text
 // Entités de domaine
 interface User {
   readonly id: UserId;
@@ -412,7 +412,8 @@ Puis-je générer tasks.md ?"
 ### Fonctionnalités spécifiques à Kiro
 
 **Notation EARS (Easy Approach to Requirements Syntax)**
-```markdown
+
+```text
 # Patterns de notation EARS standard Kiro
 
 WHEN [situation/déclencheur]

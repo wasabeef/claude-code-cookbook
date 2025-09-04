@@ -98,36 +98,61 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 
 ### Exemplos de Comentários Eficazes
 
-**Problemas de Segurança**
+#### Problemas de Segurança
 
-```markdown
+**Formato:**
+```text
+**critical.must.** [Descrição do problema]
+
+[Proposta de correção específica]
+
+[Explicação da necessidade]
+```
+
+**Exemplo:**
+```text
 **critical.must.** Senha está sendo armazenada em texto plano
 
-```javascript
 // Proposta de correção
 const bcrypt = require('bcrypt');
 const hashedPassword = await bcrypt.hash(password, 12);
-```
 
 Hashing é obrigatório para prevenir riscos de segurança.
-
 ```
 
-**Melhoria de Performance**
-```markdown
+#### Melhoria de Performance
+
+**Formato:**
+```text
+**high.imo.** [Descrição do problema]
+
+[Proposta de melhoria específica]
+
+[Explicação dos benefícios]
+```
+
+**Exemplo:**
+```text
 **high.imo.** Problema de consulta N+1 irá ocorrer
 
-```javascript
 // Proposta de melhoria: Eager Loading
 const users = await User.findAll({ include: [Post] });
-```
 
 Pode reduzir drasticamente o número de consultas.
-
 ```
 
-**Violação de Arquitetura**
-```markdown
+#### Violação de Arquitetura
+
+**Formato:**
+```text
+**high.must.** [Descrição da violação]
+
+[Explicação do problema arquitetural]
+[Proposta de solução]
+```
+
+**Exemplo:**
+```text
 **high.must.** Violação de camada está ocorrendo
 
 A camada de domínio está dependendo diretamente da camada de infraestrutura.

@@ -98,36 +98,60 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 
 ### Exemples de commentaires efficaces
 
-**Problèmes de sécurité**
+#### Problèmes de sécurité
 
-```markdown
+**Format :**
+```text
+**critical.must.** [Description du problème de sécurité]
+
+[Code ou solution proposée]
+
+[Explication de la nécessité]
+```
+
+**Exemple :**
+```text
 **critical.must.** Le mot de passe est stocké en texte brut
 
-```javascript
 // Correction proposée
 const bcrypt = require('bcrypt');
 const hashedPassword = await bcrypt.hash(password, 12);
-```
 
 Le hachage est requis pour prévenir les risques de sécurité.
-
 ```
 
-**Amélioration des performances**
-```markdown
+#### Amélioration des performances
+
+**Format :**
+```text
+**high.imo.** [Description du problème de performance]
+
+[Code d'amélioration proposé]
+
+[Explication de l'impact]
+```
+
+**Exemple :**
+```text
 **high.imo.** Problème de requête N+1 survient
 
-```javascript
 // Amélioration : Chargement anticipé
 const users = await User.findAll({ include: [Post] });
-```
 
 Ceci peut réduire significativement le nombre de requêtes.
-
 ```
 
-**Violation architecturale**
-```markdown
+#### Violation architecturale
+
+**Format :**
+```text
+**high.must.** [Description de la violation]
+
+[Explication et solution recommandée]
+```
+
+**Exemple :**
+```text
 **high.must.** Violation de couche survenue
 
 La couche domaine dépend directement de la couche infrastructure.
