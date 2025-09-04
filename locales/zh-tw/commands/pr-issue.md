@@ -24,7 +24,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 ### 顯示格式
 
 ```
-開放 Issue 列表（按優先級排序）
+開放 Issue 列表(按優先級排序)
 
 ### 高優先級
 #編号 標題 [標簽] | 作者 | 開放時长 | 評論數 | 負責人
@@ -33,10 +33,10 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
       https://github.com/owner/repo/issues/編号
 
 ### 中優先級
-（相同格式）
+(相同格式)
 
 ### 低優先級
-（相同格式）
+(相同格式)
 ```
 
 ### 優先級判定標準
@@ -65,7 +65,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 # 仅獲取特定標簽的 Issue
 gh issue list --state open --label "bug" --json number,title,author,createdAt,labels,comments --limit 30
 
-# 使用多個標簽筛選（AND 條件）
+# 使用多個標簽筛選(AND 條件)
 gh issue list --state open --label "bug,high-priority" --json number,title,author,createdAt,labels,comments --limit 30
 ```
 

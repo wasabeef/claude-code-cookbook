@@ -5,7 +5,7 @@
 ### 使用方法
 
 ```bash
-# 通過 Gemini CLI 進行網絡搜索（必须）
+# 通過 Gemini CLI 進行網絡搜索(必须)
 gemini --prompt "WebSearch: <搜索查询>"
 ```
 

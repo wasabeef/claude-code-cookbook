@@ -24,7 +24,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 ### 顯示格式
 
 ```
-開放 PR 列表（按優先級排序）
+開放 PR 列表(按優先級排序)
 
 ### 高優先級
 #編号 標題 [Draft/DNM] | 作者 | 開放時长 | 批準數 | +添加/-刪除
@@ -33,10 +33,10 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
       https://github.com/owner/repo/pull/編号
 
 ### 中優先級
-（相同格式）
+(相同格式)
 
 ### 低優先級
-（相同格式）
+(相同格式)
 ```
 
 ### 優先級判定標準
@@ -60,7 +60,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 ### 注意事項
 
 - 需要安裝 GitHub CLI (`gh`)
-- 仅顯示開放狀態的 PR（排除 Draft）
+- 仅顯示開放狀態的 PR(排除 Draft)
 - 最多顯示 30 個 PR
 - 時长是從 PR 開放至今的時間
 - PR URL 根據實際倉庫名自動生成

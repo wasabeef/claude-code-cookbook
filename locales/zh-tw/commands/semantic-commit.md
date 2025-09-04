@@ -11,8 +11,8 @@
 ### 選項
 
 - `--dry-run` : 不實際提交，仅顯示建議的提交拆分
-- `--lang <語言>` : 強制指定提交消息語言（en, zh-tw）
-- `--max-commits <數>` : 指定最大提交數（默認: 10）
+- `--lang <語言>` : 強制指定提交消息語言(en, zh-tw)
+- `--max-commits <數>` : 指定最大提交數(默認: 10)
 
 ### 基本示例
 
@@ -20,7 +20,7 @@
 # 分析當前變更並按邏輯單位提交
 /semantic-commit
 
-# 仅確認拆分方案（不實際提交）
+# 仅確認拆分方案(不實際提交)
 /semantic-commit --dry-run
 
 # 用英語生成提交消息
@@ -260,7 +260,7 @@ while IFS= read -r commit_plan; do
     continue
   fi
   
-  # 生成提交消息（LLM 分析）
+  # 生成提交消息(LLM 分析)
   commit_msg=$(generate_commit_message_for_staged_files)
   
   # 用戶確認
@@ -470,21 +470,21 @@ done
 
 **必需類型**:
 
-- `feat`: 新功能（用戶可見的功能添加）
+- `feat`: 新功能(用戶可見的功能添加)
 - `fix`: Bug 修復
 
 **可選類型**:
 
 - `build`: 構建系統或外部依賴的變更
-- `chore`: 其他變更（不影響發布）
+- `chore`: 其他變更(不影響發布)
 - `ci`: CI 配置文件和腳本的變更
 - `docs`: 仅文檔變更
-- `style`: 不影響代碼含義的變更（空白、格式、分号等）
+- `style`: 不影響代碼含義的變更(空白、格式、分号等)
 - `refactor`: 既不修復 Bug 也不添加功能的代碼變更
 - `perf`: 性能改進
 - `test`: 添加或更正測試
 
-#### 作用域（可選）
+#### 作用域(可選)
 
 表示變更的影響範圍：
 
@@ -634,7 +634,7 @@ docs: 更新 API 文檔
 2. **通過 git log 分析**自動判定
 
    ```bash
-   # 分析最近 20 個提交的語言（繁体字中文）
+   # 分析最近 20 個提交的語言(繁体字中文)
    git log --oneline -20 --pretty=format:"%s" | \
    grep -E '[一-龯]' | wc -l
    # 50% 以上是繁体字中文則使用繁体字中文模式
@@ -643,32 +643,32 @@ docs: 更新 API 文檔
 3. **項目文件**的語言設置
 
    ```bash
-   # 確認 README.md 的語言（繁体字中文）
+   # 確認 README.md 的語言(繁体字中文)
    head -10 README.md | grep -E '[一-龯]' | wc -l
    
-   # 確認 package.json 的 description（繁体字中文）
+   # 確認 package.json 的 description(繁体字中文)
    grep -E '"description".*[一-龯]' package.json
    ```
 
 4. **變更文件內**的注釋·字符串分析
 
    ```bash
-   # 確認變更文件的注釋語言（繁体字中文）
+   # 確認變更文件的注釋語言(繁体字中文)
    git diff HEAD | grep -E '^[+-].*//.*[一-龯]' | wc -l
    ```
 
 #### 判定算法
 
 ```bash
-# 語言判定分數計算（繁体字中文）
+# 語言判定分數計算(繁体字中文)
 ZH_TW_SCORE=0
 
-# 1. CommitLint 配置（+3 分）
+# 1. CommitLint 配置(+3 分)
 if grep -q '"subject-case".*\[0\]' commitlint.config.* 2>/dev/null; then
   ZH_TW_SCORE=$((ZH_TW_SCORE + 3))
 fi
 
-# 2. git log 分析（最大 +2 分）
+# 2. git log 分析(最大 +2 分)
 ZH_TW_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
   grep -cE '[一-龯]' 2>/dev/null || echo 0)
 if [ $ZH_TW_COMMITS -gt 10 ]; then
@@ -677,12 +677,12 @@ elif [ $ZH_TW_COMMITS -gt 5 ]; then
   ZH_TW_SCORE=$((ZH_TW_SCORE + 1))
 fi
 
-# 3. README.md 確認（+1 分）
+# 3. README.md 確認(+1 分)
 if head -5 README.md 2>/dev/null | grep -qE '[一-龯]'; then
   ZH_TW_SCORE=$((ZH_TW_SCORE + 1))
 fi
 
-# 4. 變更文件內容確認（+1 分）
+# 4. 變更文件內容確認(+1 分)
 if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[一-龯]'; then
   ZH_TW_SCORE=$((ZH_TW_SCORE + 1))
 fi
@@ -837,7 +837,7 @@ export default {
 
 2. **現有提交歷史** (第 2 優先)
    - 實際使用的類型統計
-   - 消息語言（中文/英文）
+   - 消息語言(中文/英文)
    - 作用域使用模式
 
 3. **項目類型** (第 3 優先)
@@ -884,7 +884,7 @@ ls packages/ | head -10
 {
   'type-enum': [2, 'always', [
     'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-    'wip',      // 進行中（Pull Request 用）
+    'wip',      // 進行中(Pull Request 用)
     'hotfix',   // 紧急修復
     'release'   // 發布準備
   ]],
@@ -902,14 +902,14 @@ ls packages/ | head -10
 5. **分離測試**: 測試文件單独提交
 6. **利用配置文件**: 引入 CommitLint 統一團隊規約
 
-### 實際拆分示例（Before/After）
+### 實際拆分示例(Before/After)
 
 #### 示例 1: 大規模認證系統添加
 
-**Before（1 個巨大提交）:**
+**Before(1 個巨大提交):**
 
 ```bash
-# 變更文件（15 個文件，850 行變更）
+# 變更文件(15 個文件，850 行變更)
 src/auth/login.js          # 新建
 src/auth/register.js       # 新建  
 src/auth/password.js       # 新建
@@ -930,7 +930,7 @@ README.md                 # 使用方法添加
 feat: 實現完整的用戶認證系統，包含登錄、注冊、密碼重置、API 路由、數據庫模型、測試和文檔
 ```
 
-**After（拆分為有意義的 5 個提交）:**
+**After(拆分為有意義的 5 個提交):**
 
 ```bash
 # 提交 1: 數據庫基礎
@@ -986,12 +986,12 @@ docs(auth): 添加認證文檔和配置
 
 #### 示例 2: Bug 修復和重構混合
 
-**Before（混合的問題提交）:**
+**Before(混合的問題提交):**
 
 ```bash
-# 變更文件（8 個文件，320 行變更）
+# 變更文件(8 個文件，320 行變更)
 src/user/service.js       # Bug 修復 + 重構
-src/user/validator.js     # 新建（重構）
+src/user/validator.js     # 新建(重構)
 src/auth/middleware.js    # Bug 修復
 src/api/user-routes.js    # Bug 修復 + 錯誤處理改進
 tests/user.test.js        # 測試添加
@@ -1003,16 +1003,16 @@ package.json              # 依賴更新
 fix: 解決用戶驗證 Bug 並重構驗證邏輯，改進錯誤處理
 ```
 
-**After（按類型拆分為 3 個提交）:**
+**After(按類型拆分為 3 個提交):**
 
 ```bash
 # 提交 1: 紧急 Bug 修復
 fix: 解決用戶驗證和認證 Bug
 
 包含文件:
-- src/user/service.js（仅 Bug 修復部分）
+- src/user/service.js(仅 Bug 修復部分)
 - src/auth/middleware.js
-- tests/auth.test.js（仅 Bug 修復測試）
+- tests/auth.test.js(仅 Bug 修復測試)
 
 理由: 影響生產環境的 Bug 最優先修復
 
@@ -1020,7 +1020,7 @@ fix: 解決用戶驗證和認證 Bug
 refactor: 提取並改進用戶驗證邏輯
 
 包含文件:
-- src/user/service.js（重構部分）
+- src/user/service.js(重構部分)
 - src/user/validator.js
 - src/api/user-routes.js
 - tests/user.test.js
@@ -1039,10 +1039,10 @@ chore: 更新文檔和依賴
 
 #### 示例 3: 多功能並行開發
 
-**Before（跨功能的巨大提交）:**
+**Before(跨功能的巨大提交):**
 
 ```bash
-# 變更文件（12 個文件，600 行變更）
+# 變更文件(12 個文件，600 行變更)
 src/user/profile.js       # 新功能 A
 src/user/avatar.js        # 新功能 A  
 src/notification/email.js # 新功能 B
@@ -1060,7 +1060,7 @@ package.json              # 全功能依賴
 feat: 添加用戶檔案管理、通知系統和儀表板組件
 ```
 
-**After（按功能拆分為 4 個提交）:**
+**After(按功能拆分為 4 個提交):**
 
 ```bash
 # 提交 1: 用戶檔案功能
@@ -1106,7 +1106,7 @@ chore: 為新功能更新依賴
 
 ### 拆分效果比较
 
-| 項目 | Before（巨大提交） | After（適当拆分） |
+| 項目 | Before(巨大提交) | After(適当拆分) |
 |------|---------------------|-------------------|
 | **代碼審查性** | ❌ 非常困難 | ✅ 各提交小巧易審查 |
 | **Bug 追蹤** | ❌ 問題位置難以確定 | ✅ 即時定位問題提交 |

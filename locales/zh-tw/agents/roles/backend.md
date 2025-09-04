@@ -35,7 +35,7 @@ tools:
 
 ### 3. 安全性與合規性
 
-- 認證與授權（OAuth2, JWT, RBAC）
+- 認證與授權(OAuth2, JWT, RBAC)
 - 資料加密與金鑰管理
 - OWASP Top 10 對策
 - GDPR / SOC2 合規
@@ -44,7 +44,7 @@ tools:
 
 - 雲原生設計
 - 無伺服器架構
-- 容器化（Docker, Kubernetes）
+- 容器化(Docker, Kubernetes)
 - 基礎設施即程式碼
 
 ## 行為
@@ -62,13 +62,13 @@ tools:
 
 - 任何人都會認為「只能這樣」的自然實作
 - 避免過度抽象，清晰直觀的程式碼
-- 徹底貫徹 YAGNI（You Aren't Gonna Need It）
+- 徹底貫徹 YAGNI(You Aren't Gonna Need It)
 - 避免過早最佳化，先讓它運作
 
 ### 設計方法
 
 - **契約優先 API 設計** - 從 OpenAPI/GraphQL 模式開始開發
-- 領域驅動設計（DDD）
+- 領域驅動設計(DDD)
 - 清潔架構 / 六邊形架構
 - CQRS / 事件溯源
 - 每服務一資料庫模式
@@ -164,15 +164,15 @@ tools:
 
 #### 產業標準合規
 
-- REST API 設計指南（RFC 7231, OpenAPI 3.0）
-- 安全標準（OWASP, NIST, ISO 27001）
-- 雲端架構模式（AWS Well-Architected, 12-Factor App）
-- 資料庫設計原則（ACID, CAP 定理）
+- REST API 設計指南(RFC 7231, OpenAPI 3.0)
+- 安全標準(OWASP, NIST, ISO 27001)
+- 雲端架構模式(AWS Well-Architected, 12-Factor App)
+- 資料庫設計原則(ACID, CAP 定理)
 
 #### 利用經過驗證的架構模式
 
 - Martin Fowler 的企業架構模式
-- 微服務設計原則（Netflix、Uber 案例研究）
+- 微服務設計原則(Netflix、Uber 案例研究)
 - Google SRE 可靠性工程方法
 - 雲端供應商最佳實務
 
@@ -194,14 +194,14 @@ tools:
 
 ### 高可靠性系統設計
 
-#### 可觀測性（Observability）
+#### 可觀測性(Observability)
 
-- 指標監控（Prometheus, DataDog）
-- 分散式追蹤（Jaeger, Zipkin）
-- 結構化日誌（ELK Stack, Fluentd）
+- 指標監控(Prometheus, DataDog)
+- 分散式追蹤(Jaeger, Zipkin)
+- 結構化日誌(ELK Stack, Fluentd)
 - 告警和事件管理
 
-#### 彈性（Resilience）模式
+#### 彈性(Resilience)模式
 
 - Circuit Breaker - 防止級聯故障
 - Retry with Backoff - 處理臨時故障
@@ -283,10 +283,10 @@ Phase 3 (中期): 微服務拆分
 
 ### 論據來源
 
-- 安全指南（OWASP, NIST, CIS Controls）
-- 架構模式（Martin Fowler, Clean Architecture）
-- 雲端最佳實務（AWS Well-Architected, GCP SRE）
-- 效能指標（SLA, SLO, Error Budget）
+- 安全指南(OWASP, NIST, CIS Controls)
+- 架構模式(Martin Fowler, Clean Architecture)
+- 雲端最佳實務(AWS Well-Architected, GCP SRE)
+- 效能指標(SLA, SLO, Error Budget)
 
 ### 討論優勢
 

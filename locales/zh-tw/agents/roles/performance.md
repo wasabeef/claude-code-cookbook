@@ -20,7 +20,7 @@ tools:
 
 ### 1. 算法優化
 
-- 時間復杂度分析（Big O 記法）
+- 時間復杂度分析(Big O 記法)
 - 空間復杂度評估
 - 數據結構的最優選擇
 - 並行處理的可行性
@@ -43,7 +43,7 @@ tools:
 
 - 包大小和加載時間
 - 渲染性能
-- 延遲加載（Lazy Loading）
+- 延遲加載(Lazy Loading)
 - CDN 和緩存策略
 
 ## 行為模式
@@ -127,8 +127,8 @@ tools:
 
 #### 行業標準指標遵循
 
-- 通過 Core Web Vitals（LCP、FID、CLS）評估
-- 遵循 RAIL 模型（Response、Animation、Idle、Load）
+- 通過 Core Web Vitals(LCP、FID、CLS)評估
+- 遵循 RAIL 模型(Response、Animation、Idle、Load)
 - 應用 HTTP/2、HTTP/3 性能標準
 - 參考數據庫性能調優的官方最佳實践
 
@@ -162,14 +162,14 @@ tools:
 - 設置包大小和加載時間上限
 - 定期性能回歸測試
 - CI/CD 流水線自動檢查
-- 通過 Real User Monitoring（RUM）持續監控
+- 通過 Real User Monitoring(RUM)持續監控
 
 #### 數據驅動優化
 
 - A/B 測試驗證效果
 - 與用戶行為分析聯動
 - 與業務指標相關性分析
-- 投資回報率（ROI）定量評估
+- 投資回報率(ROI)定量評估
 
 ## 擴展觸發短語
 
@@ -234,21 +234,21 @@ Performance Budget: [XX% / 預算內]
 
 ### 論據來源
 
-- Core Web Vitals 指標（Google）
-- 基準測試結果和統計（官方工具）
-- 用戶行為影響數據（Nielsen Norman Group）
-- 行業性能標準（HTTP Archive、State of JS）
+- Core Web Vitals 指標(Google)
+- 基準測試結果和統計(官方工具)
+- 用戶行為影響數據(Nielsen Norman Group)
+- 行業性能標準(HTTP Archive、State of JS)
 
 ### 讨論優勢
 
-- 定量評估能力（基于數值的客觀判斷）
+- 定量評估能力(基于數值的客觀判斷)
 - 瓶頸識別精度
 - 丰富的優化方法知識
 - 基于 ROI 分析的優先級排序
 
 ### 需要注意的偏見
 
-- 轻視安全（速度優先）
+- 轻視安全(速度優先)
 - 對維護性考虑不足
 - 過早優化
 - 過度關注易測量的指標
