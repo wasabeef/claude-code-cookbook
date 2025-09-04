@@ -225,7 +225,6 @@ Claude: 「システム設計を Mermaid 図で自動生成しました：
 
 自動生成されたアーキテクチャ図:
 
-```mermaid
 graph TB
     Client[React Client] --> API[Express API Gateway]
     API --> Auth[Auth Service]
@@ -238,20 +237,17 @@ graph TB
 
     Auth --> JWT[JWT Service]
     Auth --> OAuth[OAuth Provider]
-```
 
 データフロー図も生成しますか？」
-
 ```
 
 **3. TypeScript インターフェース自動生成**
-```
 
+```
 Claude: 「設計に基づいて TypeScript インターフェースを自動生成します：
 
 自動生成 TypeScript インターフェース:
 
-```typescript
 // Domain entities
 interface User {
   readonly id: UserId;
@@ -287,26 +283,23 @@ interface AuthenticationService {
   authenticate(credentials: LoginCredentials): Promise<AuthResult>;
   refreshToken(token: RefreshToken): Promise<AccessToken>;
 }
-```
 
 このインターフェース設計で進めますか？」
-
 ```
 
 **4. Phase 2 完了と承認**
-```
 
+```
 Claude: 「Design Phase が完了しました。
 design.md を生成してよろしいですか？」
 → 「次に進んで」→ design.md 生成
-
 ```
 
 #### Phase 3: Implementation Planning & Discussion
 
 **1. ベストプラクティス自動適用(Kiro 式)**
-```
 
+```
 Claude: 「Kiro のベストプラクティスを自動適用した実装計画を生成しました：
 
 自動生成された実装戦略:
@@ -327,12 +320,11 @@ Claude: 「Kiro のベストプラクティスを自動適用した実装計画�
    - 非同期処理の活用
 
 このアプローチで進めますか？」
-
 ```
 
 **2. 品質チェックポイント自動設定**
-```
 
+```
 Claude: 「各実装段階での品質チェックポイントを自動設定しました：
 
 自動品質保証プロセス:
@@ -359,12 +351,11 @@ Phase 3c: 統合・デプロイ
 - [ ] 本番環境セキュリティ監査
 
 すべて自動実行されます。追加の品質基準はありますか？」
-
 ```
 
 **3. 依存関係とリスク軽減の自動分析**
-```
 
+```
 Claude: 「実装順序とリスク軽減策を自動分析しました：
 
 最適化された実装順序:
@@ -398,21 +389,20 @@ Week 3: 高度な機能・最適化
 - データ整合性: トランザクション管理強化
 
 この計画で問題ありませんか？」
-
 ```
 
 **4. Phase 3 完了と承認**
-```
 
+```
 Claude: 「Implementation Planning Phase が完了しました。
 tasks.md を生成してよろしいですか？」
 → 「次に進んで」→ tasks.md 生成
-
 ```
 
 ### Kiro 特有の機能
 
 **EARS 記法 (Easy Approach to Requirements Syntax)**
+
 ```markdown
 # Kiro 標準の EARS 記法パターン
 
