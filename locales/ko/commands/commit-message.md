@@ -78,22 +78,28 @@ find . -name "commitlint.config.*" -o -name ".commitlintrc.*" | head -1
 ```javascript
 // commitlint.config.mjs
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // 작업중
-        'hotfix',   // 긴급 수정
-        'release',  // 릴리스
-        'deps',     // 의존성 업데이트
-        'config'    // 설정 변경
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // 작업중
+        "hotfix", // 긴급 수정
+        "release", // 릴리스
+        "deps", // 의존성 업데이트
+        "config", // 설정 변경
+      ],
+    ],
+  },
+};
 ```
 
 #### 3. 언어 설정 감지
@@ -102,10 +108,10 @@ export default {
 // 프로젝트가 한국어 메시지를 사용하는 경우
 export default {
   rules: {
-    'subject-case': [0],  // 한국어 대응을 위해 비활성화
-    'subject-max-length': [2, 'always', 72]  // 한국어는 글자수 제한 조정
-  }
-}
+    "subject-case": [0], // 한국어 대응을 위해 비활성화
+    "subject-max-length": [2, "always", 72], // 한국어는 글자수 제한 조정
+  },
+};
 ```
 
 #### 4. 기존 커밋 히스토리 분석

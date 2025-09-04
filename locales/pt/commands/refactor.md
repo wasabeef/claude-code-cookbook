@@ -58,14 +58,18 @@ function processOrder(order) {
 // Antes: declaração switch
 function getPrice(user) {
   switch (user.type) {
-    case 'premium': return basePrice * 0.8;
-    case 'regular': return basePrice;
+    case "premium":
+      return basePrice * 0.8;
+    case "regular":
+      return basePrice;
   }
 }
 
 // Depois: padrão Strategy
 class PremiumPricing {
-  calculate(basePrice) { return basePrice * 0.8; }
+  calculate(basePrice) {
+    return basePrice * 0.8;
+  }
 }
 ```
 
@@ -146,12 +150,12 @@ Conversão de Custo:
 
 #### Matriz de Prioridades
 
-| Prioridade | Impacto | Custo de Correção | Prazo de Resposta | Exemplo Concreto | Ação Recomendada |
-|------------|---------|-------------------|-------------------|------------------|------------------|
-| **Critical (Resposta Imediata)** | Alto | Baixo | Dentro de 1 semana | God Object, dependências circulares | Iniciar refatoração imediatamente |
-| **Important (Resposta Planejada)** | Alto | Alto | Dentro de 1 mês | Separação de responsabilidades em grande escala, mudanças arquiteturais | Incluir no planejamento de sprint |
-| **Watch (Objeto de Monitoramento)** | Baixo | Alto | Dentro de 3 meses | Processamento interno de alta complexidade | Monitoramento de métricas, resposta quando houver deterioração |
-| **Acceptable (Faixa Aceitável)** | Baixo | Baixo | Não necessário | Code smells menores | Resposta através de refatoração normal |
+| Prioridade                          | Impacto | Custo de Correção | Prazo de Resposta  | Exemplo Concreto                                                        | Ação Recomendada                                               |
+| ----------------------------------- | ------- | ----------------- | ------------------ | ----------------------------------------------------------------------- | -------------------------------------------------------------- |
+| **Critical (Resposta Imediata)**    | Alto    | Baixo             | Dentro de 1 semana | God Object, dependências circulares                                     | Iniciar refatoração imediatamente                              |
+| **Important (Resposta Planejada)**  | Alto    | Alto              | Dentro de 1 mês    | Separação de responsabilidades em grande escala, mudanças arquiteturais | Incluir no planejamento de sprint                              |
+| **Watch (Objeto de Monitoramento)** | Baixo   | Alto              | Dentro de 3 meses  | Processamento interno de alta complexidade                              | Monitoramento de métricas, resposta quando houver deterioração |
+| **Acceptable (Faixa Aceitável)**    | Baixo   | Baixo             | Não necessário     | Code smells menores                                                     | Resposta através de refatoração normal                         |
 
 ### Procedimento de Refatoração
 
@@ -175,18 +179,18 @@ Conversão de Custo:
 
 ### Code Smells Comuns e Pontuação de Dívida
 
-| Code Smell | Critério de Detecção | Pontuação de Dívida | Técnica de Melhoria |
-|-------------|---------------------|---------------------|-------------------|
-| **God Object** | Responsabilidades >3, métodos >20 | Alta (15-20h) | Extract Class, aplicação SRP |
-| **Long Method** | Linhas >50, complexidade >10 | Média (5-10h) | Extract Method |
-| **Duplicate Code** | Taxa de duplicação >30% | Alta (10-15h) | Extract Method/Class |
-| **Large Class** | Linhas >300, métodos >15 | Alta (10-20h) | Extract Class |
-| **Long Parameter List** | Parâmetros >4 | Baixa (2-5h) | Parameter Object |
-| **Feature Envy** | Referências a outras classes >5 | Média (5-10h) | Move Method |
-| **Data Clumps** | Repetição do mesmo grupo de argumentos | Baixa (3-5h) | Extract Class |
-| **Primitive Obsession** | Uso excessivo de tipos primitivos | Média (5-8h) | Replace with Object |
-| **Switch Statements** | case >5 | Média (5-10h) | Strategy Pattern |
-| **Shotgun Surgery** | Locais de impacto na mudança >3 | Alta (10-15h) | Move Method/Field |
+| Code Smell              | Critério de Detecção                   | Pontuação de Dívida | Técnica de Melhoria          |
+| ----------------------- | -------------------------------------- | ------------------- | ---------------------------- |
+| **God Object**          | Responsabilidades >3, métodos >20      | Alta (15-20h)       | Extract Class, aplicação SRP |
+| **Long Method**         | Linhas >50, complexidade >10           | Média (5-10h)       | Extract Method               |
+| **Duplicate Code**      | Taxa de duplicação >30%                | Alta (10-15h)       | Extract Method/Class         |
+| **Large Class**         | Linhas >300, métodos >15               | Alta (10-20h)       | Extract Class                |
+| **Long Parameter List** | Parâmetros >4                          | Baixa (2-5h)        | Parameter Object             |
+| **Feature Envy**        | Referências a outras classes >5        | Média (5-10h)       | Move Method                  |
+| **Data Clumps**         | Repetição do mesmo grupo de argumentos | Baixa (3-5h)        | Extract Class                |
+| **Primitive Obsession** | Uso excessivo de tipos primitivos      | Média (5-8h)        | Replace with Object          |
+| **Switch Statements**   | case >5                                | Média (5-10h)       | Strategy Pattern             |
+| **Shotgun Surgery**     | Locais de impacto na mudança >3        | Alta (10-15h)       | Move Method/Field            |
 
 ### Exemplo Prático: Avaliação de Pontuação SOLID
 
@@ -199,16 +203,16 @@ class UserService {
     this.logger = logger;
     this.emailService = emailService;
   }
-  
+
   // Responsabilidade 1: autenticação
   authenticate(username, password) { /* ... */ }
   refreshToken(token) { /* ... */ }
-  
+
   // Responsabilidade 2: gerenciamento de usuário
   createUser(data) { /* ... */ }
   updateUser(id, data) { /* ... */ }
   deleteUser(id) { /* ... */ }
-  
+
   // Responsabilidade 3: notificação
   sendWelcomeEmail(user) { /* ... */ }
   sendPasswordReset(email) { /* ... */ }

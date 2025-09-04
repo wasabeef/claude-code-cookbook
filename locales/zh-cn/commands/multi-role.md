@@ -155,7 +155,7 @@ Performance 分析结果:
 /multi-role security,architect
 "认证系统的设计"
 
-/multi-role security,frontend  
+/multi-role security,frontend
 "登录界面的安全性"
 
 /multi-role security,mobile
@@ -277,10 +277,10 @@ cat performance-issues.log
 #### 性能比较
 
 | 角色数 | 常规执行 | --agent 执行 | 缩短率 |
-|--------|---------|-------------|--------|
-| 2 角色 | 2-3 分钟 | 1 分钟 | 50% |
-| 3 角色 | 3-5 分钟 | 1-2 分钟 | 60% |
-| 4 角色 | 5-8 分钟 | 2-3 分钟 | 65% |
+| ------ | -------- | ------------ | ------ |
+| 2 角色 | 2-3 分钟 | 1 分钟       | 50%    |
+| 3 角色 | 3-5 分钟 | 1-2 分钟     | 60%    |
+| 4 角色 | 5-8 分钟 | 2-3 分钟     | 65%    |
 
 ### 注意事项
 

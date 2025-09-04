@@ -277,10 +277,10 @@ Rôle 3 ─┘
 #### Comparaison de performance
 
 | Nombre de rôles | Exécution normale | Exécution --agent | Taux de réduction |
-|----------------|-------------------|-------------------|------------------|
-| 2 rôles        | 2-3 minutes       | 1 minute          | 50%              |
-| 3 rôles        | 3-5 minutes       | 1-2 minutes       | 60%              |
-| 4 rôles        | 5-8 minutes       | 2-3 minutes       | 65%              |
+| --------------- | ----------------- | ----------------- | ----------------- |
+| 2 rôles         | 2-3 minutes       | 1 minute          | 50%               |
+| 3 rôles         | 3-5 minutes       | 1-2 minutes       | 60%               |
+| 4 rôles         | 5-8 minutes       | 2-3 minutes       | 65%               |
 
 ### Remarques
 

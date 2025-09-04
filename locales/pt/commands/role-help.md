@@ -174,38 +174,38 @@ Exemplo: /smart-review
 
 ### Relacionados à segurança
 
-| Papel | Uso principal | Área forte | Área fraca |
-|--------|----------|----------|----------|
-| security | Vulnerabilidades e contramedidas | Análise de ameaças, design de autenticação | UX, performance |
-| analyzer | Análise da causa raiz | Análise lógica, coleta de evidências | Medidas preventivas, planejamento futuro |
+| Papel    | Uso principal                    | Área forte                                 | Área fraca                               |
+| -------- | -------------------------------- | ------------------------------------------ | ---------------------------------------- |
+| security | Vulnerabilidades e contramedidas | Análise de ameaças, design de autenticação | UX, performance                          |
+| analyzer | Análise da causa raiz            | Análise lógica, coleta de evidências       | Medidas preventivas, planejamento futuro |
 
 ### Relacionados ao design
 
-| Papel | Uso principal | Área forte | Área fraca |
-|--------|----------|----------|----------|
-| architect | Design de sistema | Perspectiva de longo prazo, otimização global | Implementação detalhada, soluções de curto prazo |
-| reviewer | Qualidade do código | Nível de implementação, manutenibilidade | Requisitos de negócio, UX |
+| Papel     | Uso principal       | Área forte                                    | Área fraca                                       |
+| --------- | ------------------- | --------------------------------------------- | ------------------------------------------------ |
+| architect | Design de sistema   | Perspectiva de longo prazo, otimização global | Implementação detalhada, soluções de curto prazo |
+| reviewer  | Qualidade do código | Nível de implementação, manutenibilidade      | Requisitos de negócio, UX                        |
 
 ### Relacionados à performance
 
-| Papel | Uso principal | Área forte | Área fraca |
-|--------|----------|----------|----------|
-| performance | Aceleração e otimização | Medição, gargalos | Segurança, UX |
-| qa | Garantia de qualidade | Teste, automação | Design, arquitetura |
+| Papel       | Uso principal           | Área forte        | Área fraca          |
+| ----------- | ----------------------- | ----------------- | ------------------- |
+| performance | Aceleração e otimização | Medição, gargalos | Segurança, UX       |
+| qa          | Garantia de qualidade   | Teste, automação  | Design, arquitetura |
 
 ### Relacionados à experiência do usuário
 
-| Papel | Uso principal | Área forte | Área fraca |
-|--------|----------|----------|----------|
-| frontend | Web UI/UX | Browser, acessibilidade | Servidor, DB |
-| mobile | Mobile UX | Touch, suporte offline | Servidor, Web |
+| Papel    | Uso principal | Área forte              | Área fraca    |
+| -------- | ------------- | ----------------------- | ------------- |
+| frontend | Web UI/UX     | Browser, acessibilidade | Servidor, DB  |
+| mobile   | Mobile UX     | Touch, suporte offline  | Servidor, Web |
 
 ### Fluxograma para quando estiver em dúvida
 
 ```
 Qual é a natureza do problema?
 ├─ Relacionado à segurança → security
-├─ Problema de performance → performance  
+├─ Problema de performance → performance
 ├─ Investigação de bug/falha → analyzer
 ├─ Melhoria de UI/UX → frontend ou mobile
 ├─ Design/arquitetura → architect
@@ -224,7 +224,7 @@ Abrange múltiplas áreas?
 ### Q: Qual a diferença entre frontend e mobile?
 
 ```
-A: 
+A:
 frontend: Foco em navegador web, HTML/CSS/JavaScript
 mobile: Foco em app móvel, nativo iOS/Android, React Native etc.
 

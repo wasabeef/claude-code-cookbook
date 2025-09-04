@@ -62,12 +62,12 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 
 #### Cuándo Usar Qué
 
-| Comando | Caso de Uso Principal | Método de Ejecución | Recolección de Información |
-|---------|----------------------|-------------------|---------------------------|
-| **Task** | Investigación, análisis, búsqueda | Ejecución autónoma | Múltiples fuentes |
-| ultrathink | Pensamiento profundo, juicio | Pensamiento estructurado | Enfoque en conocimiento existente |
-| sequential-thinking | Resolución de problemas, diseño | Pensamiento paso a paso | Según sea necesario |
-| plan | Planificación de implementación | Proceso de aprobación | Análisis de requerimientos |
+| Comando             | Caso de Uso Principal             | Método de Ejecución      | Recolección de Información        |
+| ------------------- | --------------------------------- | ------------------------ | --------------------------------- |
+| **Task**            | Investigación, análisis, búsqueda | Ejecución autónoma       | Múltiples fuentes                 |
+| ultrathink          | Pensamiento profundo, juicio      | Pensamiento estructurado | Enfoque en conocimiento existente |
+| sequential-thinking | Resolución de problemas, diseño   | Pensamiento paso a paso  | Según sea necesario               |
+| plan                | Planificación de implementación   | Proceso de aprobación    | Análisis de requerimientos        |
 
 #### Guía de Decisión Rápida
 

@@ -78,14 +78,14 @@ Collects and analyzes the following information:
 # Parse structure of .github/PULL_REQUEST_TEMPLATE.md
 parse_template_structure() {
   local template_file="$1"
-  
+
   if [ -f "$template_file" ]; then
     # Extract section structure
     grep -E '^##|^###' "$template_file"
-    
+
     # Identify comment placeholders
     grep -E '<!--.*-->' "$template_file"
-    
+
     # Completely follow existing template structure
     cat "$template_file"
   fi
@@ -161,10 +161,10 @@ detect_pr() {
 # 2. Change Analysis
 analyze_changes() {
   local pr_number=$1
-  
+
   # Get file changes
   gh pr diff $pr_number --name-only
-  
+
   # Content analysis
   gh pr diff $pr_number | head -1000
 }
@@ -173,10 +173,10 @@ analyze_changes() {
 generate_description() {
   local pr_number=$1
   local changes=$2
-  
+
   # Get current PR description
   local current_body=$(gh pr view $pr_number --json body --jq -r .body)
-  
+
   # Use existing content if available
   if [ -n "$current_body" ]; then
     echo "$current_body"
@@ -195,7 +195,7 @@ generate_description() {
 generate_from_template() {
   local template="$1"
   local changes="$2"
-  
+
   if [ -n "$template" ]; then
     # Use template as-is (preserve HTML comments)
     echo "$template"
@@ -212,7 +212,7 @@ determine_labels() {
   local changes=$1
   local file_list=$2
   local pr_number=$3
-  
+
   # Get available labels
   local available_labels=()
   if [ -f ".github/labels.yml" ]; then
@@ -225,12 +225,12 @@ determine_labels() {
     local repo=$(echo "$repo_info" | jq -r .name)
     available_labels=($(gh api "repos/$owner/$repo/labels" --jq '.[].name'))
   fi
-  
+
   local suggested_labels=()
-  
+
   # Generic pattern matching
   analyze_change_patterns "$file_list" "$changes" available_labels suggested_labels
-  
+
   # Limit to maximum 3
   echo "${suggested_labels[@]:0:3}"
 }
@@ -241,21 +241,21 @@ analyze_change_patterns() {
   local changes="$2"
   local -n available_ref=$3
   local -n suggested_ref=$4
-  
+
   # File type determination
   if echo "$file_list" | grep -q "\.md$\|README\|docs/"; then
     add_matching_label "documentation\|docs\|doc" available_ref suggested_ref
   fi
-  
+
   if echo "$file_list" | grep -q "test\|spec"; then
     add_matching_label "test\|testing" available_ref suggested_ref
   fi
-  
+
   # Change content determination
   if echo "$changes" | grep -iq "fix\|bug\|error\|crash\|correction"; then
     add_matching_label "bug\|fix" available_ref suggested_ref
   fi
-  
+
   if echo "$changes" | grep -iq "feat\|feature\|add\|implement\|new-feature\|implementation"; then
     add_matching_label "feature\|enhancement\|feat" available_ref suggested_ref
   fi
@@ -266,12 +266,12 @@ add_matching_label() {
   local pattern="$1"
   local -n available_ref=$2
   local -n suggested_ref=$3
-  
+
   # Skip if already have 3 labels
   if [ ${#suggested_ref[@]} -ge 3 ]; then
     return
   fi
-  
+
   # Add first label matching pattern
   for available_label in "${available_ref[@]}"; do
     if echo "$available_label" | grep -iq "$pattern"; then
@@ -283,7 +283,7 @@ add_matching_label() {
           break
         fi
       done
-      
+
       if [ "$already_exists" = false ]; then
         suggested_ref+=("$available_label")
         return
@@ -302,7 +302,7 @@ update_pr() {
   local pr_number=$1
   local description="$2"
   local labels="$3"
-  
+
   if [ "$DRY_RUN" = "true" ]; then
     echo "=== DRY RUN ==="
     echo "Description:"
@@ -313,7 +313,7 @@ update_pr() {
     local repo_info=$(gh repo view --json owner,name)
     local owner=$(echo "$repo_info" | jq -r .owner.login)
     local repo=$(echo "$repo_info" | jq -r .name)
-    
+
     # Update body using GitHub API (preserve HTML comments)
     # Handle JSON escaping properly
     local escaped_body=$(echo "$description" | jq -R -s .)
@@ -321,7 +321,7 @@ update_pr() {
       --method PATCH \
       "/repos/$owner/$repo/pulls/$pr_number" \
       --field body="$description"
-    
+
     # Labels can be handled with regular gh command
     if [ -n "$labels" ]; then
       gh pr edit $pr_number --add-label "$labels"

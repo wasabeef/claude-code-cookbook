@@ -62,12 +62,12 @@ Lance un agent intelligent pour gérer les recherches et investigations complexe
 
 #### Quand utiliser quoi
 
-| Commande | Cas d'usage principal | Méthode d'exécution | Collecte d'informations |
-|----------|----------------------|-------------------|------------------------|
-| **Task** | Investigation, analyse, recherche | Exécution autonome | Sources multiples |
-| ultrathink | Réflexion profonde, jugement | Réflexion structurée | Focus sur connaissances existantes |
-| sequential-thinking | Résolution de problèmes, conception | Réflexion étape par étape | Selon les besoins |
-| plan | Planification d'implémentation | Processus d'approbation | Analyse des exigences |
+| Commande            | Cas d'usage principal               | Méthode d'exécution       | Collecte d'informations            |
+| ------------------- | ----------------------------------- | ------------------------- | ---------------------------------- |
+| **Task**            | Investigation, analyse, recherche   | Exécution autonome        | Sources multiples                  |
+| ultrathink          | Réflexion profonde, jugement        | Réflexion structurée      | Focus sur connaissances existantes |
+| sequential-thinking | Résolution de problèmes, conception | Réflexion étape par étape | Selon les besoins                  |
+| plan                | Planification d'implémentation      | Processus d'approbation   | Analyse des exigences              |
 
 #### Guide de décision rapide
 

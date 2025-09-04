@@ -345,12 +345,12 @@ Para análisis a gran escala o procesamiento especializado independiente, puedes
 
 #### Rol Normal vs Sub-Agente
 
-| Situación | Recomendación | Comando |
-|-----------|----------------|---------|
-| Confirmación simple | Rol normal | `/role security` |
-| Análisis a gran escala | Sub-agente | `/role security --agent` |
-| Trabajo interactivo | Rol normal | `/role frontend` |
-| Auditoría independiente | Sub-agente | `/role qa --agent` |
+| Situación               | Recomendación | Comando                  |
+| ----------------------- | ------------- | ------------------------ |
+| Confirmación simple     | Rol normal    | `/role security`         |
+| Análisis a gran escala  | Sub-agente    | `/role security --agent` |
+| Trabajo interactivo     | Rol normal    | `/role frontend`         |
+| Auditoría independiente | Sub-agente    | `/role qa --agent`       |
 
 ### Detalles de Configuración de Rol
 

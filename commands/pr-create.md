@@ -126,11 +126,11 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 ```javascript
 // HTML コメント保持での PR 作成
 mcp_github_create_pull_request({
-  owner: 'organization',
-  repo: 'repository',
-  base: 'main',
-  head: 'feat-user-authentication',
-  title: 'feat: ユーザー認証の実装',
+  owner: "organization",
+  repo: "repository",
+  base: "main",
+  head: "feat-user-authentication",
+  title: "feat: ユーザー認証の実装",
   body: prBodyContent, // HTML コメントを含む完全な内容
   draft: true,
   maintainer_can_modify: true,

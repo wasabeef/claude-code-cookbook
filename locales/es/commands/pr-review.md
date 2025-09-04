@@ -101,6 +101,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 #### Problemas de Seguridad
 
 **Formato:**
+
 ```text
 **critical.must.** [Descripción del problema]
 
@@ -110,6 +111,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 ```
 
 **Ejemplo:**
+
 ```text
 **critical.must.** La contraseña se almacena en texto plano
 
@@ -123,6 +125,7 @@ Se requiere hashing para prevenir riesgos de seguridad.
 #### Mejora de Rendimiento
 
 **Formato:**
+
 ```text
 **high.imo.** [Descripción del problema]
 
@@ -132,6 +135,7 @@ Se requiere hashing para prevenir riesgos de seguridad.
 ```
 
 **Ejemplo:**
+
 ```text
 **high.imo.** Ocurre problema de consulta N+1
 
@@ -144,6 +148,7 @@ Esto puede reducir significativamente el número de consultas.
 #### Violación de Arquitectura
 
 **Formato:**
+
 ```text
 **high.must.** [Descripción de la violación]
 
@@ -151,6 +156,7 @@ Esto puede reducir significativamente el número de consultas.
 ```
 
 **Ejemplo:**
+
 ```text
 **high.must.** Ocurrió violación de capa
 

@@ -101,6 +101,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 #### 보안 문제 템플릿
 
 **포맷**:
+
 ```text
 **critical.must.** [문제점 요약]
 
@@ -111,6 +112,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 ```
 
 **예시**:
+
 ```text
 **critical.must.** 패스워드가 평문으로 저장되고 있습니다
 
@@ -124,6 +126,7 @@ const hashedPassword = await bcrypt.hash(password, 12);
 #### 성능 개선 템플릿
 
 **포맷**:
+
 ```text
 **high.imo.** [성능 문제점]
 
@@ -134,6 +137,7 @@ const hashedPassword = await bcrypt.hash(password, 12);
 ```
 
 **예시**:
+
 ```text
 **high.imo.** N+1 쿼리 문제가 발생합니다
 
@@ -147,6 +151,7 @@ const users = await User.findAll({ include: [Post] });
 #### 아키텍처 위반 템플릿
 
 **포맷**:
+
 ```text
 **high.must.** [아키텍처 문제점]
 
@@ -155,6 +160,7 @@ const users = await User.findAll({ include: [Post] });
 ```
 
 **예시**:
+
 ```text
 **high.must.** 레이어 위반이 발생하고 있습니다
 

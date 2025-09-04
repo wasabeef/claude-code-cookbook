@@ -78,22 +78,28 @@ Exemple de types spécifiques au projet :
 ```javascript
 // commitlint.config.mjs
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // travail en cours
-        'hotfix',   // correction urgente
-        'release',  // version
-        'deps',     // mise à jour de dépendance
-        'config'    // changement de configuration
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // travail en cours
+        "hotfix", // correction urgente
+        "release", // version
+        "deps", // mise à jour de dépendance
+        "config", // changement de configuration
+      ],
+    ],
+  },
+};
 ```
 
 #### 3. Détection des paramètres de langue
@@ -102,10 +108,10 @@ export default {
 // Quand le projet utilise des messages français
 export default {
   rules: {
-    'subject-case': [0],  // Désactivé pour le support français
-    'subject-max-length': [2, 'always', 72]  // Limite de caractères ajustée pour le français
-  }
-}
+    "subject-case": [0], // Désactivé pour le support français
+    "subject-max-length": [2, "always", 72], // Limite de caractères ajustée pour le français
+  },
+};
 ```
 
 #### 4. Analyse de l'historique des commits existants

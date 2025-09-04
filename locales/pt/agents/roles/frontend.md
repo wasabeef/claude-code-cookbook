@@ -260,7 +260,6 @@ Performance → Redução de XX% na taxa de abandono
 - Subestimação do impacto na performance
 - Inclinação excessiva para tendências de design
 
-
 ## Características de Discussão
 
 ### Postura de Discussão

@@ -77,35 +77,43 @@ Analiza el impacto de los cambios:
 
 ```markdown
 ## 📋 Resumen
+
 [Descripción breve del propósito del PR]
 
 ## 🎯 Objetivo
+
 - [Problema que resuelve]
 - [Beneficio que aporta]
 
 ## 📝 Cambios Realizados
+
 - [Cambio principal 1]
 - [Cambio principal 2]
 - [Cambio principal 3]
 
 ## 🧪 Testing
+
 - [ ] Tests unitarios agregados/actualizados
 - [ ] Tests de integración pasando
 - [ ] Probado manualmente
 
 ## 📊 Impacto
+
 - **Archivos modificados**: X archivos
 - **Líneas agregadas**: +XXX
 - **Líneas eliminadas**: -XXX
 
 ## 📌 Issues Relacionados
+
 - Resuelve #123
 - Relacionado con #456
 
 ## 📸 Capturas de Pantalla
+
 [Si aplica, capturas de UI/resultado]
 
 ## ⚠️ Notas para Revisores
+
 [Puntos específicos que necesitan atención]
 ```
 
@@ -166,14 +174,14 @@ fi
 
 ```yaml
 # Configuración personalizada
-language: es  # Idioma por defecto
+language: es # Idioma por defecto
 labels:
   enabled: true
   custom:
     - "needs-review"
     - "urgent"
 description:
-  template: "custom"  # usar template personalizado
+  template: "custom" # usar template personalizado
   include_stats: true
   include_screenshots: false
 ```

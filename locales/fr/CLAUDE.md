@@ -125,13 +125,11 @@ Si les conditions pour le mot de passe ne sont pas remplies :
 Suivez le cycle de développement piloté par les tests (TDD) pendant le développement :
 
 1. **Rouge (Échec)**
-
    - Écrivez le test d'échec le plus simple
    - Le nom du test décrit clairement le comportement
    - Assurez-vous que le message d'échec soit compréhensible
 
 2. **Vert (Succès)**
-
    - Implémentez le code minimal pour passer le test
    - Ne considérez pas l'optimisation ou la beauté à cette étape
    - Concentrez-vous uniquement sur la réussite du test
@@ -146,7 +144,6 @@ Suivez le cycle de développement piloté par les tests (TDD) pendant le dévelo
 Séparez clairement les changements en deux types :
 
 - **Changements structurels**
-
   - Arrangement du code, organisation, formatage
   - Ne changez pas le comportement du tout
   - Exemples : Réorganisation des méthodes, organisation des imports, changements de noms de variables
@@ -178,12 +175,10 @@ Exécutez les commits seulement lorsque toutes les conditions suivantes sont rem
 Règles strictes pour la refactorisation :
 
 1. **Prérequis**
-
    - Commencer seulement quand tous les tests passent
    - Ne pas mélanger les changements de comportement avec la refactorisation
 
 2. **Étapes d'exécution**
-
    - Utiliser des modèles de refactorisation établis
    - Ne faire qu'un seul changement à la fois
    - Toujours exécuter les tests après chaque étape
@@ -200,20 +195,17 @@ Règles strictes pour la refactorisation :
 Priorités pour une implémentation efficace :
 
 1. **Première étape**
-
    - Commencer par le cas le plus simple
    - Prioriser « fonctionner » avant tout
    - Valoriser les progrès plutôt que la perfection
 
 2. **Principes de qualité du code**
-
    - Éliminer immédiatement la duplication lorsqu'elle est trouvée
    - Écrire du code avec une intention claire
    - Rendre les dépendances explicites
    - Maintenir les méthodes petites et à responsabilité unique
 
 3. **Amélioration graduelle**
-
    - D'abord créer quelque chose qui fonctionne
    - Couvrir avec des tests
    - Puis optimiser

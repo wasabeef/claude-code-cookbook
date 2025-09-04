@@ -97,10 +97,10 @@ git diff HEAD -- <file>
 # Determine change type for files
 git diff HEAD --name-status | while read status file; do
   case $status in
-    A) echo "$file: New creation" ;;    
-    M) echo "$file: Modification" ;;    
-    D) echo "$file: Deletion" ;;    
-    R*) echo "$file: Renamed" ;;    
+    A) echo "$file: New creation" ;;
+    M) echo "$file: Modification" ;;
+    D) echo "$file: Deletion" ;;
+    R*) echo "$file: Renamed" ;;
   esac
 done
 ```
@@ -239,9 +239,9 @@ echo "Working branch: $CURRENT_BRANCH"
 while IFS= read -r commit_plan; do
   group_num=$(echo "$commit_plan" | cut -d':' -f1)
   files=$(echo "$commit_plan" | cut -d':' -f2- | tr ' ' '\n')
-  
+
   echo "=== Executing commit $group_num ==="
-  
+
   # Stage only relevant files
   echo "$files" | while read file; do
     if [ -f "$file" ]; then
@@ -249,23 +249,23 @@ while IFS= read -r commit_plan; do
       echo "Staged: $file"
     fi
   done
-  
+
   # Check staging status
   staged_files=$(git diff --staged --name-only)
   if [ -z "$staged_files" ]; then
     echo "Warning: No files staged"
     continue
   fi
-  
+
   # Generate commit message (LLM analysis)
   commit_msg=$(generate_commit_message_for_staged_files)
-  
+
   # User confirmation
   echo "Proposed commit message: $commit_msg"
   echo "Staged files:"
   echo "$staged_files"
   read -p "Execute this commit? (y/n): " confirm
-  
+
   if [ "$confirm" = "y" ]; then
     # Execute commit
     git commit -m "$commit_msg"
@@ -275,7 +275,7 @@ while IFS= read -r commit_plan; do
     git reset HEAD
     echo "❌ Skipped commit $group_num"
   fi
-  
+
 done < /tmp/commit_plan.txt
 ```
 
@@ -287,24 +287,24 @@ commit_with_retry() {
   local commit_msg="$1"
   local max_retries=2
   local retry_count=0
-  
+
   while [ $retry_count -lt $max_retries ]; do
     if git commit -m "$commit_msg"; then
       echo "✅ Commit successful"
       return 0
     else
       echo "❌ Commit failed (attempt $((retry_count + 1))/$max_retries)"
-      
+
       # Incorporate automatic fixes from pre-commit hooks
       if git diff --staged --quiet; then
         echo "Changes automatically fixed by pre-commit hook"
         git add -u
       fi
-      
+
       retry_count=$((retry_count + 1))
     fi
   done
-  
+
   echo "❌ Failed to commit. Please check manually."
   return 1
 }
@@ -314,7 +314,7 @@ resume_from_failure() {
   echo "Detected interrupted commit process"
   echo "Current staging status:"
   git status --porcelain
-  
+
   read -p "Continue processing? (y/n): " resume
   if [ "$resume" = "y" ]; then
     # Resume from last commit
@@ -386,10 +386,10 @@ done
 git diff HEAD --name-only | while read file; do
   # Detect new function/class additions
   NEW_FUNCTIONS=$(git diff HEAD -- "$file" | grep -c '^+.*function\|^+.*class\|^+.*def ')
-  
+
   # Detect bug fix patterns
   BUG_FIXES=$(git diff HEAD -- "$file" | grep -c '^+.*fix\|^+.*bug\|^-.*error')
-  
+
   # Determine if test file
   if [[ "$file" =~ test|spec ]]; then
     echo "$file: TEST"
@@ -538,22 +538,28 @@ Example of project-specific types:
 ```javascript
 // commitlint.config.mjs
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // Work in progress
-        'hotfix',   // Emergency fix
-        'release',  // Release
-        'deps',     // Dependency update
-        'config'    // Configuration change
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // Work in progress
+        "hotfix", // Emergency fix
+        "release", // Release
+        "deps", // Dependency update
+        "config", // Configuration change
+      ],
+    ],
+  },
+};
 ```
 
 ##### 3. Detecting Language Settings
@@ -562,10 +568,10 @@ export default {
 // When project uses Japanese messages
 export default {
   rules: {
-    'subject-case': [0],  // Disable for Japanese support
-    'subject-max-length': [2, 'always', 72]  // Adjust character limit for Japanese
-  }
-}
+    "subject-case": [0], // Disable for Japanese support
+    "subject-max-length": [2, "always", 72], // Adjust character limit for Japanese
+  },
+};
 ```
 
 #### Automatic Analysis Flow
@@ -641,7 +647,7 @@ How we figure out your language:
    ```bash
    # Check README.md language
    head -10 README.md | grep -E '^[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' | wc -l
-   
+
    # Check package.json description
    grep -E '"description".*[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' package.json
    ```
@@ -701,59 +707,61 @@ We check for config files in this order:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'chore']
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore"],
     ],
-    'scope-enum': [
-      2,
-      'always',
-      ['api', 'ui', 'core', 'auth', 'db']
-    ]
-  }
-}
+    "scope-enum": [2, "always", ["api", "ui", "core", "auth", "db"]],
+  },
+};
 ```
 
 **Japanese-compatible configuration**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'subject-case': [0],  // Disable for Japanese
-    'subject-max-length': [2, 'always', 72],
-    'type-enum': [
+    "subject-case": [0], // Disable for Japanese
+    "subject-max-length": [2, "always", 72],
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore']
-    ]
-  }
-}
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "test", "chore"],
+    ],
+  },
+};
 ```
 
 **Configuration with custom types**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // Work in Progress
-        'hotfix',   // Emergency fix
-        'release',  // Release preparation
-        'deps',     // Dependency update
-        'config'    // Configuration change
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // Work in Progress
+        "hotfix", // Emergency fix
+        "release", // Release preparation
+        "deps", // Dependency update
+        "config", // Configuration change
+      ],
+    ],
+  },
+};
 ```
 
 #### Fallback Behavior
@@ -1071,13 +1079,13 @@ Reason: Common dependency updates committed together at the end
 
 ### Comparison of Splitting Effects
 
-| Item | Before (Massive Commit) | After (Proper Splitting) |
-|------|---------------------|-------------------|
-| **Reviewability** | ❌ Very difficult | ✅ Each commit is small and reviewable |
-| **Bug Tracking** | ❌ Difficult to identify problem location | ✅ Problematic commits can be immediately identified |
-| **Reverting** | ❌ Need to revert everything | ✅ Can pinpoint and revert only problematic parts |
-| **Parallel Development** | ❌ Conflict-prone | ✅ Feature-based merging is easy |
-| **Deployment** | ❌ All features deployed at once | ✅ Staged deployment possible |
+| Item                     | Before (Massive Commit)                   | After (Proper Splitting)                             |
+| ------------------------ | ----------------------------------------- | ---------------------------------------------------- |
+| **Reviewability**        | ❌ Very difficult                         | ✅ Each commit is small and reviewable               |
+| **Bug Tracking**         | ❌ Difficult to identify problem location | ✅ Problematic commits can be immediately identified |
+| **Reverting**            | ❌ Need to revert everything              | ✅ Can pinpoint and revert only problematic parts    |
+| **Parallel Development** | ❌ Conflict-prone                         | ✅ Feature-based merging is easy                     |
+| **Deployment**           | ❌ All features deployed at once          | ✅ Staged deployment possible                        |
 
 ### Troubleshooting
 

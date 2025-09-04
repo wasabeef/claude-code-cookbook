@@ -22,44 +22,44 @@ Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'a
 
 #### Logique et flux
 
-| Symbole | Signification | Exemple |
-|---------|---------------|---------|
-| → | mène à, cause | `auth.js:45 → 🛡️ risque sécurité` |
-| ⇒ | convertit en | `entrée ⇒ sortie_validée` |
-| ← | retour arrière, annuler | `migration ← rollback` |
-| ⇄ | bidirectionnel | `sync ⇄ distant` |
-| & | et, combiner | `🛡️ sécurité & ⚡ performance` |
-| \| | ou, séparateur | `react\|vue\|angular` |
-| : | définir, spécifier | `portée: fichier\|module` |
-| » | puis, séquence | `build » test » deploy` |
-| ∴ | donc | `tests ❌ ∴ code cassé` |
-| ∵ | parce que | `lent ∵ algorithme O(n²)` |
+| Symbole | Signification           | Exemple                           |
+| ------- | ----------------------- | --------------------------------- |
+| →       | mène à, cause           | `auth.js:45 → 🛡️ risque sécurité` |
+| ⇒       | convertit en            | `entrée ⇒ sortie_validée`         |
+| ←       | retour arrière, annuler | `migration ← rollback`            |
+| ⇄       | bidirectionnel          | `sync ⇄ distant`                  |
+| &       | et, combiner            | `🛡️ sécurité & ⚡ performance`    |
+| \|      | ou, séparateur          | `react\|vue\|angular`             |
+| :       | définir, spécifier      | `portée: fichier\|module`         |
+| »       | puis, séquence          | `build » test » deploy`           |
+| ∴       | donc                    | `tests ❌ ∴ code cassé`           |
+| ∵       | parce que               | `lent ∵ algorithme O(n²)`         |
 
 #### Statut et progrès
 
-| Symbole | Signification | Usage |
-|---------|---------------|-------|
-| ✅ | complet, succès | Tâche complétée normalement |
-| ❌ | échec, erreur | Action immédiate requise |
-| ⚠️ | avertissement | Révision recommandée |
-| 🔄 | en cours | Actuellement actif |
-| ⏳ | en attente | Programmé pour plus tard |
-| 🚨 | urgent, critique | Haute priorité |
+| Symbole | Signification    | Usage                       |
+| ------- | ---------------- | --------------------------- |
+| ✅      | complet, succès  | Tâche complétée normalement |
+| ❌      | échec, erreur    | Action immédiate requise    |
+| ⚠️      | avertissement    | Révision recommandée        |
+| 🔄      | en cours         | Actuellement actif          |
+| ⏳      | en attente       | Programmé pour plus tard    |
+| 🚨      | urgent, critique | Haute priorité              |
 
 #### Domaines techniques
 
-| Symbole | Domaine | Usage |
-|---------|---------|-------|
-| ⚡ | Performance | Vitesse, optimisation |
-| 🔍 | Analyse | Recherche, investigation |
-| 🔧 | Configuration | Configuration, outils |
-| 🛡️ | Sécurité | Protection, sûreté |
-| 📦 | Déploiement | Paquet, bundle |
-| 🎨 | Design | Interface, frontend |
-| 🏗️ | Architecture | Structure système |
-| 🗄️ | Base de données | Persistance données |
-| ⚙️ | Backend | Traitement serveur |
-| 🧪 | Tests | Assurance qualité |
+| Symbole | Domaine         | Usage                    |
+| ------- | --------------- | ------------------------ |
+| ⚡      | Performance     | Vitesse, optimisation    |
+| 🔍      | Analyse         | Recherche, investigation |
+| 🔧      | Configuration   | Configuration, outils    |
+| 🛡️      | Sécurité        | Protection, sûreté       |
+| 📦      | Déploiement     | Paquet, bundle           |
+| 🎨      | Design          | Interface, frontend      |
+| 🏗️      | Architecture    | Structure système        |
+| 🗄️      | Base de données | Persistance données      |
+| ⚙️      | Backend         | Traitement serveur       |
+| 🧪      | Tests           | Assurance qualité        |
 
 ### 2. Système d'abréviations
 
@@ -95,11 +95,13 @@ Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'a
 ### Exemple 1 : Rapport d'erreur
 
 **Mode Normal (93 caractères)**
+
 ```
 Vulnérabilité de sécurité trouvée dans la fonction de validation utilisateur à la ligne 45 du système d'authentification.
 ```
 
 **Token Efficace (43 caractères)**
+
 ```
 auth.js:45 → 🛡️ vuln sec dans val() utilisateur
 ```
@@ -107,11 +109,13 @@ auth.js:45 → 🛡️ vuln sec dans val() utilisateur
 ### Exemple 2 : Statut de build
 
 **Mode Normal (98 caractères)**
+
 ```
 Le processus de build s'est terminé avec succès. Les tests sont actuellement en cours, suivis du déploiement.
 ```
 
 **Token Efficace (35 caractères)**
+
 ```
 build ✅ » test 🔄 » deploy ⏳
 ```
@@ -119,11 +123,13 @@ build ✅ » test 🔄 » deploy ⏳
 ### Exemple 3 : Analyse de performance
 
 **Mode Normal (105 caractères)**
+
 ```
 L'analyse de performance a révélé un traitement lent dû à la complexité algorithmique O(n²).
 ```
 
 **Token Efficace (47 caractères)**
+
 ```
 ⚡ perf: lent ∵ O(n²) → optimiser vers O(n)
 ```
@@ -182,14 +188,14 @@ Sécurité: 🛡️ 🚨 1 critique
 
 ```javascript
 // Niveaux de compression
---uc        // Ultra Compressé: Compression maximale
---mc        // Modérément Compressé: Compression moyenne
---lc        // Légèrement Compressé: Compression légère
+--uc; // Ultra Compressé: Compression maximale
+--mc; // Modérément Compressé: Compression moyenne
+--lc; // Légèrement Compressé: Compression légère
 
 // Spécifique au domaine
---dev       // Compression axée développement
---ops       // Compression axée opérations
---sec       // Compression axée sécurité
+--dev; // Compression axée développement
+--ops; // Compression axée opérations
+--sec; // Compression axée sécurité
 ```
 
 ## Avantages
@@ -223,13 +229,13 @@ Sécurité: 🛡️ 🚨 1 critique
 
 ## Impact d'implémentation
 
-| Élément | Impact |
-|---------|--------|
-| Qualité du code généré | Aucun changement ✅ |
-| Précision d'implémentation | Aucun changement ✅ |
-| Fonctionnalité | Aucun changement ✅ |
-| Méthode d'explication IA | Compressée 🔄 |
-| Usage de contexte | Réduction 30-50 % ⚡ |
+| Élément                    | Impact               |
+| -------------------------- | -------------------- |
+| Qualité du code généré     | Aucun changement ✅  |
+| Précision d'implémentation | Aucun changement ✅  |
+| Fonctionnalité             | Aucun changement ✅  |
+| Méthode d'explication IA   | Compressée 🔄        |
+| Usage de contexte          | Réduction 30-50 % ⚡ |
 
 ---
 

@@ -78,22 +78,28 @@ find . -name "commitlint.config.*" -o -name ".commitlintrc.*" | head -1
 ```javascript
 // commitlint.config.mjs
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // 进行中
-        'hotfix',   // 紧急修复
-        'release',  // 发布
-        'deps',     // 依赖更新
-        'config'    // 配置更改
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // 进行中
+        "hotfix", // 紧急修复
+        "release", // 发布
+        "deps", // 依赖更新
+        "config", // 配置更改
+      ],
+    ],
+  },
+};
 ```
 
 #### 3. 语言设置检测
@@ -102,10 +108,10 @@ export default {
 // 项目使用中文消息时
 export default {
   rules: {
-    'subject-case': [0],  // 为支持中文而禁用
-    'subject-max-length': [2, 'always', 72]  // 为中文调整字符数限制
-  }
-}
+    "subject-case": [0], // 为支持中文而禁用
+    "subject-max-length": [2, "always", 72], // 为中文调整字符数限制
+  },
+};
 ```
 
 #### 4. 现有提交历史分析

@@ -130,12 +130,12 @@ Erreurs fréquentes et solutions immédiates
 
 ### Matrice de Priorité d'Analyse d'Erreur
 
-| Priorité | Icône | Portée d'Impact | Difficulté de Résolution | Délai de Réponse | Description |
-|----------|-------|----------------|-------------------------|-----------------|-------------|
-| **Critical** | 🔴 Réponse urgente | Large | Faible | Début dans 15 min | Arrêt total du système, risque de perte de données |
-| **High Priority** | 🟠 Réponse précoce | Large | Élevée | Début dans 1 heure | Arrêt de fonction principale, affecte de nombreux utilisateurs |
-| **Medium** | 🟡 Réponse planifiée | Limitée | Élevée | Réponse le jour même | Restriction de fonction partielle, solution alternative existe |
-| **Low** | 🟢 Observation | Limitée | Faible | Prochaine modification | Défaut mineur, petit impact sur UX |
+| Priorité          | Icône                | Portée d'Impact | Difficulté de Résolution | Délai de Réponse       | Description                                                    |
+| ----------------- | -------------------- | --------------- | ------------------------ | ---------------------- | -------------------------------------------------------------- |
+| **Critical**      | 🔴 Réponse urgente   | Large           | Faible                   | Début dans 15 min      | Arrêt total du système, risque de perte de données             |
+| **High Priority** | 🟠 Réponse précoce   | Large           | Élevée                   | Début dans 1 heure     | Arrêt de fonction principale, affecte de nombreux utilisateurs |
+| **Medium**        | 🟡 Réponse planifiée | Limitée         | Élevée                   | Réponse le jour même   | Restriction de fonction partielle, solution alternative existe |
+| **Low**           | 🟢 Observation       | Limitée         | Faible                   | Prochaine modification | Défaut mineur, petit impact sur UX                             |
 
 ### Processus d'Analyse
 

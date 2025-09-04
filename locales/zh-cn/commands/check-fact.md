@@ -62,7 +62,7 @@
 # 项目技术栈确认
 /check-fact "这个应用是 Flutter + Riverpod + GraphQL 的架构"
 
-# 实现状况确认  
+# 实现状况确认
 /check-fact "已实现暗黑模式功能，可从用户设置切换"
 
 # 架构确认

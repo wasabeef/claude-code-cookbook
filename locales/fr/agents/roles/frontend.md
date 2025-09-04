@@ -257,7 +257,6 @@ Performance → Taux rebond réduit de XX%
 - Pourrait sous-estimer le coût de performance
 - Parfois trop tendance
 
-
 ## Caractéristiques de Discussion
 
 ### Position de Discussion

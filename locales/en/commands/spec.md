@@ -289,6 +289,7 @@ Shall we proceed with this interface design?"
 ```
 
 **4. Phase 2 Completion and Approval**
+
 ```
 
 Claude: "The Design Phase is complete.
@@ -300,6 +301,7 @@ May I generate design.md?"
 #### Phase 3: Implementation Planning & Discussion
 
 **1. Automatic Application of Best Practices (Kiro Style)**
+
 ```
 
 Claude: "I've generated an implementation plan with automatic application of Kiro's best practices:
@@ -326,6 +328,7 @@ Shall we proceed with this approach?"
 ```
 
 **2. Automatic Setting of Quality Checkpoints**
+
 ```
 
 Claude: "I've automatically set quality checkpoints for each implementation phase:
@@ -358,6 +361,7 @@ All will be executed automatically. Are there any additional quality standards?"
 ```
 
 **3. Automatic Analysis of Dependencies and Risk Mitigation**
+
 ```
 
 Claude: "I've automatically analyzed the implementation order and risk mitigation measures:
@@ -397,6 +401,7 @@ Is this plan acceptable?"
 ```
 
 **4. Phase 3 Completion and Approval**
+
 ```
 
 Claude: "The Implementation Planning Phase is complete.
@@ -526,15 +531,15 @@ Claude: "Spec-driven development preparation is complete. You can begin implemen
 
 ### Differences from /plan
 
-| Feature | /plan | /spec |
-|---------|-------|-------|
-| Target | General implementation plan | Feature specification-driven development |
-| Output format | Single plan document | 3 independent files (requirements.md, design.md, tasks.md) |
-| Requirement definition | Basic requirement organization | Detailed acceptance criteria using EARS notation |
-| Design | Technology selection focused | Codebase analysis-based |
-| Implementation | General task decomposition | Dependency-aware sequence |
-| Quality assurance | Basic test strategy | Comprehensive quality requirements (testing, accessibility, performance) |
-| Synchronization | Static plan | Dynamic spec updates |
+| Feature                | /plan                          | /spec                                                                    |
+| ---------------------- | ------------------------------ | ------------------------------------------------------------------------ |
+| Target                 | General implementation plan    | Feature specification-driven development                                 |
+| Output format          | Single plan document           | 3 independent files (requirements.md, design.md, tasks.md)               |
+| Requirement definition | Basic requirement organization | Detailed acceptance criteria using EARS notation                         |
+| Design                 | Technology selection focused   | Codebase analysis-based                                                  |
+| Implementation         | General task decomposition     | Dependency-aware sequence                                                |
+| Quality assurance      | Basic test strategy            | Comprehensive quality requirements (testing, accessibility, performance) |
+| Synchronization        | Static plan                    | Dynamic spec updates                                                     |
 
 ### Recommended Use Cases
 

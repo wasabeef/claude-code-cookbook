@@ -150,7 +150,7 @@ $ /semantic-commit
 メッセージ: feat: implement user registration and login system
 含まれるファイル:
   • src/auth/login.ts
-  • src/auth/register.ts  
+  • src/auth/register.ts
   • src/auth/types.ts
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -167,7 +167,7 @@ $ /semantic-commit
 含まれるファイル:
   • docs/authentication.md
 
-この分割案でコミットを実行しますか？ (y/n/edit): 
+この分割案でコミットを実行しますか？ (y/n/edit):
 ```
 
 ### 実行時の選択肢
@@ -207,7 +207,7 @@ $ /semantic-commit --dry-run
 - 例外処理の追加
 - 条件分岐の修正
 
-# 新機能パターンの検出  
+# 新機能パターンの検出
 - 新ファイル作成
 - 新メソッド追加
 - API エンドポイント追加
@@ -242,9 +242,9 @@ echo "作業中のブランチ: $CURRENT_BRANCH"
 while IFS= read -r commit_plan; do
   group_num=$(echo "$commit_plan" | cut -d':' -f1)
   files=$(echo "$commit_plan" | cut -d':' -f2- | tr ' ' '\n')
-  
+
   echo "=== コミット $group_num の実行 ==="
-  
+
   # 該当ファイルのみをステージング
   echo "$files" | while read file; do
     if [ -f "$file" ]; then
@@ -252,23 +252,23 @@ while IFS= read -r commit_plan; do
       echo "ステージング: $file"
     fi
   done
-  
+
   # ステージング状態の確認
   staged_files=$(git diff --staged --name-only)
   if [ -z "$staged_files" ]; then
     echo "警告: ステージングされたファイルがありません"
     continue
   fi
-  
+
   # コミットメッセージの生成(LLM による分析)
   commit_msg=$(generate_commit_message_for_staged_files)
-  
+
   # ユーザー確認
   echo "提案コミットメッセージ: $commit_msg"
   echo "ステージングされたファイル:"
   echo "$staged_files"
   read -p "このコミットを実行しますか? (y/n): " confirm
-  
+
   if [ "$confirm" = "y" ]; then
     # コミット実行
     git commit -m "$commit_msg"
@@ -278,7 +278,7 @@ while IFS= read -r commit_plan; do
     git reset HEAD
     echo "❌ コミット $group_num をスキップ"
   fi
-  
+
 done < /tmp/commit_plan.txt
 ```
 
@@ -290,24 +290,24 @@ commit_with_retry() {
   local commit_msg="$1"
   local max_retries=2
   local retry_count=0
-  
+
   while [ $retry_count -lt $max_retries ]; do
     if git commit -m "$commit_msg"; then
       echo "✅ コミット成功"
       return 0
     else
       echo "❌ コミット失敗 (試行 $((retry_count + 1))/$max_retries)"
-      
+
       # プリコミットフックによる自動修正を取り込み
       if git diff --staged --quiet; then
         echo "プリコミットフックにより変更が自動修正されました"
         git add -u
       fi
-      
+
       retry_count=$((retry_count + 1))
     fi
   done
-  
+
   echo "❌ コミットに失敗しました。手動で確認してください。"
   return 1
 }
@@ -317,7 +317,7 @@ resume_from_failure() {
   echo "中断されたコミット処理を検出しました"
   echo "現在のステージング状態:"
   git status --porcelain
-  
+
   read -p "処理を続行しますか? (y/n): " resume
   if [ "$resume" = "y" ]; then
     # 最後のコミット位置から再開
@@ -389,10 +389,10 @@ done
 git diff HEAD --name-only | while read file; do
   # 新規関数/クラス追加の検出
   NEW_FUNCTIONS=$(git diff HEAD -- "$file" | grep -c '^+.*function\|^+.*class\|^+.*def ')
-  
+
   # バグ修正パターンの検出
   BUG_FIXES=$(git diff HEAD -- "$file" | grep -c '^+.*fix\|^+.*bug\|^-.*error')
-  
+
   # テストファイルかの判定
   if [[ "$file" =~ test|spec ]]; then
     echo "$file: TEST"
@@ -542,22 +542,28 @@ grep -A 10 '"commitlint"' package.json
 ```javascript
 // commitlint.config.mjs
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // 作業中
-        'hotfix',   // 緊急修正
-        'release',  // リリース
-        'deps',     // 依存関係更新
-        'config'    // 設定変更
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // 作業中
+        "hotfix", // 緊急修正
+        "release", // リリース
+        "deps", // 依存関係更新
+        "config", // 設定変更
+      ],
+    ],
+  },
+};
 ```
 
 ##### 3. 言語設定の検出
@@ -566,10 +572,10 @@ export default {
 // プロジェクトが日本語メッセージを使用する場合
 export default {
   rules: {
-    'subject-case': [0],  // 日本語対応のため無効化
-    'subject-max-length': [2, 'always', 72]  // 日本語は文字数制限を調整
-  }
-}
+    "subject-case": [0], // 日本語対応のため無効化
+    "subject-max-length": [2, "always", 72], // 日本語は文字数制限を調整
+  },
+};
 ```
 
 #### 自動分析の流れ
@@ -645,7 +651,7 @@ docs: API ドキュメントを更新
    ```bash
    # README.md の言語確認
    head -10 README.md | grep -E '^[あ-ん]|[ア-ン]|[一-龯]' | wc -l
-   
+
    # package.json の description 確認
    grep -E '"description".*[あ-ん]|[ア-ン]|[一-龯]' package.json
    ```
@@ -706,7 +712,7 @@ fi
    ```bash
    # 以下の順序で検索し、最初に見つかったファイルを使用
    commitlint.config.mjs
-   commitlint.config.js  
+   commitlint.config.js
    commitlint.config.cjs
    commitlint.config.ts
    .commitlintrc.js
@@ -736,59 +742,61 @@ fi
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'chore']
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore"],
     ],
-    'scope-enum': [
-      2,
-      'always',
-      ['api', 'ui', 'core', 'auth', 'db']
-    ]
-  }
-}
+    "scope-enum": [2, "always", ["api", "ui", "core", "auth", "db"]],
+  },
+};
 ```
 
 **日本語対応の設定**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'subject-case': [0],  // 日本語のため無効化
-    'subject-max-length': [2, 'always', 72],
-    'type-enum': [
+    "subject-case": [0], // 日本語のため無効化
+    "subject-max-length": [2, "always", 72],
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore']
-    ]
-  }
-}
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "test", "chore"],
+    ],
+  },
+};
 ```
 
 **カスタムタイプを含む設定**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // Work in Progress
-        'hotfix',   // 緊急修正
-        'release',  // リリース準備
-        'deps',     // 依存関係更新
-        'config'    // 設定変更
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // Work in Progress
+        "hotfix", // 緊急修正
+        "release", // リリース準備
+        "deps", // 依存関係更新
+        "config", // 設定変更
+      ],
+    ],
+  },
+};
 ```
 
 #### フォールバック動作
@@ -842,7 +850,7 @@ export default {
 
 3. **プロジェクト種別** (第 3 優先)
    - `package.json` → Node.js プロジェクト
-   - `Cargo.toml` → Rust プロジェクト  
+   - `Cargo.toml` → Rust プロジェクト
    - `pom.xml` → Java プロジェクト
 
 4. **Conventional Commits 標準** (フォールバック)
@@ -869,7 +877,7 @@ ls packages/ | head -10
   ]]
 }
 
-// React プロジェクトの場合  
+// React プロジェクトの場合
 {
   'scope-enum': [2, 'always', [
     'components', 'hooks', 'utils', 'types', 'styles', 'api'
@@ -911,7 +919,7 @@ ls packages/ | head -10
 ```bash
 # 変更されたファイル(15 ファイル、850 行変更)
 src/auth/login.js          # 新規作成
-src/auth/register.js       # 新規作成  
+src/auth/register.js       # 新規作成
 src/auth/password.js       # 新規作成
 src/auth/types.js          # 新規作成
 src/api/auth-routes.js     # 新規作成
@@ -944,7 +952,7 @@ feat(db): add user model and authentication schema
 理由: データベース構造は他の機能の基盤となるため最初にコミット
 
 # コミット 2: 認証ロジック
-feat(auth): implement core authentication functionality  
+feat(auth): implement core authentication functionality
 
 含まれるファイル:
 - src/auth/login.js
@@ -967,7 +975,7 @@ test(auth): add comprehensive authentication tests
 
 含まれるファイル:
 - tests/auth/login.test.js
-- tests/auth/register.test.js  
+- tests/auth/register.test.js
 - tests/api/auth-routes.test.js
 
 理由: 実装完了後にテストを一括追加
@@ -1016,7 +1024,7 @@ fix: resolve user validation and authentication bugs
 
 理由: 本番環境に影響するバグは最優先で修正
 
-# コミット 2: バリデーションロジックのリファクタリング  
+# コミット 2: バリデーションロジックのリファクタリング
 refactor: extract and improve user validation logic
 
 含まれるファイル:
@@ -1044,7 +1052,7 @@ chore: update documentation and dependencies
 ```bash
 # 変更されたファイル(12 ファイル、600 行変更)
 src/user/profile.js       # 新機能 A
-src/user/avatar.js        # 新機能 A  
+src/user/avatar.js        # 新機能 A
 src/notification/email.js # 新機能 B
 src/notification/sms.js   # 新機能 B
 src/api/profile-routes.js # 新機能 A 用 API
@@ -1052,11 +1060,11 @@ src/api/notification-routes.js # 新機能 B 用 API
 src/dashboard/widgets.js  # 新機能 C
 src/dashboard/charts.js   # 新機能 C
 tests/profile.test.js     # 新機能 A 用テスト
-tests/notification.test.js # 新機能 B 用テスト  
+tests/notification.test.js # 新機能 B 用テスト
 tests/dashboard.test.js   # 新機能 C 用テスト
 package.json              # 全機能の依存関係
 
-# 問題のあるコミット  
+# 問題のあるコミット
 feat: add user profile management, notification system and dashboard widgets
 ```
 
@@ -1079,7 +1087,7 @@ feat(notification): implement email and SMS notifications
 
 含まれるファイル:
 - src/notification/email.js
-- src/notification/sms.js  
+- src/notification/sms.js
 - src/api/notification-routes.js
 - tests/notification.test.js
 
@@ -1106,13 +1114,13 @@ chore: update dependencies for new features
 
 ### 分割効果の比較
 
-| 項目 | Before(巨大コミット) | After(適切な分割) |
-|------|---------------------|-------------------|
-| **レビュー性** | ❌ 非常に困難 | ✅ 各コミットが小さくレビュー可能 |
-| **バグ追跡** | ❌ 問題箇所の特定が困難 | ✅ 問題のあるコミットを即座に特定 |
-| **リバート** | ❌ 全体をリバートする必要 | ✅ 問題部分のみをピンポイントでリバート |
-| **並行開発** | ❌ コンフリクトが発生しやすい | ✅ 機能別でマージが容易 |
-| **デプロイ** | ❌ 全機能を一括デプロイ | ✅ 段階的なデプロイが可能 |
+| 項目           | Before(巨大コミット)          | After(適切な分割)                       |
+| -------------- | ----------------------------- | --------------------------------------- |
+| **レビュー性** | ❌ 非常に困難                 | ✅ 各コミットが小さくレビュー可能       |
+| **バグ追跡**   | ❌ 問題箇所の特定が困難       | ✅ 問題のあるコミットを即座に特定       |
+| **リバート**   | ❌ 全体をリバートする必要     | ✅ 問題部分のみをピンポイントでリバート |
+| **並行開発**   | ❌ コンフリクトが発生しやすい | ✅ 機能別でマージが容易                 |
+| **デプロイ**   | ❌ 全機能を一括デプロイ       | ✅ 段階的なデプロイが可能               |
 
 ### トラブルシューティング
 

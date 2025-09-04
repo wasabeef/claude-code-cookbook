@@ -55,7 +55,7 @@ $ /smart-review src/mobile/components/
 → "📱🎨 Elementos mobile + frontend detectados"
 → "Abordagem recomendada:"
 → "[1] Papel mobile individual"
-→ "[2] Papel frontend individual"  
+→ "[2] Papel frontend individual"
 → "[3] multi-role mobile,frontend"
 → "[4] role-debate mobile,frontend"
 ```

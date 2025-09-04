@@ -78,14 +78,14 @@ gh pr list --head $(git branch --show-current) --json number,title,url
 # 解析 .github/PULL_REQUEST_TEMPLATE.md 的结构
 parse_template_structure() {
   local template_file="$1"
-  
+
   if [ -f "$template_file" ]; then
     # 提取部分结构
     grep -E '^##|^###' "$template_file"
-    
+
     # 识别注释占位符
     grep -E '<!--.*-->' "$template_file"
-    
+
     # 完全遵循现有模板结构
     cat "$template_file"
   fi
@@ -161,10 +161,10 @@ detect_pr() {
 # 2. 更改内容分析
 analyze_changes() {
   local pr_number=$1
-  
+
   # 获取文件更改
   gh pr diff $pr_number --name-only
-  
+
   # 内容分析
   gh pr diff $pr_number | head -1000
 }
@@ -173,10 +173,10 @@ analyze_changes() {
 generate_description() {
   local pr_number=$1
   local changes=$2
-  
+
   # 获取当前 PR 描述
   local current_body=$(gh pr view $pr_number --json body --jq -r .body)
-  
+
   # 如有现有内容则直接使用
   if [ -n "$current_body" ]; then
     echo "$current_body"
@@ -195,7 +195,7 @@ generate_description() {
 generate_from_template() {
   local template="$1"
   local changes="$2"
-  
+
   if [ -n "$template" ]; then
     # 直接使用模板(保留 HTML 注释)
     echo "$template"
@@ -212,7 +212,7 @@ determine_labels() {
   local changes=$1
   local file_list=$2
   local pr_number=$3
-  
+
   # 获取可用标签
   local available_labels=()
   if [ -f ".github/labels.yml" ]; then
@@ -225,12 +225,12 @@ determine_labels() {
     local repo=$(echo "$repo_info" | jq -r .name)
     available_labels=($(gh api "repos/$owner/$repo/labels" --jq '.[].name'))
   fi
-  
+
   local suggested_labels=()
-  
+
   # 通用模式匹配
   analyze_change_patterns "$file_list" "$changes" available_labels suggested_labels
-  
+
   # 限制最多 3 个
   echo "${suggested_labels[@]:0:3}"
 }
@@ -241,21 +241,21 @@ analyze_change_patterns() {
   local changes="$2"
   local -n available_ref=$3
   local -n suggested_ref=$4
-  
+
   # 根据文件类型判定
   if echo "$file_list" | grep -q "\\.md$\\|README\\|docs/"; then
     add_matching_label "documentation\\|docs\\|doc" available_ref suggested_ref
   fi
-  
+
   if echo "$file_list" | grep -q "test\\|spec"; then
     add_matching_label "test\\|testing" available_ref suggested_ref
   fi
-  
+
   # 根据更改内容判定
   if echo "$changes" | grep -iq "fix\\|bug\\|error\\|crash\\|修复"; then
     add_matching_label "bug\\|fix" available_ref suggested_ref
   fi
-  
+
   if echo "$changes" | grep -iq "feat\\|feature\\|add\\|implement\\|新功能\\|实现"; then
     add_matching_label "feature\\|enhancement\\|feat" available_ref suggested_ref
   fi
@@ -266,12 +266,12 @@ add_matching_label() {
   local pattern="$1"
   local -n available_ref=$2
   local -n suggested_ref=$3
-  
+
   # 如果已有 3 个则跳过
   if [ ${#suggested_ref[@]} -ge 3 ]; then
     return
   fi
-  
+
   # 添加匹配模式的第一个标签
   for available_label in "${available_ref[@]}"; do
     if echo "$available_label" | grep -iq "$pattern"; then
@@ -283,7 +283,7 @@ add_matching_label() {
           break
         fi
       done
-      
+
       if [ "$already_exists" = false ]; then
         suggested_ref+=("$available_label")
         return
@@ -302,7 +302,7 @@ update_pr() {
   local pr_number=$1
   local description="$2"
   local labels="$3"
-  
+
   if [ "$DRY_RUN" = "true" ]; then
     echo "=== DRY RUN ==="
     echo "Description:"
@@ -313,7 +313,7 @@ update_pr() {
     local repo_info=$(gh repo view --json owner,name)
     local owner=$(echo "$repo_info" | jq -r .owner.login)
     local repo=$(echo "$repo_info" | jq -r .name)
-    
+
     # 使用 GitHub API 更新正文(保留 HTML 注释)
     # 正确处理 JSON 转义
     local escaped_body=$(echo "$description" | jq -R -s .)
@@ -321,7 +321,7 @@ update_pr() {
       --method PATCH \
       "/repos/$owner/$repo/pulls/$pr_number" \
       --field body="$description"
-    
+
     # 标签使用常规 gh 命令即可
     if [ -n "$labels" ]; then
       gh pr edit $pr_number --add-label "$labels"

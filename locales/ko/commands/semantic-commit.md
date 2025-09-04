@@ -150,7 +150,7 @@ $ /semantic-commit
 메시지: feat: implement user registration and login system
 포함되는 파일:
   • src/auth/login.ts
-  • src/auth/register.ts  
+  • src/auth/register.ts
   • src/auth/types.ts
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -167,7 +167,7 @@ $ /semantic-commit
 포함되는 파일:
   • docs/authentication.md
 
-이 분할안으로 커밋을 실행하시겠습니까? (y/n/edit): 
+이 분할안으로 커밋을 실행하시겠습니까? (y/n/edit):
 ```
 
 ### 실행 시 선택지
@@ -207,7 +207,7 @@ $ /semantic-commit --dry-run
 - 예외 처리 추가
 - 조건 분기 수정
 
-# 새 기능 패턴 탐지  
+# 새 기능 패턴 탐지
 - 새 파일 생성
 - 새 메서드 추가
 - API 엔드포인트 추가
@@ -242,9 +242,9 @@ echo "작업 중인 브랜치: $CURRENT_BRANCH"
 while IFS= read -r commit_plan; do
   group_num=$(echo "$commit_plan" | cut -d':' -f1)
   files=$(echo "$commit_plan" | cut -d':' -f2- | tr ' ' '\n')
-  
+
   echo "=== 커밋 $group_num 실행 ==="
-  
+
   # 해당 파일만 스테이징
   echo "$files" | while read file; do
     if [ -f "$file" ]; then
@@ -252,23 +252,23 @@ while IFS= read -r commit_plan; do
       echo "스테이징: $file"
     fi
   done
-  
+
   # 스테이징 상태 확인
   staged_files=$(git diff --staged --name-only)
   if [ -z "$staged_files" ]; then
     echo "경고: 스테이징된 파일이 없습니다"
     continue
   fi
-  
+
   # 커밋 메시지 생성 (LLM 분석)
   commit_msg=$(generate_commit_message_for_staged_files)
-  
+
   # 사용자 확인
   echo "제안 커밋 메시지: $commit_msg"
   echo "스테이징된 파일:"
   echo "$staged_files"
   read -p "이 커밋을 실행하시겠습니까? (y/n): " confirm
-  
+
   if [ "$confirm" = "y" ]; then
     # 커밋 실행
     git commit -m "$commit_msg"
@@ -278,7 +278,7 @@ while IFS= read -r commit_plan; do
     git reset HEAD
     echo "❌ 커밋 $group_num 건너뛰기"
   fi
-  
+
 done < /tmp/commit_plan.txt
 ```
 
@@ -290,24 +290,24 @@ commit_with_retry() {
   local commit_msg="$1"
   local max_retries=2
   local retry_count=0
-  
+
   while [ $retry_count -lt $max_retries ]; do
     if git commit -m "$commit_msg"; then
       echo "✅ 커밋 성공"
       return 0
     else
       echo "❌ 커밋 실패 (시도 $((retry_count + 1))/$max_retries)"
-      
+
       # 프리커밋 훅의 자동 수정 적용
       if git diff --staged --quiet; then
         echo "프리커밋 훅이 변경사항을 자동 수정했습니다"
         git add -u
       fi
-      
+
       retry_count=$((retry_count + 1))
     fi
   done
-  
+
   echo "❌ 커밋에 실패했습니다. 수동으로 확인하세요."
   return 1
 }
@@ -317,7 +317,7 @@ resume_from_failure() {
   echo "중단된 커밋 처리를 감지했습니다"
   echo "현재 스테이징 상태:"
   git status --porcelain
-  
+
   read -p "처리를 계속하시겠습니까? (y/n): " resume
   if [ "$resume" = "y" ]; then
     # 마지막 커밋 위치에서 재개
@@ -389,10 +389,10 @@ done
 git diff HEAD --name-only | while read file; do
   # 새 함수/클래스 추가 탐지
   NEW_FUNCTIONS=$(git diff HEAD -- "$file" | grep -c '^+.*function\|^+.*class\|^+.*def ')
-  
+
   # 버그 수정 패턴 탐지
   BUG_FIXES=$(git diff HEAD -- "$file" | grep -c '^+.*fix\|^+.*bug\|^-.*error')
-  
+
   # 테스트 파일 판정
   if [[ "$file" =~ test|spec ]]; then
     echo "$file: TEST"
@@ -542,22 +542,28 @@ grep -A 10 '"commitlint"' package.json
 ```javascript
 // commitlint.config.mjs
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // 작업 중
-        'hotfix',   // 긴급 수정
-        'release',  // 릴리즈
-        'deps',     // 의존성 업데이트
-        'config'    // 설정 변경
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // 작업 중
+        "hotfix", // 긴급 수정
+        "release", // 릴리즈
+        "deps", // 의존성 업데이트
+        "config", // 설정 변경
+      ],
+    ],
+  },
+};
 ```
 
 ##### 3. 언어 설정 감지
@@ -566,10 +572,10 @@ export default {
 // 프로젝트가 한국어 메시지를 사용하는 경우
 export default {
   rules: {
-    'subject-case': [0],  // 한국어 대응을 위해 비활성화
-    'subject-max-length': [2, 'always', 72]  // 한국어는 문자 수 제한 조정
-  }
-}
+    "subject-case": [0], // 한국어 대응을 위해 비활성화
+    "subject-max-length": [2, "always", 72], // 한국어는 문자 수 제한 조정
+  },
+};
 ```
 
 #### 자동 분석 흐름
@@ -645,7 +651,7 @@ docs: API 문서 업데이트
    ```bash
    # README.md 언어 확인
    head -10 README.md | grep -E '[가-힣]' | wc -l
-   
+
    # package.json 의 description 확인
    grep -E '"description".*[가-힣]' package.json
    ```
@@ -706,7 +712,7 @@ fi
    ```bash
    # 다음 순서로 검색하여 처음 찾은 파일 사용
    commitlint.config.mjs
-   commitlint.config.js  
+   commitlint.config.js
    commitlint.config.cjs
    commitlint.config.ts
    .commitlintrc.js
@@ -736,59 +742,61 @@ fi
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'chore']
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore"],
     ],
-    'scope-enum': [
-      2,
-      'always',
-      ['api', 'ui', 'core', 'auth', 'db']
-    ]
-  }
-}
+    "scope-enum": [2, "always", ["api", "ui", "core", "auth", "db"]],
+  },
+};
 ```
 
 **한국어 대응 설정**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'subject-case': [0],  // 한국어를 위해 비활성화
-    'subject-max-length': [2, 'always', 72],
-    'type-enum': [
+    "subject-case": [0], // 한국어를 위해 비활성화
+    "subject-max-length": [2, "always", 72],
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore']
-    ]
-  }
-}
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "test", "chore"],
+    ],
+  },
+};
 ```
 
 **커스텀 타입 포함 설정**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // Work in Progress
-        'hotfix',   // 긴급 수정
-        'release',  // 릴리즈 준비
-        'deps',     // 의존성 업데이트
-        'config'    // 설정 변경
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // Work in Progress
+        "hotfix", // 긴급 수정
+        "release", // 릴리즈 준비
+        "deps", // 의존성 업데이트
+        "config", // 설정 변경
+      ],
+    ],
+  },
+};
 ```
 
 #### 폴백 동작
@@ -842,7 +850,7 @@ export default {
 
 3. **프로젝트 종류** (3 순위)
    - `package.json` → Node.js 프로젝트
-   - `Cargo.toml` → Rust 프로젝트  
+   - `Cargo.toml` → Rust 프로젝트
    - `pom.xml` → Java 프로젝트
 
 4. **Conventional Commits 표준** (폴백)
@@ -869,7 +877,7 @@ ls packages/ | head -10
   ]]
 }
 
-// React 프로젝트  
+// React 프로젝트
 {
   'scope-enum': [2, 'always', [
     'components', 'hooks', 'utils', 'types', 'styles', 'api'
@@ -911,7 +919,7 @@ ls packages/ | head -10
 ```bash
 # 변경된 파일(15 개 파일, 850 라인 변경)
 src/auth/login.js          # 신규 생성
-src/auth/register.js       # 신규 생성  
+src/auth/register.js       # 신규 생성
 src/auth/password.js       # 신규 생성
 src/auth/types.js          # 신규 생성
 src/api/auth-routes.js     # 신규 생성
@@ -944,7 +952,7 @@ feat(db): add user model and authentication schema
 이유: 데이터베이스 구조는 다른 기능의 기반이므로 먼저 커밋
 
 # 커밋 2: 인증 로직
-feat(auth): implement core authentication functionality  
+feat(auth): implement core authentication functionality
 
 포함 파일:
 - src/auth/login.js
@@ -967,7 +975,7 @@ test(auth): add comprehensive authentication tests
 
 포함 파일:
 - tests/auth/login.test.js
-- tests/auth/register.test.js  
+- tests/auth/register.test.js
 - tests/api/auth-routes.test.js
 
 이유: 구현 완료 후 테스트를 일괄 추가
@@ -1016,7 +1024,7 @@ fix: resolve user validation and authentication bugs
 
 이유: 프로덕션 환경에 영향을 주는 버그는 최우선 수정
 
-# 커밋 2: 검증 로직 리팩터링  
+# 커밋 2: 검증 로직 리팩터링
 refactor: extract and improve user validation logic
 
 포함 파일:
@@ -1044,7 +1052,7 @@ chore: update documentation and dependencies
 ```bash
 # 변경된 파일(12 개 파일, 600 라인 변경)
 src/user/profile.js       # 새 기능 A
-src/user/avatar.js        # 새 기능 A  
+src/user/avatar.js        # 새 기능 A
 src/notification/email.js # 새 기능 B
 src/notification/sms.js   # 새 기능 B
 src/api/profile-routes.js # 새 기능 A 용 API
@@ -1052,11 +1060,11 @@ src/api/notification-routes.js # 새 기능 B 용 API
 src/dashboard/widgets.js  # 새 기능 C
 src/dashboard/charts.js   # 새 기능 C
 tests/profile.test.js     # 새 기능 A 용 테스트
-tests/notification.test.js # 새 기능 B 용 테스트  
+tests/notification.test.js # 새 기능 B 용 테스트
 tests/dashboard.test.js   # 새 기능 C 용 테스트
 package.json              # 전체 기능 의존성
 
-# 문제 있는 커밋  
+# 문제 있는 커밋
 feat: add user profile management, notification system and dashboard widgets
 ```
 
@@ -1079,7 +1087,7 @@ feat(notification): implement email and SMS notifications
 
 포함 파일:
 - src/notification/email.js
-- src/notification/sms.js  
+- src/notification/sms.js
 - src/api/notification-routes.js
 - tests/notification.test.js
 
@@ -1106,13 +1114,13 @@ chore: update dependencies for new features
 
 ### 분할 효과 비교
 
-| 항목 | Before(거대 커밋) | After(적절한 분할) |
-|------|---------------------|-------------------|
-| **리뷰성** | ❌ 매우 어려움 | ✅ 각 커밋이 작아 리뷰 가능 |
-| **버그 추적** | ❌ 문제 위치 파악 어려움 | ✅ 문제 있는 커밋 즉시 파악 |
-| **되돌리기** | ❌ 전체를 되돌려야 함 | ✅ 문제 부분만 선택적 되돌리기 |
-| **병렬 개발** | ❌ 충돌 발생 쉬움 | ✅ 기능별로 병합 용이 |
-| **배포** | ❌ 전체 기능 일괄 배포 | ✅ 단계적 배포 가능 |
+| 항목          | Before(거대 커밋)        | After(적절한 분할)             |
+| ------------- | ------------------------ | ------------------------------ |
+| **리뷰성**    | ❌ 매우 어려움           | ✅ 각 커밋이 작아 리뷰 가능    |
+| **버그 추적** | ❌ 문제 위치 파악 어려움 | ✅ 문제 있는 커밋 즉시 파악    |
+| **되돌리기**  | ❌ 전체를 되돌려야 함    | ✅ 문제 부분만 선택적 되돌리기 |
+| **병렬 개발** | ❌ 충돌 발생 쉬움        | ✅ 기능별로 병합 용이          |
+| **배포**      | ❌ 전체 기능 일괄 배포   | ✅ 단계적 배포 가능            |
 
 ### 트러블슈팅
 

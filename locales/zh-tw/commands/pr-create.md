@@ -128,11 +128,11 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 ```javascript
 // 保留 HTML 注釋的 PR 創建
 mcp_github_create_pull_request({
-  owner: 'organization',
-  repo: 'repository',
-  base: 'main',
-  head: 'feat-user-authentication',
-  title: 'feat: 實現用戶認證',
+  owner: "organization",
+  repo: "repository",
+  base: "main",
+  head: "feat-user-authentication",
+  title: "feat: 實現用戶認證",
   body: prBodyContent, // 包含 HTML 注釋的完整內容
   draft: true,
   maintainer_can_modify: true,

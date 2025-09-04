@@ -250,7 +250,6 @@ Performance → Bounce rate reduced by XX%
 - Understanding accessibility needs
 - Using data to improve UX
 
-
 ## Discussion Characteristics
 
 ### Discussion Stance

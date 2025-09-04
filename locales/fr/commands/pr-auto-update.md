@@ -78,14 +78,14 @@ Collecte et analyse les informations suivantes :
 # Analyser la structure de .github/PULL_REQUEST_TEMPLATE.md
 parse_template_structure() {
   local template_file="$1"
-  
+
   if [ -f "$template_file" ]; then
     # Extraire la structure de section
     grep -E '^##|^###' "$template_file"
-    
+
     # Identifier les espaces réservés de commentaires
     grep -E '<!--.*-->' "$template_file"
-    
+
     # Suivre complètement la structure du modèle existant
     cat "$template_file"
   fi
@@ -161,10 +161,10 @@ detect_pr() {
 # 2. Analyse des changements
 analyze_changes() {
   local pr_number=$1
-  
+
   # Obtenir les changements de fichiers
   gh pr diff $pr_number --name-only
-  
+
   # Analyse du contenu
   gh pr diff $pr_number | head -1000
 }
@@ -173,10 +173,10 @@ analyze_changes() {
 generate_description() {
   local pr_number=$1
   local changes=$2
-  
+
   # Obtenir la description PR actuelle
   local current_body=$(gh pr view $pr_number --json body --jq -r .body)
-  
+
   # Utiliser le contenu existant si disponible
   if [ -n "$current_body" ]; then
     echo "$current_body"
@@ -195,7 +195,7 @@ generate_description() {
 generate_from_template() {
   local template="$1"
   local changes="$2"
-  
+
   if [ -n "$template" ]; then
     # Utiliser le modèle tel quel (préserver les commentaires HTML)
     echo "$template"
@@ -212,7 +212,7 @@ determine_labels() {
   local changes=$1
   local file_list=$2
   local pr_number=$3
-  
+
   # Obtenir les labels disponibles
   local available_labels=()
   if [ -f ".github/labels.yml" ]; then
@@ -225,12 +225,12 @@ determine_labels() {
     local repo=$(echo "$repo_info" | jq -r .name)
     available_labels=($(gh api "repos/$owner/$repo/labels" --jq '.[].name'))
   fi
-  
+
   local suggested_labels=()
-  
+
   # Correspondance de motifs générique
   analyze_change_patterns "$file_list" "$changes" available_labels suggested_labels
-  
+
   # Limiter à maximum 3
   echo "${suggested_labels[@]:0:3}"
 }
@@ -241,21 +241,21 @@ analyze_change_patterns() {
   local changes="$2"
   local -n available_ref=$3
   local -n suggested_ref=$4
-  
+
   # Détermination du type de fichier
   if echo "$file_list" | grep -q "\.md$\|README\|docs/"; then
     add_matching_label "documentation\|docs\|doc" available_ref suggested_ref
   fi
-  
+
   if echo "$file_list" | grep -q "test\|spec"; then
     add_matching_label "test\|testing" available_ref suggested_ref
   fi
-  
+
   # Détermination du contenu des changements
   if echo "$changes" | grep -iq "fix\|bug\|error\|crash\|correction"; then
     add_matching_label "bug\|fix" available_ref suggested_ref
   fi
-  
+
   if echo "$changes" | grep -iq "feat\|feature\|add\|implement\|new-feature\|implementation"; then
     add_matching_label "feature\|enhancement\|feat" available_ref suggested_ref
   fi
@@ -266,12 +266,12 @@ add_matching_label() {
   local pattern="$1"
   local -n available_ref=$2
   local -n suggested_ref=$3
-  
+
   # Ignorer si on a déjà 3 labels
   if [ ${#suggested_ref[@]} -ge 3 ]; then
     return
   fi
-  
+
   # Ajouter le premier label correspondant au motif
   for available_label in "${available_ref[@]}"; do
     if echo "$available_label" | grep -iq "$pattern"; then
@@ -283,7 +283,7 @@ add_matching_label() {
           break
         fi
       done
-      
+
       if [ "$already_exists" = false ]; then
         suggested_ref+=("$available_label")
         return
@@ -302,7 +302,7 @@ update_pr() {
   local pr_number=$1
   local description="$2"
   local labels="$3"
-  
+
   if [ "$DRY_RUN" = "true" ]; then
     echo "=== DRY RUN ==="
     echo "Description:"
@@ -313,7 +313,7 @@ update_pr() {
     local repo_info=$(gh repo view --json owner,name)
     local owner=$(echo "$repo_info" | jq -r .owner.login)
     local repo=$(echo "$repo_info" | jq -r .name)
-    
+
     # Mettre à jour le corps en utilisant l'API GitHub (préserver les commentaires HTML)
     # Gérer l'échappement JSON correctement
     local escaped_body=$(echo "$description" | jq -R -s .)
@@ -321,7 +321,7 @@ update_pr() {
       --method PATCH \
       "/repos/$owner/$repo/pulls/$pr_number" \
       --field body="$description"
-    
+
     # Les labels peuvent être gérés avec la commande gh normale
     if [ -n "$labels" ]; then
       gh pr edit $pr_number --add-label "$labels"

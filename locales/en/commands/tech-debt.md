@@ -121,24 +121,24 @@ find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f 
 Priority = (Impact × Frequency) ÷ Fix Cost
 ```
 
-| Priority | Development Impact | Fix Cost | Time Savings | Investment Efficiency | Response Deadline |
-|----------|-------------------|----------|--------------|---------------------|-------------------|
-| **[P0] Fix Immediately** | High | Low | > 5x | Invest 1h → Save 5h+ | Immediately |
-| **[P1] This Week** | High | Medium | 2-5x | Invest 1h → Save 2-5h | Within 1 week |
-| **[P2] This Month** | Low | High | 1-2x | Invest 1h → Save 1-2h | Within 1 month |
-| **[P3] This Quarter** | Low | Low | < 1x | Investment = Savings | Within 3 months |
+| Priority                 | Development Impact | Fix Cost | Time Savings | Investment Efficiency | Response Deadline |
+| ------------------------ | ------------------ | -------- | ------------ | --------------------- | ----------------- |
+| **[P0] Fix Immediately** | High               | Low      | > 5x         | Invest 1h → Save 5h+  | Immediately       |
+| **[P1] This Week**       | High               | Medium   | 2-5x         | Invest 1h → Save 2-5h | Within 1 week     |
+| **[P2] This Month**      | Low                | High     | 1-2x         | Invest 1h → Save 1-2h | Within 1 month    |
+| **[P3] This Quarter**    | Low                | Low      | < 1x         | Investment = Savings  | Within 3 months   |
 
 ### Debt Type Evaluation Criteria
 
-| Debt Type | Detection Method | Development Impact | Fix Time |
-|-----------|------------------|-------------------|----------|
-| **Architecture Debt** | Circular dependencies, tight coupling | Large impact scope on changes, testing difficulty | 40-80h |
-| **Security Debt** | CVE scans, OWASP | Vulnerability risks, compliance issues | 8-40h |
-| **Performance Debt** | N+1 queries, memory leaks | Increased response time, resource consumption | 16-40h |
-| **Test Debt** | Coverage < 60% | Delayed bug detection, unstable quality | 20-60h |
-| **Documentation Debt** | Missing README, API docs | Increased onboarding time | 8-24h |
-| **Dependency Debt** | 2+ years without updates | Security risks, compatibility issues | 4-16h |
-| **Code Quality Debt** | Complexity > 10 | Increased understanding/modification time | 2-8h |
+| Debt Type              | Detection Method                      | Development Impact                                | Fix Time |
+| ---------------------- | ------------------------------------- | ------------------------------------------------- | -------- |
+| **Architecture Debt**  | Circular dependencies, tight coupling | Large impact scope on changes, testing difficulty | 40-80h   |
+| **Security Debt**      | CVE scans, OWASP                      | Vulnerability risks, compliance issues            | 8-40h    |
+| **Performance Debt**   | N+1 queries, memory leaks             | Increased response time, resource consumption     | 16-40h   |
+| **Test Debt**          | Coverage < 60%                        | Delayed bug detection, unstable quality           | 20-60h   |
+| **Documentation Debt** | Missing README, API docs              | Increased onboarding time                         | 8-24h    |
+| **Dependency Debt**    | 2+ years without updates              | Security risks, compatibility issues              | 4-16h    |
+| **Code Quality Debt**  | Complexity > 10                       | Increased understanding/modification time         | 2-8h     |
 
 ### Technical Debt Impact Calculation
 

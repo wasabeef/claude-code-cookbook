@@ -100,10 +100,10 @@ git diff HEAD -- <archivo>
 # Determinar tipo de cambio para archivos
 git diff HEAD --name-status | while read status file; do
   case $status in
-    A) echo "$file: Nueva creación" ;;    
-    M) echo "$file: Modificación" ;;    
-    D) echo "$file: Eliminación" ;;    
-    R*) echo "$file: Renombrado" ;;    
+    A) echo "$file: Nueva creación" ;;
+    M) echo "$file: Modificación" ;;
+    D) echo "$file: Eliminación" ;;
+    R*) echo "$file: Renombrado" ;;
   esac
 done
 ```
@@ -242,9 +242,9 @@ echo "Rama de trabajo: $CURRENT_BRANCH"
 while IFS= read -r commit_plan; do
   group_num=$(echo "$commit_plan" | cut -d':' -f1)
   files=$(echo "$commit_plan" | cut -d':' -f2- | tr ' ' '\n')
-  
+
   echo "=== Ejecutando commit $group_num ==="
-  
+
   # Stage solo archivos relevantes
   echo "$files" | while read file; do
     if [ -f "$file" ]; then
@@ -252,23 +252,23 @@ while IFS= read -r commit_plan; do
       echo "Staged: $file"
     fi
   done
-  
+
   # Verificar estado de staging
   staged_files=$(git diff --staged --name-only)
   if [ -z "$staged_files" ]; then
     echo "Advertencia: No hay archivos staged"
     continue
   fi
-  
+
   # Generar mensaje de commit (análisis LLM)
   commit_msg=$(generate_commit_message_for_staged_files)
-  
+
   # Confirmación de usuario
   echo "Mensaje de commit propuesto: $commit_msg"
   echo "Archivos staged:"
   echo "$staged_files"
   read -p "¿Ejecutar este commit? (y/n): " confirm
-  
+
   if [ "$confirm" = "y" ]; then
     # Ejecutar commit
     git commit -m "$commit_msg"
@@ -278,7 +278,7 @@ while IFS= read -r commit_plan; do
     git reset HEAD
     echo "❌ Commit $group_num omitido"
   fi
-  
+
 done < /tmp/commit_plan.txt
 ```
 
@@ -290,24 +290,24 @@ commit_with_retry() {
   local commit_msg="$1"
   local max_retries=2
   local retry_count=0
-  
+
   while [ $retry_count -lt $max_retries ]; do
     if git commit -m "$commit_msg"; then
       echo "✅ Commit exitoso"
       return 0
     else
       echo "❌ Commit falló (intento $((retry_count + 1))/$max_retries)"
-      
+
       # Incorporar correcciones automáticas de pre-commit hooks
       if git diff --staged --quiet; then
         echo "Cambios corregidos automáticamente por pre-commit hook"
         git add -u
       fi
-      
+
       retry_count=$((retry_count + 1))
     fi
   done
-  
+
   echo "❌ Falló el commit. Por favor verificar manualmente."
   return 1
 }
@@ -317,7 +317,7 @@ resume_from_failure() {
   echo "Proceso de commit interrumpido detectado"
   echo "Estado de staging actual:"
   git status --porcelain
-  
+
   read -p "¿Continuar procesamiento? (y/n): " resume
   if [ "$resume" = "y" ]; then
     # Reanudar desde último commit
@@ -389,10 +389,10 @@ done
 git diff HEAD --name-only | while read file; do
   # Detectar adiciones de nueva función/clase
   NEW_FUNCTIONS=$(git diff HEAD -- "$file" | grep -c '^+.*function\|^+.*class\|^+.*def ')
-  
+
   # Detectar patrones de corrección de errores
   BUG_FIXES=$(git diff HEAD -- "$file" | grep -c '^+.*fix\|^+.*bug\|^-.*error')
-  
+
   # Determinar si es archivo de test
   if [[ "$file" =~ test|spec ]]; then
     echo "$file: TEST"
@@ -541,22 +541,28 @@ Ejemplo de tipos específicos del proyecto:
 ```javascript
 // commitlint.config.mjs
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // Trabajo en progreso
-        'hotfix',   // Corrección de emergencia
-        'release',  // Release
-        'deps',     // Actualización de dependencias
-        'config'    // Cambio de configuración
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // Trabajo en progreso
+        "hotfix", // Corrección de emergencia
+        "release", // Release
+        "deps", // Actualización de dependencias
+        "config", // Cambio de configuración
+      ],
+    ],
+  },
+};
 ```
 
 ##### 3. Detectar Configuraciones de Idioma
@@ -565,10 +571,10 @@ export default {
 // Cuando el proyecto usa mensajes en español
 export default {
   rules: {
-    'subject-case': [0],  // Deshabilitar para soporte de español
-    'subject-max-length': [2, 'always', 72]  // Ajustar límite de caracteres para español
-  }
-}
+    "subject-case": [0], // Deshabilitar para soporte de español
+    "subject-max-length": [2, "always", 72], // Ajustar límite de caracteres para español
+  },
+};
 ```
 
 #### Flujo de Análisis Automático
@@ -644,7 +650,7 @@ Cómo determinamos tu idioma:
    ```bash
    # Verificar idioma de README.md
    head -10 README.md | grep -E '^[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' | wc -l
-   
+
    # Verificar descripción de package.json
    grep -E '"description".*[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' package.json
    ```
@@ -778,59 +784,61 @@ Al hacer mensajes de commit, seguimos este orden:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'chore']
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore"],
     ],
-    'scope-enum': [
-      2,
-      'always',
-      ['api', 'ui', 'core', 'auth', 'db']
-    ]
-  }
-}
+    "scope-enum": [2, "always", ["api", "ui", "core", "auth", "db"]],
+  },
+};
 ```
 
 **Configuración compatible con español**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'subject-case': [0],  // Desactivado para español
-    'subject-max-length': [2, 'always', 72],
-    'type-enum': [
+    "subject-case": [0], // Desactivado para español
+    "subject-max-length": [2, "always", 72],
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore']
-    ]
-  }
-}
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "test", "chore"],
+    ],
+  },
+};
 ```
 
 **Configuración con tipos personalizados**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // Trabajo en progreso
-        'hotfix',   // Corrección urgente
-        'release',  // Preparación de release
-        'deps',     // Actualización de dependencias
-        'config'    // Cambios de configuración
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // Trabajo en progreso
+        "hotfix", // Corrección urgente
+        "release", // Preparación de release
+        "deps", // Actualización de dependencias
+        "config", // Cambios de configuración
+      ],
+    ],
+  },
+};
 ```
 
 #### Comportamiento de Respaldo
@@ -1105,13 +1113,13 @@ Razón: Actualizaciones de dependencias comunes agrupadas al final
 
 ### Comparación de Efectos de División
 
-| Elemento | Antes (Commits Gigantes) | Después (División Apropiada) |
-|----------|---------------------------|-------------------------------|
-| **Revisabilidad** | ❌ Muy difícil | ✅ Cada commit es pequeño y revisable |
-| **Rastreo de bugs** | ❌ Difícil identificar problemas | ✅ Identificación inmediata del commit problemático |
-| **Revertir** | ❌ Necesita revertir todo | ✅ Revertir solo la parte problemática |
-| **Desarrollo paralelo** | ❌ Propenso a conflictos | ✅ Fácil merge por características |
-| **Despliegue** | ❌ Despliegue de todas las características | ✅ Despliegue gradual posible |
+| Elemento                | Antes (Commits Gigantes)                   | Después (División Apropiada)                        |
+| ----------------------- | ------------------------------------------ | --------------------------------------------------- |
+| **Revisabilidad**       | ❌ Muy difícil                             | ✅ Cada commit es pequeño y revisable               |
+| **Rastreo de bugs**     | ❌ Difícil identificar problemas           | ✅ Identificación inmediata del commit problemático |
+| **Revertir**            | ❌ Necesita revertir todo                  | ✅ Revertir solo la parte problemática              |
+| **Desarrollo paralelo** | ❌ Propenso a conflictos                   | ✅ Fácil merge por características                  |
+| **Despliegue**          | ❌ Despliegue de todas las características | ✅ Despliegue gradual posible                       |
 
 ### Solución de Problemas
 

@@ -126,13 +126,11 @@ Si no se cumplen las condiciones para la frase clave:
 El desarrollo sigue el ciclo de Test-Driven Development (TDD):
 
 1. **Rojo (Fallo)**
-
    - Escribir la prueba más simple que falle
    - El nombre de la prueba describe claramente el comportamiento
    - Confirmar que el mensaje de error es comprensible
 
 2. **Verde (Éxito)**
-
    - Implementar el código mínimo para pasar la prueba
    - No considerar optimización o estética en esta etapa
    - Concentrarse solo en pasar la prueba
@@ -147,7 +145,6 @@ El desarrollo sigue el ciclo de Test-Driven Development (TDD):
 Los cambios se separan claramente en dos tipos:
 
 - **Cambios Estructurales**
-
   - Organización, formato del código
   - Sin cambios en el comportamiento
   - Ejemplo: Reordenar métodos, organizar imports, renombrar variables
@@ -179,12 +176,10 @@ Hacer commit solo cuando se cumplan todas las condiciones:
 Reglas estrictas para refactorización:
 
 1. **Condiciones Previas**
-
    - Comenzar solo con todas las pruebas pasando
    - No mezclar cambios de comportamiento con refactorización
 
 2. **Proceso de Ejecución**
-
    - Usar patrones de refactorización establecidos
    - Un cambio a la vez
    - Ejecutar pruebas después de cada paso
@@ -201,20 +196,17 @@ Reglas estrictas para refactorización:
 Prioridades para implementación eficiente:
 
 1. **Primer Paso**
-
    - Comenzar con el caso más simple
    - Priorizar "que funcione"
    - Progreso sobre perfección
 
 2. **Principios de Calidad de Código**
-
    - Eliminar duplicación inmediatamente al encontrarla
    - Escribir código con intención clara
    - Dependencias explícitas
    - Métodos pequeños, responsabilidad única
 
 3. **Mejora Gradual**
-
    - Primero hacer que funcione
    - Cubrir con pruebas
    - Luego optimizar

@@ -78,14 +78,14 @@ gh pr list --head $(git branch --show-current) --json number,title,url
 # .github/PULL_REQUEST_TEMPLATE.md 의 구조 분석
 parse_template_structure() {
   local template_file="$1"
-  
+
   if [ -f "$template_file" ]; then
     # 섹션 구조 추출
     grep -E '^##|^###' "$template_file"
-    
+
     # 코멘트 플레이스홀더 식별
     grep -E '<!--.*-->' "$template_file"
-    
+
     # 기존 템플릿 구조를 완전히 준수
     cat "$template_file"
   fi
@@ -106,7 +106,7 @@ parse_template_structure() {
 **파일 패턴 기반**:
 
 - 문서: `*.md`, `README`, `docs/` → `documentation|docs|doc`를 포함하는 라벨
-- 테스트: `test`, `spec` → `test|testing`을 포함하는 라벨  
+- 테스트: `test`, `spec` → `test|testing`을 포함하는 라벨
 - CI/CD: `.github/`, `*.yml`, `Dockerfile` → `ci|build|infra|ops`를 포함하는 라벨
 - 종속성: `package.json`, `pubspec.yaml`, `requirements.txt` → `dependencies|deps`를 포함하는 라벨
 
@@ -161,10 +161,10 @@ detect_pr() {
 # 2. 변경 내용 분석
 analyze_changes() {
   local pr_number=$1
-  
+
   # 파일 변경 취득
   gh pr diff $pr_number --name-only
-  
+
   # 내용 분석
   gh pr diff $pr_number | head -1000
 }
@@ -173,10 +173,10 @@ analyze_changes() {
 generate_description() {
   local pr_number=$1
   local changes=$2
-  
+
   # 현재 PR 설명 취득
   local current_body=$(gh pr view $pr_number --json body --jq -r .body)
-  
+
   # 기존 내용이 있으면 그대로 사용
   if [ -n "$current_body" ]; then
     echo "$current_body"
@@ -195,7 +195,7 @@ generate_description() {
 generate_from_template() {
   local template="$1"
   local changes="$2"
-  
+
   if [ -n "$template" ]; then
     # 템플릿을 그대로 사용 (HTML 코멘트 보존)
     echo "$template"
@@ -212,7 +212,7 @@ determine_labels() {
   local changes=$1
   local file_list=$2
   local pr_number=$3
-  
+
   # 사용 가능한 라벨 취득
   local available_labels=()
   if [ -f ".github/labels.yml" ]; then
@@ -225,12 +225,12 @@ determine_labels() {
     local repo=$(echo "$repo_info" | jq -r .name)
     available_labels=($(gh api "repos/$owner/$repo/labels" --jq '.[].name'))
   fi
-  
+
   local suggested_labels=()
-  
+
   # 범용적인 패턴 매칭
   analyze_change_patterns "$file_list" "$changes" available_labels suggested_labels
-  
+
   # 최대 3 개로 제한
   echo "${suggested_labels[@]:0:3}"
 }
@@ -241,21 +241,21 @@ analyze_change_patterns() {
   local changes="$2"
   local -n available_ref=$3
   local -n suggested_ref=$4
-  
+
   # 파일 타입별 판정
   if echo "$file_list" | grep -q "\.md$\|README\|docs/"; then
     add_matching_label "documentation\|docs\|doc" available_ref suggested_ref
   fi
-  
+
   if echo "$file_list" | grep -q "test\|spec"; then
     add_matching_label "test\|testing" available_ref suggested_ref
   fi
-  
+
   # 변경 내용별 판정
   if echo "$changes" | grep -iq "fix\|bug\|error\|crash\|수정"; then
     add_matching_label "bug\|fix" available_ref suggested_ref
   fi
-  
+
   if echo "$changes" | grep -iq "feat\|feature\|add\|implement\|신규기능\|구현"; then
     add_matching_label "feature\|enhancement\|feat" available_ref suggested_ref
   fi
@@ -266,12 +266,12 @@ add_matching_label() {
   local pattern="$1"
   local -n available_ref=$2
   local -n suggested_ref=$3
-  
+
   # 이미 3 개 있는 경우 스킵
   if [ ${#suggested_ref[@]} -ge 3 ]; then
     return
   fi
-  
+
   # 패턴에 매치하는 첫 번째 라벨 추가
   for available_label in "${available_ref[@]}"; do
     if echo "$available_label" | grep -iq "$pattern"; then
@@ -283,7 +283,7 @@ add_matching_label() {
           break
         fi
       done
-      
+
       if [ "$already_exists" = false ]; then
         suggested_ref+=("$available_label")
         return
@@ -302,7 +302,7 @@ update_pr() {
   local pr_number=$1
   local description="$2"
   local labels="$3"
-  
+
   if [ "$DRY_RUN" = "true" ]; then
     echo "=== DRY RUN ==="
     echo "Description:"
@@ -313,7 +313,7 @@ update_pr() {
     local repo_info=$(gh repo view --json owner,name)
     local owner=$(echo "$repo_info" | jq -r .owner.login)
     local repo=$(echo "$repo_info" | jq -r .name)
-    
+
     # GitHub API 를 사용하여 본문 업데이트 (HTML 코멘트 보존)
     # JSON 이스케이프를 적절히 처리
     local escaped_body=$(echo "$description" | jq -R -s .)
@@ -321,7 +321,7 @@ update_pr() {
       --method PATCH \
       "/repos/$owner/$repo/pulls/$pr_number" \
       --field body="$description"
-    
+
     # 라벨은 일반적인 gh 명령으로 문제없음
     if [ -n "$labels" ]; then
       gh pr edit $pr_number --add-label "$labels"

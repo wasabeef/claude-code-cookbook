@@ -55,7 +55,7 @@ $ /smart-review src/mobile/components/
 → 「📱🎨 モバイル + フロントエンド要素を検出」
 → 「推奨アプローチ:」
 → 「[1] mobile ロール単体」
-→ 「[2] frontend ロール単体」  
+→ 「[2] frontend ロール単体」
 → 「[3] multi-role mobile,frontend」
 → 「[4] role-debate mobile,frontend」
 ```

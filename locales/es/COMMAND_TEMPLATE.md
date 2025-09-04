@@ -2,7 +2,7 @@
 
 Descripción concisa del comando (explicar en una línea qué hace el comando).
 
-<!-- 
+<!--
 Notas para usar la plantilla:
 - Secciones obligatorias: Título, descripción, uso, ejemplos básicos, colaboración con Claude, notas
 - Secciones opcionales: Opciones, funciones detalladas, ejemplo de salida, mejores prácticas, comandos relacionados

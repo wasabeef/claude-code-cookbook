@@ -174,31 +174,31 @@ Ejemplo: /smart-review
 
 ### Categoría Seguridad
 
-| Rol | Uso Principal | Fortalezas | Debilidades |
-|------|----------|----------|----------|
-| security | Vulnerabilidades y contramedidas de ataque | Análisis de amenazas, diseño de autenticación | UX, rendimiento |
-| analyzer | Análisis de causa raíz | Análisis lógico, recolección de evidencia | Medidas preventivas, planificación futura |
+| Rol      | Uso Principal                              | Fortalezas                                    | Debilidades                               |
+| -------- | ------------------------------------------ | --------------------------------------------- | ----------------------------------------- |
+| security | Vulnerabilidades y contramedidas de ataque | Análisis de amenazas, diseño de autenticación | UX, rendimiento                           |
+| analyzer | Análisis de causa raíz                     | Análisis lógico, recolección de evidencia     | Medidas preventivas, planificación futura |
 
 ### Categoría Diseño
 
-| Rol | Uso Principal | Fortalezas | Debilidades |
-|------|----------|----------|----------|
+| Rol       | Uso Principal     | Fortalezas                                      | Debilidades                                        |
+| --------- | ----------------- | ----------------------------------------------- | -------------------------------------------------- |
 | architect | Diseño de sistema | Perspectiva a largo plazo, optimización general | Implementación detallada, soluciones a corto plazo |
-| reviewer | Calidad de código | Nivel de implementación, mantenibilidad | Requerimientos de negocio, UX |
+| reviewer  | Calidad de código | Nivel de implementación, mantenibilidad         | Requerimientos de negocio, UX                      |
 
 ### Categoría Rendimiento
 
-| Rol | Uso Principal | Fortalezas | Debilidades |
-|------|----------|----------|----------|
-| performance | Mejora de velocidad y optimización | Medición, identificación de cuellos de botella | Seguridad, UX |
-| qa | Aseguramiento de calidad | Pruebas, automatización | Diseño, arquitectura |
+| Rol         | Uso Principal                      | Fortalezas                                     | Debilidades          |
+| ----------- | ---------------------------------- | ---------------------------------------------- | -------------------- |
+| performance | Mejora de velocidad y optimización | Medición, identificación de cuellos de botella | Seguridad, UX        |
+| qa          | Aseguramiento de calidad           | Pruebas, automatización                        | Diseño, arquitectura |
 
 ### Categoría Experiencia de Usuario
 
-| Rol | Uso Principal | Fortalezas | Debilidades |
-|------|----------|----------|----------|
-| frontend | UI/UX Web | Navegador, accesibilidad | Lado servidor, BD |
-| mobile | UX Móvil | Táctil, soporte offline | Lado servidor, Web |
+| Rol      | Uso Principal | Fortalezas               | Debilidades        |
+| -------- | ------------- | ------------------------ | ------------------ |
+| frontend | UI/UX Web     | Navegador, accesibilidad | Lado servidor, BD  |
+| mobile   | UX Móvil      | Táctil, soporte offline  | Lado servidor, Web |
 
 ### Diagrama de Flujo de Decisión Cuando No Estés Seguro
 

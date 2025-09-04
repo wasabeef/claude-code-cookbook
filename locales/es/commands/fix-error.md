@@ -130,12 +130,12 @@ Errores frecuentes y soluciones inmediatas
 
 ### Matriz de Prioridad de Análisis de Error
 
-| Prioridad | Icono | Alcance Impacto | Dificultad Resolución | Plazo Respuesta | Descripción |
-|-----------|-------|----------------|----------------------|----------------|-------------|
-| **Critical** | 🔴 Respuesta urgente | Amplio | Bajo | Inicio dentro 15 min | Parada total sistema, riesgo pérdida datos |
-| **High Priority** | 🟠 Respuesta temprana | Amplio | Alto | Inicio dentro 1 hora | Parada función principal, afecta muchos usuarios |
-| **Medium** | 🟡 Respuesta planificada | Limitado | Alto | Respuesta mismo día | Restricción función parcial, existe solución alternativa |
-| **Low** | 🟢 Observación | Limitado | Bajo | Próxima modificación | Fallo menor, pequeño impacto en UX |
+| Prioridad         | Icono                    | Alcance Impacto | Dificultad Resolución | Plazo Respuesta      | Descripción                                              |
+| ----------------- | ------------------------ | --------------- | --------------------- | -------------------- | -------------------------------------------------------- |
+| **Critical**      | 🔴 Respuesta urgente     | Amplio          | Bajo                  | Inicio dentro 15 min | Parada total sistema, riesgo pérdida datos               |
+| **High Priority** | 🟠 Respuesta temprana    | Amplio          | Alto                  | Inicio dentro 1 hora | Parada función principal, afecta muchos usuarios         |
+| **Medium**        | 🟡 Respuesta planificada | Limitado        | Alto                  | Respuesta mismo día  | Restricción función parcial, existe solución alternativa |
+| **Low**           | 🟢 Observación           | Limitado        | Bajo                  | Próxima modificación | Fallo menor, pequeño impacto en UX                       |
 
 ### Proceso de Análisis
 

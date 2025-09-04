@@ -530,15 +530,15 @@ Claude: "Preparação para spec-driven development concluída. Pode iniciar a im
 
 ### Diferenças com /plan
 
-| Característica | /plan | /spec |
-|------|-------|-------|
-| Objetivo | Plano geral de implementação | Desenvolvimento orientado por especificação funcional |
-| Formato de saída | Documento de plano único | 3 arquivos independentes (requirements.md, design.md, tasks.md) |
-| Definição de requisitos | Organização básica de requisitos | Critérios de aceitação detalhados usando notação EARS |
-| Design | Foco em seleção técnica | Baseado em análise de codebase |
-| Implementação | Decomposição geral de tarefas | Sequência considerando dependências |
-| Garantia de qualidade | Estratégia básica de testes | Requisitos abrangentes de qualidade (testes, acessibilidade, performance) |
-| Sincronização | Plano estático | Atualização dinâmica de spec |
+| Característica          | /plan                            | /spec                                                                     |
+| ----------------------- | -------------------------------- | ------------------------------------------------------------------------- |
+| Objetivo                | Plano geral de implementação     | Desenvolvimento orientado por especificação funcional                     |
+| Formato de saída        | Documento de plano único         | 3 arquivos independentes (requirements.md, design.md, tasks.md)           |
+| Definição de requisitos | Organização básica de requisitos | Critérios de aceitação detalhados usando notação EARS                     |
+| Design                  | Foco em seleção técnica          | Baseado em análise de codebase                                            |
+| Implementação           | Decomposição geral de tarefas    | Sequência considerando dependências                                       |
+| Garantia de qualidade   | Estratégia básica de testes      | Requisitos abrangentes de qualidade (testes, acessibilidade, performance) |
+| Sincronização           | Plano estático                   | Atualização dinâmica de spec                                              |
 
 ### Casos de Uso Recomendados
 

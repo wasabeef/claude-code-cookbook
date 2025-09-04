@@ -288,6 +288,7 @@ interface AuthenticationService {
 ```
 
 **4. Phase 2 完成和批準**
+
 ```
 
 Claude：「Design Phase 已完成。
@@ -299,6 +300,7 @@ Claude：「Design Phase 已完成。
 #### Phase 3: Implementation Planning & Discussion
 
 **1. 最佳實践自動應用(Kiro 式)**
+
 ```
 
 Claude：「生成了自動應用 Kiro 最佳實践的實施計劃：
@@ -325,6 +327,7 @@ Claude：「生成了自動應用 Kiro 最佳實践的實施計劃：
 ```
 
 **2. 質量檢查點自動設置**
+
 ```
 
 Claude：「自動設置各實施阶段的質量檢查點：
@@ -357,6 +360,7 @@ Phase 3c: 集成和部署
 ```
 
 **3. 依賴關系和風險緩解的自動分析**
+
 ```
 
 Claude：「自動分析實施顺序和風險緩解策略：
@@ -396,6 +400,7 @@ Week 3: 高級功能和優化
 ```
 
 **4. Phase 3 完成和批準**
+
 ```
 
 Claude：「Implementation Planning Phase 已完成。
@@ -407,6 +412,7 @@ Claude：「Implementation Planning Phase 已完成。
 ### Kiro 特有的功能
 
 **EARS 記法 (Easy Approach to Requirements Syntax)**
+
 ```text
 # Kiro 標準的 EARS 記法模式
 
@@ -524,15 +530,15 @@ Claude: 「spec 驅動開發的準備已完成。可以開始實施。」
 
 ### 與 /plan 的區別
 
-| 特徵 | /plan | /spec |
-|------|-------|-------|
-| 對象 | 一般實施計劃 | 功能規格驅動開發 |
-| 輸出格式 | 單一計劃文檔 | 3 個独立文件(requirements.md、design.md、tasks.md) |
-| 需求定義 | 基本需求整理 | 使用 EARS 記法的詳细驗收標準 |
-| 設計 | 以技術選型為中心 | 基于代碼庫分析 |
-| 實施 | 一般任務分解 | 考虑依賴關系的序列 |
-| 質量保證 | 基本測試策略 | 全面質量要求(測試、無障礙、性能) |
-| 同步 | 靜態計劃 | 動態 spec 更新 |
+| 特徵     | /plan            | /spec                                              |
+| -------- | ---------------- | -------------------------------------------------- |
+| 對象     | 一般實施計劃     | 功能規格驅動開發                                   |
+| 輸出格式 | 單一計劃文檔     | 3 個独立文件(requirements.md、design.md、tasks.md) |
+| 需求定義 | 基本需求整理     | 使用 EARS 記法的詳细驗收標準                       |
+| 設計     | 以技術選型為中心 | 基于代碼庫分析                                     |
+| 實施     | 一般任務分解     | 考虑依賴關系的序列                                 |
+| 質量保證 | 基本測試策略     | 全面質量要求(測試、無障礙、性能)                   |
+| 同步     | 靜態計劃         | 動態 spec 更新                                     |
 
 ### 推薦用例
 

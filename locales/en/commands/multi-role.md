@@ -277,10 +277,10 @@ Role 3 ─┘
 #### Performance Comparison
 
 | Number of Roles | Normal Execution | --agent Execution | Reduction Rate |
-|----------------|-----------------|------------------|---------------|
-| 2 roles        | 2-3 minutes     | 1 minute         | 50%           |
-| 3 roles        | 3-5 minutes     | 1-2 minutes      | 60%           |
-| 4 roles        | 5-8 minutes     | 2-3 minutes      | 65%           |
+| --------------- | ---------------- | ----------------- | -------------- |
+| 2 roles         | 2-3 minutes      | 1 minute          | 50%            |
+| 3 roles         | 3-5 minutes      | 1-2 minutes       | 60%            |
+| 4 roles         | 5-8 minutes      | 2-3 minutes       | 65%            |
 
 ### Notes
 

@@ -62,12 +62,12 @@ Launches a smart agent to handle complex searches and investigations. Great for 
 
 #### When to Use What
 
-| Command | Main Use Case | Execution Method | Information Collection |
-|---------|---------------|-----------------|------------------------|
-| **Task** | Investigation, analysis, search | Autonomous execution | Multiple sources |
-| ultrathink | Deep thinking, judgment | Structured thinking | Existing knowledge-focused |
-| sequential-thinking | Problem-solving, design | Step-by-step thinking | As needed |
-| plan | Implementation planning | Approval process | Requirement analysis |
+| Command             | Main Use Case                   | Execution Method      | Information Collection     |
+| ------------------- | ------------------------------- | --------------------- | -------------------------- |
+| **Task**            | Investigation, analysis, search | Autonomous execution  | Multiple sources           |
+| ultrathink          | Deep thinking, judgment         | Structured thinking   | Existing knowledge-focused |
+| sequential-thinking | Problem-solving, design         | Step-by-step thinking | As needed                  |
+| plan                | Implementation planning         | Approval process      | Requirement analysis       |
 
 #### Quick Decision Guide
 

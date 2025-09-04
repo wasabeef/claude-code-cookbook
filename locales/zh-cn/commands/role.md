@@ -345,12 +345,12 @@ Evidence-First 根本原因分析
 
 #### 常规角色 vs 子代理
 
-| 场景 | 推荐 | 命令 |
-|------|------|------|
-| 简单确认 | 常规角色 | `/role security` |
-| 大规模分析 | 子代理 | `/role security --agent` |
-| 交互式工作 | 常规角色 | `/role frontend` |
-| 独立审计 | 子代理 | `/role qa --agent` |
+| 场景       | 推荐     | 命令                     |
+| ---------- | -------- | ------------------------ |
+| 简单确认   | 常规角色 | `/role security`         |
+| 大规模分析 | 子代理   | `/role security --agent` |
+| 交互式工作 | 常规角色 | `/role frontend`         |
+| 独立审计   | 子代理   | `/role qa --agent`       |
 
 ### 角色设置详情
 

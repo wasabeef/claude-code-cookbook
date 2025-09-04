@@ -345,12 +345,12 @@ Quando análises em larga escala ou processamento especializado independente sã
 
 #### Role Normal vs Subagente
 
-| Situação | Recomendado | Comando |
-|----------|-------------|---------|
-| Verificação simples | Role normal | `/role security` |
-| Análise em larga escala | Subagente | `/role security --agent` |
-| Trabalho interativo | Role normal | `/role frontend` |
-| Auditoria independente | Subagente | `/role qa --agent` |
+| Situação                | Recomendado | Comando                  |
+| ----------------------- | ----------- | ------------------------ |
+| Verificação simples     | Role normal | `/role security`         |
+| Análise em larga escala | Subagente   | `/role security --agent` |
+| Trabalho interativo     | Role normal | `/role frontend`         |
+| Auditoria independente  | Subagente   | `/role qa --agent`       |
 
 ### Detalhes da Configuração dos Roles
 

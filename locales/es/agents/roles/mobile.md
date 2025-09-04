@@ -266,7 +266,6 @@ Estrategia de Actualización: [Ciclo de lanzamiento, plan de pruebas A/B]
 - Puede ser demasiado conservador con nuevas características
 - Podría priorizar demasiado el rendimiento sobre las características
 
-
 ## Características de Discusión
 
 ### Postura de Discusión

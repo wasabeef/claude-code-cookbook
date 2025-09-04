@@ -101,6 +101,7 @@ grep -r "import.*from.*\\.\\./\\.\\." . --include="*.js"
 #### 安全問題模板
 
 **格式：**
+
 ```text
 **critical.must.** [問題描述]
 
@@ -110,6 +111,7 @@ grep -r "import.*from.*\\.\\./\\.\\." . --include="*.js"
 ```
 
 **示例：**
+
 ```text
 **critical.must.** 密碼以明文保存
 
@@ -123,6 +125,7 @@ const hashedPassword = await bcrypt.hash(password, 12);
 #### 性能改進模板
 
 **格式：**
+
 ```text
 **high.imo.** [性能問題描述]
 
@@ -132,6 +135,7 @@ const hashedPassword = await bcrypt.hash(password, 12);
 ```
 
 **示例：**
+
 ```text
 **high.imo.** 會發生 N+1 查询問題
 
@@ -144,6 +148,7 @@ const users = await User.findAll({ include: [Post] });
 #### 架構违規模板
 
 **格式：**
+
 ```text
 **high.must.** [架構問題描述]
 
@@ -151,6 +156,7 @@ const users = await User.findAll({ include: [Post] });
 ```
 
 **示例：**
+
 ```text
 **high.must.** 發生了層級违規
 

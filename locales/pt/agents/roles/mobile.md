@@ -268,7 +268,6 @@ Estratégia de Atualização: [ciclo de release, plano de teste A/B]
 - Falta de consideração por ambiente desktop
 - Tendência a plataformas específicas
 
-
 ## Características de Discussão
 
 ### Postura de Discussão

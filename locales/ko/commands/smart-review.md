@@ -55,7 +55,7 @@ $ /smart-review src/mobile/components/
 → 「📱🎨 모바일 + 프론트엔드 요소를 검출」
 → 「권장 접근법:」
 → 「[1] mobile 역할 단체」
-→ 「[2] frontend 역할 단체」  
+→ 「[2] frontend 역할 단체」
 → 「[3] multi-role mobile,frontend」
 → 「[4] role-debate mobile,frontend」
 ```

@@ -219,7 +219,7 @@ Devons-nous procéder avec cette conception ?"
 
 **2. Conception visuelle avec diagrammes Mermaid**
 
-```
+````
 Claude : "J'ai automatiquement généré une conception système utilisant les diagrammes Mermaid :
 
 Diagramme d'architecture généré automatiquement :
@@ -237,7 +237,7 @@ graph TB
 
     Auth --> JWT[Service JWT]
     Auth --> OAuth[Fournisseur OAuth]
-```
+````
 
 Dois-je également générer un diagramme de flux de données ?"
 
@@ -246,6 +246,7 @@ Dois-je également générer un diagramme de flux de données ?"
 **3. Génération automatique d'interfaces TypeScript**
 
 ```
+
 Claude : "Je vais automatiquement générer les interfaces TypeScript basées sur la conception :
 
 Interfaces TypeScript générées automatiquement :
@@ -407,7 +408,7 @@ Claude : "La Phase de Planification d'Implémentation est terminée.
 Puis-je générer tasks.md ?"
 → "Procéder" → génération tasks.md
 
-```
+````
 
 ### Fonctionnalités spécifiques à Kiro
 
@@ -428,7 +429,7 @@ AND [comportement lié]
 WHERE [fonction/composant]
 IS [condition/état]
 THE SYSTEM SHALL [comportement correspondant]
-```
+````
 
 **Fonctionnalités de génération automatique**
 
@@ -530,15 +531,15 @@ Claude : "La préparation du développement piloté par spécifications est term
 
 ### Différences avec /plan
 
-| Fonctionnalité | /plan | /spec |
-|----------------|-------|-------|
-| Cible | Plan d'implémentation général | Développement piloté par spécifications de fonctionnalité |
-| Format de sortie | Document de plan unique | 3 fichiers indépendants (requirements.md, design.md, tasks.md) |
-| Définition exigences | Organisation exigences de base | Critères d'acceptation détaillés utilisant notation EARS |
-| Conception | Focalisée sélection technologie | Basée analyse base de code |
-| Implémentation | Décomposition tâches générale | Séquence consciente dépendances |
-| Assurance qualité | Stratégie test de base | Exigences qualité complètes (tests, accessibilité, performance) |
-| Synchronisation | Plan statique | Mises à jour spec dynamiques |
+| Fonctionnalité       | /plan                           | /spec                                                           |
+| -------------------- | ------------------------------- | --------------------------------------------------------------- |
+| Cible                | Plan d'implémentation général   | Développement piloté par spécifications de fonctionnalité       |
+| Format de sortie     | Document de plan unique         | 3 fichiers indépendants (requirements.md, design.md, tasks.md)  |
+| Définition exigences | Organisation exigences de base  | Critères d'acceptation détaillés utilisant notation EARS        |
+| Conception           | Focalisée sélection technologie | Basée analyse base de code                                      |
+| Implémentation       | Décomposition tâches générale   | Séquence consciente dépendances                                 |
+| Assurance qualité    | Stratégie test de base          | Exigences qualité complètes (tests, accessibilité, performance) |
+| Synchronisation      | Plan statique                   | Mises à jour spec dynamiques                                    |
 
 ### Cas d'usage recommandés
 

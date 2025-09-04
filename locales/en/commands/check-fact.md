@@ -91,7 +91,7 @@ cat README.md
 ### When to Use This
 
 - Writing specs: Make sure your descriptions are accurate
-- Taking over a project: Check if you understand it correctly  
+- Taking over a project: Check if you understand it correctly
 - Client updates: Verify what's actually built
 - Blog posts: Fact-check your technical content
 - Presentations: Confirm project details before presenting

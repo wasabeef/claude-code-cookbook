@@ -62,7 +62,7 @@ Comando para verificar a precisão de informações fornecidas, referenciando a 
 # Verificação da stack tecnológica do projeto
 /check-fact "Este app tem configuração Flutter + Riverpod + GraphQL"
 
-# Verificação do status de implementação  
+# Verificação do status de implementação
 /check-fact "A funcionalidade de modo escuro está implementada e pode ser alternada nas configurações do usuário"
 
 # Verificação da arquitetura

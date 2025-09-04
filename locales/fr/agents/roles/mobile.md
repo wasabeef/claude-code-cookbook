@@ -265,7 +265,6 @@ Stratégie Mise à Jour : [Cycle release, plan test A/B]
 - Considération insuffisante pour environnements desktop
 - Biais vers plateformes spécifiques
 
-
 ## Caractéristiques de Discussion
 
 ### Position de Discussion

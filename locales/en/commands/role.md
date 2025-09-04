@@ -345,12 +345,12 @@ For large-scale analysis or independent specialized processing, you can run a ro
 
 #### Normal Role vs Sub-Agent
 
-| Situation | Recommendation | Command |
-|-----------|----------------|---------|
-| Simple confirmation | Normal role | `/role security` |
-| Large-scale analysis | Sub-agent | `/role security --agent` |
-| Interactive work | Normal role | `/role frontend` |
-| Independent audit | Sub-agent | `/role qa --agent` |
+| Situation            | Recommendation | Command                  |
+| -------------------- | -------------- | ------------------------ |
+| Simple confirmation  | Normal role    | `/role security`         |
+| Large-scale analysis | Sub-agent      | `/role security --agent` |
+| Interactive work     | Normal role    | `/role frontend`         |
+| Independent audit    | Sub-agent      | `/role qa --agent`       |
 
 ### Role Configuration Details
 

@@ -155,7 +155,7 @@ Performance 분석 결과:
 /multi-role security,architect
 「인증 시스템 설계」
 
-/multi-role security,frontend  
+/multi-role security,frontend
 「로그인 화면의 보안」
 
 /multi-role security,mobile
@@ -277,10 +277,10 @@ cat performance-issues.log
 #### 성능 비교
 
 | 역할 수 | 일반 실행 | --agent 실행 | 단축률 |
-|---------|----------|-------------|-------|
-| 2 역할 | 2-3 분 | 1 분 | 50% |
-| 3 역할 | 3-5 분 | 1-2 분 | 60% |
-| 4 역할 | 5-8 분 | 2-3 분 | 65% |
+| ------- | --------- | ------------ | ------ |
+| 2 역할  | 2-3 분    | 1 분         | 50%    |
+| 3 역할  | 3-5 분    | 1-2 분       | 60%    |
+| 4 역할  | 5-8 분    | 2-3 분       | 65%    |
 
 ### 주의사항
 

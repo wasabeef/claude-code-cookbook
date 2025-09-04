@@ -125,13 +125,11 @@ If conditions for the password are not met:
 Follow the Test-Driven Development (TDD) cycle during development:
 
 1. **Red (Failure)**
-
    - Write the simplest failing test
    - Test name clearly describes behavior
    - Ensure failure message is understandable
 
 2. **Green (Success)**
-
    - Implement minimal code to pass the test
    - Do not consider optimization or beauty at this stage
    - Focus solely on passing the test
@@ -146,7 +144,6 @@ Follow the Test-Driven Development (TDD) cycle during development:
 Clearly separate changes into two types:
 
 - **Structural Changes**
-
   - Code arrangement, organization, formatting
   - Do not change behavior at all
   - Examples: Method reordering, import organization, variable name changes
@@ -178,12 +175,10 @@ Execute commits only when all the following conditions are met:
 Strict rules for refactoring:
 
 1. **Prerequisites**
-
    - Start only when all tests pass
    - Do not mix behavior changes with refactoring
 
 2. **Execution Steps**
-
    - Use established refactoring patterns
    - Make only one change at a time
    - Always run tests after each step
@@ -200,20 +195,17 @@ Strict rules for refactoring:
 Priorities for efficient implementation:
 
 1. **First Step**
-
    - Start with the simplest case
    - Prioritize "working" above all else
    - Value progress over perfection
 
 2. **Code Quality Principles**
-
    - Immediately eliminate duplication when found
    - Write code with clear intent
    - Make dependencies explicit
    - Keep methods small and single-responsible
 
 3. **Gradual Improvement**
-
    - First create something that works
    - Cover with tests
    - Then optimize

@@ -78,14 +78,14 @@ Coleta e analisa as seguintes informações:
 # Analisa a estrutura de .github/PULL_REQUEST_TEMPLATE.md
 parse_template_structure() {
   local template_file="$1"
-  
+
   if [ -f "$template_file" ]; then
     # Extrai estrutura das seções
     grep -E '^##|^###' "$template_file"
-    
+
     # Identifica placeholders de comentário
     grep -E '<!--.*-->' "$template_file"
-    
+
     # Segue completamente a estrutura do template existente
     cat "$template_file"
   fi
@@ -106,7 +106,7 @@ parse_template_structure() {
 **Baseado em Padrões de Arquivo**:
 
 - Documentação: `*.md`, `README`, `docs/` → rótulos contendo `documentation|docs|doc`
-- Teste: `test`, `spec` → rótulos contendo `test|testing`  
+- Teste: `test`, `spec` → rótulos contendo `test|testing`
 - CI/CD: `.github/`, `*.yml`, `Dockerfile` → rótulos contendo `ci|build|infra|ops`
 - Dependências: `package.json`, `pubspec.yaml`, `requirements.txt` → rótulos contendo `dependencies|deps`
 
@@ -161,10 +161,10 @@ detect_pr() {
 # 2. Análise do conteúdo das alterações
 analyze_changes() {
   local pr_number=$1
-  
+
   # Obtém alterações de arquivo
   gh pr diff $pr_number --name-only
-  
+
   # Análise do conteúdo
   gh pr diff $pr_number | head -1000
 }
@@ -173,10 +173,10 @@ analyze_changes() {
 generate_description() {
   local pr_number=$1
   local changes=$2
-  
+
   # Obtém descrição atual do PR
   local current_body=$(gh pr view $pr_number --json body --jq -r .body)
-  
+
   # Usa conteúdo existente se houver
   if [ -n "$current_body" ]; then
     echo "$current_body"
@@ -195,7 +195,7 @@ generate_description() {
 generate_from_template() {
   local template="$1"
   local changes="$2"
-  
+
   if [ -n "$template" ]; then
     # Usa template como está (preserva comentários HTML)
     echo "$template"
@@ -212,7 +212,7 @@ determine_labels() {
   local changes=$1
   local file_list=$2
   local pr_number=$3
-  
+
   # Obtém rótulos disponíveis
   local available_labels=()
   if [ -f ".github/labels.yml" ]; then
@@ -225,12 +225,12 @@ determine_labels() {
     local repo=$(echo "$repo_info" | jq -r .name)
     available_labels=($(gh api "repos/$owner/$repo/labels" --jq '.[].name'))
   fi
-  
+
   local suggested_labels=()
-  
+
   # Correspondência de padrões genérica
   analyze_change_patterns "$file_list" "$changes" available_labels suggested_labels
-  
+
   # Limita a máximo 3
   echo "${suggested_labels[@]:0:3}"
 }
@@ -241,21 +241,21 @@ analyze_change_patterns() {
   local changes="$2"
   local -n available_ref=$3
   local -n suggested_ref=$4
-  
+
   # Determinação por tipo de arquivo
   if echo "$file_list" | grep -q "\.md$\|README\|docs/"; then
     add_matching_label "documentation\|docs\|doc" available_ref suggested_ref
   fi
-  
+
   if echo "$file_list" | grep -q "test\|spec"; then
     add_matching_label "test\|testing" available_ref suggested_ref
   fi
-  
+
   # Determinação por conteúdo das alterações
   if echo "$changes" | grep -iq "fix\|bug\|error\|crash\|correção\|erro"; then
     add_matching_label "bug\|fix" available_ref suggested_ref
   fi
-  
+
   if echo "$changes" | grep -iq "feat\|feature\|add\|implement\|funcionalidade\|implementar"; then
     add_matching_label "feature\|enhancement\|feat" available_ref suggested_ref
   fi
@@ -266,12 +266,12 @@ add_matching_label() {
   local pattern="$1"
   local -n available_ref=$2
   local -n suggested_ref=$3
-  
+
   # Pula se já tem 3
   if [ ${#suggested_ref[@]} -ge 3 ]; then
     return
   fi
-  
+
   # Adiciona primeiro rótulo que corresponde ao padrão
   for available_label in "${available_ref[@]}"; do
     if echo "$available_label" | grep -iq "$pattern"; then
@@ -283,7 +283,7 @@ add_matching_label() {
           break
         fi
       done
-      
+
       if [ "$already_exists" = false ]; then
         suggested_ref+=("$available_label")
         return
@@ -302,7 +302,7 @@ update_pr() {
   local pr_number=$1
   local description="$2"
   local labels="$3"
-  
+
   if [ "$DRY_RUN" = "true" ]; then
     echo "=== DRY RUN ==="
     echo "Description:"
@@ -313,7 +313,7 @@ update_pr() {
     local repo_info=$(gh repo view --json owner,name)
     local owner=$(echo "$repo_info" | jq -r .owner.login)
     local repo=$(echo "$repo_info" | jq -r .name)
-    
+
     # Atualiza corpo usando GitHub API (preserva comentários HTML)
     # Processa escape JSON adequadamente
     local escaped_body=$(echo "$description" | jq -R -s .)
@@ -321,7 +321,7 @@ update_pr() {
       --method PATCH \
       "/repos/$owner/$repo/pulls/$pr_number" \
       --field body="$description"
-    
+
     # Rótulos funcionam normalmente com comando gh
     if [ -n "$labels" ]; then
       gh pr edit $pr_number --add-label "$labels"

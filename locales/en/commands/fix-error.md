@@ -130,12 +130,12 @@ Common Errors and Immediate Solutions
 
 ### Error Analysis Priority Matrix
 
-| Priority | Icon | Impact Range | Resolution Difficulty | Response Deadline | Description |
-|----------|------|-------------|---------------------|-------------------|-------------|
-| **Critical** | 🔴 Emergency | Wide | Low | Start within 15 min | System-wide outage, data loss risk |
-| **High Priority** | 🟠 Early Response | Wide | High | Start within 1 hour | Major feature outage, many users affected |
-| **Medium** | 🟡 Planned Response | Narrow | High | Address same day | Partial feature limitation, workaround available |
-| **Low** | 🟢 Monitor | Narrow | Low | Next maintenance cycle | Minor bugs, minimal UX impact |
+| Priority          | Icon                | Impact Range | Resolution Difficulty | Response Deadline      | Description                                      |
+| ----------------- | ------------------- | ------------ | --------------------- | ---------------------- | ------------------------------------------------ |
+| **Critical**      | 🔴 Emergency        | Wide         | Low                   | Start within 15 min    | System-wide outage, data loss risk               |
+| **High Priority** | 🟠 Early Response   | Wide         | High                  | Start within 1 hour    | Major feature outage, many users affected        |
+| **Medium**        | 🟡 Planned Response | Narrow       | High                  | Address same day       | Partial feature limitation, workaround available |
+| **Low**           | 🟢 Monitor          | Narrow       | Low                   | Next maintenance cycle | Minor bugs, minimal UX impact                    |
 
 ### Analysis Process
 

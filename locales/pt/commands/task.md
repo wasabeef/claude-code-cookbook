@@ -62,12 +62,12 @@ Inicia um agente especializado para executar autonomamente tarefas complexas de 
 
 #### Task vs Outros Comandos
 
-| Comando | Uso Principal | Método de Execução | Coleta de Informações |
-|---------|---------------|-------------------|----------------------|
-| **Task** | Investigação, Análise e Busca | Execução autônoma | Múltiplas fontes |
-| ultrathink | Pensamento e Julgamento profundo | Pensamento estruturado | Centrado em conhecimento existente |
-| sequential-thinking | Resolução de problemas e Design | Pensamento por etapas | Conforme necessário |
-| plan | Elaboração de planos de implementação | Processo de aprovação | Análise de requisitos |
+| Comando             | Uso Principal                         | Método de Execução     | Coleta de Informações              |
+| ------------------- | ------------------------------------- | ---------------------- | ---------------------------------- |
+| **Task**            | Investigação, Análise e Busca         | Execução autônoma      | Múltiplas fontes                   |
+| ultrathink          | Pensamento e Julgamento profundo      | Pensamento estruturado | Centrado em conhecimento existente |
+| sequential-thinking | Resolução de problemas e Design       | Pensamento por etapas  | Conforme necessário                |
+| plan                | Elaboração de planos de implementação | Processo de aprovação  | Análise de requisitos              |
 
 #### Fluxograma de Decisão
 

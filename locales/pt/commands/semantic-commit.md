@@ -150,7 +150,7 @@ Commit 1/3
 Mensagem: feat: implement user registration and login system
 Arquivos incluídos:
   • src/auth/login.ts
-  • src/auth/register.ts  
+  • src/auth/register.ts
   • src/auth/types.ts
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -167,7 +167,7 @@ Mensagem: docs: add authentication system documentation
 Arquivos incluídos:
   • docs/authentication.md
 
-Executar commits com esta divisão? (y/n/edit): 
+Executar commits com esta divisão? (y/n/edit):
 ```
 
 ### Opções Durante a Execução
@@ -242,9 +242,9 @@ echo "Branch de trabalho: $CURRENT_BRANCH"
 while IFS= read -r commit_plan; do
   group_num=$(echo "$commit_plan" | cut -d':' -f1)
   files=$(echo "$commit_plan" | cut -d':' -f2- | tr ' ' '\n')
-  
+
   echo "=== Executando Commit $group_num ==="
-  
+
   # Staging apenas dos arquivos relevantes
   echo "$files" | while read file; do
     if [ -f "$file" ]; then
@@ -252,23 +252,23 @@ while IFS= read -r commit_plan; do
       echo "Staging: $file"
     fi
   done
-  
+
   # Confirmação do estado de staging
   staged_files=$(git diff --staged --name-only)
   if [ -z "$staged_files" ]; then
     echo "Aviso: nenhum arquivo foi staged"
     continue
   fi
-  
+
   # Geração de mensagem de commit (análise por LLM)
   commit_msg=$(generate_commit_message_for_staged_files)
-  
+
   # Confirmação do usuário
   echo "Mensagem de commit proposta: $commit_msg"
   echo "Arquivos em staging:"
   echo "$staged_files"
   read -p "Executar este commit? (y/n): " confirm
-  
+
   if [ "$confirm" = "y" ]; then
     # Execução do commit
     git commit -m "$commit_msg"
@@ -278,7 +278,7 @@ while IFS= read -r commit_plan; do
     git reset HEAD
     echo "❌ Commit $group_num pulado"
   fi
-  
+
 done < /tmp/commit_plan.txt
 ```
 
@@ -290,24 +290,24 @@ commit_with_retry() {
   local commit_msg="$1"
   local max_retries=2
   local retry_count=0
-  
+
   while [ $retry_count -lt $max_retries ]; do
     if git commit -m "$commit_msg"; then
       echo "✅ Commit realizado com sucesso"
       return 0
     else
       echo "❌ Falha no commit (tentativa $((retry_count + 1))/$max_retries)"
-      
+
       # Incorporar correções automáticas por pre-commit hooks
       if git diff --staged --quiet; then
         echo "Mudanças foram corrigidas automaticamente por pre-commit hooks"
         git add -u
       fi
-      
+
       retry_count=$((retry_count + 1))
     fi
   done
-  
+
   echo "❌ Falha no commit. Verificar manualmente."
   return 1
 }
@@ -317,7 +317,7 @@ resume_from_failure() {
   echo "Processamento de commit interrompido detectado"
   echo "Estado atual de staging:"
   git status --porcelain
-  
+
   read -p "Continuar processamento? (y/n): " resume
   if [ "$resume" = "y" ]; then
     # Reiniciar a partir da posição do último commit
@@ -389,10 +389,10 @@ done
 git diff HEAD --name-only | while read file; do
   # Detecção de adição de novas funções/classes
   NEW_FUNCTIONS=$(git diff HEAD -- "$file" | grep -c '^+.*function\|^+.*class\|^+.*def ')
-  
+
   # Detecção de padrões de correção de bugs
   BUG_FIXES=$(git diff HEAD -- "$file" | grep -c '^+.*fix\|^+.*bug\|^-.*error')
-  
+
   # Determinar se é arquivo de teste
   if [[ "$file" =~ test|spec ]]; then
     echo "$file: TEST"
@@ -542,22 +542,28 @@ Exemplo de tipos personalizados do projeto:
 ```javascript
 // commitlint.config.mjs
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // trabalho em progresso
-        'hotfix',   // correção emergencial
-        'release',  // release
-        'deps',     // atualização de dependências
-        'config'    // mudança de configuração
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // trabalho em progresso
+        "hotfix", // correção emergencial
+        "release", // release
+        "deps", // atualização de dependências
+        "config", // mudança de configuração
+      ],
+    ],
+  },
+};
 ```
 
 ##### 3. Detecção de Configurações de Idioma
@@ -566,10 +572,10 @@ export default {
 // Para projetos que usam mensagens em português
 export default {
   rules: {
-    'subject-case': [0],  // desabilitar para suporte ao português
-    'subject-max-length': [2, 'always', 72]  // ajustar limite de caracteres para português
-  }
-}
+    "subject-case": [0], // desabilitar para suporte ao português
+    "subject-max-length": [2, "always", 72], // ajustar limite de caracteres para português
+  },
+};
 ```
 
 #### Fluxo de Análise Automática
@@ -645,7 +651,7 @@ Lógica de detecção de idioma completa neste comando:
    ```bash
    # Verificar idioma do README.md
    head -10 README.md | grep -E 'ção|ões|agem|ário|ória|ência|português|brasil' | wc -l
-   
+
    # Verificar description do package.json
    grep -E '"description".*(ção|ões|agem|ário|ória|ência|português|brasil)' package.json
    ```
@@ -706,7 +712,7 @@ Durante a execução do comando, as configurações são verificadas na seguinte
    ```bash
    # Busca na seguinte ordem e usa o primeiro encontrado
    commitlint.config.mjs
-   commitlint.config.js  
+   commitlint.config.js
    commitlint.config.cjs
    commitlint.config.ts
    .commitlintrc.js
@@ -736,59 +742,61 @@ Durante a execução do comando, as configurações são verificadas na seguinte
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'chore']
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore"],
     ],
-    'scope-enum': [
-      2,
-      'always',
-      ['api', 'ui', 'core', 'auth', 'db']
-    ]
-  }
-}
+    "scope-enum": [2, "always", ["api", "ui", "core", "auth", "db"]],
+  },
+};
 ```
 
 **Configuração para suporte ao português**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'subject-case': [0],  // desabilitar para português
-    'subject-max-length': [2, 'always', 72],
-    'type-enum': [
+    "subject-case": [0], // desabilitar para português
+    "subject-max-length": [2, "always", 72],
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore']
-    ]
-  }
-}
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "test", "chore"],
+    ],
+  },
+};
 ```
 
 **Configuração com tipos customizados**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // Work in Progress
-        'hotfix',   // correção emergencial
-        'release',  // preparação de release
-        'deps',     // atualização de dependências
-        'config'    // mudança de configuração
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // Work in Progress
+        "hotfix", // correção emergencial
+        "release", // preparação de release
+        "deps", // atualização de dependências
+        "config", // mudança de configuração
+      ],
+    ],
+  },
+};
 ```
 
 #### Comportamento de Fallback
@@ -842,7 +850,7 @@ Prioridade ao gerar mensagens de commit:
 
 3. **Tipo de projeto** (terceira prioridade)
    - `package.json` → Projeto Node.js
-   - `Cargo.toml` → Projeto Rust  
+   - `Cargo.toml` → Projeto Rust
    - `pom.xml` → Projeto Java
 
 4. **Padrão Conventional Commits** (fallback)
@@ -911,7 +919,7 @@ ls packages/ | head -10
 ```bash
 # Arquivos alterados (15 arquivos, 850 linhas alteradas)
 src/auth/login.js          # novo
-src/auth/register.js       # novo  
+src/auth/register.js       # novo
 src/auth/password.js       # novo
 src/auth/types.js          # novo
 src/api/auth-routes.js     # novo
@@ -944,7 +952,7 @@ Arquivos incluídos:
 Razão: Estrutura do banco de dados é a base para outras funcionalidades, por isso primeiro commit
 
 # Commit 2: Lógica de autenticação
-feat(auth): implement core authentication functionality  
+feat(auth): implement core authentication functionality
 
 Arquivos incluídos:
 - src/auth/login.js
@@ -967,7 +975,7 @@ test(auth): add comprehensive authentication tests
 
 Arquivos incluídos:
 - tests/auth/login.test.js
-- tests/auth/register.test.js  
+- tests/auth/register.test.js
 - tests/api/auth-routes.test.js
 
 Razão: Adição de testes em lote após conclusão da implementação
@@ -1016,7 +1024,7 @@ Arquivos incluídos:
 
 Razão: Bugs que afetam produção são corrigidos com prioridade máxima
 
-# Commit 2: Refatoração da lógica de validação  
+# Commit 2: Refatoração da lógica de validação
 refactor: extract and improve user validation logic
 
 Arquivos incluídos:
@@ -1044,7 +1052,7 @@ Razão: Manutenção do ambiente de desenvolvimento commitada por último
 ```bash
 # Arquivos alterados (12 arquivos, 600 linhas alteradas)
 src/user/profile.js       # nova funcionalidade A
-src/user/avatar.js        # nova funcionalidade A  
+src/user/avatar.js        # nova funcionalidade A
 src/notification/email.js # nova funcionalidade B
 src/notification/sms.js   # nova funcionalidade B
 src/api/profile-routes.js # API para nova funcionalidade A
@@ -1052,11 +1060,11 @@ src/api/notification-routes.js # API para nova funcionalidade B
 src/dashboard/widgets.js  # nova funcionalidade C
 src/dashboard/charts.js   # nova funcionalidade C
 tests/profile.test.js     # testes para nova funcionalidade A
-tests/notification.test.js # testes para nova funcionalidade B  
+tests/notification.test.js # testes para nova funcionalidade B
 tests/dashboard.test.js   # testes para nova funcionalidade C
 package.json              # dependências para todas as funcionalidades
 
-# Commit problemático  
+# Commit problemático
 feat: add user profile management, notification system and dashboard widgets
 ```
 
@@ -1079,7 +1087,7 @@ feat(notification): implement email and SMS notifications
 
 Arquivos incluídos:
 - src/notification/email.js
-- src/notification/sms.js  
+- src/notification/sms.js
 - src/api/notification-routes.js
 - tests/notification.test.js
 
@@ -1106,13 +1114,13 @@ Razão: Atualizações de dependências comuns por último
 
 ### Comparação dos Efeitos da Divisão
 
-| Item | Antes (Commit Gigante) | Depois (Divisão Adequada) |
-|------|---------------------|-------------------|
-| **Revisabilidade** | ❌ Muito difícil | ✅ Cada commit pequeno e revisável |
-| **Rastreamento de Bugs** | ❌ Difícil identificar local do problema | ✅ Identifica commit problemático imediatamente |
-| **Revert** | ❌ Necessário reverter tudo | ✅ Revert pontual apenas da parte problemática |
-| **Desenvolvimento Paralelo** | ❌ Propenso a conflitos | ✅ Merge fácil por funcionalidade |
-| **Deploy** | ❌ Deploy de todas as funcionalidades em lote | ✅ Deploy gradual possível |
+| Item                         | Antes (Commit Gigante)                        | Depois (Divisão Adequada)                       |
+| ---------------------------- | --------------------------------------------- | ----------------------------------------------- |
+| **Revisabilidade**           | ❌ Muito difícil                              | ✅ Cada commit pequeno e revisável              |
+| **Rastreamento de Bugs**     | ❌ Difícil identificar local do problema      | ✅ Identifica commit problemático imediatamente |
+| **Revert**                   | ❌ Necessário reverter tudo                   | ✅ Revert pontual apenas da parte problemática  |
+| **Desenvolvimento Paralelo** | ❌ Propenso a conflitos                       | ✅ Merge fácil por funcionalidade               |
+| **Deploy**                   | ❌ Deploy de todas as funcionalidades em lote | ✅ Deploy gradual possível                      |
 
 ### Solução de Problemas
 

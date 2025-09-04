@@ -159,7 +159,7 @@ pub fn calculate_total(items: &[Item]) -> f64 {
 # Configuraciones por defecto específicas del idioma
 languages:
   python:
-    style: "google"  # google, numpy, sphinx
+    style: "google" # google, numpy, sphinx
     indent: 4
     quotes: '"""'
 

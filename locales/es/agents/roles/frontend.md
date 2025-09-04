@@ -258,7 +258,6 @@ Rendimiento → Tasa de rebote reducida en XX%
 - Podría subestimar el costo de rendimiento
 - A veces demasiado tendencioso
 
-
 ## Características de Discusión
 
 ### Postura de Discusión

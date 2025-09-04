@@ -103,12 +103,12 @@ npm outdated && npm audit
 ROI de melhoria = (efeito redução tempo + melhoria qualidade) ÷ horas implementação
 ```
 
-| Prioridade | Melhoria Experiência Usuário | Dificuldade Implementação | Efeito Redução Tempo | Exemplo Concreto | Horas | Efeito |
-|------------|------------------------------|---------------------------|----------------------|------------------|--------|--------|
-| **[P0] Implementar imediatamente** | Alta | Baixa | > 50% | Introduzir CDN | 8h | Resposta -60% |
-| **[P1] Implementar em breve** | Alta | Média | 20-50% | Otimizar imagens | 16h | Carregamento -30% |
-| **[P2] Implementar planejadamente** | Baixa | Alta | 10-20% | Divisão código | 40h | Inicial -15% |
-| **[P3] Reter/observar** | Baixa | Baixa | < 10% | Otimizações menores | 20h | Parcial -5% |
+| Prioridade                          | Melhoria Experiência Usuário | Dificuldade Implementação | Efeito Redução Tempo | Exemplo Concreto    | Horas | Efeito            |
+| ----------------------------------- | ---------------------------- | ------------------------- | -------------------- | ------------------- | ----- | ----------------- |
+| **[P0] Implementar imediatamente**  | Alta                         | Baixa                     | > 50%                | Introduzir CDN      | 8h    | Resposta -60%     |
+| **[P1] Implementar em breve**       | Alta                         | Média                     | 20-50%               | Otimizar imagens    | 16h   | Carregamento -30% |
+| **[P2] Implementar planejadamente** | Baixa                        | Alta                      | 10-20%               | Divisão código      | 40h   | Inicial -15%      |
+| **[P3] Reter/observar**             | Baixa                        | Baixa                     | < 10%                | Otimizações menores | 20h   | Parcial -5%       |
 
 #### Critérios de Determinação de Prioridade
 
@@ -119,14 +119,14 @@ ROI de melhoria = (efeito redução tempo + melhoria qualidade) ÷ horas impleme
 
 ### Correlação entre Métricas de Performance e Melhoria UX
 
-| Métrica | Faixa Melhoria | Melhoria Velocidade Percebida | Satisfação Usuário | Horas Implementação |
-|---------|----------------|-------------------------------|-------------------|---------------------|
-| **LCP (carregamento)** | -0.5s | +30% | Taxa rejeição -7% | 16h |
-| **FID (resposta)** | -50ms | +15% | Estresse -20% | 8h |
-| **CLS (estabilidade)** | -0.05 | +10% | Operação errônea -50% | 4h |
-| **TTFB (servidor)** | -200ms | +25% | Velocidade percebida +40% | 24h |
-| **TTI (interativo)** | -1.0s | +35% | Taxa conclusão +15% | 32h |
-| **Tamanho bundle** | -30% | +20% | Primeira visita +25% | 16h |
+| Métrica                | Faixa Melhoria | Melhoria Velocidade Percebida | Satisfação Usuário        | Horas Implementação |
+| ---------------------- | -------------- | ----------------------------- | ------------------------- | ------------------- |
+| **LCP (carregamento)** | -0.5s          | +30%                          | Taxa rejeição -7%         | 16h                 |
+| **FID (resposta)**     | -50ms          | +15%                          | Estresse -20%             | 8h                  |
+| **CLS (estabilidade)** | -0.05          | +10%                          | Operação errônea -50%     | 4h                  |
+| **TTFB (servidor)**    | -200ms         | +25%                          | Velocidade percebida +40% | 24h                 |
+| **TTI (interativo)**   | -1.0s          | +35%                          | Taxa conclusão +15%       | 32h                 |
+| **Tamanho bundle**     | -30%           | +20%                          | Primeira visita +25%      | 16h                 |
 
 ### Medição e Ferramentas
 

@@ -126,11 +126,11 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 ```javascript
 // HTML 코멘트 유지하며 PR 생성
 mcp_github_create_pull_request({
-  owner: 'organization',
-  repo: 'repository',
-  base: 'main',
-  head: 'feat-user-authentication',
-  title: 'feat: 사용자 인증 구현',
+  owner: "organization",
+  repo: "repository",
+  base: "main",
+  head: "feat-user-authentication",
+  title: "feat: 사용자 인증 구현",
   body: prBodyContent, // HTML 코멘트를 포함한 전체 내용
   draft: true,
   maintainer_can_modify: true,

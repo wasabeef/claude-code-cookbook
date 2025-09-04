@@ -21,46 +21,50 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 ### 1. Symbol System
 
 #### Logic & Flow
-| Symbol | Meaning | Example |
-|--------|---------|---------|
-| → | leads to, causes | `auth.js:45 → 🛡️ security risk` |
-| ⇒ | converts to | `input ⇒ validated_output` |
-| ← | rollback, revert | `migration ← rollback` |
-| ⇄ | bidirectional | `sync ⇄ remote` |
-| & | and, combine | `🛡️ security & ⚡ performance` |
-| \| | or, separator | `react\|vue\|angular` |
-| : | define, specify | `scope: file\|module` |
-| » | then, sequence | `build » test » deploy` |
-| ∴ | therefore | `tests ❌ ∴ code broken` |
-| ∵ | because | `slow ∵ O(n²) algorithm` |
+
+| Symbol | Meaning          | Example                         |
+| ------ | ---------------- | ------------------------------- |
+| →      | leads to, causes | `auth.js:45 → 🛡️ security risk` |
+| ⇒      | converts to      | `input ⇒ validated_output`      |
+| ←      | rollback, revert | `migration ← rollback`          |
+| ⇄      | bidirectional    | `sync ⇄ remote`                 |
+| &      | and, combine     | `🛡️ security & ⚡ performance`  |
+| \|     | or, separator    | `react\|vue\|angular`           |
+| :      | define, specify  | `scope: file\|module`           |
+| »      | then, sequence   | `build » test » deploy`         |
+| ∴      | therefore        | `tests ❌ ∴ code broken`        |
+| ∵      | because          | `slow ∵ O(n²) algorithm`        |
 
 #### Status & Progress
-| Symbol | Meaning | Usage |
-|--------|---------|-------|
-| ✅ | complete, success | Task completed normally |
-| ❌ | failed, error | Immediate action needed |
-| ⚠️ | warning | Review recommended |
-| 🔄 | in progress | Currently active |
-| ⏳ | pending | Scheduled for later |
-| 🚨 | urgent, critical | High priority |
+
+| Symbol | Meaning           | Usage                   |
+| ------ | ----------------- | ----------------------- |
+| ✅     | complete, success | Task completed normally |
+| ❌     | failed, error     | Immediate action needed |
+| ⚠️     | warning           | Review recommended      |
+| 🔄     | in progress       | Currently active        |
+| ⏳     | pending           | Scheduled for later     |
+| 🚨     | urgent, critical  | High priority           |
 
 #### Technical Domains
-| Symbol | Domain | Usage |
-|--------|--------|-------|
-| ⚡ | Performance | Speed, optimization |
-| 🔍 | Analysis | Search, investigation |
-| 🔧 | Configuration | Setup, tools |
-| 🛡️ | Security | Protection, safety |
-| 📦 | Deployment | Package, bundle |
-| 🎨 | Design | UI, frontend |
-| 🏗️ | Architecture | System structure |
-| 🗄️ | Database | Data persistence |
-| ⚙️ | Backend | Server processing |
-| 🧪 | Testing | Quality assurance |
+
+| Symbol | Domain        | Usage                 |
+| ------ | ------------- | --------------------- |
+| ⚡     | Performance   | Speed, optimization   |
+| 🔍     | Analysis      | Search, investigation |
+| 🔧     | Configuration | Setup, tools          |
+| 🛡️     | Security      | Protection, safety    |
+| 📦     | Deployment    | Package, bundle       |
+| 🎨     | Design        | UI, frontend          |
+| 🏗️     | Architecture  | System structure      |
+| 🗄️     | Database      | Data persistence      |
+| ⚙️     | Backend       | Server processing     |
+| 🧪     | Testing       | Quality assurance     |
 
 ### 2. Abbreviation System
 
 #### System & Architecture
+
 - `cfg` → configuration
 - `impl` → implementation
 - `arch` → architecture
@@ -69,6 +73,7 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 - `env` → environment
 
 #### Development Process
+
 - `req` → requirements
 - `deps` → dependencies
 - `val` → validation
@@ -77,6 +82,7 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 - `std` → standards
 
 #### Quality & Analysis
+
 - `qual` → quality
 - `sec` → security
 - `err` → error
@@ -89,11 +95,13 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 ### Example 1: Error Report
 
 **Normal Mode (85 chars)**
+
 ```
 Security vulnerability found in the user validation function at line 45 of the auth system.
 ```
 
 **Token Efficient (39 chars)**
+
 ```
 auth.js:45 → 🛡️ sec vuln in user val()
 ```
@@ -101,11 +109,13 @@ auth.js:45 → 🛡️ sec vuln in user val()
 ### Example 2: Build Status
 
 **Normal Mode (112 chars)**
+
 ```
 Build process completed successfully. Tests are currently running, followed by deployment.
 ```
 
 **Token Efficient (35 chars)**
+
 ```
 build ✅ » test 🔄 » deploy ⏳
 ```
@@ -113,11 +123,13 @@ build ✅ » test 🔄 » deploy ⏳
 ### Example 3: Performance Analysis
 
 **Normal Mode (95 chars)**
+
 ```
 Performance analysis revealed slow processing due to O(n²) algorithm complexity.
 ```
 
 **Token Efficient (42 chars)**
+
 ```
 ⚡ perf: slow ∵ O(n²) → optimize to O(n)
 ```
@@ -142,6 +154,7 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 ## Implementation Examples
 
 ### Debugging Session
+
 ```
 [14:23] breakpoint → vars: {user: null, token: expired}
 [14:24] step → auth.validate() ❌
@@ -151,6 +164,7 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 ```
 
 ### File Analysis Results
+
 ```
 /src/auth/: 🛡️ issues × 3
 /src/api/: ⚡ bottleneck in handler()
@@ -160,6 +174,7 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 ```
 
 ### Project Status
+
 ```
 Frontend: 🎨 ✅ 100%
 Backend: ⚙️ 🔄 75%
@@ -173,14 +188,14 @@ Security: 🛡️ 🚨 1 critical
 
 ```javascript
 // Compression levels
---uc        // Ultra Compressed: Maximum compression
---mc        // Moderate Compressed: Medium compression
---lc        // Light Compressed: Light compression
+--uc; // Ultra Compressed: Maximum compression
+--mc; // Moderate Compressed: Medium compression
+--lc; // Light Compressed: Light compression
 
 // Domain-specific
---dev       // Development-focused compression
---ops       // Operations-focused compression
---sec       // Security-focused compression
+--dev; // Development-focused compression
+--ops; // Operations-focused compression
+--sec; // Security-focused compression
 ```
 
 ## Benefits
@@ -214,13 +229,13 @@ Security: 🛡️ 🚨 1 critical
 
 ## Implementation Impact
 
-| Item | Impact |
-|------|--------|
-| Generated code quality | No change ✅ |
-| Implementation accuracy | No change ✅ |
-| Functionality | No change ✅ |
-| AI explanation method | Compressed 🔄 |
-| Context usage | 30-50% reduction ⚡ |
+| Item                    | Impact              |
+| ----------------------- | ------------------- |
+| Generated code quality  | No change ✅        |
+| Implementation accuracy | No change ✅        |
+| Functionality           | No change ✅        |
+| AI explanation method   | Compressed 🔄       |
+| Context usage           | 30-50% reduction ⚡ |
 
 ---
 

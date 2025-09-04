@@ -345,12 +345,12 @@ Evidence-First 根本原因分析
 
 #### 常規角色 vs 子代理
 
-| 場景 | 推薦 | 命令 |
-|------|------|------|
-| 簡單確認 | 常規角色 | `/role security` |
-| 大規模分析 | 子代理 | `/role security --agent` |
-| 交互式工作 | 常規角色 | `/role frontend` |
-| 独立審計 | 子代理 | `/role qa --agent` |
+| 場景       | 推薦     | 命令                     |
+| ---------- | -------- | ------------------------ |
+| 簡單確認   | 常規角色 | `/role security`         |
+| 大規模分析 | 子代理   | `/role security --agent` |
+| 交互式工作 | 常規角色 | `/role frontend`         |
+| 独立審計   | 子代理   | `/role qa --agent`       |
 
 ### 角色設置詳情
 

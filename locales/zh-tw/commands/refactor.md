@@ -58,14 +58,18 @@ function processOrder(order) {
 // Before: switch 語句
 function getPrice(user) {
   switch (user.type) {
-    case 'premium': return basePrice * 0.8;
-    case 'regular': return basePrice;
+    case "premium":
+      return basePrice * 0.8;
+    case "regular":
+      return basePrice;
   }
 }
 
 // After: Strategy 模式
 class PremiumPricing {
-  calculate(basePrice) { return basePrice * 0.8; }
+  calculate(basePrice) {
+    return basePrice * 0.8;
+  }
 }
 ```
 
@@ -146,12 +150,12 @@ D - Dependency Inversion(20 分)
 
 #### 優先級矩陣
 
-| 優先級 | 影響度 | 修正成本 | 回應期限 | 具體例 | 建議行動 |
-|--------|--------|----------|---------|--------|----------|
-| **Critical(即刻回應)** | 高 | 低 | 1 週內 | God Object、循環依賴 | 立即開始重構 |
-| **Important(計劃性回應)** | 高 | 高 | 1 個月內 | 大規模責任分離、架構變更 | 納入 Sprint 計劃 |
-| **Watch(監視對象)** | 低 | 高 | 3 個月內 | 複雜度高的內部處理 | 指標監視、惡化時回應 |
-| **Acceptable(容許範圍)** | 低 | 低 | 不必要 | 輕微的代碼異味 | 通常重構處理 |
+| 優先級                    | 影響度 | 修正成本 | 回應期限 | 具體例                   | 建議行動             |
+| ------------------------- | ------ | -------- | -------- | ------------------------ | -------------------- |
+| **Critical(即刻回應)**    | 高     | 低       | 1 週內   | God Object、循環依賴     | 立即開始重構         |
+| **Important(計劃性回應)** | 高     | 高       | 1 個月內 | 大規模責任分離、架構變更 | 納入 Sprint 計劃     |
+| **Watch(監視對象)**       | 低     | 高       | 3 個月內 | 複雜度高的內部處理       | 指標監視、惡化時回應 |
+| **Acceptable(容許範圍)**  | 低     | 低       | 不必要   | 輕微的代碼異味           | 通常重構處理         |
 
 ### 重構程序
 
@@ -175,18 +179,18 @@ D - Dependency Inversion(20 分)
 
 ### 常見代碼異味與債務分數
 
-| 代碼異味 | 檢測標準 | 債務分數 | 改善技法 |
-|----------|---------|----------|----------|
-| **God Object** | 責任 >3, 方法 >20 | 高 (15-20h) | Extract Class, SRP 適用 |
-| **Long Method** | 行數 >50, 複雜度 >10 | 中 (5-10h) | Extract Method |
-| **Duplicate Code** | 重複率 >30% | 高 (10-15h) | Extract Method/Class |
-| **Large Class** | 行數 >300, 方法 >15 | 高 (10-20h) | Extract Class |
-| **Long Parameter List** | 參數 >4 | 低 (2-5h) | Parameter Object |
-| **Feature Envy** | 其他類參照 >5 | 中 (5-10h) | Move Method |
-| **Data Clumps** | 相同參數群的重複 | 低 (3-5h) | Extract Class |
-| **Primitive Obsession** | 基本型別的過度使用 | 中 (5-8h) | Replace with Object |
-| **Switch Statements** | case >5 | 中 (5-10h) | Strategy Pattern |
-| **Shotgun Surgery** | 變更時的影響處 >3 | 高 (10-15h) | Move Method/Field |
+| 代碼異味                | 檢測標準             | 債務分數    | 改善技法                |
+| ----------------------- | -------------------- | ----------- | ----------------------- |
+| **God Object**          | 責任 >3, 方法 >20    | 高 (15-20h) | Extract Class, SRP 適用 |
+| **Long Method**         | 行數 >50, 複雜度 >10 | 中 (5-10h)  | Extract Method          |
+| **Duplicate Code**      | 重複率 >30%          | 高 (10-15h) | Extract Method/Class    |
+| **Large Class**         | 行數 >300, 方法 >15  | 高 (10-20h) | Extract Class           |
+| **Long Parameter List** | 參數 >4              | 低 (2-5h)   | Parameter Object        |
+| **Feature Envy**        | 其他類參照 >5        | 中 (5-10h)  | Move Method             |
+| **Data Clumps**         | 相同參數群的重複     | 低 (3-5h)   | Extract Class           |
+| **Primitive Obsession** | 基本型別的過度使用   | 中 (5-8h)   | Replace with Object     |
+| **Switch Statements**   | case >5              | 中 (5-10h)  | Strategy Pattern        |
+| **Shotgun Surgery**     | 變更時的影響處 >3    | 高 (10-15h) | Move Method/Field       |
 
 ### 實踐例：SOLID 分數評估
 
@@ -199,16 +203,16 @@ class UserService {
     this.logger = logger;
     this.emailService = emailService;
   }
-  
+
   // 責任 1: 認證
   authenticate(username, password) { /* ... */ }
   refreshToken(token) { /* ... */ }
-  
+
   // 責任 2: 用戶管理
   createUser(data) { /* ... */ }
   updateUser(id, data) { /* ... */ }
   deleteUser(id) { /* ... */ }
-  
+
   // 責任 3: 通知
   sendWelcomeEmail(user) { /* ... */ }
   sendPasswordReset(email) { /* ... */ }

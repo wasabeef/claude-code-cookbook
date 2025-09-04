@@ -126,11 +126,11 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 ```javascript
 // Créer une PR en préservant les commentaires HTML
 mcp_github_create_pull_request({
-  owner: 'organization',
-  repo: 'repository',
-  base: 'main',
-  head: 'feat-user-authentication',
-  title: 'feat: Implement user authentication',
+  owner: "organization",
+  repo: "repository",
+  base: "main",
+  head: "feat-user-authentication",
+  title: "feat: Implement user authentication",
   body: prBodyContent, // Contenu complet incluant les commentaires HTML
   draft: true,
   maintainer_can_modify: true,

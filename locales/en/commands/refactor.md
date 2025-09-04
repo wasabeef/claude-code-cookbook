@@ -58,14 +58,18 @@ function processOrder(order) {
 // Before: switch statement
 function getPrice(user) {
   switch (user.type) {
-    case 'premium': return basePrice * 0.8;
-    case 'regular': return basePrice;
+    case "premium":
+      return basePrice * 0.8;
+    case "regular":
+      return basePrice;
   }
 }
 
 // After: Strategy pattern
 class PremiumPricing {
-  calculate(basePrice) { return basePrice * 0.8; }
+  calculate(basePrice) {
+    return basePrice * 0.8;
+  }
 }
 ```
 
@@ -146,12 +150,12 @@ Cost Conversion:
 
 #### Priority Matrix
 
-| Priority | Impact | Fix Cost | Time Savings | Investment ROI | Response Deadline |
-|----------|--------|----------|--------------|---------------|-------------------|
-| **Critical (Immediate)** | High | Low | > 5x | Invest 1h → Save 5h+ | Immediately |
-| **Important (Planned)** | High | High | 2-5x | Invest 1h → Save 2-5h | Within 1 month |
-| **Watch (Monitor)** | Low | High | 1-2x | Invest 1h → Save 1-2h | Within 3 months |
-| **Acceptable (Tolerable)** | Low | Low | < 1x | Investment = Savings | No action needed |
+| Priority                   | Impact | Fix Cost | Time Savings | Investment ROI        | Response Deadline |
+| -------------------------- | ------ | -------- | ------------ | --------------------- | ----------------- |
+| **Critical (Immediate)**   | High   | Low      | > 5x         | Invest 1h → Save 5h+  | Immediately       |
+| **Important (Planned)**    | High   | High     | 2-5x         | Invest 1h → Save 2-5h | Within 1 month    |
+| **Watch (Monitor)**        | Low    | High     | 1-2x         | Invest 1h → Save 1-2h | Within 3 months   |
+| **Acceptable (Tolerable)** | Low    | Low      | < 1x         | Investment = Savings  | No action needed  |
 
 ### Refactoring Process
 
@@ -175,18 +179,18 @@ Cost Conversion:
 
 ### Common Code Smells and Debt Scores
 
-| Code Smell | Detection Criteria | Debt Score | Improvement Method |
-|------------|-------------------|------------|-------------------|
-| **God Object** | Responsibilities >3, Methods >20 | High (15-20h) | Extract Class, Apply SRP |
-| **Long Method** | Lines >50, Complexity >10 | Medium (5-10h) | Extract Method |
-| **Duplicate Code** | Duplication rate >30% | High (10-15h) | Extract Method/Class |
-| **Large Class** | Lines >300, Methods >15 | High (10-20h) | Extract Class |
-| **Long Parameter List** | Parameters >4 | Low (2-5h) | Parameter Object |
-| **Feature Envy** | Other class references >5 | Medium (5-10h) | Move Method |
-| **Data Clumps** | Repeated argument groups | Low (3-5h) | Extract Class |
-| **Primitive Obsession** | Excessive primitive type usage | Medium (5-8h) | Replace with Object |
-| **Switch Statements** | Cases >5 | Medium (5-10h) | Strategy Pattern |
-| **Shotgun Surgery** | Change impact areas >3 | High (10-15h) | Move Method/Field |
+| Code Smell              | Detection Criteria               | Debt Score     | Improvement Method       |
+| ----------------------- | -------------------------------- | -------------- | ------------------------ |
+| **God Object**          | Responsibilities >3, Methods >20 | High (15-20h)  | Extract Class, Apply SRP |
+| **Long Method**         | Lines >50, Complexity >10        | Medium (5-10h) | Extract Method           |
+| **Duplicate Code**      | Duplication rate >30%            | High (10-15h)  | Extract Method/Class     |
+| **Large Class**         | Lines >300, Methods >15          | High (10-20h)  | Extract Class            |
+| **Long Parameter List** | Parameters >4                    | Low (2-5h)     | Parameter Object         |
+| **Feature Envy**        | Other class references >5        | Medium (5-10h) | Move Method              |
+| **Data Clumps**         | Repeated argument groups         | Low (3-5h)     | Extract Class            |
+| **Primitive Obsession** | Excessive primitive type usage   | Medium (5-8h)  | Replace with Object      |
+| **Switch Statements**   | Cases >5                         | Medium (5-10h) | Strategy Pattern         |
+| **Shotgun Surgery**     | Change impact areas >3           | High (10-15h)  | Move Method/Field        |
 
 ### Practical Example: SOLID Score Evaluation
 
@@ -199,16 +203,16 @@ class UserService {
     this.logger = logger;
     this.emailService = emailService;
   }
-  
+
   // Responsibility 1: Authentication
   authenticate(username, password) { /* ... */ }
   refreshToken(token) { /* ... */ }
-  
+
   // Responsibility 2: User management
   createUser(data) { /* ... */ }
   updateUser(id, data) { /* ... */ }
   deleteUser(id) { /* ... */ }
-  
+
   // Responsibility 3: Notifications
   sendWelcomeEmail(user) { /* ... */ }
   sendPasswordReset(email) { /* ... */ }

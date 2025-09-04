@@ -171,7 +171,7 @@ class UserProfileWidget extends StatelessWidget {
 # 言語別デフォルト設定
 languages:
   python:
-    style: "google"  # google, numpy, sphinx
+    style: "google" # google, numpy, sphinx
     indent: 4
     quotes: '"""'
 

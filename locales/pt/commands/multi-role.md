@@ -153,7 +153,7 @@ Período de implementação: 3-4 semanas
 /multi-role security,architect
 "Design do sistema de autenticação"
 
-/multi-role security,frontend  
+/multi-role security,frontend
 "Segurança da tela de login"
 
 /multi-role security,mobile
@@ -275,10 +275,10 @@ Role 3 ─┘
 #### Comparação de Performance
 
 | Número de Roles | Execução Normal | Execução --agent | Taxa de Redução |
-|---------|----------|-------------|-------|
-| 2 roles | 2-3 min | 1 min | 50% |
-| 3 roles | 3-5 min | 1-2 min | 60% |
-| 4 roles | 5-8 min | 2-3 min | 65% |
+| --------------- | --------------- | ---------------- | --------------- |
+| 2 roles         | 2-3 min         | 1 min            | 50%             |
+| 3 roles         | 3-5 min         | 1-2 min          | 60%             |
+| 4 roles         | 5-8 min         | 2-3 min          | 65%             |
 
 ### Observações
 

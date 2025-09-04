@@ -58,14 +58,18 @@ function processOrder(order) {
 // Before: switch 문
 function getPrice(user) {
   switch (user.type) {
-    case 'premium': return basePrice * 0.8;
-    case 'regular': return basePrice;
+    case "premium":
+      return basePrice * 0.8;
+    case "regular":
+      return basePrice;
   }
 }
 
 // After: Strategy 패턴
 class PremiumPricing {
-  calculate(basePrice) { return basePrice * 0.8; }
+  calculate(basePrice) {
+    return basePrice * 0.8;
+  }
 }
 ```
 
@@ -146,12 +150,12 @@ D - Dependency Inversion(20 점)
 
 #### 우선순위 매트릭스
 
-| 우선도 | 영향도 | 수정 비용 | 대응 기한 | 구체예 | 권장 액션 |
-|--------|--------|-----------|---------|--------|----------|
-| **Critical(즉시 대응)** | 높음 | 낮음 | 1 주일 이내 | God Object、순환 의존 | 즉시 리팩터링 시작 |
-| **Important(계획적 대응)** | 높음 | 높음 | 1 개월 이내 | 대규모 책임 분리、아키텍처 변경 | 스프린트 계획에 포함 |
-| **Watch(감시 대상)** | 낮음 | 높음 | 3 개월 이내 | 복잡도가 높은 내부 처리 | 메트릭스 감시、악화 시 대응 |
-| **Acceptable(허용 범위)** | 낮음 | 낮음 | 대응 불요 | 경미한 코드의 냄새 | 통상 리팩터링으로 대응 |
+| 우선도                     | 영향도 | 수정 비용 | 대응 기한   | 구체예                          | 권장 액션                   |
+| -------------------------- | ------ | --------- | ----------- | ------------------------------- | --------------------------- |
+| **Critical(즉시 대응)**    | 높음   | 낮음      | 1 주일 이내 | God Object、순환 의존           | 즉시 리팩터링 시작          |
+| **Important(계획적 대응)** | 높음   | 높음      | 1 개월 이내 | 대규모 책임 분리、아키텍처 변경 | 스프린트 계획에 포함        |
+| **Watch(감시 대상)**       | 낮음   | 높음      | 3 개월 이내 | 복잡도가 높은 내부 처리         | 메트릭스 감시、악화 시 대응 |
+| **Acceptable(허용 범위)**  | 낮음   | 낮음      | 대응 불요   | 경미한 코드의 냄새              | 통상 리팩터링으로 대응      |
 
 ### 리팩터링 수순
 
@@ -175,18 +179,18 @@ D - Dependency Inversion(20 점)
 
 ### 자주 있는 코드의 냄새와 부채 스코어
 
-| 코드의 냄새 | 검출 기준 | 부채 스코어 | 개선 기법 |
-|-------------|---------|-----------|---------|
-| **God Object** | 책임 >3, 메서드 >20 | 높음 (15-20h) | Extract Class, SRP 적용 |
-| **Long Method** | 행수 >50, 복잡도 >10 | 중간 (5-10h) | Extract Method |
-| **Duplicate Code** | 중복률 >30% | 높음 (10-15h) | Extract Method/Class |
-| **Large Class** | 행수 >300, 메서드 >15 | 높음 (10-20h) | Extract Class |
-| **Long Parameter List** | 파라미터 >4 | 낮음 (2-5h) | Parameter Object |
-| **Feature Envy** | 다른 클래스 참조 >5 | 중간 (5-10h) | Move Method |
-| **Data Clumps** | 같은 인수군의 반복 | 낮음 (3-5h) | Extract Class |
-| **Primitive Obsession** | 프리미티브 타입의 과도 사용 | 중간 (5-8h) | Replace with Object |
-| **Switch Statements** | case >5 | 중간 (5-10h) | Strategy Pattern |
-| **Shotgun Surgery** | 변경 시의 영향 개소 >3 | 높음 (10-15h) | Move Method/Field |
+| 코드의 냄새             | 검출 기준                   | 부채 스코어   | 개선 기법               |
+| ----------------------- | --------------------------- | ------------- | ----------------------- |
+| **God Object**          | 책임 >3, 메서드 >20         | 높음 (15-20h) | Extract Class, SRP 적용 |
+| **Long Method**         | 행수 >50, 복잡도 >10        | 중간 (5-10h)  | Extract Method          |
+| **Duplicate Code**      | 중복률 >30%                 | 높음 (10-15h) | Extract Method/Class    |
+| **Large Class**         | 행수 >300, 메서드 >15       | 높음 (10-20h) | Extract Class           |
+| **Long Parameter List** | 파라미터 >4                 | 낮음 (2-5h)   | Parameter Object        |
+| **Feature Envy**        | 다른 클래스 참조 >5         | 중간 (5-10h)  | Move Method             |
+| **Data Clumps**         | 같은 인수군의 반복          | 낮음 (3-5h)   | Extract Class           |
+| **Primitive Obsession** | 프리미티브 타입의 과도 사용 | 중간 (5-8h)   | Replace with Object     |
+| **Switch Statements**   | case >5                     | 중간 (5-10h)  | Strategy Pattern        |
+| **Shotgun Surgery**     | 변경 시의 영향 개소 >3      | 높음 (10-15h) | Move Method/Field       |
 
 ### 실천 예：SOLID 스코어 평가
 
@@ -199,16 +203,16 @@ class UserService {
     this.logger = logger;
     this.emailService = emailService;
   }
-  
+
   // 책임 1: 인증
   authenticate(username, password) { /* ... */ }
   refreshToken(token) { /* ... */ }
-  
+
   // 책임 2: 사용자 관리
   createUser(data) { /* ... */ }
   updateUser(id, data) { /* ... */ }
   deleteUser(id) { /* ... */ }
-  
+
   // 책임 3: 알림
   sendWelcomeEmail(user) { /* ... */ }
   sendPasswordReset(email) { /* ... */ }

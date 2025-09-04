@@ -58,14 +58,18 @@ function processOrder(order) {
 // Avant : instruction switch
 function getPrice(user) {
   switch (user.type) {
-    case 'premium': return basePrice * 0.8;
-    case 'regular': return basePrice;
+    case "premium":
+      return basePrice * 0.8;
+    case "regular":
+      return basePrice;
   }
 }
 
 // Après : pattern Strategy
 class PremiumPricing {
-  calculate(basePrice) { return basePrice * 0.8; }
+  calculate(basePrice) {
+    return basePrice * 0.8;
+  }
 }
 ```
 
@@ -146,12 +150,12 @@ Conversion de coûts :
 
 #### Matrice de priorités
 
-| Priorité | Degré d'impact | Coût de correction | Délai de réponse | Exemple concret | Action recommandée |
-|--------|--------|-----------|---------|--------|--------------|
-| **Critical (Réponse immédiate)** | Élevé | Faible | Dans 1 semaine | God Object, dépendance circulaire | Commencer la refactorisation immédiatement |
-| **Important (Réponse planifiée)** | Élevé | Élevé | Dans 1 mois | Séparation de responsabilités à grande échelle, changement d'architecture | Incorporer dans la planification de sprint |
-| **Watch (Objet de surveillance)** | Faible | Élevé | Dans 3 mois | Traitement interne de haute complexité | Surveillance des métriques, réponse en cas d'aggravation |
-| **Acceptable (Gamme acceptable)** | Faible | Faible | Ne nécessite pas de réponse | Code smells légers | Réponse avec refactorisation normale |
+| Priorité                          | Degré d'impact | Coût de correction | Délai de réponse            | Exemple concret                                                           | Action recommandée                                       |
+| --------------------------------- | -------------- | ------------------ | --------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------- |
+| **Critical (Réponse immédiate)**  | Élevé          | Faible             | Dans 1 semaine              | God Object, dépendance circulaire                                         | Commencer la refactorisation immédiatement               |
+| **Important (Réponse planifiée)** | Élevé          | Élevé              | Dans 1 mois                 | Séparation de responsabilités à grande échelle, changement d'architecture | Incorporer dans la planification de sprint               |
+| **Watch (Objet de surveillance)** | Faible         | Élevé              | Dans 3 mois                 | Traitement interne de haute complexité                                    | Surveillance des métriques, réponse en cas d'aggravation |
+| **Acceptable (Gamme acceptable)** | Faible         | Faible             | Ne nécessite pas de réponse | Code smells légers                                                        | Réponse avec refactorisation normale                     |
 
 ### Procédure de refactorisation
 
@@ -175,18 +179,18 @@ Conversion de coûts :
 
 ### Code smells courants et score de dette
 
-| Code Smell | Critère de détection | Score de dette | Méthode d'amélioration |
-|-------------|---------|-----------|---------|
-| **God Object** | Responsabilités >3, méthodes >20 | Élevé (15-20h) | Extract Class, application SRP |
-| **Long Method** | Lignes >50, complexité >10 | Moyen (5-10h) | Extract Method |
-| **Duplicate Code** | Taux de duplication >30% | Élevé (10-15h) | Extract Method/Class |
-| **Large Class** | Lignes >300, méthodes >15 | Élevé (10-20h) | Extract Class |
-| **Long Parameter List** | Paramètres >4 | Faible (2-5h) | Parameter Object |
-| **Feature Envy** | Références à autres classes >5 | Moyen (5-10h) | Move Method |
-| **Data Clumps** | Répétition du même groupe d'arguments | Faible (3-5h) | Extract Class |
-| **Primitive Obsession** | Utilisation excessive de types primitifs | Moyen (5-8h) | Replace with Object |
-| **Switch Statements** | case >5 | Moyen (5-10h) | Strategy Pattern |
-| **Shotgun Surgery** | Zones affectées lors du changement >3 | Élevé (10-15h) | Move Method/Field |
+| Code Smell              | Critère de détection                     | Score de dette | Méthode d'amélioration         |
+| ----------------------- | ---------------------------------------- | -------------- | ------------------------------ |
+| **God Object**          | Responsabilités >3, méthodes >20         | Élevé (15-20h) | Extract Class, application SRP |
+| **Long Method**         | Lignes >50, complexité >10               | Moyen (5-10h)  | Extract Method                 |
+| **Duplicate Code**      | Taux de duplication >30%                 | Élevé (10-15h) | Extract Method/Class           |
+| **Large Class**         | Lignes >300, méthodes >15                | Élevé (10-20h) | Extract Class                  |
+| **Long Parameter List** | Paramètres >4                            | Faible (2-5h)  | Parameter Object               |
+| **Feature Envy**        | Références à autres classes >5           | Moyen (5-10h)  | Move Method                    |
+| **Data Clumps**         | Répétition du même groupe d'arguments    | Faible (3-5h)  | Extract Class                  |
+| **Primitive Obsession** | Utilisation excessive de types primitifs | Moyen (5-8h)   | Replace with Object            |
+| **Switch Statements**   | case >5                                  | Moyen (5-10h)  | Strategy Pattern               |
+| **Shotgun Surgery**     | Zones affectées lors du changement >3    | Élevé (10-15h) | Move Method/Field              |
 
 ### Exemple pratique : Évaluation du score SOLID
 
@@ -199,16 +203,16 @@ class UserService {
     this.logger = logger;
     this.emailService = emailService;
   }
-  
+
   // Responsabilité 1 : authentification
   authenticate(username, password) { /* ... */ }
   refreshToken(token) { /* ... */ }
-  
+
   // Responsabilité 2 : gestion des utilisateurs
   createUser(data) { /* ... */ }
   updateUser(id, data) { /* ... */ }
   deleteUser(id) { /* ... */ }
-  
+
   // Responsabilité 3 : notification
   sendWelcomeEmail(user) { /* ... */ }
   sendPasswordReset(email) { /* ... */ }

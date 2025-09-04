@@ -58,14 +58,18 @@ function processOrder(order) {
 // Before: switch 语句
 function getPrice(user) {
   switch (user.type) {
-    case 'premium': return basePrice * 0.8;
-    case 'regular': return basePrice;
+    case "premium":
+      return basePrice * 0.8;
+    case "regular":
+      return basePrice;
   }
 }
 
 // After: Strategy 模式
 class PremiumPricing {
-  calculate(basePrice) { return basePrice * 0.8; }
+  calculate(basePrice) {
+    return basePrice * 0.8;
+  }
 }
 ```
 
@@ -187,12 +191,12 @@ npm run test:coverage
 
 #### 优先级矩阵
 
-| 优先级 | 影响度 | 修复成本 | 处理期限 | 具体例 | 推荐行动 |
-|--------|--------|---------|---------|--------|-----------|
-| **Critical(即座处理)** | 高 | 低 | 1 周内 | God Object、循环依赖 | 即座重构开始 |
-| **Important(计划性处理)** | 高 | 高 | 1 个月内 | 大规模职责分离、架构变更 | 纳入 Sprint 计划 |
-| **Watch(监视对象)** | 低 | 高 | 3 个月内 | 复杂度高的内部处理 | 指标监视、恶化时处理 |
-| **Acceptable(容许范围)** | 低 | 低 | 无需处理 | 轻微的代码异味 | 通常重构时处理 |
+| 优先级                    | 影响度 | 修复成本 | 处理期限 | 具体例                   | 推荐行动             |
+| ------------------------- | ------ | -------- | -------- | ------------------------ | -------------------- |
+| **Critical(即座处理)**    | 高     | 低       | 1 周内   | God Object、循环依赖     | 即座重构开始         |
+| **Important(计划性处理)** | 高     | 高       | 1 个月内 | 大规模职责分离、架构变更 | 纳入 Sprint 计划     |
+| **Watch(监视对象)**       | 低     | 高       | 3 个月内 | 复杂度高的内部处理       | 指标监视、恶化时处理 |
+| **Acceptable(容许范围)**  | 低     | 低       | 无需处理 | 轻微的代码异味           | 通常重构时处理       |
 
 ### 重构步骤
 
@@ -216,18 +220,18 @@ npm run test:coverage
 
 ### 常见代码异味和债务评分
 
-| 代码异味 | 检测标准 | 债务评分 | 改进手法 |
-|-----------|---------|----------|----------|
-| **God Object** | 职责 >3, 方法 >20 | 高 (15-20h) | Extract Class, SRP 适用 |
-| **Long Method** | 行数 >50, 复杂度 >10 | 中 (5-10h) | Extract Method |
-| **Duplicate Code** | 重复率 >30% | 高 (10-15h) | Extract Method/Class |
-| **Large Class** | 行数 >300, 方法 >15 | 高 (10-20h) | Extract Class |
-| **Long Parameter List** | 参数 >4 | 低 (2-5h) | Parameter Object |
-| **Feature Envy** | 其他类引用 >5 | 中 (5-10h) | Move Method |
-| **Data Clumps** | 同一参数群重复 | 低 (3-5h) | Extract Class |
-| **Primitive Obsession** | 原始类型过度使用 | 中 (5-8h) | Replace with Object |
-| **Switch Statements** | case >5 | 中 (5-10h) | Strategy Pattern |
-| **Shotgun Surgery** | 变更时影响位置 >3 | 高 (10-15h) | Move Method/Field |
+| 代码异味                | 检测标准             | 债务评分    | 改进手法                |
+| ----------------------- | -------------------- | ----------- | ----------------------- |
+| **God Object**          | 职责 >3, 方法 >20    | 高 (15-20h) | Extract Class, SRP 适用 |
+| **Long Method**         | 行数 >50, 复杂度 >10 | 中 (5-10h)  | Extract Method          |
+| **Duplicate Code**      | 重复率 >30%          | 高 (10-15h) | Extract Method/Class    |
+| **Large Class**         | 行数 >300, 方法 >15  | 高 (10-20h) | Extract Class           |
+| **Long Parameter List** | 参数 >4              | 低 (2-5h)   | Parameter Object        |
+| **Feature Envy**        | 其他类引用 >5        | 中 (5-10h)  | Move Method             |
+| **Data Clumps**         | 同一参数群重复       | 低 (3-5h)   | Extract Class           |
+| **Primitive Obsession** | 原始类型过度使用     | 中 (5-8h)   | Replace with Object     |
+| **Switch Statements**   | case >5              | 中 (5-10h)  | Strategy Pattern        |
+| **Shotgun Surgery**     | 变更时影响位置 >3    | 高 (10-15h) | Move Method/Field       |
 
 ### 实践例: SOLID 评分评估
 
@@ -240,16 +244,16 @@ class UserService {
     this.logger = logger;
     this.emailService = emailService;
   }
-  
+
   // 职责 1: 认证
   authenticate(username, password) { /* ... */ }
   refreshToken(token) { /* ... */ }
-  
+
   // 职责 2: 用户管理
   createUser(data) { /* ... */ }
   updateUser(id, data) { /* ... */ }
   deleteUser(id) { /* ... */ }
-  
+
   // 职责 3: 通知
   sendWelcomeEmail(user) { /* ... */ }
   sendPasswordReset(email) { /* ... */ }

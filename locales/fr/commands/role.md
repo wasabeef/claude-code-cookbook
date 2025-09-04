@@ -345,12 +345,12 @@ Pour l'analyse à grande échelle ou le traitement spécialisé indépendant, vo
 
 #### Rôle normal vs Sous-agent
 
-| Situation | Recommandation | Commande |
-|-----------|----------------|----------|
-| Confirmation simple | Rôle normal | `/role security` |
-| Analyse à grande échelle | Sous-agent | `/role security --agent` |
-| Travail interactif | Rôle normal | `/role frontend` |
-| Audit indépendant | Sous-agent | `/role qa --agent` |
+| Situation                | Recommandation | Commande                 |
+| ------------------------ | -------------- | ------------------------ |
+| Confirmation simple      | Rôle normal    | `/role security`         |
+| Analyse à grande échelle | Sous-agent     | `/role security --agent` |
+| Travail interactif       | Rôle normal    | `/role frontend`         |
+| Audit indépendant        | Sous-agent     | `/role qa --agent`       |
 
 ### Détails de configuration des rôles
 

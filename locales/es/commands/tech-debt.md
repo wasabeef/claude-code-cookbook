@@ -121,24 +121,24 @@ find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f 
 Prioridad = (Impacto × Frecuencia) ÷ Costo de corrección
 ```
 
-| Prioridad | Impacto en desarrollo | Costo de corrección | Efecto de reducción de tiempo | Retorno de inversión | Plazo de respuesta |
-|-----------|----------------------|--------------------|-----------------------------|----------------------|-------------------|
-| **[P0] Respuesta inmediata** | Alto | Bajo | > 5x | Inversión 1h→Reducción 5h+ | Inmediato |
-| **[P1] Esta semana** | Alto | Medio | 2-5x | Inversión 1h→Reducción 2-5h | Dentro de 1 semana |
-| **[P2] Este mes** | Bajo | Alto | 1-2x | Inversión 1h→Reducción 1-2h | Dentro de 1 mes |
-| **[P3] Este trimestre** | Bajo | Bajo | < 1x | Inversión=tiempo de reducción | Dentro de 3 meses |
+| Prioridad                    | Impacto en desarrollo | Costo de corrección | Efecto de reducción de tiempo | Retorno de inversión          | Plazo de respuesta |
+| ---------------------------- | --------------------- | ------------------- | ----------------------------- | ----------------------------- | ------------------ |
+| **[P0] Respuesta inmediata** | Alto                  | Bajo                | > 5x                          | Inversión 1h→Reducción 5h+    | Inmediato          |
+| **[P1] Esta semana**         | Alto                  | Medio               | 2-5x                          | Inversión 1h→Reducción 2-5h   | Dentro de 1 semana |
+| **[P2] Este mes**            | Bajo                  | Alto                | 1-2x                          | Inversión 1h→Reducción 1-2h   | Dentro de 1 mes    |
+| **[P3] Este trimestre**      | Bajo                  | Bajo                | < 1x                          | Inversión=tiempo de reducción | Dentro de 3 meses  |
 
 ### Criterios de Evaluación por Tipo de Deuda
 
-| Tipo de deuda | Método de detección | Impacto en desarrollo | Tiempo de corrección |
-|---------------|-------------------|----------------------|---------------------|
-| **Deuda arquitectural** | Dependencias circulares, alto acoplamiento | Gran alcance de impacto en cambios, pruebas difíciles | 40-80h |
-| **Deuda de seguridad** | Escaneo CVE, OWASP | Riesgo de vulnerabilidades, cumplimiento | 8-40h |
-| **Deuda de rendimiento** | N+1, pérdidas de memoria | Aumento tiempo de respuesta, consumo de recursos | 16-40h |
-| **Deuda de pruebas** | Cobertura < 60% | Detección tardía de errores, calidad inestable | 20-60h |
-| **Deuda de documentación** | Falta README, documentos API | Tiempo de incorporación aumentado | 8-24h |
-| **Deuda de dependencias** | No actualizadas por 2+ años | Riesgo de seguridad, problemas de compatibilidad | 4-16h |
-| **Deuda de calidad del código** | Complejidad > 10 | Tiempo de comprensión/corrección aumentado | 2-8h |
+| Tipo de deuda                   | Método de detección                        | Impacto en desarrollo                                 | Tiempo de corrección |
+| ------------------------------- | ------------------------------------------ | ----------------------------------------------------- | -------------------- |
+| **Deuda arquitectural**         | Dependencias circulares, alto acoplamiento | Gran alcance de impacto en cambios, pruebas difíciles | 40-80h               |
+| **Deuda de seguridad**          | Escaneo CVE, OWASP                         | Riesgo de vulnerabilidades, cumplimiento              | 8-40h                |
+| **Deuda de rendimiento**        | N+1, pérdidas de memoria                   | Aumento tiempo de respuesta, consumo de recursos      | 16-40h               |
+| **Deuda de pruebas**            | Cobertura < 60%                            | Detección tardía de errores, calidad inestable        | 20-60h               |
+| **Deuda de documentación**      | Falta README, documentos API               | Tiempo de incorporación aumentado                     | 8-24h                |
+| **Deuda de dependencias**       | No actualizadas por 2+ años                | Riesgo de seguridad, problemas de compatibilidad      | 4-16h                |
+| **Deuda de calidad del código** | Complejidad > 10                           | Tiempo de comprensión/corrección aumentado            | 2-8h                 |
 
 ### Cálculo de Impacto de Deuda Técnica
 

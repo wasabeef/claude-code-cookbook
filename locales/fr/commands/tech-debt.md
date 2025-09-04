@@ -121,24 +121,24 @@ find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f 
 Priorité = (Impact × Fréquence) ÷ Coût de correction
 ```
 
-| Priorité | Impact sur développement | Coût de correction | Effet de réduction de temps | Retour sur investissement | Délai de réponse |
-|----------|--------------------------|-------------------|----------------------------|---------------------------|------------------|
-| **[P0] Réponse immédiate** | Élevé | Faible | > 5x | Investissement 1h→Réduction 5h+ | Immédiat |
-| **[P1] Cette semaine** | Élevé | Moyen | 2-5x | Investissement 1h→Réduction 2-5h | Dans 1 semaine |
-| **[P2] Ce mois** | Faible | Élevé | 1-2x | Investissement 1h→Réduction 1-2h | Dans 1 mois |
-| **[P3] Ce trimestre** | Faible | Faible | < 1x | Investissement=temps de réduction | Dans 3 mois |
+| Priorité                   | Impact sur développement | Coût de correction | Effet de réduction de temps | Retour sur investissement         | Délai de réponse |
+| -------------------------- | ------------------------ | ------------------ | --------------------------- | --------------------------------- | ---------------- |
+| **[P0] Réponse immédiate** | Élevé                    | Faible             | > 5x                        | Investissement 1h→Réduction 5h+   | Immédiat         |
+| **[P1] Cette semaine**     | Élevé                    | Moyen              | 2-5x                        | Investissement 1h→Réduction 2-5h  | Dans 1 semaine   |
+| **[P2] Ce mois**           | Faible                   | Élevé              | 1-2x                        | Investissement 1h→Réduction 1-2h  | Dans 1 mois      |
+| **[P3] Ce trimestre**      | Faible                   | Faible             | < 1x                        | Investissement=temps de réduction | Dans 3 mois      |
 
 ### Critères d'Évaluation par Type de Dette
 
-| Type de dette | Méthode de détection | Impact sur développement | Temps de correction |
-|---------------|-------------------- |-------------------------|-------------------|
-| **Dette architecturale** | Dépendances circulaires, couplage élevé | Grande portée d'impact lors de changements, tests difficiles | 40-80h |
-| **Dette de sécurité** | Scan CVE, OWASP | Risque de vulnérabilités, conformité | 8-40h |
-| **Dette de performance** | N+1, fuites mémoire | Augmentation temps de réponse, consommation ressources | 16-40h |
-| **Dette de tests** | Couverture < 60% | Détection tardive de bugs, qualité instable | 20-60h |
-| **Dette de documentation** | Manque README, docs API | Temps d'intégration augmenté | 8-24h |
-| **Dette de dépendances** | Non mises à jour depuis 2+ ans | Risque de sécurité, problèmes de compatibilité | 4-16h |
-| **Dette de qualité du code** | Complexité > 10 | Temps de compréhension/correction augmenté | 2-8h |
+| Type de dette                | Méthode de détection                    | Impact sur développement                                     | Temps de correction |
+| ---------------------------- | --------------------------------------- | ------------------------------------------------------------ | ------------------- |
+| **Dette architecturale**     | Dépendances circulaires, couplage élevé | Grande portée d'impact lors de changements, tests difficiles | 40-80h              |
+| **Dette de sécurité**        | Scan CVE, OWASP                         | Risque de vulnérabilités, conformité                         | 8-40h               |
+| **Dette de performance**     | N+1, fuites mémoire                     | Augmentation temps de réponse, consommation ressources       | 16-40h              |
+| **Dette de tests**           | Couverture < 60%                        | Détection tardive de bugs, qualité instable                  | 20-60h              |
+| **Dette de documentation**   | Manque README, docs API                 | Temps d'intégration augmenté                                 | 8-24h               |
+| **Dette de dépendances**     | Non mises à jour depuis 2+ ans          | Risque de sécurité, problèmes de compatibilité               | 4-16h               |
+| **Dette de qualité du code** | Complexité > 10                         | Temps de compréhension/correction augmenté                   | 2-8h                |
 
 ### Calcul d'Impact de Dette Technique
 

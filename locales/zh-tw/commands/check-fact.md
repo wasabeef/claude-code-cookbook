@@ -62,7 +62,7 @@
 # 項目技術棧確認
 /check-fact "這個應用是 Flutter + Riverpod + GraphQL 的架構"
 
-# 實現狀况確認  
+# 實現狀况確認
 /check-fact "已實現暗黑模式功能，可從用戶設置切換"
 
 # 架構確認

@@ -103,12 +103,12 @@ npm outdated && npm audit
 ROI d'amélioration = (effet réduction temps + amélioration qualité) ÷ heures d'implémentation
 ```
 
-| Priorité | Amélioration Expérience Utilisateur | Difficulté d'Implémentation | Effet Réduction Temps | Exemple Concret | Heures | Effet |
-|----------|-----------------------------------|----------------------------|----------------------|-----------------|---------|--------|
-| **[P0] Implémenter immédiatement** | Haute | Basse | > 50% | Introduire CDN | 8h | Réponse -60% |
-| **[P1] Implémenter rapidement** | Haute | Moyenne | 20-50% | Optimiser images | 16h | Chargement -30% |
-| **[P2] Implémenter de manière planifiée** | Basse | Haute | 10-20% | Division code | 40h | Initial -15% |
-| **[P3] Reporter/observer** | Basse | Basse | < 10% | Optimisations mineures | 20h | Partiel -5% |
+| Priorité                                  | Amélioration Expérience Utilisateur | Difficulté d'Implémentation | Effet Réduction Temps | Exemple Concret        | Heures | Effet           |
+| ----------------------------------------- | ----------------------------------- | --------------------------- | --------------------- | ---------------------- | ------ | --------------- |
+| **[P0] Implémenter immédiatement**        | Haute                               | Basse                       | > 50%                 | Introduire CDN         | 8h     | Réponse -60%    |
+| **[P1] Implémenter rapidement**           | Haute                               | Moyenne                     | 20-50%                | Optimiser images       | 16h    | Chargement -30% |
+| **[P2] Implémenter de manière planifiée** | Basse                               | Haute                       | 10-20%                | Division code          | 40h    | Initial -15%    |
+| **[P3] Reporter/observer**                | Basse                               | Basse                       | < 10%                 | Optimisations mineures | 20h    | Partiel -5%     |
 
 #### Critères de Détermination de Priorité
 
@@ -119,14 +119,14 @@ ROI d'amélioration = (effet réduction temps + amélioration qualité) ÷ heure
 
 ### Corrélation entre Métriques de Performance et Amélioration UX
 
-| Métrique | Plage d'Amélioration | Amélioration Vitesse Perçue | Satisfaction Utilisateur | Heures d'Implémentation |
-|----------|---------------------|----------------------------|-------------------------|------------------------|
-| **LCP (chargement)** | -0,5s | +30% | Taux rebond -7% | 16h |
-| **FID (réponse)** | -50ms | +15% | Stress -20% | 8h |
-| **CLS (stabilité)** | -0,05 | +10% | Opération erronée -50% | 4h |
-| **TTFB (serveur)** | -200ms | +25% | Vitesse perçue +40% | 24h |
-| **TTI (interactif)** | -1,0s | +35% | Taux complétion +15% | 32h |
-| **Taille bundle** | -30% | +20% | Première visite +25% | 16h |
+| Métrique             | Plage d'Amélioration | Amélioration Vitesse Perçue | Satisfaction Utilisateur | Heures d'Implémentation |
+| -------------------- | -------------------- | --------------------------- | ------------------------ | ----------------------- |
+| **LCP (chargement)** | -0,5s                | +30%                        | Taux rebond -7%          | 16h                     |
+| **FID (réponse)**    | -50ms                | +15%                        | Stress -20%              | 8h                      |
+| **CLS (stabilité)**  | -0,05                | +10%                        | Opération erronée -50%   | 4h                      |
+| **TTFB (serveur)**   | -200ms               | +25%                        | Vitesse perçue +40%      | 24h                     |
+| **TTI (interactif)** | -1,0s                | +35%                        | Taux complétion +15%     | 32h                     |
+| **Taille bundle**    | -30%                 | +20%                        | Première visite +25%     | 16h                     |
 
 ### Mesure et Outils
 

@@ -126,13 +126,11 @@ Se as condições para conclusão total não forem atendidas:
 Siga rigorosamente o ciclo de Desenvolvimento Orientado a Testes (TDD):
 
 1. **Red (Teste Falhando)**
-
    - Crie o teste mais simples que demonstre a falha
    - Nomeie o teste de forma descritiva e clara
    - Verifique se a mensagem de erro é informativa
 
 2. **Green (Teste Passando)**
-
    - Escreva o código mínimo necessário para passar no teste
    - Ignore otimizações ou elegância neste momento
    - Foque exclusivamente em fazer o teste passar
@@ -147,7 +145,6 @@ Siga rigorosamente o ciclo de Desenvolvimento Orientado a Testes (TDD):
 Classifique as alterações em duas categorias distintas:
 
 - **Mudanças Estruturais**
-
   - Reorganização, formatação e arranjo do código
   - Sem impacto no comportamento funcional
   - Exemplos: Reordenação de métodos, organização de imports, renomeação de variáveis
@@ -179,12 +176,10 @@ Realize commits somente quando todos os critérios forem satisfeitos:
 Diretrizes rigorosas para refatoração:
 
 1. **Pré-requisitos**
-
    - Inicie somente com todos os testes em verde
    - Mantenha refatoração separada de mudanças comportamentais
 
 2. **Processo de Execução**
-
    - Utilize padrões de refatoração reconhecidos
    - Execute uma alteração por vez
    - Rode os testes após cada modificação
@@ -201,20 +196,17 @@ Diretrizes rigorosas para refatoração:
 Estratégias para implementação eficiente:
 
 1. **Ponto de Partida**
-
    - Comece sempre pelo caso mais simples
    - Priorize funcionalidade sobre perfeição
    - Valorize progresso incremental
 
 2. **Princípios de Qualidade**
-
    - Elimine duplicações assim que identificadas
    - Escreva código autoexplicativo
    - Explicite todas as dependências
    - Mantenha métodos pequenos e focados
 
 3. **Evolução Progressiva**
-
    - Primeiro: faça funcionar
    - Segundo: adicione cobertura de testes
    - Terceiro: otimize quando necessário

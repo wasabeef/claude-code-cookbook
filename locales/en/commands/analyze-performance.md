@@ -103,12 +103,12 @@ npm outdated && npm audit
 Improvement ROI = (Time Savings + Quality Improvement) ÷ Implementation Effort
 ```
 
-| Priority | UX Impact | Implementation Difficulty | Time Savings | Example | Effort | Effect |
-|----------|-----------|-------------------------|-------------|---------|--------|--------|
-| **[P0] Implement Now** | High | Low | > 50% | CDN implementation | 8h | Response -60% |
-| **[P1] Early Implementation** | High | Medium | 20-50% | Image optimization | 16h | Load -30% |
-| **[P2] Planned Implementation** | Low | High | 10-20% | Code splitting | 40h | Initial -15% |
-| **[P3] Hold/Monitor** | Low | Low | < 10% | Minor optimizations | 20h | Partial -5% |
+| Priority                        | UX Impact | Implementation Difficulty | Time Savings | Example             | Effort | Effect        |
+| ------------------------------- | --------- | ------------------------- | ------------ | ------------------- | ------ | ------------- |
+| **[P0] Implement Now**          | High      | Low                       | > 50%        | CDN implementation  | 8h     | Response -60% |
+| **[P1] Early Implementation**   | High      | Medium                    | 20-50%       | Image optimization  | 16h    | Load -30%     |
+| **[P2] Planned Implementation** | Low       | High                      | 10-20%       | Code splitting      | 40h    | Initial -15%  |
+| **[P3] Hold/Monitor**           | Low       | Low                       | < 10%        | Minor optimizations | 20h    | Partial -5%   |
 
 #### Priority Criteria
 
@@ -119,14 +119,14 @@ Improvement ROI = (Time Savings + Quality Improvement) ÷ Implementation Effort
 
 ### Performance Metrics and UX Improvement Correlation
 
-| Metric | Improvement | Perceived Speed | User Satisfaction | Implementation Effort |
-|--------|-------------|-----------------|-------------------|--------------------|
-| **LCP (Loading)** | -0.5s | +30% | -7% bounce rate | 16h |
-| **FID (Interaction)** | -50ms | +15% | -20% stress | 8h |
-| **CLS (Visual Stability)** | -0.05 | +10% | -50% misclicks | 4h |
-| **TTFB (Server)** | -200ms | +25% | +40% perceived speed | 24h |
-| **TTI (Interactive)** | -1.0s | +35% | +15% completion rate | 32h |
-| **Bundle Size** | -30% | +20% | +25% first visit | 16h |
+| Metric                     | Improvement | Perceived Speed | User Satisfaction    | Implementation Effort |
+| -------------------------- | ----------- | --------------- | -------------------- | --------------------- |
+| **LCP (Loading)**          | -0.5s       | +30%            | -7% bounce rate      | 16h                   |
+| **FID (Interaction)**      | -50ms       | +15%            | -20% stress          | 8h                    |
+| **CLS (Visual Stability)** | -0.05       | +10%            | -50% misclicks       | 4h                    |
+| **TTFB (Server)**          | -200ms      | +25%            | +40% perceived speed | 24h                   |
+| **TTI (Interactive)**      | -1.0s       | +35%            | +15% completion rate | 32h                   |
+| **Bundle Size**            | -30%        | +20%            | +25% first visit     | 16h                   |
 
 ### Measurement and Tools
 

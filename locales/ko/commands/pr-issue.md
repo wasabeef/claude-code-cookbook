@@ -44,7 +44,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 **고우선순위**
 
 - `bug` 라벨이 붙은 Issue
-- `critical`이나 `urgent` 라벨이 붙은 Issue  
+- `critical`이나 `urgent` 라벨이 붙은 Issue
 - `security` 라벨이 붙은 Issue
 
 **중우선순위**

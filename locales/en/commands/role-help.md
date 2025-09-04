@@ -174,31 +174,31 @@ Example: /smart-review
 
 ### Security Category
 
-| Role | Main Use | Strengths | Weaknesses |
-|------|----------|----------|----------|
-| security | Vulnerability and attack countermeasures | Threat analysis, authentication design | UX, performance |
-| analyzer | Root cause analysis | Logical analysis, evidence collection | Preventive measures, future planning |
+| Role     | Main Use                                 | Strengths                              | Weaknesses                           |
+| -------- | ---------------------------------------- | -------------------------------------- | ------------------------------------ |
+| security | Vulnerability and attack countermeasures | Threat analysis, authentication design | UX, performance                      |
+| analyzer | Root cause analysis                      | Logical analysis, evidence collection  | Preventive measures, future planning |
 
 ### Design Category
 
-| Role | Main Use | Strengths | Weaknesses |
-|------|----------|----------|----------|
+| Role      | Main Use      | Strengths                                   | Weaknesses                                    |
+| --------- | ------------- | ------------------------------------------- | --------------------------------------------- |
 | architect | System design | Long-term perspective, overall optimization | Detailed implementation, short-term solutions |
-| reviewer | Code quality | Implementation level, maintainability | Business requirements, UX |
+| reviewer  | Code quality  | Implementation level, maintainability       | Business requirements, UX                     |
 
 ### Performance Category
 
-| Role | Main Use | Strengths | Weaknesses |
-|------|----------|----------|----------|
-| performance | Speed improvement and optimization | Measurement, bottleneck identification | Security, UX |
-| qa | Quality assurance | Testing, automation | Design, architecture |
+| Role        | Main Use                           | Strengths                              | Weaknesses           |
+| ----------- | ---------------------------------- | -------------------------------------- | -------------------- |
+| performance | Speed improvement and optimization | Measurement, bottleneck identification | Security, UX         |
+| qa          | Quality assurance                  | Testing, automation                    | Design, architecture |
 
 ### User Experience Category
 
-| Role | Main Use | Strengths | Weaknesses |
-|------|----------|----------|----------|
-| frontend | Web UI/UX | Browser, accessibility | Server-side, DB |
-| mobile | Mobile UX | Touch, offline support | Server-side, Web |
+| Role     | Main Use  | Strengths              | Weaknesses       |
+| -------- | --------- | ---------------------- | ---------------- |
+| frontend | Web UI/UX | Browser, accessibility | Server-side, DB  |
+| mobile   | Mobile UX | Touch, offline support | Server-side, Web |
 
 ### Decision Flowchart When Unsure
 

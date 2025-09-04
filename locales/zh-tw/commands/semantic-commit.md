@@ -150,7 +150,7 @@ $ /semantic-commit
 消息: feat: 實現用戶注冊和登錄系統
 包含文件:
   • src/auth/login.ts
-  • src/auth/register.ts  
+  • src/auth/register.ts
   • src/auth/types.ts
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -167,7 +167,7 @@ $ /semantic-commit
 包含文件:
   • docs/authentication.md
 
-是否按此拆分方案執行提交？ (y/n/edit): 
+是否按此拆分方案執行提交？ (y/n/edit):
 ```
 
 ### 執行時的選項
@@ -207,7 +207,7 @@ $ /semantic-commit --dry-run
 - 異常處理的添加
 - 條件分支的修改
 
-# 檢測新功能模式  
+# 檢測新功能模式
 - 新文件創建
 - 新方法添加
 - API 端點添加
@@ -242,9 +242,9 @@ echo "工作分支: $CURRENT_BRANCH"
 while IFS= read -r commit_plan; do
   group_num=$(echo "$commit_plan" | cut -d':' -f1)
   files=$(echo "$commit_plan" | cut -d':' -f2- | tr ' ' '\n')
-  
+
   echo "=== 執行提交 $group_num ==="
-  
+
   # 仅暂存相關文件
   echo "$files" | while read file; do
     if [ -f "$file" ]; then
@@ -252,23 +252,23 @@ while IFS= read -r commit_plan; do
       echo "暂存: $file"
     fi
   done
-  
+
   # 確認暂存狀態
   staged_files=$(git diff --staged --name-only)
   if [ -z "$staged_files" ]; then
     echo "警告: 没有暂存的文件"
     continue
   fi
-  
+
   # 生成提交消息(LLM 分析)
   commit_msg=$(generate_commit_message_for_staged_files)
-  
+
   # 用戶確認
   echo "建議的提交消息: $commit_msg"
   echo "暂存的文件:"
   echo "$staged_files"
   read -p "執行此提交？ (y/n): " confirm
-  
+
   if [ "$confirm" = "y" ]; then
     # 執行提交
     git commit -m "$commit_msg"
@@ -278,7 +278,7 @@ while IFS= read -r commit_plan; do
     git reset HEAD
     echo "❌ 跳過提交 $group_num"
   fi
-  
+
 done < /tmp/commit_plan.txt
 ```
 
@@ -290,24 +290,24 @@ commit_with_retry() {
   local commit_msg="$1"
   local max_retries=2
   local retry_count=0
-  
+
   while [ $retry_count -lt $max_retries ]; do
     if git commit -m "$commit_msg"; then
       echo "✅ 提交成功"
       return 0
     else
       echo "❌ 提交失败 (尝試 $((retry_count + 1))/$max_retries)"
-      
+
       # 合並預提交钩子的自動更正
       if git diff --staged --quiet; then
         echo "預提交钩子自動更正了變更"
         git add -u
       fi
-      
+
       retry_count=$((retry_count + 1))
     fi
   done
-  
+
   echo "❌ 提交失败。請手動確認。"
   return 1
 }
@@ -317,7 +317,7 @@ resume_from_failure() {
   echo "檢測到中斷的提交處理"
   echo "當前暂存狀態:"
   git status --porcelain
-  
+
   read -p "繼續處理？ (y/n): " resume
   if [ "$resume" = "y" ]; then
     # 從最後的提交位置恢復
@@ -389,10 +389,10 @@ done
 git diff HEAD --name-only | while read file; do
   # 檢測新函數/類的添加
   NEW_FUNCTIONS=$(git diff HEAD -- "$file" | grep -c '^+.*function\|^+.*class\|^+.*def ')
-  
+
   # 檢測 Bug 修復模式
   BUG_FIXES=$(git diff HEAD -- "$file" | grep -c '^+.*fix\|^+.*bug\|^-.*error')
-  
+
   # 判斷是否為測試文件
   if [[ "$file" =~ test|spec ]]; then
     echo "$file: TEST"
@@ -542,22 +542,28 @@ grep -A 10 '"commitlint"' package.json
 ```javascript
 // commitlint.config.mjs
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // 進行中
-        'hotfix',   // 紧急修復
-        'release',  // 發布
-        'deps',     // 依賴更新
-        'config'    // 配置變更
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // 進行中
+        "hotfix", // 紧急修復
+        "release", // 發布
+        "deps", // 依賴更新
+        "config", // 配置變更
+      ],
+    ],
+  },
+};
 ```
 
 ##### 3. 語言設置檢測
@@ -566,10 +572,10 @@ export default {
 // 項目使用中文消息時
 export default {
   rules: {
-    'subject-case': [0],  // 為支持中文而禁用
-    'subject-max-length': [2, 'always', 72]  // 中文調整字符數限制
-  }
-}
+    "subject-case": [0], // 為支持中文而禁用
+    "subject-max-length": [2, "always", 72], // 中文調整字符數限制
+  },
+};
 ```
 
 #### 自動分析流程
@@ -645,7 +651,7 @@ docs: 更新 API 文檔
    ```bash
    # 確認 README.md 的語言(繁体字中文)
    head -10 README.md | grep -E '[一-龯]' | wc -l
-   
+
    # 確認 package.json 的 description(繁体字中文)
    grep -E '"description".*[一-龯]' package.json
    ```
@@ -706,7 +712,7 @@ fi
    ```bash
    # 按以下顺序搜索，使用找到的第一個文件
    commitlint.config.mjs
-   commitlint.config.js  
+   commitlint.config.js
    commitlint.config.cjs
    commitlint.config.ts
    .commitlintrc.js
@@ -736,59 +742,61 @@ fi
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'perf', 'test', 'chore']
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "perf", "test", "chore"],
     ],
-    'scope-enum': [
-      2,
-      'always',
-      ['api', 'ui', 'core', 'auth', 'db']
-    ]
-  }
-}
+    "scope-enum": [2, "always", ["api", "ui", "core", "auth", "db"]],
+  },
+};
 ```
 
 **中文對應配置**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'subject-case': [0],  // 為中文禁用
-    'subject-max-length': [2, 'always', 72],
-    'type-enum': [
+    "subject-case": [0], // 為中文禁用
+    "subject-max-length": [2, "always", 72],
+    "type-enum": [
       2,
-      'always',
-      ['feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore']
-    ]
-  }
-}
+      "always",
+      ["feat", "fix", "docs", "style", "refactor", "test", "chore"],
+    ],
+  },
+};
 ```
 
 **包含自定義類型的配置**:
 
 ```javascript
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // Work in Progress
-        'hotfix',   // 紧急修復
-        'release',  // 發布準備
-        'deps',     // 依賴更新
-        'config'    // 配置變更
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // Work in Progress
+        "hotfix", // 紧急修復
+        "release", // 發布準備
+        "deps", // 依賴更新
+        "config", // 配置變更
+      ],
+    ],
+  },
+};
 ```
 
 #### 後備行為
@@ -842,7 +850,7 @@ export default {
 
 3. **項目類型** (第 3 優先)
    - `package.json` → Node.js 項目
-   - `Cargo.toml` → Rust 項目  
+   - `Cargo.toml` → Rust 項目
    - `pom.xml` → Java 項目
 
 4. **Conventional Commits 標準** (後備)
@@ -869,7 +877,7 @@ ls packages/ | head -10
   ]]
 }
 
-// React 項目情况  
+// React 項目情况
 {
   'scope-enum': [2, 'always', [
     'components', 'hooks', 'utils', 'types', 'styles', 'api'
@@ -911,7 +919,7 @@ ls packages/ | head -10
 ```bash
 # 變更文件(15 個文件，850 行變更)
 src/auth/login.js          # 新建
-src/auth/register.js       # 新建  
+src/auth/register.js       # 新建
 src/auth/password.js       # 新建
 src/auth/types.js          # 新建
 src/api/auth-routes.js     # 新建
@@ -944,7 +952,7 @@ feat(db): 添加用戶模型和認證架構
 理由: 數據庫結構是其他功能的基礎，因此最先提交
 
 # 提交 2: 認證邏輯
-feat(auth): 實現核心認證功能  
+feat(auth): 實現核心認證功能
 
 包含文件:
 - src/auth/login.js
@@ -967,7 +975,7 @@ test(auth): 添加認證系統的全面測試
 
 包含文件:
 - tests/auth/login.test.js
-- tests/auth/register.test.js  
+- tests/auth/register.test.js
 - tests/api/auth-routes.test.js
 
 理由: 實現完成後批量添加測試
@@ -1016,7 +1024,7 @@ fix: 解決用戶驗證和認證 Bug
 
 理由: 影響生產環境的 Bug 最優先修復
 
-# 提交 2: 驗證邏輯重構  
+# 提交 2: 驗證邏輯重構
 refactor: 提取並改進用戶驗證邏輯
 
 包含文件:
@@ -1044,7 +1052,7 @@ chore: 更新文檔和依賴
 ```bash
 # 變更文件(12 個文件，600 行變更)
 src/user/profile.js       # 新功能 A
-src/user/avatar.js        # 新功能 A  
+src/user/avatar.js        # 新功能 A
 src/notification/email.js # 新功能 B
 src/notification/sms.js   # 新功能 B
 src/api/profile-routes.js # 新功能 A 用 API
@@ -1052,11 +1060,11 @@ src/api/notification-routes.js # 新功能 B 用 API
 src/dashboard/widgets.js  # 新功能 C
 src/dashboard/charts.js   # 新功能 C
 tests/profile.test.js     # 新功能 A 用測試
-tests/notification.test.js # 新功能 B 用測試  
+tests/notification.test.js # 新功能 B 用測試
 tests/dashboard.test.js   # 新功能 C 用測試
 package.json              # 全功能依賴
 
-# 問題提交  
+# 問題提交
 feat: 添加用戶檔案管理、通知系統和儀表板組件
 ```
 
@@ -1079,7 +1087,7 @@ feat(notification): 實現郵件和短信通知
 
 包含文件:
 - src/notification/email.js
-- src/notification/sms.js  
+- src/notification/sms.js
 - src/api/notification-routes.js
 - tests/notification.test.js
 
@@ -1106,13 +1114,13 @@ chore: 為新功能更新依賴
 
 ### 拆分效果比较
 
-| 項目 | Before(巨大提交) | After(適当拆分) |
-|------|---------------------|-------------------|
-| **代碼審查性** | ❌ 非常困難 | ✅ 各提交小巧易審查 |
-| **Bug 追蹤** | ❌ 問題位置難以確定 | ✅ 即時定位問題提交 |
-| **回滾** | ❌ 必须整體回滾 | ✅ 精準回滾問題部分 |
-| **並行開發** | ❌ 容易發生衝突 | ✅ 按功能合並容易 |
-| **部署** | ❌ 功能批量部署 | ✅ 可逐步部署 |
+| 項目           | Before(巨大提交)    | After(適当拆分)     |
+| -------------- | ------------------- | ------------------- |
+| **代碼審查性** | ❌ 非常困難         | ✅ 各提交小巧易審查 |
+| **Bug 追蹤**   | ❌ 問題位置難以確定 | ✅ 即時定位問題提交 |
+| **回滾**       | ❌ 必须整體回滾     | ✅ 精準回滾問題部分 |
+| **並行開發**   | ❌ 容易發生衝突     | ✅ 按功能合並容易   |
+| **部署**       | ❌ 功能批量部署     | ✅ 可逐步部署       |
 
 ### 故障排除
 

@@ -101,6 +101,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 #### Problèmes de sécurité
 
 **Format :**
+
 ```text
 **critical.must.** [Description du problème de sécurité]
 
@@ -110,6 +111,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 ```
 
 **Exemple :**
+
 ```text
 **critical.must.** Le mot de passe est stocké en texte brut
 
@@ -123,6 +125,7 @@ Le hachage est requis pour prévenir les risques de sécurité.
 #### Amélioration des performances
 
 **Format :**
+
 ```text
 **high.imo.** [Description du problème de performance]
 
@@ -132,6 +135,7 @@ Le hachage est requis pour prévenir les risques de sécurité.
 ```
 
 **Exemple :**
+
 ```text
 **high.imo.** Problème de requête N+1 survient
 
@@ -144,6 +148,7 @@ Ceci peut réduire significativement le nombre de requêtes.
 #### Violation architecturale
 
 **Format :**
+
 ```text
 **high.must.** [Description de la violation]
 
@@ -151,6 +156,7 @@ Ceci peut réduire significativement le nombre de requêtes.
 ```
 
 **Exemple :**
+
 ```text
 **high.must.** Violation de couche survenue
 

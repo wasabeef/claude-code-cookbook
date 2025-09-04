@@ -78,22 +78,28 @@ find . -name "commitlint.config.*" -o -name ".commitlintrc.*" | head -1
 ```javascript
 // commitlint.config.mjs
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // 進行中
-        'hotfix',   // 紧急修復
-        'release',  // 發布
-        'deps',     // 依賴更新
-        'config'    // 配置更改
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // 進行中
+        "hotfix", // 紧急修復
+        "release", // 發布
+        "deps", // 依賴更新
+        "config", // 配置更改
+      ],
+    ],
+  },
+};
 ```
 
 #### 3. 語言設置檢測
@@ -102,10 +108,10 @@ export default {
 // 項目使用繁体字中文消息時
 export default {
   rules: {
-    'subject-case': [0],  // 為支持繁体字中文而禁用
-    'subject-max-length': [2, 'always', 72]  // 為繁体字中文調整字符數限制
-  }
-}
+    "subject-case": [0], // 為支持繁体字中文而禁用
+    "subject-max-length": [2, "always", 72], // 為繁体字中文調整字符數限制
+  },
+};
 ```
 
 #### 4. 現有提交歷史分析

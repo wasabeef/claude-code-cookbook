@@ -22,48 +22,49 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 
 #### Lógica y Flujo
 
-| Símbolo | Significado | Ejemplo |
-|---------|-------------|---------|
-| → | conduce a, causa | `auth.js:45 → 🛡️ riesgo de seguridad` |
-| ⇒ | se convierte en | `entrada ⇒ salida_validada` |
-| ← | revertir, deshacer | `migración ← revertir` |
-| ⇄ | bidireccional | `sync ⇄ remoto` |
-| & | y, combinar | `🛡️ seguridad & ⚡ rendimiento` |
-| \| | o, separador | `react\|vue\|angular` |
-| : | definir, especificar | `alcance: archivo\|módulo` |
-| » | entonces, secuencia | `construir » probar » desplegar` |
-| ∴ | por lo tanto | `tests ❌ ∴ código roto` |
-| ∵ | porque | `lento ∵ algoritmo O(n²)` |
+| Símbolo | Significado          | Ejemplo                               |
+| ------- | -------------------- | ------------------------------------- |
+| →       | conduce a, causa     | `auth.js:45 → 🛡️ riesgo de seguridad` |
+| ⇒       | se convierte en      | `entrada ⇒ salida_validada`           |
+| ←       | revertir, deshacer   | `migración ← revertir`                |
+| ⇄       | bidireccional        | `sync ⇄ remoto`                       |
+| &       | y, combinar          | `🛡️ seguridad & ⚡ rendimiento`       |
+| \|      | o, separador         | `react\|vue\|angular`                 |
+| :       | definir, especificar | `alcance: archivo\|módulo`            |
+| »       | entonces, secuencia  | `construir » probar » desplegar`      |
+| ∴       | por lo tanto         | `tests ❌ ∴ código roto`              |
+| ∵       | porque               | `lento ∵ algoritmo O(n²)`             |
 
 #### Estado y Progreso
 
-| Símbolo | Significado | Uso |
-|---------|-------------|-----|
-| ✅ | completo, éxito | Tarea completada normalmente |
-| ❌ | falló, error | Acción inmediata requerida |
-| ⚠️ | advertencia | Revisión recomendada |
-| 🔄 | en progreso | Actualmente activo |
-| ⏳ | pendiente | Programado para después |
-| 🚨 | urgente, crítico | Alta prioridad |
+| Símbolo | Significado      | Uso                          |
+| ------- | ---------------- | ---------------------------- |
+| ✅      | completo, éxito  | Tarea completada normalmente |
+| ❌      | falló, error     | Acción inmediata requerida   |
+| ⚠️      | advertencia      | Revisión recomendada         |
+| 🔄      | en progreso      | Actualmente activo           |
+| ⏳      | pendiente        | Programado para después      |
+| 🚨      | urgente, crítico | Alta prioridad               |
 
 #### Dominios Técnicos
 
-| Símbolo | Dominio | Uso |
-|---------|---------|-----|
-| ⚡ | Rendimiento | Velocidad, optimización |
-| 🔍 | Análisis | Búsqueda, investigación |
-| 🔧 | Configuración | Configuración, herramientas |
-| 🛡️ | Seguridad | Protección, seguridad |
-| 📦 | Despliegue | Paquete, bundle |
-| 🎨 | Diseño | UI, frontend |
-| 🏗️ | Arquitectura | Estructura del sistema |
-| 🗄️ | Base de Datos | Persistencia de datos |
-| ⚙️ | Backend | Procesamiento del servidor |
-| 🧪 | Pruebas | Aseguramiento de calidad |
+| Símbolo | Dominio       | Uso                         |
+| ------- | ------------- | --------------------------- |
+| ⚡      | Rendimiento   | Velocidad, optimización     |
+| 🔍      | Análisis      | Búsqueda, investigación     |
+| 🔧      | Configuración | Configuración, herramientas |
+| 🛡️      | Seguridad     | Protección, seguridad       |
+| 📦      | Despliegue    | Paquete, bundle             |
+| 🎨      | Diseño        | UI, frontend                |
+| 🏗️      | Arquitectura  | Estructura del sistema      |
+| 🗄️      | Base de Datos | Persistencia de datos       |
+| ⚙️      | Backend       | Procesamiento del servidor  |
+| 🧪      | Pruebas       | Aseguramiento de calidad    |
 
 ### 2. Sistema de Abreviaciones
 
 #### Sistema y Arquitectura
+
 - `cfg` → configuración
 - `impl` → implementación
 - `arch` → arquitectura
@@ -72,6 +73,7 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 - `env` → entorno
 
 #### Proceso de Desarrollo
+
 - `req` → requisitos
 - `deps` → dependencias
 - `val` → validación
@@ -80,6 +82,7 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 - `std` → estándares
 
 #### Calidad y Análisis
+
 - `qual` → calidad
 - `sec` → seguridad
 - `err` → error
@@ -92,11 +95,13 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 ### Ejemplo 1: Reporte de Error
 
 **Modo Normal (85 caracteres)**
+
 ```
 Vulnerabilidad de seguridad encontrada en la función de validación de usuario en la línea 45 del sistema de autenticación.
 ```
 
 **Eficiencia de Tokens (45 caracteres)**
+
 ```
 auth.js:45 → 🛡️ vuln sec en val() usuario
 ```
@@ -104,11 +109,13 @@ auth.js:45 → 🛡️ vuln sec en val() usuario
 ### Ejemplo 2: Estado de Construcción
 
 **Modo Normal (125 caracteres)**
+
 ```
 El proceso de construcción se completó exitosamente. Las pruebas se están ejecutando actualmente, seguidas del despliegue.
 ```
 
 **Eficiencia de Tokens (40 caracteres)**
+
 ```
 build ✅ » test 🔄 » deploy ⏳
 ```
@@ -116,11 +123,13 @@ build ✅ » test 🔄 » deploy ⏳
 ### Ejemplo 3: Análisis de Rendimiento
 
 **Modo Normal (108 caracteres)**
+
 ```
 El análisis de rendimiento reveló procesamiento lento debido a la complejidad del algoritmo O(n²).
 ```
 
 **Eficiencia de Tokens (48 caracteres)**
+
 ```
 ⚡ perf: lento ∵ O(n²) → optimizar a O(n)
 ```
@@ -145,6 +154,7 @@ El análisis de rendimiento reveló procesamiento lento debido a la complejidad 
 ## Ejemplos de Implementación
 
 ### Sesión de Depuración
+
 ```
 [14:23] breakpoint → vars: {usuario: null, token: expirado}
 [14:24] paso → auth.validate() ❌
@@ -154,6 +164,7 @@ El análisis de rendimiento reveló procesamiento lento debido a la complejidad 
 ```
 
 ### Resultados del Análisis de Archivos
+
 ```
 /src/auth/: 🛡️ problemas × 3
 /src/api/: ⚡ cuello de botella en handler()
@@ -163,6 +174,7 @@ El análisis de rendimiento reveló procesamiento lento debido a la complejidad 
 ```
 
 ### Estado del Proyecto
+
 ```
 Frontend: 🎨 ✅ 100%
 Backend: ⚙️ 🔄 75%
@@ -176,14 +188,14 @@ Seguridad: 🛡️ 🚨 1 crítico
 
 ```javascript
 // Niveles de compresión
---uc        // Ultra Comprimido: Compresión máxima
---mc        // Moderadamente Comprimido: Compresión media
---lc        // Ligeramente Comprimido: Compresión ligera
+--uc; // Ultra Comprimido: Compresión máxima
+--mc; // Moderadamente Comprimido: Compresión media
+--lc; // Ligeramente Comprimido: Compresión ligera
 
 // Específico de dominio
---dev       // Compresión enfocada en desarrollo
---ops       // Compresión enfocada en operaciones
---sec       // Compresión enfocada en seguridad
+--dev; // Compresión enfocada en desarrollo
+--ops; // Compresión enfocada en operaciones
+--sec; // Compresión enfocada en seguridad
 ```
 
 ## Beneficios
@@ -217,13 +229,13 @@ Seguridad: 🛡️ 🚨 1 crítico
 
 ## Impacto de la Implementación
 
-| Elemento | Impacto |
-|----------|---------|
-| Calidad del código generado | Sin cambios ✅ |
-| Precisión de la implementación | Sin cambios ✅ |
-| Funcionalidad | Sin cambios ✅ |
-| Método de explicación de la IA | Comprimido 🔄 |
-| Uso del contexto | 30-50% de reducción ⚡ |
+| Elemento                       | Impacto                |
+| ------------------------------ | ---------------------- |
+| Calidad del código generado    | Sin cambios ✅         |
+| Precisión de la implementación | Sin cambios ✅         |
+| Funcionalidad                  | Sin cambios ✅         |
+| Método de explicación de la IA | Comprimido 🔄          |
+| Uso del contexto               | 30-50% de reducción ⚡ |
 
 ---
 

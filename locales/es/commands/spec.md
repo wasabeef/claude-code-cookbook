@@ -173,7 +173,7 @@ graph TB
     Client[React Client] --> API[Express API Gateway]
     API --> Auth[Auth Service]
     API --> User[User Service]
-    
+
     Auth --> AuthDB[(Auth Database)]
     User --> UserDB[(User Database)]
 
@@ -382,15 +382,15 @@ Claude: "Preparación para desarrollo impulsado por spec completada. Puede comen
 
 ### Diferencias con /plan
 
-| Característica | /plan | /spec |
-|------|-------|-------|
-| Objetivo | Plan de implementación general | Desarrollo impulsado por especificaciones de función |
-| Formato de salida | Documento de plan único | 3 archivos independientes (requirements.md, design.md, tasks.md) |
-| Definición de requisitos | Organización básica de requisitos | Criterios de aceptación detallados usando notación EARS |
-| Diseño | Centrado en selección técnica | Basado en análisis de codebase |
-| Implementación | Descomposición de tareas generales | Secuencia considerando dependencias |
-| Garantía de calidad | Estrategia básica de pruebas | Requisitos de calidad integrales (pruebas, accesibilidad, rendimiento) |
-| Sincronización | Plan estático | Actualización dinámica de spec |
+| Característica           | /plan                              | /spec                                                                  |
+| ------------------------ | ---------------------------------- | ---------------------------------------------------------------------- |
+| Objetivo                 | Plan de implementación general     | Desarrollo impulsado por especificaciones de función                   |
+| Formato de salida        | Documento de plan único            | 3 archivos independientes (requirements.md, design.md, tasks.md)       |
+| Definición de requisitos | Organización básica de requisitos  | Criterios de aceptación detallados usando notación EARS                |
+| Diseño                   | Centrado en selección técnica      | Basado en análisis de codebase                                         |
+| Implementación           | Descomposición de tareas generales | Secuencia considerando dependencias                                    |
+| Garantía de calidad      | Estrategia básica de pruebas       | Requisitos de calidad integrales (pruebas, accesibilidad, rendimiento) |
+| Sincronización           | Plan estático                      | Actualización dinámica de spec                                         |
 
 ### Casos de Uso Recomendados
 

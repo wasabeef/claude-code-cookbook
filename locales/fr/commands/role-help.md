@@ -174,31 +174,31 @@ Exemple : /smart-review
 
 ### Catégorie Sécurité
 
-| Rôle | Utilisation principale | Forces | Faiblesses |
-|------|----------|----------|----------|
-| security | Vulnérabilités et contremesures d'attaque | Analyse des menaces, conception d'authentification | UX, performance |
-| analyzer | Analyse de cause racine | Analyse logique, collecte de preuves | Mesures préventives, planification future |
+| Rôle     | Utilisation principale                    | Forces                                             | Faiblesses                                |
+| -------- | ----------------------------------------- | -------------------------------------------------- | ----------------------------------------- |
+| security | Vulnérabilités et contremesures d'attaque | Analyse des menaces, conception d'authentification | UX, performance                           |
+| analyzer | Analyse de cause racine                   | Analyse logique, collecte de preuves               | Mesures préventives, planification future |
 
 ### Catégorie Conception
 
-| Rôle | Utilisation principale | Forces | Faiblesses |
-|------|----------|----------|----------|
-| architect | Conception de système | Perspective long terme, optimisation globale | Implémentation détaillée, solutions court terme |
-| reviewer | Qualité du code | Niveau d'implémentation, maintenabilité | Exigences métier, UX |
+| Rôle      | Utilisation principale | Forces                                       | Faiblesses                                      |
+| --------- | ---------------------- | -------------------------------------------- | ----------------------------------------------- |
+| architect | Conception de système  | Perspective long terme, optimisation globale | Implémentation détaillée, solutions court terme |
+| reviewer  | Qualité du code        | Niveau d'implémentation, maintenabilité      | Exigences métier, UX                            |
 
 ### Catégorie Performance
 
-| Rôle | Utilisation principale | Forces | Faiblesses |
-|------|----------|----------|----------|
-| performance | Amélioration de vitesse et optimisation | Mesure, identification de goulots d'étranglement | Sécurité, UX |
-| qa | Assurance qualité | Tests, automatisation | Conception, architecture |
+| Rôle        | Utilisation principale                  | Forces                                           | Faiblesses               |
+| ----------- | --------------------------------------- | ------------------------------------------------ | ------------------------ |
+| performance | Amélioration de vitesse et optimisation | Mesure, identification de goulots d'étranglement | Sécurité, UX             |
+| qa          | Assurance qualité                       | Tests, automatisation                            | Conception, architecture |
 
 ### Catégorie Expérience utilisateur
 
-| Rôle | Utilisation principale | Forces | Faiblesses |
-|------|----------|----------|----------|
-| frontend | UI/UX Web | Navigateur, accessibilité | Côté serveur, DB |
-| mobile | UX Mobile | Tactile, support hors ligne | Côté serveur, Web |
+| Rôle     | Utilisation principale | Forces                      | Faiblesses        |
+| -------- | ---------------------- | --------------------------- | ----------------- |
+| frontend | UI/UX Web              | Navigateur, accessibilité   | Côté serveur, DB  |
+| mobile   | UX Mobile              | Tactile, support hors ligne | Côté serveur, Web |
 
 ### Organigramme de décision en cas d'incertitude
 

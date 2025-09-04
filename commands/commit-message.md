@@ -78,22 +78,28 @@ find . -name "commitlint.config.*" -o -name ".commitlintrc.*" | head -1
 ```javascript
 // commitlint.config.mjs
 export default {
-  extends: ['@commitlint/config-conventional'],
+  extends: ["@commitlint/config-conventional"],
   rules: {
-    'type-enum': [
+    "type-enum": [
       2,
-      'always',
+      "always",
       [
-        'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-        'wip',      // 作業中
-        'hotfix',   // 緊急修正
-        'release',  // リリース
-        'deps',     // 依存関係更新
-        'config'    // 設定変更
-      ]
-    ]
-  }
-}
+        "feat",
+        "fix",
+        "docs",
+        "style",
+        "refactor",
+        "test",
+        "chore",
+        "wip", // 作業中
+        "hotfix", // 緊急修正
+        "release", // リリース
+        "deps", // 依存関係更新
+        "config", // 設定変更
+      ],
+    ],
+  },
+};
 ```
 
 #### 3. 言語設定の検出
@@ -102,10 +108,10 @@ export default {
 // プロジェクトが日本語メッセージを使用する場合
 export default {
   rules: {
-    'subject-case': [0],  // 日本語対応のため無効化
-    'subject-max-length': [2, 'always', 72]  // 日本語は文字数制限を調整
-  }
-}
+    "subject-case": [0], // 日本語対応のため無効化
+    "subject-max-length": [2, "always", 72], // 日本語は文字数制限を調整
+  },
+};
 ```
 
 #### 4. 既存コミット履歴の分析
