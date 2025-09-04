@@ -18,7 +18,7 @@
 
 ## 功能一覽
 
-### 指令（Commands）
+### 指令 (Commands)
 
 指令以 Markdown 檔案的形式儲存在 `commands/` 目錄中。在 Claude 中輸入 `/` 後跟檔案名稱即可執行。
 
@@ -36,7 +36,7 @@
 | `/fix-error` | 根據錯誤訊息提供程式碼修正方案。 |
 | `/multi-role` | 組合多個角色，對同一對象進行並行分析並產生綜合報告。 |
 | `/plan` | 啟動實作前的計劃模式，制定詳細的實施策略。 |
-| `/pr-auto-update` | 自動更新 Pull Request 的內容（說明、標籤）。 |
+| `/pr-auto-update` | 自動更新 Pull Request 的內容 (說明、標籤)。 |
 | `/pr-create` | 基於 Git 異動分析自動建立 PR，實現高效的 Pull Request 工作流程。 |
 | `/pr-feedback` | 高效處理 Pull Request 的評審意見，透過錯誤分析三階段方法尋求根本解決方案。 |
 | `/pr-issue` | 顯示當前儲存庫的開放 Issue 清單並排序優先級。 |
@@ -63,7 +63,7 @@
 | `/update-node-deps` | 安全更新 Node.js 專案的相依關係。 |
 | `/update-rust-deps` | 安全更新 Rust 專案的相依關係。 |
 
-### 角色（Roles）
+### 角色 (Roles)
 
 角色在 `agents/roles/` 目錄中的 Markdown 檔案定義。讓 Claude 擁有專家視角，獲得更準確的回答。
 
@@ -84,11 +84,11 @@
 #### 子代理執行範例
 
 ```bash
-# 普通模式（在主上下文中執行）
+# 普通模式 (在主上下文中執行)
 /role security
 「這個專案的安全檢查」
 
-# 子代理模式（在獨立上下文中執行）
+# 子代理模式 (在獨立上下文中執行)
 /role security --agent
 「執行專案整體的安全稽核」
 
@@ -97,7 +97,7 @@
 「全面分析系統整體的安全性和效能」
 ```
 
-### 鉤子（Hooks）
+### 鉤子 (Hooks)
 
 透過 `settings.json` 進行設定，可以自動化開發工作。
 
@@ -171,7 +171,7 @@ git clone https://github.com/wasabeef/claude-code-cookbook.git
 cd claude-code-cookbook
 
 # 指定語言安裝
-./scripts/install.sh ja     # 日文（預設）
+./scripts/install.sh ja     # 日文 (預設)
 ./scripts/install.sh en     # 英文
 ./scripts/install.sh ko     # 韓文
 ./scripts/install.sh pt     # 葡萄牙文

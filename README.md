@@ -19,7 +19,7 @@ Claude Code をもっと便利に使うための設定集です。
 
 ## 機能一覧
 
-### Commands（カスタムコマンド）
+### Commands (カスタムコマンド)
 
 `/commands` ディレクトリ内の Markdown ファイルとして保存されています。`/` に続けてファイル名を入力すると実行できます。
 
@@ -35,18 +35,18 @@ Claude Code をもっと便利に使うための設定集です。
 | `/design-patterns` | デザインパターンに基づいた実装を提案・レビューする。 |
 | `/explain-code` | 選択されたコードの機能やロジックを分かりやすく説明する。 |
 | `/fix-error` | エラーメッセージを元に、コードの修正案を提示する。 |
-| `/multi-role` | 複数の役割（Role）を組み合わせて、同じ対象を並行分析し統合レポートを生成する。 |
+| `/multi-role` | 複数の役割 (Role) を組み合わせて、同じ対象を並行分析し統合レポートを生成する。 |
 | `/plan` | 実装前の計画立案モードを起動し、詳細な実装戦略を策定する。 |
-| `/pr-auto-update` | Pull Request の内容（説明、ラベル）を自動で更新する。 |
+| `/pr-auto-update` | Pull Request の内容 (説明、ラベル) を自動で更新する。 |
 | `/pr-create` | Git 変更分析に基づく自動 PR 作成で効率的な Pull Request ワークフローを実現する。 |
 | `/pr-feedback` | Pull Request のレビューコメントを効率的に対応し、エラー分析 3 段階アプローチで根本解決を図る。 |
 | `/pr-issue` | 現在のリポジトリのオープン Issue 一覧を優先順位付きで表示する。 |
 | `/pr-list` | 現在のリポジトリのオープン PR 一覧を優先順位付きで表示する。 |
 | `/pr-review` | Pull Request の体系的レビューでコード品質とアーキテクチャの健全性を確保する。 |
 | `/refactor` | 安全で段階的なコードリファクタリングを実施し、SOLID 原則の遵守状況を評価する。 |
-| `/role-debate` | 複数の役割（Role）で、特定のテーマについて討論させる。 |
+| `/role-debate` | 複数の役割 (Role) で、特定のテーマについて討論させる。 |
 | `/role-help` | 利用可能な Role の一覧と説明を表示する。 |
-| `/role` | 指定した役割（Role）として振る舞う。 |
+| `/role` | 指定した役割 (Role) として振る舞う。 |
 | `/screenshot` | 画面のスクリーンショットを取得し解析する |
 | `/search-gemini` | Gemini を使って Web 検索を行う。 |
 | `/semantic-commit` | 大きな変更を意味のある最小単位に分割し、セマンティックなコミットメッセージで順次コミットする。 |
@@ -65,7 +65,7 @@ Claude Code をもっと便利に使うための設定集です。
 | `/update-node-deps` | Node.js プロジェクトの依存関係を安全に更新する。 |
 | `/update-rust-deps` | Rust プロジェクトの依存関係を安全に更新する。 |
 
-### Roles（役割設定）
+### Roles (役割設定)
 
 `agents/roles/` ディレクトリ内の Markdown ファイルで定義されています。Claude に専門家の視点を持たせて、より的確な回答を得られます。
 
@@ -86,11 +86,11 @@ Claude Code をもっと便利に使うための設定集です。
 #### サブエージェント実行例
 
 ```bash
-# 通常モード（メインコンテキストで実行）
+# 通常モード (メインコンテキストで実行)
 /role security
 「このプロジェクトのセキュリティチェック」
 
-# サブエージェントモード（独立コンテキストで実行）
+# サブエージェントモード (独立コンテキストで実行)
 /role security --agent
 「プロジェクト全体のセキュリティ監査を実行」
 
@@ -99,7 +99,7 @@ Claude Code をもっと便利に使うための設定集です。
 「システム全体のセキュリティとパフォーマンスを包括的に分析」
 ```
 
-### Hooks（自動化スクリプト）
+### Hooks (自動化スクリプト)
 
 `settings.json` で設定して、開発作業を自動化できます。
 
@@ -173,7 +173,7 @@ git clone https://github.com/wasabeef/claude-code-cookbook.git
 cd claude-code-cookbook
 
 # 言語を指定してインストール
-./scripts/install.sh ja    # 日本語（デフォルト）
+./scripts/install.sh ja    # 日本語 (デフォルト)
 ./scripts/install.sh en    # 英語
 ./scripts/install.sh ko    # 韓国語
 ./scripts/install.sh pt    # ポルトガル語
