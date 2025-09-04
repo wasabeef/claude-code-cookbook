@@ -66,25 +66,25 @@ grep -E "ERROR|WARN" app.log | tail -20
 ### Previsão de Tempo de Resolução de Erro
 
 ```
-🚀 Correção Imediata（menos de 5 min）
+🚀 Correção Imediata(menos de 5 min)
 ├─ Erro de digitação, import esquecido
 ├─ Variável de ambiente não definida
 ├─ Referência a variável indefinida
 └─ Tempo previsto: 2-5 min
 
-⚡ Correção Rápida（menos de 30 min）
+⚡ Correção Rápida(menos de 30 min)
 ├─ Inconsistência de dependência
 ├─ Erro de arquivo de configuração
 ├─ Incompatibilidade de tipo
 └─ Tempo previsto: 10-30 min
 
-🔧 Investigação Necessária（menos de 2 horas）
+🔧 Investigação Necessária(menos de 2 horas)
 ├─ Erro de lógica complexa
 ├─ Conflito de processamento assíncrono
 ├─ Problema de integração de API
 └─ Tempo previsto: 30 min-2 horas
 
-🔬 Análise Profunda（mais de meio dia）
+🔬 Análise Profunda(mais de meio dia)
 ├─ Originado da arquitetura
 ├─ Integração multi-sistema
 ├─ Degradação de performance
@@ -178,7 +178,7 @@ Erros Frequentes e Soluções Imediatas
 #### Fase 3: Implementação da Solução
 
 ```bash
-🔴 Resposta Imediata（hotfix）:
+🔴 Resposta Imediata(hotfix):
 - Correção mínima para suprimir sintomas
 - Aplicação de solução temporária
 - Preparação para deploy de emergência
@@ -237,13 +237,13 @@ Erros Frequentes e Soluções Imediatas
 
 ```bash
 # Erro de tipo TypeScript
-Verificação obrigatória（Alta）:
+Verificação obrigatória(Alta):
 - Configuração do tsconfig.json
-- Existência de arquivo de definição de tipo（.d.ts）
+- Existência de arquivo de definição de tipo(.d.ts)
 - Precisão da declaração import
 
 # Erro de lifetime do Rust
-Verificação obrigatória（Alta）:
+Verificação obrigatória(Alta):
 - Movimento de propriedade
 - Período de validade da referência
 - Conflito de mutabilidade
@@ -253,13 +253,13 @@ Verificação obrigatória（Alta）:
 
 ```bash
 # Referência Null/Undefined
-Verificação obrigatória（Alta）:
+Verificação obrigatória(Alta):
 - Falta de optional chaining
 - Timing de inicialização
 - Espera pela conclusão do processamento assíncrono
 
 # Erro relacionado à memória
-Verificação obrigatória（Alta）:
+Verificação obrigatória(Alta):
 - Obtenção de heap dump
 - Análise de log GC
 - Detecção de referência circular
@@ -269,13 +269,13 @@ Verificação obrigatória（Alta）:
 
 ```bash
 # Conflito de versão
-Verificação obrigatória（Alta）:
+Verificação obrigatória(Alta):
 - Integridade do arquivo lock
 - Requisitos de peer dependencies
 - Dependência transitiva
 
 # Erro de resolução de módulo
-Verificação obrigatória（Alta）:
+Verificação obrigatória(Alta):
 - Configuração NODE_PATH
 - Configuração de alias de caminho
 - Link simbólico
@@ -285,9 +285,9 @@ Verificação obrigatória（Alta）:
 
 - **Absolutamente proibido**: Julgamento baseado apenas em parte da mensagem de erro, aplicação de soluções do Stack Overflow sem verificação
 - **Condições de exceção**: Soluções temporárias são permitidas apenas nas seguintes 3 condições
-  1. Resposta de emergência no ambiente de produção（resolução fundamental obrigatória em 24 horas）
-  2. Falha de serviço externo（meio alternativo durante espera de recuperação）
-  3. Bug conhecido do framework（esperando lançamento de versão corrigida）
+  1. Resposta de emergência no ambiente de produção(resolução fundamental obrigatória em 24 horas)
+  2. Falha de serviço externo(meio alternativo durante espera de recuperação)
+  3. Bug conhecido do framework(esperando lançamento de versão corrigida)
 - **Recomendação**: Priorizar a identificação da causa raiz e evitar correções superficiais
 
 ### Melhores Práticas
