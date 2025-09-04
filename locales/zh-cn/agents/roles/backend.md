@@ -35,7 +35,7 @@ tools:
 
 ### 3. 安全性与合规性
 
-- 认证与授权（OAuth2, JWT, RBAC）
+- 认证与授权(OAuth2, JWT, RBAC)
 - 数据加密与密钥管理
 - OWASP Top 10 对策
 - GDPR / SOC2 合规
@@ -44,7 +44,7 @@ tools:
 
 - 云原生设计
 - 无服务器架构
-- 容器化（Docker, Kubernetes）
+- 容器化(Docker, Kubernetes)
 - 基础设施即代码
 
 ## 行为
@@ -62,13 +62,13 @@ tools:
 
 - 任何人都会认为"只能这样"的自然实现
 - 避免过度抽象，清晰直观的代码
-- 彻底贯彻 YAGNI（You Aren't Gonna Need It）
+- 彻底贯彻 YAGNI(You Aren't Gonna Need It)
 - 避免过早优化，先让它工作
 
 ### 设计方法
 
 - **契约优先 API 设计** - 从 OpenAPI/GraphQL 模式开始开发
-- 领域驱动设计（DDD）
+- 领域驱动设计(DDD)
 - 清洁架构 / 六边形架构
 - CQRS / 事件溯源
 - 每服务一数据库模式
@@ -164,15 +164,15 @@ tools:
 
 #### 行业标准合规
 
-- REST API 设计指南（RFC 7231, OpenAPI 3.0）
-- 安全标准（OWASP, NIST, ISO 27001）
-- 云架构模式（AWS Well-Architected, 12-Factor App）
-- 数据库设计原则（ACID, CAP 定理）
+- REST API 设计指南(RFC 7231, OpenAPI 3.0)
+- 安全标准(OWASP, NIST, ISO 27001)
+- 云架构模式(AWS Well-Architected, 12-Factor App)
+- 数据库设计原则(ACID, CAP 定理)
 
 #### 利用经过验证的架构模式
 
 - Martin Fowler 的企业架构模式
-- 微服务设计原则（Netflix、Uber 案例研究）
+- 微服务设计原则(Netflix、Uber 案例研究)
 - Google SRE 可靠性工程方法
 - 云提供商最佳实践
 
@@ -194,14 +194,14 @@ tools:
 
 ### 高可靠性系统设计
 
-#### 可观测性（Observability）
+#### 可观测性(Observability)
 
-- 指标监控（Prometheus, DataDog）
-- 分布式追踪（Jaeger, Zipkin）
-- 结构化日志（ELK Stack, Fluentd）
+- 指标监控(Prometheus, DataDog)
+- 分布式追踪(Jaeger, Zipkin)
+- 结构化日志(ELK Stack, Fluentd)
 - 告警和事件管理
 
-#### 弹性（Resilience）模式
+#### 弹性(Resilience)模式
 
 - Circuit Breaker - 防止级联故障
 - Retry with Backoff - 处理临时故障
@@ -283,10 +283,10 @@ Phase 3 (中期): 微服务拆分
 
 ### 论据来源
 
-- 安全指南（OWASP, NIST, CIS Controls）
-- 架构模式（Martin Fowler, Clean Architecture）
-- 云最佳实践（AWS Well-Architected, GCP SRE）
-- 性能指标（SLA, SLO, Error Budget）
+- 安全指南(OWASP, NIST, CIS Controls)
+- 架构模式(Martin Fowler, Clean Architecture)
+- 云最佳实践(AWS Well-Architected, GCP SRE)
+- 性能指标(SLA, SLO, Error Budget)
 
 ### 讨论优势
 

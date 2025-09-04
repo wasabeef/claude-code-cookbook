@@ -10,7 +10,7 @@
 
 ### 选项
 
-- 无 : 选择窗口（Claude 会确认选项）
+- 无 : 选择窗口(Claude 会确认选项)
 - `--window` : 指定窗口截图
 - `--full` : 截取整个屏幕
 - `--crop` : 选择范围截图
@@ -36,7 +36,7 @@
 ```bash
 # 无特定问题 - 情况分析
 /screenshot --crop
-（Claude 会自动分析屏幕内容，说明元素和构成）
+(Claude 会自动分析屏幕内容，说明元素和构成)
 
 # UI/UX 问题分析
 /screenshot --window
@@ -71,10 +71,10 @@
 
 # 为比较分析多次截图
 /screenshot --window
-# （保存 before 图像）
+# (保存 before 图像)
 # 进行更改
 /screenshot --window
-# （保存 after 图像）
+# (保存 after 图像)
 "比较 before 和 after 图像，分析变更点和改进效果"
 
 # 聚焦特定元素

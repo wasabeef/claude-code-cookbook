@@ -1,6 +1,6 @@
 ## 事实检查
 
-参考项目内的代码库、文档（docs/、README.md 等），确认所给信息的正确性。
+参考项目内的代码库、文档(docs/、README.md 等)，确认所给信息的正确性。
 
 ### 使用方法
 
@@ -18,7 +18,7 @@
 ### 确认流程
 
 1. **信息源优先级**
-   - 代码库（最可靠）
+   - 代码库(最可靠)
    - README.md、docs/ 内文档
    - package.json、pubspec.yaml 等配置文件
    - Issue、Pull Request 的讨论历史

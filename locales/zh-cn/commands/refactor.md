@@ -36,7 +36,7 @@ grep -r "TODO\|FIXME\|HACK" . --exclude-dir=node_modules
 
 ### 重构技法
 
-#### Extract Method（提取方法）
+#### Extract Method(提取方法)
 
 ```javascript
 // Before: 冗长的方法
@@ -52,7 +52,7 @@ function processOrder(order) {
 }
 ```
 
-#### Replace Conditional with Polymorphism（多态替换条件）
+#### Replace Conditional with Polymorphism(多态替换条件)
 
 ```javascript
 // Before: switch 语句
@@ -69,58 +69,58 @@ class PremiumPricing {
 }
 ```
 
-### SOLID 原则评分（0-100 分）
+### SOLID 原则评分(0-100 分)
 
 #### 评估标准与计分
 
 ```
-S - Single Responsibility（20 分）
+S - Single Responsibility(20 分)
 ├─ 类的职责数: 1 个(20 分) | 2 个(15 分) | 3 个(10 分) | 4 个以上(5 分)
 ├─ 方法数: <7 个(+5 分) | 7-15 个(+3 分) | >15 个(0 分)
 ├─ 变更原因的明确性: 明确(+5 分) | 模糊(0 分)
 └─ 评分例: UserService(认证+数据处理) = 10 分
 
-O - Open/Closed（20 分）
+O - Open/Closed(20 分)
 ├─ 扩展点: Strategy/Template Method(20 分) | 仅继承(10 分) | 无(5 分)
 ├─ 新功能添加时的现有代码变更: 不需要(+5 分) | 最小限(+3 分) | 需要(0 分)
 ├─ 接口利用: 适当(+5 分) | 部分(+3 分) | 无(0 分)
 └─ 评分例: PaymentProcessor(Strategy) = 20 分
 
-L - Liskov Substitution（20 分）
+L - Liskov Substitution(20 分)
 ├─ 派生类的契约遵守: 完全(20 分) | 部分(10 分) | 违反(0 分)
 ├─ 先决条件的加强: 无(+5 分) | 有(-5 分)
 ├─ 后决条件的弱化: 无(+5 分) | 有(-5 分)
-└─ 评分例: Square extends Rectangle = 0 分（违反）
+└─ 评分例: Square extends Rectangle = 0 分(违反)
 
-I - Interface Segregation（20 分）
+I - Interface Segregation(20 分)
 ├─ 接口大小: 1-3 方法(20 分) | 4-7(15 分) | 8+(5 分)
 ├─ 未使用方法实现: 无(+5 分) | 1-2 个(+2 分) | 3 个以上(0 分)
 ├─ 角色的明确性: 单一角色(+5 分) | 多个角色(0 分)
 └─ 评分例: Readable/Writable 分离 = 20 分
 
-D - Dependency Inversion（20 分）
+D - Dependency Inversion(20 分)
 ├─ 依赖方向: 仅抽象(20 分) | 混合(10 分) | 仅具象(5 分)
 ├─ DI 利用: Constructor Injection(+5 分) | Setter(+3 分) | 无(0 分)
 ├─ 可测试性: Mock 可能(+5 分) | 困难(0 分)
 └─ 评分例: Repository Pattern = 20 分
 
 总评分 = S + O + L + I + D
-├─ 90-100 分: Excellent（SOLID 完全遵守）
-├─ 70-89 分: Good（轻微改进余地）
-├─ 50-69 分: Fair（重构建议）
-├─ 30-49 分: Poor（大規模改进必要）
-└─ 0-29 分: Critical（设计重新考虑必要）
+├─ 90-100 分: Excellent(SOLID 完全遵守)
+├─ 70-89 分: Good(轻微改进余地)
+├─ 50-69 分: Fair(重构建议)
+├─ 30-49 分: Poor(大規模改进必要)
+└─ 0-29 分: Critical(设计重新考虑必要)
 ```
 
 ### 重构步骤
 
 1. **现状分析**
-   - 复杂度测量（循环复杂度）
+   - 复杂度测量(循环复杂度)
    - 重复代码检测
    - 依赖关系分析
 
 2. **渐进式执行**
-   - 小步骤（15-30 分钟单位）
+   - 小步骤(15-30 分钟单位)
    - 每次变更后执行测试
    - 频繁提交
 
@@ -158,7 +158,7 @@ npm run test:coverage
 #### 债务计算公式
 
 ```
-技术债务（时间） = 复杂度评分 × 影响范围 × 修复难度
+技术债务(时间) = 复杂度评分 × 影响范围 × 修复难度
 
 复杂度评分:
 ├─ 循环复杂度: 1-5(低) | 6-10(中) | 11-20(高) | 21+(危险)
@@ -189,21 +189,21 @@ npm run test:coverage
 
 | 优先级 | 影响度 | 修复成本 | 处理期限 | 具体例 | 推荐行动 |
 |--------|--------|---------|---------|--------|-----------|
-| **Critical（即座处理）** | 高 | 低 | 1 周内 | God Object、循环依赖 | 即座重构开始 |
-| **Important（计划性处理）** | 高 | 高 | 1 个月内 | 大规模职责分离、架构变更 | 纳入 Sprint 计划 |
-| **Watch（监视对象）** | 低 | 高 | 3 个月内 | 复杂度高的内部处理 | 指标监视、恶化时处理 |
-| **Acceptable（容许范围）** | 低 | 低 | 无需处理 | 轻微的代码异味 | 通常重构时处理 |
+| **Critical(即座处理)** | 高 | 低 | 1 周内 | God Object、循环依赖 | 即座重构开始 |
+| **Important(计划性处理)** | 高 | 高 | 1 个月内 | 大规模职责分离、架构变更 | 纳入 Sprint 计划 |
+| **Watch(监视对象)** | 低 | 高 | 3 个月内 | 复杂度高的内部处理 | 指标监视、恶化时处理 |
+| **Acceptable(容许范围)** | 低 | 低 | 无需处理 | 轻微的代码异味 | 通常重构时处理 |
 
 ### 重构步骤
 
 1. **现状分析和测量**
-   - 复杂度测量（循环、认知）
-   - SOLID 评分计算（0-100 分）
-   - 技术债务定量化（时间/成本）
+   - 复杂度测量(循环、认知)
+   - SOLID 评分计算(0-100 分)
+   - 技术债务定量化(时间/成本)
    - 优先级矩阵创建
 
 2. **渐进式执行**
-   - 小步骤（15-30 分钟单位）
+   - 小步骤(15-30 分钟单位)
    - 每次变更后测试执行
    - 频繁提交
    - SOLID 评分的持续测量
