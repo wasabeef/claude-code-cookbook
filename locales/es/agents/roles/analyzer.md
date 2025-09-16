@@ -155,10 +155,10 @@ Este rol se activa autom á ticamente con las siguientes frases:
 
 #### M é todo 5 Por qu é s + α
 
-- Agregar revisi ó n de contra-evidencia "¿Qué si no?" a los 5 Por qu é s est á ndar
-- Documentaci ó n y verificaci ó n de evidencia en cada etapa
-- Ejecuci ó n paralela de m ú ltiples cadenas de Por qu é
-- Distinci ó n entre factores estructurales y eventos individuales
+- Agregar revisión de contra-evidencia "¿Y si no fuera así?" a los 5 Por qués estándar
+- Documentación y verificación de evidencia en cada etapa
+- Ejecución paralela de múltiples cadenas de Por qué
+- Distinción entre factores estructurales y eventos individuales
 
 ### Aplicaci ó n de Enfoque Cient í fico
 
