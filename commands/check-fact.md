@@ -1,18 +1,18 @@
 ## Check Fact
 
-プロジェクト内のコードベース、ドキュメント (docs/、README.md など) を参照し、与えられた情報の正誤を確認するためのコマンド。
+プロジェクト内のコードベース、ドキュメント (docs/、README.md など)を参照し、与えられた情報の正誤を確認するためのコマンド。
 
 ### 使い方
 
 ```bash
 # 基本的な使い方
-/check-fact "Flutter アプリでは Riverpod を使用している"
+/check-fact "このアプリケーションは Zustand と TanStack Query を使用して状態管理している"
 
 # 複数の情報を一度に確認
-/check-fact "このプロジェクトは GraphQL を使用し、auto_route でルーティングを管理している"
+/check-fact "このプロジェクトは tRPC と TanStack Router でタイプセーフな API 通信とルーティングを実現している"
 
 # 特定の技術仕様について確認
-/check-fact "認証には JWT を使用し、Firebase Auth は使っていない"
+/check-fact "認証には Clerk または Supabase Auth を使用し、パスキー認証が実装されている"
 ```
 
 ### 確認プロセス
@@ -20,8 +20,8 @@
 1. **情報源の優先順位**
    - コードベース (最も信頼性が高い)
    - README.md、docs/ 内ドキュメント
-   - package.json、pubspec.yaml 等の設定ファイル
-   - Issue、Pull Request の議論履歴
+   - 設定ファイル (package.json、tsconfig.json、next.config.js、.env.local 等)
+   - Issue、Pull Requestの議論履歴
 
 2. **判定結果の分類**
    - `✅ 正しい` - 情報がコードベースと完全に一致
@@ -46,7 +46,7 @@
 [✅/❌/⚠️/❓] [判定結果]
 
 ### 根拠
-- **ファイル**: `path/to/file.dart:123`
+- **ファイル**: `src/components/Auth.tsx:123`
 - **内容**: [該当するコード/文章]
 - **補足**: [追加説明]
 
@@ -60,28 +60,28 @@
 
 ```bash
 # プロジェクト技術スタック確認
-/check-fact "このアプリは Flutter + Riverpod + GraphQL の構成になっている"
+/check-fact "このアプリは Next.js 14 + Server Actions + Prisma の構成になっている"
 
 # 実装状況確認
-/check-fact "ダークモード機能が実装済みで、ユーザー設定から切り替え可能"
+/check-fact "Next.js 14 の App Router で RSC (React Server Components) と Streaming が活用されている"
 
 # アーキテクチャ確認
-/check-fact "状態管理は全て Riverpod で行い、BLoC は使用していない"
+/check-fact "サーバー状態は TanStack Query で、クライアント状態は Zustand で管理し、Redux は使用していない"
 
 # セキュリティ実装確認
-/check-fact "認証トークンは secure storage に暗号化して保存している"
+/check-fact "認証は Edge Runtime 上で JWT を使用し、Middleware で保護されている"
 ```
 
-### Claude との連携
+### Claudeとの連携
 
 ```bash
 # コードベース全体の分析後に確認
-ls -la && find . -name "pubspec.yaml" -exec cat {} \;
+ls -la && cat package.json | jq '{next: .dependencies.next, react: .dependencies.react, typescript: .devDependencies.typescript}'
 /check-fact "このプロジェクトで使用している主要な依存関係は..."
 
 # 特定機能の実装状況確認
-grep -r "authentication" . --include="*.dart"
-/check-fact "認証機能はカスタム実装で、第三者認証は使用していない"
+grep -r "use server\|use client\|async function" . --include="*.tsx" --include="*.ts"
+/check-fact "Server Actions と Form Actions を使用してプログレッシブエンハンスメントが実装されている"
 
 # ドキュメントとの整合性確認
 cat README.md

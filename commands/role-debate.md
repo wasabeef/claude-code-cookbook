@@ -22,7 +22,7 @@
 
 # 技術選定の議論
 /role-debate architect,mobile
-「React Native vs Flutter の選択について」
+「クロスプラットフォーム vs ネイティブ開発の選択について」
 
 # 3 者議論
 /role-debate architect,security,performance
