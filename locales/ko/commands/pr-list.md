@@ -23,7 +23,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 
 ### 표시 형식
 
-```
+```text
 오픈 PR 목록 (우선순위순)
 
 ### 고우선순위

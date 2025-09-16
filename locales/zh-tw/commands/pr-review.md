@@ -36,7 +36,7 @@ grep -r "import.*from.*\\.\\./\\.\\." . --include="*.js"
 
 ### 評論分類體系
 
-```
+```text
 🔴 critical.must: 致命問題
 ├─ 安全漏洞
 ├─ 數據一致性問題

@@ -458,7 +458,7 @@ done
 
 #### 基本形式
 
-```
+```text
 <type>[optional scope]: <description>
 
 [optional body]
@@ -488,7 +488,7 @@ done
 
 変更の影響範囲を示す：
 
-```
+```text
 feat(api): add user authentication endpoint
 fix(ui): resolve button alignment issue
 docs(readme): update installation instructions
@@ -498,7 +498,7 @@ docs(readme): update installation instructions
 
 API の破壊的変更がある場合：
 
-```
+```text
 feat!: change user API response format
 
 BREAKING CHANGE: user response now includes additional metadata
@@ -506,7 +506,7 @@ BREAKING CHANGE: user response now includes additional metadata
 
 または
 
-```
+```text
 feat(api)!: change authentication flow
 ```
 
@@ -604,7 +604,7 @@ export default {
 
 ##### Angular スタイル
 
-```
+```text
 feat(scope): add new feature
 fix(scope): fix bug
 docs(scope): update documentation
@@ -612,7 +612,7 @@ docs(scope): update documentation
 
 ##### Gitmoji 併用スタイル
 
-```
+```text
 ✨ feat: add user registration
 🐛 fix: resolve login issue
 📚 docs: update API docs
@@ -620,7 +620,7 @@ docs(scope): update documentation
 
 ##### 日本語プロジェクト
 
-```
+```text
 feat: ユーザー登録機能を追加
 fix: ログイン処理のバグを修正
 docs: API ドキュメントを更新

@@ -23,7 +23,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 
 ### 顯示格式
 
-```
+```text
 開放 PR 列表(按優先級排序)
 
 ### 高優先級

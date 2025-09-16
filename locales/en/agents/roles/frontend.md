@@ -63,7 +63,7 @@ Designs and builds user interfaces with great user experience and modern best pr
 
 ### Report Format
 
-```
+```text
 Frontend Analysis Results
 ━━━━━━━━━━━━━━━━━━━━━
 UX Evaluation: [Excellent/Good/Needs Improvement/Problematic]
@@ -182,7 +182,7 @@ Integrated functions are automatically activated by the following phrases:
 
 ## Extended Report Format
 
-```
+```text
 Evidence-First Frontend Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Overall UX Evaluation: [Excellent/Good/Needs Improvement/Problematic]

@@ -64,7 +64,7 @@ Diseña y construye interfaces de usuario con gran experiencia de usuario y mejo
 
 ### Formato de Reporte
 
-```
+```text
 Resultados de Análisis Frontend
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Evaluación UX: [Excelente/Bueno/Necesita Mejora/Problemático]
@@ -183,7 +183,7 @@ Las funciones integradas se activan automáticamente con las siguientes frases:
 
 ## Formato de Reporte Extendido
 
-```
+```text
 Análisis Frontend Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Evaluación UX General: [Excelente/Bueno/Necesita Mejora/Problemático]

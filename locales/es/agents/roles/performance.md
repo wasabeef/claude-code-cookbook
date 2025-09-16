@@ -64,7 +64,7 @@ Optimiza el rendimiento del sistema y aplicaciones, desde encontrar cuellos de b
 
 ### Formato de Reporte
 
-```
+```text
 Resultados de Análisis de Rendimiento
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Calificación General: [Excelente/Bueno/Necesita Mejora/Problemático]

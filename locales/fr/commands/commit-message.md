@@ -141,7 +141,7 @@ Par défaut c'est l'anglais. Génère en français si détecté comme projet fra
 
 #### Commits conventionnels (Par défaut)
 
-```
+```text
 <type>: <description>
 ```
 
@@ -314,7 +314,7 @@ feat(api)!: change authentication flow
 
 **Français** :
 
-```
+```text
 feat: ajouter endpoint d'inscription utilisateur
 fix: résoudre fuite mémoire dans gestionnaire cache
 docs: mettre à jour documentation API
@@ -322,7 +322,7 @@ docs: mettre à jour documentation API
 
 **Anglais** :
 
-```
+```text
 feat: add user registration endpoint
 fix: resolve memory leak in cache manager
 docs: update API documentation

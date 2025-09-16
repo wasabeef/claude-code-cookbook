@@ -94,7 +94,7 @@ Détermination des recommandations finales
 
 ### Pour un débat à 2 rôles
 
-```
+```text
 Débat de rôles : Sécurité vs Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -184,7 +184,7 @@ Révision future :
 
 ### Pour un débat à 3 rôles
 
-```
+```text
 Débat de rôles : Architecte vs Sécurité vs Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -451,7 +451,7 @@ potential_biases:
 
 #### Phase 1 : Modèle déclaration position
 
-```
+```text
 Recommandation du [Nom du rôle] :
 "[Proposition spécifique]"
 
@@ -476,7 +476,7 @@ Métriques de succès :
 
 #### Phase 2 : Modèle réfutation
 
-```
+```text
 Réfutation à [Rôle cible] :
 "[Réfutation spécifique proposition cible]"
 
@@ -495,7 +495,7 @@ Points compromis :
 
 #### Phase 3 : Modèle solution intégrée
 
-```
+```text
 Solution intégrée :
 "[Proposition finale considérant préoccupations tous rôles]"
 

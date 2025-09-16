@@ -57,7 +57,7 @@
 
 ### SOLID 原則チェック項目
 
-```
+```text
 S - Single Responsibility Principle (単一責任の原則)
 O - Open/Closed Principle (開放閉鎖の原則)
 L - Liskov Substitution Principle (リスコフの置換原則)
@@ -67,7 +67,7 @@ D - Dependency Inversion Principle (依存性逆転の原則)
 
 ### 出力例
 
-```
+```text
 デザインパターン分析レポート
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

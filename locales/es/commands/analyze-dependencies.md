@@ -55,7 +55,7 @@ Muestra cómo los módulos se conectan entre sí:
 
 ### Ejemplo de Salida
 
-```
+```text
 Reporte de Análisis de Dependencias
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

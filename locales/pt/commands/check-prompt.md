@@ -286,7 +286,7 @@ fi
 
 ### Cálculo do Score Total
 
-```
+```text
 Score base = Σ(Score de cada categoria × Pontuação) / 100
 
 Penalidades por problemas fatais:
@@ -304,7 +304,7 @@ Score final = Score base + Bônus - Penalidades
 
 ### Julgamento do Nível de Qualidade
 
-```
+```text
 95-100 pontos: Padrão mundial mais alto (recomendável como padrão da indústria)
 90-94 pontos:  Excelente (operável em produção)
 80-89 pontos:  Bom (operável com melhorias menores)

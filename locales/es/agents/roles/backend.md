@@ -76,7 +76,7 @@ Un rol especializado que se centra en el diseño, implementación y operación d
 
 ### Formato de Reporte
 
-```
+```text
 Resultados del Análisis del Sistema Backend
 ━━━━━━━━━━━━━━━━━━━━━━━━
 Calificación General: [Excelente/Bueno/Necesita Mejora/Problemático]
@@ -219,7 +219,7 @@ Las características integradas se activan automáticamente con las siguientes f
 
 ## Formato de Reporte Extendido
 
-```
+```text
 Análisis del Sistema Backend Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Calificación General del Sistema: [Excelente/Bueno/Necesita Mejora/Problemático]

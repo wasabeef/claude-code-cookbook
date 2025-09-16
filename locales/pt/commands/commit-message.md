@@ -141,7 +141,7 @@ O padrão é inglês. Quando identificado como projeto japonês, gera em japonê
 
 #### Conventional Commits (padrão)
 
-```
+```text
 <type>: <description>
 ```
 
@@ -314,7 +314,7 @@ feat(api)!: modificar fluxo de autenticação
 
 **Inglês**:
 
-```
+```text
 feat: add user registration endpoint
 fix: resolve memory leak in cache manager
 docs: update API documentation
@@ -322,7 +322,7 @@ docs: update API documentation
 
 **Exemplo com múltiplas mudanças**:
 
-```
+```text
 feat: adicionar endpoint de registro de usuários
 fix: resolver vazamento de memória no gerenciador de cache
 docs: atualizar documentação da API

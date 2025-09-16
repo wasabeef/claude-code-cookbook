@@ -65,7 +65,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 
 ### Error Resolution Time Prediction
 
-```
+```text
 🚀 Immediate Fix (< 5 minutes)
 ├─ Typos, missing imports
 ├─ Environment variables not set
@@ -93,7 +93,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 
 ### Similar Error Pattern Database
 
-```
+```text
 Common Errors and Immediate Solutions
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -196,7 +196,7 @@ Common Errors and Immediate Solutions
 
 ### Output Example
 
-```
+```text
 🚨 Error Analysis Report
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

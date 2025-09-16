@@ -30,7 +30,7 @@
 
 ### 安全相關
 
-```
+```text
 這种情况使用 security 角色:
 ✅ 登錄·認證功能的實現
 ✅ API 的安全漏洞檢查
@@ -43,7 +43,7 @@
 
 ### 🏗️ 架構·設計
 
-```
+```text
 這种情况使用 architect 角色:
 ✅ 系統整體設計評估
 ✅ 微服務 vs 單體判斷
@@ -56,7 +56,7 @@
 
 ### ⚡ 性能問題
 
-```
+```text
 這种情况使用 performance 角色:
 ✅ 應用程序運行緩慢
 ✅ 數據庫查询優化
@@ -69,7 +69,7 @@
 
 ### 🔍 問題原因調查
 
-```
+```text
 這种情况使用 analyzer 角色:
 ✅ Bug·錯誤的根本原因分析
 ✅ 系統故障原因究明
@@ -82,7 +82,7 @@
 
 ### 🎨 前端·UI/UX
 
-```
+```text
 這种情况使用 frontend 角色:
 ✅ 用戶界面改進
 ✅ 可訪問性支持
@@ -95,7 +95,7 @@
 
 ### 📱 移動應用開發
 
-```
+```text
 這种情况使用 mobile 角色:
 ✅ iOS·Android 應用優化
 ✅ 移動特有的 UX 設計
@@ -108,7 +108,7 @@
 
 ### 👀 代碼審查·質量
 
-```
+```text
 這种情况使用 reviewer 角色:
 ✅ 代碼質量檢查
 ✅ 可讀性·可維護性評估
@@ -121,7 +121,7 @@
 
 ### 🧪 測試·質量保證
 
-```
+```text
 這种情况使用 qa 角色:
 ✅ 測試策略制定
 ✅ 測試覆蓋率評估
@@ -136,7 +136,7 @@
 
 ### 🔄 multi-role (並行分析)
 
-```
+```text
 這种情况使用 multi-role:
 ✅ 需要多個專業視角的評估
 ✅ 想制定综合改進計劃
@@ -148,7 +148,7 @@
 
 ### 🗣️ role-debate (辩論)
 
-```
+```text
 這种情况使用 role-debate:
 ✅ 專業領域間存在權衡
 ✅ 技術選型有分歧
@@ -160,7 +160,7 @@
 
 ### 🤖 smart-review (自動建議)
 
-```
+```text
 這种情况使用 smart-review:
 ✅ 不知道该使用哪個角色
 ✅ 想了解當前情况的最佳方法
@@ -202,7 +202,7 @@
 
 ### 迷茫時的流程圖
 
-```
+```text
 問題的性質是？
 ├─ 安全相關 → security
 ├─ 性能問題 → performance
@@ -223,7 +223,7 @@
 
 ### Q: frontend 和 mobile 的區別是？
 
-```
+```text
 A:
 frontend: 以 Web 瀏覽器為中心、HTML/CSS/JavaScript
 mobile: 以移動應用為中心、iOS/Android 原生·React Native 等
@@ -233,7 +233,7 @@ mobile: 以移動應用為中心、iOS/Android 原生·React Native 等
 
 ### Q: security 和 analyzer 的使用場景？
 
-```
+```text
 A:
 security: 攻擊·威胁預防、安全設計
 analyzer: 已發生問題的原因分析、調查
@@ -243,7 +243,7 @@ analyzer: 已發生問題的原因分析、調查
 
 ### Q: architect 和 performance 的區別是？
 
-```
+```text
 A:
 architect: 系統整體的长期設計、擴展性
 performance: 具體的速度·效率改進

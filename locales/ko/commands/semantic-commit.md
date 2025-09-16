@@ -458,7 +458,7 @@ done
 
 #### 기본 형식
 
-```
+```text
 <type>[optional scope]: <description>
 
 [optional body]
@@ -488,7 +488,7 @@ done
 
 변경의 영향 범위 표시:
 
-```
+```text
 feat(api): add user authentication endpoint
 fix(ui): resolve button alignment issue
 docs(readme): update installation instructions
@@ -498,7 +498,7 @@ docs(readme): update installation instructions
 
 API 의 파괴적 변경이 있는 경우:
 
-```
+```text
 feat!: change user API response format
 
 BREAKING CHANGE: user response now includes additional metadata
@@ -506,7 +506,7 @@ BREAKING CHANGE: user response now includes additional metadata
 
 또는
 
-```
+```text
 feat(api)!: change authentication flow
 ```
 
@@ -604,7 +604,7 @@ export default {
 
 ##### Angular 스타일
 
-```
+```text
 feat(scope): add new feature
 fix(scope): fix bug
 docs(scope): update documentation
@@ -612,7 +612,7 @@ docs(scope): update documentation
 
 ##### Gitmoji 병용 스타일
 
-```
+```text
 ✨ feat: add user registration
 🐛 fix: resolve login issue
 📚 docs: update API docs
@@ -620,7 +620,7 @@ docs(scope): update documentation
 
 ##### 한국어 프로젝트
 
-```
+```text
 feat: 사용자 등록 기능 추가
 fix: 로그인 처리 버그 수정
 docs: API 문서 업데이트

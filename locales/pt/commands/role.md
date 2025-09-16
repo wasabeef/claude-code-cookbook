@@ -134,7 +134,7 @@ Cada role adota a abordagem **Evidence-First (baseada em evidências)** e realiz
 
 **Formato de relatório especializado**
 
-```
+```text
 Resultado da auditoria de segurança baseada em evidências
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Conformidade OWASP Top 10: XX% / Correspondência CVE: Concluída
@@ -152,7 +152,7 @@ Modelagem de ameaças: Análise STRIDE concluída
 
 **Formato de relatório especializado**
 
-```
+```text
 Análise de performance Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
@@ -170,7 +170,7 @@ Performance Budget: XX% / Análise ROI: XX% previsão de melhoria
 
 **Formato de relatório especializado**
 
-```
+```text
 Análise de causa raiz Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Confiabilidade da análise: Alta / Contramedidas para viés: Implementadas

@@ -58,7 +58,7 @@ Un rol especializado responsable de evaluar la calidad del código, legibilidad 
 
 ### Formato de Reporte
 
-```
+```text
 Resultados de Revisión de Código
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Calidad General: [Excelente/Buena/Aceptable/Necesita Mejora]

@@ -64,7 +64,7 @@ Papel especializado em análise de causa raiz e resolução de problemas baseada
 
 ### Formato de Relatório
 
-```
+```text
 Resultado da Análise de Causa Raiz
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Importância do Problema: [Critical/High/Medium/Low]
@@ -188,7 +188,7 @@ A funcionalidade integrada é automaticamente ativada pelas seguintes frases:
 
 ## Formato de Relatório Expandido
 
-```
+```text
 Análise de Causa Raiz Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Confiabilidade da Análise: [Alto/Médio/Baixo] (baseado na qualidade/quantidade de evidências)

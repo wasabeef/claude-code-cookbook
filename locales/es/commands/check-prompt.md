@@ -281,7 +281,7 @@ fi
 
 ### Cálculo de Puntuación Comprensiva
 
-```
+```text
 Puntuación básica = Σ(puntuación de categoría × peso) / 100
 
 Penalizaciones por problemas fatales:
@@ -299,7 +299,7 @@ Puntuación final = Puntuación básica + Bonos - Penalizaciones
 
 ### Evaluación de Nivel de Calidad
 
-```
+```text
 95-100 puntos: Estándar mundial más alto (Recomendado como estándar de industria)
 90-94 puntos: Excelente (Listo para producción)
 80-89 puntos: Bueno (Listo para operación con mejoras menores)

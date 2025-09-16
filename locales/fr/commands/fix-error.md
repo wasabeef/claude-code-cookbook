@@ -65,7 +65,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 
 ### Prédiction du Temps de Résolution d'Erreur
 
-```
+```text
 🚀 Correction immédiate (dans les 5 minutes)
 ├─ Fautes de frappe, imports oubliés
 ├─ Variables d'environnement non configurées
@@ -93,7 +93,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 
 ### Base de Données de Modèles d'Erreurs Similaires
 
-```
+```text
 Erreurs fréquentes et solutions immédiates
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -196,7 +196,7 @@ Erreurs fréquentes et solutions immédiates
 
 ### Exemple de Sortie
 
-```
+```text
 🚨 Rapport d'Analyse d'Erreur
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

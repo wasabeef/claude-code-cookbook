@@ -71,7 +71,7 @@ Lance un agent intelligent pour gérer les recherches et investigations complexe
 
 #### Guide de décision rapide
 
-```
+```text
 Besoin de collecter des infos ?
 ├─ Oui → De nombreux endroits ou beaucoup de fichiers ?
 │          ├─ Oui → **Utilisez Task**
@@ -157,7 +157,7 @@ Besoin de collecter des infos ?
 
 #### Flux d'exécution de Task
 
-```
+```text
 1. Analyse initiale
    ├─ Décomposition de la tâche et identification de la portée d'investigation
    ├─ Sélection des outils nécessaires et sources d'information

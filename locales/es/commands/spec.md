@@ -102,7 +102,7 @@ A diferencia de las herramientas tradicionales de generación de código, realiz
 
 **1. Expansión Automática desde Entrada Mínima (Estilo Kiro)**
 
-```
+```text
 Usuario: "Sistema de gestión de usuario
 - Funcionalidad de login
 - Edición de perfil
@@ -123,7 +123,7 @@ Agregué algunos detalles que no mencionaste. ¿Algo más que necesitemos?"
 
 **2. Descripción Estructurada de Requerimientos Usando Notación EARS**
 
-```
+```text
 Claude: "Déjame estructurar esto usando notación EARS:
 
 Aquí están los requerimientos en formato EARS:
@@ -146,7 +146,7 @@ AND denegar acceso si es insuficiente"
 
 **1. Análisis de Codebase + Propuesta de Diseño Automático (Estilo Kiro)**
 
-```
+```text
 Claude: "Después de analizar tu codebase, aquí está mi arquitectura recomendada:
 
 Resultados de análisis de codebase:
@@ -184,7 +184,7 @@ graph TB
 
 **1. Aplicación Automática de Mejores Prácticas (Estilo Kiro)**
 
-```
+```text
 
 Claude: "He generado un plan de implementación con aplicación automática de mejores prácticas de Kiro:
 
@@ -251,7 +251,7 @@ THE SYSTEM SHALL [comportamiento correspondiente]
 
 **Tiempo de Generación de Archivo**
 
-```
+```text
 Completitud Fase 1 → "Proceder" → generación de requirements.md
 Completitud Fase 2 → "Proceder" → generación de design.md
 Completitud Fase 3 → "Proceder" → generación de tasks.md
@@ -343,7 +343,7 @@ Los requisitos detallados se implementan a través de un proceso estructurado de
 
 **Momento de generación de archivo**
 
-```
+```text
 Completitud Fase 1 → "Proceder" → generación de requirements.md
 Completitud Fase 2 → "Proceder" → generación de design.md
 Completitud Fase 3 → "Proceder" → generación de tasks.md

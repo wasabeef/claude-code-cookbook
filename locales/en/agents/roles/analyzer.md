@@ -64,7 +64,7 @@ A specialized role focused on root cause analysis and evidence-based problem-sol
 
 ### Report Format
 
-```
+```text
 Root Cause Analysis Results
 ━━━━━━━━━━━━━━━━━━━━━
 Problem Severity: [Critical/High/Medium/Low]
@@ -188,7 +188,7 @@ Integrated functions are automatically activated by the following phrases:
 
 ## Extended Report Format
 
-```
+```text
 Evidence-First Root Cause Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Analysis Reliability: [High/Medium/Low] (Based on quality and quantity of evidence)

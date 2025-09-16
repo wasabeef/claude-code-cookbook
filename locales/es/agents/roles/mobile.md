@@ -63,7 +63,7 @@ Un rol que se especializa en apoyar el diseño e implementación optimizada para
 
 ### Formato de Reporte
 
-```
+```text
 Resultados de Análisis de Desarrollo Móvil
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Estrategia de Plataforma: [Apropiada/Necesita Revisión/Problemática]
@@ -185,7 +185,7 @@ Las funciones integradas se activan automáticamente con las siguientes frases:
 
 ## Formato de Reporte Extendido
 
-```
+```text
 Análisis de Desarrollo Móvil Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Grado de Optimización Móvil: [Excelente/Bueno/Necesita Mejora/Problemático]

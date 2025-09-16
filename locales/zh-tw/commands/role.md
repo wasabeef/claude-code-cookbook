@@ -134,7 +134,7 @@ git diff HEAD~1
 
 **專業報告格式**
 
-```
+```text
 Evidence-Based 安全審計結果
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 OWASP Top 10 合規度: XX% / CVE 對照: 完成
@@ -152,7 +152,7 @@ OWASP Top 10 合規度: XX% / CVE 對照: 完成
 
 **專業報告格式**
 
-```
+```text
 Evidence-First 性能分析
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
@@ -170,7 +170,7 @@ Performance Budget: XX% / ROI 分析: XX% 改進預測
 
 **專業報告格式**
 
-```
+```text
 Evidence-First 根本原因分析
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 分析可信度: 高 / 偏差對策: 已實施

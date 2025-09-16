@@ -96,13 +96,13 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 
 **Modo Normal (85 caracteres)**
 
-```
+```text
 Vulnerabilidad de seguridad encontrada en la función de validación de usuario en la línea 45 del sistema de autenticación.
 ```
 
 **Eficiencia de Tokens (45 caracteres)**
 
-```
+```text
 auth.js:45 → 🛡️ vuln sec en val() usuario
 ```
 
@@ -110,13 +110,13 @@ auth.js:45 → 🛡️ vuln sec en val() usuario
 
 **Modo Normal (125 caracteres)**
 
-```
+```text
 El proceso de construcción se completó exitosamente. Las pruebas se están ejecutando actualmente, seguidas del despliegue.
 ```
 
 **Eficiencia de Tokens (40 caracteres)**
 
-```
+```text
 build ✅ » test 🔄 » deploy ⏳
 ```
 
@@ -124,13 +124,13 @@ build ✅ » test 🔄 » deploy ⏳
 
 **Modo Normal (108 caracteres)**
 
-```
+```text
 El análisis de rendimiento reveló procesamiento lento debido a la complejidad del algoritmo O(n²).
 ```
 
 **Eficiencia de Tokens (48 caracteres)**
 
-```
+```text
 ⚡ perf: lento ∵ O(n²) → optimizar a O(n)
 ```
 
@@ -155,7 +155,7 @@ El análisis de rendimiento reveló procesamiento lento debido a la complejidad 
 
 ### Sesión de Depuración
 
-```
+```text
 [14:23] breakpoint → vars: {usuario: null, token: expirado}
 [14:24] paso → auth.validate() ❌
 [14:25] verificar → token.exp < Date.now() ∴ expirado
@@ -165,7 +165,7 @@ El análisis de rendimiento reveló procesamiento lento debido a la complejidad 
 
 ### Resultados del Análisis de Archivos
 
-```
+```text
 /src/auth/: 🛡️ problemas × 3
 /src/api/: ⚡ cuello de botella en handler()
 /src/db/: ✅ limpio
@@ -175,7 +175,7 @@ El análisis de rendimiento reveló procesamiento lento debido a la complejidad 
 
 ### Estado del Proyecto
 
-```
+```text
 Frontend: 🎨 ✅ 100%
 Backend: ⚙️ 🔄 75%
 Base de Datos: 🗄️ ✅ migrado

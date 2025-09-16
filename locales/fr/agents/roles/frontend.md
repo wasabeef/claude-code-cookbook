@@ -63,7 +63,7 @@ Conçoit et développe des interfaces utilisateur avec une grande expérience ut
 
 ### Format de Rapport
 
-```
+```text
 Résultats d'Analyse Frontend
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation UX : [Excellente/Bonne/À Améliorer/Problématique]
@@ -182,7 +182,7 @@ Les fonctions intégrées sont automatiquement activées par les phrases suivant
 
 ## Format de Rapport Étendu
 
-```
+```text
 Analyse Frontend Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation UX Globale : [Excellente/Bonne/À Améliorer/Problématique]

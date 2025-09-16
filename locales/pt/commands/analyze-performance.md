@@ -4,7 +4,7 @@ Analisa o desempenho da aplicação sob a perspectiva da experiência do usuári
 
 ### Pontuação de Performance UX
 
-```
+```text
 Pontuação de Experiência do Usuário: B+ (78/100)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -99,7 +99,7 @@ npm outdated && npm audit
 
 ### Matriz ROI de Melhoria de Performance
 
-```
+```text
 ROI de melhoria = (efeito redução tempo + melhoria qualidade) ÷ horas implementação
 ```
 

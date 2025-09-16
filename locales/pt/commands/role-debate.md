@@ -94,7 +94,7 @@ Determinação de recomendações finais
 
 ### Caso de debate entre 2 papéis
 
-```
+```text
 Debate de Papéis: Security vs Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -184,7 +184,7 @@ Revisão futura:
 
 ### Caso de debate entre 3 papéis
 
-```
+```text
 Debate de Papéis: Architect vs Security vs Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -451,7 +451,7 @@ Preconceitos a serem observados:
 
 #### Template da Fase 1: Declaração de posição
 
-```
+```text
 Proposta recomendada do 【Nome do Papel】:
 "[proposta específica]"
 
@@ -476,7 +476,7 @@ Indicadores de sucesso:
 
 #### Template da Fase 2: Refutação
 
-```
+```text
 Contra-argumento para [Papel Alvo]:
 "[contra-argumento específico à proposta alvo]"
 
@@ -495,7 +495,7 @@ Pontos de possível compromisso:
 
 #### Template da Fase 3: Solução integrada
 
-```
+```text
 Proposta de solução integrada:
 "[proposta final considerando preocupações de cada papel]"
 

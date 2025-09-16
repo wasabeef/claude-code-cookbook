@@ -71,7 +71,7 @@ Launches a smart agent to handle complex searches and investigations. Great for 
 
 #### Quick Decision Guide
 
-```
+```text
 Need to gather info?
 ├─ Yes → From many places or lots of files?
 │          ├─ Yes → **Use Task**
@@ -157,7 +157,7 @@ Need to gather info?
 
 #### Task Execution Flow
 
-```
+```text
 1. Initial Analysis
    ├─ Decomposition of task and identification of investigation scope
    ├─ Selection of necessary tools and information sources

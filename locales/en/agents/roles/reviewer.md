@@ -57,7 +57,7 @@ A specialized role responsible for evaluating code quality, readability, and mai
 
 ### Report Format
 
-```
+```text
 Code Review Results
 ━━━━━━━━━━━━━━━━━━━━━
 Overall Rating: [A/B/C/D]
@@ -167,7 +167,7 @@ Integrated functions are automatically activated with the following phrases:
 
 ## Extended Report Format
 
-```
+```text
 Evidence-First Code Review Results
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Overall Rating: [Excellent/Good/Needs Improvement/Problematic]

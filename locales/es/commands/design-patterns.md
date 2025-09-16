@@ -57,7 +57,7 @@ Sugiere patrones de diseño para tu código y verifica si sigue los principios S
 
 ### Principios SOLID Que Verificamos
 
-```
+```text
 S - Responsabilidad Única (una clase, un trabajo)
 O - Abierto/Cerrado (abierto para extensión, cerrado para modificación)
 L - Sustitución de Liskov (los subtipos deben ser reemplazables)
@@ -67,7 +67,7 @@ D - Inversión de Dependencias (depender de abstracciones, no detalles)
 
 ### Ejemplo de Salida
 
-```
+```text
 Reporte de Análisis de Patrones de Diseño
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

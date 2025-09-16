@@ -96,13 +96,13 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 
 **Normal Mode (85 chars)**
 
-```
+```text
 Security vulnerability found in the user validation function at line 45 of the auth system.
 ```
 
 **Token Efficient (39 chars)**
 
-```
+```text
 auth.js:45 → 🛡️ sec vuln in user val()
 ```
 
@@ -110,13 +110,13 @@ auth.js:45 → 🛡️ sec vuln in user val()
 
 **Normal Mode (112 chars)**
 
-```
+```text
 Build process completed successfully. Tests are currently running, followed by deployment.
 ```
 
 **Token Efficient (35 chars)**
 
-```
+```text
 build ✅ » test 🔄 » deploy ⏳
 ```
 
@@ -124,13 +124,13 @@ build ✅ » test 🔄 » deploy ⏳
 
 **Normal Mode (95 chars)**
 
-```
+```text
 Performance analysis revealed slow processing due to O(n²) algorithm complexity.
 ```
 
 **Token Efficient (42 chars)**
 
-```
+```text
 ⚡ perf: slow ∵ O(n²) → optimize to O(n)
 ```
 
@@ -155,7 +155,7 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 
 ### Debugging Session
 
-```
+```text
 [14:23] breakpoint → vars: {user: null, token: expired}
 [14:24] step → auth.validate() ❌
 [14:25] check → token.exp < Date.now() ∴ expired
@@ -165,7 +165,7 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 
 ### File Analysis Results
 
-```
+```text
 /src/auth/: 🛡️ issues × 3
 /src/api/: ⚡ bottleneck in handler()
 /src/db/: ✅ clean
@@ -175,7 +175,7 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 
 ### Project Status
 
-```
+```text
 Frontend: 🎨 ✅ 100%
 Backend: ⚙️ 🔄 75%
 Database: 🗄️ ✅ migrated

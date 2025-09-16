@@ -32,7 +32,7 @@ gh pr checks
 
 ### Exemples de résultats d'exécution
 
-```
+```text
 Toutes les vérifications ont réussi
 0 annulée, 0 échouée, 8 réussies, 3 ignorées et 0 en attente
 

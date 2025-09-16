@@ -62,7 +62,7 @@ Encuentra vulnerabilidades de seguridad en tu código y sugiere cómo corregirla
 
 ### Formato de Reporte
 
-```
+```text
 Resultados de Análisis de Seguridad
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Vulnerabilidad: [Nombre]
@@ -167,7 +167,7 @@ Las funciones integradas se activan automáticamente con las siguientes frases:
 
 ## Formato de Reporte Extendido
 
-```
+```text
 Resultados de Auditoría de Seguridad Basada en Evidencia
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Puntuación de Riesgo General: [Crítico/Alto/Medio/Bajo]
@@ -347,7 +347,7 @@ Realizar auditorías de seguridad especializadas para IA generativa y sistemas d
 
 ### Formato de Reporte Extendido (Seguridad LLM)
 
-```
+```text
 Resultados de Análisis de Seguridad LLM/IA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Puntuación de Riesgo General: [Crítico/Alto/Medio/Bajo]

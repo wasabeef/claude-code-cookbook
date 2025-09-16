@@ -458,7 +458,7 @@ done
 
 #### Formato Básico
 
-```
+```text
 <type>[optional scope]: <description>
 
 [optional body]
@@ -488,7 +488,7 @@ done
 
 Indica o escopo de impacto das mudanças:
 
-```
+```text
 feat(api): add user authentication endpoint
 fix(ui): resolve button alignment issue
 docs(readme): update installation instructions
@@ -498,7 +498,7 @@ docs(readme): update installation instructions
 
 Em caso de mudanças que quebram a API:
 
-```
+```text
 feat!: change user API response format
 
 BREAKING CHANGE: user response now includes additional metadata
@@ -506,7 +506,7 @@ BREAKING CHANGE: user response now includes additional metadata
 
 ou
 
-```
+```text
 feat(api)!: change authentication flow
 ```
 
@@ -604,7 +604,7 @@ export default {
 
 ##### Estilo Angular
 
-```
+```text
 feat(scope): add new feature
 fix(scope): fix bug
 docs(scope): update documentation
@@ -612,7 +612,7 @@ docs(scope): update documentation
 
 ##### Estilo com Gitmoji
 
-```
+```text
 ✨ feat: add user registration
 🐛 fix: resolve login issue
 📚 docs: update API docs
@@ -620,7 +620,7 @@ docs(scope): update documentation
 
 ##### Projeto em Português
 
-```
+```text
 feat: adicionar funcionalidade de registro de usuário
 fix: corrigir bug no processo de login
 docs: atualizar documentação da API

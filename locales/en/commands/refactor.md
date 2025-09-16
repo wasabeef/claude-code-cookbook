@@ -77,7 +77,7 @@ class PremiumPricing {
 
 #### Evaluation Criteria and Scoring
 
-```
+```text
 S - Single Responsibility (20 points)
 ├─ Number of responsibilities: 1 (20pts) | 2 (15pts) | 3 (10pts) | 4+ (5pts)
 ├─ Method count: <7 (+5pts) | 7-15 (+3pts) | >15 (0pts)
@@ -120,7 +120,7 @@ Total Score = S + O + L + I + D
 
 #### Debt Calculation Formula
 
-```
+```text
 Technical Debt (time) = Complexity Score × Impact Range × Fix Difficulty
 
 Complexity Score:

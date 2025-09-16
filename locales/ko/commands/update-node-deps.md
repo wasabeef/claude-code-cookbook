@@ -61,7 +61,7 @@ cat package.json tsconfig.json
 
 ### 위험도의 기준
 
-```
+```text
 안전(🟢)：
 - 패치 버전 업(1.2.3 → 1.2.4)
 - 버그 수정만

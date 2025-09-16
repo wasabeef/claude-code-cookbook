@@ -36,7 +36,7 @@ Verifies if a statement is true by checking your project's code and documentatio
 
 ### Report Format
 
-```
+```text
 ## Fact Check Results
 
 ### What You Asked

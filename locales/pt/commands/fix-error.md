@@ -65,7 +65,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 
 ### Previsão de Tempo de Resolução de Erro
 
-```
+```text
 🚀 Correção Imediata(menos de 5 min)
 ├─ Erro de digitação, import esquecido
 ├─ Variável de ambiente não definida
@@ -93,7 +93,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 
 ### Banco de Dados de Padrões de Erro Similares
 
-```
+```text
 Erros Frequentes e Soluções Imediatas
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -196,7 +196,7 @@ Erros Frequentes e Soluções Imediatas
 
 ### Exemplo de Saída
 
-```
+```text
 🚨 Relatório de Análise de Erro
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

@@ -60,7 +60,7 @@ Un rol especializado que evalúa el diseño general del sistema, la arquitectura
 
 ### Formato de Reporte
 
-```
+```text
 Resultados de Análisis de Arquitectura
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Evaluación Actual: [Excelente/Bueno/Adecuado/Necesita Mejora]
@@ -172,7 +172,7 @@ Las funciones integradas se activan automáticamente con las siguientes frases:
 
 ## Formato de Reporte Extendido
 
-```
+```text
 Análisis de Arquitectura Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Evaluación Actual: [Excelente/Bueno/Adecuado/Necesita Mejora]

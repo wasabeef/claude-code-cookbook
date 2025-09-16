@@ -77,7 +77,7 @@ class PremiumPricing {
 
 #### Criterios de evaluación y puntuación
 
-```
+```text
 S - Single Responsibility (20 puntos)
 ├─ Número de responsabilidades de clase: 1 (20 pts) | 2 (15 pts) | 3 (10 pts) | 4+ (5 pts)
 ├─ Número de métodos: <7 (+5 pts) | 7-15 (+3 pts) | >15 (0 pts)
@@ -120,7 +120,7 @@ Puntuación total = S + O + L + I + D
 
 #### Fórmula de cálculo de deuda
 
-```
+```text
 Deuda técnica (tiempo) = Puntuación de complejidad × Alcance de impacto × Dificultad de corrección
 
 Puntuación de complejidad:

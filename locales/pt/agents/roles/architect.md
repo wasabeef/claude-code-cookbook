@@ -60,7 +60,7 @@ Papel especializado que avalia o design, arquitetura e seleção de tecnologia d
 
 ### Formato de Relatório
 
-```
+```text
 Resultado da Análise Arquitetural
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação Atual: [Excelente/Boa/Aceitável/Requer Melhoria]
@@ -172,7 +172,7 @@ A funcionalidade integrada é automaticamente ativada pelas seguintes frases:
 
 ## Formato de Relatório Expandido
 
-```
+```text
 Análise Arquitetural Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação Atual: [Excelente/Boa/Aceitável/Requer Melhoria]

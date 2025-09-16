@@ -30,7 +30,7 @@ A selection guide and help system when you're unsure which role to use.
 
 ### Security-Related
 
-```
+```text
 Use security role for:
 ✅ Implementation of login/authentication functions
 ✅ Security vulnerability checks for APIs
@@ -43,7 +43,7 @@ Usage: /role security
 
 ### 🏗️ Architecture & Design
 
-```
+```text
 Use architect role for:
 ✅ Evaluation of overall system design
 ✅ Microservices vs monolith decisions
@@ -56,7 +56,7 @@ Usage: /role architect
 
 ### ⚡ Performance Issues
 
-```
+```text
 Use performance role for:
 ✅ Slow applications
 ✅ Database query optimization
@@ -69,7 +69,7 @@ Usage: /role performance
 
 ### 🔍 Problem Root Cause Investigation
 
-```
+```text
 Use analyzer role for:
 ✅ Root cause analysis of bugs and errors
 ✅ Investigation of system failures
@@ -82,7 +82,7 @@ Usage: /role analyzer
 
 ### 🎨 Frontend & UI/UX
 
-```
+```text
 Use frontend role for:
 ✅ User interface improvements
 ✅ Accessibility compliance
@@ -95,7 +95,7 @@ Usage: /role frontend
 
 ### 📱 Mobile App Development
 
-```
+```text
 Use mobile role for:
 ✅ iOS and Android app optimization
 ✅ Mobile-specific UX design
@@ -108,7 +108,7 @@ Usage: /role mobile
 
 ### 👀 Code Review & Quality
 
-```
+```text
 Use reviewer role for:
 ✅ Code quality checks
 ✅ Readability and maintainability evaluation
@@ -121,7 +121,7 @@ Usage: /role reviewer
 
 ### 🧪 Testing & Quality Assurance
 
-```
+```text
 Use qa role for:
 ✅ Test strategy planning
 ✅ Test coverage evaluation
@@ -136,7 +136,7 @@ Usage: /role qa
 
 ### 🔄 multi-role (Parallel Analysis)
 
-```
+```text
 Use multi-role for:
 ✅ Evaluation from multiple professional perspectives
 ✅ Creating integrated improvement plans
@@ -148,7 +148,7 @@ Example: /multi-role security,performance
 
 ### 🗣️ role-debate (Discussion)
 
-```
+```text
 Use role-debate for:
 ✅ Trade-offs between specialized fields
 ✅ Divided opinions on technology selection
@@ -160,7 +160,7 @@ Example: /role-debate security,performance
 
 ### 🤖 smart-review (Automatic Proposal)
 
-```
+```text
 Use smart-review for:
 ✅ Uncertainty about which role to use
 ✅ Wanting to know the optimal approach for current situation
@@ -202,7 +202,7 @@ Example: /smart-review
 
 ### Decision Flowchart When Unsure
 
-```
+```text
 What is the nature of the problem?
 ├─ Security-related → security
 ├─ Performance issues → performance
@@ -223,7 +223,7 @@ Spans multiple fields?
 
 ### Q: What's the difference between frontend and mobile roles?
 
-```
+```text
 A:
 frontend: Web browser-focused, HTML/CSS/JavaScript
 mobile: Mobile app-focused, iOS/Android native, React Native, etc.
@@ -233,7 +233,7 @@ For issues related to both, multi-role frontend,mobile is recommended
 
 ### Q: How to choose between security and analyzer roles?
 
-```
+```text
 A:
 security: Prevention of attacks and threats, security design
 analyzer: Analysis of causes of existing problems, investigation
@@ -243,7 +243,7 @@ For security incident investigations, use multi-role security,analyzer
 
 ### Q: What's the difference between architect and performance roles?
 
-```
+```text
 A:
 architect: Long-term design of entire systems, scalability
 performance: Specific speed and efficiency improvements

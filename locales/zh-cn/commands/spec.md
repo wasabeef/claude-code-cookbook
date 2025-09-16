@@ -127,7 +127,7 @@
 
 **1. 从最少输入自动扩展(Kiro 式)**
 
-```
+```text
 用户：「用户管理系统
 - 登录功能
 - 个人资料编辑
@@ -148,7 +148,7 @@ Claude：「从需求生成详细用户故事。
 
 **2. 使用 EARS 记法的结构化需求描述**
 
-```
+```text
 Claude：「使用 Kiro 的 EARS 记法结构化需求：
 
 EARS 记法需求定义：
@@ -170,7 +170,7 @@ AND 不足时拒绝访问」
 
 **3. 边缘情况和安全需求的自动补充**
 
-```
+```text
 Claude：「基于 Kiro 的最佳实践，还考虑了以下情况：
 
 安全需求(自动补充)：
@@ -190,7 +190,7 @@ Claude：「基于 Kiro 的最佳实践，还考虑了以下情况：
 
 **5. Phase 1 完成和批准**
 
-```
+```text
 Claude：「Requirements Phase 已完成。
 可以生成 requirements.md 吗？」
 → 「继续」→ 生成 requirements.md
@@ -200,7 +200,7 @@ Claude：「Requirements Phase 已完成。
 
 **1. 代码库分析 + 自动设计建议(Kiro 式)**
 
-```
+```text
 Claude：「分析现有代码库，提出最佳架构：
 
 代码库分析结果：
@@ -220,7 +220,7 @@ Kiro 推荐架构：
 
 **2. 使用 Mermaid 图的可视化设计**
 
-```
+```text
 Claude：「自动生成系统设计的 Mermaid 图：
 
 自动生成的架构图：
@@ -243,7 +243,7 @@ graph TB
 
 **3. TypeScript 接口自动生成**
 
-```
+```text
 Claude：「基于设计自动生成 TypeScript 接口：
 
 自动生成的 TypeScript 接口：
@@ -289,7 +289,7 @@ interface AuthenticationService {
 
 **4. Phase 2 完成和批准**
 
-```
+```text
 
 Claude：「Design Phase 已完成。
 可以生成 design.md 吗？」
@@ -301,7 +301,7 @@ Claude：「Design Phase 已完成。
 
 **1. 最佳实践自动应用(Kiro 式)**
 
-```
+```text
 
 Claude：「生成了自动应用 Kiro 最佳实践的实施计划：
 
@@ -328,7 +328,7 @@ Claude：「生成了自动应用 Kiro 最佳实践的实施计划：
 
 **2. 质量检查点自动设置**
 
-```
+```text
 
 Claude：「自动设置各实施阶段的质量检查点：
 
@@ -361,7 +361,7 @@ Phase 3c: 集成和部署
 
 **3. 依赖关系和风险缓解的自动分析**
 
-```
+```text
 
 Claude：「自动分析实施顺序和风险缓解策略：
 
@@ -401,7 +401,7 @@ Week 3: 高级功能和优化
 
 **4. Phase 3 完成和批准**
 
-```
+```text
 
 Claude：「Implementation Planning Phase 已完成。
 可以生成 tasks.md 吗？」
@@ -413,7 +413,7 @@ Claude：「Implementation Planning Phase 已完成。
 
 **EARS 记法 (Easy Approach to Requirements Syntax)**
 
-```
+```text
 # Kiro 标准的 EARS 记法模式
 
 WHEN [情况・触发器]
@@ -491,7 +491,7 @@ THE SYSTEM SHALL [对应行为]
 
 **文件生成时机**
 
-```
+```text
 Phase 1 完成 → 「继续」 → 生成 requirements.md
 Phase 2 完成 → 「继续」 → 生成 design.md
 Phase 3 完成 → 「继续」 → 生成 tasks.md

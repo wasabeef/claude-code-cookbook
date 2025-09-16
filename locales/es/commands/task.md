@@ -71,7 +71,7 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 
 #### Guía de Decisión Rápida
 
-```
+```text
 ¿Necesitas recopilar información?
 ├─ Sí → ¿De muchos lugares o muchos archivos?
 │          ├─ Sí → **Usar Task**
@@ -157,7 +157,7 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 
 #### Flujo de Ejecución de Task
 
-```
+```text
 1. Análisis Inicial
    ├─ Descomposición de tarea e identificación del alcance de investigación
    ├─ Selección de herramientas necesarias y fuentes de información

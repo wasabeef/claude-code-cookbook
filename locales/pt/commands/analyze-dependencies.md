@@ -55,7 +55,7 @@ Exibe as dependências entre módulos de forma numerizada:
 
 ### Exemplo de Saída
 
-```
+```text
 Relatório de Análise de Dependências
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

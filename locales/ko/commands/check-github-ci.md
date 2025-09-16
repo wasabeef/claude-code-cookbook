@@ -32,7 +32,7 @@ gh pr checks
 
 ### 실행 결과 예시
 
-```
+```text
 All checks were successful
 0 cancelled, 0 failing, 8 successful, 3 skipped, and 0 pending checks
 

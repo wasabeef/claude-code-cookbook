@@ -12,7 +12,7 @@ ls -la
 
 ### Tableau de Bord de Santé du Projet
 
-```
+```text
 Score de Santé du Projet: 72/100
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -117,7 +117,7 @@ find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f 
 
 ### Matrice de Priorités de Dette
 
-```
+```text
 Priorité = (Impact × Fréquence) ÷ Coût de correction
 ```
 
@@ -142,7 +142,7 @@ Priorité = (Impact × Fréquence) ÷ Coût de correction
 
 ### Calcul d'Impact de Dette Technique
 
-```
+```text
 Impact = Σ(poids de chaque élément × valeur mesurée)
 
 📊 Indicateurs d'impact mesurables:
@@ -164,7 +164,7 @@ Impact = Σ(poids de chaque élément × valeur mesurée)
 
 ### Calcul de ROI basé sur le temps
 
-```
+```text
 ROI = (temps réduit - temps d'investissement) ÷ temps d'investissement × 100
 
 Exemple: Résolution de dépendances circulaires

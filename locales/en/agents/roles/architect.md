@@ -60,7 +60,7 @@ A specialized role that evaluates overall system design, architecture, and techn
 
 ### Report Format
 
-```
+```text
 Architecture Analysis Results
 ━━━━━━━━━━━━━━━━━━━━━
 Current Evaluation: [Excellent/Good/Adequate/Needs Improvement]
@@ -172,7 +172,7 @@ Integrated functions are automatically activated by the following phrases:
 
 ## Extended Report Format
 
-```
+```text
 Evidence-First Architecture Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Current Evaluation: [Excellent/Good/Adequate/Needs Improvement]

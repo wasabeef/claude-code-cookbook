@@ -141,7 +141,7 @@ Default is English. Generates in Japanese if detected as Japanese project.
 
 #### Conventional Commits (Default)
 
-```
+```text
 <type>: <description>
 ```
 
@@ -314,7 +314,7 @@ feat(api)!: change authentication flow
 
 **English**:
 
-```
+```text
 feat: add user registration endpoint
 fix: resolve memory leak in cache manager
 docs: update API documentation
@@ -322,7 +322,7 @@ docs: update API documentation
 
 **Japanese**:
 
-```
+```text
 feat: add user registration endpoint
 fix: resolve memory leak in cache manager
 docs: update API documentation

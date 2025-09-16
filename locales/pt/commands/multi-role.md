@@ -71,7 +71,7 @@ Geração de recomendações finais
 
 ### Caso de análise com 2 roles
 
-```
+```text
 Análise Multi-Role: Security + Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Objeto de análise: Endpoint API /api/users
@@ -116,7 +116,7 @@ Mês 2: Reforço gradual do controle de autorização
 
 ### Caso de análise com 3 roles
 
-```
+```text
 Análise Multi-Role: Frontend + Mobile + Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Objeto de análise: Tela de perfil do usuário
@@ -248,7 +248,7 @@ Quando o campo description dos arquivos de role contém frases como as seguintes
 
 #### Fluxo de Execução
 
-```
+```text
 Execução normal:
 Role 1 → Role 2 → Role 3 → Integração
 (Execução sequencial, cerca de 3-5 minutos)

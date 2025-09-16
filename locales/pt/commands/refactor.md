@@ -77,7 +77,7 @@ class PremiumPricing {
 
 #### Critérios de Avaliação e Pontuação
 
-```
+```text
 S - Single Responsibility (20 pontos)
 ├─ Número de responsabilidades da classe: 1 (20 pts) | 2 (15 pts) | 3 (10 pts) | 4+ (5 pts)
 ├─ Número de métodos: <7 (+5 pts) | 7-15 (+3 pts) | >15 (0 pts)
@@ -120,7 +120,7 @@ Pontuação Total = S + O + L + I + D
 
 #### Fórmula de Cálculo da Dívida
 
-```
+```text
 Dívida Técnica (tempo) = Pontuação de Complexidade × Escopo de Impacto × Dificuldade de Correção
 
 Pontuação de Complexidade:

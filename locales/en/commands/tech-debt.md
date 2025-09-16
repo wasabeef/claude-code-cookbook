@@ -12,7 +12,7 @@ ls -la
 
 ### Project Health Dashboard
 
-```
+```text
 Project Health Score: 72/100
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -117,7 +117,7 @@ find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f 
 
 ### Debt Priority Matrix
 
-```
+```text
 Priority = (Impact × Frequency) ÷ Fix Cost
 ```
 
@@ -142,7 +142,7 @@ Priority = (Impact × Frequency) ÷ Fix Cost
 
 ### Technical Debt Impact Calculation
 
-```
+```text
 Impact = Σ(Weight of each factor × Measured value)
 
 📊 Measurable Impact Indicators:
@@ -164,7 +164,7 @@ Impact = Σ(Weight of each factor × Measured value)
 
 ### Time-based ROI Calculation
 
-```
+```text
 ROI = (Time Saved - Investment Time) ÷ Investment Time × 100
 
 Example: Resolving circular dependencies

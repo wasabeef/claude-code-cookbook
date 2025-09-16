@@ -67,7 +67,7 @@ _Vous pouvez omettre cette section pour des commandes simples._
 
 ### Exemples de sortie (Optionnel)
 
-```
+```text
 Exemple de format de sortie attendu
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

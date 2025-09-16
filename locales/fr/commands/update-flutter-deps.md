@@ -60,7 +60,7 @@ cat pubspec.yaml
 
 ### Critères de risque
 
-```
+```text
 Sûr (🟢) :
 - Mise à niveau de version patch (1.2.3 → 1.2.4)
 - Corrections de bugs uniquement

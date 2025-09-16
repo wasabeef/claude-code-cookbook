@@ -57,7 +57,7 @@
 
 ### SOLID 원칙 체크 항목
 
-```
+```text
 S - Single Responsibility Principle (단일 책임 원칙)
 O - Open/Closed Principle (개방 폐쇄 원칙)
 L - Liskov Substitution Principle (리스코프 치환 원칙)
@@ -67,7 +67,7 @@ D - Dependency Inversion Principle (의존성 역전 원칙)
 
 ### 출력 예시
 
-```
+```text
 디자인 패턴 분석 리포트
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

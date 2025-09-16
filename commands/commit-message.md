@@ -141,7 +141,7 @@ sort | uniq -c | sort -nr
 
 #### Conventional Commits (デフォルト)
 
-```
+```text
 <type>: <description>
 ```
 
@@ -314,7 +314,7 @@ feat(api)!: 認証フローを変更
 
 **英語**:
 
-```
+```text
 feat: add user registration endpoint
 fix: resolve memory leak in cache manager
 docs: update API documentation
@@ -322,7 +322,7 @@ docs: update API documentation
 
 **日本語**:
 
-```
+```text
 feat: ユーザー登録エンドポイントを追加
 fix: キャッシュマネージャーのメモリリークを解決
 docs: API ドキュメントを更新

@@ -71,7 +71,7 @@ Generar recomendaciones finales
 
 ### Para Análisis de 2 Roles
 
-```
+```text
 Análisis Multi-role: Security + Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -117,7 +117,7 @@ Mes 2: Fortalecimiento progresivo del control de autorización
 
 ### Para Análisis de 3 Roles
 
-```
+```text
 Análisis Multi-role: Frontend + Mobile + Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -250,7 +250,7 @@ Si las descripciones de archivos de rol incluyen frases como estas, se habilita 
 
 #### Flujo de Ejecución
 
-```
+```text
 Ejecución normal:
 Rol 1 → Rol 2 → Rol 3 → Integración
 (Ejecución secuencial, aprox. 3-5 minutos)

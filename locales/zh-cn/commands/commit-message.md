@@ -141,7 +141,7 @@ sort | uniq -c | sort -nr
 
 #### Conventional Commits (默认)
 
-```
+```text
 <type>: <description>
 ```
 
@@ -314,7 +314,7 @@ feat(api)!: 更改认证流程
 
 **英文**:
 
-```
+```text
 feat: add user registration endpoint
 fix: resolve memory leak in cache manager
 docs: update API documentation
@@ -322,7 +322,7 @@ docs: update API documentation
 
 **中文**:
 
-```
+```text
 feat: 添加用户注册端点
 fix: 解决缓存管理器内存泄漏
 docs: 更新 API 文档

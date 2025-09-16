@@ -127,7 +127,7 @@ Contrairement aux outils traditionnels de génération de code, il réalise le d
 
 **1. Expansion automatique à partir de saisie minimale (Style Kiro)**
 
-```
+```text
 Utilisateur : "Système de gestion d'utilisateurs
 - Fonctionnalité de connexion
 - Édition de profil
@@ -148,7 +148,7 @@ J'ai ajouté quelques détails que vous n'avez pas mentionnés. Autre chose néc
 
 **2. Description d'exigences structurées utilisant la notation EARS**
 
-```
+```text
 Claude : "Laissez-moi structurer ceci en utilisant la notation EARS :
 
 Voici les exigences au format EARS :
@@ -169,7 +169,7 @@ AND refuser l'accès si insuffisant"
 
 **3. Complétion automatique des cas limites et exigences de sécurité**
 
-```
+```text
 Claude : "Suivant les bonnes pratiques, j'ai aussi pensé à ceci :
 
 Exigences de sécurité (auto-ajoutées) :
@@ -189,7 +189,7 @@ Cela vous semble-t-il correct ?"
 
 **5. Complétion et approbation Phase 1**
 
-```
+```text
 Claude : "Phase exigences terminée.
 Dois-je créer requirements.md ?"
 → "Oui" → génère requirements.md
@@ -199,7 +199,7 @@ Dois-je créer requirements.md ?"
 
 **1. Analyse de base de code + Proposition de conception automatique (Style Kiro)**
 
-```
+```text
 Claude : "Après analyse de votre base de code, voici mon architecture recommandée :
 
 Résultats d'analyse de base de code :
@@ -219,12 +219,11 @@ Devons-nous procéder avec cette conception ?"
 
 **2. Conception visuelle avec diagrammes Mermaid**
 
-````
+```text
 Claude : "J'ai automatiquement généré une conception système utilisant les diagrammes Mermaid :
 
 Diagramme d'architecture généré automatiquement :
 
-```text
 graph TB
     Client[Client React] --> API[Express API Gateway]
     API --> Auth[Service Auth]
@@ -237,21 +236,16 @@ graph TB
 
     Auth --> JWT[Service JWT]
     Auth --> OAuth[Fournisseur OAuth]
-````
-
 Dois-je également générer un diagramme de flux de données ?"
-
 ```
 
 **3. Génération automatique d'interfaces TypeScript**
 
-```
-
+```text
 Claude : "Je vais automatiquement générer les interfaces TypeScript basées sur la conception :
 
 Interfaces TypeScript générées automatiquement :
 
-```text
 // Entités de domaine
 interface User {
   readonly id: UserId;
@@ -287,14 +281,12 @@ interface AuthenticationService {
   authenticate(credentials: LoginCredentials): Promise<AuthResult>;
   refreshToken(token: RefreshToken): Promise<AccessToken>;
 }
-```
-
 Devons-nous procéder avec cette conception d'interface ?"
-
 ```
 
 **4. Complétion et approbation Phase 2**
-```
+
+```text
 
 Claude : "La Phase de Conception est terminée.
 Puis-je générer design.md ?"
@@ -305,7 +297,8 @@ Puis-je générer design.md ?"
 #### Phase 3 : Planification et discussion d'implémentation
 
 **1. Application automatique des bonnes pratiques (Style Kiro)**
-```
+
+```text
 
 Claude : "J'ai généré un plan d'implémentation avec application automatique des bonnes pratiques de Kiro :
 
@@ -331,7 +324,8 @@ Devons-nous procéder avec cette approche ?"
 ```
 
 **2. Paramétrage automatique de points de contrôle qualité**
-```
+
+```text
 
 Claude : "J'ai automatiquement défini des points de contrôle qualité pour chaque phase d'implémentation :
 
@@ -363,7 +357,8 @@ Tous seront exécutés automatiquement. Y a-t-il des standards qualité supplém
 ```
 
 **3. Analyse automatique des dépendances et atténuation des risques**
-```
+
+```text
 
 Claude : "J'ai automatiquement analysé l'ordre d'implémentation et les mesures d'atténuation des risques :
 
@@ -402,19 +397,18 @@ Ce plan est-il acceptable ?"
 ```
 
 **4. Complétion et approbation Phase 3**
-```
 
+```text
 Claude : "La Phase de Planification d'Implémentation est terminée.
 Puis-je générer tasks.md ?"
 → "Procéder" → génération tasks.md
-
-````
+```
 
 ### Fonctionnalités spécifiques à Kiro
 
 **Notation EARS (Easy Approach to Requirements Syntax)**
 
-```text
+```markdown
 # Patterns de notation EARS standard Kiro
 
 WHEN [situation/déclencheur]
@@ -429,7 +423,7 @@ AND [comportement lié]
 WHERE [fonction/composant]
 IS [condition/état]
 THE SYSTEM SHALL [comportement correspondant]
-````
+```
 
 **Fonctionnalités de génération automatique**
 
@@ -492,7 +486,7 @@ THE SYSTEM SHALL [comportement correspondant]
 
 **Timing génération fichier**
 
-```
+```text
 Complétion Phase 1 → "Procéder" → génération requirements.md
 Complétion Phase 2 → "Procéder" → génération design.md
 Complétion Phase 3 → "Procéder" → génération tasks.md
