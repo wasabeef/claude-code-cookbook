@@ -32,7 +32,7 @@ git push -u origin feat-user-profile
 1. git diff --cached で変更内容を確認
 2. .github/PULL_REQUEST_TEMPLATE.md を使用して説明文を作成
 3. 変更内容から適切なラベルを最大 3 個選択
-4. Draft PR として作成(HTML コメント保持)」
+4. Draft PR として作成 (HTML コメント保持)」
 
 # 3. CI 確認後に Ready 化
 「CI が通ったら PR を Ready for Review に変更してください」
@@ -48,7 +48,7 @@ git checkout main
 git pull
 git checkout -b feat-user-authentication
 
-# ブランチ確認(現在のブランチ名を表示)
+# ブランチ確認 (現在のブランチ名を表示)
 git branch --show-current
 ```
 
@@ -77,10 +77,10 @@ git push
 **Step 1: 変更内容の分析**
 
 ```bash
-# ファイル変更の取得(ステージ済み変更を確認)
+# ファイル変更の取得 (ステージ済み変更を確認)
 git diff --cached --name-only
 
-# 内容分析(最大 1000 行)
+# 内容分析 (最大 1000 行)
 git diff --cached | head -1000
 ```
 
@@ -88,7 +88,7 @@ git diff --cached | head -1000
 
 ```bash
 # テンプレート処理の優先順位
-# 1. 既存 PR 説明(完全保持)
+# 1. 既存 PR 説明 (完全保持)
 # 2. .github/PULL_REQUEST_TEMPLATE.md
 # 3. デフォルトテンプレート
 
@@ -99,24 +99,24 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 **Step 3: ラベルの自動選択**
 
 ```bash
-# 利用可能ラベルの取得(非インタラクティブ)
+# 利用可能ラベルの取得 (非インタラクティブ)
 「.github/labels.yml または GitHub リポジトリから利用可能なラベルを取得して、変更内容に基づいて適切なラベルを自動選択してください」
 
-# パターンマッチングによる自動選択(最大 3 個)
+# パターンマッチングによる自動選択 (最大 3 個)
 # - ドキュメント: *.md, docs/ → documentation|docs
 # - テスト: test, spec → test|testing
 # - バグ修正: fix|bug → bug|fix
 # - 新機能: feat|feature → feature|enhancement
 ```
 
-**Step 4: GitHub API での PR 作成(HTML コメント保持)**
+**Step 4: GitHub API での PR 作成 (HTML コメント保持)**
 
 ```bash
 # PR 作成
 「以下の情報で Draft PR を作成してください：
 - タイトル: コミットメッセージから自動生成
 - 説明文: .github/PULL_REQUEST_TEMPLATE.md を使用して適切に記入
-- ラベル: 変更内容から自動選択(最大 3 個)
+- ラベル: 変更内容から自動選択 (最大 3 個)
 - ベースブランチ: main
 - HTML コメントは完全に保持」
 ```

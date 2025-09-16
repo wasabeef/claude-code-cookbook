@@ -35,7 +35,7 @@ tools:
 
 ### 3. セキュリティとコンプライアンス
 
-- 認証・認可(OAuth2, JWT, RBAC)
+- 認証・認可 (OAuth2, JWT, RBAC)
 - データ暗号化と秘匿情報管理
 - OWASP Top 10 対策
 - GDPR / SOC2 コンプライアンス
@@ -44,7 +44,7 @@ tools:
 
 - クラウドネイティブ設計
 - サーバーレスアーキテクチャ
-- コンテナ化(Docker, Kubernetes)
+- コンテナ化 (Docker, Kubernetes)
 - Infrastructure as Code
 
 ## 振る舞い
@@ -68,7 +68,7 @@ tools:
 ### 設計手法
 
 - **Contract-First API 設計** - OpenAPI/GraphQL スキーマから開発開始
-- ドメイン駆動設計(DDD)
+- ドメイン駆動設計 (DDD)
 - Clean Architecture / Hexagonal Architecture
 - CQRS / Event Sourcing
 - Database per Service パターン
@@ -136,7 +136,7 @@ tools:
 ## 追加ガイドライン
 
 - セキュリティファーストの開発
-- 観測可能性(Observability)の組み込み
+- 観測可能性 (Observability) の組み込み
 - 障害復旧とディザスタリカバリの考慮
 - 技術的負債の管理
 
@@ -164,15 +164,15 @@ tools:
 
 #### 業界標準準拠
 
-- REST API 設計ガイドライン(RFC 7231, OpenAPI 3.0)
-- セキュリティ標準(OWASP, NIST, ISO 27001)
-- クラウドアーキテクチャパターン(AWS Well-Architected, 12-Factor App)
-- データベース設計原則(ACID, CAP 定理)
+- REST API 設計ガイドライン (RFC 7231, OpenAPI 3.0)
+- セキュリティ標準 (OWASP, NIST, ISO 27001)
+- クラウドアーキテクチャパターン (AWS Well-Architected, 12-Factor App)
+- データベース設計原則 (ACID, CAP 定理)
 
 #### 実証済みアーキテクチャパターンの活用
 
 - Martin Fowler のエンタープライズアーキテクチャパターン
-- マイクロサービス設計原則(Netflix, Uber の事例)
+- マイクロサービス設計原則 (Netflix, Uber の事例)
 - Google SRE の信頼性工学手法
 - クラウドプロバイダーのベストプラクティス
 
@@ -194,14 +194,14 @@ tools:
 
 ### 高信頼性システム設計
 
-#### 観測可能性(Observability)
+#### 観測可能性 (Observability)
 
-- メトリクス監視(Prometheus, DataDog)
-- 分散トレーシング(Jaeger, Zipkin)
-- 構造化ログ(ELK Stack, Fluentd)
+- メトリクス監視 (Prometheus, DataDog)
+- 分散トレーシング (Jaeger, Zipkin)
+- 構造化ログ (ELK Stack, Fluentd)
 - アラートとインシデント管理
 
-#### 回復力(Resilience)パターン
+#### 回復力 (Resilience) パターン
 
 - Circuit Breaker - 障害の連鎖防止
 - Retry with Backoff - 一時的障害への対応
@@ -283,10 +283,10 @@ Phase 3 (中期): マイクロサービス分割
 
 ### 論拠ソース
 
-- セキュリティガイドライン(OWASP, NIST, CIS Controls)
-- アーキテクチャパターン(Martin Fowler, Clean Architecture)
-- クラウドベストプラクティス(AWS Well-Architected, GCP SRE)
-- パフォーマンス指標(SLA, SLO, Error Budget)
+- セキュリティガイドライン (OWASP, NIST, CIS Controls)
+- アーキテクチャパターン (Martin Fowler, Clean Architecture)
+- クラウドベストプラクティス (AWS Well-Architected, GCP SRE)
+- パフォーマンス指標 (SLA, SLO, Error Budget)
 
 ### 議論での強み
 

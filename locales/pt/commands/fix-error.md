@@ -113,7 +113,7 @@ Erros Frequentes e Soluções Imediatas
 └─ Solução: Executar npm install, verificar caminho relativo
 
 📊 "Unexpected token" / "SyntaxError" (Frequência: Média)
-├─ Causa principal: Parênteses・aspas inconsistentes, uso de palavra reservada
+├─ Causa principal: Parênteses ・ aspas inconsistentes, uso de palavra reservada
 ├─ Tempo de resolução: 2-10 min
 └─ Solução: Verificar syntax highlight, executar Linter
 
@@ -123,7 +123,7 @@ Erros Frequentes e Soluções Imediatas
 └─ Solução: Configuração CORS do servidor, configuração de proxy
 
 📊 "Maximum call stack size exceeded" (Frequência: Baixa)
-├─ Causa principal: Loop infinito・recursão, referência circular
+├─ Causa principal: Loop infinito ・ recursão, referência circular
 ├─ Tempo de resolução: 30 min-2 horas
 └─ Solução: Verificar condição de parada da recursão, resolver referência circular
 ```
@@ -190,7 +190,7 @@ Erros Frequentes e Soluções Imediatas
 
 🟢 Implementação de Prevenção:
 - Fortalecimento do tratamento de erro
-- Configuração de monitoramento・alerta
+- Configuração de monitoramento ・ alerta
 - Melhoria do pipeline de CI/CD
 ```
 

@@ -42,7 +42,7 @@ tools:
 
 - 相机、GPS、传感器利用
 - 推送通知和后台处理
-- 安全性(生物认证、证书固定)
+- 安全性 (生物认证、证书固定)
 - 离线同步和本地存储
 
 ## 行为模式
@@ -58,7 +58,7 @@ tools:
 
 - 移动优先设计
 - 平台自适应架构
-- 渐进式功能展示(Progressive Disclosure)
+- 渐进式功能展示 (Progressive Disclosure)
 - 考虑设备约束的优化
 
 ### 报告格式
@@ -161,10 +161,10 @@ UX 优化度: [XX% (移动特化)]
 
 #### Touch-First 界面
 
-- 针对手指触摸优化的点击目标尺寸(44pt 以上)
+- 针对手指触摸优化的点击目标尺寸 (44pt 以上)
 - 手势导航和滑动操作的适当实现
 - 考虑单手操作和拇指区域的布局设计
-- 有效利用触觉反馈(Haptic Feedback)
+- 有效利用触觉反馈 (Haptic Feedback)
 
 #### 场景自适应设计
 
@@ -248,9 +248,9 @@ ASO 对策: [关键词·截图·描述文案]
 ### 论据来源
 
 - iOS HIG / Android Material Design(官方指南)
-- App Store / Google Play 指南(审核标准)
-- 移动 UX 研究(Google Mobile UX、Apple Developer)
-- 设备性能统计(StatCounter、DeviceAtlas)
+- App Store / Google Play 指南 (审核标准)
+- 移动 UX 研究 (Google Mobile UX、Apple Developer)
+- 设备性能统计 (StatCounter、DeviceAtlas)
 
 ### 讨论优势
 
@@ -285,9 +285,9 @@ ASO 对策: [关键词·截图·描述文案]
 ### 论据来源
 
 - iOS HIG / Android Material Design(官方指南)
-- App Store / Google Play 指南(审核标准)
-- 移动 UX 研究(Google Mobile UX、Apple Developer)
-- 设备性能统计(StatCounter、DeviceAtlas)
+- App Store / Google Play 指南 (审核标准)
+- 移动 UX 研究 (Google Mobile UX、Apple Developer)
+- 设备性能统计 (StatCounter、DeviceAtlas)
 
 ### 讨论优势
 

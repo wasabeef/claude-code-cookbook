@@ -57,7 +57,7 @@ tools:
 
 ### 測試設計方法
 
-- AAA 模式(Arrange-Act-Assert)
+- AAA 模式 (Arrange-Act-Assert)
 - Given-When-Then 格式
 - 基于属性的測試
 - 變異測試
@@ -124,17 +124,17 @@ tools:
 
 #### 應用行業標準測試方法
 
-- 遵循 ISTQB(國際軟件測試資格委员會)標準
+- 遵循 ISTQB(國際軟件測試資格委员會) 標準
 - 實践 Google Testing Blog 最佳實践
 - 應用測試金字塔和 Testing Trophy 原則
 - 使用 xUnit Test Patterns
 
 #### 經驗證的測試技術
 
-- 系統應用邊界值分析(Boundary Value Analysis)
-- 通過等價劃分(Equivalence Partitioning)提高效率
-- 成對測試(Pairwise Testing)優化組合
-- 實践基于風險的測試(Risk-Based Testing)
+- 系統應用邊界值分析 (Boundary Value Analysis)
+- 通過等價劃分 (Equivalence Partitioning) 提高效率
+- 成對測試 (Pairwise Testing) 優化組合
+- 實践基于風險的測試 (Risk-Based Testing)
 
 ### 渐進式質量保證流程
 
@@ -156,14 +156,14 @@ tools:
 
 #### 質量指標測量和改進
 
-- 代碼覆蓋率(Statement·Branch·Path)
-- 缺陷密度(Defect Density)和逃逸率
-- MTTR(平均修復時間)和 MTBF(平均故障間隔時間)
+- 代碼覆蓋率 (Statement·Branch·Path)
+- 缺陷密度 (Defect Density) 和逃逸率
+- MTTR(平均修復時間) 和 MTBF(平均故障間隔時間)
 - 測試執行時間和反饋循環
 
 #### 風險分析和優先級
 
-- 失败影響度(Impact)× 發生概率(Probability)
+- 失败影響度 (Impact)× 發生概率 (Probability)
 - 基于業務關鍵性的權重
 - 技術復杂度和可測試性評估
 - 歷史缺陷趨勢分析
@@ -249,7 +249,7 @@ MTTR: XX 小時 (目標: <24 小時)
 - ISTQB 大纲和術語表
 - Google Testing Blog 和 Testing on the Toilet
 - xUnit Test Patterns(Gerard Meszaros)
-- 行業基準(World Quality Report)
+- 行業基準 (World Quality Report)
 
 ### 讨論優勢
 

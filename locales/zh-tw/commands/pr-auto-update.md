@@ -12,11 +12,11 @@
 
 ### 選項
 
-- `--pr <編号>` : 指定目標 PR 編号(省略時從當前分支自動檢測)
-- `--description-only` : 仅更新描述(不修改標簽)
-- `--labels-only` : 仅更新標簽(不修改描述)
+- `--pr <編号>` : 指定目標 PR 編号 (省略時從當前分支自動檢測)
+- `--description-only` : 仅更新描述 (不修改標簽)
+- `--labels-only` : 仅更新標簽 (不修改描述)
 - `--dry-run` : 不執行實際更新，仅顯示生成的內容
-- `--lang <語言>` : 指定語言(zh-tw, en)
+- `--lang <語言>` : 指定語言 (zh-tw, en)
 
 ### 基本示例
 
@@ -70,7 +70,7 @@ gh pr list --head $(git branch --show-current) --json number,title,url
 
 - 保留已寫的部分
 - 仅補充空白部分
-- 保留功能性注釋(如 Copilot review rule 等)
+- 保留功能性注釋 (如 Copilot review rule 等)
 
 #### 項目模板的使用
 
@@ -197,7 +197,7 @@ generate_from_template() {
   local changes="$2"
 
   if [ -n "$template" ]; then
-    # 直接使用模板(保留 HTML 注釋)
+    # 直接使用模板 (保留 HTML 注釋)
     echo "$template"
   else
     # 使用默認格式生成
@@ -314,7 +314,7 @@ update_pr() {
     local owner=$(echo "$repo_info" | jq -r .owner.login)
     local repo=$(echo "$repo_info" | jq -r .name)
 
-    # 使用 GitHub API 更新正文(保留 HTML 注釋)
+    # 使用 GitHub API 更新正文 (保留 HTML 注釋)
     # 正確處理 JSON 轉義
     local escaped_body=$(echo "$description" | jq -R -s .)
     gh api \
@@ -330,7 +330,7 @@ update_pr() {
 }
 ```
 
-## 配置文件(未來擴展用)
+## 配置文件 (未來擴展用)
 
 `~/.claude/pr-auto-update.config`:
 
@@ -429,7 +429,7 @@ update_pr() {
 
 5. **保持一致性**:
    - 符合項目現有 PR 風格
-   - 統一語言(中文/英語)
+   - 統一語言 (中文/英語)
    - 繼承標簽規則
 
 ## 故障排除
@@ -455,6 +455,6 @@ update_pr() {
 ### 調試選項
 
 ```bash
-# 輸出詳细日誌(實現時添加)
+# 輸出詳细日誌 (實現時添加)
 /pr-auto-update --verbose
 ```

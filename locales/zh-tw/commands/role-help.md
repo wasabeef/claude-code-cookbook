@@ -7,7 +7,7 @@
 ```bash
 /role-help                      # 全面的角色選擇指南
 /role-help <情况/問題>          # 特定情况的推薦角色
-/role-help compare <角色1>,<角色2> # 角色比较
+/role-help compare <角色 1>,<角色 2> # 角色比较
 ```
 
 ### 基本示例

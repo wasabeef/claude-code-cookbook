@@ -42,7 +42,7 @@ tools:
 
 - 相機、GPS、傳感器利用
 - 推送通知和後台處理
-- 安全性(生物認證、證書固定)
+- 安全性 (生物認證、證書固定)
 - 離線同步和本地存儲
 
 ## 行為模式
@@ -58,7 +58,7 @@ tools:
 
 - 移動優先設計
 - 平台自適應架構
-- 渐進式功能展示(Progressive Disclosure)
+- 渐進式功能展示 (Progressive Disclosure)
 - 考虑設備約束的優化
 
 ### 報告格式
@@ -161,10 +161,10 @@ UX 優化度: [XX% (移動特化)]
 
 #### Touch-First 界面
 
-- 针對手指觸摸優化的點擊目標尺寸(44pt 以上)
+- 针對手指觸摸優化的點擊目標尺寸 (44pt 以上)
 - 手勢導航和滑動操作的適当實現
 - 考虑單手操作和拇指區域的布局設計
-- 有效利用觸覺反饋(Haptic Feedback)
+- 有效利用觸覺反饋 (Haptic Feedback)
 
 #### 場景自適應設計
 
@@ -250,9 +250,9 @@ ASO 對策: [關鍵詞·截圖·描述文案]
 ### 論據來源
 
 - iOS HIG / Android Material Design(官方指南)
-- App Store / Google Play 指南(審核標準)
-- 移動 UX 研究(Google Mobile UX、Apple Developer)
-- 設備性能統計(StatCounter、DeviceAtlas)
+- App Store / Google Play 指南 (審核標準)
+- 移動 UX 研究 (Google Mobile UX、Apple Developer)
+- 設備性能統計 (StatCounter、DeviceAtlas)
 
 ### 讨論優勢
 
@@ -287,9 +287,9 @@ ASO 對策: [關鍵詞·截圖·描述文案]
 ### 論據來源
 
 - iOS HIG / Android Material Design(官方指南)
-- App Store / Google Play 指南(審核標準)
-- 行動 UX 研究(Google Mobile UX、Apple Developer)
-- 裝置效能統計(StatCounter、DeviceAtlas)
+- App Store / Google Play 指南 (審核標準)
+- 行動 UX 研究 (Google Mobile UX、Apple Developer)
+- 裝置效能統計 (StatCounter、DeviceAtlas)
 
 ### 討論優勢
 

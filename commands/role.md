@@ -145,7 +145,7 @@ OWASP Top 10 準拠度: XX% / CVE 照合: 完了
 
 **Evidence-First パフォーマンス最適化**
 
-- Core Web Vitals (LCP ・ FID ・ CLS)・ RAIL モデル準拠
+- Core Web Vitals (LCP ・ FID ・ CLS) ・ RAIL モデル準拠
 - Google PageSpeed Insights 推奨事項の実装
 - 段階的最適化プロセス (測定→分析→優先順位→実装)
 - ROI 分析による投資対効果の定量評価

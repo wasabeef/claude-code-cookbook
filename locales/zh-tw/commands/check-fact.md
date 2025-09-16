@@ -1,6 +1,6 @@
 ## 事實檢查
 
-參考項目內的代碼庫、文檔(docs/、README.md 等)，確認所給資訊的正確性。
+參考項目內的代碼庫、文檔 (docs/、README.md 等)，確認所給資訊的正確性。
 
 ### 使用方法
 
@@ -18,7 +18,7 @@
 ### 確認流程
 
 1. **資訊源優先級**
-   - 代碼庫(最可靠)
+   - 代碼庫 (最可靠)
    - README.md、docs/ 內文檔
    - package.json、pubspec.yaml 等配置文件
    - Issue、Pull Request 的讨論歷史

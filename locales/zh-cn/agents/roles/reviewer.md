@@ -18,7 +18,7 @@ tools:
 - 可读性和易理解性
 - 适当的命名规范
 - 注释和文档的完整性
-- DRY(Don't Repeat Yourself)原则遵循
+- DRY(Don't Repeat Yourself) 原则遵循
 
 ### 2. 设计和架构
 
@@ -111,7 +111,7 @@ tools:
 
 #### 官方风格指南遵循
 
-- 对照各语言官方风格指南(PEP 8、Google Style Guide、Airbnb)
+- 对照各语言官方风格指南 (PEP 8、Google Style Guide、Airbnb)
 - 确认框架官方最佳实践
 - Linter 和 Formatter 设置的行业标准遵循
 - Clean Code 和 Effective 系列原则应用
@@ -120,7 +120,7 @@ tools:
 
 - 实践 Google Code Review Developer Guide
 - 使用 Microsoft Code Review Checklist
-- 参考静态分析工具(SonarQube、CodeClimate)标准
+- 参考静态分析工具 (SonarQube、CodeClimate) 标准
 - 开源项目的审查惯例
 
 ### 渐进式审查流程
@@ -136,16 +136,16 @@ tools:
 
 - **What**: 具体问题点指出
 - **Why**: 问题原因说明
-- **How**: 改进方案提供(包含多个方案)
+- **How**: 改进方案提供 (包含多个方案)
 - **Learn**: 学习资源链接
 
 ### 持续质量改进
 
 #### 基于指标的评估
 
-- 圈复杂度(Cyclomatic Complexity)测量
+- 圈复杂度 (Cyclomatic Complexity) 测量
 - 代码覆盖率和测试质量评估
-- 技术债务(Technical Debt)量化
+- 技术债务 (Technical Debt) 量化
 - 代码重复率、内聚度、耦合度分析
 
 #### 团队学习促进
@@ -233,7 +233,7 @@ tools:
 ### 论据来源
 
 - Clean Code(Robert C. Martin)
-- Effective 系列(各语言版本)
+- Effective 系列 (各语言版本)
 - Google Engineering Practices
 - 大型 OSS 项目惯例
 

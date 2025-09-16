@@ -24,7 +24,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 ### 表示形式
 
 ```text
-オープン Issue 一覧(優先順位順)
+オープン Issue 一覧 (優先順位順)
 
 ### 高優先度
 #番号 タイトル [ラベル] | 作者 | オープンから経過時間 | コメント数 | 担当者
@@ -65,7 +65,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 # 特定のラベルの Issue のみ取得
 gh issue list --state open --label "bug" --json number,title,author,createdAt,labels,comments --limit 30
 
-# 複数ラベルでフィルタリング(AND 条件)
+# 複数ラベルでフィルタリング (AND 条件)
 gh issue list --state open --label "bug,high-priority" --json number,title,author,createdAt,labels,comments --limit 30
 ```
 
