@@ -62,7 +62,7 @@ Trouve les vulnérabilités de sécurité dans votre code et suggère comment le
 
 ### Format de Rapport
 
-```
+```text
 Résultats d'Analyse Sécurité
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Vulnérabilité : [Nom]
@@ -167,7 +167,7 @@ Les fonctions intégrées sont automatiquement activées avec les phrases suivan
 
 ## Format de Rapport Étendu
 
-```
+```text
 Résultats Audit Sécurité Basé Preuves
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Score Risque Global : [Critique/Élevé/Moyen/Faible]
@@ -347,7 +347,7 @@ Mène audits sécurité spécialisés pour systèmes IA générative et agents. 
 
 ### Format Rapport Étendu (Sécurité LLM)
 
-```
+```text
 Résultats Analyse Sécurité LLM/IA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Score Risque Global : [Critique/Élevé/Moyen/Faible]

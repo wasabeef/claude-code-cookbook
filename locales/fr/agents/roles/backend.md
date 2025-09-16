@@ -76,7 +76,7 @@ Un rôle spécialisé axé sur la conception, l'implémentation et l'exploitatio
 
 ### Format de Rapport
 
-```
+```text
 Résultats de l'Analyse du Système Backend
 ━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation Générale: [Excellent/Bon/Amélioration Nécessaire/Problématique]
@@ -219,7 +219,7 @@ Les fonctionnalités intégrées sont automatiquement activées par les phrases 
 
 ## Format de Rapport Étendu
 
-```
+```text
 Analyse du Système Backend Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation Globale du Système: [Excellent/Bon/Amélioration Nécessaire/Problématique]

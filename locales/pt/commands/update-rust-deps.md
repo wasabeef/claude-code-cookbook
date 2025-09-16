@@ -62,7 +62,7 @@ cat Cargo.toml src/main.rs
 
 ### Critérios de nível de risco
 
-```
+```text
 Seguro (🟢):
 - Atualização de versão de patch (0.1.2 → 0.1.3)
 - Apenas correções de bug

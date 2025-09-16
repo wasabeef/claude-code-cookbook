@@ -455,7 +455,7 @@ done
 
 #### Basic Format
 
-```
+```text
 <type>[optional scope]: <description>
 
 [optional body]
@@ -485,7 +485,7 @@ done
 
 Indicates the affected area of the change:
 
-```
+```text
 feat(api): add user authentication endpoint
 fix(ui): resolve button alignment issue
 docs(readme): update installation instructions
@@ -495,14 +495,14 @@ docs(readme): update installation instructions
 
 When there are breaking API changes:
 
-```
+```text
 feat!: change user API response format
 
 ```
 
 or
 
-```
+```text
 feat(api)!: change authentication flow
 ```
 
@@ -600,7 +600,7 @@ export default {
 
 ##### Angular Style
 
-```
+```text
 feat(scope): add new feature
 fix(scope): fix bug
 docs(scope): update documentation
@@ -608,7 +608,7 @@ docs(scope): update documentation
 
 ##### Gitmoji Combined Style
 
-```
+```text
 ✨ feat: add user registration
 🐛 fix: resolve login issue
 📚 docs: update API docs
@@ -616,7 +616,7 @@ docs(scope): update documentation
 
 ##### Japanese Projects
 
-```
+```text
 feat: add user registration functionality
 fix: resolve login process bug
 docs: update API documentation

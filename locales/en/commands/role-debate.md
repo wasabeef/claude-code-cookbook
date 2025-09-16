@@ -94,7 +94,7 @@ Determining final recommendations
 
 ### For 2-Role Debate
 
-```
+```text
 Role Debate: Security vs Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -184,7 +184,7 @@ Future Review:
 
 ### For 3-Role Debate
 
-```
+```text
 Role Debate: Architect vs Security vs Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -451,7 +451,7 @@ potential_biases:
 
 #### Phase 1: Position Statement Template
 
-```
+```text
 [Role Name]'s Recommendation:
 "[Specific proposal]"
 
@@ -476,7 +476,7 @@ Success Metrics:
 
 #### Phase 2: Rebuttal Template
 
-```
+```text
 Rebuttal to [Target Role]:
 "[Specific rebuttal to target proposal]"
 
@@ -495,7 +495,7 @@ Compromise Points:
 
 #### Phase 3: Integrated Solution Template
 
-```
+```text
 Integrated Solution:
 "[Final proposal considering all roles' concerns]"
 

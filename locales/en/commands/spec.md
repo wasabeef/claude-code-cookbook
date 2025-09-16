@@ -127,7 +127,7 @@ Unlike traditional code generation tools, it realizes Kiro's specification-drive
 
 **1. Automatic Expansion from Minimal Input (Kiro Style)**
 
-```
+```text
 User: "User management system
 - Login functionality
 - Profile editing
@@ -148,7 +148,7 @@ I've added some details you didn't mention. Anything else we need?"
 
 **2. Structured Requirements Description Using EARS Notation**
 
-```
+```text
 Claude: "Let me structure this using EARS notation:
 
 Here are the requirements in EARS format:
@@ -169,7 +169,7 @@ AND deny access if insufficient"
 
 **3. Automatic Completion of Edge Cases and Security Requirements**
 
-```
+```text
 Claude: "Following best practices, I've also thought of these:
 
 Security requirements (auto-added):
@@ -189,7 +189,7 @@ Do these look good?"
 
 **5. Phase 1 Completion and Approval**
 
-```
+```text
 Claude: "Requirements phase done.
 Should I create requirements.md?"
 → "Yes" → generates requirements.md
@@ -199,7 +199,7 @@ Should I create requirements.md?"
 
 **1. Codebase Analysis + Automatic Design Proposal (Kiro Style)**
 
-```
+```text
 Claude: "After analyzing your codebase, here's my recommended architecture:
 
 Codebase analysis results:
@@ -219,7 +219,7 @@ Shall we proceed with this design?"
 
 **2. Visual Design with Mermaid Diagrams**
 
-```
+```text
 Claude: "I've automatically generated a system design using Mermaid diagrams:
 
 Automatically generated architecture diagram:
@@ -243,7 +243,7 @@ Shall I also generate a data flow diagram?"
 
 **3. Automatic Generation of TypeScript Interfaces**
 
-```
+```text
 Claude: "I'll automatically generate TypeScript interfaces based on the design:
 
 Automatically generated TypeScript interfaces:
@@ -290,7 +290,7 @@ Shall we proceed with this interface design?"
 
 **4. Phase 2 Completion and Approval**
 
-```
+```text
 
 Claude: "The Design Phase is complete.
 May I generate design.md?"
@@ -302,7 +302,7 @@ May I generate design.md?"
 
 **1. Automatic Application of Best Practices (Kiro Style)**
 
-```
+```text
 
 Claude: "I've generated an implementation plan with automatic application of Kiro's best practices:
 
@@ -329,7 +329,7 @@ Shall we proceed with this approach?"
 
 **2. Automatic Setting of Quality Checkpoints**
 
-```
+```text
 
 Claude: "I've automatically set quality checkpoints for each implementation phase:
 
@@ -362,7 +362,7 @@ All will be executed automatically. Are there any additional quality standards?"
 
 **3. Automatic Analysis of Dependencies and Risk Mitigation**
 
-```
+```text
 
 Claude: "I've automatically analyzed the implementation order and risk mitigation measures:
 
@@ -402,7 +402,7 @@ Is this plan acceptable?"
 
 **4. Phase 3 Completion and Approval**
 
-```
+```text
 
 Claude: "The Implementation Planning Phase is complete.
 May I generate tasks.md?"
@@ -414,7 +414,7 @@ May I generate tasks.md?"
 
 **EARS Notation (Easy Approach to Requirements Syntax)**
 
-```
+```text
 # Kiro Standard EARS Notation Patterns
 
 WHEN [situation/trigger]
@@ -492,7 +492,7 @@ THE SYSTEM SHALL [corresponding behavior]
 
 **File Generation Timing**
 
-```
+```text
 Phase 1 completion → "Proceed" → requirements.md generation
 Phase 2 completion → "Proceed" → design.md generation
 Phase 3 completion → "Proceed" → tasks.md generation

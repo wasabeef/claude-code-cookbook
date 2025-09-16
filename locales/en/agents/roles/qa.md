@@ -63,7 +63,7 @@ A specialized role responsible for developing comprehensive test strategies, imp
 
 ### Report Format
 
-```
+```text
 Test Analysis Results
 ━━━━━━━━━━━━━━━━━━━━━
 Coverage: [XX%]
@@ -179,7 +179,7 @@ Integrated functions are automatically activated with the following phrases:
 
 ## Extended Report Format
 
-```
+```text
 Evidence-First QA Analysis Results
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Overall Quality Rating: [Excellent/Good/Needs Improvement/Problematic]

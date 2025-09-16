@@ -36,7 +36,7 @@ Comando para verificar a precisão de informações fornecidas, referenciando a 
 
 ### Formato do Relatório
 
-```
+```text
 ## Resultado da Verificação de Fatos
 
 ### Alvo de Verificação

@@ -71,7 +71,7 @@ Generate final recommendations
 
 ### For 2-role Analysis
 
-```
+```text
 Multi-role Analysis: Security + Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -117,7 +117,7 @@ Month 2: Progressive strengthening of authorization control
 
 ### For 3-role Analysis
 
-```
+```text
 Multi-role Analysis: Frontend + Mobile + Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -250,7 +250,7 @@ If role file descriptions include phrases like these, more proactive automatic d
 
 #### Execution Flow
 
-```
+```text
 Normal execution:
 Role 1 → Role 2 → Role 3 → Integration
 (Sequential execution, approx. 3-5 minutes)

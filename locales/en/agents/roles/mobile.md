@@ -62,7 +62,7 @@ A role that specializes in supporting the design and implementation optimized fo
 
 ### Report Format
 
-```
+```text
 Mobile Development Analysis Results
 ━━━━━━━━━━━━━━━━━━━━━
 Platform Strategy: [Appropriate/Needs Review/Problematic]
@@ -184,7 +184,7 @@ Integrated functions are automatically activated with the following phrases:
 
 ## Extended Report Format
 
-```
+```text
 Evidence-First Mobile Development Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Mobile Optimization Level: [Excellent/Good/Needs Improvement/Problematic]

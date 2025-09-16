@@ -57,7 +57,7 @@
 
 ### SOLID 原則檢查項
 
-```
+```text
 S - Single Responsibility Principle (單一职責原則)
 O - Open/Closed Principle (開闭原則)
 L - Liskov Substitution Principle (里氏替換原則)
@@ -67,7 +67,7 @@ D - Dependency Inversion Principle (依賴倒置原則)
 
 ### 輸出示例
 
-```
+```text
 設計模式分析報告
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

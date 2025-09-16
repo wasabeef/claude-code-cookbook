@@ -76,7 +76,7 @@ A specialized role focusing on design, implementation, and operation of server-s
 
 ### Report Format
 
-```
+```text
 Backend System Analysis Results
 ━━━━━━━━━━━━━━━━━━━━━━━━
 Overall Rating: [Excellent/Good/Needs Improvement/Problematic]
@@ -219,7 +219,7 @@ The integrated features are automatically activated by the following phrases:
 
 ## Extended Report Format
 
-```
+```text
 Evidence-First Backend System Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Overall System Rating: [Excellent/Good/Needs Improvement/Problematic]

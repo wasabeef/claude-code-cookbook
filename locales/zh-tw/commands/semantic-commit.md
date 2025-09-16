@@ -458,7 +458,7 @@ done
 
 #### 基本格式
 
-```
+```text
 <type>[optional scope]: <description>
 
 [optional body]
@@ -488,7 +488,7 @@ done
 
 表示變更的影響範圍：
 
-```
+```text
 feat(api): 添加用戶認證端點
 fix(ui): 解決按钮對齐問題
 docs(readme): 更新安裝說明
@@ -498,7 +498,7 @@ docs(readme): 更新安裝說明
 
 有 API 破坏性變更時：
 
-```
+```text
 feat!: 更改用戶 API 響應格式
 
 BREAKING CHANGE: 用戶響應現在包含额外的元數據
@@ -506,7 +506,7 @@ BREAKING CHANGE: 用戶響應現在包含额外的元數據
 
 或
 
-```
+```text
 feat(api)!: 更改認證流程
 ```
 
@@ -604,7 +604,7 @@ export default {
 
 ##### Angular 風格
 
-```
+```text
 feat(scope): 添加新功能
 fix(scope): 修復 Bug
 docs(scope): 更新文檔
@@ -612,7 +612,7 @@ docs(scope): 更新文檔
 
 ##### Gitmoji 結合風格
 
-```
+```text
 ✨ feat: 添加用戶注冊
 🐛 fix: 解決登錄問題
 📚 docs: 更新 API 文檔
@@ -620,7 +620,7 @@ docs(scope): 更新文檔
 
 ##### 中文項目
 
-```
+```text
 feat: 新增用戶注冊功能
 fix: 修復登錄處理的 Bug
 docs: 更新 API 文檔

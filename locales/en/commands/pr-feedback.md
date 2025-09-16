@@ -36,7 +36,7 @@ git diff HEAD~1
 
 ### Comment Classification System
 
-```
+```text
 🔴 must: Required fixes
 ├─ Security issues
 ├─ Functional bugs

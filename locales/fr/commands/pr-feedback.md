@@ -36,7 +36,7 @@ git diff HEAD~1
 
 ### Système de classification des commentaires
 
-```
+```text
 🔴 must : Corrections requises
 ├─ Problèmes de sécurité
 ├─ Bugs fonctionnels

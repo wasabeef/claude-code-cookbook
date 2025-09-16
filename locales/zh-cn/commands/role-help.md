@@ -30,7 +30,7 @@
 
 ### 安全相关
 
-```
+```text
 这种情况使用 security 角色:
 ✅ 登录·认证功能的实现
 ✅ API 的安全漏洞检查
@@ -43,7 +43,7 @@
 
 ### 🏗️ 架构·设计
 
-```
+```text
 这种情况使用 architect 角色:
 ✅ 系统整体设计评估
 ✅ 微服务 vs 单体判断
@@ -56,7 +56,7 @@
 
 ### ⚡ 性能问题
 
-```
+```text
 这种情况使用 performance 角色:
 ✅ 应用程序运行缓慢
 ✅ 数据库查询优化
@@ -69,7 +69,7 @@
 
 ### 🔍 问题原因调查
 
-```
+```text
 这种情况使用 analyzer 角色:
 ✅ Bug·错误的根本原因分析
 ✅ 系统故障原因究明
@@ -82,7 +82,7 @@
 
 ### 🎨 前端·UI/UX
 
-```
+```text
 这种情况使用 frontend 角色:
 ✅ 用户界面改进
 ✅ 可访问性支持
@@ -95,7 +95,7 @@
 
 ### 📱 移动应用开发
 
-```
+```text
 这种情况使用 mobile 角色:
 ✅ iOS·Android 应用优化
 ✅ 移动特有的 UX 设计
@@ -108,7 +108,7 @@
 
 ### 👀 代码审查·质量
 
-```
+```text
 这种情况使用 reviewer 角色:
 ✅ 代码质量检查
 ✅ 可读性·可维护性评估
@@ -121,7 +121,7 @@
 
 ### 🧪 测试·质量保证
 
-```
+```text
 这种情况使用 qa 角色:
 ✅ 测试策略制定
 ✅ 测试覆盖率评估
@@ -136,7 +136,7 @@
 
 ### 🔄 multi-role (并行分析)
 
-```
+```text
 这种情况使用 multi-role:
 ✅ 需要多个专业视角的评估
 ✅ 想制定综合改进计划
@@ -148,7 +148,7 @@
 
 ### 🗣️ role-debate (辩论)
 
-```
+```text
 这种情况使用 role-debate:
 ✅ 专业领域间存在权衡
 ✅ 技术选型有分歧
@@ -160,7 +160,7 @@
 
 ### 🤖 smart-review (自动建议)
 
-```
+```text
 这种情况使用 smart-review:
 ✅ 不知道该使用哪个角色
 ✅ 想了解当前情况的最佳方法
@@ -202,7 +202,7 @@
 
 ### 迷茫时的流程图
 
-```
+```text
 问题的性质是？
 ├─ 安全相关 → security
 ├─ 性能问题 → performance
@@ -223,7 +223,7 @@
 
 ### Q: frontend 和 mobile 的区别是？
 
-```
+```text
 A:
 frontend: 以 Web 浏览器为中心、HTML/CSS/JavaScript
 mobile: 以移动应用为中心、iOS/Android 原生·React Native 等
@@ -233,7 +233,7 @@ mobile: 以移动应用为中心、iOS/Android 原生·React Native 等
 
 ### Q: security 和 analyzer 的使用场景？
 
-```
+```text
 A:
 security: 攻击·威胁预防、安全设计
 analyzer: 已发生问题的原因分析、调查
@@ -243,7 +243,7 @@ analyzer: 已发生问题的原因分析、调查
 
 ### Q: architect 和 performance 的区别是？
 
-```
+```text
 A:
 architect: 系统整体的长期设计、扩展性
 performance: 具体的速度·效率改进

@@ -4,7 +4,7 @@ Analyzes application performance from a user experience perspective and quantifi
 
 ### UX Performance Score
 
-```
+```text
 User Experience Score: B+ (78/100)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -99,7 +99,7 @@ npm outdated && npm audit
 
 ### Performance Improvement ROI Matrix
 
-```
+```text
 Improvement ROI = (Time Savings + Quality Improvement) ÷ Implementation Effort
 ```
 

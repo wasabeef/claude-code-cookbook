@@ -57,7 +57,7 @@ Suggère des motifs de conception pour votre code et vérifie s'il suit les prin
 
 ### Principes SOLID que nous vérifions
 
-```
+```text
 S - Responsabilité Unique (une classe, un rôle)
 O - Ouvert/Fermé (ouvert à l'extension, fermé à la modification)
 L - Substitution de Liskov (les sous-types doivent être remplaçables)
@@ -67,7 +67,7 @@ D - Inversion de Dépendance (dépendre d'abstractions, pas de détails)
 
 ### Exemple de sortie
 
-```
+```text
 Rapport d'analyse de motifs de conception
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

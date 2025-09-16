@@ -36,7 +36,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 
 ### Comment Classification System
 
-```
+```text
 🔴 critical.must: Critical issues
 ├─ Security vulnerabilities
 ├─ Data integrity problems

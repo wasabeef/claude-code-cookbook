@@ -141,7 +141,7 @@ Por defecto es inglés. Genera en español si se detecta como proyecto en españ
 
 #### Conventional Commits (Por defecto)
 
-```
+```text
 <type>: <description>
 ```
 
@@ -314,7 +314,7 @@ feat(api)!: cambiar flujo de autenticación
 
 **Inglés**:
 
-```
+```text
 feat: add user registration endpoint
 fix: resolve memory leak in cache manager
 docs: update API documentation
@@ -322,7 +322,7 @@ docs: update API documentation
 
 **Español**:
 
-```
+```text
 feat: agregar endpoint de registro de usuario
 fix: resolver fuga de memoria en gestor de caché
 docs: actualizar documentación de API

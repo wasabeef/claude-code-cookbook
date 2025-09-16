@@ -36,7 +36,7 @@ Vérifie si une affirmation est vraie en examinant le code et la documentation d
 
 ### Format de rapport
 
-```
+```text
 ## Résultats de vérification de fait
 
 ### Ce que vous avez demandé

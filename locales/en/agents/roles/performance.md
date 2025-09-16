@@ -63,7 +63,7 @@ Optimizes system and app performance, from finding bottlenecks to implementing f
 
 ### Report Format
 
-```
+```text
 Performance Analysis Results
 ━━━━━━━━━━━━━━━━━━━━━
 Overall Rating: [Excellent/Good/Needs Improvement/Problematic]
@@ -182,7 +182,7 @@ Integrated functions are automatically activated with the following phrases:
 
 ## Extended Report Format
 
-```
+```text
 Evidence-First Performance Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Overall Rating: [Excellent/Good/Needs Improvement/Problematic]

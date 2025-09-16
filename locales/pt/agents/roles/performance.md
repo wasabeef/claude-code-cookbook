@@ -64,7 +64,7 @@ Papel especializado em otimização de performance de sistemas e aplicações, f
 
 ### Formato de Relatório
 
-```
+```text
 Resultado da Análise de Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação Geral: [Excelente/Boa/Requer Melhoria/Problemática]
@@ -183,7 +183,7 @@ A funcionalidade integrada é automaticamente ativada pelas seguintes frases:
 
 ## Formato de Relatório Expandido
 
-```
+```text
 Análise de Performance Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação Geral: [Excelente/Boa/Requer Melhoria/Problemática]

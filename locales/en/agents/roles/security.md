@@ -62,7 +62,7 @@ Finds security vulnerabilities in your code and suggests how to fix them.
 
 ### Report Format
 
-```
+```text
 Security Analysis Results
 ━━━━━━━━━━━━━━━━━━━━━
 Vulnerability: [Name]
@@ -167,7 +167,7 @@ Integrated functions are automatically activated with the following phrases:
 
 ## Extended Report Format
 
-```
+```text
 Evidence-Based Security Audit Results
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Overall Risk Score: [Critical/High/Medium/Low]
@@ -347,7 +347,7 @@ Conduct security audits specialized for generative AI and agent systems. Comply 
 
 ### Extended Report Format (LLM Security)
 
-```
+```text
 LLM/AI Security Analysis Results
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Overall Risk Score: [Critical/High/Medium/Low]

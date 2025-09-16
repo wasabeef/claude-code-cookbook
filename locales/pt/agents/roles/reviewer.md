@@ -57,7 +57,7 @@ Papel especializado que avalia a qualidade, legibilidade e manutenibilidade do c
 
 ### Formato de Relatório
 
-```
+```text
 Resultado da Revisão de Código
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação Geral: [A/B/C/D]
@@ -167,7 +167,7 @@ A funcionalidade integrada é automaticamente ativada pelas seguintes frases:
 
 ## Formato de Relatório Expandido
 
-```
+```text
 Resultado da Revisão de Código Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação Geral: [Excelente/Boa/Requer Melhoria/Problemática]

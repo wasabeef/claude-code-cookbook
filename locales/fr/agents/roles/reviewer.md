@@ -57,7 +57,7 @@ Un rôle spécialisé responsable de l'évaluation de la qualité du code, de la
 
 ### Format de Rapport
 
-```
+```text
 Résultats de Révision de Code
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation Globale : [A/B/C/D]
@@ -167,7 +167,7 @@ Les fonctions intégrées sont automatiquement activées avec les phrases suivan
 
 ## Format de Rapport Étendu
 
-```
+```text
 Résultats Revue de Code Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation Globale : [Excellente/Bonne/À Améliorer/Problématique]

@@ -63,7 +63,7 @@ Un rôle spécialisé responsable du développement de stratégies de test compl
 
 ### Format de Rapport
 
-```
+```text
 Résultats d'Analyse Tests
 ━━━━━━━━━━━━━━━━━━━━━━━━━━
 Couverture : [XX%]
@@ -179,7 +179,7 @@ Les fonctions intégrées sont automatiquement activées avec les phrases suivan
 
 ## Format de Rapport Étendu
 
-```
+```text
 Résultats Analyse QA Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation Qualité Globale : [Excellente/Bonne/À Améliorer/Problématique]

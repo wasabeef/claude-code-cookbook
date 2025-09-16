@@ -23,7 +23,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 
 ### Formato de exibição
 
-```
+```text
 Lista de Issues Abertas (ordenadas por prioridade)
 
 ### Alta Prioridade

@@ -60,7 +60,7 @@ cat pubspec.yaml
 
 ### Criterios de Riesgo
 
-```
+```text
 Seguro (🟢):
 - Actualización de versión de parche (1.2.3 → 1.2.4)
 - Solo correcciones de errores

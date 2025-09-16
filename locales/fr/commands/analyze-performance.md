@@ -4,7 +4,7 @@ Analyse les performances de l'application du point de vue de l'expérience utili
 
 ### Score de Performance UX
 
-```
+```text
 Score d'Expérience Utilisateur : B+ (78/100)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -99,7 +99,7 @@ npm outdated && npm audit
 
 ### Matrice ROI d'Amélioration des Performances
 
-```
+```text
 ROI d'amélioration = (effet réduction temps + amélioration qualité) ÷ heures d'implémentation
 ```
 

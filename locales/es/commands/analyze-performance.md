@@ -4,7 +4,7 @@ Analiza el rendimiento de la aplicación desde la perspectiva de la experiencia 
 
 ### Puntaje de Rendimiento UX
 
-```
+```text
 Puntaje de Experiencia de Usuario: B+ (78/100)
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -99,7 +99,7 @@ npm outdated && npm audit
 
 ### Matriz ROI de Mejora de Rendimiento
 
-```
+```text
 ROI de mejora = (efecto reducción tiempo + mejora calidad) ÷ horas implementación
 ```
 

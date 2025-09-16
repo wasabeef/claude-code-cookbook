@@ -63,7 +63,7 @@ Optimise les performances système et application, de la détection des goulots 
 
 ### Format de Rapport
 
-```
+```text
 Résultats d'Analyse Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation Globale : [Excellente/Bonne/À Améliorer/Problématique]
@@ -182,7 +182,7 @@ Les fonctions intégrées sont automatiquement activées avec les phrases suivan
 
 ## Format de Rapport Étendu
 
-```
+```text
 Analyse Performance Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation Globale : [Excellente/Bonne/À Améliorer/Problématique]

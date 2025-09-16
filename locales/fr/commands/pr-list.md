@@ -23,7 +23,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 
 ### Format d'affichage
 
-```
+```text
 Liste des PR Ouvertes (par Priorité)
 
 ### Haute Priorité

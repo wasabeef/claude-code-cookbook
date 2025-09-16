@@ -60,7 +60,7 @@ cat pubspec.yaml
 
 ### Risk Criteria
 
-```
+```text
 Safe (🟢):
 - Patch version upgrade (1.2.3 → 1.2.4)
 - Bug fixes only

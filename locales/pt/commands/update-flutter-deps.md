@@ -61,7 +61,7 @@ cat pubspec.yaml
 
 ### Critérios de nível de risco
 
-```
+```text
 Seguro (🟢):
 - Atualização de versão de patch (1.2.3 → 1.2.4)
 - Apenas correções de bug

@@ -71,7 +71,7 @@ Inicia um agente especializado para executar autonomamente tarefas complexas de 
 
 #### Fluxograma de Decisão
 
-```
+```text
 Coleta de informações necessária?
 ├─ Sim → Múltiplas fontes / Larga escala?
 │          ├─ Sim → **Task**
@@ -157,7 +157,7 @@ Coleta de informações necessária?
 
 #### Fluxo de Execução do Task
 
-```
+```text
 1. Análise inicial
    ├─ Decomposição do problema e identificação do escopo da investigação
    ├─ Seleção de ferramentas e fontes de informação necessárias

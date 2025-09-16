@@ -30,7 +30,7 @@ Una guía de selección y sistema de ayuda cuando no estás seguro de qué rol u
 
 ### 🔒 Relacionado con Seguridad
 
-```
+```text
 Usar rol security para:
 ✅ Implementación de funciones de login/autenticación
 ✅ Verificaciones de vulnerabilidades de seguridad para APIs
@@ -43,7 +43,7 @@ Uso: /role security
 
 ### 🏗️ Arquitectura y Diseño
 
-```
+```text
 Usar rol architect para:
 ✅ Evaluación de diseño general del sistema
 ✅ Decisiones microservicios vs monolito
@@ -56,7 +56,7 @@ Uso: /role architect
 
 ### ⚡ Problemas de Rendimiento
 
-```
+```text
 Usar rol performance para:
 ✅ Aplicaciones lentas
 ✅ Optimización de consultas de base de datos
@@ -69,7 +69,7 @@ Uso: /role performance
 
 ### 🔍 Investigación de Causa Raíz de Problemas
 
-```
+```text
 Usar rol analyzer para:
 ✅ Análisis de causa raíz de bugs y errores
 ✅ Investigación de fallas del sistema
@@ -82,7 +82,7 @@ Uso: /role analyzer
 
 ### 🎨 Frontend y UI/UX
 
-```
+```text
 Usar rol frontend para:
 ✅ Mejoras de interfaz de usuario
 ✅ Cumplimiento de accesibilidad
@@ -95,7 +95,7 @@ Uso: /role frontend
 
 ### 📱 Desarrollo de Aplicaciones Móviles
 
-```
+```text
 Usar rol mobile para:
 ✅ Optimización de aplicaciones iOS y Android
 ✅ Diseño UX específico para móviles
@@ -108,7 +108,7 @@ Uso: /role mobile
 
 ### 👀 Revisión de Código y Calidad
 
-```
+```text
 Usar rol reviewer para:
 ✅ Verificaciones de calidad de código
 ✅ Evaluación de legibilidad y mantenibilidad
@@ -121,7 +121,7 @@ Uso: /role reviewer
 
 ### 🧪 Pruebas y Aseguramiento de Calidad
 
-```
+```text
 Usar rol qa para:
 ✅ Planificación de estrategia de pruebas
 ✅ Evaluación de cobertura de pruebas
@@ -136,7 +136,7 @@ Uso: /role qa
 
 ### 🔄 multi-role (Análisis Paralelo)
 
-```
+```text
 Usar multi-role para:
 ✅ Evaluación desde múltiples perspectivas profesionales
 ✅ Crear planes de mejora integrados
@@ -148,7 +148,7 @@ Ejemplo: /multi-role security,performance
 
 ### 🗣️ role-debate (Discusión)
 
-```
+```text
 Usar role-debate para:
 ✅ Trade-offs entre campos especializados
 ✅ Opiniones divididas sobre selección de tecnología
@@ -160,7 +160,7 @@ Ejemplo: /role-debate security,performance
 
 ### 🤖 smart-review (Propuesta Automática)
 
-```
+```text
 Usar smart-review para:
 ✅ Incertidumbre sobre qué rol usar
 ✅ Querer conocer el enfoque óptimo para la situación actual
@@ -202,7 +202,7 @@ Ejemplo: /smart-review
 
 ### Diagrama de Flujo de Decisión Cuando No Estés Seguro
 
-```
+```text
 ¿Cuál es la naturaleza del problema?
 ├─ Relacionado con seguridad → security
 ├─ Problemas de rendimiento → performance
@@ -223,7 +223,7 @@ Ejemplo: /smart-review
 
 ### P: ¿Cuál es la diferencia entre los roles frontend y mobile?
 
-```
+```text
 R:
 frontend: Enfocado en navegador web, HTML/CSS/JavaScript
 mobile: Enfocado en aplicaciones móviles, iOS/Android nativo, React Native, etc.
@@ -233,7 +233,7 @@ Para problemas relacionados con ambos, se recomienda multi-role frontend,mobile
 
 ### P: ¿Cómo elegir entre los roles security y analyzer?
 
-```
+```text
 R:
 security: Prevención de ataques y amenazas, diseño de seguridad
 analyzer: Análisis de causas de problemas existentes, investigación
@@ -243,7 +243,7 @@ Para investigaciones de incidentes de seguridad, usar multi-role security,analyz
 
 ### P: ¿Cuál es la diferencia entre los roles architect y performance?
 
-```
+```text
 R:
 architect: Diseño a largo plazo de sistemas completos, escalabilidad
 performance: Mejoras específicas de velocidad y eficiencia

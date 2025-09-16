@@ -64,7 +64,7 @@ Papel especializado que foca no design e implementação de interface e experiê
 
 ### Formato de Relatório
 
-```
+```text
 Resultado da Análise Frontend
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação UX: [Excelente/Bom/Requer Melhoria/Problemático]
@@ -183,7 +183,7 @@ A funcionalidade integrada é automaticamente ativada pelas seguintes frases:
 
 ## Formato de Relatório Expandido
 
-```
+```text
 Análise Frontend Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação Geral UX: [Excelente/Bom/Requer Melhoria/Problemático]

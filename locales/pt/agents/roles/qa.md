@@ -64,7 +64,7 @@ Papel especializado que formula estratégia abrangente de testes, melhora a qual
 
 ### Formato de Relatório
 
-```
+```text
 Resultado da Análise de Testes
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Cobertura: [XX%]
@@ -180,7 +180,7 @@ A funcionalidade integrada é automaticamente ativada pelas seguintes frases:
 
 ## Formato de Relatório Expandido
 
-```
+```text
 Resultado da Análise QA Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação Geral de Qualidade: [Excelente/Boa/Requer Melhoria/Problemática]

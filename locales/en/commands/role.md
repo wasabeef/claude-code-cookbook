@@ -134,7 +134,7 @@ Each role adopts an **Evidence-First** approach, conducting analysis and making 
 
 **Professional Report Format**
 
-```
+```text
 Evidence-Based Security Audit Results
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 OWASP Top 10 Compliance: XX% / CVE Matching: Completed
@@ -152,7 +152,7 @@ Threat Modeling: STRIDE Analysis Completed
 
 **Professional Report Format**
 
-```
+```text
 Evidence-First Performance Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
@@ -170,7 +170,7 @@ Performance Budget: XX% / ROI Analysis: XX% Improvement Prediction
 
 **Professional Report Format**
 
-```
+```text
 Evidence-First Root Cause Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Analysis Confidence: High / Bias Countermeasures: Implemented

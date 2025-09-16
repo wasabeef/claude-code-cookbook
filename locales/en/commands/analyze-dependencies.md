@@ -55,7 +55,7 @@ Shows how modules connect to each other:
 
 ### Output Example
 
-```
+```text
 Dependency Analysis Report
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

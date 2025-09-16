@@ -64,7 +64,7 @@ Un rôle spécialisé axé sur l'analyse des causes profondes et la résolution 
 
 ### Format de Rapport
 
-```
+```text
 Résultats d'Analyse des Causes Profondes
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Gravité du Problème : [Critique/Élevée/Moyenne/Faible]
@@ -188,7 +188,7 @@ Les fonctions intégrées sont automatiquement activées par les phrases suivant
 
 ## Format de Rapport Étendu
 
-```
+```text
 Analyse des Causes Profondes Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Fiabilité de l'Analyse : [Élevée/Moyenne/Faible] (Basée sur qualité et quantité des preuves)

@@ -63,7 +63,7 @@ Papel que compreende as particularidades do desenvolvimento de aplicações móv
 
 ### Formato de Relatório
 
-```
+```text
 Resultado da Análise de Desenvolvimento Móvel
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Estratégia de Plataforma: [Adequada/Requer Consideração/Problemática]
@@ -185,7 +185,7 @@ A funcionalidade integrada é automaticamente ativada pelas seguintes frases:
 
 ## Formato de Relatório Expandido
 
-```
+```text
 Análise de Desenvolvimento Móvel Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Taxa de Otimização Móvel: [Excelente/Bom/Requer Melhoria/Problemático]

@@ -61,7 +61,7 @@ cat Cargo.toml src/main.rs
 
 ### Critères de risque
 
-```
+```text
 Sûr (🟢) :
 - Mise à niveau de version patch (0.1.2 → 0.1.3)
 - Corrections de bugs uniquement

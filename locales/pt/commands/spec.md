@@ -127,7 +127,7 @@ Diferente das ferramentas tradicionais de geração de código, realiza o desenv
 
 **1. Expansão automática a partir de entrada mínima (estilo Kiro)**
 
-```
+```text
 Usuário: "Sistema de gerenciamento de usuários
 - Funcionalidade de login
 - Edição de perfil
@@ -148,7 +148,7 @@ Complementei os detalhes não explicitados. Há outras funcionalidades necessár
 
 **2. Descrição estruturada de requisitos usando notação EARS**
 
-```
+```text
 Claude: "Vou estruturar os requisitos com a notação EARS do Kiro:
 
 Definição de requisitos pela notação EARS:
@@ -170,7 +170,7 @@ AND negar acesso se insuficiente"
 
 **3. Complementação automática de casos extremos e requisitos de segurança**
 
-```
+```text
 Claude: "Baseado nas boas práticas do Kiro, também considerei os seguintes casos:
 
 Requisitos de segurança (complementação automática):
@@ -190,7 +190,7 @@ Estes requisitos são adequados?"
 
 **5. Conclusão e aprovação da Phase 1**
 
-```
+```text
 Claude: "Requirements Phase foi concluída.
 Posso gerar requirements.md?"
 → "Próximo passo" → Geração de requirements.md
@@ -200,7 +200,7 @@ Posso gerar requirements.md?"
 
 **1. Análise de codebase + Proposta automática de design (estilo Kiro)**
 
-```
+```text
 Claude: "Vou analisar a codebase existente e propor a arquitetura ideal:
 
 Resultado da análise da codebase:
@@ -220,7 +220,7 @@ Proceder com este design?"
 
 **2. Design visual com diagramas Mermaid**
 
-```
+```text
 Claude: "Gerei automaticamente o design de sistema com diagrama Mermaid:
 
 Diagrama de arquitetura gerado automaticamente:
@@ -243,7 +243,7 @@ Também gerar diagrama de fluxo de dados?"
 
 **3. Geração automática de interfaces TypeScript**
 
-```
+```text
 Claude: "Vou gerar automaticamente interfaces TypeScript baseadas no design:
 
 Interfaces TypeScript geradas automaticamente:
@@ -289,7 +289,7 @@ Proceder com este design de interface?"
 
 **4. Conclusão e aprovação da Phase 2**
 
-```
+```text
 
 Claude: "Design Phase foi concluída.
 Posso gerar design.md?"
@@ -301,7 +301,7 @@ Posso gerar design.md?"
 
 **1. Aplicação automática de boas práticas (estilo Kiro)**
 
-```
+```text
 
 Claude: "Gerei plano de implementação com aplicação automática das boas práticas do Kiro:
 
@@ -328,7 +328,7 @@ Proceder com esta abordagem?"
 
 **2. Configuração automática de pontos de verificação de qualidade**
 
-```
+```text
 
 Claude: "Configurei automaticamente pontos de verificação de qualidade para cada etapa de implementação:
 
@@ -361,7 +361,7 @@ Tudo será executado automaticamente. Há padrões de qualidade adicionais?"
 
 **3. Análise automática de dependências e mitigação de riscos**
 
-```
+```text
 
 Claude: "Analisei automaticamente a ordem de implementação e estratégias de mitigação de riscos:
 
@@ -401,7 +401,7 @@ Há problemas com este plano?"
 
 **4. Conclusão e aprovação da Phase 3**
 
-```
+```text
 
 Claude: "Implementation Planning Phase foi concluída.
 Posso gerar tasks.md?"
@@ -413,7 +413,7 @@ Posso gerar tasks.md?"
 
 **Notação EARS (Easy Approach to Requirements Syntax)**
 
-```
+```text
 # Padrões padrão de notação EARS do Kiro
 
 WHEN [situação / trigger]
@@ -491,7 +491,7 @@ THE SYSTEM SHALL [comportamento correspondente]
 
 **Timing de geração de arquivos**
 
-```
+```text
 Conclusão Phase 1 → "Próximo passo" → Geração de requirements.md
 Conclusão Phase 2 → "Próximo passo" → Geração de design.md
 Conclusão Phase 3 → "Próximo passo" → Geração de tasks.md

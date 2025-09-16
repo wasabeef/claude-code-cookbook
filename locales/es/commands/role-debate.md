@@ -94,7 +94,7 @@ Determinación de recomendaciones finales
 
 ### Para Debate de 2 Roles
 
-```
+```text
 Debate de Roles: Seguridad vs Rendimiento
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -184,7 +184,7 @@ Revisión Futura:
 
 ### Para Debate de 3 Roles
 
-```
+```text
 Debate de Roles: Architect vs Security vs Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -451,7 +451,7 @@ potential_biases:
 
 #### Plantilla de Declaración de Posición Fase 1
 
-```
+```text
 Recomendación de [Nombre de Rol]:
 "[Propuesta específica]"
 
@@ -476,7 +476,7 @@ Métricas de Éxito:
 
 #### Plantilla de Refutación Fase 2
 
-```
+```text
 Refutación a [Rol Objetivo]:
 "[Refutación específica a propuesta objetivo]"
 
@@ -495,7 +495,7 @@ Puntos de Compromiso:
 
 #### Plantilla de Solución Integrada Fase 3
 
-```
+```text
 Solución Integrada:
 "[Propuesta final considerando preocupaciones de todos los roles]"
 

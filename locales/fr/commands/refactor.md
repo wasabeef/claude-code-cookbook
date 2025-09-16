@@ -77,7 +77,7 @@ class PremiumPricing {
 
 #### Critères d'évaluation et notation
 
-```
+```text
 S - Single Responsibility (20 points)
 ├─ Nombre de responsabilités de classe : 1 (20 pts) | 2 (15 pts) | 3 (10 pts) | 4+ (5 pts)
 ├─ Nombre de méthodes : <7 (+5 pts) | 7-15 (+3 pts) | >15 (0 pts)
@@ -120,7 +120,7 @@ Score total = S + O + L + I + D
 
 #### Formule de calcul de la dette
 
-```
+```text
 Dette technique (temps) = Score de complexité × Portée d'impact × Difficulté de correction
 
 Score de complexité :

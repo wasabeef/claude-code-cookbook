@@ -134,7 +134,7 @@ Chaque rôle adopte une approche **Evidence-First**, menant l'analyse et faisant
 
 **Format de rapport professionnel**
 
-```
+```text
 Résultats d'audit de sécurité basé sur les preuves
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Conformité OWASP Top 10 : XX% / Correspondance CVE : Terminée
@@ -152,7 +152,7 @@ Modélisation des menaces : Analyse STRIDE terminée
 
 **Format de rapport professionnel**
 
-```
+```text
 Analyse de performance Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Core Web Vitals : LCP[XXXms] FID[XXXms] CLS[X.XX]
@@ -170,7 +170,7 @@ Budget performance : XX% / Analyse ROI : XX% Prédiction d'amélioration
 
 **Format de rapport professionnel**
 
-```
+```text
 Analyse des causes racines Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Confiance d'analyse : Élevée / Contre-mesures biais : Implémentées

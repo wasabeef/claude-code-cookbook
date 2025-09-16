@@ -127,7 +127,7 @@
 
 **1. 從最少輸入自動擴展(Kiro 式)**
 
-```
+```text
 用戶：「用戶管理系統
 - 登錄功能
 - 個人資料編輯
@@ -148,7 +148,7 @@ Claude：「從需求生成詳细用戶故事。
 
 **2. 使用 EARS 記法的結構化需求描述**
 
-```
+```text
 Claude：「使用 Kiro 的 EARS 記法結構化需求：
 
 EARS 記法需求定義：
@@ -170,7 +170,7 @@ AND 不足時拒绝訪問」
 
 **3. 邊緣情况和安全需求的自動補充**
 
-```
+```text
 Claude：「基于 Kiro 的最佳實践，還考虑了以下情况：
 
 安全需求(自動補充)：
@@ -190,7 +190,7 @@ Claude：「基于 Kiro 的最佳實践，還考虑了以下情况：
 
 **5. Phase 1 完成和批準**
 
-```
+```text
 Claude：「Requirements Phase 已完成。
 可以生成 requirements.md 吗？」
 → 「繼續」→ 生成 requirements.md
@@ -200,7 +200,7 @@ Claude：「Requirements Phase 已完成。
 
 **1. 代碼庫分析 + 自動設計建議(Kiro 式)**
 
-```
+```text
 Claude：「分析現有代碼庫，提出最佳架構：
 
 代碼庫分析結果：
@@ -289,7 +289,7 @@ interface AuthenticationService {
 
 **4. Phase 2 完成和批準**
 
-```
+```text
 
 Claude：「Design Phase 已完成。
 可以生成 design.md 吗？」
@@ -301,7 +301,7 @@ Claude：「Design Phase 已完成。
 
 **1. 最佳實践自動應用(Kiro 式)**
 
-```
+```text
 
 Claude：「生成了自動應用 Kiro 最佳實践的實施計劃：
 
@@ -328,7 +328,7 @@ Claude：「生成了自動應用 Kiro 最佳實践的實施計劃：
 
 **2. 質量檢查點自動設置**
 
-```
+```text
 
 Claude：「自動設置各實施阶段的質量檢查點：
 
@@ -361,7 +361,7 @@ Phase 3c: 集成和部署
 
 **3. 依賴關系和風險緩解的自動分析**
 
-```
+```text
 
 Claude：「自動分析實施顺序和風險緩解策略：
 
@@ -401,7 +401,7 @@ Week 3: 高級功能和優化
 
 **4. Phase 3 完成和批準**
 
-```
+```text
 
 Claude：「Implementation Planning Phase 已完成。
 可以生成 tasks.md 吗？」
@@ -491,7 +491,7 @@ THE SYSTEM SHALL [對應行為]
 
 **文件生成時機**
 
-```
+```text
 Phase 1 完成 → 「繼續」 → 生成 requirements.md
 Phase 2 完成 → 「繼續」 → 生成 design.md
 Phase 3 完成 → 「繼續」 → 生成 tasks.md

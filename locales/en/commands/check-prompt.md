@@ -286,7 +286,7 @@ fi
 
 ### Comprehensive Score Calculation
 
-```
+```text
 Basic score = Σ(category score × weight) / 100
 
 Fatal problem penalties:
@@ -304,7 +304,7 @@ Final score = Basic score + Bonus - Penalties
 
 ### Quality Level Assessment
 
-```
+```text
 95-100 points: World's highest standard (Recommended as industry standard)
 90-94 points: Excellent (Production ready)
 80-89 points: Good (Ready for operation with minor improvements)

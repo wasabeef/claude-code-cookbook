@@ -36,7 +36,7 @@ Verifica si una declaración es verdadera revisando el código y documentación 
 
 ### Formato de Reporte
 
-```
+```text
 ## Resultados de Verificación de Hechos
 
 ### Lo que Preguntaste

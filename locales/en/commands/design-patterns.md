@@ -57,7 +57,7 @@ Suggests design patterns for your code and checks if it follows SOLID principles
 
 ### SOLID Principles We Check
 
-```
+```text
 S - Single Responsibility (one class, one job)
 O - Open/Closed (open for extension, closed for modification)
 L - Liskov Substitution (subtypes should be replaceable)
@@ -67,7 +67,7 @@ D - Dependency Inversion (depend on abstractions, not details)
 
 ### Output Example
 
-```
+```text
 Design Pattern Analysis Report
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

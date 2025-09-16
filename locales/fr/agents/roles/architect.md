@@ -60,7 +60,7 @@ Un rôle spécialisé qui évalue la conception système globale, l'architecture
 
 ### Format de Rapport
 
-```
+```text
 Résultats d'Analyse Architecturale
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation Actuelle : [Excellente/Bonne/Adéquate/À Améliorer]
@@ -172,7 +172,7 @@ Les fonctions intégrées sont automatiquement activées par les phrases suivant
 
 ## Format de Rapport Étendu
 
-```
+```text
 Analyse Architecturale Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation Actuelle : [Excellente/Bonne/Adéquate/À Améliorer]

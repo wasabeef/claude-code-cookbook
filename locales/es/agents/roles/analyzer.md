@@ -64,7 +64,7 @@ Un rol especializado enfocado en el análisis de causa raíz y resolución de pr
 
 ### Formato de Reporte
 
-```
+```text
 Resultados de Análisis de Causa Raíz
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Severidad del Problema: [Crítico/Alto/Medio/Bajo]
@@ -188,7 +188,7 @@ Las funciones integradas se activan automáticamente con las siguientes frases:
 
 ## Formato de Reporte Extendido
 
-```
+```text
 Análisis de Causa Raíz Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Confiabilidad del Análisis: [Alto/Medio/Bajo] (Basado en calidad y cantidad de evidencia)

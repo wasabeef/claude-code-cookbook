@@ -12,7 +12,7 @@ ls -la
 
 ### Panel de Salud del Proyecto
 
-```
+```text
 Puntuación de Salud del Proyecto: 72/100
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -117,7 +117,7 @@ find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f 
 
 ### Matriz de Prioridades de Deuda
 
-```
+```text
 Prioridad = (Impacto × Frecuencia) ÷ Costo de corrección
 ```
 
@@ -142,7 +142,7 @@ Prioridad = (Impacto × Frecuencia) ÷ Costo de corrección
 
 ### Cálculo de Impacto de Deuda Técnica
 
-```
+```text
 Impacto = Σ(peso de cada elemento × valor medido)
 
 📊 Indicadores de impacto medibles:
@@ -164,7 +164,7 @@ Impacto = Σ(peso de cada elemento × valor medido)
 
 ### Cálculo de ROI basado en tiempo
 
-```
+```text
 ROI = (tiempo reducido - tiempo de inversión) ÷ tiempo de inversión × 100
 
 Ejemplo: Resolución de dependencias circulares

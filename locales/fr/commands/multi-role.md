@@ -71,7 +71,7 @@ Générer les recommandations finales
 
 ### Pour une analyse à 2 rôles
 
-```
+```text
 Analyse multi-rôles : Sécurité + Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -117,7 +117,7 @@ Mois 2 : Renforcement progressif du contrôle d'autorisation
 
 ### Pour une analyse à 3 rôles
 
-```
+```text
 Analyse multi-rôles : Frontend + Mobile + Performance
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
@@ -250,7 +250,7 @@ Si les descriptions de fichier de rôle incluent des phrases comme celles-ci, un
 
 #### Flux d'exécution
 
-```
+```text
 Exécution normale :
 Rôle 1 → Rôle 2 → Rôle 3 → Intégration
 (Exécution séquentielle, approx. 3-5 minutes)

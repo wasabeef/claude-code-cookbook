@@ -96,13 +96,13 @@ Token Efficiency Mode 는 시각적 심볼과 약어 시스템을 활용하여 C
 
 **일반 모드 (92 자)**
 
-```
+```text
 인증 시스템의 사용자 검증 함수 45 행에서 보안 취약점이 발견되었습니다.
 ```
 
 **Token Efficient (39 자)**
 
-```
+```text
 auth.js:45 → 🛡️ sec vuln in user val()
 ```
 
@@ -110,13 +110,13 @@ auth.js:45 → 🛡️ sec vuln in user val()
 
 **일반 모드 (145 자)**
 
-```
+```text
 빌드 프로세스가 정상적으로 완료되었습니다. 현재 테스트를 실행 중이며, 그 후 배포를 진행합니다.
 ```
 
 **Token Efficient (35 자)**
 
-```
+```text
 build ✅ » test 🔄 » deploy ⏳
 ```
 
@@ -124,13 +124,13 @@ build ✅ » test 🔄 » deploy ⏳
 
 **일반 모드 (98 자)**
 
-```
+```text
 성능 분석 결과, 알고리즘이 O(n²) 의 복잡도로 인해 처리가 느린 것으로 판명되었습니다.
 ```
 
 **Token Efficient (42 자)**
 
-```
+```text
 ⚡ perf: slow ∵ O(n²) → optimize to O(n)
 ```
 
@@ -155,7 +155,7 @@ build ✅ » test 🔄 » deploy ⏳
 
 ### 디버깅 세션
 
-```
+```text
 [14:23] breakpoint → vars: {user: null, token: expired}
 [14:24] step → auth.validate() ❌
 [14:25] check → token.exp < Date.now() ∴ expired
@@ -165,7 +165,7 @@ build ✅ » test 🔄 » deploy ⏳
 
 ### 파일 분석 결과
 
-```
+```text
 /src/auth/: 🛡️ issues × 3
 /src/api/: ⚡ bottleneck in handler()
 /src/db/: ✅ clean
@@ -175,7 +175,7 @@ build ✅ » test 🔄 » deploy ⏳
 
 ### 프로젝트 상태
 
-```
+```text
 Frontend: 🎨 ✅ 100%
 Backend: ⚙️ 🔄 75%
 Database: 🗄️ ✅ migrated

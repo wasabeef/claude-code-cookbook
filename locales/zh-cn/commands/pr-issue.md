@@ -23,7 +23,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 
 ### 显示格式
 
-```
+```text
 开放 Issue 列表(按优先级排序)
 
 ### 高优先级

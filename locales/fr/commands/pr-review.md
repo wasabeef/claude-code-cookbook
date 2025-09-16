@@ -36,7 +36,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 
 ### Système de classification des commentaires
 
-```
+```text
 🔴 critical.must : Questions critiques
 ├─ Vulnérabilités de sécurité
 ├─ Problèmes d'intégrité des données

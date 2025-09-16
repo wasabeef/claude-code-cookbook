@@ -286,7 +286,7 @@ fi
 
 ### Calcul de score global
 
-```
+```text
 Score de base = Σ(score catégorie × poids) / 100
 
 Pénalités problèmes fatals :
@@ -304,7 +304,7 @@ Score final = Score de base + Bonus - Pénalités
 
 ### Évaluation niveau de qualité
 
-```
+```text
 95-100 points : Standard mondial le plus élevé (Recommandé comme standard industrie)
 90-94 points : Excellent (Prêt pour production)
 80-89 points : Bon (Prêt pour opération avec améliorations mineures)

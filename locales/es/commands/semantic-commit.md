@@ -458,7 +458,7 @@ done
 
 #### Formato Básico
 
-```
+```text
 <tipo>[ámbito opcional]: <descripción>
 
 [cuerpo opcional]
@@ -488,7 +488,7 @@ done
 
 Indica el área afectada del cambio:
 
-```
+```text
 feat(api): agregar endpoint de autenticación de usuario
 fix(ui): resolver problema de alineación de botón
 docs(readme): actualizar instrucciones de instalación
@@ -498,14 +498,14 @@ docs(readme): actualizar instrucciones de instalación
 
 Cuando hay cambios disruptivos de API:
 
-```
+```text
 feat!: cambiar formato de respuesta de API de usuario
 
 ```
 
 o
 
-```
+```text
 feat(api)!: cambiar flujo de autenticación
 ```
 
@@ -603,7 +603,7 @@ export default {
 
 ##### Estilo Angular
 
-```
+```text
 feat(scope): agregar nueva característica
 fix(scope): corregir bug
 docs(scope): actualizar documentación
@@ -611,7 +611,7 @@ docs(scope): actualizar documentación
 
 ##### Estilo Combinado con Gitmoji
 
-```
+```text
 ✨ feat: agregar registro de usuario
 🐛 fix: resolver problema de login
 📚 docs: actualizar docs de API
@@ -619,7 +619,7 @@ docs(scope): actualizar documentación
 
 ##### Proyectos en Español
 
-```
+```text
 feat: agregar funcionalidad de registro de usuario
 fix: resolver bug del proceso de login
 docs: actualizar documentación de API

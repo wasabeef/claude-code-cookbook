@@ -141,7 +141,7 @@ sort | uniq -c | sort -nr
 
 #### Conventional Commits (기본값)
 
-```
+```text
 <type>: <description>
 ```
 
@@ -314,7 +314,7 @@ feat(api)!: 인증 플로우 변경
 
 **영어**:
 
-```
+```text
 feat: add user registration endpoint
 fix: resolve memory leak in cache manager
 docs: update API documentation
@@ -322,7 +322,7 @@ docs: update API documentation
 
 **한국어**:
 
-```
+```text
 feat: 사용자 등록 엔드포인트 추가
 fix: 캐시 매니저 메모리 누수 해결
 docs: API 문서 업데이트

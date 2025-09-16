@@ -57,7 +57,7 @@ Propõe padrões de design aplicáveis à base de código e avalia a conformidad
 
 ### Itens de Verificação dos Princípios SOLID
 
-```
+```text
 S - Single Responsibility Principle (Princípio da Responsabilidade Única)
 O - Open/Closed Principle (Princípio Aberto/Fechado)
 L - Liskov Substitution Principle (Princípio da Substituição de Liskov)
@@ -67,7 +67,7 @@ D - Dependency Inversion Principle (Princípio da Inversão de Dependência)
 
 ### Exemplo de Saída
 
-```
+```text
 Relatório de Análise de Design Patterns
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 

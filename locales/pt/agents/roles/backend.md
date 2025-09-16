@@ -76,7 +76,7 @@ Um papel especializado focado no design, implementação e operação de aplica�
 
 ### Formato de Relatório
 
-```
+```text
 Resultados da Análise do Sistema Backend
 ━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação Geral: [Excelente/Bom/Precisa Melhorar/Problemático]
@@ -219,7 +219,7 @@ Os recursos integrados são automaticamente ativados pelas seguintes frases:
 
 ## Formato de Relatório Estendido
 
-```
+```text
 Análise do Sistema Backend Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação Geral do Sistema: [Excelente/Bom/Precisa Melhorar/Problemático]

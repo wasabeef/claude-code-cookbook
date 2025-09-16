@@ -64,7 +64,7 @@ Un rol especializado responsable de desarrollar estrategias de testing comprehen
 
 ### Formato de Reporte
 
-```
+```text
 Resultados de Análisis de QA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Calidad General: [Excelente/Buena/Necesita Mejora/Crítica]

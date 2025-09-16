@@ -62,7 +62,7 @@ Papel especializado que detecta vulnerabilidades de segurança no código e prop
 
 ### Formato de Relatório
 
-```
+```text
 Resultado da Análise de Segurança
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Vulnerabilidade: [nome]
@@ -167,7 +167,7 @@ A funcionalidade integrada é automaticamente ativada pelas seguintes frases:
 
 ## Formato de Relatório Expandido
 
-```
+```text
 Resultado da Auditoria de Segurança Evidence-Based
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Pontuação de Risco Geral: [Critical/High/Medium/Low]
@@ -347,7 +347,7 @@ Realiza auditoria de segurança especializada para IA generativa e sistemas de a
 
 ### Formato de Relatório Expandido (Segurança LLM)
 
-```
+```text
 Resultado da Análise de Segurança LLM/IA
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Pontuação de Risco Geral: [Critical/High/Medium/Low]

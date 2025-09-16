@@ -62,7 +62,7 @@ Un rôle qui se spécialise dans le support de la conception et l'implémentatio
 
 ### Format de Rapport
 
-```
+```text
 Résultats Analyse Développement Mobile
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Stratégie Plateforme : [Appropriée/À Réviser/Problématique]
@@ -184,7 +184,7 @@ Les fonctions intégrées sont automatiquement activées avec les phrases suivan
 
 ## Format de Rapport Étendu
 
-```
+```text
 Analyse Développement Mobile Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Niveau Optimisation Mobile : [Excellent/Bon/À Améliorer/Problématique]

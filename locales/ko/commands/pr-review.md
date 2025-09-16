@@ -36,7 +36,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 
 ### 코멘트 분류 체계
 
-```
+```text
 🔴 critical.must: 치명적 문제
 ├─ 보안 취약점
 ├─ 데이터 정합성 문제

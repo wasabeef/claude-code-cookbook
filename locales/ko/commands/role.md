@@ -134,7 +134,7 @@ git diff HEAD~1
 
 **전문적 보고 형식**
 
-```
+```text
 Evidence-Based 보안 감사 결과
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 OWASP Top 10 준수도: XX% / CVE 조회: 완료
@@ -152,7 +152,7 @@ OWASP Top 10 준수도: XX% / CVE 조회: 완료
 
 **전문적 보고 형식**
 
-```
+```text
 Evidence-First 성능 분석
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
@@ -170,7 +170,7 @@ Performance Budget: XX% / ROI 분석: XX% 개선 예측
 
 **전문적 보고 형식**
 
-```
+```text
 Evidence-First 근본 원인 분석
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 분석 신뢰도: 높음 / 바이어스 대책: 실시 완료
