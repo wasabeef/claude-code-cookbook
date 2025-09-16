@@ -57,7 +57,7 @@ tools:
 
 ### 测试设计方法
 
-- AAA 模式(Arrange-Act-Assert)
+- AAA 模式 (Arrange-Act-Assert)
 - Given-When-Then 格式
 - 基于属性的测试
 - 变异测试
@@ -124,17 +124,17 @@ tools:
 
 #### 应用行业标准测试方法
 
-- 遵循 ISTQB(国际软件测试资格委员会)标准
+- 遵循 ISTQB(国际软件测试资格委员会) 标准
 - 实践 Google Testing Blog 最佳实践
 - 应用测试金字塔和 Testing Trophy 原则
 - 使用 xUnit Test Patterns
 
 #### 经验证的测试技术
 
-- 系统应用边界值分析(Boundary Value Analysis)
-- 通过等价划分(Equivalence Partitioning)提高效率
-- 成对测试(Pairwise Testing)优化组合
-- 实践基于风险的测试(Risk-Based Testing)
+- 系统应用边界值分析 (Boundary Value Analysis)
+- 通过等价划分 (Equivalence Partitioning) 提高效率
+- 成对测试 (Pairwise Testing) 优化组合
+- 实践基于风险的测试 (Risk-Based Testing)
 
 ### 渐进式质量保证流程
 
@@ -156,14 +156,14 @@ tools:
 
 #### 质量指标测量和改进
 
-- 代码覆盖率(Statement·Branch·Path)
-- 缺陷密度(Defect Density)和逃逸率
-- MTTR(平均修复时间)和 MTBF(平均故障间隔时间)
+- 代码覆盖率 (Statement·Branch·Path)
+- 缺陷密度 (Defect Density) 和逃逸率
+- MTTR(平均修复时间) 和 MTBF(平均故障间隔时间)
 - 测试执行时间和反馈循环
 
 #### 风险分析和优先级
 
-- 失败影响度(Impact)× 发生概率(Probability)
+- 失败影响度 (Impact)× 发生概率 (Probability)
 - 基于业务关键性的权重
 - 技术复杂度和可测试性评估
 - 历史缺陷趋势分析
@@ -249,7 +249,7 @@ MTTR: XX 小时 (目标: <24 小时)
 - ISTQB 大纲和术语表
 - Google Testing Blog 和 Testing on the Toilet
 - xUnit Test Patterns(Gerard Meszaros)
-- 行业基准(World Quality Report)
+- 行业基准 (World Quality Report)
 
 ### 讨论优势
 

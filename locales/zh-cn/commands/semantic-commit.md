@@ -11,8 +11,8 @@
 ### 选项
 
 - `--dry-run` : 不实际提交，仅显示建议的提交拆分
-- `--lang <语言>` : 强制指定提交消息语言(en, zh-cn)
-- `--max-commits <数>` : 指定最大提交数(默认: 10)
+- `--lang <语言>` : 强制指定提交消息语言 (en, zh-cn)
+- `--max-commits <数>` : 指定最大提交数 (默认: 10)
 
 ### 基本示例
 
@@ -20,7 +20,7 @@
 # 分析当前变更并按逻辑单位提交
 /semantic-commit
 
-# 仅确认拆分方案(不实际提交)
+# 仅确认拆分方案 (不实际提交)
 /semantic-commit --dry-run
 
 # 用英语生成提交消息
@@ -260,7 +260,7 @@ while IFS= read -r commit_plan; do
     continue
   fi
 
-  # 生成提交消息(LLM 分析)
+  # 生成提交消息 (LLM 分析)
   commit_msg=$(generate_commit_message_for_staged_files)
 
   # 用户确认
@@ -470,21 +470,21 @@ done
 
 **必需类型**:
 
-- `feat`: 新功能(用户可见的功能添加)
+- `feat`: 新功能 (用户可见的功能添加)
 - `fix`: Bug 修复
 
 **可选类型**:
 
 - `build`: 构建系统或外部依赖的变更
-- `chore`: 其他变更(不影响发布)
+- `chore`: 其他变更 (不影响发布)
 - `ci`: CI 配置文件和脚本的变更
 - `docs`: 仅文档变更
-- `style`: 不影响代码含义的变更(空白、格式、分号等)
+- `style`: 不影响代码含义的变更 (空白、格式、分号等)
 - `refactor`: 既不修复 Bug 也不添加功能的代码变更
 - `perf`: 性能改进
 - `test`: 添加或修正测试
 
-#### 作用域(可选)
+#### 作用域 (可选)
 
 表示变更的影响范围：
 
@@ -669,12 +669,12 @@ docs: 更新 API 文档
 # 语言判定分数计算
 CHINESE_SCORE=0
 
-# 1. CommitLint 配置(+3 分)
+# 1. CommitLint 配置 (+3 分)
 if grep -q '"subject-case".*\[0\]' commitlint.config.* 2>/dev/null; then
   CHINESE_SCORE=$((CHINESE_SCORE + 3))
 fi
 
-# 2. git log 分析(最大 +2 分)
+# 2. git log 分析 (最大 +2 分)
 CHINESE_COMMITS=$(git log --oneline -20 --pretty=format:"%s" | \
   grep -cE '[一-龥]|添加|修复|更新|删除|实现|优化|重构|测试|文档' 2>/dev/null || echo 0)
 if [ $CHINESE_COMMITS -gt 10 ]; then
@@ -683,12 +683,12 @@ elif [ $CHINESE_COMMITS -gt 5 ]; then
   CHINESE_SCORE=$((CHINESE_SCORE + 1))
 fi
 
-# 3. README.md 确认(+1 分)
+# 3. README.md 确认 (+1 分)
 if head -5 README.md 2>/dev/null | grep -qE '[一-龥]'; then
   CHINESE_SCORE=$((CHINESE_SCORE + 1))
 fi
 
-# 4. 变更文件内容确认(+1 分)
+# 4. 变更文件内容确认 (+1 分)
 if git diff HEAD 2>/dev/null | grep -qE '^[+-].*[一-龥]|^[+-].*添加|^[+-].*修复|^[+-].*更新'; then
   CHINESE_SCORE=$((CHINESE_SCORE + 1))
 fi
@@ -845,7 +845,7 @@ export default {
 
 2. **现有提交历史** (第 2 优先)
    - 实际使用的类型统计
-   - 消息语言(中文/英文)
+   - 消息语言 (中文/英文)
    - 作用域使用模式
 
 3. **项目类型** (第 3 优先)
@@ -892,7 +892,7 @@ ls packages/ | head -10
 {
   'type-enum': [2, 'always', [
     'feat', 'fix', 'docs', 'style', 'refactor', 'test', 'chore',
-    'wip',      // 进行中(Pull Request 用)
+    'wip',      // 进行中 (Pull Request 用)
     'hotfix',   // 紧急修复
     'release'   // 发布准备
   ]],
@@ -910,14 +910,14 @@ ls packages/ | head -10
 5. **分离测试**: 测试文件单独提交
 6. **利用配置文件**: 引入 CommitLint 统一团队规约
 
-### 实际拆分示例(Before/After)
+### 实际拆分示例 (Before/After)
 
 #### 示例 1: 大规模认证系统添加
 
 **Before(1 个巨大提交):**
 
 ```bash
-# 变更文件(15 个文件，850 行变更)
+# 变更文件 (15 个文件，850 行变更)
 src/auth/login.js          # 新建
 src/auth/register.js       # 新建
 src/auth/password.js       # 新建
@@ -997,9 +997,9 @@ docs(auth): 添加认证文档和配置
 **Before(混合的问题提交):**
 
 ```bash
-# 变更文件(8 个文件，320 行变更)
+# 变更文件 (8 个文件，320 行变更)
 src/user/service.js       # Bug 修复 + 重构
-src/user/validator.js     # 新建(重构)
+src/user/validator.js     # 新建 (重构)
 src/auth/middleware.js    # Bug 修复
 src/api/user-routes.js    # Bug 修复 + 错误处理改进
 tests/user.test.js        # 测试添加
@@ -1050,7 +1050,7 @@ chore: 更新文档和依赖
 **Before(跨功能的巨大提交):**
 
 ```bash
-# 变更文件(12 个文件，600 行变更)
+# 变更文件 (12 个文件，600 行变更)
 src/user/profile.js       # 新功能 A
 src/user/avatar.js        # 新功能 A
 src/notification/email.js # 新功能 B

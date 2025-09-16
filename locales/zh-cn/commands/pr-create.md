@@ -1,4 +1,4 @@
-## PR 创建(已不推荐)
+## PR 创建 (已不推荐)
 
 > 不再推荐：请优先使用 `/pr-create-smart` 生成高质量的 PR 描述草稿，然后使用 gh/GUI 创建 PR。本命令属于“端到端自动创建 PR(保留模板、自动打标签、创建 Draft)”的旧方案，仅为兼容保留。
 
@@ -50,7 +50,7 @@ git checkout main
 git pull
 git checkout -b feat-user-authentication
 
-# 确认分支(显示当前分支名)
+# 确认分支 (显示当前分支名)
 git branch --show-current
 ```
 
@@ -67,7 +67,7 @@ git commit -m "feat: 实现用户认证 API"
 #### 3. 推送到远程
 
 ```bash
-# 首次推送(设置 upstream)
+# 首次推送 (设置 upstream)
 git push -u origin feat-user-authentication
 
 # 后续推送
@@ -79,10 +79,10 @@ git push
 **步骤 1: 分析变更内容**
 
 ```bash
-# 获取文件变更(确认已暂存的变更)
+# 获取文件变更 (确认已暂存的变更)
 git diff --cached --name-only
 
-# 内容分析(最多 1000 行)
+# 内容分析 (最多 1000 行)
 git diff --cached | head -1000
 ```
 
@@ -90,7 +90,7 @@ git diff --cached | head -1000
 
 ```bash
 # 模板处理优先级
-# 1. 现有 PR 描述(完全保留)
+# 1. 现有 PR 描述 (完全保留)
 # 2. .github/PULL_REQUEST_TEMPLATE.md
 # 3. 默认模板
 
@@ -101,10 +101,10 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 **步骤 3: 自动选择标签**
 
 ```bash
-# 获取可用标签(非交互式)
+# 获取可用标签 (非交互式)
 "从 .github/labels.yml 或 GitHub 仓库获取可用标签，根据变更内容自动选择适当的标签"
 
-# 通过模式匹配自动选择(最多 3 个)
+# 通过模式匹配自动选择 (最多 3 个)
 # - 文档: *.md, docs/ → documentation|docs
 # - 测试: test, spec → test|testing
 # - Bug 修复: fix|bug → bug|fix
@@ -118,7 +118,7 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 "使用以下信息创建 Draft PR：
 - 标题: 从提交消息自动生成
 - 描述: 使用 .github/PULL_REQUEST_TEMPLATE.md 适当填写
-- 标签: 从变更内容自动选择(最多 3 个)
+- 标签: 从变更内容自动选择 (最多 3 个)
 - 基础分支: main
 - 完全保留 HTML 注释"
 ```

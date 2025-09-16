@@ -5,8 +5,8 @@
 ### 使用方法
 
 ```bash
-/multi-role <角色1>,<角色2> [--agent|-a] [分析对象]
-/multi-role <角色1>,<角色2>,<角色3> [--agent|-a] [分析对象]
+/multi-role <角色 1>,<角色 2> [--agent|-a] [分析对象]
+/multi-role <角色 1>,<角色 2>,<角色 3> [--agent|-a] [分析对象]
 ```
 
 **重要**:
@@ -18,17 +18,17 @@
 
 ### 选项
 
-- `--agent` 或 `-a` : 将各角色作为子代理并行执行(推荐用于大规模分析)
-  - 使用此选项时，如果角色的 description 中包含自动委托促进短语(如 "use PROACTIVELY" 等)，将启用更积极的自动委托
+- `--agent` 或 `-a` : 将各角色作为子代理并行执行 (推荐用于大规模分析)
+  - 使用此选项时，如果角色的 description 中包含自动委托促进短语 (如 "use PROACTIVELY" 等)，将启用更积极的自动委托
 
 ### 基本示例
 
 ```bash
-# 安全和性能的双重分析(常规)
+# 安全和性能的双重分析 (常规)
 /multi-role security,performance
 "评估这个 API 端点"
 
-# 大规模系统的并行分析(子代理)
+# 大规模系统的并行分析 (子代理)
 /multi-role security,performance --agent
 "全面分析系统的安全性和性能"
 
@@ -36,7 +36,7 @@
 /multi-role frontend,mobile,performance
 "考虑这个界面的优化方案"
 
-# 架构设计的多角度评估(子代理)
+# 架构设计的多角度评估 (子代理)
 /multi-role architect,security,performance --agent
 "评估微服务化的设计"
 ```
@@ -134,13 +134,13 @@ Mobile 分析结果:
 离线支持: 未实施
 
 Performance 分析结果:
-初始显示: LCP 2.1 秒(良好)
+初始显示: LCP 2.1 秒 (良好)
 图像优化: 不支持 WebP
 延迟加载: 未实施
 
 综合建议:
-1. 移动优化(单手操作 + 离线支持)
-2. 图像优化(WebP + 延迟加载)
+1. 移动优化 (单手操作 + 离线支持)
+2. 图像优化 (WebP + 延迟加载)
 3. 改进平板 UI
 
 优先级: Mobile > Performance > Frontend
@@ -236,7 +236,7 @@ cat performance-issues.log
 - 想通过讨论决定设计方针
 - 想听取不同视角的辩论
 
-### 子代理并行执行(--agent)
+### 子代理并行执行 (--agent)
 
 使用 `--agent` 选项时，各角色作为独立的子代理并行执行。
 

@@ -160,7 +160,7 @@ Conversión de costos:
 ### Procedimiento de refactorización
 
 1. **Análisis y medición del estado actual**
-   - Medición de complejidad (ciclomática・cognitiva)
+   - Medición de complejidad (ciclomática ・ cognitiva)
    - Cálculo de puntuación SOLID (0-100 puntos)
    - Cuantificación de deuda técnica (tiempo/costo)
    - Creación de matriz de prioridades

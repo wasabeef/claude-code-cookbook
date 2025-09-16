@@ -1,4 +1,4 @@
-## PR 創建(已不推薦)
+## PR 創建 (已不推薦)
 
 > 不再推薦：請優先使用 `/pr-create-smart` 生成高質量的 PR 描述草稿，然後使用 gh/GUI 創建 PR。本命令属于“端到端自動創建 PR(保留模板、自動打標簽、創建 Draft)”的旧方案，仅為兼容保留。
 
@@ -50,7 +50,7 @@ git checkout main
 git pull
 git checkout -b feat-user-authentication
 
-# 確認分支(顯示當前分支名)
+# 確認分支 (顯示當前分支名)
 git branch --show-current
 ```
 
@@ -67,7 +67,7 @@ git commit -m "feat: 實現用戶認證 API"
 #### 3. 推送到远程
 
 ```bash
-# 首次推送(設置 upstream)
+# 首次推送 (設置 upstream)
 git push -u origin feat-user-authentication
 
 # 後續推送
@@ -79,10 +79,10 @@ git push
 **步骤 1: 分析變更內容**
 
 ```bash
-# 獲取文件變更(確認已暂存的變更)
+# 獲取文件變更 (確認已暂存的變更)
 git diff --cached --name-only
 
-# 內容分析(最多 1000 行)
+# 內容分析 (最多 1000 行)
 git diff --cached | head -1000
 ```
 
@@ -90,7 +90,7 @@ git diff --cached | head -1000
 
 ```bash
 # 模板處理優先級
-# 1. 現有 PR 描述(完全保留)
+# 1. 現有 PR 描述 (完全保留)
 # 2. .github/PULL_REQUEST_TEMPLATE.md
 # 3. 默認模板
 
@@ -101,10 +101,10 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 **步骤 3: 自動選擇標簽**
 
 ```bash
-# 獲取可用標簽(非交互式)
+# 獲取可用標簽 (非交互式)
 "從 .github/labels.yml 或 GitHub 倉庫獲取可用標簽，根據變更內容自動選擇適当的標簽"
 
-# 通過模式匹配自動選擇(最多 3 個)
+# 通過模式匹配自動選擇 (最多 3 個)
 # - 文檔: *.md, docs/ → documentation|docs
 # - 測試: test, spec → test|testing
 # - Bug 修復: fix|bug → bug|fix
@@ -118,7 +118,7 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 "使用以下資訊創建 Draft PR：
 - 標題: 從提交消息自動生成
 - 描述: 使用 .github/PULL_REQUEST_TEMPLATE.md 適当填寫
-- 標簽: 從變更內容自動選擇(最多 3 個)
+- 標簽: 從變更內容自動選擇 (最多 3 個)
 - 基礎分支: main
 - 完全保留 HTML 注釋"
 ```

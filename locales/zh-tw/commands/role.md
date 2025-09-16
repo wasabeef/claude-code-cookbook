@@ -1,6 +1,6 @@
 ## 角色
 
-切換到特定角色(role)，執行專業分析或工作。
+切換到特定角色 (role)，執行專業分析或工作。
 
 ### 使用方法
 
@@ -10,33 +10,33 @@
 
 ### 選項
 
-- `--agent` 或 `-a` : 作為子代理独立執行(推薦用于大規模分析)
-  - 使用此選項時，如果角色的 description 包含自動委托促進短語(如 "use PROACTIVELY" 等)，將啟用更积极的自動委托
+- `--agent` 或 `-a` : 作為子代理独立執行 (推薦用于大規模分析)
+  - 使用此選項時，如果角色的 description 包含自動委托促進短語 (如 "use PROACTIVELY" 等)，將啟用更积极的自動委托
 
 ### 可用角色
 
-#### 專業分析角色(Evidence-First 集成)
+#### 專業分析角色 (Evidence-First 集成)
 
-- `security` : 安全審計專家(OWASP Top 10·威胁建模·Zero Trust 原則·CVE 對照)
-- `performance` : 性能優化專家(Core Web Vitals·RAIL 模型·渐進式優化·ROI 分析)
-- `analyzer` : 根本原因分析專家(5 Whys·系統思維·假設驅動·認知偏差對策)
-- `frontend` : 前端·UI/UX 專家(WCAG 2.1·設計系統·用戶中心設計)
+- `security` : 安全審計專家 (OWASP Top 10·威胁建模·Zero Trust 原則·CVE 對照)
+- `performance` : 性能優化專家 (Core Web Vitals·RAIL 模型·渐進式優化·ROI 分析)
+- `analyzer` : 根本原因分析專家 (5 Whys·系統思維·假設驅動·認知偏差對策)
+- `frontend` : 前端·UI/UX 專家 (WCAG 2.1·設計系統·用戶中心設計)
 
 #### 開發支持角色
 
-- `reviewer` : 代碼審查專家(可讀性·可維護性·性能·重構建議)
-- `architect` : 系統架構师(Evidence-First 設計·MECE 分析·演進式架構)
-- `qa` : 測試工程师(測試覆蓋率·E2E/集成/單元策略·自動化建議)
-- `mobile` : 移動開發專家(iOS HIG·Android Material Design·跨平台策略)
+- `reviewer` : 代碼審查專家 (可讀性·可維護性·性能·重構建議)
+- `architect` : 系統架構师 (Evidence-First 設計·MECE 分析·演進式架構)
+- `qa` : 測試工程师 (測試覆蓋率·E2E/集成/單元策略·自動化建議)
+- `mobile` : 移動開發專家 (iOS HIG·Android Material Design·跨平台策略)
 
 ### 基本示例
 
 ```bash
-# 切換到安全審計模式(常規)
+# 切換到安全審計模式 (常規)
 /role security
 "檢查這個項目的安全漏洞"
 
-# 使用子代理執行安全審計(大規模分析)
+# 使用子代理執行安全審計 (大規模分析)
 /role security --agent
 "執行整個項目的安全審計"
 
@@ -147,7 +147,7 @@ OWASP Top 10 合規度: XX% / CVE 對照: 完成
 
 - Core Web Vitals(LCP·FID·CLS)·RAIL 模型準拠
 - Google PageSpeed Insights 建議實施
-- 渐進式優化流程(測量→分析→優先級→實施)
+- 渐進式優化流程 (測量→分析→優先級→實施)
 - 通過 ROI 分析進行投資回報的定量評估
 
 **專業報告格式**
@@ -163,10 +163,10 @@ Performance Budget: XX% / ROI 分析: XX% 改進預測
 
 **Evidence-First 根本原因分析**
 
-- 5 Whys + α方法(包含反證檢讨)
-- 基于系統思維的結構分析(Peter Senge 原則)
-- 認知偏差對策(排除確認偏差·锚定效應等)
-- 彻底的假設驅動分析(並行驗證多個假設)
+- 5 Whys + α方法 (包含反證檢讨)
+- 基于系統思維的結構分析 (Peter Senge 原則)
+- 認知偏差對策 (排除確認偏差·锚定效應等)
+- 彻底的假設驅動分析 (並行驗證多個假設)
 
 **專業報告格式**
 
@@ -197,7 +197,7 @@ Evidence-First 根本原因分析
 #### architect(系統架構师)
 
 - Evidence-First 設計原則·MECE 分析的分阶段思考
-- 演進式架構·多視角評估(技術·業務·運維·用戶)
+- 演進式架構·多視角評估 (技術·業務·運維·用戶)
 - 官方架構模式·最佳實践參考
 
 #### qa(測試工程师)
@@ -263,8 +263,8 @@ Evidence-First 根本原因分析
 
 ### 多角色協作
 
-- `/multi-role <角色1>,<角色2>` : 多角色同時分析
-- `/role-debate <角色1>,<角色2>` : 角色間辩論
+- `/multi-role <角色 1>,<角色 2>` : 多角色同時分析
+- `/role-debate <角色 1>,<角色 2>` : 角色間辩論
 
 ### 使用示例
 
@@ -294,7 +294,7 @@ Evidence-First 根本原因分析
 
 ```bash
 /role-help "API 慢且担心安全"
-→ 建議適当的方法(multi-role 或 debate)
+→ 建議適当的方法 (multi-role 或 debate)
 
 /role-help compare frontend,mobile
 → 前端和移動角色的區別與使用分場
@@ -306,7 +306,7 @@ Evidence-First 根本原因分析
 
 - 切換角色時，Claude 的 **行為·優先事項·分析方法·報告格式** 會專門化
 - 各角色通過 **Evidence-First 方法** 優先應用官方指南·經過驗證的方法
-- 使用 `default` 返回常規模式(解除角色特化)
+- 使用 `default` 返回常規模式 (解除角色特化)
 - 角色仅在當前會話內有效
 
 ### 有效使用方法
@@ -316,7 +316,7 @@ Evidence-First 根本原因分析
 - **困惑時**: 請使用 smart-review 或 role-help
 - **持續改進**: 同一角色也會通過新證據·方法提高分析精度
 
-### 子代理功能(--agent 選項)
+### 子代理功能 (--agent 選項)
 
 需要大規模分析或独立專業處理時，可使用 `--agent` 選項將角色作為子代理執行。
 

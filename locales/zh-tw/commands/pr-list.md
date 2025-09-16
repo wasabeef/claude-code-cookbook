@@ -24,7 +24,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 ### 顯示格式
 
 ```text
-開放 PR 列表(按優先級排序)
+開放 PR 列表 (按優先級排序)
 
 ### 高優先級
 #編号 標題 [Draft/DNM] | 作者 | 開放時长 | 批準數 | +添加/-刪除
