@@ -21,13 +21,14 @@
 - `performance` : 性能优化专家 (Core Web Vitals·RAIL 模型·渐进式优化·ROI 分析)
 - `analyzer` : 根本原因分析专家 (5 Whys·系统思维·假设驱动·认知偏差对策)
 - `frontend` : 前端·UI/UX 专家 (WCAG 2.1·设计系统·用户中心设计)
+- `mobile` : 移动开发专家 (iOS HIG·Android Material Design·跨平台策略)
+- `backend` : 后端与服务器端专家 (RESTful 设计·可扩展性·数据库优化)
 
 #### 开发支持角色
 
 - `reviewer` : 代码审查专家 (可读性·可维护性·性能·重构建议)
 - `architect` : 系统架构师 (Evidence-First 设计·MECE 分析·演进式架构)
 - `qa` : 测试工程师 (测试覆盖率·E2E/集成/单元策略·自动化建议)
-- `mobile` : 移动开发专家 (iOS HIG·Android Material Design·跨平台策略)
 
 ### 基本示例
 
@@ -210,6 +211,12 @@ Evidence-First 根本原因分析
 - iOS HIG·Android Material Design 官方指南准拠
 - 跨平台策略·Touch-First 设计
 - 应用商店审核指南·移动特化 UX 优化
+
+#### backend (后端与服务器端专家)
+
+- RESTful/GraphQL API 设计、领域驱动设计、整洁架构
+- 可扩展性、容错能力、性能优化
+- 数据库优化、缓存策略、可靠性提升
 
 ### 角色特有的辩论特性
 

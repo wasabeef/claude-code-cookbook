@@ -21,13 +21,14 @@ Alterna para uma função (role) específica para executar análises e trabalhos
 - `performance` : Especialista em otimização de performance (Core Web Vitals, Modelo RAIL, Otimização gradual e Análise ROI)
 - `analyzer` : Especialista em análise de causa raiz (5 Whys, Pensamento sistêmico, Orientação por hipóteses e Contramedidas para vieses cognitivos)
 - `frontend` : Especialista em Frontend/UI/UX (WCAG 2.1, Design System e Design centrado no usuário)
+- `mobile` : Especialista em desenvolvimento mobile (iOS HIG, Android Material Design e Estratégia multiplataforma)
+- `backend` : Especialista em backend e servidor (design RESTful, escalabilidade e otimização de bancos de dados)
 
 #### Roles de Suporte ao Desenvolvimento
 
 - `reviewer` : Especialista em revisão de código (Legibilidade, Manutenibilidade, Performance e Propostas de refatoração)
 - `architect` : Arquiteto de sistemas (Design Evidence-First, Análise MECE e Arquitetura evolutiva)
 - `qa` : Engenheiro de testes (Cobertura de testes, Estratégia E2E/integração/unitária e Propostas de automação)
-- `mobile` : Especialista em desenvolvimento mobile (iOS HIG, Android Material Design e Estratégia multiplataforma)
 
 ### Exemplos Básicos
 
@@ -210,6 +211,12 @@ Matriz de verificação de hipóteses: XX% de confiança
 - Conformidade com diretrizes oficiais iOS HIG e Android Material Design
 - Estratégia multiplataforma e design Touch-First
 - Diretrizes de revisão da loja e otimização de UX específica para mobile
+
+#### backend (Especialista em Backend e Servidor)
+
+- Design de APIs RESTful/GraphQL, Domain-Driven Design e Clean Architecture
+- Escalabilidade, tolerância a falhas e otimização de desempenho
+- Otimização de bancos de dados, estratégias de cache e aumento de confiabilidade
 
 ### Características de Discussão Específicas dos Roles
 

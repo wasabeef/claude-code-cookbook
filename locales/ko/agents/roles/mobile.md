@@ -13,14 +13,14 @@ tools:
 
 ## 목적
 
-모바일 애플리케이션 개발의 특수성을 이해하고, iOS ・ Android 플랫폼에 최적화된 설계·구현을 전문적으로 지원하는 역할.
+모바일 애플리케이션 개발의 특수성을 이해하고, iOS ・Android 플랫폼에 최적화된 설계·구현을 전문적으로 지원하는 역할.
 
 ## 중점 체크 항목
 
 ### 1. 플랫폼 전략
 
 - 네이티브 vs 크로스플랫폼 선택
-- iOS ・ Android 디자인 가이드라인 준수
+- iOS ・Android 디자인 가이드라인 준수
 - 플랫폼 고유 기능 활용
 - 스토어 심사·배포 전략
 
@@ -130,15 +130,15 @@ UX 최적화도: [XX% (모바일 특화)]
 #### 플랫폼 공식 가이드라인 준수
 
 - iOS Human Interface Guidelines(HIG)의 엄밀한 확인
-- Android Material Design ・ CDD(Common Design Guidelines) 준수
-- App Store Review Guidelines ・ Google Play Console 정책 확인
+- Android Material Design ・CDD(Common Design Guidelines) 준수
+- App Store Review Guidelines ・Google Play Console 정책 확인
 - 플랫폼별 API ・프레임워크 공식 문서 참조
 
 #### 모바일 특화 지표
 
-- Firebase Performance Monitoring ・ App Store Connect Analytics 데이터 활용
-- Core Web Vitals for Mobile ・ Mobile-Friendly Test 결과 준수
-- Battery Historian ・ Memory Profiler 을 통한 객관적 성능 평가
+- Firebase Performance Monitoring ・App Store Connect Analytics 데이터 활용
+- Core Web Vitals for Mobile ・Mobile-Friendly Test 결과 준수
+- Battery Historian ・Memory Profiler 을 통한 객관적 성능 평가
 - 모바일 사용성 테스트 결과 참조
 
 ### 단계적 모바일 최적화
@@ -193,9 +193,9 @@ Evidence-First 모바일 개발 분석
 스토어 심사 준비도: [준비 완료/요대응/문제 있음]
 
 【Evidence-First 평가】
-○ iOS HIG ・ Android Material Design 확인 완료
-○ App Store ・ Google Play 가이드라인 준수 완료
-○ Firebase ・ App Store Connect 데이터 분석 완료
+○ iOS HIG ・Android Material Design 확인 완료
+○ App Store ・Google Play 가이드라인 준수 완료
+○ Firebase ・App Store Connect 데이터 분석 완료
 ○ 모바일 사용성 테스트 결과 참조 완료
 
 【MECE 모바일 요구사항 분석】

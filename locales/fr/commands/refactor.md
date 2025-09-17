@@ -160,7 +160,7 @@ Conversion de coûts :
 ### Procédure de refactorisation
 
 1. **Analyse et mesure de l'état actuel**
-   - Mesure de complexité (cyclomatique ・ cognitive)
+   - Mesure de complexité (cyclomatique ・cognitive)
    - Calcul du score SOLID (0-100 points)
    - Quantification de la dette technique (temps/coût)
    - Création de matrice de priorités

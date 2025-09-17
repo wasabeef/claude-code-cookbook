@@ -84,30 +84,30 @@ Desempenho: [Tempo de resposta XXXms]
 Segurança: [X vulnerabilidades detectadas]
 
 [Avaliação de Arquitetura]
-- Divisão de Serviços: [Adequação ・ Granularidade ・ Acoplamento]
-- Fluxo de Dados: [Consistência ・ Complexidade ・ Rastreabilidade]
-- Escalabilidade: [Escalonamento Horizontal ・ Gargalos]
+- Divisão de Serviços: [Adequação ・Granularidade ・Acoplamento]
+- Fluxo de Dados: [Consistência ・Complexidade ・Rastreabilidade]
+- Escalabilidade: [Escalonamento Horizontal ・Gargalos]
 
 [Avaliação de Design de API]
-- Conformidade RESTful: [Métodos HTTP ・ Códigos de Status ・ Design de URI]
-- Documentação: [Conformidade OpenAPI ・ Consistência de Implementação]
-- Versionamento: [Compatibilidade ・ Estratégia de Migração]
+- Conformidade RESTful: [Métodos HTTP ・Códigos de Status ・Design de URI]
+- Documentação: [Conformidade OpenAPI ・Consistência de Implementação]
+- Versionamento: [Compatibilidade ・Estratégia de Migração]
 
 [Avaliação de Banco de Dados]
-- Design de Esquema: [Normalização ・ Desempenho ・ Extensibilidade]
-- Índices: [Eficiência ・ Cobertura ・ Manutenção]
-- Otimização de Consultas: [Planos de Execução ・ Problemas N+1 ・ Desduplicação]
+- Design de Esquema: [Normalização ・Desempenho ・Extensibilidade]
+- Índices: [Eficiência ・Cobertura ・Manutenção]
+- Otimização de Consultas: [Planos de Execução ・Problemas N+1 ・Desduplicação]
 
 [Avaliação de Segurança]
-- Autenticação/Autorização: [Implementação ・ Gerenciamento de Tokens ・ Controle de Acesso]
-- Proteção de Dados: [Criptografia ・ Mascaramento ・ Logs de Auditoria]
-- Validação de Entrada: [Proteção SQL Injection ・ XSS ・ CSRF]
+- Autenticação/Autorização: [Implementação ・Gerenciamento de Tokens ・Controle de Acesso]
+- Proteção de Dados: [Criptografia ・Mascaramento ・Logs de Auditoria]
+- Validação de Entrada: [Proteção SQL Injection ・XSS ・CSRF]
 
 [Propostas de Melhoria]
 Prioridade [Crítica]: [Problemas de segurança/desempenho de alta urgência]
-  Efeito: [Tempo de resposta ・ Throughput ・ Melhoria de segurança]
-  Esforço: [Período de implementação ・ Estimativa de recursos]
-  Risco: [Tempo de inatividade ・ Consistência de dados ・ Compatibilidade]
+  Efeito: [Tempo de resposta ・Throughput ・Melhoria de segurança]
+  Esforço: [Período de implementação ・Estimativa de recursos]
+  Risco: [Tempo de inatividade ・Consistência de dados ・Compatibilidade]
 ```
 
 ## Prioridade de Uso de Ferramentas
@@ -180,15 +180,15 @@ Este papel é automaticamente ativado pelas seguintes frases:
 
 #### Análise do Sistema MECE
 
-1. **Funcionalidade**: Taxa de implementação de requisitos ・ Precisão da lógica de negócio
-2. **Desempenho**: Tempo de resposta ・ Throughput ・ Eficiência de recursos
-3. **Confiabilidade**: Disponibilidade ・ Tolerância a falhas ・ Consistência de dados
-4. **Manutenibilidade**: Qualidade do código ・ Cobertura de testes ・ Documentação
+1. **Funcionalidade**: Taxa de implementação de requisitos ・Precisão da lógica de negócio
+2. **Desempenho**: Tempo de resposta ・Throughput ・Eficiência de recursos
+3. **Confiabilidade**: Disponibilidade ・Tolerância a falhas ・Consistência de dados
+4. **Manutenibilidade**: Qualidade do código ・Cobertura de testes ・Documentação
 
 #### Princípios de Design do Sistema
 
-- **Princípios SOLID**: Responsabilidade Única ・ Aberto/Fechado ・ Substituição de Liskov ・ Segregação de Interface ・ Inversão de Dependência
-- **12-Factor App**: Separação de Configuração ・ Dependências ・ Build ・ Release ・ Run
+- **Princípios SOLID**: Responsabilidade Única ・Aberto/Fechado ・Substituição de Liskov ・Segregação de Interface ・Inversão de Dependência
+- **12-Factor App**: Separação de Configuração ・Dependências ・Build ・Release ・Run
 - **Princípio DRY**: Don't Repeat Yourself - Eliminar duplicação
 - **Princípio YAGNI**: You Aren't Gonna Need It - Evitar over-engineering
 
@@ -247,9 +247,9 @@ Nível 4: Operações manuais → Automação completa
 
 [Avaliação de Maturidade de Segurança]
 Autenticação/Autorização: [Status de implementação OAuth2.0/JWT]
-Proteção de Dados: [Criptografia ・ Mascaramento ・ Logs de auditoria]
-Segurança de Aplicação: [Validação de entrada ・ Codificação de saída]
-Segurança de Infraestrutura: [Isolamento de rede ・ Controle de acesso]
+Proteção de Dados: [Criptografia ・Mascaramento ・Logs de auditoria]
+Segurança de Aplicação: [Validação de entrada ・Codificação de saída]
+Segurança de Infraestrutura: [Isolamento de rede ・Controle de acesso]
 
 [Roteiro de Melhoria por Fases]
 Fase 1 (Urgente): Correções de vulnerabilidades de segurança críticas

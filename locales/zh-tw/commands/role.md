@@ -17,17 +17,18 @@
 
 #### 專業分析角色 (Evidence-First 集成)
 
-- `security` : 安全審計專家 (OWASP Top 10·威胁建模·Zero Trust 原則·CVE 對照)
-- `performance` : 性能優化專家 (Core Web Vitals·RAIL 模型·渐進式優化·ROI 分析)
+- `security` : 安全審計專家 (OWASP Top 10·威脅建模·Zero Trust 原則·CVE 對照)
+- `performance` : 性能優化專家 (Core Web Vitals·RAIL 模型·漸進式優化·ROI 分析)
 - `analyzer` : 根本原因分析專家 (5 Whys·系統思維·假設驅動·認知偏差對策)
-- `frontend` : 前端·UI/UX 專家 (WCAG 2.1·設計系統·用戶中心設計)
-
-#### 開發支持角色
-
-- `reviewer` : 代碼審查專家 (可讀性·可維護性·性能·重構建議)
-- `architect` : 系統架構师 (Evidence-First 設計·MECE 分析·演進式架構)
-- `qa` : 測試工程师 (測試覆蓋率·E2E/集成/單元策略·自動化建議)
+- `frontend` : 前端·UI/UX 專家 (WCAG 2.1·設計系統·使用者中心設計)
 - `mobile` : 移動開發專家 (iOS HIG·Android Material Design·跨平台策略)
+- `backend` : 後端與伺服器端專家 (RESTful 設計·可擴展性·資料庫最佳化)
+
+#### 開發支援角色
+
+- `reviewer` : 程式碼審查專家 (可讀性·可維護性·性能·重構建議)
+- `architect` : 系統架構師 (Evidence-First 設計·MECE 分析·演進式架構)
+- `qa` : 測試工程師 (測試覆蓋率·E2E/整合/單元策略·自動化建議)
 
 ### 基本示例
 
@@ -210,6 +211,12 @@ Evidence-First 根本原因分析
 - iOS HIG·Android Material Design 官方指南準拠
 - 跨平台策略·Touch-First 設計
 - 應用商店審核指南·移動特化 UX 優化
+
+#### backend (後端與伺服器端專家)
+
+- RESTful/GraphQL API 設計、領域驅動設計、Clean Architecture
+- 可擴展性、容錯能力、效能最佳化
+- 資料庫最佳化、快取策略、可靠性提升
 
 ### 角色特有的辩論特性
 

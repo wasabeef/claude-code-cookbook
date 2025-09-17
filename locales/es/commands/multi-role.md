@@ -9,6 +9,23 @@ Un comando que analiza el mismo objetivo en paralelo con múltiples roles y gene
 /multi-role <rol1>,<rol2>,<rol3> [--agent|-a] [objetivo_análisis]
 ```
 
+### Roles Disponibles
+
+#### Roles de Análisis Especializado
+
+- `security`: Experto en auditoría de seguridad
+- `performance`: Experto en optimización de rendimiento
+- `analyzer`: Experto en análisis de causa raíz
+- `frontend`: Experto en frontend y UI/UX
+- `mobile`: Experto en desarrollo móvil
+- `backend`: Experto en backend y servidor
+
+#### Roles de Soporte de Desarrollo
+
+- `reviewer`: Experto en revisión de código
+- `architect`: Arquitecto de sistemas
+- `qa`: Ingeniero de pruebas
+
 **Importante**:
 
 - Coloca la opción `--agent` inmediatamente después de especificar los roles
@@ -289,3 +306,9 @@ Rol 3 ─┘
 - Si surgen recomendaciones conflictivas, considera usar role-debate
 - Los juicios finales deben ser hechos por el usuario con referencia a resultados integrados
 - **Al usar --agent**: Consume más recursos pero es eficiente para análisis a gran escala
+
+### Detalles de Configuración de Roles
+
+- La configuración detallada, el conocimiento especializado y las características de discusión de cada rol se definen en `.claude/agents/roles/`
+- Incluye prácticas Evidence-First y medidas contra los sesgos cognitivos
+- Las frases disparadoras específicas de cada rol activan automáticamente el modo especializado

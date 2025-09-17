@@ -84,30 +84,30 @@ Performance: [Response time XXXms]
 Security: [X vulnerabilities detected]
 
 [Architecture Evaluation]
-- Service Division: [Appropriateness ・ Granularity ・ Coupling]
-- Data Flow: [Consistency ・ Complexity ・ Traceability]
-- Scalability: [Horizontal Scaling ・ Bottlenecks]
+- Service Division: [Appropriateness ・Granularity ・Coupling]
+- Data Flow: [Consistency ・Complexity ・Traceability]
+- Scalability: [Horizontal Scaling ・Bottlenecks]
 
 [API Design Evaluation]
-- RESTful Compliance: [HTTP Methods ・ Status Codes ・ URI Design]
-- Documentation: [OpenAPI Compliance ・ Implementation Consistency]
-- Versioning: [Compatibility ・ Migration Strategy]
+- RESTful Compliance: [HTTP Methods ・Status Codes ・URI Design]
+- Documentation: [OpenAPI Compliance ・Implementation Consistency]
+- Versioning: [Compatibility ・Migration Strategy]
 
 [Database Evaluation]
-- Schema Design: [Normalization ・ Performance ・ Extensibility]
-- Indexes: [Efficiency ・ Coverage ・ Maintenance]
-- Query Optimization: [Execution Plans ・ N+1 Problems ・ Deduplication]
+- Schema Design: [Normalization ・Performance ・Extensibility]
+- Indexes: [Efficiency ・Coverage ・Maintenance]
+- Query Optimization: [Execution Plans ・N+1 Problems ・Deduplication]
 
 [Security Evaluation]
-- Authentication/Authorization: [Implementation ・ Token Management ・ Access Control]
-- Data Protection: [Encryption ・ Masking ・ Audit Logs]
-- Input Validation: [SQL Injection ・ XSS ・ CSRF Protection]
+- Authentication/Authorization: [Implementation ・Token Management ・Access Control]
+- Data Protection: [Encryption ・Masking ・Audit Logs]
+- Input Validation: [SQL Injection ・XSS ・CSRF Protection]
 
 [Improvement Proposals]
 Priority [Critical]: [High-urgency security/performance issues]
-  Effect: [Response time ・ Throughput ・ Security improvement]
-  Effort: [Implementation period ・ Resource estimates]
-  Risk: [Downtime ・ Data consistency ・ Compatibility]
+  Effect: [Response time ・Throughput ・Security improvement]
+  Effort: [Implementation period ・Resource estimates]
+  Risk: [Downtime ・Data consistency ・Compatibility]
 ```
 
 ## Tool Usage Priority
@@ -180,15 +180,15 @@ This role is automatically activated by the following phrases:
 
 #### MECE System Analysis
 
-1. **Functionality**: Requirement implementation rate ・ Business logic accuracy
-2. **Performance**: Response time ・ Throughput ・ Resource efficiency
-3. **Reliability**: Availability ・ Fault tolerance ・ Data consistency
-4. **Maintainability**: Code quality ・ Test coverage ・ Documentation
+1. **Functionality**: Requirement implementation rate ・Business logic accuracy
+2. **Performance**: Response time ・Throughput ・Resource efficiency
+3. **Reliability**: Availability ・Fault tolerance ・Data consistency
+4. **Maintainability**: Code quality ・Test coverage ・Documentation
 
 #### System Design Principles
 
-- **SOLID Principles**: Single Responsibility ・ Open/Closed ・ Liskov Substitution ・ Interface Segregation ・ Dependency Inversion
-- **12-Factor App**: Configuration ・ Dependencies ・ Build ・ Release ・ Run separation
+- **SOLID Principles**: Single Responsibility ・Open/Closed ・Liskov Substitution ・Interface Segregation ・Dependency Inversion
+- **12-Factor App**: Configuration ・Dependencies ・Build ・Release ・Run separation
 - **DRY Principle**: Don't Repeat Yourself - Eliminate duplication
 - **YAGNI Principle**: You Aren't Gonna Need It - Avoid over-engineering
 
@@ -247,9 +247,9 @@ Level 4: Manual operations → Full automation
 
 [Security Maturity Assessment]
 Authentication/Authorization: [OAuth2.0/JWT implementation status]
-Data Protection: [Encryption ・ Masking ・ Audit logs]
-Application Security: [Input validation ・ Output encoding]
-Infrastructure Security: [Network isolation ・ Access control]
+Data Protection: [Encryption ・Masking ・Audit logs]
+Application Security: [Input validation ・Output encoding]
+Infrastructure Security: [Network isolation ・Access control]
 
 [Phased Improvement Roadmap]
 Phase 1 (Urgent): Critical security vulnerability fixes

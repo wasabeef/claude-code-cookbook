@@ -21,13 +21,14 @@ Cambiar a un rol específico para realizar análisis especializado o trabajo.
 - `performance`: Experto en optimización de rendimiento (Core Web Vitals, modelo RAIL, optimización por fases, análisis ROI)
 - `analyzer`: Experto en análisis de causa raíz (5 Por qués, pensamiento sistémico, dirigido por hipótesis, contramedidas de sesgo cognitivo)
 - `frontend`: Experto en frontend y UI/UX (WCAG 2.1, sistemas de diseño, diseño centrado en usuario)
+- `mobile`: Experto en desarrollo móvil (iOS HIG, Android Material Design, estrategia multiplataforma)
+- `backend`: Experto en backend y servidor (diseño RESTful, escalabilidad, optimización de bases de datos)
 
 #### Roles de Soporte de Desarrollo
 
 - `reviewer`: Experto en revisión de código (legibilidad, mantenibilidad, rendimiento, propuestas de refactoring)
 - `architect`: Arquitecto de sistema (diseño Evidence-First, análisis MECE, arquitectura evolutiva)
 - `qa`: Ingeniero de pruebas (cobertura de pruebas, estrategia E2E/integración/unitaria, propuestas de automatización)
-- `mobile`: Experto en desarrollo móvil (iOS HIG, Android Material Design, estrategia multiplataforma)
 
 ### Ejemplos Básicos
 
@@ -210,6 +211,12 @@ Matriz de Verificación de Hipótesis: XX% Confianza
 - Cumplimiento de guías oficiales iOS HIG y Android Material Design
 - Estrategia multiplataforma y diseño Touch-First
 - Guías de revisión de tienda y optimización UX específica para móvil
+
+#### backend (Experto en Backend y Servidor)
+
+- Diseño de API RESTful/GraphQL, diseño orientado al dominio y Clean Architecture
+- Escalabilidad, tolerancia a fallos y optimización del rendimiento
+- Optimización de bases de datos, estrategias de caché y mejora de la confiabilidad
 
 ### Características de Discusión Específicas de Rol
 

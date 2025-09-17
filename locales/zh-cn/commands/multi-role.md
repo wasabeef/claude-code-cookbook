@@ -9,6 +9,23 @@
 /multi-role <角色 1>,<角色 2>,<角色 3> [--agent|-a] [分析对象]
 ```
 
+### 可用角色
+
+#### 专业分析角色
+
+- `security` : 安全审计专家
+- `performance` : 性能优化专家
+- `analyzer` : 根本原因分析专家
+- `frontend` : 前端·UI/UX 专家
+- `mobile` : 移动开发专家
+- `backend` : 后端与服务器端专家
+
+#### 开发支持角色
+
+- `reviewer` : 代码审查专家
+- `architect` : 系统架构师
+- `qa` : 测试工程师
+
 **重要**:
 
 - `--agent` 选项需要放在角色指定之后
@@ -289,3 +306,9 @@ cat performance-issues.log
 - 出现相互矛盾的建议时，也可考虑 role-debate
 - 最终判断请参考综合结果由用户决定
 - **使用 --agent 时**: 会使用更多资源，但对大规模分析更高效
+
+### 角色配置详情
+
+- 各角色的详细配置、专业知识与讨论特性都定义在 `.claude/agents/roles/` 目录中
+- 包含 Evidence-First 方法与认知偏差对策
+- 角色专属触发短语会自动启用特化模式

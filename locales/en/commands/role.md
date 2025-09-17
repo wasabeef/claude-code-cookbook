@@ -21,13 +21,14 @@ Switch to a specific role to perform specialized analysis or work.
 - `performance`: Performance optimization expert (Core Web Vitals, RAIL model, phased optimization, ROI analysis)
 - `analyzer`: Root cause analysis expert (5 Whys, systems thinking, hypothesis-driven, cognitive bias countermeasures)
 - `frontend`: Frontend and UI/UX expert (WCAG 2.1, design systems, user-centered design)
+- `mobile`: Mobile development expert (iOS HIG, Android Material Design, cross-platform strategy)
+- `backend`: Backend and server-side expert (RESTful design, scalability, database optimization)
 
 #### Development Support Roles
 
 - `reviewer`: Code review expert (readability, maintainability, performance, refactoring proposals)
 - `architect`: System architect (Evidence-First design, MECE analysis, evolutionary architecture)
 - `qa`: Test engineer (test coverage, E2E/integration/unit strategy, automation proposals)
-- `mobile`: Mobile development expert (iOS HIG, Android Material Design, cross-platform strategy)
 
 ### Basic Examples
 
@@ -210,6 +211,12 @@ Hypothesis Verification Matrix: XX% Confidence
 - iOS HIG and Android Material Design official guidelines compliance
 - Cross-platform strategy and Touch-First design
 - Store review guidelines and mobile-specific UX optimization
+
+#### backend (Backend and Server-Side Expert)
+
+- RESTful/GraphQL API design, domain-driven design, clean architecture
+- Scalability, fault tolerance, performance optimization
+- Database optimization, caching strategies, reliability improvements
 
 ### Role-Specific Discussion Characteristics
 
