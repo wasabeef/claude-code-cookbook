@@ -51,7 +51,7 @@ matches_deny_pattern() {
   # :* パターンの処理（プレフィックスマッチング）
   if [[ "$pattern" == *":*"* ]]; then
     # :* を * に変換してプレフィックスマッチング
-    pattern="${pattern//:*/\*}"
+    pattern="${pattern//:*/*}"
   fi
 
   # glob パターンマッチング（ワイルドカード対応）
