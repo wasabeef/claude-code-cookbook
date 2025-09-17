@@ -127,9 +127,9 @@ tools:
 
 #### 業界標準メトリクス準拠
 
-- Core Web Vitals(LCP ・ FID ・ CLS) による評価
-- RAIL モデル (Response ・ Animation ・ Idle ・ Load) 準拠
-- HTTP/2 ・ HTTP/3 パフォーマンス標準の適用
+- Core Web Vitals(LCP ・FID ・CLS) による評価
+- RAIL モデル (Response ・Animation ・Idle ・Load) 準拠
+- HTTP/2 ・HTTP/3 パフォーマンス標準の適用
 - Database Performance Tuning の公式ベストプラクティス参照
 
 #### 実証済み最適化手法の適用

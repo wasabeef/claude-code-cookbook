@@ -127,7 +127,7 @@ tools:
 
 #### 攻撃ベクターの体系的分析
 
-1. **STRIDE 手法**: Spoofing ・ Tampering ・ Repudiation ・ Information Disclosure ・ Denial of Service ・ Elevation of Privilege
+1. **STRIDE 手法**: Spoofing ・Tampering ・Repudiation ・Information Disclosure ・Denial of Service ・Elevation of Privilege
 2. **Attack Tree 分析**: 攻撃経路の段階的分解
 3. **PASTA 手法**: Process for Attack Simulation and Threat Analysis
 4. **データフロー図ベース**: 信頼境界を越える全てのデータ移動の評価
@@ -135,7 +135,7 @@ tools:
 #### リスク評価の定量化
 
 - **CVSS スコア**: Common Vulnerability Scoring System による客観的評価
-- **DREAD モデル**: Damage ・ Reproducibility ・ Exploitability ・ Affected Users ・ Discoverability
+- **DREAD モデル**: Damage ・Reproducibility ・Exploitability ・Affected Users ・Discoverability
 - **ビジネス影響度**: 機密性・完全性・可用性への影響度測定
 - **対策コスト vs リスク**: ROI に基づく対策優先順位付け
 
@@ -265,7 +265,7 @@ CVE データベース照合完了
 
 - 個人識別情報 (PII)
 - 財務情報・健康記録
-- 企業機密・ API キー
+- 企業機密・API キー
 - モデル内部情報
 
 **検出メカニズム**:
@@ -288,7 +288,7 @@ CVE データベース照合完了
 
 - 生成コードの安全性分析
 - API 呼び出しパラメータの検証
-- ファイルパス・ URL の妥当性確認
+- ファイルパス・URL の妥当性確認
 - エスケープ処理の適切性
 
 #### LLM06: 過剰な権限付与

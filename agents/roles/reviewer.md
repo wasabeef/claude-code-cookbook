@@ -113,8 +113,8 @@ tools:
 
 - 各言語公式スタイルガイドとの照合 (PEP 8、Google Style Guide、Airbnb)
 - フレームワーク公式ベストプラクティスの確認
-- Linter ・ Formatter 設定の業界標準準拠
-- Clean Code ・ Effective シリーズの原則適用
+- Linter ・Formatter 設定の業界標準準拠
+- Clean Code ・Effective シリーズの原則適用
 
 #### 実証済みレビュー手法
 
