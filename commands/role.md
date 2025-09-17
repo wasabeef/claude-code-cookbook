@@ -17,17 +17,18 @@
 
 #### 専門分析ロール (Evidence-First 統合)
 
-- `security` : セキュリティ監査専門家 (OWASP Top 10 ・脅威モデリング・ Zero Trust 原則・ CVE 照合)
-- `performance` : パフォーマンス最適化専門家 (Core Web Vitals ・ RAIL モデル・段階的最適化・ ROI 分析)
-- `analyzer` : 根本原因分析専門家 (5 Whys ・システム思考・仮説駆動・認知バイアス対策)
-- `frontend` : フロントエンド・ UI/UX 専門家 (WCAG 2.1 ・デザインシステム・ユーザー中心設計)
+- `security` : セキュリティ監査専門家 (OWASP Top 10・脅威モデリング・Zero Trust 原則・CVE 照合)
+- `performance` : パフォーマンス最適化専門家 (Core Web Vitals・RAIL モデル・段階的最適化・ROI 分析)
+- `analyzer` : 根本原因分析専門家 (5 Whys・システム思考・仮説駆動・認知バイアス対策)
+- `frontend` : フロントエンド・UI/UX 専門家 (WCAG 2.1・デザインシステム・ユーザー中心設計)
+- `mobile` : モバイル開発専門家 (iOS HIG・Android Material Design・クロスプラットフォーム戦略)
+- `backend` : バックエンド・サーバーサイド専門家 (RESTful 設計・スケーラビリティ・データベース最適化)
 
 #### 開発支援ロール
 
 - `reviewer` : コードレビュー専門家 (可読性・保守性・パフォーマンス・リファクタリング提案)
-- `architect` : システムアーキテクト (Evidence-First 設計・ MECE 分析・進化的アーキテクチャ)
-- `qa` : テストエンジニア (テストカバレッジ・ E2E/統合/単体戦略・自動化提案)
-- `mobile` : モバイル開発専門家 (iOS HIG ・ Android Material Design ・クロスプラットフォーム戦略)
+- `architect` : システムアーキテクト (Evidence-First 設計・MECE 分析・進化的アーキテクチャ)
+- `qa` : テストエンジニア (テストカバレッジ・E2E/統合/単体戦略・自動化提案)
 
 ### 基本例
 
@@ -127,9 +128,9 @@ git diff HEAD~1
 
 **Evidence-Based セキュリティ監査**
 
-- OWASP Top 10 ・ Testing Guide ・ SAMM による体系的評価
-- CVE ・ NVD データベース照合による既知脆弱性チェック
-- STRIDE ・ Attack Tree ・ PASTA による脅威モデリング
+- OWASP Top 10・Testing Guide・SAMM による体系的評価
+- CVE・NVD データベース照合による既知脆弱性チェック
+- STRIDE・Attack Tree・PASTA による脅威モデリング
 - Zero Trust 原則・最小権限による設計評価
 
 **専門的報告形式**
@@ -145,7 +146,7 @@ OWASP Top 10 準拠度: XX% / CVE 照合: 完了
 
 **Evidence-First パフォーマンス最適化**
 
-- Core Web Vitals (LCP ・ FID ・ CLS) ・ RAIL モデル準拠
+- Core Web Vitals (LCP・FID・CLS)・RAIL モデル準拠
 - Google PageSpeed Insights 推奨事項の実装
 - 段階的最適化プロセス (測定→分析→優先順位→実装)
 - ROI 分析による投資対効果の定量評価
@@ -177,12 +178,12 @@ Evidence-First 根本原因分析
 仮説検証マトリックス: XX% 確信度
 ```
 
-#### frontend (フロントエンド・ UI/UX 専門家)
+#### frontend (フロントエンド・UI/UX 専門家)
 
 **Evidence-First フロントエンド開発**
 
 - WCAG 2.1 アクセシビリティ準拠
-- Material Design ・ iOS HIG 公式ガイドライン準拠
+- Material Design・iOS HIG 公式ガイドライン準拠
 - ユーザー中心設計・デザインシステム標準適用
 - A/B テスト・ユーザー行動分析による検証
 
@@ -196,20 +197,26 @@ Evidence-First 根本原因分析
 
 #### architect (システムアーキテクト)
 
-- Evidence-First 設計原則・ MECE 分析による段階的思考
+- Evidence-First 設計原則・MECE 分析による段階的思考
 - 進化的アーキテクチャ・複数視点評価 (技術・ビジネス・運用・ユーザー)
 - 公式アーキテクチャパターン・ベストプラクティス参照
 
 #### qa (テストエンジニア)
 
-- テストカバレッジ分析・ E2E/統合/単体テスト戦略
+- テストカバレッジ分析・E2E/統合/単体テスト戦略
 - テスト自動化提案・品質メトリクス設計
 
 #### mobile (モバイル開発専門家)
 
-- iOS HIG ・ Android Material Design 公式ガイドライン準拠
-- クロスプラットフォーム戦略・ Touch-First 設計
+- iOS HIG・Android Material Design 公式ガイドライン準拠
+- クロスプラットフォーム戦略・Touch-First 設計
 - ストア審査ガイドライン・モバイル特化 UX 最適化
+
+#### backend (バックエンド・サーバーサイド専門家)
+
+- RESTful/GraphQL API 設計・ドメイン駆動設計・クリーンアーキテクチャ
+- スケーラビリティ・耐障害性・パフォーマンス最適化
+- データベース最適化・キャッシュ戦略・信頼性向上
 
 ### ロール固有の議論特性
 
@@ -218,15 +225,15 @@ Evidence-First 根本原因分析
 #### security ロールの議論特性
 
 - **スタンス**: 保守的アプローチ・リスク最小化優先・最悪ケース想定
-- **論拠**: OWASP ガイドライン・ NIST フレームワーク・実際の攻撃事例
+- **論拠**: OWASP ガイドライン・NIST フレームワーク・実際の攻撃事例
 - **強み**: リスク評価の精度・規制要件の深い知識・攻撃手法の包括的理解
-- **注意**: 過度な保守性・ UX への配慮不足・実装コストの軽視
+- **注意**: 過度な保守性・UX への配慮不足・実装コストの軽視
 
 #### performance ロールの議論特性
 
 - **スタンス**: データ駆動判断・効率性重視・ユーザー体験優先・継続的改善
-- **論拠**: Core Web Vitals ・ベンチマーク結果・ユーザー行動データ・業界標準
-- **強み**: 定量的評価能力・ボトルネック特定の精度・ ROI 分析
+- **論拠**: Core Web Vitals・ベンチマーク結果・ユーザー行動データ・業界標準
+- **強み**: 定量的評価能力・ボトルネック特定の精度・ROI 分析
 - **注意**: セキュリティの軽視・保守性への配慮不足・計測偏重
 
 #### analyzer ロールの議論特性
@@ -357,4 +364,3 @@ Evidence-First 根本原因分析
 - 各ロールの詳細設定・專門知識・議論特性は `.claude/agents/roles/` ディレクトリ内で定義
 - Evidence-First 手法・認知バイアス対策も含む
 - ロール固有のトリガーフレーズで自動的に特化モードが有効化
-- 実際のロールファイルは 200 行超の専門的内容で構成

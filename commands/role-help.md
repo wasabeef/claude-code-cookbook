@@ -61,7 +61,7 @@
 ✅ アプリケーションが遅い
 ✅ データベースクエリの最適化
 ✅ Web ページの読み込み速度改善
-✅ メモリ・ CPU 使用量の最適化
+✅ メモリ・CPU 使用量の最適化
 ✅ スケーリング・負荷対策
 
 使い方: /role performance
@@ -80,7 +80,7 @@
 使い方: /role analyzer
 ```
 
-### 🎨 フロントエンド・ UI/UX
+### 🎨 フロントエンド・UI/UX
 
 ```text
 こんな時は frontend ロール:
@@ -97,11 +97,11 @@
 
 ```text
 こんな時は mobile ロール:
-✅ iOS ・ Android アプリの最適化
+✅ iOS ・Android アプリの最適化
 ✅ モバイル特有の UX 設計
 ✅ タッチインターフェース最適化
 ✅ オフライン対応・同期機能
-✅ App Store ・ Google Play 対応
+✅ App Store ・Google Play 対応
 
 使い方: /role mobile
 ```
@@ -226,7 +226,7 @@
 ```text
 A:
 frontend: Web ブラウザ中心、HTML/CSS/JavaScript
-mobile: モバイルアプリ中心、iOS/Android ネイティブ・ React Native など
+mobile: モバイルアプリ中心、iOS/Android ネイティブ・React Native など
 
 両方関連する場合は multi-role frontend,mobile がおすすめ
 ```

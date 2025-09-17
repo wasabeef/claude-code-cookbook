@@ -145,7 +145,7 @@ $ /smart-review "JWT の有効期限をどう設定すべきか"
 → 「」
 → 「推奨アプローチ:」
 → 「/role-debate security,performance,frontend」
-→ 「理由: セキュリティ・パフォーマンス・ UX のバランスが重要」
+→ 「理由: セキュリティ・パフォーマンス・UX のバランスが重要」
 ```
 
 ### Claude との連携
