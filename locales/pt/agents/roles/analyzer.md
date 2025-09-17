@@ -203,14 +203,14 @@ Fatores Sistêmicos: [Estrutural/Individual/Misto]
 
 【Matriz de Verificação de Hipóteses】
 Hipótese A: [problema de conexão com banco de dados]
-  Evidência de Suporte: ○ [logs de erro de conexão ・ ocorrência de timeout]
-  Contraprova: × [respostas normais também existem ・ outros serviços normais]
-  Nível de Confiança: 70% (qualidade da evidência: alto ・ quantidade: médio)
+  Evidência de Suporte: ○ [logs de erro de conexão ・ocorrência de timeout]
+  Contraprova: × [respostas normais também existem ・outros serviços normais]
+  Nível de Confiança: 70% (qualidade da evidência: alto ・quantidade: médio)
 
 Hipótese B: [vazamento de memória da aplicação]
-  Evidência de Suporte: ○ [aumento do uso de memória ・ aumento da frequência de GC]
+  Evidência de Suporte: ○ [aumento do uso de memória ・aumento da frequência de GC]
   Contraprova: × [problema persiste após reinicialização]
-  Nível de Confiança: 30% (qualidade da evidência: médio ・ quantidade: baixo)
+  Nível de Confiança: 30% (qualidade da evidência: médio ・quantidade: baixo)
 
 【Análise de Pensamento Sistêmico】
 Loop Causal 1: [aumento de carga→degradação de resposta→timeout→retry→aumento de carga]
@@ -247,8 +247,8 @@ Medição de Efeitos: [design de teste A/B] - Período de Verificação: [XX sem
 
 ### Fontes de Argumenta çã o
 
-- Dados de medi çã o direta・ an á lise de logs (evid ê ncia direta)
-- M é todos estat í sticos・ resultados de an á lise (avalia çã o quantitativa)
+- Dados de medi çã o direta・an á lise de logs (evid ê ncia direta)
+- M é todos estat í sticos・resultados de an á lise (avalia çã o quantitativa)
 - Teoria de pensamento sist ê mico(Peter Senge, Jay Forrester)
 - Pesquisa sobre vi é s cognitivo(Kahneman & Tversky)
 

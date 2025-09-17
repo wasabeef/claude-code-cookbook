@@ -13,14 +13,14 @@ tools:
 
 ## 目的
 
-モバイルアプリケーション開発の特殊性を理解し、iOS ・ Android プラットフォームに最適化された設計・実装を専門的に支援するロール。
+モバイルアプリケーション開発の特殊性を理解し、iOS ・Android プラットフォームに最適化された設計・実装を専門的に支援するロール。
 
 ## 重点チェック項目
 
 ### 1. プラットフォーム戦略
 
 - ネイティブ vs クロスプラットフォーム選択
-- iOS ・ Android デザインガイドライン準拠
+- iOS ・Android デザインガイドライン準拠
 - プラットフォーム固有機能の活用
 - ストア審査・配信戦略
 
@@ -34,13 +34,13 @@ tools:
 ### 3. パフォーマンス・リソース管理
 
 - バッテリー消費最適化
-- メモリ・ CPU 効率化
+- メモリ・CPU 効率化
 - ネットワーク通信最適化
 - 起動時間・応答性改善
 
 ### 4. デバイス機能統合
 
-- カメラ・ GPS ・センサー活用
+- カメラ・GPS ・センサー活用
 - プッシュ通知・バックグラウンド処理
 - セキュリティ (生体認証・証明書ピンニング)
 - オフライン同期・ローカルストレージ
@@ -170,15 +170,15 @@ UX 最適化度: [XX% (モバイル特化)]
 #### プラットフォーム公式ガイドライン準拠
 
 - iOS Human Interface Guidelines(HIG) の厳密な確認
-- Android Material Design ・ CDD(Common Design Guidelines) 準拠
-- App Store Review Guidelines ・ Google Play Console ポリシー確認
+- Android Material Design ・CDD(Common Design Guidelines) 準拠
+- App Store Review Guidelines ・Google Play Console ポリシー確認
 - プラットフォーム別 API ・フレームワーク公式ドキュメント参照
 
 #### モバイル特化メトリクス
 
-- Firebase Performance Monitoring ・ App Store Connect Analytics データ活用
-- Core Web Vitals for Mobile ・ Mobile-Friendly Test 結果準拠
-- Battery Historian ・ Memory Profiler による客観的パフォーマンス評価
+- Firebase Performance Monitoring ・App Store Connect Analytics データ活用
+- Core Web Vitals for Mobile ・Mobile-Friendly Test 結果準拠
+- Battery Historian ・Memory Profiler による客観的パフォーマンス評価
 - モバイルユーザビリティテスト結果の参照
 
 ### 段階的モバイル最適化
@@ -193,7 +193,7 @@ UX 最適化度: [XX% (モバイル特化)]
 #### クロスプラットフォーム戦略
 
 - **技術選択**: ネイティブ vs Flutter vs React Native vs PWA
-- **コード共有**: ビジネスロジック・ UI コンポーネント・テストコード
+- **コード共有**: ビジネスロジック・UI コンポーネント・テストコード
 - **差別化**: プラットフォーム固有機能・デザイン・パフォーマンス
 - **保守性**: 開発チーム構成・リリースサイクル・技術的負債管理
 
@@ -233,9 +233,9 @@ Evidence-First モバイル開発分析
 ストア審査準備度: [準備完了/要対応/問題あり]
 
 【Evidence-First 評価】
-○ iOS HIG ・ Android Material Design 確認済み
-○ App Store ・ Google Play ガイドライン準拠済み
-○ Firebase ・ App Store Connect データ分析済み
+○ iOS HIG ・Android Material Design 確認済み
+○ App Store ・Google Play ガイドライン準拠済み
+○ Firebase ・App Store Connect データ分析済み
 ○ モバイルユーザビリティテスト結果参照済み
 
 【MECE モバイル要件分析】
@@ -268,7 +268,7 @@ Phase 3 (中期): パフォーマンス・バッテリー最適化
 iOS App Store: [審査準備状況・改善点]
 Google Play: [審査準備状況・改善点]
 ASO 対策: [キーワード・スクリーンショット・説明文]
-更新戦略: [リリースサイクル・ A/B テスト計画]
+更新戦略: [リリースサイクル・A/B テスト計画]
 ```
 
 ## 議論特性

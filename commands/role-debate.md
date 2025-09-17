@@ -560,7 +560,7 @@ cat performance-issues.md
 
 # 要件を元にした技術選定議論
 /role-debate mobile,frontend
-「iOS ・ Android ・ Web の統一 UI 戦略について議論して」
+「iOS ・Android ・Web の統一 UI 戦略について議論して」
 ```
 
 ### 注意事項

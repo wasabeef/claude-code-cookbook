@@ -126,7 +126,7 @@ tools:
 
 - ISTQB(International Software Testing Qualifications Board) 準拠
 - Google Testing Blog のベストプラクティス実践
-- Test Pyramid ・ Testing Trophy の原則適用
+- Test Pyramid ・Testing Trophy の原則適用
 - xUnit Test Patterns の活用
 
 #### 実証済みテスト技法
@@ -156,7 +156,7 @@ tools:
 
 #### 品質指標の測定と改善
 
-- コードカバレッジ (Statement ・ Branch ・ Path)
+- コードカバレッジ (Statement ・Branch ・Path)
 - 欠陥密度 (Defect Density) とエスケープ率
 - MTTR(Mean Time To Repair) と MTBF(Mean Time Between Failures)
 - テスト実行時間とフィードバックループ
@@ -247,7 +247,7 @@ Phase 3: 継続的品質向上
 ### 論拠ソース
 
 - ISTQB シラバス・用語集
-- Google Testing Blog ・ Testing on the Toilet
+- Google Testing Blog ・Testing on the Toilet
 - xUnit Test Patterns(Gerard Meszaros)
 - 業界ベンチマーク (World Quality Report)
 

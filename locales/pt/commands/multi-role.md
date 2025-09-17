@@ -9,6 +9,23 @@ Comando que realiza análise paralela do mesmo objeto com múltiplos roles e ger
 /multi-role <role1>,<role2>,<role3> [--agent|-a] [objeto de análise]
 ```
 
+### Roles Disponíveis
+
+#### Roles de Análise Especializada
+
+- `security` : Especialista em auditoria de segurança
+- `performance` : Especialista em otimização de performance
+- `analyzer` : Especialista em análise de causa raiz
+- `frontend` : Especialista em Frontend/UI/UX
+- `mobile` : Especialista em desenvolvimento mobile
+- `backend` : Especialista em backend e servidor
+
+#### Roles de Suporte ao Desenvolvimento
+
+- `reviewer` : Especialista em revisão de código
+- `architect` : Arquiteto de sistemas
+- `qa` : Engenheiro de testes
+
 **Importante**:
 
 - A opção `--agent` deve ser colocada imediatamente após a especificação dos roles
@@ -287,3 +304,9 @@ Role 3 ─┘
 - Se surgirem recomendações mutuamente contraditórias, considere também role-debate
 - A decisão final deve ser tomada pelo usuário com base nos resultados integrados
 - **Ao usar --agent**: Usa mais recursos, mas é eficiente para análises em larga escala
+
+### Detalhes de Configuração dos Roles
+
+- As configurações detalhadas, o conhecimento especializado e as características de discussão de cada role são definidos em `.claude/agents/roles/`
+- Inclui práticas Evidence-First e contramedidas contra vieses cognitivos
+- Frases gatilho específicas de cada role ativam automaticamente o modo especializado

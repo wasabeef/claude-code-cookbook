@@ -17,17 +17,18 @@
 
 #### 전문 분석 역할 (Evidence-First 통합)
 
-- `security` : 보안 감사 전문가 (OWASP Top 10 · 위협 모델링 · Zero Trust 원칙 · CVE 조회)
-- `performance` : 성능 최적화 전문가 (Core Web Vitals · RAIL 모델 · 단계적 최적화 · ROI 분석)
-- `analyzer` : 근본 원인 분석 전문가 (5 Whys · 시스템 사고 · 가설 주도 · 인지 바이어스 대책)
-- `frontend` : 프론트엔드 · UI/UX 전문가 (WCAG 2.1 · 디자인 시스템 · 사용자 중심 설계)
+- `security` : 보안 감사 전문가 (OWASP Top 10·위협 모델링·Zero Trust 원칙·CVE 조회)
+- `performance` : 성능 최적화 전문가 (Core Web Vitals·RAIL 모델·단계적 최적화·ROI 분석)
+- `analyzer` : 근본 원인 분석 전문가 (5 Whys·시스템 사고·가설 주도·인지 바이어스 대책)
+- `frontend` : 프론트엔드·UI/UX 전문가 (WCAG 2.1·디자인 시스템·사용자 중심 설계)
+- `mobile` : 모바일 개발 전문가 (iOS HIG·Android Material Design·크로스 플랫폼 전략)
+- `backend` : 백엔드·서버사이드 전문가 (RESTful 설계·확장성·데이터베이스 최적화)
 
 #### 개발 지원 역할
 
-- `reviewer` : 코드 리뷰 전문가 (가독성 · 유지보수성 · 성능 · 리팩터링 제안)
-- `architect` : 시스템 아키텍트 (Evidence-First 설계 · MECE 분석 · 진화적 아키텍처)
-- `qa` : 테스트 엔지니어 (테스트 커버리지 · E2E/통합/단위 전략 · 자동화 제안)
-- `mobile` : 모바일 개발 전문가 (iOS HIG · Android Material Design · 크로스 플랫폼 전략)
+- `reviewer` : 코드 리뷰 전문가 (가독성·유지보수성·성능·리팩터링 제안)
+- `architect` : 시스템 아키텍트 (Evidence-First 설계·MECE 분석·진화적 아키텍처)
+- `qa` : 테스트 엔지니어 (테스트 커버리지·E2E/통합/단위 전략·자동화 제안)
 
 ### 기본 예제
 
@@ -210,6 +211,12 @@ Evidence-First 근본 원인 분석
 - iOS HIG · Android Material Design 공식 가이드라인 준수
 - 크로스 플랫폼 전략 · Touch-First 설계
 - 스토어 심사 가이드라인 · 모바일 특화 UX 최적화
+
+#### backend (백엔드·서버사이드 전문가)
+
+- RESTful/GraphQL API 설계·도메인 주도 설계·클린 아키텍처
+- 확장성·장애 내성·성능 최적화
+- 데이터베이스 최적화·캐시 전략·신뢰성 향상
 
 ### 역할별 고유 토론 특성
 

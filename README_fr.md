@@ -126,13 +126,13 @@ flowchart TB
     PRList --> TaskType{Type ?}
     PRIssue --> TaskType
 
-    TaskType -->|Nouvelle fonctionnalité| Plan["/spec<br/>Définition des exigences ・ Conception"]
+    TaskType -->|Nouvelle fonctionnalité| Plan["/spec<br/>Définition des exigences ・Conception"]
     TaskType -->|Correction de bug| Fix["/fix-error<br/>Analyse d'erreur"]
     TaskType -->|Refactorisation| Refactor["/refactor<br/>Amélioration"]
     TaskType -->|Révision| Review["/pr-review<br/>Révision"]
 
     Plan --> Design["/role architect<br/>/role-debate<br/>Consultation de conception"]
-    Design --> Implementation[Implémentation ・ Tests]
+    Design --> Implementation[Implémentation ・Tests]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation

@@ -160,7 +160,7 @@ Conversão de Custo:
 ### Procedimento de Refatoração
 
 1. **Análise e Medição Atual**
-   - Medição de complexidade (ciclomática ・ cognitiva)
+   - Medição de complexidade (ciclomática ・cognitiva)
    - Cálculo de pontuação SOLID (0-100 pontos)
    - Quantificação de dívida técnica (tempo/custo)
    - Criação de matriz de prioridades

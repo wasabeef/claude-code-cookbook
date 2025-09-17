@@ -9,6 +9,23 @@ A command that analyzes the same target in parallel with multiple roles and gene
 /multi-role <role1>,<role2>,<role3> [--agent|-a] [analysis_target]
 ```
 
+### Available Roles
+
+#### Specialized Analysis Roles
+
+- `security`: Security audit expert
+- `performance`: Performance optimization expert
+- `analyzer`: Root cause analysis expert
+- `frontend`: Frontend and UI/UX expert
+- `mobile`: Mobile development expert
+- `backend`: Backend and server-side expert
+
+#### Development Support Roles
+
+- `reviewer`: Code review expert
+- `architect`: System architect
+- `qa`: Test engineer
+
 **Important**:
 
 - Place the `--agent` option immediately after specifying roles
@@ -289,3 +306,9 @@ Role 3 ─┘
 - If conflicting recommendations arise, consider using role-debate
 - Final judgments should be made by the user with reference to integrated results
 - **When using --agent**: Consumes more resources but is efficient for large-scale analyses
+
+### Role Configuration Details
+
+- Detailed settings, domain expertise, and discussion traits for each role are defined in `.claude/agents/roles/`
+- Includes Evidence-First practices and cognitive bias countermeasures
+- Role-specific trigger phrases automatically enable the specialized mode

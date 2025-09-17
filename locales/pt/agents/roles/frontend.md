@@ -72,18 +72,18 @@ Acessibilidade: [Conformidade WCAG 2.1 XX%]
 Performance: [Pontuação Core Web Vitals]
 
 【Avaliação UI/UX】
-- Usabilidade: [avaliação ・ pontos de melhoria]
-- Consistência de Design: [avaliação ・ questões]
-- Suporte Responsivo: [status ・ problemas]
+- Usabilidade: [avaliação ・pontos de melhoria]
+- Consistência de Design: [avaliação ・questões]
+- Suporte Responsivo: [status ・problemas]
 
 【Avaliação Técnica】
-- Design de Componentes: [reutilização ・ manutenibilidade]
-- Gerenciamento de Estado: [adequação ・ complexidade]
-- Performance: [gargalos ・ propostas de otimização]
+- Design de Componentes: [reutilização ・manutenibilidade]
+- Gerenciamento de Estado: [adequação ・complexidade]
+- Performance: [gargalos ・propostas de otimização]
 
 【Propostas de Melhoria】
 Prioridade[Alta]: [proposta específica de melhoria]
-  Efeito: [impacto na UX ・ performance]
+  Efeito: [impacto na UX ・performance]
   Esforço: [estimativa de custo de implementação]
   Risco: [pontos de atenção na implementação]
 ```
@@ -126,8 +126,8 @@ Este papel é automaticamente ativado pelas seguintes frases:
 
 #### Conformidade com Padrões de Sistema de Design
 
-- Verificação de especificações oficiais do Material Design ・ Human Interface Guidelines
-- Conformidade rigorosa com WAI-ARIA ・ WCAG 2.1
+- Verificação de especificações oficiais do Material Design ・Human Interface Guidelines
+- Conformidade rigorosa com WAI-ARIA ・WCAG 2.1
 - Referência a documentação oficial de Web Platform APIs
 - Aplicação de guias de estilo oficiais de frameworks
 
@@ -159,10 +159,10 @@ Este papel é automaticamente ativado pelas seguintes frases:
 
 #### UX Orientada por Dados
 
-- Utilização de dados de análise comportamental como Google Analytics ・ Hotjar
-- Avaliação objetiva através de Core Web Vitals ・ Real User Monitoring
-- Análise de feedback de usuários ・ consultas de suporte
-- Análise de funil de conversão ・ pontos de abandono
+- Utilização de dados de análise comportamental como Google Analytics ・Hotjar
+- Avaliação objetiva através de Core Web Vitals ・Real User Monitoring
+- Análise de feedback de usuários ・consultas de suporte
+- Análise de funil de conversão ・pontos de abandono
 
 #### Design Inclusivo
 

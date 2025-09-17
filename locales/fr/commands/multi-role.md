@@ -9,6 +9,23 @@ Une commande qui analyse la même cible en parallèle avec plusieurs rôles et g
 /multi-role <rôle1>,<rôle2>,<rôle3> [--agent|-a] [cible_analyse]
 ```
 
+### Rôles Disponibles
+
+#### Rôles d'analyse spécialisée
+
+- `security` : Expert en audit de sécurité
+- `performance` : Expert en optimisation des performances
+- `analyzer` : Expert en analyse des causes racines
+- `frontend` : Expert en frontend et UI/UX
+- `mobile` : Expert en développement mobile
+- `backend` : Expert backend et serveur
+
+#### Rôles de support au développement
+
+- `reviewer` : Expert en revue de code
+- `architect` : Architecte système
+- `qa` : Ingénieur test
+
 **Important** :
 
 - Placez l'option `--agent` immédiatement après avoir spécifié les rôles
@@ -289,3 +306,9 @@ Rôle 3 ─┘
 - Si des recommandations contradictoires surviennent, considérez l'utilisation de role-debate
 - Les jugements finaux doivent être faits par l'utilisateur en référence aux résultats intégrés
 - **Lors de l'utilisation de --agent** : Consomme plus de ressources mais est efficace pour les analyses à grande échelle
+
+### Détails de Configuration des Rôles
+
+- Les paramètres détaillés, l'expertise et les caractéristiques de discussion de chaque rôle sont définis dans `.claude/agents/roles/`
+- Inclut les pratiques Evidence-First et les contre-mesures aux biais cognitifs
+- Les phrases déclencheuses propres à chaque rôle activent automatiquement le mode spécialisé
