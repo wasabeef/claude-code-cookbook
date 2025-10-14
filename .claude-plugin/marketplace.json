@@ -1,0 +1,94 @@
+{
+  "name": "claude-code-cookbook",
+  "owner": {
+    "name": "wasabeef",
+    "email": "dadadada.chop@gmail.com"
+  },
+  "metadata": {
+    "description": "Powerful commands and roles collection for Claude Code in multiple languages",
+    "version": "1.0.0",
+    "pluginRoot": "plugins"
+  },
+  "plugins": [
+    {
+      "name": "claude-code-cookbook-ja",
+      "source": "./plugins/ja",
+      "description": "Claude Code の強力なコマンド・ロール集（日本語版）",
+      "version": "1.0.0",
+      "author": "wasabeef",
+      "license": "Apache-2.0",
+      "repository": "wasabeef/claude-code-cookbook",
+      "keywords": ["japanese", "commands", "roles", "productivity", "development"]
+    },
+    {
+      "name": "claude-code-cookbook-en",
+      "source": "./plugins/en",
+      "description": "Powerful commands and roles collection for Claude Code (English)",
+      "version": "1.0.0",
+      "author": "wasabeef",
+      "license": "Apache-2.0",
+      "repository": "wasabeef/claude-code-cookbook",
+      "keywords": ["english", "commands", "roles", "productivity", "development"]
+    },
+    {
+      "name": "claude-code-cookbook-es",
+      "source": "./plugins/es",
+      "description": "Potente colección de comandos y roles para Claude Code (Español)",
+      "version": "1.0.0",
+      "author": "wasabeef",
+      "license": "Apache-2.0",
+      "repository": "wasabeef/claude-code-cookbook",
+      "keywords": ["spanish", "commands", "roles", "productivity", "development"]
+    },
+    {
+      "name": "claude-code-cookbook-fr",
+      "source": "./plugins/fr",
+      "description": "Collection puissante de commandes et de rôles pour Claude Code (Français)",
+      "version": "1.0.0",
+      "author": "wasabeef",
+      "license": "Apache-2.0",
+      "repository": "wasabeef/claude-code-cookbook",
+      "keywords": ["french", "commands", "roles", "productivity", "development"]
+    },
+    {
+      "name": "claude-code-cookbook-ko",
+      "source": "./plugins/ko",
+      "description": "Claude Code를 위한 강력한 명령어 및 역할 모음 (한국어)",
+      "version": "1.0.0",
+      "author": "wasabeef",
+      "license": "Apache-2.0",
+      "repository": "wasabeef/claude-code-cookbook",
+      "keywords": ["korean", "commands", "roles", "productivity", "development"]
+    },
+    {
+      "name": "claude-code-cookbook-pt",
+      "source": "./plugins/pt",
+      "description": "Poderosa coleção de comandos e funções para Claude Code (Português)",
+      "version": "1.0.0",
+      "author": "wasabeef",
+      "license": "Apache-2.0",
+      "repository": "wasabeef/claude-code-cookbook",
+      "keywords": ["portuguese", "commands", "roles", "productivity", "development"]
+    },
+    {
+      "name": "claude-code-cookbook-zh-cn",
+      "source": "./plugins/zh-cn",
+      "description": "Claude Code 强大的命令和角色集合（简体中文）",
+      "version": "1.0.0",
+      "author": "wasabeef",
+      "license": "Apache-2.0",
+      "repository": "wasabeef/claude-code-cookbook",
+      "keywords": ["chinese", "simplified", "commands", "roles", "productivity", "development"]
+    },
+    {
+      "name": "claude-code-cookbook-zh-tw",
+      "source": "./plugins/zh-tw",
+      "description": "Claude Code 強大的命令和角色集合（繁體中文）",
+      "version": "1.0.0",
+      "author": "wasabeef",
+      "license": "Apache-2.0",
+      "repository": "wasabeef/claude-code-cookbook",
+      "keywords": ["chinese", "traditional", "commands", "roles", "productivity", "development"]
+    }
+  ]
+}
