@@ -1,0 +1,17 @@
+{
+  "name": "claude-code-cookbook-ja",
+  "version": "1.0.0",
+  "description": "Claude Code の強力なコマンド・ロール集（日本語版）",
+  "author": "wasabeef",
+  "repository": "wasabeef/claude-code-cookbook",
+  "license": "Apache-2.0",
+  "commands": "./commands/",
+  "agents": "./agents/roles/",
+  "keywords": [
+    "japanese",
+    "commands",
+    "roles",
+    "productivity",
+    "development"
+  ]
+}

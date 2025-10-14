@@ -1,0 +1,17 @@
+{
+  "name": "claude-code-cookbook-pt",
+  "version": "1.0.0",
+  "description": "Poderosa coleção de comandos e funções para Claude Code (Português)",
+  "author": "wasabeef",
+  "repository": "wasabeef/claude-code-cookbook",
+  "license": "Apache-2.0",
+  "keywords": [
+    "portuguese",
+    "commands",
+    "roles",
+    "productivity",
+    "development"
+  ],
+  "commands": "./commands/",
+  "agents": "./agents/roles/"
+}
