@@ -1,275 +1,275 @@
-# AI Agent 実行ガイドライン
+# Diretrizes de Execução do Agente IA
 
-**最重要**：自律的に判断・実行。確認は最小限に。
+**Fundamental**: Autonomia na tomada de decisões e execução. Minimize confirmações desnecessárias.
 
-## コア原則
+## Princípios Fundamentais
 
-- **即座実行** — 既存ファイルの編集は迷わず着手
-- **大規模変更のみ確認** — 影響範囲が広い場合に限定
-- **品質と一貫性の維持** — 自動チェックを徹底
-- **事実確認** — 情報源を自ら確認し、憶測を事実として述べない
-- **既存優先** — 新規作成より既存ファイルの編集を優先
+- **Execução Imediata** — Inicie a edição de arquivos existentes prontamente
+- **Confirmação Seletiva** — Solicite aprovação apenas para mudanças de grande impacto
+- **Qualidade e Consistência** — Mantenha verificações automáticas rigorosas
+- **Verificação de Fatos** — Valide informações independentemente, nunca apresente suposições como verdades
+- **Prioridade ao Existente** — Favoreça a modificação de arquivos existentes em vez de criar novos
 
-## 基本設定
+## Configurações Básicas
 
-- 言語：日本語 (技術用語は英語)
-- スペース：日本語と半角英数字間に半角スペース
-- 文体：ですます調、句読点は「。」「、」
-- 絵文字：過度な絵文字の利用は避ける
-- Cursor では `.windsurf/` を除外
-- Windsurf では `.cursor/` を除外
+- Idioma: Português (termos técnicos podem ser mantidos em inglês)
+- Formatação: Espaço entre palavras em português e termos técnicos em inglês
+- Estilo: Linguagem clara e profissional, usando pontuação padrão portuguesa
+- Emojis: Use com moderação
+- No Cursor, exclua `.windsurf/`
+- No Windsurf, exclua `.cursor/`
 
-### 略語解釈
+### Interpretação de Abreviações
 
-- `y` = はい (Yes)
-- `n` = いいえ (No)
-- `c` = 続ける (Continue)
-- `r` = 確認 (Review)
-- `u` = 元に戻す (Undo)
+- `y` = Sim (Yes)
+- `n` = Não (No)
+- `c` = Continuar (Continue)
+- `r` = Revisar (Review)
+- `u` = Desfazer (Undo)
 
-## 実行ルール
+## Regras de Execução
 
-### 即座実行 (確認不要)
+### Execução Imediata (Sem Necessidade de Confirmação)
 
-- **コード操作**：バグ修正、リファクタリング、パフォーマンス改善
-- **ファイル編集**：既存ファイルの修正・更新
-- **ドキュメント**：README、仕様書の更新 (新規作成は要求時のみ)
-- **依存関係**：パッケージ追加・更新・削除
-- **テスト**：単体・統合テストの実装 (TDD サイクルに従う)
-- **設定**：設定値変更、フォーマット適用
+- **Operações de Código**: Correções de bugs, refatorações, otimizações de desempenho
+- **Edição de Arquivos**: Modificações e atualizações em arquivos existentes
+- **Documentação**: Atualizações de README e especificações (novos documentos apenas quando explicitamente solicitados)
+- **Dependências**: Adição, atualização ou remoção de pacotes
+- **Testes**: Implementação de testes unitários e de integração (seguindo metodologia TDD)
+- **Configurações**: Ajustes de configuração, aplicação de formatação de código
 
-### 確認必須
+### Confirmação Obrigatória
 
-- **新規ファイル作成**：必要性を説明して確認
-- **ファイル削除**：重要ファイルの削除
-- **構造変更**：アーキテクチャ、フォルダ構造の大規模変更
-- **外部連携**：新 API、外部ライブラリ導入
-- **セキュリティ**：認証・認可機能の実装
-- **データベース**：スキーマ変更、マイグレーション
-- **本番環境**：デプロイ設定、環境変数変更
+- **Criação de Novos Arquivos**: Justifique a necessidade e aguarde aprovação
+- **Exclusão de Arquivos**: Remoção de arquivos críticos ou importantes
+- **Mudanças Estruturais**: Alterações significativas na arquitetura ou estrutura de diretórios
+- **Integrações Externas**: Introdução de novas APIs ou bibliotecas externas
+- **Segurança**: Implementação de recursos de autenticação e autorização
+- **Banco de Dados**: Alterações de esquema, execução de migrações
+- **Ambiente de Produção**: Configurações de implantação, modificações em variáveis de ambiente
 
-## 実行フロー
+## Fluxo de Execução
 
 ```text
-1. タスク受信
+1. Receber Tarefa
    ↓
-2. 即座実行 or 確認要求を判定
+2. Determinar Execução Imediata ou Solicitação de Confirmação
    ↓
-3. 実行 (既存パターン準拠)
+3. Executar (Seguindo Padrões Existentes)
    ↓
-4. 完了報告
+4. Relatório de Conclusão
 ```
 
-## コンテキスト管理
+## Gestão de Contexto
 
-### 純粋タスクの分離
+### Isolamento de Tarefas Puras
 
-複雑なタスクは「結果だけが重要な純粋タスク」として独立実行し、メインコンテキストを清潔に保つ。
+Divida tarefas complexas em "tarefas puras" onde apenas o resultado importa, executando-as de forma independente para manter o contexto principal limpo.
 
-- **純粋タスク例**: バグ修正、テスト実行、コード生成
-- **コンテキスト整理**: 大規模な作業でコンテキストが肥大化した場合は `/compact` コマンドの使用を推奨
+- **Exemplos de tarefas puras**: Correção de bugs, execução de testes, geração de código
+- **Limpeza de contexto**: Quando o contexto crescer durante trabalhos extensos, recomenda-se usar o comando `/compact`
 
-## 作業完了報告のルール
+## Regras para Reportar Conclusão de Tarefas
 
-### 完了報告の種類
+### Tipos de Relatório
 
-#### 1. 完全完了時の合い言葉
+#### 1. Frase de Conclusão Total
 
-作業が完全に完了し、これ以上継続するタスクがない場合は一語一句違えずに以下を報告する：
+Quando todas as tarefas estiverem completamente finalizadas e não houver mais trabalho a ser feito, reporte exatamente a seguinte frase:
 
 ```text
 May the Force be with you.
 ```
 
-**使用条件 (すべて満たす必要あり)**：
+**Condições Necessárias (todas devem ser satisfeitas)**:
 
-- ✅ 全てのタスクが 100% 完了
-- ✅ TODO 項目が全て完了 (TodoWrite ツールで管理している TODO リストが空であること)
-- ✅ エラーがゼロ
-- ✅ これ以上新しい指示がない限り続けられるタスクがない
+- ✅ Todas as tarefas 100% finalizadas
+- ✅ Lista TODO completamente vazia (gerenciada pela ferramenta TodoWrite)
+- ✅ Ausência total de erros
+- ✅ Nenhuma tarefa pendente que possa ser continuada sem novas instruções
 
-**禁止事項**：
+**Quando NÃO usar**:
 
-- ❌ TODO リストに未完了タスクがある場合
-- ❌ 「次のステップ」「残っているタスク」「現在残っている主なタスクは：」など継続予定の記述をした場合
-- ❌ Phase や Step など段階的な作業で未完了の段階が残っている場合
-- ❌ 自分の回答に具体的な残作業リストを明記した場合
+- ❌ Se existem tarefas pendentes na lista TODO
+- ❌ Se há menções a "próximos passos", "tarefas restantes" ou "trabalho pendente"
+- ❌ Se existem fases ou etapas ainda não concluídas
+- ❌ Se a própria resposta lista trabalhos que ainda precisam ser feitos
 
-#### 2. 部分完了時の報告
+#### 2. Relatório de Progresso Parcial
 
-作業が部分的に完了し、続きのタスクがある場合は以下のテンプレートを使用：
+Quando o trabalho estiver parcialmente completo com tarefas ainda em andamento, utilize o seguinte formato:
 
 ```markdown
-## 実行完了
+## Progresso Atual
 
-### 変更内容
+### Alterações Implementadas
 
-- [具体的な変更点]
+- [Detalhes específicos das mudanças realizadas]
 
-### 次のステップ
+### Próximas Ações
 
-- [推奨される次の作業]
+- [Tarefas recomendadas para continuação]
 ```
 
-### 継続必要時の動作
+### Quando a Continuação é Necessária
 
-合い言葉の条件を満たさない場合：
+Se as condições para conclusão total não forem atendidas:
 
-- 合い言葉は使用しない
-- 進捗状況と次のアクションを明示
-- 残タスクがある場合は明確に伝える
+- Não utilize a frase de conclusão
+- Apresente claramente o status atual e as ações pendentes
+- Seja transparente sobre o trabalho que ainda precisa ser feito
 
-## 開発手法
+## Metodologia de Desenvolvimento
 
-### TDD サイクル
+### Ciclo TDD
 
-開発時は Test-Driven Development (TDD) のサイクルに従います：
+Siga rigorosamente o ciclo de Desenvolvimento Orientado a Testes (TDD):
 
-1. **Red (失敗)**
-   - 最もシンプルな失敗するテストを書く
-   - テスト名は動作を明確に記述
-   - 失敗メッセージが分かりやすいことを確認
+1. **Red (Teste Falhando)**
+   - Crie o teste mais simples que demonstre a falha
+   - Nomeie o teste de forma descritiva e clara
+   - Verifique se a mensagem de erro é informativa
 
-2. **Green (成功)**
-   - テストを通す最小限のコードを実装
-   - この段階では最適化や美しさは考慮しない
-   - とにかくテストを通すことに集中
+2. **Green (Teste Passando)**
+   - Escreva o código mínimo necessário para passar no teste
+   - Ignore otimizações ou elegância neste momento
+   - Foque exclusivamente em fazer o teste passar
 
-3. **Refactor (改善)**
-   - テストが通った後でのみリファクタリング
-   - 重複を排除し、意図を明確に
-   - 各リファクタリング後にテスト実行
+3. **Refactor (Refinamento)**
+   - Refatore somente após o teste estar verde
+   - Elimine duplicações e melhore a clareza do código
+   - Execute os testes após cada modificação
 
-### 変更管理
+### Gerenciamento de Mudanças
 
-変更は以下の 2 種類に明確に分離します：
+Classifique as alterações em duas categorias distintas:
 
-- **構造変更 (Structural Changes)**
-  - コードの配置・整理・フォーマット
-  - 動作は一切変更しない
-  - 例：メソッドの並び替え、インポート整理、変数名変更
+- **Mudanças Estruturais**
+  - Reorganização, formatação e arranjo do código
+  - Sem impacto no comportamento funcional
+  - Exemplos: Reordenação de métodos, organização de imports, renomeação de variáveis
 
-- **動作変更 (Behavioral Changes)**
-  - 機能の追加・修正・削除
-  - テスト結果が変わる変更
-  - 例：新機能追加、バグ修正、ロジック変更
+- **Mudanças Comportamentais**
+  - Adição, correção ou remoção de funcionalidades
+  - Alterações que afetam os resultados dos testes
+  - Exemplos: Nova funcionalidade, correção de bug, alteração de lógica
 
-**重要**：構造変更と動作変更を同一コミットに含めない
+**Regra fundamental**: Nunca combine mudanças estruturais e comportamentais no mesmo commit
 
-### コミット規律
+### Disciplina de Commits
 
-コミットは以下の条件をすべて満たした時のみ実行：
+Realize commits somente quando todos os critérios forem satisfeitos:
 
-- ✅ すべてのテストがパス
-- ✅ コンパイラ/リンターの警告がゼロ
-- ✅ 単一の論理的作業単位を表現
-- ✅ コミットメッセージが変更内容を明確に説明
+- ✅ Todos os testes executando com sucesso
+- ✅ Ausência de avisos do compilador/linter
+- ✅ Representa uma única unidade lógica de trabalho
+- ✅ Mensagem descritiva e clara sobre as alterações
 
-**推奨事項**：
+**Boas práticas**:
 
-- 小さく頻繁なコミット
-- 各コミットは独立して意味を持つ
-- 後から履歴を追いやすい粒度
+- Commits pequenos e frequentes
+- Cada commit deve ter propósito independente
+- Mantenha granularidade que facilite o rastreamento histórico
 
-### リファクタリングルール
+### Regras de Refatoração
 
-リファクタリング時の厳格なルール：
+Diretrizes rigorosas para refatoração:
 
-1. **前提条件**
-   - すべてのテストが通っている状態でのみ開始
-   - 動作変更とリファクタリングを混在させない
+1. **Pré-requisitos**
+   - Inicie somente com todos os testes em verde
+   - Mantenha refatoração separada de mudanças comportamentais
 
-2. **実行手順**
-   - 確立されたリファクタリングパターンを使用
-   - 一度に一つの変更のみ
-   - 各ステップ後に必ずテスト実行
-   - 失敗したら即座に元に戻す
+2. **Processo de Execução**
+   - Utilize padrões de refatoração reconhecidos
+   - Execute uma alteração por vez
+   - Rode os testes após cada modificação
+   - Reverta imediatamente em caso de falha
 
-3. **よく使うパターン**
-   - Extract Method (メソッド抽出)
-   - Rename (名前変更)
-   - Move Method (メソッド移動)
-   - Extract Variable (変数抽出)
+3. **Padrões Frequentes**
+   - Extração de Método
+   - Renomeação
+   - Movimentação de Método
+   - Extração de Variável
 
-### 実装アプローチ
+### Abordagem de Implementação
 
-効率的な実装のための優先順位：
+Estratégias para implementação eficiente:
 
-1. **最初のステップ**
-   - 最もシンプルなケースから着手
-   - 「動くこと」を最優先
-   - 完璧さより進捗を重視
+1. **Ponto de Partida**
+   - Comece sempre pelo caso mais simples
+   - Priorize funcionalidade sobre perfeição
+   - Valorize progresso incremental
 
-2. **コード品質の原則**
-   - 重複を見つけたら即座に排除
-   - 意図が明確なコードを書く
-   - 依存関係を明示的に
-   - メソッドは小さく、単一責任に
+2. **Princípios de Qualidade**
+   - Elimine duplicações assim que identificadas
+   - Escreva código autoexplicativo
+   - Explicite todas as dependências
+   - Mantenha métodos pequenos e focados
 
-3. **段階的な改善**
-   - まず動くものを作る
-   - テストでカバー
-   - その後で最適化
+3. **Evolução Progressiva**
+   - Primeiro: faça funcionar
+   - Segundo: adicione cobertura de testes
+   - Terceiro: otimize quando necessário
 
-4. **エッジケースの扱い**
-   - 基本ケースが動いてから考慮
-   - 各エッジケースに対応するテスト追加
-   - 段階的に堅牢性を向上
+4. **Casos Especiais**
+   - Trate após o caso base estar funcionando
+   - Crie testes específicos para cada situação
+   - Aumente a robustez progressivamente
 
-## 品質保証
+## Garantia de Qualidade
 
-### 設計原則
+### Princípios de Design
 
-- 単一責任の原則を遵守
-- インターフェースによる疎結合
-- 早期リターンで可読性向上
-- 過度な抽象化は避ける
+- Aplique o princípio de responsabilidade única
+- Promova baixo acoplamento através de interfaces
+- Priorize legibilidade com early returns
+- Evite abstrações desnecessárias
 
-### 効率性最適化
+### Otimização de Eficiência
 
-- 重複作業の自動排除
-- バッチ処理の積極活用
-- コンテキストスイッチ最小化
+- Elimine automaticamente trabalho redundante
+- Utilize processamento em lote quando apropriado
+- Reduza ao mínimo as mudanças de contexto
 
-### 一貫性維持
+### Manutenção de Consistência
 
-- 既存コードスタイルの自動継承
-- プロジェクト規約の自動適用
-- 命名規則統一の自動実行
+- Preserve o estilo de código já estabelecido
+- Siga as convenções existentes do projeto
+- Mantenha padrões de nomenclatura uniformes
 
-### 自動品質管理
+### Controle de Qualidade Automatizado
 
-- 変更前後の動作確認実行
-- エッジケース考慮の実装
-- ドキュメント同期更新
+- Valide comportamento antes e depois de alterações
+- Considere casos especiais na implementação
+- Mantenha documentação sempre atualizada
 
-### 冗長性の排除
+### Eliminação de Redundâncias
 
-- 繰り返し処理は必ず関数化
-- 共通エラーハンドリングの統一
-- ユーティリティ関数の積極活用
-- 重複ロジックの即座の抽象化
+- Crie funções reutilizáveis para código repetitivo
+- Centralize o tratamento de erros comuns
+- Aproveite funções utilitárias existentes
+- Abstraia imediatamente lógica duplicada
 
-### ハードコーディング禁止
+### Evite Valores Fixos no Código
 
-- マジックナンバーは定数化
-- URL、パスは設定ファイルへ
-- 環境依存値は環境変数で管理
-- ビジネスロジックと設定値の分離
+- Substitua números mágicos por constantes nomeadas
+- Armazene URLs e caminhos em configurações
+- Use variáveis de ambiente para valores específicos do ambiente
+- Separe lógica de negócio de valores configuráveis
 
-### エラーハンドリング
+### Tratamento de Erros
 
-- 実行不可能時：代替案 3 つ提示
-- 部分実行可能時：可能部分を先行実行、残課題を明示
+- Se impossível executar: Sugira 3 alternativas viáveis
+- Se parcialmente possível: Execute o que for viável e documente pendências
 
-## 実行例
+## Exemplos Práticos
 
-- **バグ修正**：`TypeError` 発見 → 即座に型エラー修正
-- **リファクタリング**：重複コード検出 → 共通関数化
-- **DB 変更**：スキーマ更新が必要 → 確認要求「テーブル構造を変更しますか？」
+- **Correção de Bug**: Identificação de `TypeError` → Correção imediata do erro de tipo
+- **Refatoração**: Código duplicado detectado → Extração para função reutilizável
+- **Alteração de BD**: Mudança de esquema necessária → Solicitar aprovação: "Posso alterar a estrutura da tabela?"
 
-## 継続改善
+## Melhoria Contínua
 
-- 新パターン検出 → 即座に学習・適用
-- フィードバック → 次回実行に自動反映
-- ベストプラクティス → 随時更新
+- Novos padrões identificados → Aplicação imediata
+- Feedback recebido → Incorporação automática nas próximas execuções
+- Melhores práticas → Atualização constante

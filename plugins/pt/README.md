@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [Français](README_fr.md) | [日本語](README.md) | [📁 locales/](locales/)
+[🏠 Home](../../README.md) | [🇺🇸 English](../en/README.md) | [🇯🇵 日本語](../ja/README.md) | [🇰🇷 한국어](../ko/README.md) | [🇨🇳 简体中文](../zh-cn/README.md) | [🇹🇼 繁體中文](../zh-tw/README.md) | [🇪🇸 Español](../es/README.md) | [🇫🇷 Français](../fr/README.md) | [🇧🇷 Português](../pt/README.md)
 
 Coleção de configurações para otimizar o uso do Claude Code.
 
@@ -166,11 +166,49 @@ flowchart TB
 
 ## Instalação
 
+### Passo 1: Adicionar o Marketplace
+
+Primeiro, adicione este repositório como um marketplace de plugins:
+
 ```bash
-/plugin install wasabeef/claude-code-cookbook/plugins/pt
+/plugin marketplace add wasabeef/claude-code-cookbook
+```
+
+### Passo 2: Instalar o Plugin em Português
+
+Em seguida, instale o plugin em versão portuguesa:
+
+```bash
+/plugin install cook-pt@claude-code-cookbook
 ```
 
 Este comando instala a versão em português dos Commands e Roles.
+
+### Uso
+
+Após a instalação, comandos e agentes são chamados com o prefixo `cook-pt:`:
+
+#### Executando Comandos
+
+```bash
+# Executar com prefixo
+/cook-pt:check-fact
+
+# Usar autocompletar
+/cook-pt:
+```
+
+#### Chamando Agentes
+
+```bash
+# Buscar agentes começando com @
+@agent-cook-pt:roles:frontend
+
+# Também pode usar via comando de papel
+/cook-pt:role frontend
+```
+
+**Nota**: O nome do plugin é automaticamente adicionado como prefixo. Isso evita conflitos de nomes quando múltiplos plugins de idioma são instalados simultaneamente.
 
 ### Personalização
 

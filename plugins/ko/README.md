@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [Français](README_fr.md) | [日本語](README.md) | [📁 locales/](locales/)
+[🏠 Home](../../README.md) | [🇺🇸 English](../en/README.md) | [🇯🇵 日本語](../ja/README.md) | [🇰🇷 한국어](../ko/README.md) | [🇨🇳 简体中文](../zh-cn/README.md) | [🇹🇼 繁體中文](../zh-tw/README.md) | [🇪🇸 Español](../es/README.md) | [🇫🇷 Français](../fr/README.md) | [🇧🇷 Português](../pt/README.md)
 
 Claude Code 를 더 편리하게 사용하기 위한 설정 모음입니다.
 
@@ -166,11 +166,49 @@ flowchart TB
 
 ## 설치
 
+### Step 1: 마켓플레이스 추가
+
+먼저, 이 리포지토리를 플러그인 마켓플레이스로 추가합니다:
+
 ```bash
-/plugin install wasabeef/claude-code-cookbook/plugins/ko
+/plugin marketplace add wasabeef/claude-code-cookbook
+```
+
+### Step 2: 한국어 플러그인 설치
+
+다음으로, 한국어 버전 플러그인을 설치합니다:
+
+```bash
+/plugin install cook-ko@claude-code-cookbook
 ```
 
 이 명령어로 한국어 버전의 Commands와 Roles가 설치됩니다.
+
+### 사용 방법
+
+설치 후, 명령어와 에이전트 호출 시 `cook-ko:` 접두사가 자동으로 붙습니다:
+
+#### 명령어 실행
+
+```bash
+# 접두사와 함께 실행
+/cook-ko:check-fact
+
+# 탭 자동 완성 사용
+/cook-ko:
+```
+
+#### 에이전트 호출
+
+```bash
+# @ 로 시작하여 에이전트 검색
+@agent-cook-ko:roles:frontend
+
+# 롤 명령어를 통해서도 사용 가능
+/cook-ko:role frontend
+```
+
+**참고**: 플러그인 이름이 접두사로 자동 추가됩니다. 이는 여러 언어 플러그인을 동시에 설치해도 이름 충돌이 발생하지 않도록 하기 위한 사양입니다.
 
 ### 커스터마이징
 

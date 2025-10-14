@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [Français](README_fr.md) | [日本語](README.md) | [📁 locales/](locales/)
+[🏠 Home](../../README.md) | [🇺🇸 English](../en/README.md) | [🇯🇵 日本語](../ja/README.md) | [🇰🇷 한국어](../ko/README.md) | [🇨🇳 简体中文](../zh-cn/README.md) | [🇹🇼 繁體中文](../zh-tw/README.md) | [🇪🇸 Español](../es/README.md) | [🇫🇷 Français](../fr/README.md) | [🇧🇷 Português](../pt/README.md)
 
 Claude Code をもっと便利に使うための設定集です。
 
@@ -167,11 +167,49 @@ flowchart TB
 
 ## インストール
 
+### Step 1: マーケットプレイスを追加
+
+まず、このリポジトリをプラグインマーケットプレイスとして追加します：
+
 ```bash
-/plugin install wasabeef/claude-code-cookbook/plugins/ja
+/plugin marketplace add wasabeef/claude-code-cookbook
+```
+
+### Step 2: 日本語プラグインをインストール
+
+次に、日本語版のプラグインをインストールします：
+
+```bash
+/plugin install cook@claude-code-cookbook
 ```
 
 このコマンドで日本語版の Commands と Roles がインストールされます。
+
+### 使用方法
+
+インストール後、コマンドやエージェントを呼び出す際は `cook:` プレフィックスが自動的に付きます：
+
+#### コマンドの実行
+
+```bash
+# プレフィックス付きで実行
+/cook:check-fact
+
+# コマンド補完で確認
+/cook:
+```
+
+#### エージェントの呼び出し
+
+```bash
+# @ から始めてエージェントを検索
+@agent-cook:roles:frontend
+
+# ロールコマンド経由でも使用可能
+/cook:role frontend
+```
+
+**注意**: プラグイン名がプレフィックスとして自動的に付加されます。これは複数の言語プラグインを同時にインストールしても名前が衝突しないようにするための仕様です。
 
 ### カスタマイズ
 

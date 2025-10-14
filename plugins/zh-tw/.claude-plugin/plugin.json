@@ -1,8 +1,10 @@
 {
-  "name": "claude-code-cookbook-zh-tw",
+  "name": "cook-zh-tw",
   "version": "1.0.0",
   "description": "Claude Code 強大的命令和角色集合（繁體中文）",
-  "author": "wasabeef",
+  "author": {
+    "name": "wasabeef"
+  },
   "repository": "wasabeef/claude-code-cookbook",
   "license": "Apache-2.0",
   "keywords": [
@@ -12,7 +14,5 @@
     "roles",
     "productivity",
     "development"
-  ],
-  "commands": "./commands/",
-  "agents": "./agents/roles/"
+  ]
 }

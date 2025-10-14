@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [Français](README_fr.md) | [日本語](README.md) | [📁 locales/](locales/)
+[🏠 Home](../../README.md) | [🇺🇸 English](../en/README.md) | [🇯🇵 日本語](../ja/README.md) | [🇰🇷 한국어](../ko/README.md) | [🇨🇳 简体中文](../zh-cn/README.md) | [🇹🇼 繁體中文](../zh-tw/README.md) | [🇪🇸 Español](../es/README.md) | [🇫🇷 Français](../fr/README.md) | [🇧🇷 Português](../pt/README.md)
 
 这个项目是为了让 Claude Code 更加方便使用的设置集合。
 
@@ -165,11 +165,49 @@ flowchart TB
 
 ## 安装
 
+### 步骤 1: 添加市场
+
+首先，将此仓库添加为插件市场：
+
 ```bash
-/plugin install wasabeef/claude-code-cookbook/plugins/zh-cn
+/plugin marketplace add wasabeef/claude-code-cookbook
+```
+
+### 步骤 2: 安装简体中文插件
+
+然后，安装简体中文版本的插件：
+
+```bash
+/plugin install cook-zh-cn@claude-code-cookbook
 ```
 
 此命令将安装简体中文版本的 Commands 和 Roles。
+
+### 使用方法
+
+安装后，调用命令和代理时会自动添加 `cook-zh-cn:` 前缀：
+
+#### 执行命令
+
+```bash
+# 带前缀执行
+/cook-zh-cn:check-fact
+
+# 使用命令补全
+/cook-zh-cn:
+```
+
+#### 调用代理
+
+```bash
+# 从 @ 开始搜索代理
+@agent-cook-zh-cn:roles:frontend
+
+# 也可以通过角色命令使用
+/cook-zh-cn:role frontend
+```
+
+**注意**：插件名称会自动作为前缀添加。这是为了在同时安装多个语言插件时避免名称冲突。
 
 ### 自定义
 
