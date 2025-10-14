@@ -23,7 +23,7 @@
     {
       "name": "claude-code-cookbook-en",
       "source": "./plugins/en",
-      "description": "Powerful commands and roles collection for Claude Code (English)",
+      "description": "Powerful collection of commands and roles for Claude Code (English)",
       "version": "1.0.0",
       "author": "wasabeef",
       "license": "Apache-2.0",
@@ -53,7 +53,7 @@
     {
       "name": "claude-code-cookbook-ko",
       "source": "./plugins/ko",
-      "description": "Claude Code를 위한 강력한 명령어 및 역할 모음 (한국어)",
+      "description": "Claude Code를 위한 강력한 명령어 및 역할 모음(한국어)",
       "version": "1.0.0",
       "author": "wasabeef",
       "license": "Apache-2.0",
@@ -63,7 +63,7 @@
     {
       "name": "claude-code-cookbook-pt",
       "source": "./plugins/pt",
-      "description": "Poderosa coleção de comandos e funções para Claude Code (Português)",
+      "description": "Poderosa coleção de comandos e papéis para Claude Code (Português)",
       "version": "1.0.0",
       "author": "wasabeef",
       "license": "Apache-2.0",
