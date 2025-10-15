@@ -76,15 +76,6 @@ Switch to expert roles for specialized assistance:
 - `/role reviewer` - Code review and maintainability
 - `/role analyzer` - System and code analysis
 
-### Hooks
-
-Automation that runs at specific events:
-
-- **Safety**: Prevent dangerous commands, block AI signatures in commits
-- **Quality**: Auto-format spacing, prompt for documentation
-- **Notifications**: Alert when Claude needs input or completes tasks
-- **Permissions**: Preserve file permissions during edits
-
 ## Why Claude Code Cookbook?
 
 - **Multilingual**: Language plugins with native translations
