@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [Français](README_fr.md) | [日本語](README.md) | [📁 locales/](locales/)
+[🏠 Home](../../README.md) | [🇺🇸 English](../en/README.md) | [🇯🇵 日本語](../ja/README.md) | [🇰🇷 한국어](../ko/README.md) | [🇨🇳 简体中文](../zh-cn/README.md) | [🇹🇼 繁體中文](../zh-tw/README.md) | [🇪🇸 Español](../es/README.md) | [🇫🇷 Français](../fr/README.md) | [🇧🇷 Português](../pt/README.md)
 
 這個專案是為了讓 Claude Code 更加方便使用的設定集合。
 
@@ -36,7 +36,7 @@
 | `/fix-error`            | 根據錯誤訊息提供程式碼修正方案。                                           |
 | `/multi-role`           | 組合多個角色，對同一對象進行並行分析並產生綜合報告。                       |
 | `/plan`                 | 啟動實作前的計劃模式，制定詳細的實施策略。                                 |
-| `/pr-auto-update`       | 自動更新 Pull Request 的內容 (說明、標籤)。                                |
+| `/pr-auto-update`       | 自動更新 Pull Request 的內容 (說明、標籤) 。                               |
 | `/pr-create`            | 基於 Git 異動分析自動建立 PR，實現高效的 Pull Request 工作流程。           |
 | `/pr-feedback`          | 高效處理 Pull Request 的評審意見，透過錯誤分析三階段方法尋求根本解決方案。 |
 | `/pr-issue`             | 顯示當前儲存庫的開放 Issue 清單並排序優先級。                              |
@@ -165,23 +165,49 @@ flowchart TB
 
 ## 安裝
 
-```bash
-# 複製儲存庫
-git clone https://github.com/wasabeef/claude-code-cookbook.git
-cd claude-code-cookbook
+### 步驟 1: 新增市場
 
-# 指定語言安裝
-./scripts/install.sh ja     # 日文 (預設)
-./scripts/install.sh en     # 英文
-./scripts/install.sh ko     # 韓文
-./scripts/install.sh pt     # 葡萄牙文
-./scripts/install.sh zh-cn  # 簡體中文
-./scripts/install.sh zh-tw  # 繁體中文
-./scripts/install.sh es     # 西班牙文
-./scripts/install.sh fr     # 法文
+首先，將此儲存庫新增為插件市場：
+
+```bash
+/plugin marketplace add wasabeef/claude-code-cookbook
 ```
 
-在 Claude Desktop 中將 Custom Instructions 路徑設定為 `~/.claude` 即可完成。
+### 步驟 2: 安裝繁體中文插件
+
+然後，安裝繁體中文版本的插件：
+
+```bash
+/plugin install cook-zh-tw@claude-code-cookbook
+```
+
+此命令將安裝繁體中文版本的 Commands 和 Roles。
+
+### 使用方法
+
+安裝後，呼叫指令和代理時會自動新增 `cook-zh-tw:` 前綴：
+
+#### 執行指令
+
+```bash
+# 帶前綴執行
+/cook-zh-tw:check-fact
+
+# 使用指令補全
+/cook-zh-tw:
+```
+
+#### 呼叫代理
+
+```bash
+# 從 @ 開始搜尋代理
+@agent-cook-zh-tw:roles:frontend
+
+# 也可以透過角色指令使用
+/cook-zh-tw:role frontend
+```
+
+**注意**：外掛名稱會自動作為前綴新增。這是為了在同時安裝多個語言外掛時避免名稱衝突。
 
 ### 自訂
 

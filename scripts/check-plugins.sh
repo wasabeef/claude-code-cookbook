@@ -16,8 +16,8 @@ NC='\033[0m'
 # Project paths
 PROJECT_ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)"
 PLUGINS_DIR="$PROJECT_ROOT/plugins"
-COMMANDS_DIR="$PROJECT_ROOT/plugins/ja/commands"
-AGENTS_DIR="$PROJECT_ROOT/plugins/ja/agents"
+COMMANDS_DIR="$PROJECT_ROOT/commands"
+AGENTS_DIR="$PROJECT_ROOT/agents"
 
 # Required directories for each plugin
 REQUIRED_DIRS=("commands" "agents/roles" ".claude-plugin")

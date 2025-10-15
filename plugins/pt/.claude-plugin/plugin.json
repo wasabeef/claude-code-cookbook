@@ -1,0 +1,17 @@
+{
+  "name": "cook-pt",
+  "version": "3.0.0",
+  "description": "Poderosa coleção de comandos e papéis para Claude Code (Português)",
+  "author": {
+    "name": "wasabeef"
+  },
+  "repository": "wasabeef/claude-code-cookbook",
+  "license": "Apache-2.0",
+  "keywords": [
+    "portuguese",
+    "commands",
+    "roles",
+    "productivity",
+    "development"
+  ]
+}

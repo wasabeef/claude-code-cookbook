@@ -1,0 +1,17 @@
+{
+  "name": "cook-fr",
+  "version": "3.0.0",
+  "description": "Collection puissante de commandes et de rôles pour Claude Code (Français)",
+  "author": {
+    "name": "wasabeef"
+  },
+  "repository": "wasabeef/claude-code-cookbook",
+  "license": "Apache-2.0",
+  "keywords": [
+    "french",
+    "commands",
+    "roles",
+    "productivity",
+    "development"
+  ]
+}

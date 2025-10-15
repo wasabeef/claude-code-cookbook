@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [Français](README_fr.md) | [日本語](README.md) | [📁 locales/](locales/)
+[🏠 Home](../../README.md) | [🇺🇸 English](../en/README.md) | [🇯🇵 日本語](../ja/README.md) | [🇰🇷 한국어](../ko/README.md) | [🇨🇳 简体中文](../zh-cn/README.md) | [🇹🇼 繁體中文](../zh-tw/README.md) | [🇪🇸 Español](../es/README.md) | [🇫🇷 Français](../fr/README.md) | [🇧🇷 Português](../pt/README.md)
 
 Une collection de configurations pour utiliser Claude Code plus efficacement.
 
@@ -165,23 +165,49 @@ flowchart TB
 
 ## Installation
 
-```bash
-# Cloner le dépôt
-git clone https://github.com/wasabeef/claude-code-cookbook.git
-cd claude-code-cookbook
+### Étape 1 : Ajouter le Marketplace
 
-# Installation en spécifiant la langue
-./scripts/install.sh fr    # Français
-./scripts/install.sh en    # Anglais
-./scripts/install.sh ja    # Japonais (par défaut)
-./scripts/install.sh ko    # Coréen
-./scripts/install.sh pt    # Portugais
-./scripts/install.sh zh-cn # Chinois simplifié
-./scripts/install.sh zh-tw # Chinois traditionnel
-./scripts/install.sh es    # Espagnol
+Tout d'abord, ajoutez ce dépôt en tant que marketplace de plugins :
+
+```bash
+/plugin marketplace add wasabeef/claude-code-cookbook
 ```
 
-Configurez le chemin Custom Instructions sur `~/.claude` dans Claude Desktop et c'est terminé.
+### Étape 2 : Installer le Plugin Français
+
+Ensuite, installez le plugin en version française :
+
+```bash
+/plugin install cook-fr@claude-code-cookbook
+```
+
+Cette commande installe la version française des Commands et Roles.
+
+### Utilisation
+
+Après l'installation, les commandes et agents sont appelés avec le préfixe `cook-fr:`:
+
+#### Exécution des Commandes
+
+```bash
+# Exécuter avec préfixe
+/cook-fr:check-fact
+
+# Utiliser la complétion automatique
+/cook-fr:
+```
+
+#### Appel des Agents
+
+```bash
+# Rechercher des agents commençant par @
+@agent-cook-fr:roles:frontend
+
+# Peut également être utilisé via la commande role
+/cook-fr:role frontend
+```
+
+**Remarque**: Le nom du plugin est automatiquement ajouté comme préfixe. Cela évite les conflits de noms lorsque plusieurs plugins de langue sont installés simultanément.
 
 ### Personnalisation
 

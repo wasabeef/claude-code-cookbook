@@ -1,0 +1,18 @@
+{
+  "name": "cook-zh-tw",
+  "version": "3.0.0",
+  "description": "Claude Code 強大的命令和角色集合（繁體中文）",
+  "author": {
+    "name": "wasabeef"
+  },
+  "repository": "wasabeef/claude-code-cookbook",
+  "license": "Apache-2.0",
+  "keywords": [
+    "chinese",
+    "traditional",
+    "commands",
+    "roles",
+    "productivity",
+    "development"
+  ]
+}

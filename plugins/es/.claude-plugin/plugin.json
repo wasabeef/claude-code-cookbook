@@ -1,0 +1,17 @@
+{
+  "name": "cook-es",
+  "version": "3.0.0",
+  "description": "Potente colección de comandos y roles para Claude Code (Español)",
+  "author": {
+    "name": "wasabeef"
+  },
+  "repository": "wasabeef/claude-code-cookbook",
+  "license": "Apache-2.0",
+  "keywords": [
+    "spanish",
+    "commands",
+    "roles",
+    "productivity",
+    "development"
+  ]
+}

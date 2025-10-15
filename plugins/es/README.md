@@ -1,6 +1,6 @@
 # Claude Code Cookbook
 
-[English](README_en.md) | [简体中文](README_zh-cn.md) | [繁體中文](README_zh-tw.md) | [한국어](README_ko.md) | [Português](README_pt.md) | [Español](README_es.md) | [Français](README_fr.md) | [日本語](README.md) | [📁 locales/](locales/)
+[🏠 Home](../../README.md) | [🇺🇸 English](../en/README.md) | [🇯🇵 日本語](../ja/README.md) | [🇰🇷 한국어](../ko/README.md) | [🇨🇳 简体中文](../zh-cn/README.md) | [🇹🇼 繁體中文](../zh-tw/README.md) | [🇪🇸 Español](../es/README.md) | [🇫🇷 Français](../fr/README.md) | [🇧🇷 Português](../pt/README.md)
 
 Una colección de configuraciones para hacer que Claude Code sea más fácil de usar.
 
@@ -166,23 +166,49 @@ flowchart TB
 
 ## Instalación
 
-```bash
-# Clonar repositorio
-git clone https://github.com/wasabeef/claude-code-cookbook.git
-cd claude-code-cookbook
+### Paso 1: Agregar el Marketplace
 
-# Instalar especificando idioma
-./scripts/install.sh ja    # Japonés (predeterminado)
-./scripts/install.sh en    # Inglés
-./scripts/install.sh ko    # Coreano
-./scripts/install.sh pt    # Portugués
-./scripts/install.sh zh-cn # Chino Simplificado
-./scripts/install.sh zh-tw # Chino Tradicional
-./scripts/install.sh es    # Español
-./scripts/install.sh fr    # Francés
+Primero, agrega este repositorio como un marketplace de plugins:
+
+```bash
+/plugin marketplace add wasabeef/claude-code-cookbook
 ```
 
-Configurar la ruta de Custom Instructions en Claude Desktop como `~/.claude` y listo.
+### Paso 2: Instalar el Plugin en Español
+
+Luego, instala el plugin en versión española:
+
+```bash
+/plugin install cook-es@claude-code-cookbook
+```
+
+Este comando instala la versión en español de Commands y Roles.
+
+### Uso
+
+Después de la instalación, los comandos y agentes se invocan con el prefijo `cook-es:`:
+
+#### Ejecutar Comandos
+
+```bash
+# Ejecutar con prefijo
+/cook-es:check-fact
+
+# Usar autocompletado
+/cook-es:
+```
+
+#### Llamar Agentes
+
+```bash
+# Buscar agentes comenzando con @
+@agent-cook-es:roles:frontend
+
+# También se puede usar mediante comando de rol
+/cook-es:role frontend
+```
+
+**Nota**: El nombre del plugin se agrega automáticamente como prefijo. Esto evita conflictos de nombres cuando se instalan múltiples plugins de idioma simultáneamente.
 
 ### Personalización
 
