@@ -36,7 +36,7 @@
 | `/fix-error`            | 根據錯誤訊息提供程式碼修正方案。                                           |
 | `/multi-role`           | 組合多個角色，對同一對象進行並行分析並產生綜合報告。                       |
 | `/plan`                 | 啟動實作前的計劃模式，制定詳細的實施策略。                                 |
-| `/pr-auto-update`       | 自動更新 Pull Request 的內容 (說明、標籤) 。                                |
+| `/pr-auto-update`       | 自動更新 Pull Request 的內容 (說明、標籤) 。                               |
 | `/pr-create`            | 基於 Git 異動分析自動建立 PR，實現高效的 Pull Request 工作流程。           |
 | `/pr-feedback`          | 高效處理 Pull Request 的評審意見，透過錯誤分析三階段方法尋求根本解決方案。 |
 | `/pr-issue`             | 顯示當前儲存庫的開放 Issue 清單並排序優先級。                              |

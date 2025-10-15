@@ -26,18 +26,19 @@ First, add this repository as a plugin marketplace in Claude Code:
 
 Choose your preferred language plugin and install it:
 
-| Language | Plugin Name | Install Command |
-|:---------|:------------|:----------------|
-| 🇺🇸 **English** | [plugins/en](plugins/en) | `/plugin install en@claude-code-cookbook` |
-| 🇯🇵 **日本語** | [plugins/ja](plugins/ja) | `/plugin install ja@claude-code-cookbook` |
-| 🇰🇷 **한국어** | [plugins/ko](plugins/ko) | `/plugin install ko@claude-code-cookbook` |
-| 🇨🇳 **简体中文** | [plugins/zh-cn](plugins/zh-cn) | `/plugin install zh-cn@claude-code-cookbook` |
-| 🇹🇼 **繁體中文** | [plugins/zh-tw](plugins/zh-tw) | `/plugin install zh-tw@claude-code-cookbook` |
-| 🇪🇸 **Español** | [plugins/es](plugins/es) | `/plugin install es@claude-code-cookbook` |
-| 🇫🇷 **Français** | [plugins/fr](plugins/fr) | `/plugin install fr@claude-code-cookbook` |
-| 🇧🇷 **Português** | [plugins/pt](plugins/pt) | `/plugin install pt@claude-code-cookbook` |
+| Language         | Plugin Name                    | Install Command                                   |
+| :--------------- | :----------------------------- | :------------------------------------------------ |
+| 🇯🇵 **日本語**    | [plugins/ja](plugins/ja)       | `/plugin install cook@claude-code-cookbook`       |
+| 🇺🇸 **English**   | [plugins/en](plugins/en)       | `/plugin install cook-en@claude-code-cookbook`    |
+| 🇰🇷 **한국어**    | [plugins/ko](plugins/ko)       | `/plugin install cook-ko@claude-code-cookbook`    |
+| 🇨🇳 **简体中文**  | [plugins/zh-cn](plugins/zh-cn) | `/plugin install cook-zh-cn@claude-code-cookbook` |
+| 🇹🇼 **繁體中文**  | [plugins/zh-tw](plugins/zh-tw) | `/plugin install cook-zh-tw@claude-code-cookbook` |
+| 🇪🇸 **Español**   | [plugins/es](plugins/es)       | `/plugin install cook-es@claude-code-cookbook`    |
+| 🇫🇷 **Français**  | [plugins/fr](plugins/fr)       | `/plugin install cook-fr@claude-code-cookbook`    |
+| 🇧🇷 **Português** | [plugins/pt](plugins/pt)       | `/plugin install cook-pt@claude-code-cookbook`    |
 
 Each plugin includes:
+
 - Full command documentation in the native language
 - Role definitions optimized for that language
 - Language-specific customization examples
@@ -92,4 +93,3 @@ Automation that runs at specific events:
 - **Safe**: Built-in safety hooks prevent dangerous operations
 - **Efficient**: Reduce repetitive tasks and context switching
 - **Open Source**: Apache 2.0 licensed
-

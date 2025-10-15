@@ -36,7 +36,7 @@
 | `/fix-error`            | 根据错误消息提供代码修正方案。                                             |
 | `/multi-role`           | 组合多个角色，对同一对象进行并行分析并生成综合报告。                       |
 | `/plan`                 | 启动实现前的计划模式，制定详细的实施策略。                                 |
-| `/pr-auto-update`       | 自动更新 Pull Request 的内容 (说明、标签) 。                                |
+| `/pr-auto-update`       | 自动更新 Pull Request 的内容 (说明、标签) 。                               |
 | `/pr-create`            | 基于 Git 变更分析自动创建 PR，实现高效的 Pull Request 工作流。             |
 | `/pr-feedback`          | 高效处理 Pull Request 的评审意见，通过错误分析三阶段方法寻求根本解决方案。 |
 | `/pr-issue`             | 显示当前仓库的开放 Issue 列表并排序优先级。                                |
