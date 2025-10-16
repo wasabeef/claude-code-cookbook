@@ -3,8 +3,7 @@
   "env": {
     "BASH_DEFAULT_TIMEOUT_MS": "600000",
     "BASH_MAX_TIMEOUT_MS": "600000",
-    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "true",
-    "SHELL": "/opt/homebrew/bin/zsh"
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "true"
   },
   "includeCoAuthoredBy": false,
   "permissions": {
@@ -83,19 +82,6 @@
   "hooks": {
     "PreToolUse": [
       {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/scripts/deny-check.sh"
-          },
-          {
-            "type": "command",
-            "command": "~/.claude/scripts/check-ai-commit.sh"
-          }
-        ]
-      },
-      {
         "matcher": "Write|Edit|MultiEdit",
         "hooks": [
           {
@@ -111,46 +97,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/scripts/ja-space-format.sh"
-          },
-          {
-            "type": "command",
-            "command": "~/.claude/scripts/auto-comment.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "Edit|Write|MultiEdit",
-        "hooks": [
-          {
-            "type": "command",
             "command": "~/.claude/scripts/preserve-file-permissions.sh"
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"Awaiting confirmation\" with title \"Claude Code\"' && afplay -v 0.3 ~/.claude/assets/confirm.mp3"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/scripts/check-continue.sh"
-          },
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"Task completed\" with title \"Claude Code\"' && afplay -v 0.3 ~/.claude/assets/perfect.mp3"
           }
         ]
       }
@@ -159,5 +106,7 @@
   "statusLine": {
     "type": "command",
     "command": "~/.claude/scripts/statusline.sh"
-  }
+  },
+  "outputStyle": "default",
+  "alwaysThinkingEnabled": false
 }
