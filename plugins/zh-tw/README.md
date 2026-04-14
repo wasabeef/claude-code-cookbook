@@ -85,15 +85,15 @@
 
 ```bash
 # 普通模式 (在主上下文中執行)
-/role security
+/cook-zh-tw:role security
 「這個專案的安全檢查」
 
 # 子代理模式 (在獨立上下文中執行)
-/role security --agent
+/cook-zh-tw:role security --agent
 「執行專案整體的安全稽核」
 
 # 多角色並行分析
-/multi-role security,performance --agent
+/cook-zh-tw:multi-role security,performance --agent
 「全面分析系統整體的安全性和效能」
 ```
 

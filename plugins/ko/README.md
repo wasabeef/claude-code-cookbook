@@ -86,15 +86,15 @@ Claude Code 를 더 편리하게 사용하기 위한 설정 모음입니다.
 
 ```bash
 # 일반 모드 (메인 컨텍스트에서 실행)
-/role security
+/cook-ko:role security
 "이 프로젝트의 보안 점검해줘"
 
 # 서브 에이전트 모드 (독립 컨텍스트에서 실행)
-/role security --agent
+/cook-ko:role security --agent
 "프로젝트 전체 보안 감사 실행"
 
 # 멀티 역할 병렬 분석
-/multi-role security,performance --agent
+/cook-ko:multi-role security,performance --agent
 "시스템 전체 보안과 성능 종합 분석"
 ```
 

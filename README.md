@@ -94,15 +94,15 @@ Switch Claude to expert roles for specialized assistance. Each role can run **in
 
 ```bash
 # Normal mode (execute in main context)
-/role security
+/cook:role security
 "Review this authentication system for vulnerabilities"
 
 # Sub-agent mode (execute in independent context)
-/role security --agent
+/cook:role security --agent
 "Perform comprehensive security audit of entire project"
 
 # Multiple roles in parallel
-/multi-role security,performance --agent
+/cook:multi-role security,performance --agent
 "Analyze system's security and performance comprehensively"
 ```
 

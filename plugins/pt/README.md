@@ -86,15 +86,15 @@ Cada papel pode ser **executado de forma independente como subagente**. Com a op
 
 ```bash
 # Modo normal (execução no contexto principal)
-/role security
+/cook-pt:role security
 "Verificação de segurança deste projeto"
 
 # Modo subagente (execução em contexto independente)
-/role security --agent
+/cook-pt:role security --agent
 "Executar auditoria de segurança completa do projeto"
 
 # Análise paralela com múltiplos papéis
-/multi-role security,performance --agent
+/cook-pt:multi-role security,performance --agent
 "Analisar abrangentemente segurança e desempenho de todo o sistema"
 ```
 

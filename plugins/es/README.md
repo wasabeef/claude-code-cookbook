@@ -86,15 +86,15 @@ Cada rol también puede **ejecutarse independientemente como subagente**. Usando
 
 ```bash
 # Modo normal (ejecuta en contexto principal)
-/role security
+/cook-es:role security
 "Verificación de seguridad de este proyecto"
 
 # Modo subagente (ejecuta en contexto independiente)
-/role security --agent
+/cook-es:role security --agent
 "Ejecutar auditoría de seguridad completa del proyecto"
 
 # Análisis paralelo de múltiples roles
-/multi-role security,performance --agent
+/cook-es:multi-role security,performance --agent
 "Análisis integral de seguridad y rendimiento del sistema completo"
 ```
 

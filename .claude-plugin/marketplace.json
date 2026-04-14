@@ -6,8 +6,7 @@
   },
   "metadata": {
     "description": "Powerful commands and roles collection for Claude Code in multiple languages",
-    "version": "3.0.1",
-    "pluginRoot": "plugins"
+    "version": "3.0.1"
   },
   "plugins": [
     {

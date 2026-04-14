@@ -85,15 +85,15 @@ Each role can also be executed **independently as a sub-agent**. Using the `--ag
 
 ```bash
 # Normal mode (execute in main context)
-/role security
+/cook-en:role security
 "Security check for this project"
 
 # Sub-agent mode (execute in independent context)
-/role security --agent
+/cook-en:role security --agent
 "Perform a comprehensive security audit of the project"
 
 # Parallel analysis with multiple roles
-/multi-role security,performance --agent
+/cook-en:multi-role security,performance --agent
 "Comprehensively analyze the system's security and performance"
 ```
 

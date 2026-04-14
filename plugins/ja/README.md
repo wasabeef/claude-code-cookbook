@@ -87,15 +87,15 @@ Claude Code をもっと便利に使うための設定集です。
 
 ```bash
 # 通常モード (メインコンテキストで実行)
-/role security
+/cook:role security
 「このプロジェクトのセキュリティチェック」
 
 # サブエージェントモード (独立コンテキストで実行)
-/role security --agent
+/cook:role security --agent
 「プロジェクト全体のセキュリティ監査を実行」
 
 # 複数ロールの並列分析
-/multi-role security,performance --agent
+/cook:multi-role security,performance --agent
 「システム全体のセキュリティとパフォーマンスを包括的に分析」
 ```
 

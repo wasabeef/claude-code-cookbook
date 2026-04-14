@@ -85,15 +85,15 @@ Chaque rôle peut également **s'exécuter de façon indépendante comme sous-ag
 
 ```bash
 # Mode normal (exécution dans le contexte principal)
-/role security
+/cook-fr:role security
 « Vérification de sécurité de ce projet »
 
 # Mode sous-agent (exécution dans un contexte indépendant)
-/role security --agent
+/cook-fr:role security --agent
 « Exécuter un audit de sécurité complet du projet »
 
 # Analyse parallèle de multiples rôles
-/multi-role security,performance --agent
+/cook-fr:multi-role security,performance --agent
 « Analyser de façon globale la sécurité et les performances de tout le système »
 ```
 
