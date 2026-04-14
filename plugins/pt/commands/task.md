@@ -1,4 +1,4 @@
-## Task
+## Agente autônomo para tarefas de pesquisa e análise
 
 Inicia um agente especializado para executar autonomamente tarefas complexas de pesquisa, investigação e análise. Processamento de informações em larga escala combinando múltiplas ferramentas, priorizando eficiência contextual.
 

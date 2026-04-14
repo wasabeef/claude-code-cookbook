@@ -1,4 +1,4 @@
-## Context7
+## 透過 Context7 MCP 搜尋技術文件
 
 使用 MCP 的 Context7 搜索技術文檔。
 

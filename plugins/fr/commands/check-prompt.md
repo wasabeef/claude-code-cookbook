@@ -1,4 +1,4 @@
-## Check Prompt
+## Évaluer et améliorer la qualité des prompts IA
 
 Une collection complète de meilleures pratiques pour évaluer et améliorer la qualité des prompts pour les agents IA. Elle systématise les connaissances acquises lors de processus d'amélioration de prompts réels, couvrant tous les aspects importants comme l'élimination d'ambiguïtés, l'intégration d'informations, le renforcement d'application, les systèmes de suivi et l'amélioration continue.
 

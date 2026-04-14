@@ -1,4 +1,4 @@
-## Rust Dependencies Update
+## Rust 의존성 안전 업데이트
 
 Rust 프로젝트의 의존성을 안전하게 업데이트합니다.
 

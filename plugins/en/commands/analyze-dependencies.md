@@ -1,4 +1,4 @@
-## Dependency Analysis
+## Analyze project dependencies and evaluate architectural health
 
 Analyzes your project's dependencies and checks architecture health.
 

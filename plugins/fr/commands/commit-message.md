@@ -1,4 +1,4 @@
-## Message de commit
+## Générer des messages de commit à partir des changements préparés
 
 Génère des messages de commit à partir des modifications indexées (git diff --staged). Cette commande ne fait que créer des messages et les copie dans votre presse-papiers—elle n'exécute aucune commande git.
 

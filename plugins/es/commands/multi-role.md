@@ -1,4 +1,4 @@
-## Multi Role
+## Análisis paralelo multi-rol con reporte integrado
 
 Un comando que analiza el mismo objetivo en paralelo con múltiples roles y genera un reporte integrado.
 

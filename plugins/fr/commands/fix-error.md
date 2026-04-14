@@ -1,4 +1,4 @@
-## Error Fix
+## Identifier la cause racine et suggérer des solutions éprouvées
 
 Identifie la cause racine du message d'erreur, prédit le temps de résolution et propose des solutions éprouvées. Apprend les modèles d'erreurs similaires et présente immédiatement la solution appropriée.
 

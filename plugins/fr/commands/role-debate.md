@@ -1,4 +1,4 @@
-## Role Debate
+## Débat multi-rôle pour explorer les compromis
 
 Une commande qui permet aux rôles avec différentes expertises de discuter et examiner les compromis pour dériver des solutions optimales.
 

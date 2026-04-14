@@ -1,4 +1,4 @@
-## Actualización de Dependencias Node
+## Actualizar dependencias de Node.js de forma segura
 
 Actualiza de forma segura las dependencias en tu proyecto Node.js.
 

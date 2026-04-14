@@ -1,4 +1,4 @@
-## Sequential Thinking
+## Step-by-step thinking for complex problems
 
 Solve complex problems step-by-step through a dynamic, iterative thinking process. This flexible approach allows for course corrections and revisions during the thinking process.
 

@@ -1,4 +1,4 @@
-## Commit Message
+## Gerar mensagens de commit a partir de alterações preparadas
 
 Gera mensagens de commit apropriadas a partir de mudanças staged (git diff --staged). Não executa comandos git, apenas gera mensagens e copia para a área de transferência.
 

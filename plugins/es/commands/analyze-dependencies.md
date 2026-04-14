@@ -1,4 +1,4 @@
-## Análisis de Dependencias
+## Analizar dependencias del proyecto y evaluar salud arquitectónica
 
 Analiza las dependencias de tu proyecto y verifica la salud de la arquitectura.
 

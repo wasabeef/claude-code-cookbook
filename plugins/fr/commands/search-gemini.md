@@ -1,4 +1,4 @@
-## Recherche Web Gemini
+## Recherche web via Gemini CLI pour les dernières informations
 
 Exécutez des recherches web via Gemini CLI pour obtenir les informations les plus récentes.
 

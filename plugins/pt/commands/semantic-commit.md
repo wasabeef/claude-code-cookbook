@@ -1,4 +1,4 @@
-## Semantic Commit
+## Dividir mudanças em unidades semânticas e fazer commit
 
 Divide grandes mudanças em unidades mínimas significativas e faz commits sequenciais com mensagens de commit semânticas. Usa apenas comandos padrão do git, sem depender de ferramentas externas.
 

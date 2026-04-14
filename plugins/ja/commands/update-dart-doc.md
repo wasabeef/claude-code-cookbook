@@ -1,4 +1,4 @@
-## Update Dart Doc
+## Dart ファイルの DartDoc を体系的に管理
 
 Dart ファイルの DartDoc コメントを体系的に管理し、高品質な日本語ドキュメントを維持します。
 

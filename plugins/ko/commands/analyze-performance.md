@@ -1,4 +1,4 @@
-## Analyze Performance
+## Core Web Vitals 기반 성능 분석
 
 사용자 경험 관점에서 애플리케이션 성능을 분석하고, 최적화를 통한 체감 속도 향상을 정량화합니다. Core Web Vitals에 기반한 UX 점수를 산출하고, 우선순위가 지정된 최적화 전략을 제안합니다.
 

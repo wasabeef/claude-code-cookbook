@@ -1,4 +1,4 @@
-## Semantic Commit
+## Split changes into semantic units and commit
 
 Breaks big changes into small, meaningful commits with proper messages. Uses only standard git commands.
 

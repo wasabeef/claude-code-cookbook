@@ -1,4 +1,4 @@
-## Role Help
+## Guide for choosing the right role
 
 A selection guide and help system when you're unsure which role to use.
 

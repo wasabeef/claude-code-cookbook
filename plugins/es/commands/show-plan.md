@@ -1,4 +1,4 @@
-## Mostrar Plan
+## Mostrar plan de la sesión actual
 
 Mostrar el plan que se está ejecutando o que fue ejecutado en la sesión actual.
 

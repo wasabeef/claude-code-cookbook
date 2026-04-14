@@ -1,4 +1,4 @@
-## Rust Dependencies Update
+## Rust 依存関係の安全な更新
 
 Rust プロジェクトの依存関係を安全に更新します。
 

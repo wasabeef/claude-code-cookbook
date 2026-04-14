@@ -1,4 +1,4 @@
-## Gemini Web Search
+## Busca web via Gemini CLI para informações atualizadas
 
 Executa busca na Web usando Gemini CLI para obter informações mais recentes.
 

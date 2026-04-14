@@ -1,4 +1,4 @@
-## Update Doc String
+## Gerenciar docstrings e comentários multilíngue
 
 Gerencia sistematicamente docstrings/comentários multilíngues e mantém documentação de alta qualidade.
 

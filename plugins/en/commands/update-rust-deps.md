@@ -1,4 +1,4 @@
-## Rust Dependencies Update
+## Safely update Rust dependencies
 
 Safely update dependencies in your Rust project.
 

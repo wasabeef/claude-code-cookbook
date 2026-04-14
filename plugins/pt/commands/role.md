@@ -1,4 +1,4 @@
-## Role
+## Mudar para papel especialista para análise especializada
 
 Alterna para uma função (role) específica para executar análises e trabalhos especializados.
 

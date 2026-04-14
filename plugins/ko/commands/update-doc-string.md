@@ -1,4 +1,4 @@
-## Update Doc String
+## 다국어 docstring/코멘트 관리
 
 다언어 지원 docstring/코멘트를 체계적으로 관리하고, 고품질 문서를 유지합니다.
 

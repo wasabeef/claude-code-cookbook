@@ -1,4 +1,4 @@
-## Pensamiento Secuencial
+## Pensamiento paso a paso para problemas complejos
 
 Resolver problemas complejos paso a paso a través de un proceso de pensamiento dinámico e iterativo. Este enfoque flexible permite correcciones de curso y revisiones durante el proceso de pensamiento.
 

@@ -1,4 +1,4 @@
-## Refactor
+## Refatoração segura e incremental com avaliação SOLID
 
 Realiza refatoração segura e gradual de código, avaliando quantitativamente a aderência aos princípios SOLID. Visualiza dívida técnica e clarifica as prioridades de melhoria.
 

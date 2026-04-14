@@ -1,4 +1,4 @@
-## Ultrathink
+## Processus de réflexion structuré pour les défis complexes
 
 Exécute un processus de réflexion structuré étape par étape pour des tâches complexes et des décisions importantes.
 

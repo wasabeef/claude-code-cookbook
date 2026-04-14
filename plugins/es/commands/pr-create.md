@@ -1,4 +1,4 @@
-## Crear PR
+## Crear PR automáticamente basado en análisis de cambios
 
 Crea Pull Requests automáticamente analizando tus cambios Git para un flujo de trabajo más fluido.
 

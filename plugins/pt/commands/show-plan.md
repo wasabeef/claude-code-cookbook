@@ -1,4 +1,4 @@
-## Show Plan
+## Exibir plano da sessão atual
 
 Exibe planos em execução ou executados na sessão atual.
 

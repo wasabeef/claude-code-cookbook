@@ -1,4 +1,4 @@
-## Show Plan
+## Display current session plan
 
 Display the plan being executed or executed in the current session.
 

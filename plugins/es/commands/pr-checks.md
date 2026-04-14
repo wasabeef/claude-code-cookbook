@@ -1,4 +1,4 @@
-## Monitoreo de CI de GitHub
+## Monitorear GitHub Actions CI y rastrear hasta completar
 
 Monitorea el estado de GitHub Actions CI y rastrea hasta completarse.
 

@@ -1,4 +1,4 @@
-## Commit sémantique
+## Diviser les changements en unités sémantiques et commiter
 
 Divise les gros changements en petits commits significatifs avec des messages appropriés. Utilise uniquement des commandes git standard.
 

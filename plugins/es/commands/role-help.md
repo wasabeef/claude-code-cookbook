@@ -1,4 +1,4 @@
-## Ayuda de Roles
+## Guía para elegir el rol adecuado
 
 Una guía de selección y sistema de ayuda cuando no estás seguro de qué rol usar.
 

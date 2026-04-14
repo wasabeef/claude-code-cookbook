@@ -1,4 +1,4 @@
-# Token Efficiency Mode
+## Compress responses to reduce context usage by 30-50%
 
 Reduces AI response context usage by 30-50% through compression efficiency mode.
 

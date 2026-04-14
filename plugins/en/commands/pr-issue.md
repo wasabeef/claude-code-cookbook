@@ -1,4 +1,4 @@
-## Issue List
+## Display open Issues with priority ranking
 
 Displays a prioritized list of open issues in the current repository.
 

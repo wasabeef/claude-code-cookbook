@@ -1,4 +1,4 @@
-## GitHub CI Monitoring
+## Monitor GitHub Actions CI and track to completion
 
 Monitors GitHub Actions CI status and tracks until completion.
 

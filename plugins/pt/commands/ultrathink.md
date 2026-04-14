@@ -1,4 +1,4 @@
-## Ultrathink
+## Processo de pensamento estruturado para desafios complexos
 
 Executa processo de pensamento estruturado e gradual para questões complexas ou decisões importantes.
 

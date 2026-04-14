@@ -1,4 +1,4 @@
-## Sequential Thinking
+## Processus de réflexion étape par étape pour les problèmes complexes
 
 Résout des problèmes complexes étape par étape grâce à un processus de réflexion dynamique et itératif. Cette approche flexible permet des corrections de trajectoire et des révisions pendant le processus de réflexion.
 

@@ -1,4 +1,4 @@
-## Issue List
+## Afficher les Issues ouvertes avec classement par priorité
 
 Affiche une liste priorisée des issues ouvertes dans le dépôt actuel.
 

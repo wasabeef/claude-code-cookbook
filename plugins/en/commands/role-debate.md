@@ -1,4 +1,4 @@
-## Role Debate
+## Multi-role debate to explore trade-offs
 
 A command that allows roles with different expertise to discuss and examine trade-offs to derive optimal solutions.
 

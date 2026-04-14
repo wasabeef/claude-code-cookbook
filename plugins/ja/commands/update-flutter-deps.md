@@ -1,4 +1,4 @@
-## Flutter Dependencies Update
+## Flutter 依存関係の安全な更新
 
 Flutter プロジェクトの依存関係を安全に更新します。
 

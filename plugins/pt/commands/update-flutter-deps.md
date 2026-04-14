@@ -1,4 +1,4 @@
-## Flutter Dependencies Update
+## Atualizar dependências Flutter com segurança
 
 Atualiza com segurança as dependências de projetos Flutter.
 

@@ -1,4 +1,4 @@
-## Tech Debt
+## Análisis cuantitativo de deuda técnica y plan de mejora
 
 Analiza cuantitativamente la deuda técnica del proyecto y visualiza las puntuaciones de salud junto con el impacto en la eficiencia de desarrollo. Rastrea las mejoras mediante análisis de tendencias, calcula costos temporales y crea un plan de mejora priorizado.
 

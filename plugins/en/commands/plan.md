@@ -1,4 +1,4 @@
-## Plan
+## Plan mode for implementation strategy before coding
 
 Helps you plan before coding. Creates detailed strategies to make development smoother.
 
