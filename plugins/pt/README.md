@@ -28,7 +28,7 @@ Armazenados como arquivos Markdown no diretório `/commands`. Execute digitando 
 | `/analyze-dependencies` | Analisa as dependências do projeto e visualiza dependências circulares e problemas estruturais.                                                |
 | `/analyze-performance`  | Analisa problemas de desempenho da aplicação e propõe melhorias do ponto de vista de dívida técnica.                                           |
 | `/check-fact`           | Verifica a veracidade das informações fornecidas consultando o código-base e a documentação do projeto.                                        |
-| `/check-github-ci`      | Monitora o status do CI do GitHub Actions e acompanha até a conclusão.                                                                         |
+| `/pr-checks`      | Monitora o status do CI do GitHub Actions e acompanha até a conclusão.                                                                         |
 | `/check-prompt`         | Revisa o conteúdo do prompt atual e apresenta sugestões de melhoria.                                                                           |
 | `/commit-message`       | Gera apenas a mensagem de commit com base nas alterações.                                                                                      |
 | `/context7`             | Gerencia contexto usando Context7 MCP.                                                                                                         |
@@ -39,7 +39,7 @@ Armazenados como arquivos Markdown no diretório `/commands`. Execute digitando 
 | `/plan`                 | Ativa o modo de planejamento pré-implementação e elabora estratégias de implementação detalhadas.                                              |
 | `/pr-auto-update`       | Atualiza automaticamente o conteúdo do Pull Request (descrição, labels).                                                                       |
 | `/pr-create`            | Realiza fluxo de trabalho eficiente de Pull Request com criação automática de PR baseada na análise de mudanças Git.                           |
-| `/pr-feedback`          | Responde eficientemente aos comentários de revisão do Pull Request e busca resolução fundamental com abordagem de análise de erro em 3 etapas. |
+| `/pr-fix`          | Responde eficientemente aos comentários de revisão do Pull Request e busca resolução fundamental com abordagem de análise de erro em 3 etapas. |
 | `/pr-issue`             | Exibe lista de Issues abertas do repositório atual com priorização.                                                                            |
 | `/pr-list`              | Exibe lista de PRs abertos do repositório atual com priorização.                                                                               |
 | `/pr-review`            | Garante qualidade do código e integridade da arquitetura com revisão sistemática de Pull Request.                                              |
@@ -134,10 +134,10 @@ flowchart TB
     Implementation --> Check["/cook-pt:smart-review<br/>Verificação de Qualidade"]
     Check --> Commit["/cook-pt:semantic-commit<br/>Commit por Unidade de Objetivo"]
     Commit --> PR["/cook-pt:pr-create<br/>Criação Automática de PR"]
-    PR --> CI["/cook-pt:check-github-ci<br/>Verificação de Status CI"]
+    PR --> CI["/cook-pt:pr-checks<br/>Verificação de Status CI"]
 
     CI --> Status{Há Problema?}
-    Status -->|Sim| Feedback["Responder Correção<br/>/cook-pt:pr-feedback<br/>/cook-pt:fix-error"]
+    Status -->|Sim| Feedback["Responder Correção<br/>/cook-pt:pr-fix<br/>/cook-pt:fix-error"]
     Status -->|Não| End([Concluído])
 
     Feedback --> Implementation

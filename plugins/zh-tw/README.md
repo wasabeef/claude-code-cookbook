@@ -27,7 +27,7 @@
 | `/analyze-dependencies` | 分析專案相依關係，視覺化循環相依和結構性問題。                             |
 | `/analyze-performance`  | 分析應用程式效能問題，從技術債務角度提出改進方案。                         |
 | `/check-fact`           | 參考專案內的程式碼庫和文件，確認給定資訊的正確性。                         |
-| `/check-github-ci`      | 監控 GitHub Actions 的 CI 狀態，追蹤直至完成。                             |
+| `/pr-checks`      | 監控 GitHub Actions 的 CI 狀態，追蹤直至完成。                             |
 | `/check-prompt`         | 審查當前提示內容，提供改進建議。                                           |
 | `/commit-message`       | 根據異動內容僅產生提交訊息。                                               |
 | `/context7`             | 使用 Context7 MCP 進行上下文管理。                                         |
@@ -38,7 +38,7 @@
 | `/plan`                 | 啟動實作前的計劃模式，制定詳細的實施策略。                                 |
 | `/pr-auto-update`       | 自動更新 Pull Request 的內容 (說明、標籤) 。                               |
 | `/pr-create`            | 基於 Git 異動分析自動建立 PR，實現高效的 Pull Request 工作流程。           |
-| `/pr-feedback`          | 高效處理 Pull Request 的評審意見，透過錯誤分析三階段方法尋求根本解決方案。 |
+| `/pr-fix`          | 高效處理 Pull Request 的評審意見，透過錯誤分析三階段方法尋求根本解決方案。 |
 | `/pr-issue`             | 顯示當前儲存庫的開放 Issue 清單並排序優先級。                              |
 | `/pr-list`              | 顯示當前儲存庫的開放 PR 清單並排序優先級。                                 |
 | `/pr-review`            | 透過系統性的 PR 評審確保程式碼品質和架構健康。                             |
@@ -133,10 +133,10 @@ flowchart TB
     Implementation --> Check["/cook-zh-tw:smart-review<br/>品質檢查"]
     Check --> Commit["/cook-zh-tw:semantic-commit<br/>按目的單元提交"]
     Commit --> PR["/cook-zh-tw:pr-create<br/>自動建立 PR"]
-    PR --> CI["/cook-zh-tw:check-github-ci<br/>CI 狀態確認"]
+    PR --> CI["/cook-zh-tw:pr-checks<br/>CI 狀態確認"]
 
     CI --> Status{有問題？}
-    Status -->|是| Feedback["修正對應<br/>/cook-zh-tw:pr-feedback<br/>/cook-zh-tw:fix-error"]
+    Status -->|是| Feedback["修正對應<br/>/cook-zh-tw:pr-fix<br/>/cook-zh-tw:fix-error"]
     Status -->|否| End([完成])
 
     Feedback --> Implementation

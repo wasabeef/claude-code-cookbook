@@ -28,7 +28,7 @@ Claude Code をもっと便利に使うための設定集です。
 | `/analyze-dependencies` | プロジェクトの依存関係を分析し、循環依存や構造的な問題を視覚化する。                           |
 | `/analyze-performance`  | アプリケーションのパフォーマンス問題を分析し、技術的負債の観点から改善策を提案する。           |
 | `/check-fact`           | プロジェクト内のコードベース、ドキュメントを参照し、与えられた情報の正誤を確認する。           |
-| `/check-github-ci`      | GitHub Actions の CI 状況を監視し、完了まで追跡する。                                          |
+| `/pr-checks`      | GitHub Actions の CI 状況を監視し、完了まで追跡する。                                          |
 | `/check-prompt`         | 現在のプロンプトの内容をレビューし、改善案を提示する。                                         |
 | `/commit-message`       | 変更内容に基づいてコミットメッセージだけを生成する。                                           |
 | `/context7`             | Context7 MCP を使用してコンテキスト管理を行う。                                                |
@@ -39,7 +39,7 @@ Claude Code をもっと便利に使うための設定集です。
 | `/plan`                 | 実装前の計画立案モードを起動し、詳細な実装戦略を策定する。                                     |
 | `/pr-auto-update`       | Pull Request の内容 (説明、ラベル) を自動で更新する。                                          |
 | `/pr-create`            | Git 変更分析に基づく自動 PR 作成で効率的な Pull Request ワークフローを実現する。               |
-| `/pr-feedback`          | Pull Request のレビューコメントを効率的に対応し、エラー分析 3 段階アプローチで根本解決を図る。 |
+| `/pr-fix`          | Pull Request のレビューコメントを効率的に対応し、エラー分析 3 段階アプローチで根本解決を図る。 |
 | `/pr-issue`             | 現在のリポジトリのオープン Issue 一覧を優先順位付きで表示する。                                |
 | `/pr-list`              | 現在のリポジトリのオープン PR 一覧を優先順位付きで表示する。                                   |
 | `/pr-review`            | Pull Request の体系的レビューでコード品質とアーキテクチャの健全性を確保する。                  |
@@ -135,10 +135,10 @@ flowchart TB
     Implementation --> Check["/cook:smart-review<br/>品質チェック"]
     Check --> Commit["/cook:semantic-commit<br/>目的単位でコミット"]
     Commit --> PR["/cook:pr-create<br/>PR 自動作成"]
-    PR --> CI["/cook:check-github-ci<br/>CI 状況確認"]
+    PR --> CI["/cook:pr-checks<br/>CI 状況確認"]
 
     CI --> Status{問題あり？}
-    Status -->|はい| Feedback["修正対応<br/>/cook:pr-feedback<br/>/cook:fix-error"]
+    Status -->|はい| Feedback["修正対応<br/>/cook:pr-fix<br/>/cook:fix-error"]
     Status -->|いいえ| End([完了])
 
     Feedback --> Implementation

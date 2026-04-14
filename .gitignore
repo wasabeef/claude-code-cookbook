@@ -1,3 +1,6 @@
+# Claude Code local settings
+.claude/
+
 # Temporary files
 *.tmp
 *.swp

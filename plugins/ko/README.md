@@ -28,7 +28,7 @@ Claude Code 를 더 편리하게 사용하기 위한 설정 모음입니다.
 | `/analyze-dependencies` | 프로젝트 의존성을 분석하고 순환 의존성이나 구조적 문제를 시각화합니다.                           |
 | `/analyze-performance`  | 애플리케이션 성능 문제를 분석하고 기술 부채 관점에서 개선 방안을 제안합니다.                     |
 | `/check-fact`           | 프로젝트 코드베이스와 문서를 참고해서 주어진 정보의 정확성을 확인합니다.                         |
-| `/check-github-ci`      | GitHub Actions CI 상태를 모니터링하고 완료까지 추적합니다.                                       |
+| `/pr-checks`      | GitHub Actions CI 상태를 모니터링하고 완료까지 추적합니다.                                       |
 | `/check-prompt`         | 현재 프롬프트 내용을 검토하고 개선 사항을 제안합니다.                                            |
 | `/commit-message`       | 변경 내용을 기반으로 커밋 메시지만 생성합니다.                                                   |
 | `/context7`             | Context7 MCP를 사용해서 컨텍스트를 관리합니다.                                                   |
@@ -39,7 +39,7 @@ Claude Code 를 더 편리하게 사용하기 위한 설정 모음입니다.
 | `/plan`                 | 구현 전에 계획 수립 모드를 활성화하고 상세한 구현 전략을 만듭니다.                               |
 | `/pr-auto-update`       | Pull Request 내용(설명, 라벨)을 자동으로 업데이트합니다.                                         |
 | `/pr-create`            | Git 변경 분석을 기반으로 자동 PR 생성으로 효율적인 Pull Request 워크플로우를 구현합니다.         |
-| `/pr-feedback`          | Pull Request 리뷰 코멘트를 효율적으로 처리하고, 3단계 에러 분석 방식으로 근본 해결을 추구합니다. |
+| `/pr-fix`          | Pull Request 리뷰 코멘트를 효율적으로 처리하고, 3단계 에러 분석 방식으로 근본 해결을 추구합니다. |
 | `/pr-issue`             | 현재 저장소의 오픈 Issue 목록을 우선순위와 함께 표시합니다.                                      |
 | `/pr-list`              | 현재 저장소의 오픈 PR 목록을 우선순위와 함께 표시합니다.                                         |
 | `/pr-review`            | Pull Request를 체계적으로 리뷰해서 코드 품질과 아키텍처 건전성을 보장합니다.                     |
@@ -134,10 +134,10 @@ flowchart TB
     Implementation --> Check["/cook-ko:smart-review<br/>품질 체크"]
     Check --> Commit["/cook-ko:semantic-commit<br/>목적별로 커밋"]
     Commit --> PR["/cook-ko:pr-create<br/>PR 자동 생성"]
-    PR --> CI["/cook-ko:check-github-ci<br/>CI 상태 확인"]
+    PR --> CI["/cook-ko:pr-checks<br/>CI 상태 확인"]
 
     CI --> Status{문제 있음?}
-    Status -->|예| Feedback["수정 대응<br/>/cook-ko:pr-feedback<br/>/cook-ko:fix-error"]
+    Status -->|예| Feedback["수정 대응<br/>/cook-ko:pr-fix<br/>/cook-ko:fix-error"]
     Status -->|아니오| End([완료])
 
     Feedback --> Implementation
