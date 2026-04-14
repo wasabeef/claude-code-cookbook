@@ -1,4 +1,4 @@
-## Verificación de Escritura AI
+## Detectar patrones mecánicos de IA y mejorar a texto natural
 
 Detecta patrones mecánicos en texto generado por IA y proporciona sugerencias para mejorar a español más natural.
 

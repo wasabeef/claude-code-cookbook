@@ -2,7 +2,7 @@
 description: "macOS 截图捕获与分析"
 ---
 
-## 截图
+## macOS 截图捕获与分析
 
 在 macOS 上截取屏幕并分析图像。
 

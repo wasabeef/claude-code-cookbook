@@ -1,4 +1,4 @@
-## Context7
+## Buscar documentación técnica vía Context7 MCP
 
 Busca documentación técnica usando Context7 de MCP.
 

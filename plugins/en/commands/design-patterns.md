@@ -1,4 +1,4 @@
-## Design Patterns
+## Suggest design patterns and evaluate SOLID principles
 
 Suggests design patterns for your code and checks if it follows SOLID principles.
 

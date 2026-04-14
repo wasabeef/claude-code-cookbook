@@ -2,7 +2,7 @@
 description: "Capture and analyze macOS screenshots"
 ---
 
-## Screenshot
+## Capture and analyze macOS screenshots
 
 Capture screenshots on macOS and analyze the images.
 

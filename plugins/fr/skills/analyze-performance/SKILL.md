@@ -2,7 +2,7 @@
 description: "Analyse de performance basée sur les Core Web Vitals"
 ---
 
-## Analyze Performance
+## Analyse de performance basée sur les Core Web Vitals
 
 Analyse les performances de l'application du point de vue de l'expérience utilisateur et quantifie les améliorations de vitesse perçue grâce aux optimisations. Calcule des scores UX basés sur les Core Web Vitals et propose des stratégies d'optimisation priorisées.
 

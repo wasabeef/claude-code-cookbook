@@ -2,7 +2,7 @@
 description: "Identify root cause and suggest proven solutions"
 ---
 
-## Error Fix
+## Identify root cause and suggest proven solutions
 
 Analyzes error messages to identify root causes, predict resolution time, and suggest proven fixes. Learns patterns from similar errors to provide immediate solutions.
 

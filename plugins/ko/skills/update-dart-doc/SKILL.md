@@ -2,7 +2,7 @@
 description: "Dart 파일의 DartDoc을 체계적으로 관리"
 ---
 
-## Update Dart Doc
+## Dart 파일의 DartDoc을 체계적으로 관리
 
 Dart 파일의 DartDoc 코멘트를 체계적으로 관리하고, 고품질 한국어 문서를 유지합니다.
 

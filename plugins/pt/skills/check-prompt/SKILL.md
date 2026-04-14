@@ -2,7 +2,7 @@
 description: "Avaliar e melhorar qualidade de prompts de IA"
 ---
 
-## Verificar Prompt
+## Avaliar e melhorar qualidade de prompts de IA
 
 Coleção abrangente de melhores práticas para avaliar e melhorar a qualidade de prompts para AI Agent. Sistematiza conhecimentos obtidos através de processos reais de melhoria de prompts, cobrindo todos os aspectos importantes: eliminação de ambiguidade, integração de informações, reforço de obrigatoriedade, sistema de rastreamento e melhoria contínua.
 

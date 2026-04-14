@@ -2,7 +2,7 @@
 description: "Sugerir automaticamente papel e abordagem ideais"
 ---
 
-## Smart Review
+## Sugerir automaticamente papel e abordagem ideais
 
 Comando que analisa a situação atual e sugere automaticamente o papel e abordagem ideais.
 

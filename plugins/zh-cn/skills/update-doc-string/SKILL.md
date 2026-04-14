@@ -2,7 +2,7 @@
 description: "管理多语言 docstring 和注释"
 ---
 
-## 更新文档字符串
+## 管理多语言 docstring 和注释
 
 系统地管理多语言的 docstring/注释，维护高质量的文档。
 

@@ -2,7 +2,7 @@
 description: "Análise paralela multi-papel com relatório integrado"
 ---
 
-## Multi Role
+## Análise paralela multi-papel com relatório integrado
 
 Comando que realiza análise paralela do mesmo objeto com múltiplos roles e gera relatório integrado.
 

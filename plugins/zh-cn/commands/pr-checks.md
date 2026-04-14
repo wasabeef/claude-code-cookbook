@@ -1,4 +1,4 @@
-## GitHub CI 监控
+## 监控 GitHub Actions CI 并跟踪完成
 
 监控 GitHub Actions CI 状态，并跟踪到完成。
 

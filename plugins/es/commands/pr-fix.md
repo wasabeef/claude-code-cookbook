@@ -1,4 +1,4 @@
-## Feedback de PR
+## Responder eficientemente a comentarios de revisión de PR
 
 Manejar eficientemente comentarios de revisión de Pull Request y lograr resolución de causa raíz usando un enfoque de análisis de errores de 3 etapas.
 

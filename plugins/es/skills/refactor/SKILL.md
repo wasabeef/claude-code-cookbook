@@ -2,7 +2,7 @@
 description: "Refactorización segura e incremental con evaluación SOLID"
 ---
 
-## Refactor
+## Refactorización segura e incremental con evaluación SOLID
 
 Implementa refactorización de código segura y gradual, evalúa cuantitativamente la adherencia a los principios SOLID. Visualiza la deuda técnica y clarifica las prioridades de mejora.
 

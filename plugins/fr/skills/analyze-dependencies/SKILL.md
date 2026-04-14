@@ -2,7 +2,7 @@
 description: "Analyser les dépendances du projet et évaluer la santé architecturale"
 ---
 
-## Dependency Analysis
+## Analyser les dépendances du projet et évaluer la santé architecturale
 
 Analyse les dépendances de votre projet et vérifie la santé architecturale.
 

@@ -2,7 +2,7 @@
 description: "Auto-sugerir rol y enfoque óptimo"
 ---
 
-## Revisión Inteligente
+## Auto-sugerir rol y enfoque óptimo
 
 Un comando que analiza la situación actual y sugiere automáticamente el rol óptimo y el enfoque.
 

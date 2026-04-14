@@ -1,4 +1,4 @@
-## PR Create
+## Criar PR automaticamente baseado em análise de mudanças
 
 Criação automática de PR baseada em análise de mudanças Git para um workflow eficiente de Pull Request.
 

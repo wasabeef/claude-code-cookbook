@@ -1,4 +1,4 @@
-## PR List
+## Exibir PRs abertos com ranking de prioridade
 
 Exibe a lista de PRs abertos do repositório atual com priorização.
 

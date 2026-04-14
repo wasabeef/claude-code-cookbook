@@ -2,7 +2,7 @@
 description: "Structured thinking process for complex challenges"
 ---
 
-## Ultrathink
+## Structured thinking process for complex challenges
 
 Execute a step-by-step, structured thinking process for complex tasks and important decisions.
 

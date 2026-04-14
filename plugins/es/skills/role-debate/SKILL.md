@@ -2,7 +2,7 @@
 description: "Debate multi-rol para explorar compromisos"
 ---
 
-## Debate de Roles
+## Debate multi-rol para explorar compromisos
 
 Un comando que permite que roles con diferentes experticias discutan y examinen trade-offs para derivar soluciones óptimas.
 

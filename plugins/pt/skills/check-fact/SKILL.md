@@ -2,7 +2,7 @@
 description: "Verificar precisão de informações contra código e documentação"
 ---
 
-## Verificar Fatos
+## Verificar precisão de informações contra código e documentação
 
 Comando para verificar a precisão de informações fornecidas, referenciando a base de código do projeto e documentação (docs/, README.md, etc.).
 

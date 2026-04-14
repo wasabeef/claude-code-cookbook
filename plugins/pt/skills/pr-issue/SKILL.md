@@ -2,7 +2,7 @@
 description: "Exibir Issues abertas com ranking de prioridade"
 ---
 
-## Issue List
+## Exibir Issues abertas com ranking de prioridade
 
 Exibe a lista de Issues abertas do repositório atual com priorização.
 

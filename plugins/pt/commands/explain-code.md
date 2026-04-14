@@ -1,4 +1,4 @@
-## Code Explain
+## Explicar o comportamento do código em detalhe
 
 Explica detalhadamente o funcionamento do código.
 

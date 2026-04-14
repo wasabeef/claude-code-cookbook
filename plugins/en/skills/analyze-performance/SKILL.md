@@ -2,7 +2,7 @@
 description: "Performance analysis based on Core Web Vitals"
 ---
 
-## Analyze Performance
+## Performance analysis based on Core Web Vitals
 
 Analyzes application performance from a user experience perspective and quantifies experience improvements from optimizations. Calculates UX scores based on Core Web Vitals and proposes prioritized optimization strategies.
 

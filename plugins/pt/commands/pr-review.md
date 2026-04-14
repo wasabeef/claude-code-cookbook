@@ -1,4 +1,4 @@
-## PR Review
+## Revisão sistemática de PR para garantir qualidade
 
 Revisão sistemática de Pull Request para garantir qualidade do código e sanidade da arquitetura.
 

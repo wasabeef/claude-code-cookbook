@@ -1,4 +1,4 @@
-## Context7
+## Context7 MCP로 기술 문서 검색
 
 MCP 의 Context7 로 기술 문서를 검색합니다.
 

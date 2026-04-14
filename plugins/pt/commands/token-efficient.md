@@ -1,4 +1,4 @@
-# Modo Eficiência de Tokens
+## Comprimir respostas para reduzir uso de contexto em 30-50%
 
 Reduz o uso de contexto nas respostas da IA em 30-50% através do modo de eficiência por compressão.
 

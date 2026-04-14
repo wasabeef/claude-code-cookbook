@@ -2,7 +2,7 @@
 description: "Explicar o comportamento do código em detalhe"
 ---
 
-## Code Explain
+## Explicar o comportamento do código em detalhe
 
 Explica detalhadamente o funcionamento do código.
 

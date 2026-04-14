@@ -2,7 +2,7 @@
 description: "Atualizar dependências Rust com segurança"
 ---
 
-## Rust Dependencies Update
+## Atualizar dependências Rust com segurança
 
 Atualiza com segurança as dependências de projetos Rust.
 

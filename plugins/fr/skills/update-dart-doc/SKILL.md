@@ -2,7 +2,7 @@
 description: "Gérer systématiquement les commentaires DartDoc"
 ---
 
-## Update Dart Doc
+## Gérer systématiquement les commentaires DartDoc
 
 Gère systématiquement les commentaires DartDoc dans les fichiers Dart et maintient une documentation japonaise de haute qualité.
 

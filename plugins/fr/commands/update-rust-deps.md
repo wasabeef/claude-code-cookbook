@@ -1,4 +1,4 @@
-## Rust Dependencies Update
+## Mettre à jour les dépendances Rust en toute sécurité
 
 Met à jour en toute sécurité les dépendances de votre projet Rust.
 

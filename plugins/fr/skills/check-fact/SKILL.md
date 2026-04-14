@@ -2,7 +2,7 @@
 description: "Vérifier la précision des informations avec le code et la documentation"
 ---
 
-## Vérification de fait
+## Vérifier la précision des informations avec le code et la documentation
 
 Vérifie si une affirmation est vraie en examinant le code et la documentation de votre projet.
 

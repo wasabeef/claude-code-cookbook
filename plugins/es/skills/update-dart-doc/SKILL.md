@@ -2,7 +2,7 @@
 description: "Gestionar sistemáticamente comentarios DartDoc"
 ---
 
-## Actualizar Documentación Dart
+## Gestionar sistemáticamente comentarios DartDoc
 
 Gestiona sistemáticamente los comentarios DartDoc en archivos Dart y mantiene documentación en español de alta calidad.
 

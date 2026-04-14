@@ -2,7 +2,7 @@
 description: "Capturer et analyser des captures d'écran macOS"
 ---
 
-## Screenshot
+## Capturer et analyser des captures d'écran macOS
 
 Capture des captures d'écran sur macOS et analyse les images.
 

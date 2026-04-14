@@ -6,7 +6,7 @@ description: "Compresser les réponses pour réduire l'utilisation du contexte d
 
 Réduit l'utilisation du contexte des réponses IA de 30-50 % grâce au mode de compression efficace.
 
-## Vue d'ensemble
+## Compresser les réponses pour réduire l'utilisation du contexte de 30-50%
 
 Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'abréviations pour comprimer les réponses de Claude.
 **La qualité du code généré et le contenu restent inchangés**. Seule la méthode d'explication change.

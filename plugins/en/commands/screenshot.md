@@ -1,4 +1,4 @@
-## Screenshot
+## Capture and analyze macOS screenshots
 
 Capture screenshots on macOS and analyze the images.
 

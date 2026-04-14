@@ -2,7 +2,7 @@
 description: "通过 Context7 MCP 搜索技术文档"
 ---
 
-## Context7
+## 通过 Context7 MCP 搜索技术文档
 
 使用 MCP 的 Context7 搜索技术文档。
 

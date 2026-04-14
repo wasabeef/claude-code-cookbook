@@ -2,7 +2,7 @@
 description: "Debate multi-papel para explorar compromissos"
 ---
 
-## Role Debate
+## Debate multi-papel para explorar compromissos
 
 Comando onde diferentes papéis especializados debatem, consideram trade-offs e derivam soluções ótimas.
 

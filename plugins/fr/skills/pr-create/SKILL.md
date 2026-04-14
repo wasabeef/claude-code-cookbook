@@ -2,7 +2,7 @@
 description: "Créer automatiquement une PR basée sur l'analyse des changements"
 ---
 
-## PR Create
+## Créer automatiquement une PR basée sur l'analyse des changements
 
 Crée automatiquement des Pull Requests en analysant vos modifications Git pour un flux de travail plus fluide.
 

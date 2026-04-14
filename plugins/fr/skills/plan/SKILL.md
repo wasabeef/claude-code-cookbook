@@ -2,7 +2,7 @@
 description: "Mode planification pour la stratégie avant l'implémentation"
 ---
 
-## Plan
+## Mode planification pour la stratégie avant l'implémentation
 
 Vous aide à planifier avant de coder. Crée des stratégies détaillées pour faciliter le développement.
 

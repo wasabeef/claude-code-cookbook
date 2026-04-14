@@ -1,4 +1,4 @@
-## AI Writing Check
+## Detect mechanical AI patterns and improve to natural text
 
 Detects mechanical patterns in AI-generated text and provides suggestions for improving to more natural Japanese.
 

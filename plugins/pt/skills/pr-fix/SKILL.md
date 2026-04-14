@@ -2,7 +2,7 @@
 description: "Responder eficientemente a comentários de revisão de PR"
 ---
 
-## PR Feedback
+## Responder eficientemente a comentários de revisão de PR
 
 Responde eficientemente aos comentários de review de Pull Request e busca resolução fundamental através da abordagem de 3 etapas para análise de erros.
 

@@ -1,4 +1,4 @@
-## Flutter Dependencies Update
+## Safely update Flutter dependencies
 
 Safely update dependencies in your Flutter project.
 

@@ -2,7 +2,7 @@
 description: "安全更新 Flutter 依赖"
 ---
 
-## Flutter 依赖更新
+## 安全更新 Flutter 依赖
 
 安全地更新 Flutter 项目的依赖关系。
 

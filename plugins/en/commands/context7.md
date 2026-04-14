@@ -1,4 +1,4 @@
-## Context7
+## Search technical documentation via Context7 MCP
 
 Searches technical documentation using MCP's Context7.
 

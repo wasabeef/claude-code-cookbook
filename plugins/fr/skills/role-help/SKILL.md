@@ -2,7 +2,7 @@
 description: "Guide pour choisir le bon rôle"
 ---
 
-## Aide Rôles
+## Guide pour choisir le bon rôle
 
 Un guide de sélection et système d'aide quand vous n'êtes pas sûr du rôle à utiliser.
 

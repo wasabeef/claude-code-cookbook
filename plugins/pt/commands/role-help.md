@@ -1,4 +1,4 @@
-## Role Help
+## Guia para escolher o papel adequado
 
 Guia de seleção e sistema de ajuda para quando não souber qual papel usar.
 

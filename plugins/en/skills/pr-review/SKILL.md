@@ -2,7 +2,7 @@
 description: "Systematic PR review for code quality assurance"
 ---
 
-## PR Review
+## Systematic PR review for code quality assurance
 
 Ensure code quality and architectural soundness through systematic Pull Request reviews.
 

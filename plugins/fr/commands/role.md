@@ -1,4 +1,4 @@
-## Rôle
+## Passer à un rôle expert pour une analyse spécialisée
 
 Basculez vers un rôle spécifique pour effectuer une analyse ou un travail spécialisé.
 

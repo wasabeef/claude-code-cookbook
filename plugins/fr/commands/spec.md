@@ -1,4 +1,4 @@
-## Spec
+## Créer des spécifications détaillées avec le développement piloté par les specs
 
 **"Donner de la structure avant d'écrire le code"** - Entièrement conforme au développement piloté par spécifications de Kiro
 

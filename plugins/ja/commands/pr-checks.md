@@ -1,4 +1,4 @@
-## GitHub CI Monitoring
+## GitHub Actions CI の監視と完了追跡
 
 GitHub Actions CI 状況を監視して、完了まで追跡します。
 

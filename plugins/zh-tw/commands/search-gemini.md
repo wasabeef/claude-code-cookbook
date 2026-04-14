@@ -1,4 +1,4 @@
-## Gemini 網絡搜索
+## 透過 Gemini CLI 搜尋最新資訊
 
 使用 Gemini CLI 執行網絡搜索以獲取最新資訊。
 

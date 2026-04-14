@@ -2,7 +2,7 @@
 description: "Processo de pensamento passo a passo para problemas complexos"
 ---
 
-## Sequential Thinking
+## Processo de pensamento passo a passo para problemas complexos
 
 Resolve problemas complexos gradualmente através de processo de pensamento dinâmico e iterativo. Abordagem flexível que permite mudanças de direção e revisões no meio do pensamento.
 

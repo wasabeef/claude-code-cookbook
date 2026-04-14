@@ -1,4 +1,4 @@
-## Update Dart Doc
+## Systematically manage Dart DartDoc comments
 
 Systematically manages DartDoc comments in Dart files and maintains high-quality Japanese documentation.
 

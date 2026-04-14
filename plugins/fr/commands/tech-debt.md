@@ -1,4 +1,4 @@
-## Tech Debt
+## Analyse quantitative de la dette technique et plan d'amélioration
 
 Analyse quantitativement la dette technique du projet et visualise les scores de santé avec l'impact sur l'efficacité de développement. Suit les améliorations grâce à l'analyse de tendances, calcule les coûts temporels et crée un plan d'amélioration priorisé.
 

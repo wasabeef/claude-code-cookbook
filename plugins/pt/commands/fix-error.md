@@ -1,4 +1,4 @@
-## Error Fix
+## Identificar causa raiz e sugerir soluções comprovadas
 
 Identifica a causa raiz a partir de mensagens de erro, prediz o tempo de resolução e propõe soluções comprovadas. Aprende padrões de erros similares e apresenta imediatamente o método de resolução apropriado.
 

@@ -2,7 +2,7 @@
 description: "Atualizar automaticamente descrição e labels de PR"
 ---
 
-## PR Auto Update
+## Atualizar automaticamente descrição e labels de PR
 
 ## Visão Geral
 

@@ -2,7 +2,7 @@
 description: "Generate commit messages from staged changes"
 ---
 
-## Commit Message
+## Generate commit messages from staged changes
 
 Generates commit messages from staged changes (git diff --staged). This command only creates messages and copies them to your clipboard—it doesn't run any git commands.
 

@@ -1,4 +1,4 @@
-## Update Dart Doc
+## Gerenciar sistematicamente comentários DartDoc
 
 Gerencia sistematicamente comentários DartDoc de arquivos Dart e mantém documentação em português de alta qualidade.
 

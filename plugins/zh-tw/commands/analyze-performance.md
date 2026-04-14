@@ -1,4 +1,4 @@
-## Analyze Performance
+## 基於 Core Web Vitals 的效能分析
 
 從使用者體驗的角度分析應用程式效能，並量化透過最佳化實現的感知速度提升。基於 Core Web Vitals 計算 UX 分數，並提出有優先序的最佳化策略。
 

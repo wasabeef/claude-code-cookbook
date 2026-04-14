@@ -2,7 +2,7 @@
 description: "Actualizar dependencias de Flutter de forma segura"
 ---
 
-## Actualización de Dependencias Flutter
+## Actualizar dependencias de Flutter de forma segura
 
 Actualiza de forma segura las dependencias en tu proyecto Flutter.
 

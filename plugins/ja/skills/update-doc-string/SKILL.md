@@ -2,7 +2,7 @@
 description: "多言語対応 docstring/コメントの管理"
 ---
 
-## Update Doc String
+## 多言語対応 docstring/コメントの管理
 
 多言語対応の docstring/コメントを体系的に管理し、高品質なドキュメントを維持します。
 

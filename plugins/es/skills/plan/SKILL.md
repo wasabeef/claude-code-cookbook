@@ -2,7 +2,7 @@
 description: "Modo planificación para estrategia antes de implementar"
 ---
 
-## Plan
+## Modo planificación para estrategia antes de implementar
 
 Te ayuda a planificar antes de programar. Crea estrategias detalladas para hacer que el desarrollo sea más fluido.
 

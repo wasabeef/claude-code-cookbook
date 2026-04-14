@@ -1,4 +1,4 @@
-## Lista de Issues
+## Mostrar Issues abiertos con ranking de prioridad
 
 Muestra una lista priorizada de issues abiertos en el repositorio actual.
 

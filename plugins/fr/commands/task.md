@@ -1,4 +1,4 @@
-## Tâche
+## Agent autonome pour les tâches de recherche et d'analyse
 
 Lance un agent intelligent pour gérer les recherches et investigations complexes. Excellent pour le travail à grande échelle sans consommer le contexte.
 

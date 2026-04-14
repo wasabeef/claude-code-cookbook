@@ -1,4 +1,4 @@
-## PR Review
+## Revue systématique de PR pour assurer la qualité
 
 Assure la qualité du code et la solidité architecturale grâce à des revues systématiques de Pull Requests.
 

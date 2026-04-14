@@ -2,7 +2,7 @@
 description: "Parallel analysis with multiple roles and integrated report"
 ---
 
-## Multi Role
+## Parallel analysis with multiple roles and integrated report
 
 A command that analyzes the same target in parallel with multiple roles and generates an integrated report.
 

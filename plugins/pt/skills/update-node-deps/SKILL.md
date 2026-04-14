@@ -2,7 +2,7 @@
 description: "Atualizar dependências Node.js com segurança"
 ---
 
-## Node Dependencies Update
+## Atualizar dependências Node.js com segurança
 
 Atualiza com segurança as dependências de projetos Node.js.
 

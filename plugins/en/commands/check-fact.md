@@ -1,4 +1,4 @@
-## Check Fact
+## Verify information accuracy against codebase and docs
 
 Verifies if a statement is true by checking your project's code and documentation.
 

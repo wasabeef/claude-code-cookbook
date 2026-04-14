@@ -2,7 +2,7 @@
 description: "Détecter les patterns mécaniques de l'IA et améliorer le texte"
 ---
 
-## Vérification Écriture IA
+## Détecter les patterns mécaniques de l'IA et améliorer le texte
 
 Détecte les motifs mécaniques dans les textes générés par IA et fournit des suggestions pour améliorer vers un français plus naturel.
 

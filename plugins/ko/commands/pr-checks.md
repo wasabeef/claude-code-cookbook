@@ -1,4 +1,4 @@
-## GitHub CI 모니터링
+## GitHub Actions CI 모니터링 및 완료 추적
 
 GitHub Actions CI 상황을 모니터링하고 완료까지 추적합니다.
 
