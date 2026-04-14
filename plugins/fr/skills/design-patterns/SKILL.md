@@ -2,7 +2,7 @@
 description: "Suggérer des design patterns et évaluer les principes SOLID"
 ---
 
-## Motifs de conception
+## Suggérer des design patterns et évaluer les principes SOLID
 
 Suggère des motifs de conception pour votre code et vérifie s'il suit les principes SOLID.
 

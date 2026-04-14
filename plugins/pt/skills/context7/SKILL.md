@@ -2,7 +2,7 @@
 description: "Buscar documentação técnica via Context7 MCP"
 ---
 
-## Context7
+## Buscar documentação técnica via Context7 MCP
 
 Pesquisa documentação técnica no Context7 via MCP.
 

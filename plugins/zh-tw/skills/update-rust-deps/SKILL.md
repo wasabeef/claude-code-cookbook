@@ -2,7 +2,7 @@
 description: "安全更新 Rust 依賴"
 ---
 
-## Rust 依賴更新
+## 安全更新 Rust 依賴
 
 安全地更新 Rust 項目的依賴關系。
 

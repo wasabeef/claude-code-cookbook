@@ -2,7 +2,7 @@
 description: "安全更新 Node.js 依賴"
 ---
 
-## Node 依賴更新
+## 安全更新 Node.js 依賴
 
 安全地更新 Node.js 項目的依賴關系。
 

@@ -2,7 +2,7 @@
 description: "Auto-update PR description and labels from changes"
 ---
 
-## PR Auto Update
+## Auto-update PR description and labels from changes
 
 ## Overview
 

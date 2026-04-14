@@ -2,7 +2,7 @@
 description: "安全更新 Rust 依赖"
 ---
 
-## Rust 依赖更新
+## 安全更新 Rust 依赖
 
 安全地更新 Rust 项目的依赖关系。
 

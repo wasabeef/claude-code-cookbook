@@ -2,7 +2,7 @@
 description: "Sugerir patrones de diseño y evaluar principios SOLID"
 ---
 
-## Patrones de Diseño
+## Sugerir patrones de diseño y evaluar principios SOLID
 
 Sugiere patrones de diseño para tu código y verifica si sigue los principios SOLID.
 

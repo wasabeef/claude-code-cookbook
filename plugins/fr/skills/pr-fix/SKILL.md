@@ -2,7 +2,7 @@
 description: "Répondre efficacement aux commentaires de revue de PR"
 ---
 
-## PR Feedback
+## Répondre efficacement aux commentaires de revue de PR
 
 Gérez efficacement les commentaires de revue de Pull Requests et obtenez une résolution de cause racine en utilisant une approche d'analyse d'erreurs en 3 étapes.
 

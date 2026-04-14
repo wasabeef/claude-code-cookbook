@@ -2,7 +2,7 @@
 description: "Web search via Gemini CLI for latest information"
 ---
 
-## Gemini Web Search
+## Web search via Gemini CLI for latest information
 
 Execute web searches via Gemini CLI to obtain the latest information.
 

@@ -2,7 +2,7 @@
 description: "Sugerir design patterns e avaliar princípios SOLID"
 ---
 
-## Design Patterns
+## Sugerir design patterns e avaliar princípios SOLID
 
 Propõe padrões de design aplicáveis à base de código e avalia a conformidade com os princípios SOLID.
 

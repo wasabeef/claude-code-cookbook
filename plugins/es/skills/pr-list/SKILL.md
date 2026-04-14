@@ -2,7 +2,7 @@
 description: "Mostrar PRs abiertos con ranking de prioridad"
 ---
 
-## Lista de PR
+## Mostrar PRs abiertos con ranking de prioridad
 
 Muestra una lista priorizada de PRs abiertos en el repositorio actual.
 

@@ -2,7 +2,7 @@
 description: "Proceso de pensamiento estructurado para desafíos complejos"
 ---
 
-## Ultrathink
+## Proceso de pensamiento estructurado para desafíos complejos
 
 Ejecuta un proceso de pensamiento paso a paso y estructurado para tareas complejas e decisiones importantes.
 

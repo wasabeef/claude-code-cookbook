@@ -2,7 +2,7 @@
 description: "Auto-suggest optimal role and approach"
 ---
 
-## Smart Review
+## Auto-suggest optimal role and approach
 
 A command that analyzes the current situation and automatically suggests the optimal role and approach.
 

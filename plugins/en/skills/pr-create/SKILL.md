@@ -2,7 +2,7 @@
 description: "Auto-create PR based on Git change analysis"
 ---
 
-## PR Create
+## Auto-create PR based on Git change analysis
 
 Creates Pull Requests automatically by analyzing your Git changes for a smoother workflow.
 

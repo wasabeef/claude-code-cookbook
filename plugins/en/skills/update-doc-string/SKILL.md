@@ -2,7 +2,7 @@
 description: "Manage multilingual docstrings and comments"
 ---
 
-## Update Doc String
+## Manage multilingual docstrings and comments
 
 Systematically manage multilingual docstrings/comments and maintain high-quality documentation.
 

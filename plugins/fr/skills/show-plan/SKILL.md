@@ -2,7 +2,7 @@
 description: "Afficher le plan de la session en cours"
 ---
 
-## Afficher plan
+## Afficher le plan de la session en cours
 
 Affiche le plan en cours d'exécution ou exécuté dans la session actuelle.
 

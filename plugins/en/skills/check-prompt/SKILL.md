@@ -2,7 +2,7 @@
 description: "Evaluate and improve AI prompt quality"
 ---
 
-## Check Prompt
+## Evaluate and improve AI prompt quality
 
 A comprehensive collection of best practices for evaluating and improving the quality of prompts for AI Agents. It systematizes knowledge gained from actual prompt improvement processes, covering all important aspects such as ambiguity elimination, information integration, enforcement enhancement, tracking systems, and continuous improvement.
 

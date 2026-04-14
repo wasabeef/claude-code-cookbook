@@ -2,7 +2,7 @@
 description: "Actualizar dependencias de Rust de forma segura"
 ---
 
-## Actualización de Dependencias Rust
+## Actualizar dependencias de Rust de forma segura
 
 Actualiza de forma segura las dependencias en tu proyecto Rust.
 

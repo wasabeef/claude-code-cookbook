@@ -2,7 +2,7 @@
 description: "Safely update Node.js dependencies"
 ---
 
-## Node Dependencies Update
+## Safely update Node.js dependencies
 
 Safely update dependencies in your Node.js project.
 

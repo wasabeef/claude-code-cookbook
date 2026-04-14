@@ -2,7 +2,7 @@
 description: "監控 GitHub Actions CI 並追蹤完成"
 ---
 
-## GitHub CI 監控
+## 監控 GitHub Actions CI 並追蹤完成
 
 監控 GitHub Actions CI 狀態，並跟蹤到完成。
 

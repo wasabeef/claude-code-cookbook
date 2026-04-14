@@ -2,7 +2,7 @@
 description: "Suggestion automatique du rôle et de l'approche optimaux"
 ---
 
-## Smart Review
+## Suggestion automatique du rôle et de l'approche optimaux
 
 Une commande qui analyse la situation actuelle et suggère automatiquement le rôle et l'approche optimaux.
 

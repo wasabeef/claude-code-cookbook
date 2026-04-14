@@ -2,7 +2,7 @@
 description: "Cambiar a rol experto para análisis especializado"
 ---
 
-## Rol
+## Cambiar a rol experto para análisis especializado
 
 Cambiar a un rol específico para realizar análisis especializado o trabajo.
 

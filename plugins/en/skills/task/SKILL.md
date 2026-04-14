@@ -2,7 +2,7 @@
 description: "Autonomous agent for research and analysis tasks"
 ---
 
-## Task
+## Autonomous agent for research and analysis tasks
 
 Launches a smart agent to handle complex searches and investigations. Great for large-scale work without eating up context.
 

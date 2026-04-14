@@ -2,7 +2,7 @@
 description: "Revisión sistemática de PR para asegurar calidad"
 ---
 
-## Revisión de PR
+## Revisión sistemática de PR para asegurar calidad
 
 Asegura la calidad del código y solidez arquitectónica a través de revisiones sistemáticas de Pull Request.
 

@@ -2,7 +2,7 @@
 description: "Refactorisation sûre et incrémentale avec évaluation SOLID"
 ---
 
-## Refactor
+## Refactorisation sûre et incrémentale avec évaluation SOLID
 
 Implémente une refactorisation de code sûre et progressive, évalue quantitativement le respect des principes SOLID. Visualise la dette technique et clarifie les priorités d'amélioration.
 

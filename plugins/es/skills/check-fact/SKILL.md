@@ -2,7 +2,7 @@
 description: "Verificar precisión de información contra código y documentos"
 ---
 
-## Verificar Hechos
+## Verificar precisión de información contra código y documentos
 
 Verifica si una declaración es verdadera revisando el código y documentación de tu proyecto.
 

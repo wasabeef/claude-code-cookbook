@@ -2,7 +2,7 @@
 description: "Analyse parallèle multi-rôle avec rapport intégré"
 ---
 
-## Multi-rôle
+## Analyse parallèle multi-rôle avec rapport intégré
 
 Une commande qui analyse la même cible en parallèle avec plusieurs rôles et génère un rapport intégré.
 

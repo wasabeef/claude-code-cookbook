@@ -2,7 +2,7 @@
 description: "Git 변경 분석 기반 자동 PR 생성"
 ---
 
-## PR 생성
+## Git 변경 분석 기반 자동 PR 생성
 
 Git 변경 분석기반의 자동 PR 생성으로 효율적인 Pull Request 워크플로를 실현합니다.
 

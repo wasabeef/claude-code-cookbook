@@ -2,7 +2,7 @@
 description: "macOS スクリーンショットの撮影と解析"
 ---
 
-## Screenshot
+## macOS スクリーンショットの撮影と解析
 
 macOS でスクリーンショットを撮影し、画像を解析します。
 

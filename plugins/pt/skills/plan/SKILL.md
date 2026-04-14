@@ -2,7 +2,7 @@
 description: "Modo planejamento para estratégia antes da implementação"
 ---
 
-## Plan
+## Modo planejamento para estratégia antes da implementação
 
 Inicia o modo de planejamento pré-implementação para estabelecer estratégias detalhadas de implementação. Apoia desenvolvimento eficiente através do estabelecimento de planos estruturados antes da implementação do código.
 

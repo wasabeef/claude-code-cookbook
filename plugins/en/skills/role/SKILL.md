@@ -2,7 +2,7 @@
 description: "Switch to expert role for specialized analysis"
 ---
 
-## Role
+## Switch to expert role for specialized analysis
 
 Switch to a specific role to perform specialized analysis or work.
 

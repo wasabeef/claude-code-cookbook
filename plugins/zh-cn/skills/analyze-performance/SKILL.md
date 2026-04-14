@@ -2,7 +2,7 @@
 description: "基于 Core Web Vitals 的性能分析"
 ---
 
-## 性能分析
+## 基于 Core Web Vitals 的性能分析
 
 从用户体验角度分析应用程序性能，量化改进后的感知速度提升。基于 Core Web Vitals 计算 UX 评分，提出优先级明确的优化策略。
 

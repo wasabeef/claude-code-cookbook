@@ -2,7 +2,7 @@
 description: "通过 Gemini CLI 搜索最新信息"
 ---
 
-## Gemini 网络搜索
+## 通过 Gemini CLI 搜索最新信息
 
 使用 Gemini CLI 执行网络搜索以获取最新信息。
 

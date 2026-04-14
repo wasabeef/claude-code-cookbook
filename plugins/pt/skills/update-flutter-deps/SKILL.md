@@ -2,7 +2,7 @@
 description: "Atualizar dependências Flutter com segurança"
 ---
 
-## Flutter Dependencies Update
+## Atualizar dependências Flutter com segurança
 
 Atualiza com segurança as dependências de projetos Flutter.
 

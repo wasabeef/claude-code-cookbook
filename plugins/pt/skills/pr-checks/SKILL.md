@@ -2,7 +2,7 @@
 description: "Monitorar GitHub Actions CI e rastrear até conclusão"
 ---
 
-## Monitoramento de CI do GitHub
+## Monitorar GitHub Actions CI e rastrear até conclusão
 
 Monitora o status do CI do GitHub Actions e acompanha até a conclusão.
 

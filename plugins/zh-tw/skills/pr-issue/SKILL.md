@@ -2,7 +2,7 @@
 description: "按優先順序顯示 Issue 清單"
 ---
 
-## Issue 列表
+## 按優先順序顯示 Issue 清單
 
 顯示當前倉庫的開放 Issue 列表，並按優先級排序。
 

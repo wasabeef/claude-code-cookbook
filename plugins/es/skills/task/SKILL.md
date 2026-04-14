@@ -2,7 +2,7 @@
 description: "Agente autónomo para tareas de investigación y análisis"
 ---
 
-## Task
+## Agente autónomo para tareas de investigación y análisis
 
 Lanza un agente inteligente para manejar búsquedas e investigaciones complejas. Excelente para trabajo a gran escala sin consumir contexto.
 

@@ -2,7 +2,7 @@
 description: "Surveiller GitHub Actions CI et suivre jusqu'à complétion"
 ---
 
-## GitHub CI Monitoring
+## Surveiller GitHub Actions CI et suivre jusqu'à complétion
 
 Surveille le statut CI de GitHub Actions et suit jusqu'à l'achèvement.
 

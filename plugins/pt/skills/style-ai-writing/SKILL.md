@@ -2,7 +2,7 @@
 description: "Detectar padrões mecânicos de IA e melhorar para texto natural"
 ---
 
-## AI Writing Check
+## Detectar padrões mecânicos de IA e melhorar para texto natural
 
 Detecta padrões mecânicos de textos gerados por IA e propõe melhorias para um português mais natural.
 

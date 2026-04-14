@@ -2,7 +2,7 @@
 description: "仕様駆動開発で詳細な仕様書を作成"
 ---
 
-## Spec
+## 仕様駆動開発で詳細な仕様書を作成
 
 **「コードを書く前に構造を与える」** - Kiro の spec-driven development に完全準拠
 

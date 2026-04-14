@@ -2,7 +2,7 @@
 description: "Crear especificaciones detalladas con desarrollo dirigido por specs"
 ---
 
-## Spec
+## Crear especificaciones detalladas con desarrollo dirigido por specs
 
 **"Dar estructura antes de escribir código"** - Completamente compatible con el desarrollo dirigido por especificaciones de Kiro
 

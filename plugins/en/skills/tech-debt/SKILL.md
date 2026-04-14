@@ -2,7 +2,7 @@
 description: "Quantitative tech debt analysis and improvement plan"
 ---
 
-## Tech Debt
+## Quantitative tech debt analysis and improvement plan
 
 Quantitatively analyzes technical debt in projects, visualizes health scores and impact on development efficiency. Tracks improvement status through trend analysis and creates prioritized improvement plans with calculated time costs.
 

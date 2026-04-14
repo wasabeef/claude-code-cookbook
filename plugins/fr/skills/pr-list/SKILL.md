@@ -2,7 +2,7 @@
 description: "Afficher les PRs ouvertes avec classement par priorité"
 ---
 
-## PR List
+## Afficher les PRs ouvertes avec classement par priorité
 
 Affiche une liste priorisée des PR ouvertes dans le dépôt actuel.
 

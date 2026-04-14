@@ -2,7 +2,7 @@
 description: "Safe, incremental refactoring with SOLID evaluation"
 ---
 
-## Refactor
+## Safe, incremental refactoring with SOLID evaluation
 
 Performs safe, step-by-step code refactoring with quantitative SOLID principles evaluation. Visualizes technical debt and clarifies improvement priorities.
 

@@ -2,7 +2,7 @@
 description: "Create detailed specifications with spec-driven development"
 ---
 
-## Spec
+## Create detailed specifications with spec-driven development
 
 **"Give structure before writing code"** - Fully compliant with Kiro's spec-driven development
 

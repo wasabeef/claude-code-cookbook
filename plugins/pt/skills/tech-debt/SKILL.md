@@ -2,7 +2,7 @@
 description: "Análise quantitativa de dívida técnica e plano de melhoria"
 ---
 
-## Tech Debt
+## Análise quantitativa de dívida técnica e plano de melhoria
 
 Analisa quantitativamente a dívida técnica do projeto e visualiza as pontuações de saúde junto com o impacto na eficiência de desenvolvimento. Acompanha melhorias mediante análise de tendências, calcula custos temporais e cria um plano de melhoria priorizado.
 
