@@ -130,7 +130,7 @@ Este rol se activa automáticamente con las siguientes frases:
 #### Core Web Vitals y Métricas del Mundo Real
 
 - Largest Contentful Paint (LCP)
-- First Input Delay (FID)
+- Interaction to Next Paint (INP)
 - Cumulative Layout Shift (CLS)
 - Time to First Byte (TTFB)
 

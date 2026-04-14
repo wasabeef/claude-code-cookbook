@@ -342,7 +342,12 @@ check_plugin_json() {
   done
 
   # Check if name matches expected pattern
-  local expected_name="claude-code-cookbook-$lang"
+  local expected_name
+  if [[ "$lang" == "ja" ]]; then
+    expected_name="cook"
+  else
+    expected_name="cook-$lang"
+  fi
   local actual_name
   actual_name=$(jq -r '.name' "$plugin_json")
 

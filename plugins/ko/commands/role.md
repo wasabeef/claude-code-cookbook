@@ -146,7 +146,7 @@ OWASP Top 10 준수도: XX% / CVE 조회: 완료
 
 **Evidence-First 성능 최적화**
 
-- Core Web Vitals(LCP · FID · CLS) · RAIL 모델 준수
+- Core Web Vitals(LCP · INP · CLS) · RAIL 모델 준수
 - Google PageSpeed Insights 권장사항의 구현
 - 단계적 최적화 프로세스(측정→분석→우선순위→구현)
 - ROI 분석을 통한 투자 대비 효과의 정량 평가
@@ -156,7 +156,7 @@ OWASP Top 10 준수도: XX% / CVE 조회: 완료
 ```text
 Evidence-First 성능 분석
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
+Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: XX% / ROI 분석: XX% 개선 예측
 ```
 

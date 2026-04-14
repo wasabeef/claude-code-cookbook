@@ -10,7 +10,7 @@ Score d'Expérience Utilisateur : B+ (78/100)
 
 ⏱️ Core Web Vitals
 ├─ LCP (chargement) : 2,3s [Bon] Objectif<2,5s ✅
-├─ FID (réponse) : 95ms [Bon] Objectif<100ms ✅
+├─ INP (réponse) : 95ms [Bon] Objectif<200ms ✅
 ├─ CLS (stabilité) : 0,08 [Bon] Objectif<0,1 ✅
 ├─ FCP (premier rendu) : 1,8s [Bon] Objectif<1,8s ✅
 ├─ TTFB (serveur) : 450ms [À améliorer] Objectif<200ms ⚠️
@@ -122,7 +122,7 @@ ROI d'amélioration = (effet réduction temps + amélioration qualité) ÷ heure
 | Métrique             | Plage d'Amélioration | Amélioration Vitesse Perçue | Satisfaction Utilisateur | Heures d'Implémentation |
 | -------------------- | -------------------- | --------------------------- | ------------------------ | ----------------------- |
 | **LCP (chargement)** | -0,5s                | +30%                        | Taux rebond -7%          | 16h                     |
-| **FID (réponse)**    | -50ms                | +15%                        | Stress -20%              | 8h                      |
+| **INP (réponse)**    | -50ms                | +15%                        | Stress -20%              | 8h                      |
 | **CLS (stabilité)**  | -0,05                | +10%                        | Opération erronée -50%   | 4h                      |
 | **TTFB (serveur)**   | -200ms               | +25%                        | Vitesse perçue +40%      | 24h                     |
 | **TTI (interactif)** | -1,0s                | +35%                        | Taux complétion +15%     | 32h                     |

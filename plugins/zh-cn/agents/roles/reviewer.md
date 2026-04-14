@@ -3,6 +3,10 @@ name: reviewer
 description: 代码审查专家。Evidence-First、Clean Code 原则、官方风格指南遵循的代码质量评估。
 model: sonnet
 tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
 ---
 
 # 代码审查专家角色

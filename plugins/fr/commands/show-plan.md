@@ -22,7 +22,7 @@ Affiche le plan en cours d'exécution ou exécuté dans la session actuelle.
 
 ### Fonctionnalités
 
-- Détecte les plans créés avec exit_plan_mode
+- Détecte les plans créés avec ExitPlanMode
 - Recherche les en-têtes contenant des mots-clés comme plan d'implémentation, détails d'implémentation, plan
 - Formate et affiche le contenu du plan
 - Notifie clairement quand aucun plan n'existe
@@ -45,7 +45,7 @@ Affiche le plan en cours d'exécution ou exécuté dans la session actuelle.
 
 ### Patterns de détection
 
-Basé sur le format des plans générés par exit_plan_mode, les patterns suivants sont détectés :
+Basé sur le format des plans générés par ExitPlanMode, les patterns suivants sont détectés :
 
 - En-têtes commençant par `##` (incluant Plan, Planification, Stratégie)
 - `### Changes` (Changements)

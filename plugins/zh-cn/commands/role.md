@@ -146,7 +146,7 @@ OWASP Top 10 合规度: XX% / CVE 对照: 完成
 
 **Evidence-First 性能优化**
 
-- Core Web Vitals(LCP·FID·CLS)·RAIL 模型准拠
+- Core Web Vitals(LCP·INP·CLS)·RAIL 模型准拠
 - Google PageSpeed Insights 建议实施
 - 渐进式优化流程 (测量→分析→优先级→实施)
 - 通过 ROI 分析进行投资回报的定量评估
@@ -156,7 +156,7 @@ OWASP Top 10 合规度: XX% / CVE 对照: 完成
 ```text
 Evidence-First 性能分析
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
+Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: XX% / ROI 分析: XX% 改进预测
 ```
 
@@ -164,7 +164,7 @@ Performance Budget: XX% / ROI 分析: XX% 改进预测
 
 **Evidence-First 根本原因分析**
 
-- 5 Whys + α方法 (包含反证检讨)
+- 5 Whys + α 方法 (包含反证检讨)
 - 基于系统思维的结构分析 (Peter Senge 原则)
 - 认知偏差对策 (排除确认偏差·锚定效应等)
 - 彻底的假设驱动分析 (并行验证多个假设)

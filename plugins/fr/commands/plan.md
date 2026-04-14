@@ -54,11 +54,11 @@ Vous aide à planifier avant de coder. Crée des stratégies détaillées pour f
 
 **Obtenir votre approbation**
 
-- Je vous montrerai le plan en utilisant `exit_plan_mode`
+- Je vous montrerai le plan en utilisant `ExitPlanMode`
 - **Important** : J'attends toujours votre OK explicite
 - Je ne coderai pas sans votre approbation
 - Vous pouvez demander des changements à tout moment
-- Le suivi TodoWrite commence après votre approbation
+- Le suivi TaskCreate commence après votre approbation
 
 ### Exemples détaillés
 
@@ -95,7 +95,7 @@ Vous aide à planifier avant de coder. Crée des stratégies détaillées pour f
 #### Phase 3 : Implémentation
 
 - **Décomposition des tâches** : Diviser en blocs gérables
-- **Suivi du progrès** : TodoWrite gère le statut
+- **Suivi du progrès** : TaskUpdate gère le statut
 - **Vérifications qualité** : Plan de tests et de vérification
 - **Votre approbation** : Montrer le plan et attendre votre OK
 
@@ -109,7 +109,7 @@ Vous aide à planifier avant de coder. Crée des stratégies détaillées pour f
 
 **Notes techniques**
 
-- Ne pas se fier aux valeurs de retour de `exit_plan_mode`
+- Ne pas se fier aux valeurs de retour de `ExitPlanMode`
 - Seule votre approbation explicite compte
 - Fonctionne différemment du mode plan CLI
 

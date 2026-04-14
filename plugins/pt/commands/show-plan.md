@@ -22,7 +22,7 @@ Exibe planos em execução ou executados na sessão atual.
 
 ### Funcionalidades
 
-- Detecta planos criados com exit_plan_mode
+- Detecta planos criados com ExitPlanMode
 - Explora títulos que contêm palavras-chave como plano de implementação, conteúdo de implementação, plano, etc.
 - Formata e exibe o conteúdo do plano
 - Notifica claramente quando não há planos
@@ -45,7 +45,7 @@ Exibe planos em execução ou executados na sessão atual.
 
 ### Padrões de Detecção
 
-Baseado no formato de planos gerados pelo exit_plan_mode, detecta os seguintes padrões:
+Baseado no formato de planos gerados pelo ExitPlanMode, detecta os seguintes padrões:
 
 - Títulos começando com `##` (contendo plano, Plan, etc.)
 - `### Conteúdo das mudanças`

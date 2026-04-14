@@ -84,7 +84,7 @@ May the Force be with you.
 **Condições Necessárias (todas devem ser satisfeitas)**:
 
 - ✅ Todas as tarefas 100% finalizadas
-- ✅ Lista TODO completamente vazia (gerenciada pela ferramenta TodoWrite)
+- ✅ Lista TODO completamente vazia (gerenciada pelas ferramentas TaskCreate/TaskUpdate)
 - ✅ Ausência total de erros
 - ✅ Nenhuma tarefa pendente que possa ser continuada sem novas instruções
 

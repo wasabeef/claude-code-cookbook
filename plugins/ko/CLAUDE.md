@@ -84,7 +84,7 @@ May the Force be with you.
 **사용 조건 (모두 충족 필요)**:
 
 - ✅ 모든 작업이 100% 완료
-- ✅ TODO 항목이 모두 완료 (TodoWrite 도구로 관리하는 TODO 리스트가 비어있음)
+- ✅ TODO 항목이 모두 완료 (TaskCreate/TaskUpdate 도구로 관리하는 태스크 리스트가 비어있음)
 - ✅ 에러가 제로
 - ✅ 새로운 지시가 없는 한 계속할 작업이 없음
 

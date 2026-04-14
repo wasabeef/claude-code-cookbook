@@ -84,7 +84,7 @@ May the Force be with you.
 **Condiciones de Uso (todas deben cumplirse)**:
 
 - ✅ Todas las tareas 100% completadas
-- ✅ Todos los elementos TODO completados (lista TODO gestionada con herramienta TodoWrite debe estar vacía)
+- ✅ Todos los elementos TODO completados (lista de tareas gestionada con herramientas TaskCreate/TaskUpdate debe estar vacía)
 - ✅ Cero errores
 - ✅ No hay más tareas que continuar sin nuevas instrucciones
 

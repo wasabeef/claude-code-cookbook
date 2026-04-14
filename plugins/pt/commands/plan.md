@@ -54,11 +54,11 @@ Inicia o modo de planejamento pré-implementação para estabelecer estratégias
 
 **Processo de Aprovação**
 
-- Apresentação do plano com ferramenta `exit_plan_mode`
+- Apresentação do plano com ferramenta `ExitPlanMode`
 - **Importante**: Sempre aguardar aprovação explícita do usuário, independentemente do valor de retorno da ferramenta
 - É proibido iniciar implementação sem aprovação
 - É possível corrigir e ajustar o plano
-- Iniciar gestão de tarefas com TodoWrite apenas após aprovação
+- Iniciar gestão de tarefas com TaskCreate apenas após aprovação
 
 ### Exemplos Detalhados
 
@@ -95,9 +95,9 @@ Inicia o modo de planejamento pré-implementação para estabelecer estratégias
 #### Fase 3: Implementation (Implementação)
 
 - **Decomposição de Tarefas**: Subdivisão em unidades implementáveis
-- **Acompanhamento de Progresso**: Gestão de estado através de TodoWrite
+- **Acompanhamento de Progresso**: Gestão de estado através de TaskUpdate
 - **Garantia de Qualidade**: Estratégia de testes e métodos de verificação
-- **Processo de Aprovação**: Apresentação do plano com exit_plan_mode e espera por aprovação explícita
+- **Processo de Aprovação**: Apresentação do plano com ExitPlanMode e espera por aprovação explícita
 
 ### Observações
 
@@ -109,7 +109,7 @@ Inicia o modo de planejamento pré-implementação para estabelecer estratégias
 
 **Restrições Técnicas**
 
-- Não confiar no valor de retorno da ferramenta `exit_plan_mode`
+- Não confiar no valor de retorno da ferramenta `ExitPlanMode`
 - Julgamento do processo de aprovação pela manifestação explícita da vontade do usuário
 - Funcionalidade diferente do plan mode da CLI
 
@@ -129,6 +129,6 @@ Inicia o modo de planejamento pré-implementação para estabelecer estratégias
 # 1. Plan Mode inicia automaticamente
 # 2. Análise de requisitos e seleção de tecnologia
 # 3. Estruturação dos passos de implementação
-# 4. Apresentação do plano com exit_plan_mode
+# 4. Apresentação do plano com ExitPlanMode
 # 5. Iniciar implementação após aprovação
 ```

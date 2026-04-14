@@ -10,7 +10,7 @@ User Experience Score: B+ (78/100)
 
 ⏱️ Core Web Vitals
 ├─ LCP (Loading): 2.3s [Good] Target<2.5s ✅
-├─ FID (Interaction): 95ms [Good] Target<100ms ✅
+├─ INP (Interaction): 95ms [Good] Target<200ms ✅
 ├─ CLS (Visual Stability): 0.08 [Good] Target<0.1 ✅
 ├─ FCP (First Paint): 1.8s [Good] Target<1.8s ✅
 ├─ TTFB (Server): 450ms [Needs Work] Target<200ms ⚠️
@@ -122,7 +122,7 @@ Improvement ROI = (Time Savings + Quality Improvement) ÷ Implementation Effort
 | Metric                     | Improvement | Perceived Speed | User Satisfaction    | Implementation Effort |
 | -------------------------- | ----------- | --------------- | -------------------- | --------------------- |
 | **LCP (Loading)**          | -0.5s       | +30%            | -7% bounce rate      | 16h                   |
-| **FID (Interaction)**      | -50ms       | +15%            | -20% stress          | 8h                    |
+| **INP (Interaction)**      | -50ms       | +15%            | -20% stress          | 8h                    |
 | **CLS (Visual Stability)** | -0.05       | +10%            | -50% misclicks       | 4h                    |
 | **TTFB (Server)**          | -200ms      | +25%            | +40% perceived speed | 24h                   |
 | **TTI (Interactive)**      | -1.0s       | +35%            | +15% completion rate | 32h                   |

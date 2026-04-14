@@ -144,7 +144,7 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 
 ```bash
 # Investigación de tendencias tecnológicas
-"Investigar tendencias de frameworks JavaScript 2024 usando Task"
+"Investigar tendencias de frameworks JavaScript 2026 usando Task"
 
 # Análisis de competidores
 "Investigar especificaciones de API de servicios competidores usando Task, incluyendo tabla de comparación de características"

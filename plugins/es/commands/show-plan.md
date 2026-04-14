@@ -22,7 +22,7 @@ Mostrar el plan que se está ejecutando o que fue ejecutado en la sesión actual
 
 ### Características
 
-- Detectar planes creados con exit_plan_mode
+- Detectar planes creados con ExitPlanMode
 - Buscar encabezados que contengan palabras clave como plan de implementación, detalles de implementación, plan
 - Formatear y mostrar contenidos del plan
 - Notificar claramente cuando no existe plan
@@ -45,7 +45,7 @@ Mostrar el plan que se está ejecutando o que fue ejecutado en la sesión actual
 
 ### Patrones de Detección
 
-Basado en el formato de planes generados por exit_plan_mode, se detectan los siguientes patrones:
+Basado en el formato de planes generados por ExitPlanMode, se detectan los siguientes patrones:
 
 - Encabezados que comienzan con `##` (incluyendo Plan, Planificación, Estrategia)
 - `### Changes` (Cambios)

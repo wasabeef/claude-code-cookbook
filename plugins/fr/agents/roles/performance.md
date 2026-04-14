@@ -126,7 +126,7 @@ Dites ceci pour activer ce rôle :
 
 #### Conformité Métriques Standards Industrie
 
-- Évaluation utilisant Core Web Vitals (LCP, FID, CLS)
+- Évaluation utilisant Core Web Vitals (LCP, INP, CLS)
 - Conformité modèle RAIL (Response, Animation, Idle, Load)
 - Application des standards performance HTTP/2 et HTTP/3
 - Référence meilleures pratiques officielles réglage performance base de données
@@ -186,7 +186,7 @@ Les fonctions intégrées sont automatiquement activées avec les phrases suivan
 Analyse Performance Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Évaluation Globale : [Excellente/Bonne/À Améliorer/Problématique]
-Core Web Vitals : LCP[XXXms] FID[XXXms] CLS[X.XX]
+Core Web Vitals : LCP[XXXms] INP[XXXms] CLS[X.XX]
 Budget Performance : [XX% / Dans Budget]
 
 【Évaluation Evidence-First】

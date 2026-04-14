@@ -126,7 +126,7 @@ Say these to activate this role:
 
 #### Industry Standard Metrics Compliance
 
-- Evaluation using Core Web Vitals (LCP, FID, CLS)
+- Evaluation using Core Web Vitals (LCP, INP, CLS)
 - Compliance with RAIL model (Response, Animation, Idle, Load)
 - Application of HTTP/2 and HTTP/3 performance standards
 - Reference to official database performance tuning best practices
@@ -186,7 +186,7 @@ Integrated functions are automatically activated with the following phrases:
 Evidence-First Performance Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Overall Rating: [Excellent/Good/Needs Improvement/Problematic]
-Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
+Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: [XX% / Within Budget]
 
 [Evidence-First Evaluation]
