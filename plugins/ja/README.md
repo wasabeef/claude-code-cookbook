@@ -105,14 +105,7 @@ Claude Code をもっと便利に使うための設定集です。
 
 | 実行スクリプト                 | イベント                     | 説明                                                                                       |
 | :----------------------------- | :--------------------------- | :----------------------------------------------------------------------------------------- |
-| `deny-check.sh`                | `PreToolUse`                 | `rm -rf /` のような危険なコマンドの実行を未然に防ぐ。                                      |
-| `check-ai-commit.sh`           | `PreToolUse`                 | `git commit` でコミットメッセージに AI の署名が含まれている場合にエラーを出す。            |
 | `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | ファイル編集前に元の権限を保存し、編集後に復元する。Claude Code が権限を変更するのを防ぐ。 |
-| `ja-space-format.sh`           | `PostToolUse`                | ファイル保存時に、日本語と英数字の間のスペースを自動で整形する。                           |
-| `auto-comment.sh`              | `PostToolUse`                | 新規ファイル作成時や大幅な編集時に、docstring や API ドキュメントの追加を促す。            |
-| `notify-waiting`               | `Notification`               | Claude がユーザーの確認を待っている時に、macOS の通知センターでお知らせする。              |
-| `check-continue.sh`            | `Stop`                       | タスク完了時に、継続可能なタスクがないか確認する。                                         |
-| `(osascript)`                  | `Stop`                       | 全タスク完了時に、macOS の通知センターで完了を知らせる。                                   |
 
 ---
 
@@ -203,7 +196,7 @@ flowchart TB
 
 ```bash
 # @ から始めてエージェントを検索
-@agent-cook:roles:frontend
+@agent-cook:frontend
 
 # ロールコマンド経由でも使用可能
 /cook:role frontend

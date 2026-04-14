@@ -104,14 +104,7 @@ Configure no `settings.json` para automatizar tarefas de desenvolvimento.
 
 | Script de Execução             | Evento                       | Descrição                                                                                                                |
 | :----------------------------- | :--------------------------- | :----------------------------------------------------------------------------------------------------------------------- |
-| `deny-check.sh`                | `PreToolUse`                 | Previne a execução de comandos perigosos como `rm -rf /`.                                                                |
-| `check-ai-commit.sh`           | `PreToolUse`                 | Gera erro quando `git commit` contém assinatura de IA na mensagem de commit.                                             |
 | `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | Salva permissões originais antes da edição de arquivo e restaura após edição. Previne Claude Code de alterar permissões. |
-| `ja-space-format.sh`           | `PostToolUse`                | Formata automaticamente espaços entre texto e caracteres alfanuméricos ao salvar arquivo.                                |
-| `auto-comment.sh`              | `PostToolUse`                | Solicita adição de docstring ou documentação API ao criar novo arquivo ou fazer edições significativas.                  |
-| `notify-waiting`               | `Notification`               | Notifica via centro de notificações do macOS quando Claude está aguardando confirmação do usuário.                       |
-| `check-continue.sh`            | `Stop`                       | Verifica se há tarefas que podem continuar ao concluir tarefa.                                                           |
-| `(osascript)`                  | `Stop`                       | Notifica conclusão via centro de notificações do macOS quando todas as tarefas são concluídas.                           |
 
 ---
 
@@ -202,7 +195,7 @@ Após a instalação, comandos e agentes são chamados com o prefixo `cook-pt:`:
 
 ```bash
 # Buscar agentes começando com @
-@agent-cook-pt:roles:frontend
+@agent-cook-pt:frontend
 
 # Também pode usar via comando de papel
 /cook-pt:role frontend

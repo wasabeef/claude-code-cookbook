@@ -104,14 +104,7 @@ Configure en `settings.json` para automatizar tareas de desarrollo.
 
 | Script de Ejecución            | Evento                       | Descripción                                                                                                                 |
 | :----------------------------- | :--------------------------- | :-------------------------------------------------------------------------------------------------------------------------- |
-| `deny-check.sh`                | `PreToolUse`                 | Previene la ejecución de comandos peligrosos como `rm -rf /`.                                                               |
-| `check-ai-commit.sh`           | `PreToolUse`                 | Genera error cuando `git commit` contiene firma de IA en el mensaje de commit.                                              |
 | `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | Guarda permisos originales antes de editar archivo y restaura después de edición. Previene que Claude Code cambie permisos. |
-| `ja-space-format.sh`           | `PostToolUse`                | Formatea automáticamente espacios entre texto japonés y caracteres alfanuméricos al guardar archivo.                        |
-| `auto-comment.sh`              | `PostToolUse`                | Solicita adición de docstring o documentación API al crear nuevo archivo o hacer ediciones significativas.                  |
-| `notify-waiting`               | `Notification`               | Notifica vía centro de notificaciones de macOS cuando Claude está esperando confirmación del usuario.                       |
-| `check-continue.sh`            | `Stop`                       | Verifica si hay tareas que pueden continuar al completar tarea.                                                             |
-| `(osascript)`                  | `Stop`                       | Notifica finalización vía centro de notificaciones de macOS cuando todas las tareas están completas.                        |
 
 ---
 
@@ -202,7 +195,7 @@ Después de la instalación, los comandos y agentes se invocan con el prefijo `c
 
 ```bash
 # Buscar agentes comenzando con @
-@agent-cook-es:roles:frontend
+@agent-cook-es:frontend
 
 # También se puede usar mediante comando de rol
 /cook-es:role frontend

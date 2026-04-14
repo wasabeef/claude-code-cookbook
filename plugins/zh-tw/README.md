@@ -103,14 +103,7 @@
 
 | 執行腳本                       | 事件                         | 說明                                                            |
 | :----------------------------- | :--------------------------- | :-------------------------------------------------------------- |
-| `deny-check.sh`                | `PreToolUse`                 | 防止執行 `rm -rf /` 等危險指令。                                |
-| `check-ai-commit.sh`           | `PreToolUse`                 | 當 `git commit` 的提交訊息中包含 AI 簽名時出錯。                |
 | `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | 編輯檔案前儲存原始權限，編輯後復原。防止 Claude Code 變更權限。 |
-| `ja-space-format.sh`           | `PostToolUse`                | 儲存檔案時自動調整日語和英數字之間的空格。                      |
-| `auto-comment.sh`              | `PostToolUse`                | 在建立新檔案或大幅編輯時，提示新增文件字串和 API 文件。         |
-| `notify-waiting`               | `Notification`               | 當 Claude 等待使用者確認時，透過 macOS 通知中心通知。           |
-| `check-continue.sh`            | `Stop`                       | 任務完成時，檢查是否有可繼續的任務。                            |
-| `(osascript)`                  | `Stop`                       | 所有任務完成時，透過 macOS 通知中心通知完成。                   |
 
 ---
 
@@ -201,7 +194,7 @@ flowchart TB
 
 ```bash
 # 從 @ 開始搜尋代理
-@agent-cook-zh-tw:roles:frontend
+@agent-cook-zh-tw:frontend
 
 # 也可以透過角色指令使用
 /cook-zh-tw:role frontend

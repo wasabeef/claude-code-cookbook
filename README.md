@@ -18,7 +18,7 @@ Claude Code Cookbook provides a plugin system that extends Claude Code with:
 
 ### Commands
 
-67+ slash commands organized by category. Execute by typing `/` followed by the command name.
+39 slash commands organized by category. Execute by typing `/` followed by the command name.
 
 #### Pull Request Management
 
@@ -72,7 +72,7 @@ Claude Code Cookbook provides a plugin system that extends Claude Code with:
 | `/update-flutter-deps` | Safely update dependencies in Flutter projects |
 | `/update-rust-deps`    | Safely update dependencies in Rust projects    |
 
-**See your language plugin for the complete list of 67+ commands with detailed documentation.**
+**See your language plugin for the complete list of 39 commands with detailed documentation.**
 
 ### Roles
 
@@ -201,7 +201,7 @@ After installation, commands and agents are invoked with a plugin-specific prefi
 /cook:check-fact
 
 # Agents
-@agent-cook:roles:frontend
+@agent-cook:frontend
 /cook:role security
 
 # Explore available commands
@@ -214,7 +214,7 @@ After installation, commands and agents are invoked with a plugin-specific prefi
 
 - **Multilingual**: 8 language plugins with native translations
 - **Production-ready**: Battle-tested commands and roles
-- **Comprehensive**: 67+ commands covering entire development workflow
+- **Comprehensive**: 39 commands covering entire development workflow
 - **Extensible**: Easy to add your own commands and roles
 - **Safe**: Built-in safety hooks prevent dangerous operations
 - **Efficient**: Reduce repetitive tasks and context switching

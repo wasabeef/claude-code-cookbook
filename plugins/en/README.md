@@ -103,14 +103,7 @@ Configure in `settings.json` to automate development work.
 
 | Execution Script               | Event                        | Description                                                                                                             |
 | :----------------------------- | :--------------------------- | :---------------------------------------------------------------------------------------------------------------------- |
-| `deny-check.sh`                | `PreToolUse`                 | Prevent execution of dangerous commands like `rm -rf /`.                                                                |
-| `check-ai-commit.sh`           | `PreToolUse`                 | Error when commit messages include AI signatures in `git commit`.                                                       |
 | `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | Save original permissions before file editing and restore after editing. Prevent Claude Code from changing permissions. |
-| `ja-space-format.sh`           | `PostToolUse`                | Automatically format spaces between Japanese and alphanumeric characters when saving files.                             |
-| `auto-comment.sh`              | `PostToolUse`                | Prompt for addition of docstrings and API documentation when creating new files or making major edits.                  |
-| `notify-waiting`               | `Notification`               | Notify via macOS Notification Center when Claude is waiting for user confirmation.                                      |
-| `check-continue.sh`            | `Stop`                       | Check for continuable tasks when tasks are completed.                                                                   |
-| `(osascript)`                  | `Stop`                       | Notify completion via macOS Notification Center when all tasks are completed.                                           |
 
 ---
 
@@ -201,7 +194,7 @@ After installation, commands and agents are called with the `cook-en:` prefix:
 
 ```bash
 # Search for agents starting with @
-@agent-cook-en:roles:frontend
+@agent-cook-en:frontend
 
 # Can also use via role command
 /cook-en:role frontend

@@ -103,14 +103,7 @@ Configurés dans `settings.json`, ils permettent d'automatiser le travail de dé
 
 | Script d'exécution             | Événement                    | Description                                                                                                                              |
 | :----------------------------- | :--------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| `deny-check.sh`                | `PreToolUse`                 | Prévenir l'exécution de commandes dangereuses comme `rm -rf /`.                                                                          |
-| `check-ai-commit.sh`           | `PreToolUse`                 | Générer une erreur si le message de commit contient une signature IA lors de `git commit`.                                               |
 | `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | Sauvegarder les permissions originales avant édition de fichier et les restaurer après. Empêcher Claude Code de changer les permissions. |
-| `ja-space-format.sh`           | `PostToolUse`                | Formater automatiquement les espaces entre le japonais et les caractères alphanumériques lors de la sauvegarde de fichier.               |
-| `auto-comment.sh`              | `PostToolUse`                | Encourager l'ajout de docstring ou documentation API lors de création de nouveaux fichiers ou éditions importantes.                      |
-| `notify-waiting`               | `Notification`               | Notifier via le centre de notifications macOS lorsque Claude attend la confirmation de l'utilisateur.                                    |
-| `check-continue.sh`            | `Stop`                       | Vérifier s'il n'y a pas de tâches continuables lors de la completion de tâche.                                                           |
-| `(osascript)`                  | `Stop`                       | Notifier la completion via le centre de notifications macOS lorsque toutes les tâches sont terminées.                                    |
 
 ---
 
@@ -201,7 +194,7 @@ Après l'installation, les commandes et agents sont appelés avec le préfixe `c
 
 ```bash
 # Rechercher des agents commençant par @
-@agent-cook-fr:roles:frontend
+@agent-cook-fr:frontend
 
 # Peut également être utilisé via la commande role
 /cook-fr:role frontend
