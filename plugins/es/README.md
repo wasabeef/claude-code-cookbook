@@ -114,30 +114,30 @@ Configure en `settings.json` para automatizar tareas de desarrollo.
 
 ```mermaid
 flowchart TB
-    Start([Verificar Tarea]) --> PRList["/pr-list<br/>Lista PRs Abiertos"]
-    Start --> PRIssue["/pr-issue<br/>Lista Issues Abiertas"]
+    Start([Verificar Tarea]) --> PRList["/cook-es:pr-list<br/>Lista PRs Abiertos"]
+    Start --> PRIssue["/cook-es:pr-issue<br/>Lista Issues Abiertas"]
 
     PRList --> TaskType{¿Tipo?}
     PRIssue --> TaskType
 
-    TaskType -->|Nueva Funcionalidad| Plan["/spec<br/>Definición de Requisitos ・Diseño"]
-    TaskType -->|Corrección de Bug| Fix["/fix-error<br/>Análisis de Error"]
-    TaskType -->|Refactorización| Refactor["/refactor<br/>Mejora"]
-    TaskType -->|Revisión| Review["/pr-review<br/>Revisión"]
+    TaskType -->|Nueva Funcionalidad| Plan["/cook-es:spec<br/>Definición de Requisitos ・Diseño"]
+    TaskType -->|Corrección de Bug| Fix["/cook-es:fix-error<br/>Análisis de Error"]
+    TaskType -->|Refactorización| Refactor["/cook-es:refactor<br/>Mejora"]
+    TaskType -->|Revisión| Review["/cook-es:pr-review<br/>Revisión"]
 
-    Plan --> Design["/role architect<br/>/role-debate<br/>Consulta de Diseño"]
+    Plan --> Design["/cook-es:role architect<br/>/cook-es:role-debate<br/>Consulta de Diseño"]
     Design --> Implementation[Implementación ・Prueba]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> Check["/smart-review<br/>Verificación de Calidad"]
-    Check --> Commit["/semantic-commit<br/>Commit por Unidad de Objetivo"]
-    Commit --> PR["/pr-create<br/>Creación Automática de PR"]
-    PR --> CI["/check-github-ci<br/>Verificación de Estado CI"]
+    Implementation --> Check["/cook-es:smart-review<br/>Verificación de Calidad"]
+    Check --> Commit["/cook-es:semantic-commit<br/>Commit por Unidad de Objetivo"]
+    Commit --> PR["/cook-es:pr-create<br/>Creación Automática de PR"]
+    PR --> CI["/cook-es:check-github-ci<br/>Verificación de Estado CI"]
 
     CI --> Status{¿Hay Problema?}
-    Status -->|Sí| Feedback["Responder Corrección<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|Sí| Feedback["Responder Corrección<br/>/cook-es:pr-feedback<br/>/cook-es:fix-error"]
     Status -->|No| End([Concluido])
 
     Feedback --> Implementation

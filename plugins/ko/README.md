@@ -114,30 +114,30 @@ Claude Code 를 더 편리하게 사용하기 위한 설정 모음입니다.
 
 ```mermaid
 flowchart TB
-    Start([작업 확인]) --> PRList["/pr-list<br/>오픈 PR 목록"]
-    Start --> PRIssue["/pr-issue<br/>오픈 Issue 목록"]
+    Start([작업 확인]) --> PRList["/cook-ko:pr-list<br/>오픈 PR 목록"]
+    Start --> PRIssue["/cook-ko:pr-issue<br/>오픈 Issue 목록"]
 
     PRList --> TaskType{종류는?}
     PRIssue --> TaskType
 
-    TaskType -->|새 기능| Plan["/spec<br/>요구사항 정의·설계"]
-    TaskType -->|버그 수정| Fix["/fix-error<br/>에러 분석"]
-    TaskType -->|리팩토링| Refactor["/refactor<br/>개선"]
-    TaskType -->|리뷰| Review["/pr-review<br/>리뷰"]
+    TaskType -->|새 기능| Plan["/cook-ko:spec<br/>요구사항 정의·설계"]
+    TaskType -->|버그 수정| Fix["/cook-ko:fix-error<br/>에러 분석"]
+    TaskType -->|리팩토링| Refactor["/cook-ko:refactor<br/>개선"]
+    TaskType -->|리뷰| Review["/cook-ko:pr-review<br/>리뷰"]
 
-    Plan --> Design["/role architect<br/>/role-debate<br/>설계 상담"]
+    Plan --> Design["/cook-ko:role architect<br/>/cook-ko:role-debate<br/>설계 상담"]
     Design --> Implementation[구현·테스트]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> Check["/smart-review<br/>품질 체크"]
-    Check --> Commit["/semantic-commit<br/>목적별로 커밋"]
-    Commit --> PR["/pr-create<br/>PR 자동 생성"]
-    PR --> CI["/check-github-ci<br/>CI 상태 확인"]
+    Implementation --> Check["/cook-ko:smart-review<br/>품질 체크"]
+    Check --> Commit["/cook-ko:semantic-commit<br/>목적별로 커밋"]
+    Commit --> PR["/cook-ko:pr-create<br/>PR 자동 생성"]
+    PR --> CI["/cook-ko:check-github-ci<br/>CI 상태 확인"]
 
     CI --> Status{문제 있음?}
-    Status -->|예| Feedback["수정 대응<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|예| Feedback["수정 대응<br/>/cook-ko:pr-feedback<br/>/cook-ko:fix-error"]
     Status -->|아니오| End([완료])
 
     Feedback --> Implementation

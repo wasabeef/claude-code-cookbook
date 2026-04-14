@@ -113,30 +113,30 @@
 
 ```mermaid
 flowchart TB
-    Start([任務確認]) --> PRList["/pr-list<br/>開放 PR 清單"]
-    Start --> PRIssue["/pr-issue<br/>開放 Issue 清單"]
+    Start([任務確認]) --> PRList["/cook-zh-tw:pr-list<br/>開放 PR 清單"]
+    Start --> PRIssue["/cook-zh-tw:pr-issue<br/>開放 Issue 清單"]
 
     PRList --> TaskType{類型是？}
     PRIssue --> TaskType
 
-    TaskType -->|新功能| Plan["/spec<br/>需求定義・設計"]
-    TaskType -->|Bug 修復| Fix["/fix-error<br/>錯誤分析"]
-    TaskType -->|重構| Refactor["/refactor<br/>改進"]
-    TaskType -->|評審| Review["/pr-review<br/>評審"]
+    TaskType -->|新功能| Plan["/cook-zh-tw:spec<br/>需求定義・設計"]
+    TaskType -->|Bug 修復| Fix["/cook-zh-tw:fix-error<br/>錯誤分析"]
+    TaskType -->|重構| Refactor["/cook-zh-tw:refactor<br/>改進"]
+    TaskType -->|評審| Review["/cook-zh-tw:pr-review<br/>評審"]
 
-    Plan --> Design["/role architect<br/>/role-debate<br/>設計諮詢"]
+    Plan --> Design["/cook-zh-tw:role architect<br/>/cook-zh-tw:role-debate<br/>設計諮詢"]
     Design --> Implementation[實作・測試]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> Check["/smart-review<br/>品質檢查"]
-    Check --> Commit["/semantic-commit<br/>按目的單元提交"]
-    Commit --> PR["/pr-create<br/>自動建立 PR"]
-    PR --> CI["/check-github-ci<br/>CI 狀態確認"]
+    Implementation --> Check["/cook-zh-tw:smart-review<br/>品質檢查"]
+    Check --> Commit["/cook-zh-tw:semantic-commit<br/>按目的單元提交"]
+    Commit --> PR["/cook-zh-tw:pr-create<br/>自動建立 PR"]
+    PR --> CI["/cook-zh-tw:check-github-ci<br/>CI 狀態確認"]
 
     CI --> Status{有問題？}
-    Status -->|是| Feedback["修正對應<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|是| Feedback["修正對應<br/>/cook-zh-tw:pr-feedback<br/>/cook-zh-tw:fix-error"]
     Status -->|否| End([完成])
 
     Feedback --> Implementation

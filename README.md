@@ -120,30 +120,30 @@ Typical development flow using Claude Code Cookbook commands:
 
 ```mermaid
 flowchart TB
-    Start([Task Confirmation]) --> PRList["/pr-list<br/>Open PR List"]
-    Start --> PRIssue["/pr-issue<br/>Open Issue List"]
+    Start([Task Confirmation]) --> PRList["/cook:pr-list<br/>Open PR List"]
+    Start --> PRIssue["/cook:pr-issue<br/>Open Issue List"]
 
     PRList --> TaskType{Type?}
     PRIssue --> TaskType
 
-    TaskType -->|New Feature| Plan["/spec<br/>Requirements & Design"]
-    TaskType -->|Bug Fix| Fix["/fix-error<br/>Error Analysis"]
-    TaskType -->|Refactoring| Refactor["/refactor<br/>Improvement"]
-    TaskType -->|Review| Review["/pr-review<br/>Review"]
+    TaskType -->|New Feature| Plan["/cook:spec<br/>Requirements & Design"]
+    TaskType -->|Bug Fix| Fix["/cook:fix-error<br/>Error Analysis"]
+    TaskType -->|Refactoring| Refactor["/cook:refactor<br/>Improvement"]
+    TaskType -->|Review| Review["/cook:pr-review<br/>Review"]
 
-    Plan --> Design["/role architect<br/>/role-debate<br/>Design Consultation"]
+    Plan --> Design["/cook:role architect<br/>/cook:role-debate<br/>Design Consultation"]
     Design --> Implementation[Implementation & Testing]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> Check["/smart-review<br/>Quality Check"]
-    Check --> Commit["/semantic-commit<br/>Commit by Purpose"]
-    Commit --> PR["/pr-create<br/>Auto PR Creation"]
-    PR --> CI["/check-github-ci<br/>CI Status Check"]
+    Implementation --> Check["/cook:smart-review<br/>Quality Check"]
+    Check --> Commit["/cook:semantic-commit<br/>Commit by Purpose"]
+    Commit --> PR["/cook:pr-create<br/>Auto PR Creation"]
+    PR --> CI["/cook:check-github-ci<br/>CI Status Check"]
 
     CI --> Status{Issues?}
-    Status -->|Yes| Feedback["Fix Response<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|Yes| Feedback["Fix Response<br/>/cook:pr-feedback<br/>/cook:fix-error"]
     Status -->|No| End([Complete])
 
     Feedback --> Implementation

@@ -113,30 +113,30 @@ Configure in `settings.json` to automate development work.
 
 ```mermaid
 flowchart TB
-    Start([Task Confirmation]) --> PRList["/pr-list<br/>Open PR List"]
-    Start --> PRIssue["/pr-issue<br/>Open Issue List"]
+    Start([Task Confirmation]) --> PRList["/cook-en:pr-list<br/>Open PR List"]
+    Start --> PRIssue["/cook-en:pr-issue<br/>Open Issue List"]
 
     PRList --> TaskType{Type?}
     PRIssue --> TaskType
 
-    TaskType -->|New Feature| Plan["/spec<br/>Requirements Definition & Design"]
-    TaskType -->|Bug Fix| Fix["/fix-error<br/>Error Analysis"]
-    TaskType -->|Refactoring| Refactor["/refactor<br/>Improvement"]
-    TaskType -->|Review| Review["/pr-review<br/>Review"]
+    TaskType -->|New Feature| Plan["/cook-en:spec<br/>Requirements Definition & Design"]
+    TaskType -->|Bug Fix| Fix["/cook-en:fix-error<br/>Error Analysis"]
+    TaskType -->|Refactoring| Refactor["/cook-en:refactor<br/>Improvement"]
+    TaskType -->|Review| Review["/cook-en:pr-review<br/>Review"]
 
-    Plan --> Design["/role architect<br/>/role-debate<br/>Design Consultation"]
+    Plan --> Design["/cook-en:role architect<br/>/cook-en:role-debate<br/>Design Consultation"]
     Design --> Implementation[Implementation & Testing]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> Check["/smart-review<br/>Quality Check"]
-    Check --> Commit["/semantic-commit<br/>Commit by Purpose"]
-    Commit --> PR["/pr-create<br/>Automatic PR Creation"]
-    PR --> CI["/check-github-ci<br/>CI Status Check"]
+    Implementation --> Check["/cook-en:smart-review<br/>Quality Check"]
+    Check --> Commit["/cook-en:semantic-commit<br/>Commit by Purpose"]
+    Commit --> PR["/cook-en:pr-create<br/>Automatic PR Creation"]
+    PR --> CI["/cook-en:check-github-ci<br/>CI Status Check"]
 
     CI --> Status{Any Issues?}
-    Status -->|Yes| Feedback["Fix Response<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|Yes| Feedback["Fix Response<br/>/cook-en:pr-feedback<br/>/cook-en:fix-error"]
     Status -->|No| End([Completion])
 
     Feedback --> Implementation

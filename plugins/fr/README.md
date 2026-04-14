@@ -113,30 +113,30 @@ Configurés dans `settings.json`, ils permettent d'automatiser le travail de dé
 
 ```mermaid
 flowchart TB
-    Start([Vérification des tâches]) --> PRList["/pr-list<br/>Liste des PR ouvertes"]
-    Start --> PRIssue["/pr-issue<br/>Liste des Issues ouvertes"]
+    Start([Vérification des tâches]) --> PRList["/cook-fr:pr-list<br/>Liste des PR ouvertes"]
+    Start --> PRIssue["/cook-fr:pr-issue<br/>Liste des Issues ouvertes"]
 
     PRList --> TaskType{Type ?}
     PRIssue --> TaskType
 
-    TaskType -->|Nouvelle fonctionnalité| Plan["/spec<br/>Définition des exigences ・Conception"]
-    TaskType -->|Correction de bug| Fix["/fix-error<br/>Analyse d'erreur"]
-    TaskType -->|Refactorisation| Refactor["/refactor<br/>Amélioration"]
-    TaskType -->|Révision| Review["/pr-review<br/>Révision"]
+    TaskType -->|Nouvelle fonctionnalité| Plan["/cook-fr:spec<br/>Définition des exigences ・Conception"]
+    TaskType -->|Correction de bug| Fix["/cook-fr:fix-error<br/>Analyse d'erreur"]
+    TaskType -->|Refactorisation| Refactor["/cook-fr:refactor<br/>Amélioration"]
+    TaskType -->|Révision| Review["/cook-fr:pr-review<br/>Révision"]
 
-    Plan --> Design["/role architect<br/>/role-debate<br/>Consultation de conception"]
+    Plan --> Design["/cook-fr:role architect<br/>/cook-fr:role-debate<br/>Consultation de conception"]
     Design --> Implementation[Implémentation ・Tests]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> Check["/smart-review<br/>Vérification de qualité"]
-    Check --> Commit["/semantic-commit<br/>Commit par unité d'objectif"]
-    Commit --> PR["/pr-create<br/>Création automatique de PR"]
-    PR --> CI["/check-github-ci<br/>Vérification de l'état CI"]
+    Implementation --> Check["/cook-fr:smart-review<br/>Vérification de qualité"]
+    Check --> Commit["/cook-fr:semantic-commit<br/>Commit par unité d'objectif"]
+    Commit --> PR["/cook-fr:pr-create<br/>Création automatique de PR"]
+    PR --> CI["/cook-fr:check-github-ci<br/>Vérification de l'état CI"]
 
     CI --> Status{Problème ?}
-    Status -->|Oui| Feedback["Réponse de correction<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|Oui| Feedback["Réponse de correction<br/>/cook-fr:pr-feedback<br/>/cook-fr:fix-error"]
     Status -->|Non| End([Terminé])
 
     Feedback --> Implementation

@@ -115,30 +115,30 @@ Claude Code をもっと便利に使うための設定集です。
 
 ```mermaid
 flowchart TB
-    Start([タスク確認]) --> PRList["/pr-list<br/>オープン PR 一覧"]
-    Start --> PRIssue["/pr-issue<br/>オープン Issue 一覧"]
+    Start([タスク確認]) --> PRList["/cook:pr-list<br/>オープン PR 一覧"]
+    Start --> PRIssue["/cook:pr-issue<br/>オープン Issue 一覧"]
 
     PRList --> TaskType{種類は？}
     PRIssue --> TaskType
 
-    TaskType -->|新機能| Plan["/spec<br/>要件定義・設計"]
-    TaskType -->|バグ修正| Fix["/fix-error<br/>エラー分析"]
-    TaskType -->|リファクタリング| Refactor["/refactor<br/>改善"]
-    TaskType -->|レビュー| Review["/pr-review<br/>レビュー"]
+    TaskType -->|新機能| Plan["/cook:spec<br/>要件定義・設計"]
+    TaskType -->|バグ修正| Fix["/cook:fix-error<br/>エラー分析"]
+    TaskType -->|リファクタリング| Refactor["/cook:refactor<br/>改善"]
+    TaskType -->|レビュー| Review["/cook:pr-review<br/>レビュー"]
 
-    Plan --> Design["/role architect<br/>/role-debate<br/>設計相談"]
+    Plan --> Design["/cook:role architect<br/>/cook:role-debate<br/>設計相談"]
     Design --> Implementation[実装・テスト]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> Check["/smart-review<br/>品質チェック"]
-    Check --> Commit["/semantic-commit<br/>目的単位でコミット"]
-    Commit --> PR["/pr-create<br/>PR 自動作成"]
-    PR --> CI["/check-github-ci<br/>CI 状況確認"]
+    Implementation --> Check["/cook:smart-review<br/>品質チェック"]
+    Check --> Commit["/cook:semantic-commit<br/>目的単位でコミット"]
+    Commit --> PR["/cook:pr-create<br/>PR 自動作成"]
+    PR --> CI["/cook:check-github-ci<br/>CI 状況確認"]
 
     CI --> Status{問題あり？}
-    Status -->|はい| Feedback["修正対応<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|はい| Feedback["修正対応<br/>/cook:pr-feedback<br/>/cook:fix-error"]
     Status -->|いいえ| End([完了])
 
     Feedback --> Implementation
