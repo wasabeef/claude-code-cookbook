@@ -28,7 +28,7 @@ Claude Code Cookbook provides a plugin system that extends Claude Code with:
 | `/pr-issue`       | Display prioritized list of open Issues in current repository                        |
 | `/pr-create`      | Auto-generate PR from Git changes with detailed description and optimal branch setup |
 | `/pr-review`      | Systematic code quality and architecture review for Pull Requests                    |
-| `/pr-feedback`    | Efficiently respond to PR review comments with 3-stage error analysis                |
+| `/pr-fix`    | Efficiently respond to PR review comments with 3-stage error analysis                |
 | `/pr-auto-update` | Automatically update PR description and labels based on changes                      |
 
 #### Code Quality & Refactoring
@@ -50,7 +50,7 @@ Claude Code Cookbook provides a plugin system that extends Claude Code with:
 | `/explain-code`    | Clearly explain functionality and logic of selected code                |
 | `/commit-message`  | Generate commit messages based on changes                               |
 | `/semantic-commit` | Split large changes into meaningful units with semantic commit messages |
-| `/check-github-ci` | Monitor GitHub Actions CI status and track until completion             |
+| `/pr-checks` | Monitor GitHub Actions CI status and track until completion             |
 | `/screenshot`      | Capture and analyze screen screenshots                                  |
 
 #### Planning & Analysis
@@ -140,10 +140,10 @@ flowchart TB
     Implementation --> Check["/cook:smart-review<br/>Quality Check"]
     Check --> Commit["/cook:semantic-commit<br/>Commit by Purpose"]
     Commit --> PR["/cook:pr-create<br/>Auto PR Creation"]
-    PR --> CI["/cook:check-github-ci<br/>CI Status Check"]
+    PR --> CI["/cook:pr-checks<br/>CI Status Check"]
 
     CI --> Status{Issues?}
-    Status -->|Yes| Feedback["Fix Response<br/>/cook:pr-feedback<br/>/cook:fix-error"]
+    Status -->|Yes| Feedback["Fix Response<br/>/cook:pr-fix<br/>/cook:fix-error"]
     Status -->|No| End([Complete])
 
     Feedback --> Implementation
@@ -241,6 +241,6 @@ After installation, commands and agents are invoked with a plugin-specific prefi
 /cook:pr-create
 
 # 6. Monitor CI and respond to feedback
-/cook:check-github-ci
-/cook:pr-feedback
+/cook:pr-checks
+/cook:pr-fix
 ```

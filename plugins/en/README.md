@@ -27,7 +27,7 @@ Stored as Markdown files in the `/commands` directory. Execute by entering the f
 | `/analyze-dependencies` | Analyze project dependencies and visualize circular dependencies and structural issues.                                |
 | `/analyze-performance`  | Analyze application performance issues and propose improvements from a technical debt perspective.                     |
 | `/check-fact`           | Check the accuracy of given information by referring to the project's codebase and documentation.                      |
-| `/check-github-ci`      | Monitor GitHub Actions CI status and track until completion.                                                           |
+| `/pr-checks`      | Monitor GitHub Actions CI status and track until completion.                                                           |
 | `/check-prompt`         | Review the current prompt content and suggest improvements.                                                            |
 | `/commit-message`       | Generate only commit messages based on changes.                                                                        |
 | `/context7`             | Perform context management using Context7 MCP.                                                                         |
@@ -38,7 +38,7 @@ Stored as Markdown files in the `/commands` directory. Execute by entering the f
 | `/plan`                 | Activate implementation planning mode before implementation and formulate detailed implementation strategies.          |
 | `/pr-auto-update`       | Automatically update Pull Request content (description, labels).                                                       |
 | `/pr-create`            | Enable efficient Pull Request workflows with automatic PR creation based on Git change analysis.                       |
-| `/pr-feedback`          | Efficiently respond to Pull Request review comments and aim for root solutions with a 3-stage error analysis approach. |
+| `/pr-fix`          | Efficiently respond to Pull Request review comments and aim for root solutions with a 3-stage error analysis approach. |
 | `/pr-issue`             | Display a prioritized list of open Issues in the current repository.                                                   |
 | `/pr-list`              | Display a prioritized list of open PRs in the current repository.                                                      |
 | `/pr-review`            | Ensure code quality and architectural soundness through systematic review of Pull Requests.                            |
@@ -133,10 +133,10 @@ flowchart TB
     Implementation --> Check["/cook-en:smart-review<br/>Quality Check"]
     Check --> Commit["/cook-en:semantic-commit<br/>Commit by Purpose"]
     Commit --> PR["/cook-en:pr-create<br/>Automatic PR Creation"]
-    PR --> CI["/cook-en:check-github-ci<br/>CI Status Check"]
+    PR --> CI["/cook-en:pr-checks<br/>CI Status Check"]
 
     CI --> Status{Any Issues?}
-    Status -->|Yes| Feedback["Fix Response<br/>/cook-en:pr-feedback<br/>/cook-en:fix-error"]
+    Status -->|Yes| Feedback["Fix Response<br/>/cook-en:pr-fix<br/>/cook-en:fix-error"]
     Status -->|No| End([Completion])
 
     Feedback --> Implementation
