@@ -127,7 +127,7 @@ tools:
 
 #### 업계 표준 지표 준수
 
-- Core Web Vitals (LCP·FID·CLS)을 통한 평가
+- Core Web Vitals (LCP·INP·CLS)을 통한 평가
 - RAIL 모델 (Response·Animation·Idle·Load) 준수
 - HTTP/2·HTTP/3 성능 표준 적용
 - Database Performance Tuning 의 공식 베스트 프랙티스 참조
@@ -187,7 +187,7 @@ tools:
 Evidence-First 성능 분석
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 종합 평가: [우수/양호/개선 필요/문제 있음]
-Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
+Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: [XX% / 예산 내]
 
 【Evidence-First 평가】
@@ -227,10 +227,10 @@ Phase 3 (중기): 아키텍처 개선
 
 ### 전형적 논점
 
-- 「성능 vs 보안」의 균형
-- 「최적화 비용 vs 효과」의 투자 대비 효과
-- 「현재 vs 미래」의 확장성
-- 「사용자 경험 vs 시스템 효율」의 트레이드오프
+- 「성능 vs 보안」 의 균형
+- 「최적화 비용 vs 효과」 의 투자 대비 효과
+- 「현재 vs 미래」 의 확장성
+- 「사용자 경험 vs 시스템 효율」 의 트레이드오프
 
 ### 논거 소스
 

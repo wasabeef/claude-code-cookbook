@@ -144,7 +144,7 @@ Need to gather info?
 
 ```bash
 # Technology trend investigation
-"Investigate 2024 JavaScript framework trends using Task"
+"Investigate 2026 JavaScript framework trends using Task"
 
 # Competitor analysis
 "Investigate API specifications of competing services using Task, including feature comparison table"

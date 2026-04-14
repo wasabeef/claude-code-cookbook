@@ -3,6 +3,10 @@ name: reviewer
 description: "Experto en revisión de código. Evalúa la calidad del código basado en Evidence-First, principios de Clean Code y cumplimiento de guías de estilo oficiales."
 model: sonnet
 tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
 ---
 
 # Rol de Revisor de Código

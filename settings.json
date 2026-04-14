@@ -1,100 +1,96 @@
 {
+  "respectGitignore": true,
   "cleanupPeriodDays": 30,
   "env": {
     "BASH_DEFAULT_TIMEOUT_MS": "600000",
     "BASH_MAX_TIMEOUT_MS": "600000",
-    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "true",
-    "SHELL": "/opt/homebrew/bin/zsh"
+    "CLAUDE_BASH_MAINTAIN_PROJECT_WORKING_DIR": "true"
   },
-  "includeCoAuthoredBy": false,
+  "attribution": {
+    "commit": "",
+    "pr": ""
+  },
   "permissions": {
     "allow": [
-      "Bash(*)",
-      "Edit(**)",
-      "Glob(**)",
-      "GlobTool(**)",
-      "Grep(**)",
-      "GrepTool(**)",
-      "LS(**)",
-      "MultiEdit(**)",
-      "Read(**)",
-      "TodoRead()",
-      "TodoWrite(**)",
-      "WebFetch(domain:*)",
-      "WebSearch(**)",
-      "Write(**)"
+      "Bash",
+      "Edit",
+      "Glob",
+      "Grep",
+      "LS",
+      "MultiEdit",
+      "Read",
+      "TaskCreate",
+      "TaskGet",
+      "TaskList",
+      "TaskUpdate",
+      "WebFetch",
+      "WebSearch",
+      "Write"
     ],
     "deny": [
-      "Bash(bash:*)",
-      "Bash(sh:*)",
-      "Bash(> /dev/sda:*)",
-      "Bash(apt-get install:*)",
-      "Bash(brew install:*)",
-      "Bash(bundle install:*)",
-      "Bash(chmod -R 777:*)",
-      "Bash(chmod 777:*)",
-      "Bash(chown -R:*)",
-      "Bash(dd:*)",
-      "Bash(format:*)",
-      "Bash(gem install:*)",
-      "Bash(gh api --method DELETE:*)",
-      "Bash(gh auth logout:*)",
-      "Bash(gh auth refresh:*)",
-      "Bash(gh gist create:*)",
-      "Bash(gh gist delete:*)",
-      "Bash(gh gpg-key add:*)",
-      "Bash(gh gpg-key delete:*)",
-      "Bash(gh release create:*)",
-      "Bash(gh release delete:*)",
-      "Bash(gh release upload:*)",
-      "Bash(gh repo archive:*)",
-      "Bash(gh repo clone:*)",
-      "Bash(gh repo create:*)",
-      "Bash(gh repo delete:*)",
-      "Bash(gh repo deploy-key:*)",
-      "Bash(gh repo edit:*)",
-      "Bash(gh repo fork:*)",
-      "Bash(gh repo rename:*)",
-      "Bash(gh repo sync:*)",
-      "Bash(gh repo unarchive:*)",
-      "Bash(gh secret delete:*)",
-      "Bash(gh secret set:*)",
-      "Bash(gh ssh-key add:*)",
-      "Bash(gh ssh-key delete:*)",
-      "Bash(gh workflow disable:*)",
-      "Bash(gh workflow enable:*)",
-      "Bash(gh workflow run:*)",
-      "Bash(git checkout:*)",
-      "Bash(git config:*)",
-      "Bash(git rebase:*)",
-      "Bash(git reset --hard:*)",
-      "Bash(git restore:*)",
-      "Bash(mkfs:*)",
-      "Bash(npm install -g:*)",
-      "Bash(pip install:*)",
-      "Bash(rm -rf ../*)",
-      "Bash(rm -rf /)",
-      "Bash(rm -rf /*)",
-      "Bash(rm -rf ~/*)",
-      "Bash(sudo:*)",
-      "Bash(yum install:*)"
+      "Bash(bash *)",
+      "Bash(sh *)",
+      "Bash(sudo *)",
+      "Bash(dd *)",
+      "Bash(mkfs *)",
+      "Bash(rm -rf *)",
+      "Bash(rm -fr *)",
+      "Bash(rm -Rf *)",
+      "Bash(rm -fR *)",
+      "Bash(rm -r -f *)",
+      "Bash(rm -f -r *)",
+      "Bash(chmod 777 *)",
+      "Bash(chmod -R 777 *)",
+      "Bash(chown -R *)",
+      "Bash(> /dev/sda *)",
+      "Bash(format *)",
+      "Bash(apt-get install *)",
+      "Bash(brew install *)",
+      "Bash(bundle install *)",
+      "Bash(gem install *)",
+      "Bash(npm install -g *)",
+      "Bash(pip install *)",
+      "Bash(yum install *)",
+      "Bash(git checkout *)",
+      "Bash(git clean *)",
+      "Bash(git config *)",
+      "Bash(git branch -D *)",
+      "Bash(git push --force *)",
+      "Bash(git push -f *)",
+      "Bash(git rebase *)",
+      "Bash(git reset --hard *)",
+      "Bash(git restore *)",
+      "Bash(gh api --method DELETE *)",
+      "Bash(gh auth logout *)",
+      "Bash(gh auth refresh *)",
+      "Bash(gh gist create *)",
+      "Bash(gh gist delete *)",
+      "Bash(gh gpg-key add *)",
+      "Bash(gh gpg-key delete *)",
+      "Bash(gh release create *)",
+      "Bash(gh release delete *)",
+      "Bash(gh release upload *)",
+      "Bash(gh repo archive *)",
+      "Bash(gh repo clone *)",
+      "Bash(gh repo create *)",
+      "Bash(gh repo delete *)",
+      "Bash(gh repo deploy-key *)",
+      "Bash(gh repo edit *)",
+      "Bash(gh repo fork *)",
+      "Bash(gh repo rename *)",
+      "Bash(gh repo sync *)",
+      "Bash(gh repo unarchive *)",
+      "Bash(gh secret delete *)",
+      "Bash(gh secret set *)",
+      "Bash(gh ssh-key add *)",
+      "Bash(gh ssh-key delete *)",
+      "Bash(gh workflow disable *)",
+      "Bash(gh workflow enable *)",
+      "Bash(gh workflow run *)"
     ]
   },
   "hooks": {
     "PreToolUse": [
-      {
-        "matcher": "Bash",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/scripts/deny-check.sh"
-          },
-          {
-            "type": "command",
-            "command": "~/.claude/scripts/check-ai-commit.sh"
-          }
-        ]
-      },
       {
         "matcher": "Write|Edit|MultiEdit",
         "hooks": [
@@ -111,46 +107,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "~/.claude/scripts/ja-space-format.sh"
-          },
-          {
-            "type": "command",
-            "command": "~/.claude/scripts/auto-comment.sh"
-          }
-        ]
-      },
-      {
-        "matcher": "Edit|Write|MultiEdit",
-        "hooks": [
-          {
-            "type": "command",
             "command": "~/.claude/scripts/preserve-file-permissions.sh"
-          }
-        ]
-      }
-    ],
-    "Notification": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"Awaiting confirmation\" with title \"Claude Code\"' && afplay -v 0.3 ~/.claude/assets/confirm.mp3"
-          }
-        ]
-      }
-    ],
-    "Stop": [
-      {
-        "matcher": "*",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "~/.claude/scripts/check-continue.sh"
-          },
-          {
-            "type": "command",
-            "command": "osascript -e 'display notification \"Task completed\" with title \"Claude Code\"' && afplay -v 0.3 ~/.claude/assets/perfect.mp3"
           }
         ]
       }
@@ -158,6 +115,7 @@
   },
   "statusLine": {
     "type": "command",
-    "command": "~/.claude/scripts/statusline.sh"
+    "command": "~/.claude/scripts/statusline.sh",
+    "refreshInterval": 30
   }
 }

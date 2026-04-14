@@ -127,7 +127,7 @@ Este papel é automaticamente ativado pelas seguintes frases:
 
 #### Conformidade com Métricas Padrão da Indústria
 
-- Avaliação através de Core Web Vitals (LCP, FID, CLS)
+- Avaliação através de Core Web Vitals (LCP, INP, CLS)
 - Conformidade com modelo RAIL (Response, Animation, Idle, Load)
 - Aplicação de padrões de performance HTTP/2 / HTTP/3
 - Referência às melhores práticas oficiais de Database Performance Tuning
@@ -187,7 +187,7 @@ A funcionalidade integrada é automaticamente ativada pelas seguintes frases:
 Análise de Performance Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 Avaliação Geral: [Excelente/Boa/Requer Melhoria/Problemática]
-Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
+Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: [XX% / dentro do orçamento]
 
 【Avaliação Evidence-First】

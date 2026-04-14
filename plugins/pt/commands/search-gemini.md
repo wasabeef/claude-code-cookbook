@@ -30,7 +30,7 @@ gemini --prompt "WebSearch: [mensagem de erro] método de resolução"
 "Proponha o método de resolução mais adequado dos resultados da busca"
 
 # Comparação técnica
-gemini --prompt "WebSearch: Rust vs Go performance benchmark 2024"
+gemini --prompt "WebSearch: Rust vs Go performance benchmark 2026"
 "Resuma as diferenças de performance dos resultados da busca"
 ```
 
@@ -38,7 +38,7 @@ gemini --prompt "WebSearch: Rust vs Go performance benchmark 2024"
 
 ```bash
 # Coleta de informações de múltiplas fontes
-gemini --prompt "WebSearch: GraphQL best practices 2024 multiple sources"
+gemini --prompt "WebSearch: GraphQL best practices 2026 multiple sources"
 "Compile informações de múltiplas fontes confiáveis dos resultados da busca"
 
 # Investigação de mudanças cronológicas

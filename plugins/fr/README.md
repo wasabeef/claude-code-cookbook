@@ -85,15 +85,15 @@ Chaque rôle peut également **s'exécuter de façon indépendante comme sous-ag
 
 ```bash
 # Mode normal (exécution dans le contexte principal)
-/role security
+/cook-fr:role security
 « Vérification de sécurité de ce projet »
 
 # Mode sous-agent (exécution dans un contexte indépendant)
-/role security --agent
+/cook-fr:role security --agent
 « Exécuter un audit de sécurité complet du projet »
 
 # Analyse parallèle de multiples rôles
-/multi-role security,performance --agent
+/cook-fr:multi-role security,performance --agent
 « Analyser de façon globale la sécurité et les performances de tout le système »
 ```
 
@@ -103,14 +103,7 @@ Configurés dans `settings.json`, ils permettent d'automatiser le travail de dé
 
 | Script d'exécution             | Événement                    | Description                                                                                                                              |
 | :----------------------------- | :--------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------- |
-| `deny-check.sh`                | `PreToolUse`                 | Prévenir l'exécution de commandes dangereuses comme `rm -rf /`.                                                                          |
-| `check-ai-commit.sh`           | `PreToolUse`                 | Générer une erreur si le message de commit contient une signature IA lors de `git commit`.                                               |
 | `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | Sauvegarder les permissions originales avant édition de fichier et les restaurer après. Empêcher Claude Code de changer les permissions. |
-| `ja-space-format.sh`           | `PostToolUse`                | Formater automatiquement les espaces entre le japonais et les caractères alphanumériques lors de la sauvegarde de fichier.               |
-| `auto-comment.sh`              | `PostToolUse`                | Encourager l'ajout de docstring ou documentation API lors de création de nouveaux fichiers ou éditions importantes.                      |
-| `notify-waiting`               | `Notification`               | Notifier via le centre de notifications macOS lorsque Claude attend la confirmation de l'utilisateur.                                    |
-| `check-continue.sh`            | `Stop`                       | Vérifier s'il n'y a pas de tâches continuables lors de la completion de tâche.                                                           |
-| `(osascript)`                  | `Stop`                       | Notifier la completion via le centre de notifications macOS lorsque toutes les tâches sont terminées.                                    |
 
 ---
 
@@ -120,30 +113,30 @@ Configurés dans `settings.json`, ils permettent d'automatiser le travail de dé
 
 ```mermaid
 flowchart TB
-    Start([Vérification des tâches]) --> PRList["/pr-list<br/>Liste des PR ouvertes"]
-    Start --> PRIssue["/pr-issue<br/>Liste des Issues ouvertes"]
+    Start([Vérification des tâches]) --> PRList["/cook-fr:pr-list<br/>Liste des PR ouvertes"]
+    Start --> PRIssue["/cook-fr:pr-issue<br/>Liste des Issues ouvertes"]
 
     PRList --> TaskType{Type ?}
     PRIssue --> TaskType
 
-    TaskType -->|Nouvelle fonctionnalité| Plan["/spec<br/>Définition des exigences ・Conception"]
-    TaskType -->|Correction de bug| Fix["/fix-error<br/>Analyse d'erreur"]
-    TaskType -->|Refactorisation| Refactor["/refactor<br/>Amélioration"]
-    TaskType -->|Révision| Review["/pr-review<br/>Révision"]
+    TaskType -->|Nouvelle fonctionnalité| Plan["/cook-fr:spec<br/>Définition des exigences ・Conception"]
+    TaskType -->|Correction de bug| Fix["/cook-fr:fix-error<br/>Analyse d'erreur"]
+    TaskType -->|Refactorisation| Refactor["/cook-fr:refactor<br/>Amélioration"]
+    TaskType -->|Révision| Review["/cook-fr:pr-review<br/>Révision"]
 
-    Plan --> Design["/role architect<br/>/role-debate<br/>Consultation de conception"]
+    Plan --> Design["/cook-fr:role architect<br/>/cook-fr:role-debate<br/>Consultation de conception"]
     Design --> Implementation[Implémentation ・Tests]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> Check["/smart-review<br/>Vérification de qualité"]
-    Check --> Commit["/semantic-commit<br/>Commit par unité d'objectif"]
-    Commit --> PR["/pr-create<br/>Création automatique de PR"]
-    PR --> CI["/check-github-ci<br/>Vérification de l'état CI"]
+    Implementation --> Check["/cook-fr:smart-review<br/>Vérification de qualité"]
+    Check --> Commit["/cook-fr:semantic-commit<br/>Commit par unité d'objectif"]
+    Commit --> PR["/cook-fr:pr-create<br/>Création automatique de PR"]
+    PR --> CI["/cook-fr:check-github-ci<br/>Vérification de l'état CI"]
 
     CI --> Status{Problème ?}
-    Status -->|Oui| Feedback["Réponse de correction<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|Oui| Feedback["Réponse de correction<br/>/cook-fr:pr-feedback<br/>/cook-fr:fix-error"]
     Status -->|Non| End([Terminé])
 
     Feedback --> Implementation
@@ -201,7 +194,7 @@ Après l'installation, les commandes et agents sont appelés avec le préfixe `c
 
 ```bash
 # Rechercher des agents commençant par @
-@agent-cook-fr:roles:frontend
+@agent-cook-fr:frontend
 
 # Peut également être utilisé via la commande role
 /cook-fr:role frontend

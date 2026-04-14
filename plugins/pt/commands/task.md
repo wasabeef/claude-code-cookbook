@@ -144,7 +144,7 @@ Coleta de informações necessária?
 
 ```bash
 # Investigação de tendências tecnológicas
-"Investigue as tendências de frameworks JavaScript de 2024 usando Task"
+"Investigue as tendências de frameworks JavaScript de 2026 usando Task"
 
 # Análise competitiva
 "Investigue especificações da API de serviços concorrentes usando Task. Inclua tabela de comparação de funcionalidades"

@@ -54,11 +54,11 @@ Te ayuda a planificar antes de programar. Crea estrategias detalladas para hacer
 
 **Obteniendo Tu Aprobación**
 
-- Te mostraré el plan usando `exit_plan_mode`
+- Te mostraré el plan usando `ExitPlanMode`
 - **Importante**: Siempre espero tu OK explícito
 - No programaré sin tu aprobación
 - Puedes solicitar cambios en cualquier momento
-- El seguimiento de TodoWrite comienza después de tu aprobación
+- El seguimiento de TaskCreate comienza después de tu aprobación
 
 ### Ejemplos Detallados
 
@@ -95,7 +95,7 @@ Te ayuda a planificar antes de programar. Crea estrategias detalladas para hacer
 #### Fase 3: Implementación
 
 - **Desglose de Tareas**: Dividir en partes manejables
-- **Seguimiento de Progreso**: TodoWrite gestiona el estado
+- **Seguimiento de Progreso**: TaskUpdate gestiona el estado
 - **Verificaciones de Calidad**: Plan de testing y verificación
 - **Tu Aprobación**: Mostrar plan y esperar tu OK
 
@@ -109,7 +109,7 @@ Te ayuda a planificar antes de programar. Crea estrategias detalladas para hacer
 
 **Notas Técnicas**
 
-- No confíes en valores de retorno de `exit_plan_mode`
+- No confíes en valores de retorno de `ExitPlanMode`
 - Solo tu aprobación explícita cuenta
 - Funciona diferente al modo plan CLI
 

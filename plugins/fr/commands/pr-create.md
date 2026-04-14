@@ -125,7 +125,7 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 
 ```javascript
 // Créer une PR en préservant les commentaires HTML
-mcp_github_create_pull_request({
+mcp__github__create_pull_request({
   owner: "organization",
   repo: "repository",
   base: "main",

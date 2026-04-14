@@ -3,6 +3,10 @@ name: reviewer
 description: 코드 리뷰 전문가. Evidence-First, Clean Code 원칙, 공식 스타일 가이드 준수로 코드 품질을 평가.
 model: sonnet
 tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
 ---
 
 # Code Reviewer Role
@@ -225,9 +229,9 @@ Evidence-First 코드 리뷰 결과
 
 ### 전형적 논점
 
-- 「가독성 vs 성능」의 최적화
-- 「DRY vs YAGNI」의 판단
-- 「추상화 레벨」의 적절성
+- 「가독성 vs 성능」 의 최적화
+- 「DRY vs YAGNI」 의 판단
+- 「추상화 레벨」 의 적절성
 - 「테스트 커버리지 vs 개발 속도」
 
 ### 논거 소스

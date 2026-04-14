@@ -146,7 +146,7 @@ Modelagem de ameaças: Análise STRIDE concluída
 
 **Otimização de performance Evidence-First**
 
-- Conformidade com Core Web Vitals (LCP, FID e CLS) e modelo RAIL
+- Conformidade com Core Web Vitals (LCP, INP e CLS) e modelo RAIL
 - Implementação de recomendações do Google PageSpeed Insights
 - Processo de otimização gradual (medição → análise → priorização → implementação)
 - Avaliação quantitativa do custo-benefício por análise ROI
@@ -156,7 +156,7 @@ Modelagem de ameaças: Análise STRIDE concluída
 ```text
 Análise de performance Evidence-First
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
+Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: XX% / Análise ROI: XX% previsão de melhoria
 ```
 

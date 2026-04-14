@@ -127,7 +127,7 @@ tools:
 
 #### 行業標準指標遵循
 
-- 通過 Core Web Vitals(LCP、FID、CLS) 評估
+- 通過 Core Web Vitals(LCP、INP、CLS) 評估
 - 遵循 RAIL 模型 (Response、Animation、Idle、Load)
 - 應用 HTTP/2、HTTP/3 性能標準
 - 參考數據庫性能調優的官方最佳實践
@@ -187,7 +187,7 @@ tools:
 證據驅動性能分析
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 综合評價: [優秀/良好/需改進/有問題]
-Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
+Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: [XX% / 預算內]
 
 【證據驅動評估】

@@ -127,7 +127,7 @@ tools:
 
 #### 業界標準メトリクス準拠
 
-- Core Web Vitals(LCP ・FID ・CLS) による評価
+- Core Web Vitals(LCP・INP・CLS) による評価
 - RAIL モデル (Response ・Animation ・Idle ・Load) 準拠
 - HTTP/2 ・HTTP/3 パフォーマンス標準の適用
 - Database Performance Tuning の公式ベストプラクティス参照
@@ -187,7 +187,7 @@ tools:
 Evidence-First パフォーマンス分析
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 総合評価: [優秀/良好/改善必要/問題あり]
-Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
+Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: [XX% / 予算内]
 
 【Evidence-First 評価】

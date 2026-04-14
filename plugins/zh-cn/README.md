@@ -85,15 +85,15 @@
 
 ```bash
 # 普通模式 (在主上下文中执行)
-/role security
+/cook-zh-cn:role security
 「这个项目的安全检查」
 
 # 子代理模式 (在独立上下文中执行)
-/role security --agent
+/cook-zh-cn:role security --agent
 「执行项目整体的安全审计」
 
 # 多角色并行分析
-/multi-role security,performance --agent
+/cook-zh-cn:multi-role security,performance --agent
 「全面分析系统整体的安全性和性能」
 ```
 
@@ -103,14 +103,7 @@
 
 | 执行脚本                       | 事件                         | 说明                                                            |
 | :----------------------------- | :--------------------------- | :-------------------------------------------------------------- |
-| `deny-check.sh`                | `PreToolUse`                 | 防止执行 `rm -rf /` 等危险命令。                                |
-| `check-ai-commit.sh`           | `PreToolUse`                 | 当 `git commit` 的提交消息中包含 AI 签名时出错。                |
 | `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | 编辑文件前保存原始权限，编辑后恢复。防止 Claude Code 更改权限。 |
-| `ja-space-format.sh`           | `PostToolUse`                | 保存文件时自动调整日语和英数字之间的空格。                      |
-| `auto-comment.sh`              | `PostToolUse`                | 在创建新文件或大幅编辑时，提示添加文档字符串和 API 文档。       |
-| `notify-waiting`               | `Notification`               | 当 Claude 等待用户确认时，通过 macOS 通知中心通知。             |
-| `check-continue.sh`            | `Stop`                       | 任务完成时，检查是否有可继续的任务。                            |
-| `(osascript)`                  | `Stop`                       | 所有任务完成时，通过 macOS 通知中心通知完成。                   |
 
 ---
 
@@ -120,30 +113,30 @@
 
 ```mermaid
 flowchart TB
-    Start([任务确认]) --> PRList["/pr-list<br/>开放 PR 列表"]
-    Start --> PRIssue["/pr-issue<br/>开放 Issue 列表"]
+    Start([任务确认]) --> PRList["/cook-zh-cn:pr-list<br/>开放 PR 列表"]
+    Start --> PRIssue["/cook-zh-cn:pr-issue<br/>开放 Issue 列表"]
 
     PRList --> TaskType{类型是？}
     PRIssue --> TaskType
 
-    TaskType -->|新功能| Plan["/spec<br/>需求定义・设计"]
-    TaskType -->|Bug 修复| Fix["/fix-error<br/>错误分析"]
-    TaskType -->|重构| Refactor["/refactor<br/>改进"]
-    TaskType -->|评审| Review["/pr-review<br/>评审"]
+    TaskType -->|新功能| Plan["/cook-zh-cn:spec<br/>需求定义・设计"]
+    TaskType -->|Bug 修复| Fix["/cook-zh-cn:fix-error<br/>错误分析"]
+    TaskType -->|重构| Refactor["/cook-zh-cn:refactor<br/>改进"]
+    TaskType -->|评审| Review["/cook-zh-cn:pr-review<br/>评审"]
 
-    Plan --> Design["/role architect<br/>/role-debate<br/>设计咨询"]
+    Plan --> Design["/cook-zh-cn:role architect<br/>/cook-zh-cn:role-debate<br/>设计咨询"]
     Design --> Implementation[实现・测试]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> Check["/smart-review<br/>质量检查"]
-    Check --> Commit["/semantic-commit<br/>按目的单元提交"]
-    Commit --> PR["/pr-create<br/>自动创建 PR"]
-    PR --> CI["/check-github-ci<br/>CI 状态确认"]
+    Implementation --> Check["/cook-zh-cn:smart-review<br/>质量检查"]
+    Check --> Commit["/cook-zh-cn:semantic-commit<br/>按目的单元提交"]
+    Commit --> PR["/cook-zh-cn:pr-create<br/>自动创建 PR"]
+    PR --> CI["/cook-zh-cn:check-github-ci<br/>CI 状态确认"]
 
     CI --> Status{有问题？}
-    Status -->|是| Feedback["修正对应<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|是| Feedback["修正对应<br/>/cook-zh-cn:pr-feedback<br/>/cook-zh-cn:fix-error"]
     Status -->|否| End([完成])
 
     Feedback --> Implementation
@@ -201,7 +194,7 @@ flowchart TB
 
 ```bash
 # 从 @ 开始搜索代理
-@agent-cook-zh-cn:roles:frontend
+@agent-cook-zh-cn:frontend
 
 # 也可以通过角色命令使用
 /cook-zh-cn:role frontend

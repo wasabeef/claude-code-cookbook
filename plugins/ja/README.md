@@ -87,15 +87,15 @@ Claude Code をもっと便利に使うための設定集です。
 
 ```bash
 # 通常モード (メインコンテキストで実行)
-/role security
+/cook:role security
 「このプロジェクトのセキュリティチェック」
 
 # サブエージェントモード (独立コンテキストで実行)
-/role security --agent
+/cook:role security --agent
 「プロジェクト全体のセキュリティ監査を実行」
 
 # 複数ロールの並列分析
-/multi-role security,performance --agent
+/cook:multi-role security,performance --agent
 「システム全体のセキュリティとパフォーマンスを包括的に分析」
 ```
 
@@ -105,14 +105,7 @@ Claude Code をもっと便利に使うための設定集です。
 
 | 実行スクリプト                 | イベント                     | 説明                                                                                       |
 | :----------------------------- | :--------------------------- | :----------------------------------------------------------------------------------------- |
-| `deny-check.sh`                | `PreToolUse`                 | `rm -rf /` のような危険なコマンドの実行を未然に防ぐ。                                      |
-| `check-ai-commit.sh`           | `PreToolUse`                 | `git commit` でコミットメッセージに AI の署名が含まれている場合にエラーを出す。            |
 | `preserve-file-permissions.sh` | `PreToolUse` / `PostToolUse` | ファイル編集前に元の権限を保存し、編集後に復元する。Claude Code が権限を変更するのを防ぐ。 |
-| `ja-space-format.sh`           | `PostToolUse`                | ファイル保存時に、日本語と英数字の間のスペースを自動で整形する。                           |
-| `auto-comment.sh`              | `PostToolUse`                | 新規ファイル作成時や大幅な編集時に、docstring や API ドキュメントの追加を促す。            |
-| `notify-waiting`               | `Notification`               | Claude がユーザーの確認を待っている時に、macOS の通知センターでお知らせする。              |
-| `check-continue.sh`            | `Stop`                       | タスク完了時に、継続可能なタスクがないか確認する。                                         |
-| `(osascript)`                  | `Stop`                       | 全タスク完了時に、macOS の通知センターで完了を知らせる。                                   |
 
 ---
 
@@ -122,30 +115,30 @@ Claude Code をもっと便利に使うための設定集です。
 
 ```mermaid
 flowchart TB
-    Start([タスク確認]) --> PRList["/pr-list<br/>オープン PR 一覧"]
-    Start --> PRIssue["/pr-issue<br/>オープン Issue 一覧"]
+    Start([タスク確認]) --> PRList["/cook:pr-list<br/>オープン PR 一覧"]
+    Start --> PRIssue["/cook:pr-issue<br/>オープン Issue 一覧"]
 
     PRList --> TaskType{種類は？}
     PRIssue --> TaskType
 
-    TaskType -->|新機能| Plan["/spec<br/>要件定義・設計"]
-    TaskType -->|バグ修正| Fix["/fix-error<br/>エラー分析"]
-    TaskType -->|リファクタリング| Refactor["/refactor<br/>改善"]
-    TaskType -->|レビュー| Review["/pr-review<br/>レビュー"]
+    TaskType -->|新機能| Plan["/cook:spec<br/>要件定義・設計"]
+    TaskType -->|バグ修正| Fix["/cook:fix-error<br/>エラー分析"]
+    TaskType -->|リファクタリング| Refactor["/cook:refactor<br/>改善"]
+    TaskType -->|レビュー| Review["/cook:pr-review<br/>レビュー"]
 
-    Plan --> Design["/role architect<br/>/role-debate<br/>設計相談"]
+    Plan --> Design["/cook:role architect<br/>/cook:role-debate<br/>設計相談"]
     Design --> Implementation[実装・テスト]
     Fix --> Implementation
     Refactor --> Implementation
     Review --> Implementation
 
-    Implementation --> Check["/smart-review<br/>品質チェック"]
-    Check --> Commit["/semantic-commit<br/>目的単位でコミット"]
-    Commit --> PR["/pr-create<br/>PR 自動作成"]
-    PR --> CI["/check-github-ci<br/>CI 状況確認"]
+    Implementation --> Check["/cook:smart-review<br/>品質チェック"]
+    Check --> Commit["/cook:semantic-commit<br/>目的単位でコミット"]
+    Commit --> PR["/cook:pr-create<br/>PR 自動作成"]
+    PR --> CI["/cook:check-github-ci<br/>CI 状況確認"]
 
     CI --> Status{問題あり？}
-    Status -->|はい| Feedback["修正対応<br/>/pr-feedback<br/>/fix-error"]
+    Status -->|はい| Feedback["修正対応<br/>/cook:pr-feedback<br/>/cook:fix-error"]
     Status -->|いいえ| End([完了])
 
     Feedback --> Implementation
@@ -203,7 +196,7 @@ flowchart TB
 
 ```bash
 # @ から始めてエージェントを検索
-@agent-cook:roles:frontend
+@agent-cook:frontend
 
 # ロールコマンド経由でも使用可能
 /cook:role frontend

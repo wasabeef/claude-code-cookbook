@@ -84,7 +84,7 @@ May the Force be with you.
 **使用條件 (必須全部滿足)**：
 
 - ✅ 所有任務 100% 完成
-- ✅ TODO 項目全部完成 (TodoWrite 工具管理的 TODO 清單為空)
+- ✅ TODO 項目全部完成 (TaskCreate/TaskUpdate 工具管理的任務清單為空)
 - ✅ 錯誤為零
 - ✅ 沒有不需要新指示就能繼續的任務
 

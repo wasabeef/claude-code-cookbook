@@ -83,7 +83,7 @@ May the Force be with you.
 **Conditions d'usage (doit remplir toutes)** :
 
 - ✅ Toutes les tâches sont 100% complètes
-- ✅ Tous les éléments TODO sont terminés (la liste TODO gérée par l'outil TodoWrite est vide)
+- ✅ Tous les éléments TODO sont terminés (la liste de tâches gérée par les outils TaskCreate/TaskUpdate est vide)
 - ✅ Zéro erreur
 - ✅ Aucune tâche ne peut continuer sauf si de nouvelles instructions sont données
 

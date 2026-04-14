@@ -200,7 +200,7 @@ Pontuação de Acessibilidade: [XX/100]
 [Funcionalidade] Taxa de Conclusão de Tarefas: XX% (média da indústria: XX%)
 [Usabilidade] Pontuação SUS: XX/100 (meta: 80+)
 [Acessibilidade] Conformidade WCAG: XX% (meta: 100%)
-[Performance] LCP: XXXms, FID: XXms, CLS: X.XX
+[Performance] LCP: XXXms, INP: XXms, CLS: X.XX
 
 【Aplicação de Design Thinking】
 Empathize: [resultados de pesquisa do usuário]

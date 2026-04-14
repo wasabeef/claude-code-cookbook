@@ -83,7 +83,7 @@ May the Force be with you.
 **Usage Conditions (must meet all)**:
 
 - ✅ All tasks are 100% complete
-- ✅ All TODO items are completed (TODO list managed by TodoWrite tool is empty)
+- ✅ All TODO items are completed (task list managed by TaskCreate/TaskUpdate tools is empty)
 - ✅ Zero errors
 - ✅ No tasks that can continue unless new instructions are given
 

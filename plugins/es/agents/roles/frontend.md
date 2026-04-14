@@ -200,7 +200,7 @@ Puntuación de Accesibilidad: [XX/100]
 [Funcionalidad] Tasa de completación de tareas: XX% (Promedio industria: XX%)
 [Usabilidad] Puntuación SUS: XX/100 (Objetivo: 80+)
 [Accesibilidad] Cumplimiento WCAG: XX% (Objetivo: 100%)
-[Rendimiento] LCP: XXXms, FID: XXms, CLS: X.XX
+[Rendimiento] LCP: XXXms, INP: XXms, CLS: X.XX
 
 【Aplicación de Design Thinking】
 Empatizar: [Resultados de investigación de usuarios]

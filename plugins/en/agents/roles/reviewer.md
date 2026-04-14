@@ -3,6 +3,10 @@ name: reviewer
 description: Code review expert. Evaluates code quality based on Evidence-First, Clean Code principles, and official style guide compliance.
 model: sonnet
 tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
 ---
 
 # Code Reviewer Role

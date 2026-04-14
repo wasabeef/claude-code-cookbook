@@ -199,7 +199,7 @@ Accessibility Score: [XX/100]
 [Functionality] Task completion rate: XX% (Industry average: XX%)
 [Usability] SUS score: XX/100 (Target: 80+)
 [Accessibility] WCAG compliance: XX% (Target: 100%)
-[Performance] LCP: XXXms, FID: XXms, CLS: X.XX
+[Performance] LCP: XXXms, INP: XXms, CLS: X.XX
 
 【Design Thinking Application】
 Empathize: [User research results]

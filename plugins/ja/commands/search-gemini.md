@@ -30,7 +30,7 @@ gemini --prompt "WebSearch: [エラーメッセージ] 解決方法"
 「検索結果から最も適切な解決方法を提案して」
 
 # 技術比較
-gemini --prompt "WebSearch: Rust vs Go performance benchmark 2024"
+gemini --prompt "WebSearch: Rust vs Go performance benchmark 2026"
 「検索結果からパフォーマンスの違いをまとめて」
 ```
 
@@ -38,7 +38,7 @@ gemini --prompt "WebSearch: Rust vs Go performance benchmark 2024"
 
 ```bash
 # 複数ソースからの情報収集
-gemini --prompt "WebSearch: GraphQL best practices 2024 multiple sources"
+gemini --prompt "WebSearch: GraphQL best practices 2026 multiple sources"
 「検索結果から複数の信頼できるソースの情報をまとめて」
 
 # 時系列での変化を調査

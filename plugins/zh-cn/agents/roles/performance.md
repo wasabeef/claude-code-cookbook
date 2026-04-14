@@ -127,7 +127,7 @@ tools:
 
 #### 行业标准指标遵循
 
-- 通过 Core Web Vitals(LCP、FID、CLS) 评估
+- 通过 Core Web Vitals(LCP、INP、CLS) 评估
 - 遵循 RAIL 模型 (Response、Animation、Idle、Load)
 - 应用 HTTP/2、HTTP/3 性能标准
 - 参考数据库性能调优的官方最佳实践
@@ -187,7 +187,7 @@ tools:
 证据驱动性能分析
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 综合评价: [优秀/良好/需改进/有问题]
-Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
+Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: [XX% / 预算内]
 
 【证据驱动评估】

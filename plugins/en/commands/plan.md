@@ -54,11 +54,11 @@ Helps you plan before coding. Creates detailed strategies to make development sm
 
 **Getting Your Approval**
 
-- I'll show you the plan using `exit_plan_mode`
+- I'll show you the plan using `ExitPlanMode`
 - **Important**: I always wait for your explicit OK
 - I won't code without your approval
 - You can request changes anytime
-- TodoWrite tracking starts after you approve
+- TaskCreate tracking starts after you approve
 
 ### Detailed Examples
 
@@ -95,7 +95,7 @@ Helps you plan before coding. Creates detailed strategies to make development sm
 #### Phase 3: Implementation
 
 - **Task Breakdown**: Split into manageable chunks
-- **Progress Tracking**: TodoWrite manages status
+- **Progress Tracking**: TaskUpdate manages status
 - **Quality Checks**: Testing and verification plan
 - **Your Approval**: Show plan and wait for your OK
 
@@ -109,7 +109,7 @@ Helps you plan before coding. Creates detailed strategies to make development sm
 
 **Technical Notes**
 
-- Don't rely on `exit_plan_mode` return values
+- Don't rely on `ExitPlanMode` return values
 - Only your explicit approval counts
 - Works differently than CLI plan mode
 

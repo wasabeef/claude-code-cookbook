@@ -146,7 +146,7 @@ Threat Modeling: STRIDE Analysis Completed
 
 **Evidence-First Performance Optimization**
 
-- Compliance with Core Web Vitals (LCP, FID, CLS) and RAIL model
+- Compliance with Core Web Vitals (LCP, INP, CLS) and RAIL model
 - Implementation of Google PageSpeed Insights recommendations
 - Phased optimization process (measurement → analysis → prioritization → implementation)
 - Quantitative evaluation of ROI through analysis
@@ -156,7 +156,7 @@ Threat Modeling: STRIDE Analysis Completed
 ```text
 Evidence-First Performance Analysis
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-Core Web Vitals: LCP[XXXms] FID[XXXms] CLS[X.XX]
+Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: XX% / ROI Analysis: XX% Improvement Prediction
 ```
 

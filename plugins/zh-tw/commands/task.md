@@ -144,7 +144,7 @@
 
 ```bash
 # 技術趨勢調查
-「用 Task 調查 2024 年的 JavaScript 框架動向」
+「用 Task 調查 2026 年的 JavaScript 框架動向」
 
 # 竞品分析
 「用 Task 調查竞品服務的 API 規格。包括功能對比表」

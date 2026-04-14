@@ -10,7 +10,7 @@ Puntaje de Experiencia de Usuario: B+ (78/100)
 
 ⏱️ Core Web Vitals
 ├─ LCP (carga): 2.3 seg [Bueno] Objetivo<2.5 seg ✅
-├─ FID (respuesta): 95ms [Bueno] Objetivo<100ms ✅
+├─ INP (respuesta): 95ms [Bueno] Objetivo<200ms ✅
 ├─ CLS (estabilidad): 0.08 [Bueno] Objetivo<0.1 ✅
 ├─ FCP (primer dibujo): 1.8 seg [Bueno] Objetivo<1.8 seg ✅
 ├─ TTFB (servidor): 450ms [Necesita trabajo] Objetivo<200ms ⚠️
@@ -122,7 +122,7 @@ ROI de mejora = (efecto reducción tiempo + mejora calidad) ÷ horas implementac
 | Métrica               | Rango Mejora | Mejora Velocidad Percibida | Satisfacción Usuario     | Horas Implementación |
 | --------------------- | ------------ | -------------------------- | ------------------------ | -------------------- |
 | **LCP (carga)**       | -0.5 seg     | +30%                       | Tasa abandono -7%        | 16h                  |
-| **FID (respuesta)**   | -50ms        | +15%                       | Estrés -20%              | 8h                   |
+| **INP (respuesta)**   | -50ms        | +15%                       | Estrés -20%              | 8h                   |
 | **CLS (estabilidad)** | -0.05        | +10%                       | Operación errónea -50%   | 4h                   |
 | **TTFB (servidor)**   | -200ms       | +25%                       | Velocidad percibida +40% | 24h                  |
 | **TTI (interactivo)** | -1.0 seg     | +35%                       | Tasa finalización +15%   | 32h                  |
