@@ -1,8 +1,8 @@
-## Flutter 의존성 안전 업데이트
+# Flutter 의존성 안전 업데이트
 
 Flutter 프로젝트의 의존성을 안전하게 업데이트합니다.
 
-### 사용법
+## 사용법
 
 ```bash
 # 의존성의 상태를 확인해서 Claude 에 의뢰
@@ -10,7 +10,7 @@ flutter pub deps --style=compact
 「pubspec.yaml 의 의존성을 최신 버전으로 업데이트하세요」
 ```
 
-### 기본 예제
+## 기본 예제
 
 ```bash
 # 현재 의존성을 확인
@@ -22,7 +22,7 @@ flutter pub upgrade --dry-run
 「이 업그레이드 예정 내용에서 파괴적 변경이 있는지 확인하세요」
 ```
 
-### Claude 와의 연계
+## Claude 와의 연계
 
 ```bash
 # 포괄적인 의존성 업데이트
@@ -42,7 +42,7 @@ flutter pub outdated
 「provider 를 최신 버전으로 업데이트한 경우의 영향과 필요한 변경을 알려주세요」
 ```
 
-### 상세 예제
+## 상세 예제
 
 ```bash
 # Release Notes 를 포함한 상세 분석
@@ -59,7 +59,7 @@ cat pubspec.yaml
 「Null Safety 에 대응하지 않는 패키지를 특정하고, 이전 계획을 세워주세요」
 ```
 
-### 위험도의 기준
+## 위험도의 기준
 
 ```text
 안전(🟢)：
@@ -78,7 +78,7 @@ cat pubspec.yaml
 - API 의 삭제·변경
 ```
 
-### 업데이트의 실행
+## 업데이트의 실행
 
 ```bash
 # 백업 생성
@@ -94,7 +94,7 @@ flutter test
 flutter pub deps --style=compact
 ```
 
-### 주의사항
+## 주의사항
 
 업데이트 후에는 반드시 동작 확인을 실시하세요. 문제가 발생한 경우는 다음으로 복원：
 

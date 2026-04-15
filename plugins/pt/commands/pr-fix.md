@@ -1,8 +1,8 @@
-## Responder eficientemente a comentários de revisão de PR
+# Responder eficientemente a comentários de revisão
 
 Responde eficientemente aos comentários de review de Pull Request e busca resolução fundamental através da abordagem de 3 etapas para análise de erros.
 
-### Uso
+## Uso
 
 ```bash
 # Obtenção e análise de comentários de review
@@ -18,7 +18,7 @@ npm test && npm run lint
 "A correção foi concluída, então verifique testes de regressão e qualidade do código"
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Execução de classificação de comentários
@@ -34,7 +34,7 @@ git diff HEAD~1
 "Avalie se esta correção resolve adequadamente os pontos apontados no review"
 ```
 
-### Sistema de Classificação de Comentários
+## Sistema de Classificação de Comentários
 
 ```text
 🔴 must: Correção obrigatória
@@ -62,9 +62,9 @@ git diff HEAD~1
 └─ Consideração de alternativas
 ```
 
-### Abordagem de 3 Etapas para Análise de Erros
+## Abordagem de 3 Etapas para Análise de Erros
 
-#### Etapa 1: Coleta de Informações
+### Etapa 1: Coleta de Informações
 
 **Execução obrigatória**
 
@@ -78,20 +78,20 @@ git diff HEAD~1
 - Histórico de mudanças recentes
 - Verificação de logs relacionados
 
-#### Etapa 2: Análise da Causa Raiz
+### Etapa 2: Análise da Causa Raiz
 
 - Aplicação da análise 5 Whys
 - Rastreamento de dependências
 - Verificação de diferenças ambientais
 - Criação de código de reprodução mínima
 
-#### Etapa 3: Implementação de Soluções
+### Etapa 3: Implementação de Soluções
 
 - Tratamento imediato (hotfix)
 - Solução fundamental (correção essencial)
 - Medidas preventivas (prevenção de reincidência)
 
-### Fluxo de Resposta
+## Fluxo de Resposta
 
 1. **Análise de comentários**: Classificação por prioridade
 2. **Plano de correção**: Determinação da ordem de resposta
@@ -99,7 +99,7 @@ git diff HEAD~1
 4. **Verificação de qualidade**: Teste, lint, build
 5. **Relatório de progresso**: Explicação específica do conteúdo das correções
 
-### Verificação Após Correção
+## Verificação Após Correção
 
 ```bash
 # Verificação básica
@@ -114,7 +114,7 @@ npm run test:e2e
 npm run test:coverage
 ```
 
-### Templates de Resposta
+## Templates de Resposta
 
 **Relatório de Conclusão de Correção**
 
@@ -135,7 +135,7 @@ Alternativas consideradas: [opções e base de julgamento]
 Vantagens da solução adotada: [méritos]
 ```
 
-### Observações
+## Observações
 
 - **Conformidade com prioridades**: Responder na ordem Critical → High → Medium → Low
 - **Teste primeiro**: Confirmar teste de regressão antes da correção

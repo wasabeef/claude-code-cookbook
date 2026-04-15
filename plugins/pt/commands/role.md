@@ -1,21 +1,21 @@
-## Mudar para papel especialista para análise especializada
+# Mudar para papel especialista
 
 Alterna para uma função (role) específica para executar análises e trabalhos especializados.
 
-### Como usar
+## Como usar
 
 ```bash
 /role <nome_do_role> [--agent|-a]
 ```
 
-### Opções
+## Opções
 
 - `--agent` ou `-a` : Execução independente como subagente (recomendado para análises em larga escala)
   - Quando esta opção é usada, caso a descrição do role contenha frases de promoção de delegação automática (como "use PROACTIVELY"), uma delegação automática mais agressiva será habilitada
 
-### Roles Disponíveis
+## Roles Disponíveis
 
-#### Roles de Análise Especializada (Integração Evidence-First)
+### Roles de Análise Especializada (Integração Evidence-First)
 
 - `security` : Especialista em auditoria de segurança (OWASP Top 10, Modelagem de ameaças, Princípios Zero Trust e Correspondência CVE)
 - `performance` : Especialista em otimização de performance (Core Web Vitals, Modelo RAIL, Otimização gradual e Análise ROI)
@@ -24,13 +24,13 @@ Alterna para uma função (role) específica para executar análises e trabalhos
 - `mobile` : Especialista em desenvolvimento mobile (iOS HIG, Android Material Design e Estratégia multiplataforma)
 - `backend` : Especialista em backend e servidor (design RESTful, escalabilidade e otimização de bancos de dados)
 
-#### Roles de Suporte ao Desenvolvimento
+### Roles de Suporte ao Desenvolvimento
 
 - `reviewer` : Especialista em revisão de código (Legibilidade, Manutenibilidade, Performance e Propostas de refatoração)
 - `architect` : Arquiteto de sistemas (Design Evidence-First, Análise MECE e Arquitetura evolutiva)
 - `qa` : Engenheiro de testes (Cobertura de testes, Estratégia E2E/integração/unitária e Propostas de automação)
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Alternar para modo de auditoria de segurança (normal)
@@ -66,7 +66,7 @@ Alterna para uma função (role) específica para executar análises e trabalhos
 "Retornando ao Claude normal"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Análise especializada em segurança
@@ -84,7 +84,7 @@ ls -la src/
 "Proponha a estratégia de testes ideal para este projeto"
 ```
 
-### Exemplos Detalhados
+## Exemplos Detalhados
 
 ```bash
 # Análise com múltiplos roles
@@ -108,13 +108,13 @@ Local aplicável: db.js:42
 Proposta de correção: Usar queries parametrizadas
 ```
 
-### Funcionalidade de Integração Evidence-First
+## Funcionalidade de Integração Evidence-First
 
-#### Filosofia Central
+### Filosofia Central
 
 Cada role adota a abordagem **Evidence-First (baseada em evidências)** e realiza análises e propostas baseadas em **métodos comprovados, diretrizes oficiais e dados objetivos** em vez de especulações.
 
-#### Características Comuns
+### Características Comuns
 
 - **Conformidade com documentação oficial**: Referência prioritária a diretrizes oficiais autoritativas de cada área
 - **Análise MECE**: Decomposição sistemática de problemas sem lacunas nem sobreposições
@@ -122,9 +122,9 @@ Cada role adota a abordagem **Evidence-First (baseada em evidências)** e realiz
 - **Contramedidas para vieses cognitivos**: Mecanismo de eliminação de viés de confirmação, etc.
 - **Características de discussão**: Postura de discussão especializada específica do role
 
-### Detalhes dos Roles de Análise Especializada
+## Detalhes dos Roles de Análise Especializada
 
-#### security (Especialista em auditoria de segurança)
+### security (Especialista em auditoria de segurança)
 
 **Auditoria de segurança baseada em evidências**
 
@@ -142,7 +142,7 @@ Conformidade OWASP Top 10: XX% / Correspondência CVE: Concluída
 Modelagem de ameaças: Análise STRIDE concluída
 ```
 
-#### performance (Especialista em otimização de performance)
+### performance (Especialista em otimização de performance)
 
 **Otimização de performance Evidence-First**
 
@@ -160,7 +160,7 @@ Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: XX% / Análise ROI: XX% previsão de melhoria
 ```
 
-#### analyzer (Especialista em análise de causa raiz)
+### analyzer (Especialista em análise de causa raiz)
 
 **Análise de causa raiz Evidence-First**
 
@@ -178,7 +178,7 @@ Confiabilidade da análise: Alta / Contramedidas para viés: Implementadas
 Matriz de verificação de hipóteses: XX% de confiança
 ```
 
-#### frontend (Especialista em Frontend/UI/UX)
+### frontend (Especialista em Frontend/UI/UX)
 
 **Desenvolvimento frontend Evidence-First**
 
@@ -187,74 +187,74 @@ Matriz de verificação de hipóteses: XX% de confiança
 - Aplicação de padrões de design centrado no usuário e design system
 - Verificação por testes A/B e análise de comportamento do usuário
 
-### Detalhes dos Roles de Suporte ao Desenvolvimento
+## Detalhes dos Roles de Suporte ao Desenvolvimento
 
-#### reviewer (Especialista em revisão de código)
+### reviewer (Especialista em revisão de código)
 
 - Avaliação multifacetada de legibilidade, manutenibilidade e performance
 - Verificação de conformidade com convenções de codificação e propostas de refatoração
 - Confirmação transversal de segurança e acessibilidade
 
-#### architect (Arquiteto de sistemas)
+### architect (Arquiteto de sistemas)
 
 - Princípios de design Evidence-First e pensamento gradual por análise MECE
 - Arquitetura evolutiva e avaliação de múltiplas perspectivas (técnica, negócios, operacional e usuário)
 - Referência a padrões arquiteturais oficiais e melhores práticas
 
-#### qa (Engenheiro de testes)
+### qa (Engenheiro de testes)
 
 - Análise de cobertura de testes e estratégia de testes E2E/integração/unitários
 - Propostas de automação de testes e design de métricas de qualidade
 
-#### mobile (Especialista em desenvolvimento mobile)
+### mobile (Especialista em desenvolvimento mobile)
 
 - Conformidade com diretrizes oficiais iOS HIG e Android Material Design
 - Estratégia multiplataforma e design Touch-First
 - Diretrizes de revisão da loja e otimização de UX específica para mobile
 
-#### backend (Especialista em Backend e Servidor)
+### backend (Especialista em Backend e Servidor)
 
 - Design de APIs RESTful/GraphQL, Domain-Driven Design e Clean Architecture
 - Escalabilidade, tolerância a falhas e otimização de desempenho
 - Otimização de bancos de dados, estratégias de cache e aumento de confiabilidade
 
-### Características de Discussão Específicas dos Roles
+## Características de Discussão Específicas dos Roles
 
 Cada role possui postura de discussão única, fonte de argumentos e pontos fortes de acordo com sua área de especialização.
 
-#### Características de discussão do role security
+### Características de discussão do role security
 
 - **Postura**: Abordagem conservadora, priorização da minimização de riscos e suposição do pior caso
 - **Argumentos**: Diretrizes OWASP, framework NIST e casos reais de ataques
 - **Pontos fortes**: Precisão na avaliação de riscos, conhecimento profundo dos requisitos regulamentares e compreensão abrangente de métodos de ataque
 - **Cuidados**: Conservadorismo excessivo, falta de consideração com UX e subestimação dos custos de implementação
 
-#### Características de discussão do role performance
+### Características de discussão do role performance
 
 - **Postura**: Decisões orientadas por dados, priorização da eficiência, priorização da experiência do usuário e melhoria contínua
 - **Argumentos**: Core Web Vitals, resultados de benchmark, dados de comportamento do usuário e padrões da indústria
 - **Pontos fortes**: Capacidade de avaliação quantitativa, precisão na identificação de gargalos e análise ROI
 - **Cuidados**: Subestimação da segurança, falta de consideração com manutenibilidade e foco excessivo em medições
 
-#### Características de discussão do role analyzer
+### Características de discussão do role analyzer
 
 - **Postura**: Priorização de evidências, verificação de hipóteses, pensamento estrutural e eliminação de vieses
 - **Argumentos**: Dados de medição real, métodos estatísticos, teoria do pensamento sistêmico e pesquisa sobre vieses cognitivos
 - **Pontos fortes**: Capacidade de análise lógica, objetividade na avaliação de evidências e capacidade de descobrir problemas estruturais
 - **Cuidados**: Paralisia de análise, perfeccionismo, onipotência dos dados e ceticismo excessivo
 
-#### Características de discussão do role frontend
+### Características de discussão do role frontend
 
 - **Postura**: Centrado no usuário, priorização da acessibilidade, conformidade com princípios de design e priorização do valor da experiência
 - **Argumentos**: Pesquisa UX, padrões de acessibilidade, design system e testes de usabilidade
 - **Pontos fortes**: Perspectiva do usuário, princípios de design, acessibilidade e design de experiência
 - **Cuidados**: Subestimação de restrições técnicas, falta de consideração com performance e complexidade de implementação
 
-### Efeitos da Colaboração Multi-Role
+## Efeitos da Colaboração Multi-Role
 
 A combinação de roles com diferentes características de discussão permite análise equilibrada:
 
-#### Padrões Típicos de Colaboração
+### Padrões Típicos de Colaboração
 
 - **security + frontend**: Equilíbrio entre segurança e usabilidade
 - **performance + security**: Compatibilidade entre velocidade e segurança
@@ -263,19 +263,19 @@ A combinação de roles com diferentes características de discussão permite an
 
 ## Funcionalidades Avançadas dos Roles
 
-### Seleção Inteligente de Roles
+## Seleção Inteligente de Roles
 
 - `/smart-review` : Proposta automática de roles por análise do projeto
 - `/role-help` : Guia de seleção do role ideal conforme a situação
 
-### Colaboração Multi-Role
+## Colaboração Multi-Role
 
 - `/multi-role <role1>,<role2>` : Análise simultânea de múltiplos roles
 - `/role-debate <role1>,<role2>` : Discussão entre roles
 
-### Exemplos de Uso
+## Exemplos de Uso
 
-#### Proposta Automática de Role
+### Proposta Automática de Role
 
 ```bash
 /smart-review
@@ -285,7 +285,7 @@ A combinação de roles com diferentes características de discussão permite an
 → Recomenda role security a partir de arquivos relacionados à autenticação
 ```
 
-#### Análise com Múltiplos Roles
+### Análise com Múltiplos Roles
 
 ```bash
 /multi-role security,performance
@@ -297,7 +297,7 @@ A combinação de roles com diferentes características de discussão permite an
 → Discussão dos pontos de vista de usabilidade e segurança
 ```
 
-#### Quando em Dúvida na Seleção de Role
+### Quando em Dúvida na Seleção de Role
 
 ```bash
 /role-help "API está lenta e também há preocupações com segurança"
@@ -309,32 +309,32 @@ A combinação de roles com diferentes características de discussão permite an
 
 ## Observações
 
-### Sobre o Comportamento dos Roles
+## Sobre o Comportamento dos Roles
 
 - Ao alternar roles, o **comportamento, prioridades, métodos de análise e formato de relatório** do Claude se especializa
 - Cada role adota **abordagem Evidence-First** aplicando prioritariamente diretrizes oficiais e métodos comprovados
 - Use `default` para retornar ao modo normal (especialização do role é cancelada)
 - Os roles são válidos apenas dentro da sessão atual
 
-### Métodos de Utilização Eficaz
+## Métodos de Utilização Eficaz
 
 - **Problemas simples**: Análise especializada com role único é suficiente
 - **Problemas complexos**: multi-role ou role-debate são eficazes para análise multifacetada
 - **Em caso de dúvida**: Utilize smart-review ou role-help
 - **Melhoria contínua**: Mesmo com o mesmo role, a precisão da análise melhora com novas evidências e métodos
 
-### Funcionalidade de Subagente (opção --agent)
+## Funcionalidade de Subagente (opção --agent)
 
 Quando análises em larga escala ou processamento especializado independente são necessários, você pode executar roles como subagentes usando a opção `--agent`.
 
-#### Vantagens
+### Vantagens
 
 - **Contexto independente**: Não interfere na conversa principal
 - **Execução paralela**: Possível executar múltiplas análises simultaneamente
 - **Especialização**: Análises mais profundas e relatórios detalhados
 - **Promoção da delegação automática**: Quando a descrição do role contém "use PROACTIVELY" ou "MUST BE USED", uma delegação automática mais agressiva é habilitada
 
-#### Cenários de Uso Recomendados
+### Cenários de Uso Recomendados
 
 ```bash
 # Segurança: Verificação de todos os itens OWASP, correspondência CVE
@@ -350,7 +350,7 @@ Quando análises em larga escala ou processamento especializado independente sã
 "Revise as 1000 linhas de mudanças do PR #500"
 ```
 
-#### Role Normal vs Subagente
+### Role Normal vs Subagente
 
 | Situação                | Recomendado | Comando                  |
 | ----------------------- | ----------- | ------------------------ |
@@ -359,7 +359,7 @@ Quando análises em larga escala ou processamento especializado independente sã
 | Trabalho interativo     | Role normal | `/role frontend`         |
 | Auditoria independente  | Subagente   | `/role qa --agent`       |
 
-### Detalhes da Configuração dos Roles
+## Detalhes da Configuração dos Roles
 
 - Configurações detalhadas, conhecimento especializado e características de discussão de cada role são definidas no diretório `.claude/agents/roles/`
 - Inclui métodos Evidence-First e contramedidas para vieses cognitivos

@@ -1,18 +1,22 @@
 ---
-description: "Suggest design patterns and evaluate SOLID principles"
+description: 'Suggest design patterns and evaluate SOLID principles. Trigger with "suggest design patterns", "which patterns apply?", "check SOLID principles", "detect anti-patterns", "evaluate code design".'
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Suggest design patterns and evaluate SOLID principles
+# Suggest design patterns and evaluate SOLID principles
 
 Suggests design patterns for your code and checks if it follows SOLID principles.
 
-### Usage
+## Usage
 
 ```bash
 /design-patterns [analysis_target] [options]
 ```
 
-### Options
+## Options
 
 - `--suggest`: Suggest applicable patterns (default)
 - `--analyze`: Analyze existing pattern usage
@@ -20,7 +24,7 @@ Suggests design patterns for your code and checks if it follows SOLID principles
 - `--solid`: Check compliance with SOLID principles
 - `--anti-patterns`: Detect anti-patterns
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Analyze patterns for entire project
@@ -36,30 +40,30 @@ Suggests design patterns for your code and checks if it follows SOLID principles
 /design-patterns --anti-patterns
 ```
 
-### Pattern Categories
+## Pattern Categories
 
-#### 1. Creational Patterns
+### 1. Creational Patterns
 
 - **Factory Pattern**: Abstracts object creation
 - **Builder Pattern**: Step-by-step construction of complex objects
 - **Singleton Pattern**: Ensures only one instance exists
 - **Prototype Pattern**: Creates object clones
 
-#### 2. Structural Patterns
+### 2. Structural Patterns
 
 - **Adapter Pattern**: Converts interfaces
 - **Decorator Pattern**: Dynamically adds functionality
 - **Facade Pattern**: Simplifies complex subsystems
 - **Proxy Pattern**: Controls access to objects
 
-#### 3. Behavioral Patterns
+### 3. Behavioral Patterns
 
 - **Observer Pattern**: Implements event notifications
 - **Strategy Pattern**: Switches algorithms
 - **Command Pattern**: Encapsulates operations
 - **Iterator Pattern**: Traverses collections
 
-### SOLID Principles We Check
+## SOLID Principles We Check
 
 ```text
 S - Single Responsibility (one class, one job)
@@ -69,7 +73,7 @@ I - Interface Segregation (don't force unused methods)
 D - Dependency Inversion (depend on abstractions, not details)
 ```
 
-### Output Example
+## Output Example
 
 ```text
 Design Pattern Analysis Report
@@ -112,7 +116,7 @@ How to Fix
 4. Break up IDataStore into smaller interfaces
 ```
 
-### Advanced Usage Examples
+## Advanced Usage Examples
 
 ```bash
 # See what happens if you use a pattern
@@ -128,9 +132,9 @@ How to Fix
 /design-patterns --architecture MVC
 ```
 
-### Example: Before and After
+## Example: Before and After
 
-#### Before (Problem Code)
+### Before (Problem Code)
 
 ```javascript
 class OrderService {
@@ -145,7 +149,7 @@ class OrderService {
 }
 ```
 
-#### After (Applying Strategy Pattern)
+### After (Applying Strategy Pattern)
 
 ```javascript
 // Strategy interface
@@ -174,7 +178,7 @@ class OrderService {
 }
 ```
 
-### Anti-Patterns We Find
+## Anti-Patterns We Find
 
 - **God Object**: Classes that do everything
 - **Spaghetti Code**: Tangled mess of control flow
@@ -182,7 +186,7 @@ class OrderService {
 - **Magic Numbers**: Random numbers with no explanation
 - **Callback Hell**: Callbacks inside callbacks inside callbacks
 
-### Best Practices
+## Best Practices
 
 1. **Go slow**: Add patterns one at a time
 2. **Need first**: Only use patterns to solve real problems

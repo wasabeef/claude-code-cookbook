@@ -1,8 +1,8 @@
-## Actualizar dependencias de Rust de forma segura
+# Actualizar dependencias de Rust de forma segura
 
 Actualiza de forma segura las dependencias en tu proyecto Rust.
 
-### Uso
+## Uso
 
 ```bash
 # Verificar estado de dependencias y solicitar ayuda de Claude
@@ -10,7 +10,7 @@ cargo tree
 "Por favor actualiza las dependencias en Cargo.toml a sus últimas versiones"
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Verificar dependencias actuales
@@ -22,7 +22,7 @@ cargo update --dry-run
 "Analizar el nivel de riesgo de actualizar estos crates"
 ```
 
-### Integración con Claude
+## Integración con Claude
 
 ```bash
 # Actualización comprensiva de dependencias
@@ -42,7 +42,7 @@ cargo tree
 "Decirme el impacto y cambios necesarios al actualizar tokio a la última versión"
 ```
 
-### Ejemplos Detallados
+## Ejemplos Detallados
 
 ```bash
 # Análisis detallado incluyendo notas de lanzamiento
@@ -59,7 +59,7 @@ cat Cargo.toml src/main.rs
 "Presentar todos los cambios necesarios para migrar de async-std a tokio o actualizar tokio a una nueva versión mayor"
 ```
 
-### Criterios de Riesgo
+## Criterios de Riesgo
 
 ```text
 Seguro (🟢):
@@ -79,7 +79,7 @@ Peligroso (🔴):
 - Cambios de trait bound
 ```
 
-### Ejecución de Actualización
+## Ejecución de Actualización
 
 ```bash
 # Crear respaldos
@@ -95,7 +95,7 @@ cargo test
 cargo clippy
 ```
 
-### Notas
+## Notas
 
 Siempre verificar funcionalidad después de actualizaciones. Si ocurren problemas, restaurar con:
 

@@ -1,12 +1,18 @@
 ---
-description: "安全漸進式重構與 SOLID 評估"
+description: "安全漸進式重構與 SOLID 評估。「重構這個」「改善程式碼」「清理程式碼」「改善結構」等觸發。"
+allowed-tools:
+  - Read
+  - Edit
+  - Grep
+  - Glob
+  - Bash
 ---
 
-## 安全漸進式重構與 SOLID 評估
+# 安全漸進式重構與 SOLID 評估
 
 實施安全且漸進式的代碼重構，定量評估 SOLID 原則的遵守狀況。可視化技術債務，明確改善優先級。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 複雜代碼的識別和重構計劃
@@ -22,7 +28,7 @@ grep -r "class.*Service" . --include="*.js" | head -10
 「請評估這些類是否遵循單一責任原則」
 ```
 
-### 基本範例
+## 基本範例
 
 ```bash
 # 長方法的檢測
@@ -38,9 +44,9 @@ grep -r "TODO\|FIXME\|HACK" . --exclude-dir=node_modules
 "請解決成為技術債務的註釋"
 ```
 
-### 重構技法
+## 重構技法
 
-#### Extract Method(方法提取)
+### Extract Method(方法提取)
 
 ```javascript
 // Before: 冗長的方法
@@ -56,7 +62,7 @@ function processOrder(order) {
 }
 ```
 
-#### Replace Conditional with Polymorphism
+### Replace Conditional with Polymorphism
 
 ```javascript
 // Before: switch 語句
@@ -77,9 +83,9 @@ class PremiumPricing {
 }
 ```
 
-### SOLID 原則評分 (0-100 分)
+## SOLID 原則評分 (0-100 分)
 
-#### 評估標準與配分
+### 評估標準與配分
 
 ```text
 S - Single Responsibility(20 分)
@@ -120,9 +126,9 @@ D - Dependency Inversion(20 分)
 └─ 0-29 分: Critical(設計重新檢討必須)
 ```
 
-### 技術債務的定量化
+## 技術債務的定量化
 
-#### 債務計算公式
+### 債務計算公式
 
 ```text
 技術債務 (時間) = 複雜度分數 × 影響範圍 × 修正難度
@@ -152,7 +158,7 @@ D - Dependency Inversion(20 分)
 └─ 總成本: 時間 + 機會損失 + 品質成本
 ```
 
-#### 優先級矩陣
+### 優先級矩陣
 
 | 優先級                    | 影響度 | 修正成本 | 回應期限 | 具體例                   | 建議行動             |
 | ------------------------- | ------ | -------- | -------- | ------------------------ | -------------------- |
@@ -161,7 +167,7 @@ D - Dependency Inversion(20 分)
 | **Watch(監視對象)**       | 低     | 高       | 3 個月內 | 複雜度高的內部處理       | 指標監視、惡化時回應 |
 | **Acceptable(容許範圍)**  | 低     | 低       | 不必要   | 輕微的代碼異味           | 通常重構處理         |
 
-### 重構程序
+## 重構程序
 
 1. **現況分析與測量**
    - 複雜度測量 (循環・認知)
@@ -181,7 +187,7 @@ D - Dependency Inversion(20 分)
    - 技術債務削減確認
    - 代碼審查
 
-### 常見代碼異味與債務分數
+## 常見代碼異味與債務分數
 
 | 代碼異味                | 檢測標準             | 債務分數    | 改善技法                |
 | ----------------------- | -------------------- | ----------- | ----------------------- |
@@ -196,7 +202,7 @@ D - Dependency Inversion(20 分)
 | **Switch Statements**   | case >5              | 中 (5-10h)  | Strategy Pattern        |
 | **Shotgun Surgery**     | 變更時的影響處 >3    | 高 (10-15h) | Move Method/Field       |
 
-### 實踐例：SOLID 分數評估
+## 實踐例：SOLID 分數評估
 
 ```javascript
 // 評估對象: UserService 類
@@ -238,7 +244,7 @@ D: 10 分 (具象類依賴)
 優先級: Critical (認證系統需即刻回應)
 ```
 
-### 改善後的實現例
+## 改善後的實現例
 
 ```javascript
 // SOLID 原則適用後 (分數: 90 分)
@@ -279,7 +285,7 @@ class UserService {
 // 債務削減: 240 小時 → 20 小時 (削減 92%)
 ```
 
-### 自動化支援
+## 自動化支援
 
 ```bash
 # SOLID 分數測量
@@ -301,7 +307,7 @@ npm test -- --coverage
 npm run test:mutation  # 變異測試
 ```
 
-### 注意事項
+## 注意事項
 
 - **功能變更的禁止**: 不改變外部行為
 - **測試優先**: 重構前追加測試

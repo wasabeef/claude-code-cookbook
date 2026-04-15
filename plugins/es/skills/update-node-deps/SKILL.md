@@ -1,12 +1,19 @@
 ---
-description: "Actualizar dependencias de Node.js de forma segura"
+description: 'Actualizar dependencias de Node.js de forma segura. Se activa con "actualizar paquetes npm", "actualizar dependencias Node.js".'
+allowed-tools:
+  - Bash(npm *)
+  - Bash(npx *)
+  - Bash(yarn *)
+  - Bash(pnpm *)
+  - Read
+  - Edit
 ---
 
-## Actualizar dependencias de Node.js de forma segura
+# Actualizar dependencias de Node.js de forma segura
 
 Actualiza de forma segura las dependencias en tu proyecto Node.js.
 
-### Uso
+## Uso
 
 ```bash
 # Verificar estado de dependencias y solicitar ayuda de Claude
@@ -14,7 +21,7 @@ npm outdated
 "Por favor actualiza las dependencias en package.json a sus últimas versiones"
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Verificar dependencias actuales
@@ -26,7 +33,7 @@ npm outdated
 "Analizar el nivel de riesgo de actualizar estos paquetes"
 ```
 
-### Integración con Claude
+## Integración con Claude
 
 ```bash
 # Actualización comprensiva de dependencias
@@ -46,7 +53,7 @@ npm outdated
 "Decirme el impacto y cambios necesarios al actualizar express a la última versión"
 ```
 
-### Ejemplos Detallados
+## Ejemplos Detallados
 
 ```bash
 # Análisis detallado incluyendo notas de lanzamiento
@@ -62,7 +69,7 @@ cat package.json tsconfig.json
 "Actualizar dependencias incluyendo definiciones de tipo TypeScript y crear un plan de actualización que evite errores de tipo"
 ```
 
-### Criterios de Riesgo
+## Criterios de Riesgo
 
 ```text
 Seguro (🟢):
@@ -81,7 +88,7 @@ Peligroso (🔴):
 - Eliminaciones o modificaciones de API
 ```
 
-### Ejecución de Actualización
+## Ejecución de Actualización
 
 ```bash
 # Crear respaldos
@@ -97,7 +104,7 @@ npm run build
 npm audit
 ```
 
-### Notas
+## Notas
 
 Siempre verificar funcionalidad después de actualizaciones. Si ocurren problemas, restaurar con:
 

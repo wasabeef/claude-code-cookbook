@@ -1,12 +1,12 @@
 ---
-description: "Guia para escolher o papel adequado"
+description: 'Guia para escolher o papel adequado. Ativa com "qual papel usar?", "lista de papéis".'
 ---
 
-## Guia para escolher o papel adequado
+# Guia para escolher o papel adequado
 
 Guia de seleção e sistema de ajuda para quando não souber qual papel usar.
 
-### Uso
+## Uso
 
 ```bash
 /role-help                      # Guia geral de seleção de papéis
@@ -14,7 +14,7 @@ Guia de seleção e sistema de ajuda para quando não souber qual papel usar.
 /role-help compare <papel 1>,<papel 2> # Comparação de papéis
 ```
 
-### Exemplos básicos
+## Exemplos básicos
 
 ```bash
 # Orientação geral
@@ -30,9 +30,9 @@ Guia de seleção e sistema de ajuda para quando não souber qual papel usar.
 → Diferenças entre frontend e mobile e como usar cada um
 ```
 
-### Guia de seleção de papéis por situação
+## Guia de seleção de papéis por situação
 
-### Relacionado à segurança
+## Relacionado à segurança
 
 ```text
 Use o papel security quando:
@@ -45,7 +45,7 @@ Use o papel security quando:
 Uso: /role security
 ```
 
-### 🏗️ Arquitetura e design
+## 🏗️ Arquitetura e design
 
 ```text
 Use o papel architect quando:
@@ -58,7 +58,7 @@ Use o papel architect quando:
 Uso: /role architect
 ```
 
-### ⚡ Problemas de performance
+## ⚡ Problemas de performance
 
 ```text
 Use o papel performance quando:
@@ -71,7 +71,7 @@ Use o papel performance quando:
 Uso: /role performance
 ```
 
-### 🔍 Investigação de causas de problemas
+## 🔍 Investigação de causas de problemas
 
 ```text
 Use o papel analyzer quando:
@@ -84,7 +84,7 @@ Use o papel analyzer quando:
 Uso: /role analyzer
 ```
 
-### 🎨 Frontend e UI/UX
+## 🎨 Frontend e UI/UX
 
 ```text
 Use o papel frontend quando:
@@ -97,7 +97,7 @@ Use o papel frontend quando:
 Uso: /role frontend
 ```
 
-### 📱 Desenvolvimento de aplicativos móveis
+## 📱 Desenvolvimento de aplicativos móveis
 
 ```text
 Use o papel mobile quando:
@@ -110,7 +110,7 @@ Use o papel mobile quando:
 Uso: /role mobile
 ```
 
-### 👀 Code review e qualidade
+## 👀 Code review e qualidade
 
 ```text
 Use o papel reviewer quando:
@@ -123,7 +123,7 @@ Use o papel reviewer quando:
 Uso: /role reviewer
 ```
 
-### 🧪 Testes e garantia de qualidade
+## 🧪 Testes e garantia de qualidade
 
 ```text
 Use o papel qa quando:
@@ -136,9 +136,9 @@ Use o papel qa quando:
 Uso: /role qa
 ```
 
-### Quando múltiplos papéis são necessários
+## Quando múltiplos papéis são necessários
 
-### 🔄 multi-role (análise paralela)
+## 🔄 multi-role (análise paralela)
 
 ```text
 Use multi-role quando:
@@ -150,7 +150,7 @@ Use multi-role quando:
 Exemplo: /multi-role security,performance
 ```
 
-### 🗣️ role-debate (debate)
+## 🗣️ role-debate (debate)
 
 ```text
 Use role-debate quando:
@@ -162,7 +162,7 @@ Use role-debate quando:
 Exemplo: /role-debate security,performance
 ```
 
-### 🤖 smart-review (sugestão automática)
+## 🤖 smart-review (sugestão automática)
 
 ```text
 Use smart-review quando:
@@ -174,37 +174,37 @@ Use smart-review quando:
 Exemplo: /smart-review
 ```
 
-### Tabela de comparação de papéis
+## Tabela de comparação de papéis
 
-### Relacionados à segurança
+## Relacionados à segurança
 
 | Papel    | Uso principal                    | Área forte                                 | Área fraca                               |
 | -------- | -------------------------------- | ------------------------------------------ | ---------------------------------------- |
 | security | Vulnerabilidades e contramedidas | Análise de ameaças, design de autenticação | UX, performance                          |
 | analyzer | Análise da causa raiz            | Análise lógica, coleta de evidências       | Medidas preventivas, planejamento futuro |
 
-### Relacionados ao design
+## Relacionados ao design
 
 | Papel     | Uso principal       | Área forte                                    | Área fraca                                       |
 | --------- | ------------------- | --------------------------------------------- | ------------------------------------------------ |
 | architect | Design de sistema   | Perspectiva de longo prazo, otimização global | Implementação detalhada, soluções de curto prazo |
 | reviewer  | Qualidade do código | Nível de implementação, manutenibilidade      | Requisitos de negócio, UX                        |
 
-### Relacionados à performance
+## Relacionados à performance
 
 | Papel       | Uso principal           | Área forte        | Área fraca          |
 | ----------- | ----------------------- | ----------------- | ------------------- |
 | performance | Aceleração e otimização | Medição, gargalos | Segurança, UX       |
 | qa          | Garantia de qualidade   | Teste, automação  | Design, arquitetura |
 
-### Relacionados à experiência do usuário
+## Relacionados à experiência do usuário
 
 | Papel    | Uso principal | Área forte              | Área fraca    |
 | -------- | ------------- | ----------------------- | ------------- |
 | frontend | Web UI/UX     | Browser, acessibilidade | Servidor, DB  |
 | mobile   | Mobile UX     | Touch, suporte offline  | Servidor, Web |
 
-### Fluxograma para quando estiver em dúvida
+## Fluxograma para quando estiver em dúvida
 
 ```text
 Qual é a natureza do problema?
@@ -223,9 +223,9 @@ Abrange múltiplas áreas?
 └─ Em dúvida sobre decisão → smart-review
 ```
 
-### Perguntas frequentes
+## Perguntas frequentes
 
-### Q: Qual a diferença entre frontend e mobile?
+## Q: Qual a diferença entre frontend e mobile?
 
 ```text
 A:
@@ -235,7 +235,7 @@ mobile: Foco em app móvel, nativo iOS/Android, React Native etc.
 Para casos relacionados a ambos, recomenda-se multi-role frontend,mobile
 ```
 
-### Q: Como distinguir security e analyzer?
+## Q: Como distinguir security e analyzer?
 
 ```text
 A:
@@ -245,7 +245,7 @@ analyzer: Análise de causas de problemas já ocorridos, investigação
 Para investigação de incidentes de segurança: multi-role security,analyzer
 ```
 
-### Q: Qual a diferença entre architect e performance?
+## Q: Qual a diferença entre architect e performance?
 
 ```text
 A:
@@ -255,7 +255,7 @@ performance: Melhoria específica de velocidade e eficiência
 Para design de performance de sistemas de grande escala: multi-role architect,performance
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Combinação com explicação da situação
@@ -272,7 +272,7 @@ cat problem-description.md
 "Qual papel é adequado para o problema de tempo de validade do token JWT?"
 ```
 
-### Observações
+## Observações
 
 - Problemas complexos são mais eficazes com combinação de múltiplos papéis
 - Para casos de alta urgência, responda rapidamente com single role

@@ -1,15 +1,15 @@
-## Structured thinking process for complex challenges
+# Structured thinking process for complex challenges
 
 Execute a step-by-step, structured thinking process for complex tasks and important decisions.
 
-### Usage
+## Usage
 
 ```bash
 # Request deep thinking from Claude
 "Analyze [task] using ultrathink"
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Examine architecture design
@@ -22,7 +22,7 @@ Execute a step-by-step, structured thinking process for complex tasks and import
 "Analyze the causes of poor application performance and improvement methods using ultrathink"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Business decisions
@@ -39,7 +39,7 @@ cat src/legacy_code.js
 "Develop a refactoring strategy for this legacy code using ultrathink"
 ```
 
-### Thinking Process
+## Thinking Process
 
 1. **Problem Decomposition** - Break down tasks into components
 2. **MECE Analysis** - Organize without gaps or overlaps
@@ -47,7 +47,7 @@ cat src/legacy_code.js
 4. **Interactive Confirmation** - Confirm with users at important decision points
 5. **Evidence-Based Proposal** - Conclusions based on data and logic
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Resolve complex technical debt
@@ -60,6 +60,6 @@ cat src/legacy_code.js
 "Analyze migrating from PostgreSQL to DynamoDB using ultrathink. Consider cost, performance, and operational aspects"
 ```
 
-### Notes
+## Notes
 
 Ultrathink is ideal for tasks that require deep thinking over time. For simple questions or immediate answers, use the normal question format.

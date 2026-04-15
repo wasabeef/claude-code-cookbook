@@ -1,8 +1,8 @@
-## Verify information accuracy against codebase and docs
+# Verify information accuracy against codebase and docs
 
 Verifies if a statement is true by checking your project's code and documentation.
 
-### Usage
+## Usage
 
 ```bash
 # Basic usage
@@ -15,7 +15,7 @@ Verifies if a statement is true by checking your project's code and documentatio
 /check-fact "JWT is used for authentication, and Firebase Auth is not used"
 ```
 
-### How It Works
+## How It Works
 
 1. **Where I Look (in order)**
    - The actual code (most trustworthy)
@@ -34,7 +34,7 @@ Verifies if a statement is true by checking your project's code and documentatio
    - Relevant code snippets
    - Matching documentation
 
-### Report Format
+## Report Format
 
 ```text
 ## Fact Check Results
@@ -56,7 +56,7 @@ Verifies if a statement is true by checking your project's code and documentatio
 [If unknown, here's what I'd need to check]
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Check the tech stack
@@ -72,7 +72,7 @@ Verifies if a statement is true by checking your project's code and documentatio
 /check-fact "Authentication tokens are encrypted and stored in secure storage"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Check dependencies
@@ -88,7 +88,7 @@ cat README.md
 /check-fact "Everything in the README is actually implemented"
 ```
 
-### When to Use This
+## When to Use This
 
 - Writing specs: Make sure your descriptions are accurate
 - Taking over a project: Check if you understand it correctly
@@ -96,7 +96,7 @@ cat README.md
 - Blog posts: Fact-check your technical content
 - Presentations: Confirm project details before presenting
 
-### Important
+## Important
 
 - Code beats docs: If they disagree, the code is right
 - Old docs happen: Implementation is what matters

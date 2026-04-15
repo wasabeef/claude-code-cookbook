@@ -1,15 +1,15 @@
-## Debate multi-papel para explorar compromissos
+# Debate multi-papel para explorar compromissos
 
 Comando onde diferentes papéis especializados debatem, consideram trade-offs e derivam soluções ótimas.
 
-### Uso
+## Uso
 
 ```bash
 /role-debate <papel 1>,<papel 2> [tópico]
 /role-debate <papel 1>,<papel 2>,<papel 3> [tópico]
 ```
 
-### Exemplos básicos
+## Exemplos básicos
 
 ```bash
 # Trade-off entre Segurança vs Performance
@@ -29,32 +29,32 @@ Comando onde diferentes papéis especializados debatem, consideram trade-offs e 
 "Sobre prós e contras da arquitetura de microsserviços"
 ```
 
-### Princípios básicos do debate
+## Princípios básicos do debate
 
-#### Fundamentos do debate construtivo
+### Fundamentos do debate construtivo
 
 - **Respeito mútuo**: Respeitar a especialização e perspectiva de outros papéis
 - **Baseado em fatos**: Debate baseado em dados e evidências, não em objeções emocionais
 - **Orientado à solução**: Buscar melhores soluções, não crítica pela crítica
 - **Foco na implementação**: Propostas considerando viabilidade, não apenas teorias ideais
 
-#### Requisitos qualitativos da argumentação
+### Requisitos qualitativos da argumentação
 
 - **Documentação oficial**: Referência a padrões, diretrizes e documentação oficial
 - **Casos de prova**: Citação específica de casos de sucesso e fracasso
 - **Avaliação quantitativa**: Comparação por números e indicadores sempre que possível
 - **Consideração temporal**: Avaliação de impactos de curto, médio e longo prazo
 
-#### Ética do debate
+### Ética do debate
 
 - **Honestidade**: Reconhecer também os limites da própria área de especialização
 - **Abertura**: Flexibilidade para novas informações e perspectivas
 - **Transparência**: Clarificação de bases de julgamento e condições prévias
 - **Responsabilidade**: Mencionar também os riscos de implementação das propostas
 
-### Processo de debate
+## Processo de debate
 
-### Fase 1: Declaração de posição inicial
+## Fase 1: Declaração de posição inicial
 
 Cada papel expressa opinião independentemente de perspectiva especializada
 
@@ -63,7 +63,7 @@ Cada papel expressa opinião independentemente de perspectiva especializada
 - Explicação de riscos e desafios previstos
 - Definição de indicadores de sucesso
 
-### Fase 2: Debate mútuo e refutação
+## Fase 2: Debate mútuo e refutação
 
 Debate cruzado entre papéis
 
@@ -72,7 +72,7 @@ Debate cruzado entre papéis
 - Clarificação de trade-offs
 - Apresentação de alternativas
 
-### Fase 3: Busca de pontos de compromisso
+## Fase 3: Busca de pontos de compromisso
 
 Busca por soluções implementáveis
 
@@ -81,7 +81,7 @@ Busca por soluções implementáveis
 - Abordagem de implementação em fases
 - Consideração de medidas de redução de riscos
 
-### Fase 4: Conclusão integrada
+## Fase 4: Conclusão integrada
 
 Determinação de recomendações finais
 
@@ -90,9 +90,9 @@ Determinação de recomendações finais
 - Indicadores de sucesso e métodos de medição
 - Pontos de revisão futura
 
-### Exemplo de formato de saída
+## Exemplo de formato de saída
 
-### Caso de debate entre 2 papéis
+## Caso de debate entre 2 papéis
 
 ```text
 Debate de Papéis: Security vs Performance
@@ -182,7 +182,7 @@ Revisão futura:
 - Após 6 meses: Considerar migração para autenticação baseada em risco mais refinada
 ```
 
-### Caso de debate entre 3 papéis
+## Caso de debate entre 3 papéis
 
 ```text
 Debate de Papéis: Architect vs Security vs Performance
@@ -212,9 +212,9 @@ Conclusão integrada:
 "Divisão em fases por Domain-Driven Design + design security-first"
 ```
 
-### Padrões de debate eficazes
+## Padrões de debate eficazes
 
-### Seleção tecnológica
+## Seleção tecnológica
 
 ```bash
 /role-debate architect,performance
@@ -227,7 +227,7 @@ Conclusão integrada:
 "Método de autenticação: JWT vs Session Cookie"
 ```
 
-### Decisões de design
+## Decisões de design
 
 ```bash
 /role-debate security,frontend
@@ -240,7 +240,7 @@ Conclusão integrada:
 "Estratégia de teste e design de arquitetura"
 ```
 
-### Problemas de trade-off
+## Problemas de trade-off
 
 ```bash
 /role-debate security,performance
@@ -253,9 +253,9 @@ Conclusão integrada:
 "Conveniência vs nível de proteção de dados"
 ```
 
-### Características de debate por papel
+## Características de debate por papel
 
-#### 🔒 Papel Security
+### 🔒 Papel Security
 
 ```yaml
 Postura de debate:
@@ -287,7 +287,7 @@ Preconceitos a serem observados:
   - Subestimação de custos de implementação
 ```
 
-#### ⚡ Papel Performance
+### ⚡ Papel Performance
 
 ```yaml
 Postura de debate:
@@ -319,7 +319,7 @@ Preconceitos a serem observados:
   - Otimização prematura
 ```
 
-#### 🏗️ Papel Architect
+### 🏗️ Papel Architect
 
 ```yaml
 Postura de debate:
@@ -351,7 +351,7 @@ Preconceitos a serem observados:
   - Falta de compreensão de detalhes de implementação
 ```
 
-#### 🎨 Papel Frontend
+### 🎨 Papel Frontend
 
 ```yaml
 Postura de debate:
@@ -383,7 +383,7 @@ Preconceitos a serem observados:
   - Subestimação do impacto na performance
 ```
 
-#### 📱 Papel Mobile
+### 📱 Papel Mobile
 
 ```yaml
 Postura de debate:
@@ -415,7 +415,7 @@ Preconceitos a serem observados:
   - Falta de consideração por ambientes desktop
 ```
 
-#### 🔍 Papel Analyzer
+### 🔍 Papel Analyzer
 
 ```yaml
 Postura de debate:
@@ -447,9 +447,9 @@ Preconceitos a serem observados:
   - Supremacia dos dados
 ```
 
-### Template de condução do debate
+## Template de condução do debate
 
-#### Template da Fase 1: Declaração de posição
+### Template da Fase 1: Declaração de posição
 
 ```text
 Proposta recomendada do 【Nome do Papel】:
@@ -474,7 +474,7 @@ Indicadores de sucesso:
 - [indicador mensurável 2]
 ```
 
-#### Template da Fase 2: Refutação
+### Template da Fase 2: Refutação
 
 ```text
 Contra-argumento para [Papel Alvo]:
@@ -493,7 +493,7 @@ Pontos de possível compromisso:
 - [possibilidade de implementação em fases]
 ```
 
-#### Template da Fase 3: Solução integrada
+### Template da Fase 3: Solução integrada
 
 ```text
 Proposta de solução integrada:
@@ -515,37 +515,37 @@ Indicadores de sucesso/Métodos de medição:
 - [timing de revisão]
 ```
 
-### Checklist de qualidade do debate
+## Checklist de qualidade do debate
 
-#### Qualidade da argumentação
+### Qualidade da argumentação
 
 - [ ] Há referência a documentos/padrões oficiais
 - [ ] Casos específicos e dados são apresentados
 - [ ] Suposições e fatos são claramente distinguidos
 - [ ] Fontes de informação são especificadas
 
-#### Construtividade do debate
+### Construtividade do debate
 
 - [ ] Compreende corretamente a proposta do oponente
 - [ ] Contra-argumentos lógicos, não emocionais
 - [ ] Também apresenta propostas alternativas
 - [ ] Busca possibilidades Win-Win
 
-#### Viabilidade de implementação
+### Viabilidade de implementação
 
 - [ ] Considera viabilidade técnica
 - [ ] Estima custos e prazos de implementação
 - [ ] Considera possibilidade de implementação em fases
 - [ ] Apresenta medidas de redução de riscos
 
-#### Integração
+### Integração
 
 - [ ] Considera impactos em outras áreas
 - [ ] Busca otimização global
 - [ ] Inclui perspectiva de longo prazo
 - [ ] Define indicadores de sucesso mensuráveis
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Debate baseado em documentos de design
@@ -563,7 +563,7 @@ cat performance-issues.md
 "Debata sobre estratégia de UI unificada para iOS, Android e Web"
 ```
 
-### Observações
+## Observações
 
 - Debates podem levar tempo (tópicos complexos levam mais tempo)
 - Com 3 ou mais papéis, o debate pode se dispersar

@@ -1,14 +1,14 @@
-## Sugerir patrones de diseño y evaluar principios SOLID
+# Sugerir patrones de diseño y evaluar principios SOLID
 
 Sugiere patrones de diseño para tu código y verifica si sigue los principios SOLID.
 
-### Uso
+## Uso
 
 ```bash
 /design-patterns [objetivo_análisis] [opciones]
 ```
 
-### Opciones
+## Opciones
 
 - `--suggest`: Sugerir patrones aplicables (por defecto)
 - `--analyze`: Analizar uso de patrones existentes
@@ -16,7 +16,7 @@ Sugiere patrones de diseño para tu código y verifica si sigue los principios S
 - `--solid`: Verificar cumplimiento con principios SOLID
 - `--anti-patterns`: Detectar anti-patrones
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Analizar patrones para todo el proyecto
@@ -32,30 +32,30 @@ Sugiere patrones de diseño para tu código y verifica si sigue los principios S
 /design-patterns --anti-patterns
 ```
 
-### Categorías de Patrones
+## Categorías de Patrones
 
-#### 1. Patrones Creacionales
+### 1. Patrones Creacionales
 
 - **Patrón Factory**: Abstrae la creación de objetos
 - **Patrón Builder**: Construcción paso a paso de objetos complejos
 - **Patrón Singleton**: Asegura que solo exista una instancia
 - **Patrón Prototype**: Crea clones de objetos
 
-#### 2. Patrones Estructurales
+### 2. Patrones Estructurales
 
 - **Patrón Adapter**: Convierte interfaces
 - **Patrón Decorator**: Agrega funcionalidad dinámicamente
 - **Patrón Facade**: Simplifica subsistemas complejos
 - **Patrón Proxy**: Controla acceso a objetos
 
-#### 3. Patrones de Comportamiento
+### 3. Patrones de Comportamiento
 
 - **Patrón Observer**: Implementa notificaciones de eventos
 - **Patrón Strategy**: Cambia algoritmos
 - **Patrón Command**: Encapsula operaciones
 - **Patrón Iterator**: Recorre colecciones
 
-### Principios SOLID Que Verificamos
+## Principios SOLID Que Verificamos
 
 ```text
 S - Responsabilidad Única (una clase, un trabajo)
@@ -65,7 +65,7 @@ I - Segregación de Interfaces (no forzar métodos no utilizados)
 D - Inversión de Dependencias (depender de abstracciones, no detalles)
 ```
 
-### Ejemplo de Salida
+## Ejemplo de Salida
 
 ```text
 Reporte de Análisis de Patrones de Diseño
@@ -108,7 +108,7 @@ Cómo Arreglar
 4. Dividir IDataStore en interfaces más pequeñas
 ```
 
-### Ejemplos de Uso Avanzado
+## Ejemplos de Uso Avanzado
 
 ```bash
 # Ver qué pasa si usas un patrón
@@ -124,9 +124,9 @@ Cómo Arreglar
 /design-patterns --architecture MVC
 ```
 
-### Ejemplo: Antes y Después
+## Ejemplo: Antes y Después
 
-#### Antes (Código Problemático)
+### Antes (Código Problemático)
 
 ```javascript
 class OrderService {
@@ -141,7 +141,7 @@ class OrderService {
 }
 ```
 
-#### Después (Aplicando Patrón Strategy)
+### Después (Aplicando Patrón Strategy)
 
 ```javascript
 // Interfaz Strategy
@@ -170,7 +170,7 @@ class OrderService {
 }
 ```
 
-### Anti-Patrones Que Encontramos
+## Anti-Patrones Que Encontramos
 
 - **Objeto Dios**: Clases que hacen todo
 - **Código Espagueti**: Desorden enredado de flujo de control
@@ -178,7 +178,7 @@ class OrderService {
 - **Números Mágicos**: Números aleatorios sin explicación
 - **Infierno de Callbacks**: Callbacks dentro de callbacks dentro de callbacks
 
-### Mejores Prácticas
+## Mejores Prácticas
 
 1. **Ve despacio**: Agrega patrones de uno en uno
 2. **Necesidad primero**: Solo usa patrones para resolver problemas reales

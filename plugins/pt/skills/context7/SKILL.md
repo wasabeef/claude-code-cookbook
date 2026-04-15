@@ -1,19 +1,22 @@
 ---
-description: "Buscar documentação técnica via Context7 MCP"
+description: 'Buscar documentação técnica via Context7 MCP. Ativa com "buscar docs", "ver documentação oficial".'
+allowed-tools:
+  - mcp__Context7__resolve-library-id
+  - mcp__Context7__query-docs
 ---
 
-## Buscar documentação técnica via Context7 MCP
+# Buscar documentação técnica via Context7 MCP
 
 Pesquisa documentação técnica no Context7 via MCP.
 
-### Uso
+## Uso
 
 ```bash
 # Formato de solicitação ao Claude
 "pesquise [palavra-chave] no context7"
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Investigação de React hooks
@@ -23,7 +26,7 @@ Pesquisa documentação técnica no Context7 via MCP.
 "pesquise sobre erros de tipo TypeScript no context7"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Solicitação de investigação técnica
@@ -36,7 +39,7 @@ Pesquisa documentação técnica no Context7 via MCP.
 "encontre no context7 as melhores práticas de otimização de performance do React"
 ```
 
-### Exemplos Detalhados
+## Exemplos Detalhados
 
 ```bash
 # Investigação de múltiplas perspectivas
@@ -49,6 +52,6 @@ Pesquisa documentação técnica no Context7 via MCP.
 "pesquise as novas funcionalidades do Next.js 14 no context7 e explique focando no uso do App Router"
 ```
 
-### Observações
+## Observações
 
 Quando informações não são encontradas no Context7, Claude automaticamente sugere outros métodos como busca web.

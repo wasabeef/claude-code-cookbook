@@ -1,25 +1,31 @@
 ---
-description: "Identificar causa raíz y sugerir soluciones probadas"
+description: 'Identificar causa raíz y sugerir soluciones. Se activa con "arreglar este error", "¿qué es este error?", "resolver fallo de build".'
+allowed-tools:
+  - Read
+  - Edit
+  - Grep
+  - Glob
+  - Bash
 ---
 
-## Identificar causa raíz y sugerir soluciones probadas
+# Identificar causa raíz y sugerir soluciones
 
 Identifica la causa raíz del mensaje de error, predice el tiempo de resolución y propone soluciones probadas. Aprende patrones de errores similares y presenta inmediatamente la solución adecuada.
 
-### Uso
+## Uso
 
 ```bash
 /fix-error [opciones]
 ```
 
-### Opciones
+## Opciones
 
 - Ninguna : Análisis de error estándar
 - `--deep` : Modo de análisis profundo (incluye dependencias y factores ambientales)
 - `--preventive` : Análisis enfocado en medidas preventivas
 - `--quick` : Solo presenta correcciones aplicables inmediatamente
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Análisis de error estándar
@@ -43,7 +49,7 @@ cargo test 2>&1
 「Presentar corrección del error y medidas preventivas futuras」
 ```
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Análisis de log de errores
@@ -67,7 +73,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 「Clasificar estos errores y advertencias por prioridad y proponer método de resolución para cada uno」
 ```
 
-### Predicción de Tiempo de Resolución de Error
+## Predicción de Tiempo de Resolución de Error
 
 ```text
 🚀 Corrección inmediata (dentro de 5 minutos)
@@ -95,7 +101,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 └─ Tiempo predicho: 4 horas-varios días
 ```
 
-### Base de Datos de Patrones de Errores Similares
+## Base de Datos de Patrones de Errores Similares
 
 ```text
 Errores frecuentes y soluciones inmediatas
@@ -132,7 +138,7 @@ Errores frecuentes y soluciones inmediatas
 └─ Solución: Verificar condición de terminación de recursión, resolver referencia circular
 ```
 
-### Matriz de Prioridad de Análisis de Error
+## Matriz de Prioridad de Análisis de Error
 
 | Prioridad         | Icono                    | Alcance Impacto | Dificultad Resolución | Plazo Respuesta      | Descripción                                              |
 | ----------------- | ------------------------ | --------------- | --------------------- | -------------------- | -------------------------------------------------------- |
@@ -141,9 +147,9 @@ Errores frecuentes y soluciones inmediatas
 | **Medium**        | 🟡 Respuesta planificada | Limitado        | Alto                  | Respuesta mismo día  | Restricción función parcial, existe solución alternativa |
 | **Low**           | 🟢 Observación           | Limitado        | Bajo                  | Próxima modificación | Fallo menor, pequeño impacto en UX                       |
 
-### Proceso de Análisis
+## Proceso de Análisis
 
-#### Phase 1: Recopilación de Información de Error
+### Phase 1: Recopilación de Información de Error
 
 ```bash
 🔴 Ejecución obligatoria:
@@ -162,7 +168,7 @@ Errores frecuentes y soluciones inmediatas
 - Estado servicios externos
 ```
 
-#### Phase 2: Análisis de Causa Raíz
+### Phase 2: Análisis de Causa Raíz
 
 1. **Organización de síntomas superficiales**
    - Contenido exacto del mensaje de error
@@ -179,7 +185,7 @@ Errores frecuentes y soluciones inmediatas
    - Ejecución de prueba de aislamiento
    - Refinamiento de causas
 
-#### Phase 3: Implementación de Solución
+### Phase 3: Implementación de Solución
 
 ```bash
 🔴 Manejo inmediato (hotfix):
@@ -198,7 +204,7 @@ Errores frecuentes y soluciones inmediatas
 - Mejora de pipeline CI/CD
 ```
 
-### Ejemplo de Salida
+## Ejemplo de Salida
 
 ```text
 🚨 Reporte de Análisis de Error
@@ -235,9 +241,9 @@ Errores frecuentes y soluciones inmediatas
 3. [Items de verificación de funcionamiento]
 ```
 
-### Método de Análisis por Tipo de Error
+## Método de Análisis por Tipo de Error
 
-#### Error de Compilación/Build
+### Error de Compilación/Build
 
 ```bash
 # Error de tipo TypeScript
@@ -253,7 +259,7 @@ Verificación obligatoria (alta):
 - Conflicto de mutabilidad
 ```
 
-#### Error de Tiempo de Ejecución
+### Error de Tiempo de Ejecución
 
 ```bash
 # Referencia Null/Undefined
@@ -269,7 +275,7 @@ Verificación obligatoria (alta):
 - Detección de referencia circular
 ```
 
-#### Error de Dependencias
+### Error de Dependencias
 
 ```bash
 # Conflicto de versión
@@ -285,7 +291,7 @@ Verificación obligatoria (alta):
 - Enlaces simbólicos
 ```
 
-### Precauciones
+## Precauciones
 
 - **Absolutamente prohibido**: Juicio basado solo en parte del mensaje de error, aplicación de solución Stack Overflow sin verificación
 - **Condiciones de excepción**: Medidas temporales permitidas solo bajo estas 3 condiciones:
@@ -294,21 +300,21 @@ Verificación obligatoria (alta):
   3. Bug conocido de framework (esperando lanzamiento de versión corregida)
 - **Recomendación**: Priorizar identificación de causa raíz, evitar corrección superficial
 
-### Mejores Prácticas
+## Mejores Prácticas
 
 1. **Recopilación completa de información**: Verificar mensaje de error desde inicio hasta final
 2. **Verificación de reproducibilidad**: Priorizar creación de código mínimo de reproducción
 3. **Enfoque gradual**: Comenzar con pequeñas correcciones y verificar
 4. **Documentación**: Registrar proceso de resolución para compartir conocimiento
 
-#### Trampas Comunes
+### Trampas Comunes
 
 - **Manejo de síntomas**: Corrección superficial que pasa por alto causa raíz
 - **Generalización excesiva**: Aplicar ampliamente solución de caso específico
 - **Omisión de verificación**: No confirmar efectos secundarios tras corrección
 - **Personalización de conocimiento**: No documentar método de resolución
 
-### Comandos Relacionados
+## Comandos Relacionados
 
 - `/design-patterns` : Analizar problemas de estructura de código y proponer patrones
 - `/tech-debt` : Analizar causa raíz de errores desde perspectiva de deuda técnica

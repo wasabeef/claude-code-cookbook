@@ -1,8 +1,8 @@
-## 安全更新 Node.js 依赖
+# 安全更新 Node.js 依赖
 
 安全地更新 Node.js 项目的依赖关系。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 确认依赖状态并请求 Claude
@@ -10,7 +10,7 @@ npm outdated
 「将 package.json 的依赖更新到最新版本」
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 确认当前依赖
@@ -22,7 +22,7 @@ npm outdated
 「分析这些包更新的危险度」
 ```
 
-### 与 Claude 配合
+## 与 Claude 配合
 
 ```bash
 # 全面的依赖更新
@@ -42,7 +42,7 @@ npm outdated
 「告诉我将 express 更新到最新版本的影响和必要的更改」
 ```
 
-### 详细示例
+## 详细示例
 
 ```bash
 # 包含 Release Notes 的详细分析
@@ -59,7 +59,7 @@ cat package.json tsconfig.json
 「包括 TypeScript 的类型定义更新依赖，制定不会产生类型错误的更新计划」
 ```
 
-### 危险度标准
+## 危险度标准
 
 ```text
 安全 (🟢)：
@@ -78,7 +78,7 @@ cat package.json tsconfig.json
 - API 的删除或更改
 ```
 
-### 执行更新
+## 执行更新
 
 ```bash
 # 创建备份
@@ -94,7 +94,7 @@ npm run build
 npm audit
 ```
 
-### 注意事项
+## 注意事项
 
 更新后必须进行功能测试。如果出现问题，使用以下命令恢复：
 

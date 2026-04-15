@@ -1,25 +1,31 @@
 ---
-description: "Identify root cause and suggest proven solutions"
+description: 'Identify root cause from error messages and suggest proven solutions. Trigger with "fix this error", "resolve this error", "what is this error?", "fix build error", "resolve test failure".'
+allowed-tools:
+  - Read
+  - Edit
+  - Grep
+  - Glob
+  - Bash
 ---
 
-## Identify root cause and suggest proven solutions
+# Identify root cause and suggest proven solutions
 
 Analyzes error messages to identify root causes, predict resolution time, and suggest proven fixes. Learns patterns from similar errors to provide immediate solutions.
 
-### Usage
+## Usage
 
 ```bash
 /fix-error [options]
 ```
 
-### Options
+## Options
 
 - None: Standard error analysis
 - `--deep`: Deep dive including dependencies and environment
 - `--preventive`: Focus on preventing future occurrences
 - `--quick`: Quick fixes only
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Standard error analysis
@@ -43,7 +49,7 @@ cargo test 2>&1
 "Fix this and help me prevent it next time"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Analyze error logs
@@ -67,7 +73,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 "Sort these by priority and tell me how to fix each one"
 ```
 
-### Error Resolution Time Prediction
+## Error Resolution Time Prediction
 
 ```text
 🚀 Immediate Fix (< 5 minutes)
@@ -95,7 +101,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 └─ Predicted time: 4 hours-several days
 ```
 
-### Similar Error Pattern Database
+## Similar Error Pattern Database
 
 ```text
 Common Errors and Immediate Solutions
@@ -132,7 +138,7 @@ Common Errors and Immediate Solutions
 └─ Solution: Check recursion termination conditions, resolve circular references
 ```
 
-### Error Analysis Priority Matrix
+## Error Analysis Priority Matrix
 
 | Priority          | Icon                | Impact Range | Resolution Difficulty | Response Deadline      | Description                                      |
 | ----------------- | ------------------- | ------------ | --------------------- | ---------------------- | ------------------------------------------------ |
@@ -141,9 +147,9 @@ Common Errors and Immediate Solutions
 | **Medium**        | 🟡 Planned Response | Narrow       | High                  | Address same day       | Partial feature limitation, workaround available |
 | **Low**           | 🟢 Monitor          | Narrow       | Low                   | Next maintenance cycle | Minor bugs, minimal UX impact                    |
 
-### Analysis Process
+## Analysis Process
 
-#### Phase 1: Error Information Collection
+### Phase 1: Error Information Collection
 
 ```bash
 🔴 Must have:
@@ -162,7 +168,7 @@ Common Errors and Immediate Solutions
 - External services
 ```
 
-#### Phase 2: Root Cause Analysis
+### Phase 2: Root Cause Analysis
 
 1. **Identify symptoms**
    - Exact error message
@@ -179,7 +185,7 @@ Common Errors and Immediate Solutions
    - Isolate the issue
    - Confirm the cause
 
-#### Phase 3: Solution Implementation
+### Phase 3: Solution Implementation
 
 ```bash
 🔴 Quick fix (hotfix):
@@ -198,7 +204,7 @@ Common Errors and Immediate Solutions
 - Improve CI/CD
 ```
 
-### Output Example
+## Output Example
 
 ```text
 🚨 Error Analysis Report
@@ -235,9 +241,9 @@ Common Errors and Immediate Solutions
 3. [Operation check items]
 ```
 
-### Analysis Methods by Error Type
+## Analysis Methods by Error Type
 
-#### Compilation/Build Errors
+### Compilation/Build Errors
 
 ```bash
 # TypeScript type errors
@@ -253,7 +259,7 @@ Must check (high):
 - Mutability conflicts
 ```
 
-#### Runtime Errors
+### Runtime Errors
 
 ```bash
 # Null/Undefined references
@@ -269,7 +275,7 @@ Must check (high):
 - Circular reference detection
 ```
 
-#### Dependency Errors
+### Dependency Errors
 
 ```bash
 # Version conflicts
@@ -285,7 +291,7 @@ Must check (high):
 - Symbolic links
 ```
 
-### Notes
+## Notes
 
 - **Absolutely prohibited**: Making judgments based only on part of an error message, applying Stack Overflow solutions without verification
 - **Exception conditions**: Temporary workarounds are only allowed under these 3 conditions:
@@ -294,21 +300,21 @@ Must check (high):
   3. Known framework bugs (waiting for fixed version release)
 - **Recommendation**: Prioritize identifying root causes and avoid superficial fixes
 
-### Best Practices
+## Best Practices
 
 1. **Complete information collection**: Check error messages from beginning to end
 2. **Reproducibility confirmation**: Prioritize creating minimal reproduction code
 3. **Step-by-step approach**: Start with small fixes and verify
 4. **Documentation**: Record the solution process for knowledge sharing
 
-#### Common Pitfalls
+### Common Pitfalls
 
 - **Symptom treatment**: Superficial fixes that miss root causes
 - **Overgeneralization**: Widely applying solutions for specific cases
 - **Omitted verification**: Not checking side effects after fixes
 - **Knowledge individualization**: Not documenting solution methods
 
-### Related Commands
+## Related Commands
 
 - `/design-patterns`: Analyze code structure issues and suggest patterns
 - `/tech-debt`: Analyze root causes of errors from a technical debt perspective

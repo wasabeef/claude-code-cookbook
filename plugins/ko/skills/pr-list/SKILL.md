@@ -1,19 +1,21 @@
 ---
-description: "오픈 PR 목록을 우선순위로 표시"
+description: "오픈 PR 목록을 우선순위로 표시. 「PR 목록 보여줘」「풀리퀘스트 확인하고 싶어」「열린 PR은?」등으로 기동."
+allowed-tools:
+  - Bash(gh pr list *)
 ---
 
-## 오픈 PR 목록을 우선순위로 표시
+# 오픈 PR 목록을 우선순위로 표시
 
 현재 리포지토리의 오픈 PR 목록을 우선순위와 함께 표시합니다.
 
-### 사용법
+## 사용법
 
 ```bash
 # Claude 에 의뢰
 「오픈 PR 목록을 우선순위와 함께 표시하세요」
 ```
 
-### 기본 예제
+## 기본 예제
 
 ```bash
 # 리포지토리 정보 취득
@@ -25,7 +27,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 「위의 PR 을 우선순위별로 정리하여, 각 PR 의 2 행 개요도 포함해서 표시하세요. URL 은 위에서 취득한 리포지토리명을 사용하여 생성하세요」
 ```
 
-### 표시 형식
+## 표시 형식
 
 ```text
 오픈 PR 목록 (우선순위순)
@@ -43,7 +45,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 (동일한 형식)
 ```
 
-### 우선순위 판정 기준
+## 우선순위 판정 기준
 
 **고우선순위**
 
@@ -61,7 +63,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 - DO NOT MERGE 를 포함하는 PR
 - Draft 이면서 `test:`, `build:`, `perf:`인 PR
 
-### 주의사항
+## 주의사항
 
 - GitHub CLI (`gh`)가 필요합니다
 - 오픈 상태의 PR 만 표시합니다 (Draft 는 제외)

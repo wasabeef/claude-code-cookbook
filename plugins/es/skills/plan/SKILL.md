@@ -1,19 +1,23 @@
 ---
-description: "Modo planificación para estrategia antes de implementar"
+description: 'Modo planificación para estrategia antes de implementar. Se activa con "hacer un plan", "¿cómo proceder?", "estrategia de implementación".'
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Modo planificación para estrategia antes de implementar
+# Modo planificación para estrategia antes de implementar
 
 Te ayuda a planificar antes de programar. Crea estrategias detalladas para hacer que el desarrollo sea más fluido.
 
-### Uso
+## Uso
 
 ```bash
 # Solicitar Modo Plan de Claude
 "Crear un plan de implementación para [contenido de implementación]"
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Plan de implementación para nueva característica
@@ -26,7 +30,7 @@ Te ayuda a planificar antes de programar. Crea estrategias detalladas para hacer
 "Crear un plan de refactoring para código legacy"
 ```
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Implementación de característica compleja
@@ -42,7 +46,7 @@ Te ayuda a planificar antes de programar. Crea estrategias detalladas para hacer
 "Crear un plan de implementación para Dockerización, incluyendo entorno de desarrollo, entorno de producción y CI/CD"
 ```
 
-### Cómo Funciona el Modo Plan
+## Cómo Funciona el Modo Plan
 
 **Inicio Automático**
 
@@ -64,7 +68,7 @@ Te ayuda a planificar antes de programar. Crea estrategias detalladas para hacer
 - Puedes solicitar cambios en cualquier momento
 - El seguimiento de TaskCreate comienza después de tu aprobación
 
-### Ejemplos Detallados
+## Ejemplos Detallados
 
 ```bash
 # Implementación de sistema complejo
@@ -80,30 +84,30 @@ Te ayuda a planificar antes de programar. Crea estrategias detalladas para hacer
 "Crear un plan de implementación para un pipeline CI/CD, incluyendo automatización de pruebas, despliegue y monitoreo"
 ```
 
-### Flujo de Trabajo de 3 Fases
+## Flujo de Trabajo de 3 Fases
 
-#### Fase 1: Requisitos
+### Fase 1: Requisitos
 
 - **Historias de Usuario**: ¿Qué estamos construyendo y por qué?
 - **Criterios de Éxito**: ¿Cómo sabemos que está terminado?
 - **Restricciones**: ¿Qué límites tenemos?
 - **Prioridad**: ¿Qué es imprescindible vs deseable?
 
-#### Fase 2: Diseño
+### Fase 2: Diseño
 
 - **Arquitectura**: ¿Cómo funcionará el sistema?
 - **Modelo de Datos**: Esquema de base de datos y APIs
 - **UI/UX**: Layouts de pantalla y flujo de usuario
 - **Riesgos**: ¿Qué podría salir mal y cómo prevenirlo?
 
-#### Fase 3: Implementación
+### Fase 3: Implementación
 
 - **Desglose de Tareas**: Dividir en partes manejables
 - **Seguimiento de Progreso**: TaskUpdate gestiona el estado
 - **Verificaciones de Calidad**: Plan de testing y verificación
 - **Tu Aprobación**: Mostrar plan y esperar tu OK
 
-### Notas
+## Notas
 
 **Cuándo Usar Esto**
 
@@ -123,7 +127,7 @@ Te ayuda a planificar antes de programar. Crea estrategias detalladas para hacer
 - Siempre esperar tu respuesta
 - Ofrecer alternativas si algo falla
 
-### Ejemplo de Ejecución
+## Ejemplo de Ejecución
 
 ```bash
 # Ejemplo de uso

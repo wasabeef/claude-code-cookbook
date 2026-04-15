@@ -1,19 +1,21 @@
 ---
-description: "按优先级显示 PR 列表"
+description: "按优先级显示 PR 列表。「显示 PR」「PR 列表」「打开的 PR？」「待合并的 PR？」等触发。"
+allowed-tools:
+  - Bash(gh pr list *)
 ---
 
-## 按优先级显示 PR 列表
+# 按优先级显示 PR 列表
 
 显示当前仓库的开放 PR 列表，并按优先级排序。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 向 Claude 请求
 「请按优先级显示开放的 PR 列表」
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 获取仓库信息
@@ -25,7 +27,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 「请按优先级整理上述 PR，并包含每个 PR 的 2 行概要。使用上面获取的仓库名生成 URL」
 ```
 
-### 显示格式
+## 显示格式
 
 ```text
 开放 PR 列表 (按优先级排序)
@@ -43,7 +45,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 (相同格式)
 ```
 
-### 优先级判定标准
+## 优先级判定标准
 
 **高优先级**
 
@@ -61,7 +63,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 - 包含 DO NOT MERGE 的 PR
 - Draft 状态的 `test:`、`build:`、`perf:` PR
 
-### 注意事项
+## 注意事项
 
 - 需要安装 GitHub CLI (`gh`)
 - 仅显示开放状态的 PR(排除 Draft)

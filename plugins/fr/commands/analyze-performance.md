@@ -1,8 +1,8 @@
-## Analyse de performance basée sur les Core Web Vitals
+# Analyse de performance basée sur les Core Web Vitals
 
 Analyse les performances de l'application du point de vue de l'expérience utilisateur et quantifie les améliorations de vitesse perçue grâce aux optimisations. Calcule des scores UX basés sur les Core Web Vitals et propose des stratégies d'optimisation priorisées.
 
-### Score de Performance UX
+## Score de Performance UX
 
 ```text
 Score d'Expérience Utilisateur : B+ (78/100)
@@ -42,7 +42,7 @@ Score d'Expérience Utilisateur : B+ (78/100)
 └─ [P3] Stratégie cache → 50% plus rapide lors des visites répétées
 ```
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Analyse intégrale du score UX
@@ -58,7 +58,7 @@ grep -r "addEventListener\|setInterval" . --include="*.js" | grep -v "removeEven
 「Analyser l'impact des problèmes de performance sur l'expérience utilisateur」
 ```
 
-### Exemples de Base
+## Exemples de Base
 
 ```bash
 # Taille de bundle et temps de chargement
@@ -74,30 +74,30 @@ npm outdated && npm audit
 "Évaluer l'impact des dépendances obsolètes sur les performances"
 ```
 
-### Perspectives d'Analyse
+## Perspectives d'Analyse
 
-#### 1. Problèmes au Niveau du Code
+### 1. Problèmes au Niveau du Code
 
 - **Algorithmes O(n²)** : Détection d'opérations de tableau inefficaces
 - **I/O synchrone** : Identification de processus bloquants
 - **Traitement dupliqué** : Suppression de calculs et requêtes inutiles
 - **Fuites mémoire** : Gestion des event listeners et timers
 
-#### 2. Problèmes au Niveau de l'Architecture
+### 2. Problèmes au Niveau de l'Architecture
 
 - **Requêtes N+1** : Patterns d'accès à la base de données
 - **Manque de cache** : Calculs répétés et appels API
 - **Taille de bundle** : Bibliothèques inutiles et division de code
 - **Gestion des ressources** : Utilisation des pools de connexion et threads
 
-#### 3. Impact de la Dette Technique
+### 3. Impact de la Dette Technique
 
 - **Code legacy** : Dégradation des performances par d'anciennes implémentations
 - **Problèmes de conception** : Couplage fort par manque de distribution des responsabilités
 - **Manque de tests** : Manque de détection des régressions de performance
 - **Manque de surveillance** : Système de détection précoce des problèmes
 
-### Matrice ROI d'Amélioration des Performances
+## Matrice ROI d'Amélioration des Performances
 
 ```text
 ROI d'amélioration = (effet réduction temps + amélioration qualité) ÷ heures d'implémentation
@@ -110,14 +110,14 @@ ROI d'amélioration = (effet réduction temps + amélioration qualité) ÷ heure
 | **[P2] Implémenter de manière planifiée** | Basse                               | Haute                       | 10-20%                | Division code          | 40h    | Initial -15%    |
 | **[P3] Reporter/observer**                | Basse                               | Basse                       | < 10%                 | Optimisations mineures | 20h    | Partiel -5%     |
 
-#### Critères de Détermination de Priorité
+### Critères de Détermination de Priorité
 
 - **P0 (implémenter immédiatement)** : Amélioration UX "Haute" × Difficulté "Basse" = ROI maximum
 - **P1 (implémenter rapidement)** : Amélioration UX "Haute" × Difficulté "Moyenne" = ROI élevé
 - **P2 (de manière planifiée)** : Amélioration UX "Basse" × Difficulté "Haute" = ROI moyen
 - **P3 (reporter)** : Amélioration UX "Basse" × Difficulté "Basse" = ROI faible
 
-### Corrélation entre Métriques de Performance et Amélioration UX
+## Corrélation entre Métriques de Performance et Amélioration UX
 
 | Métrique             | Plage d'Amélioration | Amélioration Vitesse Perçue | Satisfaction Utilisateur | Heures d'Implémentation |
 | -------------------- | -------------------- | --------------------------- | ------------------------ | ----------------------- |
@@ -128,9 +128,9 @@ ROI d'amélioration = (effet réduction temps + amélioration qualité) ÷ heure
 | **TTI (interactif)** | -1,0s                | +35%                        | Taux complétion +15%     | 32h                     |
 | **Taille bundle**    | -30%                 | +20%                        | Première visite +25%     | 16h                     |
 
-### Mesure et Outils
+## Mesure et Outils
 
-#### Node.js / JavaScript
+### Node.js / JavaScript
 
 ```bash
 # Profiling
@@ -142,7 +142,7 @@ npx webpack-bundle-analyzer
 lighthouse --chrome-flags="--headless"
 ```
 
-#### Base de Données
+### Base de Données
 
 ```sql
 -- Analyse de requêtes
@@ -150,7 +150,7 @@ EXPLAIN ANALYZE SELECT ...
 SHOW SLOW LOG;
 ```
 
-#### Frontend
+### Frontend
 
 ```bash
 # Performance React
@@ -160,7 +160,7 @@ grep -r "useMemo\|useCallback" . --include="*.jsx"
 find ./src -name "*.png" -o -name "*.jpg" | xargs ls -lh
 ```
 
-### Amélioration Continue
+## Amélioration Continue
 
 - **Audit régulier** : Exécution de tests de performance hebdomadaires
 - **Collecte de métriques** : Suivi du temps de réponse et de l'utilisation mémoire

@@ -1,8 +1,14 @@
 ---
-description: "Mise à jour automatique de la description et des labels de PR"
+description: "Mise à jour automatique de la description et des labels de PR. Se déclenche avec « mettre à jour la description du PR »."
+allowed-tools:
+  - Bash(gh *)
+  - Bash(git *)
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Mise à jour automatique de la description et des labels de PR
+# Mise à jour automatique de la description et des labels de PR
 
 ## Vue d'ensemble
 
@@ -14,7 +20,7 @@ Une commande qui met à jour automatiquement les descriptions et labels de Pull 
 /pr-auto-update [options] [numéro PR]
 ```
 
-### Options
+## Options
 
 - `--pr <number>` : Spécifier le numéro de PR cible (détecté automatiquement depuis la branche courante si omis)
 - `--description-only` : Mettre à jour seulement la description (conserver les labels inchangés)
@@ -22,7 +28,7 @@ Une commande qui met à jour automatiquement les descriptions et labels de Pull 
 - `--dry-run` : Afficher le contenu généré sans faire de mises à jour réelles
 - `--lang <language>` : Spécifier la langue (fr, en)
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Mise à jour automatique de la PR pour la branche courante
@@ -40,7 +46,7 @@ Une commande qui met à jour automatiquement les descriptions et labels de Pull 
 
 ## Détails des fonctionnalités
 
-### 1. Détection automatique de PR
+## 1. Détection automatique de PR
 
 Détecte automatiquement la PR correspondante depuis la branche courante :
 
@@ -49,7 +55,7 @@ Détecte automatiquement la PR correspondante depuis la branche courante :
 gh pr list --head $(git branch --show-current) --json number,title,url
 ```
 
-### 2. Analyse des changements
+## 2. Analyse des changements
 
 Collecte et analyse les informations suivantes :
 
@@ -60,15 +66,15 @@ Collecte et analyse les informations suivantes :
 - **Configuration** : Changements de package.json, pubspec.yaml, fichiers de configuration
 - **CI/CD** : Changements dans GitHub Actions, workflows
 
-### 3. Génération automatique de description
+## 3. Génération automatique de description
 
-#### Priorité de traitement des modèles
+### Priorité de traitement des modèles
 
 1. **Description PR existante** : Suit complètement le contenu déjà écrit
 2. **Modèle de projet** : Obtient la structure depuis `.github/PULL_REQUEST_TEMPLATE.md`
 3. **Modèle par défaut** : Solution de repli quand les précédents n'existent pas
 
-#### Règles de préservation du contenu existant
+### Règles de préservation du contenu existant
 
 **Important** : Ne pas modifier le contenu existant
 
@@ -76,7 +82,7 @@ Collecte et analyse les informations suivantes :
 - Compléter seulement les sections vides
 - Conserver les commentaires fonctionnels (comme les règles de revue Copilot)
 
-#### Utilisation des modèles de projet
+### Utilisation des modèles de projet
 
 ```bash
 # Analyser la structure de .github/PULL_REQUEST_TEMPLATE.md
@@ -96,16 +102,16 @@ parse_template_structure() {
 }
 ```
 
-### 4. Définition automatique de labels
+## 4. Définition automatique de labels
 
-#### Mécanisme de récupération de labels
+### Mécanisme de récupération de labels
 
 **Priorité** :
 
 1. **`.github/labels.yml`** : Obtenir depuis les définitions de labels spécifiques au projet
 2. **API GitHub** : Obtenir les labels existants avec `gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'`
 
-#### Règles de détermination automatique
+### Règles de détermination automatique
 
 **Basé sur les motifs de fichiers** :
 
@@ -122,13 +128,13 @@ parse_template_structure() {
 - Performance : `performance|perf|optimize|optimization` → labels contenant `performance|perf`
 - Sécurité : `security|secure|vulnerability` → labels contenant `security`
 
-#### Contraintes
+### Contraintes
 
 - **Maximum 3** : Limite supérieure des labels sélectionnés automatiquement
 - **Labels existants uniquement** : Création de nouveaux labels interdite
 - **Correspondance partielle** : Déterminé par la présence de mots-clés dans les noms de labels
 
-#### Exemples d'utilisation réelle
+### Exemples d'utilisation réelle
 
 **Quand `.github/labels.yml` existe** :
 
@@ -148,7 +154,7 @@ gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'
 # Exemple : Utiliser des labels standards comme bug, enhancement, documentation
 ```
 
-### 5. Flux d'exécution
+## 5. Flux d'exécution
 
 ```bash
 #!/bin/bash
@@ -347,7 +353,7 @@ update_pr() {
 
 ## Motifs communs
 
-### Projets Flutter
+## Projets Flutter
 
 ```markdown
 ## What does this change?
@@ -368,7 +374,7 @@ Implémenté {nom de fonctionnalité}. Résout le {problème} utilisateur.
 - **Performance** : {détails d'optimisation}
 ```
 
-### Projets Node.js
+## Projets Node.js
 
 ```markdown
 ## What does this change?
@@ -389,7 +395,7 @@ Implémenté endpoint {nom API}. Supporte {cas d'usage}.
 - **Validation d'entrée** : Protection contre injection SQL
 ```
 
-### Améliorations CI/CD
+## Améliorations CI/CD
 
 ```markdown
 ## What does this change?
@@ -438,25 +444,25 @@ Amélioré le workflow GitHub Actions. Obtient {effet}.
 
 ## Dépannage
 
-### Problèmes courants
+## Problèmes courants
 
 1. **PR non trouvée** : Vérifier le nom de branche et l'association PR
 2. **Erreur de permission** : Vérifier le statut d'authentification GitHub CLI
 3. **Impossible de définir les labels** : Vérifier les permissions du dépôt
 4. **Les commentaires HTML sont échappés** : Spécification GitHub CLI convertit `<!-- -->` en `&lt;!-- --&gt;`
 
-### Problème d'échappement des commentaires HTML de GitHub CLI
+## Problème d'échappement des commentaires HTML de GitHub CLI
 
 **Important** : GitHub CLI (`gh pr edit`) échappe automatiquement les commentaires HTML. De plus, le traitement de redirection du shell peut introduire des chaînes invalides comme `EOF < /dev/null`.
 
-#### Solutions fondamentales
+### Solutions fondamentales
 
 1. **Utiliser l'option --field de l'API GitHub** : Utiliser `--field` pour un traitement d'échappement approprié
 2. **Simplifier le traitement shell** : Éviter les redirections complexes et le traitement de pipe
 3. **Simplifier le traitement de modèle** : Éliminer le traitement de suppression de commentaires HTML et préserver complètement
 4. **Échappement JSON approprié** : Gérer correctement les caractères spéciaux
 
-### Options de débogage
+## Options de débogage
 
 ```bash
 # Sortie de journal détaillée (à ajouter lors de l'implémentation)

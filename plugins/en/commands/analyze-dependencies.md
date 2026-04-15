@@ -1,21 +1,21 @@
-## Analyze project dependencies and evaluate architectural health
+# Analyze project dependencies and evaluate architectural health
 
 Analyzes your project's dependencies and checks architecture health.
 
-### Usage
+## Usage
 
 ```bash
 /dependency-analysis [options]
 ```
 
-### Options
+## Options
 
 - `--visual`: Visually display dependencies
 - `--circular`: Detect only circular dependencies
 - `--depth <number>`: Specify analysis depth (default: 3)
 - `--focus <path>`: Focus on specific module/directory
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Analyze dependencies for entire project
@@ -28,9 +28,9 @@ Analyzes your project's dependencies and checks architecture health.
 /dependency-analysis --focus src/core --depth 5
 ```
 
-### What Gets Analyzed
+## What Gets Analyzed
 
-#### 1. Dependency Matrix
+### 1. Dependency Matrix
 
 Shows how modules connect to each other:
 
@@ -39,21 +39,21 @@ Shows how modules connect to each other:
 - Dependency depth
 - Fan-in/fan-out
 
-#### 2. Architecture Violations
+### 2. Architecture Violations
 
 - Layer violations (when lower layers depend on upper ones)
 - Circular dependencies
 - Excessive coupling (too many connections)
 - Orphaned modules
 
-#### 3. Clean Architecture Check
+### 3. Clean Architecture Check
 
 - Is the domain layer independent?
 - Is infrastructure properly separated?
 - Do use case dependencies flow correctly?
 - Are interfaces being used properly?
 
-### Output Example
+## Output Example
 
 ```text
 Dependency Analysis Report
@@ -82,7 +82,7 @@ Dependency Analysis Report
 [Visual dependency diagram displayed in ASCII art]
 ```
 
-### Advanced Usage Examples
+## Advanced Usage Examples
 
 ```bash
 # Automatic CI/CD checks
@@ -95,7 +95,7 @@ Dependency Analysis Report
 /dependency-analysis --compare HEAD~10
 ```
 
-### Configuration File Example (.dependency-analysis.yml)
+## Configuration File Example (.dependency-analysis.yml)
 
 ```yaml
 rules:
@@ -118,14 +118,14 @@ ignore:
   - "**/mocks/**"
 ```
 
-### Tools We Use
+## Tools We Use
 
 - `madge`: Shows JavaScript/TypeScript dependencies visually
 - `dep-cruiser`: Checks dependency rules
 - `nx`: Manages monorepo dependencies
 - `plato`: Analyzes complexity and dependencies together
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Check dependencies with package.json
@@ -144,13 +144,13 @@ cat docs/architecture.md
 "Does our implementation match the architecture docs?"
 ```
 
-### Notes
+## Notes
 
 - **Run from**: Project root directory
 - **Be patient**: Large projects take time to analyze
 - **Act fast**: Fix circular dependencies as soon as you find them
 
-### Best Practices
+## Best Practices
 
 1. **Check weekly**: Keep an eye on dependency health
 2. **Write rules down**: Put architecture rules in config files

@@ -1,18 +1,22 @@
 ---
-description: "Suggérer des design patterns et évaluer les principes SOLID"
+description: "Suggérer des design patterns et évaluer les principes SOLID. Se déclenche avec « suggérer des patterns », « vérifier SOLID »."
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Suggérer des design patterns et évaluer les principes SOLID
+# Suggérer des design patterns et évaluer les principes SOLID
 
 Suggère des motifs de conception pour votre code et vérifie s'il suit les principes SOLID.
 
-### Utilisation
+## Utilisation
 
 ```bash
 /design-patterns [cible_analyse] [options]
 ```
 
-### Options
+## Options
 
 - `--suggest` : Suggérer les motifs applicables (par défaut)
 - `--analyze` : Analyser l'usage des motifs existants
@@ -20,7 +24,7 @@ Suggère des motifs de conception pour votre code et vérifie s'il suit les prin
 - `--solid` : Vérifier la conformité aux principes SOLID
 - `--anti-patterns` : Détecter les anti-motifs
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Analyser les motifs pour l'ensemble du projet
@@ -36,30 +40,30 @@ Suggère des motifs de conception pour votre code et vérifie s'il suit les prin
 /design-patterns --anti-patterns
 ```
 
-### Catégories de motifs
+## Catégories de motifs
 
-#### 1. Motifs de création
+### 1. Motifs de création
 
 - **Motif Factory** : Abstrait la création d'objets
 - **Motif Builder** : Construction étape par étape d'objets complexes
 - **Motif Singleton** : Assure qu'une seule instance existe
 - **Motif Prototype** : Crée des clones d'objets
 
-#### 2. Motifs structurels
+### 2. Motifs structurels
 
 - **Motif Adapter** : Convertit les interfaces
 - **Motif Decorator** : Ajoute dynamiquement des fonctionnalités
 - **Motif Facade** : Simplifie les sous-systèmes complexes
 - **Motif Proxy** : Contrôle l'accès aux objets
 
-#### 3. Motifs comportementaux
+### 3. Motifs comportementaux
 
 - **Motif Observer** : Implémente les notifications d'événements
 - **Motif Strategy** : Change les algorithmes
 - **Motif Command** : Encapsule les opérations
 - **Motif Iterator** : Parcourt les collections
 
-### Principes SOLID que nous vérifions
+## Principes SOLID que nous vérifions
 
 ```text
 S - Responsabilité Unique (une classe, un rôle)
@@ -69,7 +73,7 @@ I - Ségrégation d'Interface (ne pas forcer des méthodes inutilisées)
 D - Inversion de Dépendance (dépendre d'abstractions, pas de détails)
 ```
 
-### Exemple de sortie
+## Exemple de sortie
 
 ```text
 Rapport d'analyse de motifs de conception
@@ -112,7 +116,7 @@ Comment corriger
 4. Diviser IDataStore en interfaces plus petites
 ```
 
-### Exemples d'usage avancés
+## Exemples d'usage avancés
 
 ```bash
 # Voir ce qui arrive si vous utilisez un motif
@@ -128,9 +132,9 @@ Comment corriger
 /design-patterns --architecture MVC
 ```
 
-### Exemple : Avant et Après
+## Exemple : Avant et Après
 
-#### Avant (Code problématique)
+### Avant (Code problématique)
 
 ```javascript
 class OrderService {
@@ -145,7 +149,7 @@ class OrderService {
 }
 ```
 
-#### Après (Application du motif Strategy)
+### Après (Application du motif Strategy)
 
 ```javascript
 // Interface Strategy
@@ -174,7 +178,7 @@ class OrderService {
 }
 ```
 
-### Anti-motifs que nous trouvons
+## Anti-motifs que nous trouvons
 
 - **Objet Dieu** : Classes qui font tout
 - **Code Spaghetti** : Enchevêtrement de flux de contrôle
@@ -182,7 +186,7 @@ class OrderService {
 - **Nombres Magiques** : Nombres aléatoires sans explication
 - **Enfer des Callbacks** : Callbacks dans des callbacks dans des callbacks
 
-### Bonnes pratiques
+## Bonnes pratiques
 
 1. **Aller doucement** : Ajouter les motifs un à la fois
 2. **Besoin d'abord** : N'utiliser les motifs que pour résoudre de vrais problèmes

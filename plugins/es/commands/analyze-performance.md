@@ -1,8 +1,8 @@
-## Análisis de rendimiento basado en Core Web Vitals
+# Análisis de rendimiento basado en Core Web Vitals
 
 Analiza el rendimiento de la aplicación desde la perspectiva de la experiencia del usuario y cuantifica las mejoras de velocidad percibida mediante optimizaciones. Calcula puntajes UX basados en Core Web Vitals y propone estrategias de optimización priorizadas.
 
-### Puntaje de Rendimiento UX
+## Puntaje de Rendimiento UX
 
 ```text
 Puntaje de Experiencia de Usuario: B+ (78/100)
@@ -42,7 +42,7 @@ Puntaje de Experiencia de Usuario: B+ (78/100)
 └─ [P3] Estrategia caché → 50% más rápido en visitas repetidas
 ```
 
-### Uso
+## Uso
 
 ```bash
 # Análisis integral del puntaje UX
@@ -58,7 +58,7 @@ grep -r "addEventListener\|setInterval" . --include="*.js" | grep -v "removeEven
 「Analizar el impacto de problemas de rendimiento en la experiencia del usuario」
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Tamaño de bundle y tiempo de carga
@@ -74,30 +74,30 @@ npm outdated && npm audit
 "Evaluar el impacto de dependencias antiguas en el rendimiento"
 ```
 
-### Perspectivas de Análisis
+## Perspectivas de Análisis
 
-#### 1. Problemas a Nivel de Código
+### 1. Problemas a Nivel de Código
 
 - **Algoritmos O(n²)**: Detección de operaciones de array ineficientes
 - **I/O síncrono**: Identificación de procesos bloqueantes
 - **Procesamiento duplicado**: Eliminación de cálculos y requests innecesarios
 - **Fugas de memoria**: Gestión de event listeners y timers
 
-#### 2. Problemas a Nivel de Arquitectura
+### 2. Problemas a Nivel de Arquitectura
 
 - **Consultas N+1**: Patrones de acceso a base de datos
 - **Falta de caché**: Cálculos repetidos y llamadas API
 - **Tamaño de bundle**: Librerías innecesarias y división de código
 - **Gestión de recursos**: Uso de connection pools y threads
 
-#### 3. Impacto de Deuda Técnica
+### 3. Impacto de Deuda Técnica
 
 - **Código legacy**: Degradación de rendimiento por implementaciones antiguas
 - **Problemas de diseño**: Alto acoplamiento por falta de distribución de responsabilidades
 - **Falta de pruebas**: Falta de detección de regresiones de rendimiento
 - **Falta de monitoreo**: Sistema de detección temprana de problemas
 
-### Matriz ROI de Mejora de Rendimiento
+## Matriz ROI de Mejora de Rendimiento
 
 ```text
 ROI de mejora = (efecto reducción tiempo + mejora calidad) ÷ horas implementación
@@ -110,14 +110,14 @@ ROI de mejora = (efecto reducción tiempo + mejora calidad) ÷ horas implementac
 | **[P2] Implementar planificadamente** | Baja                       | Alta                      | 10-20%                  | División código        | 40h   | Inicial -15%   |
 | **[P3] Retener/observar**             | Baja                       | Baja                      | < 10%                   | Optimizaciones menores | 20h   | Parcial -5%    |
 
-#### Criterios de Determinación de Prioridad
+### Criterios de Determinación de Prioridad
 
 - **P0 (implementar inmediatamente)**: Mejora UX "Alta" × Dificultad "Baja" = ROI máximo
 - **P1 (implementar pronto)**: Mejora UX "Alta" × Dificultad "Media" = ROI alto
 - **P2 (planificadamente)**: Mejora UX "Baja" × Dificultad "Alta" = ROI medio
 - **P3 (retener)**: Mejora UX "Baja" × Dificultad "Baja" = ROI bajo
 
-### Correlación entre Métricas de Rendimiento y Mejora UX
+## Correlación entre Métricas de Rendimiento y Mejora UX
 
 | Métrica               | Rango Mejora | Mejora Velocidad Percibida | Satisfacción Usuario     | Horas Implementación |
 | --------------------- | ------------ | -------------------------- | ------------------------ | -------------------- |
@@ -128,9 +128,9 @@ ROI de mejora = (efecto reducción tiempo + mejora calidad) ÷ horas implementac
 | **TTI (interactivo)** | -1.0 seg     | +35%                       | Tasa finalización +15%   | 32h                  |
 | **Tamaño bundle**     | -30%         | +20%                       | Primera visita +25%      | 16h                  |
 
-### Medición y Herramientas
+## Medición y Herramientas
 
-#### Node.js / JavaScript
+### Node.js / JavaScript
 
 ```bash
 # Profiling
@@ -142,7 +142,7 @@ npx webpack-bundle-analyzer
 lighthouse --chrome-flags="--headless"
 ```
 
-#### Base de Datos
+### Base de Datos
 
 ```sql
 -- Análisis de consultas
@@ -150,7 +150,7 @@ EXPLAIN ANALYZE SELECT ...
 SHOW SLOW LOG;
 ```
 
-#### Frontend
+### Frontend
 
 ```bash
 # Rendimiento React
@@ -160,7 +160,7 @@ grep -r "useMemo\|useCallback" . --include="*.jsx"
 find ./src -name "*.png" -o -name "*.jpg" | xargs ls -lh
 ```
 
-### Mejora Continua
+## Mejora Continua
 
 - **Auditoría regular**: Ejecutar pruebas de rendimiento semanales
 - **Recolección de métricas**: Seguimiento de tiempo de respuesta y uso de memoria

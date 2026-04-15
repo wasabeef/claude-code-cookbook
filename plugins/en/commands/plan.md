@@ -1,15 +1,15 @@
-## Plan mode for implementation strategy before coding
+# Plan mode for implementation strategy before coding
 
 Helps you plan before coding. Creates detailed strategies to make development smoother.
 
-### Usage
+## Usage
 
 ```bash
 # Request Plan Mode from Claude
 "Create an implementation plan for [implementation content]"
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Implementation plan for new feature
@@ -22,7 +22,7 @@ Helps you plan before coding. Creates detailed strategies to make development sm
 "Create a refactoring plan for legacy code"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Complex feature implementation
@@ -38,7 +38,7 @@ Helps you plan before coding. Creates detailed strategies to make development sm
 "Create an implementation plan for Dockerization, including development environment, production environment, and CI/CD"
 ```
 
-### How Plan Mode Works
+## How Plan Mode Works
 
 **Automatic Start**
 
@@ -60,7 +60,7 @@ Helps you plan before coding. Creates detailed strategies to make development sm
 - You can request changes anytime
 - TaskCreate tracking starts after you approve
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Complex system implementation
@@ -76,30 +76,30 @@ Helps you plan before coding. Creates detailed strategies to make development sm
 "Create an implementation plan for a CI/CD pipeline, including test automation, deployment, and monitoring"
 ```
 
-### 3-Phase Workflow
+## 3-Phase Workflow
 
-#### Phase 1: Requirements
+### Phase 1: Requirements
 
 - **User Stories**: What are we building and why?
 - **Success Criteria**: How do we know it's done?
 - **Constraints**: What limits do we have?
 - **Priority**: What's must-have vs nice-to-have?
 
-#### Phase 2: Design
+### Phase 2: Design
 
 - **Architecture**: How will the system work?
 - **Data Model**: Database schema and APIs
 - **UI/UX**: Screen layouts and user flow
 - **Risks**: What could go wrong and how to prevent it
 
-#### Phase 3: Implementation
+### Phase 3: Implementation
 
 - **Task Breakdown**: Split into manageable chunks
 - **Progress Tracking**: TaskUpdate manages status
 - **Quality Checks**: Testing and verification plan
 - **Your Approval**: Show plan and wait for your OK
 
-### Notes
+## Notes
 
 **When to Use This**
 
@@ -119,7 +119,7 @@ Helps you plan before coding. Creates detailed strategies to make development sm
 - Always wait for your response
 - Offer alternatives if something fails
 
-### Execution Example
+## Execution Example
 
 ```bash
 # Usage example

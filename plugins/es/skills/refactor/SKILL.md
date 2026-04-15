@@ -1,12 +1,18 @@
 ---
-description: "Refactorización segura e incremental con evaluación SOLID"
+description: 'Refactorización segura e incremental. Se activa con "refactorizar", "mejorar el código", "limpiar código".'
+allowed-tools:
+  - Read
+  - Edit
+  - Grep
+  - Glob
+  - Bash
 ---
 
-## Refactorización segura e incremental con evaluación SOLID
+# Refactorización segura e incremental
 
 Implementa refactorización de código segura y gradual, evalúa cuantitativamente la adherencia a los principios SOLID. Visualiza la deuda técnica y clarifica las prioridades de mejora.
 
-### Uso
+## Uso
 
 ```bash
 # Identificación de código complejo y plan de refactorización
@@ -22,7 +28,7 @@ grep -r "class.*Service" . --include="*.js" | head -10
 "Evalúa si estas clases siguen el principio de responsabilidad única"
 ```
 
-### Ejemplos básicos
+## Ejemplos básicos
 
 ```bash
 # Detección de métodos largos
@@ -38,9 +44,9 @@ grep -r "TODO\|FIXME\|HACK" . --exclude-dir=node_modules
 "Resuelve los comentarios que se han convertido en deuda técnica"
 ```
 
-### Técnicas de refactorización
+## Técnicas de refactorización
 
-#### Extract Method (Extracción de método)
+### Extract Method (Extracción de método)
 
 ```javascript
 // Antes: Método extenso
@@ -56,7 +62,7 @@ function processOrder(order) {
 }
 ```
 
-#### Replace Conditional with Polymorphism
+### Replace Conditional with Polymorphism
 
 ```javascript
 // Antes: sentencia switch
@@ -77,9 +83,9 @@ class PremiumPricing {
 }
 ```
 
-### Puntuación de principios SOLID (0-100 puntos)
+## Puntuación de principios SOLID (0-100 puntos)
 
-#### Criterios de evaluación y puntuación
+### Criterios de evaluación y puntuación
 
 ```text
 S - Single Responsibility (20 puntos)
@@ -120,9 +126,9 @@ Puntuación total = S + O + L + I + D
 └─ 0-29 puntos: Crítico (Revisión de diseño obligatoria)
 ```
 
-### Cuantificación de deuda técnica
+## Cuantificación de deuda técnica
 
-#### Fórmula de cálculo de deuda
+### Fórmula de cálculo de deuda
 
 ```text
 Deuda técnica (tiempo) = Puntuación de complejidad × Alcance de impacto × Dificultad de corrección
@@ -152,7 +158,7 @@ Conversión de costos:
 └─ Costo total: Tiempo + Costo de oportunidad + Costo de calidad
 ```
 
-#### Matriz de prioridades
+### Matriz de prioridades
 
 | Prioridad                             | Grado de impacto | Costo de corrección | Plazo de respuesta    | Ejemplo concreto                                                      | Acción recomendada                              |
 | ------------------------------------- | ---------------- | ------------------- | --------------------- | --------------------------------------------------------------------- | ----------------------------------------------- |
@@ -161,7 +167,7 @@ Conversión de costos:
 | **Watch (Objeto de monitoreo)**       | Bajo             | Alto                | Dentro de 3 meses     | Procesamiento interno de alta complejidad                             | Monitoreo de métricas, respuesta cuando empeore |
 | **Acceptable (Rango aceptable)**      | Bajo             | Bajo                | No requiere respuesta | Code smells leves                                                     | Respuesta con refactorización normal            |
 
-### Procedimiento de refactorización
+## Procedimiento de refactorización
 
 1. **Análisis y medición del estado actual**
    - Medición de complejidad (ciclomática ・cognitiva)
@@ -181,7 +187,7 @@ Conversión de costos:
    - Confirmación de reducción de deuda técnica
    - Revisión de código
 
-### Code smells comunes y puntuación de deuda
+## Code smells comunes y puntuación de deuda
 
 | Code Smell              | Criterio de detección                   | Puntuación de deuda | Método de mejora              |
 | ----------------------- | --------------------------------------- | ------------------- | ----------------------------- |
@@ -196,7 +202,7 @@ Conversión de costos:
 | **Switch Statements**   | case >5                                 | Media (5-10h)       | Strategy Pattern              |
 | **Shotgun Surgery**     | Áreas afectadas al cambiar >3           | Alta (10-15h)       | Move Method/Field             |
 
-### Ejemplo práctico: Evaluación de puntuación SOLID
+## Ejemplo práctico: Evaluación de puntuación SOLID
 
 ```javascript
 // Objeto de evaluación: clase UserService
@@ -238,7 +244,7 @@ Tiempo de deuda: 15 × 8 × 2 = 240 horas
 Prioridad: Critical (sistema de autenticación requiere respuesta inmediata)
 ```
 
-### Ejemplo de implementación después de mejora
+## Ejemplo de implementación después de mejora
 
 ```javascript
 // Después de aplicar principios SOLID (Puntuación: 90 puntos)
@@ -279,7 +285,7 @@ class UserService {
 // Reducción de deuda: 240 horas → 20 horas (92% de reducción)
 ```
 
-### Soporte de automatización
+## Soporte de automatización
 
 ```bash
 # Medición de puntuación SOLID
@@ -301,7 +307,7 @@ npm test -- --coverage
 npm run test:mutation  # pruebas de mutación
 ```
 
-### Precauciones
+## Precauciones
 
 - **Prohibición de cambios funcionales**: No cambiar el comportamiento externo
 - **Test first**: Agregar pruebas antes de la refactorización

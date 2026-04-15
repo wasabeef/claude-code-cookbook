@@ -1,15 +1,15 @@
-## Exibir Issues abertas com ranking de prioridade
+# Exibir Issues abertas com ranking de prioridade
 
 Exibe a lista de Issues abertas do repositório atual com priorização.
 
-### Uso
+## Uso
 
 ```bash
 # Solicitar ao Claude
 "Exibir lista de Issues abertas com priorização"
 ```
 
-### Exemplo básico
+## Exemplo básico
 
 ```bash
 # Obtém informações do repositório
@@ -21,7 +21,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 "Organize as Issues acima por prioridade e exiba incluindo um resumo de 2 linhas para cada Issue. Gere a URL usando o nome do repositório obtido acima"
 ```
 
-### Formato de exibição
+## Formato de exibição
 
 ```text
 Lista de Issues Abertas (ordenadas por prioridade)
@@ -39,7 +39,7 @@ Lista de Issues Abertas (ordenadas por prioridade)
 (mesmo formato)
 ```
 
-### Critérios de determinação de prioridade
+## Critérios de determinação de prioridade
 
 **Alta Prioridade**
 
@@ -59,7 +59,7 @@ Lista de Issues Abertas (ordenadas por prioridade)
 - Issues com rótulo `good first issue`
 - Issues com rótulo `wontfix` ou `duplicate`
 
-### Filtragem por rótulos
+## Filtragem por rótulos
 
 ```bash
 # Obtém apenas Issues com rótulo específico
@@ -69,7 +69,7 @@ gh issue list --state open --label "bug" --json number,title,author,createdAt,la
 gh issue list --state open --label "bug,high-priority" --json number,title,author,createdAt,labels,comments --limit 30
 ```
 
-### Observações
+## Observações
 
 - Requer GitHub CLI (`gh`)
 - Exibe apenas Issues no estado aberto

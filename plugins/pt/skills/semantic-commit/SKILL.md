@@ -1,24 +1,28 @@
 ---
-description: "Dividir mudanças em unidades semânticas e fazer commit"
+description: 'Dividir mudanças em unidades semânticas e fazer commit. Ativa com "commit", "dividir e commitar", "commit semântico".'
+allowed-tools:
+  - Bash(git *)
+  - Read
+  - Grep
 ---
 
-## Dividir mudanças em unidades semânticas e fazer commit
+# Dividir mudanças em unidades semânticas e fazer commit
 
 Divide grandes mudanças em unidades mínimas significativas e faz commits sequenciais com mensagens de commit semânticas. Usa apenas comandos padrão do git, sem depender de ferramentas externas.
 
-### Como usar
+## Como usar
 
 ```bash
 /semantic-commit [opções]
 ```
 
-### Opções
+## Opções
 
 - `--dry-run` : Mostra apenas as divisões de commit propostas sem fazer commits reais
 - `--lang <idioma>` : Força especificação do idioma das mensagens de commit (en, pt)
 - `--max-commits <número>` : Especifica o número máximo de commits (padrão: 10)
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Analisa mudanças atuais e faz commits por unidade lógica
@@ -37,16 +41,16 @@ Divide grandes mudanças em unidades mínimas significativas e faz commits seque
 /semantic-commit --max-commits 5
 ```
 
-### Fluxo de Operação
+## Fluxo de Operação
 
 1. **Análise de mudanças**: Obtém todas as mudanças com `git diff HEAD`
 2. **Classificação de arquivos**: Agrupa logicamente os arquivos modificados
 3. **Proposta de commits**: Gera mensagens de commit semânticas para cada grupo
 4. **Execução sequencial**: Executa commits sequenciais de cada grupo após confirmação do usuário
 
-### Funcionalidade Central de Divisão de Mudanças
+## Funcionalidade Central de Divisão de Mudanças
 
-#### Detecção de "Grandes Mudanças"
+### Detecção de "Grandes Mudanças"
 
 Detecta como grande mudança sob as seguintes condições:
 
@@ -65,9 +69,9 @@ if [ $CHANGED_FILES -ge 5 ] || [ $CHANGED_LINES -ge 100 ]; then
 fi
 ```
 
-#### Estratégia de Divisão em "Unidades Mínimas Significativas"
+### Estratégia de Divisão em "Unidades Mínimas Significativas"
 
-##### 1. Divisão por Fronteiras Funcionais
+#### 1. Divisão por Fronteiras Funcionais
 
 ```bash
 # Identificação de unidades funcionais a partir da estrutura de diretórios
@@ -75,7 +79,7 @@ git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq
 # → src/auth, src/api, components/ui, etc.
 ```
 
-##### 2. Separação por Tipo de Mudança
+#### 2. Separação por Tipo de Mudança
 
 ```bash
 # Arquivos novos vs modificação de arquivos existentes
@@ -84,7 +88,7 @@ git diff HEAD --name-status | grep '^M' # Arquivos modificados
 git diff HEAD --name-status | grep '^D' # Arquivos excluídos
 ```
 
-##### 3. Análise de Dependências
+#### 3. Análise de Dependências
 
 ```bash
 # Detecção de mudanças em relacionamentos de importação
@@ -92,7 +96,7 @@ git diff HEAD | grep -E '^[+-].*import|^[+-].*require' | \
 cut -d' ' -f2- | sort | uniq
 ```
 
-#### Análise Detalhada por Arquivo
+### Análise Detalhada por Arquivo
 
 ```bash
 # Obtém lista de arquivos modificados
@@ -112,7 +116,7 @@ git diff HEAD --name-status | while read status file; do
 done
 ```
 
-#### Critérios de Agrupamento Lógico
+### Critérios de Agrupamento Lógico
 
 1. **Unidade funcional**: Arquivos relacionados à mesma funcionalidade
    - Arquivos em `src/auth/` → funcionalidade de autenticação
@@ -131,7 +135,7 @@ done
    - 10 arquivos ou menos por commit
    - Agrupamento de arquivos com alta correlação
 
-### Exemplo de Saída
+## Exemplo de Saída
 
 ```bash
 $ /semantic-commit
@@ -174,7 +178,7 @@ Arquivos incluídos:
 Executar commits com esta divisão? (y/n/edit):
 ```
 
-### Opções Durante a Execução
+## Opções Durante a Execução
 
 - `y` : Executa com a divisão de commits proposta
 - `n` : Cancela
@@ -182,7 +186,7 @@ Executar commits com esta divisão? (y/n/edit):
 - `merge <número1> <número2>` : Une os commits especificados
 - `split <número>` : Divide ainda mais o commit especificado
 
-### Modo Dry Run
+## Modo Dry Run
 
 ```bash
 $ /semantic-commit --dry-run
@@ -196,14 +200,14 @@ Analisando mudanças... (DRY RUN)
 💡 Para executar, re-execute sem a opção --dry-run
 ```
 
-### Funcionalidade de Análise Inteligente
+## Funcionalidade de Análise Inteligente
 
-#### 1. Compreensão da Estrutura do Projeto
+### 1. Compreensão da Estrutura do Projeto
 
 - Determina o tipo de projeto através de `package.json`, `Cargo.toml`, `pom.xml`, etc.
 - Infere unidades funcionais a partir da estrutura de pastas
 
-#### 2. Reconhecimento de Padrões de Mudança
+### 2. Reconhecimento de Padrões de Mudança
 
 ```bash
 # Detecção de padrão de correção de bugs
@@ -217,17 +221,17 @@ Analisando mudanças... (DRY RUN)
 - Adição de endpoints de API
 ```
 
-#### 3. Análise de Dependências
+### 3. Análise de Dependências
 
 - Mudanças em instruções de importação
 - Adição/modificação de definições de tipos
 - Relacionamento com arquivos de configuração
 
-### Implementação Técnica
+## Implementação Técnica
 
-#### Implementação de Commits Sequenciais por Comandos Padrão Git
+### Implementação de Commits Sequenciais por Comandos Padrão Git
 
-##### 1. Pré-processamento: Salvar Estado Atual
+#### 1. Pré-processamento: Salvar Estado Atual
 
 ```bash
 # Reset mudanças não-staged se existirem
@@ -239,7 +243,7 @@ CURRENT_BRANCH=$(git branch --show-current)
 echo "Branch de trabalho: $CURRENT_BRANCH"
 ```
 
-##### 2. Execução Sequencial de Commits por Grupo
+#### 2. Execução Sequencial de Commits por Grupo
 
 ```bash
 # Carregamento do plano de divisão
@@ -286,7 +290,7 @@ while IFS= read -r commit_plan; do
 done < /tmp/commit_plan.txt
 ```
 
-##### 3. Tratamento de Erros e Rollback
+#### 3. Tratamento de Erros e Rollback
 
 ```bash
 # Tratamento de falhas de pre-commit hooks
@@ -335,7 +339,7 @@ resume_from_failure() {
 }
 ```
 
-##### 4. Verificação Pós-Conclusão
+#### 4. Verificação Pós-Conclusão
 
 ```bash
 # Confirmar se todas as mudanças foram commitadas
@@ -352,7 +356,7 @@ echo "Commits criados:"
 git log --oneline -n 10 --graph
 ```
 
-##### 5. Supressão de Push Automático
+#### 5. Supressão de Push Automático
 
 ```bash
 # Nota: não fazer push automático
@@ -361,9 +365,9 @@ echo "Execute o push manualmente conforme necessário:"
 echo "  git push origin $CURRENT_BRANCH"
 ```
 
-#### Detalhes do Algoritmo de Divisão
+### Detalhes do Algoritmo de Divisão
 
-##### Passo 1: Análise Inicial
+#### Passo 1: Análise Inicial
 
 ```bash
 # Obter e classificar todos os arquivos alterados
@@ -375,7 +379,7 @@ done > /tmp/changes.txt
 git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq -c
 ```
 
-##### Passo 2: Agrupamento Inicial por Fronteiras Funcionais
+#### Passo 2: Agrupamento Inicial por Fronteiras Funcionais
 
 ```bash
 # Agrupamento baseado em diretórios
@@ -386,7 +390,7 @@ for group in $GROUPS; do
 done
 ```
 
-##### Passo 3: Análise de Similaridade de Conteúdo de Mudanças
+#### Passo 3: Análise de Similaridade de Conteúdo de Mudanças
 
 ```bash
 # Análise do tipo de mudança para cada arquivo
@@ -410,7 +414,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### Passo 4: Ajuste por Dependências
+#### Passo 4: Ajuste por Dependências
 
 ```bash
 # Análise de relações de importação
@@ -429,7 +433,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### Passo 5: Otimização do Tamanho dos Commits
+#### Passo 5: Otimização do Tamanho dos Commits
 
 ```bash
 # Ajuste do tamanho dos grupos
@@ -447,7 +451,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### Passo 6: Decisão Final dos Grupos
+#### Passo 6: Decisão Final dos Grupos
 
 ```bash
 # Verificação do resultado da divisão
@@ -458,9 +462,9 @@ for group in $(seq 1 $current_group); do
 done
 ```
 
-### Conformidade com Conventional Commits
+## Conformidade com Conventional Commits
 
-#### Formato Básico
+### Formato Básico
 
 ```text
 <type>[optional scope]: <description>
@@ -470,7 +474,7 @@ done
 [optional footer(s)]
 ```
 
-#### Tipos Padrão
+### Tipos Padrão
 
 **Tipos obrigatórios**:
 
@@ -488,7 +492,7 @@ done
 - `perf`: Melhoria de performance
 - `test`: Adição ou modificação de testes
 
-#### Escopo (Opcional)
+### Escopo (Opcional)
 
 Indica o escopo de impacto das mudanças:
 
@@ -498,7 +502,7 @@ fix(ui): resolve button alignment issue
 docs(readme): update installation instructions
 ```
 
-#### Breaking Change
+### Breaking Change
 
 Em caso de mudanças que quebram a API:
 
@@ -514,11 +518,11 @@ ou
 feat(api)!: change authentication flow
 ```
 
-#### Detecção Automática de Convenções do Projeto
+### Detecção Automática de Convenções do Projeto
 
 **Importante**: Quando existem convenções específicas do projeto, essas têm prioridade.
 
-##### 1. Verificação de Configurações CommitLint
+#### 1. Verificação de Configurações CommitLint
 
 Detecta automaticamente configurações dos seguintes arquivos:
 
@@ -539,7 +543,7 @@ cat .commitlintrc.json
 grep -A 10 '"commitlint"' package.json
 ```
 
-##### 2. Detecção de Tipos Customizados
+#### 2. Detecção de Tipos Customizados
 
 Exemplo de tipos personalizados do projeto:
 
@@ -570,7 +574,7 @@ export default {
 };
 ```
 
-##### 3. Detecção de Configurações de Idioma
+#### 3. Detecção de Configurações de Idioma
 
 ```javascript
 // Para projetos que usam mensagens em português
@@ -582,7 +586,7 @@ export default {
 };
 ```
 
-#### Fluxo de Análise Automática
+### Fluxo de Análise Automática
 
 1. **Busca por Arquivos de Configuração**
 
@@ -604,9 +608,9 @@ export default {
    sort | uniq -c | sort -nr
    ```
 
-#### Exemplos de Convenções de Projeto
+### Exemplos de Convenções de Projeto
 
-##### Estilo Angular
+#### Estilo Angular
 
 ```text
 feat(scope): add new feature
@@ -614,7 +618,7 @@ fix(scope): fix bug
 docs(scope): update documentation
 ```
 
-##### Estilo com Gitmoji
+#### Estilo com Gitmoji
 
 ```text
 ✨ feat: add user registration
@@ -622,7 +626,7 @@ docs(scope): update documentation
 📚 docs: update API docs
 ```
 
-##### Projeto em Português
+#### Projeto em Português
 
 ```text
 feat: adicionar funcionalidade de registro de usuário
@@ -630,7 +634,7 @@ fix: corrigir bug no processo de login
 docs: atualizar documentação da API
 ```
 
-### Detecção de Idioma
+## Detecção de Idioma
 
 Lógica de detecção de idioma completa neste comando:
 
@@ -667,7 +671,7 @@ Lógica de detecção de idioma completa neste comando:
    git diff HEAD | grep -E '^[+-].*//.*ção|ões|agem|ário|ória|ência|português|brasil' | wc -l
    ```
 
-#### Algoritmo de Detecção
+### Algoritmo de Detecção
 
 ```bash
 # Cálculo de pontuação para detecção de idioma
@@ -705,9 +709,9 @@ else
 fi
 ```
 
-### Carregamento Automático de Arquivos de Configuração
+## Carregamento Automático de Arquivos de Configuração
 
-#### Comportamento Durante a Execução
+### Comportamento Durante a Execução
 
 Durante a execução do comando, as configurações são verificadas na seguinte ordem:
 
@@ -740,7 +744,7 @@ Durante a execução do comando, as configurações são verificadas na seguinte
    head -20
    ```
 
-#### Análise de Exemplos de Configuração
+### Análise de Exemplos de Configuração
 
 **commitlint.config.mjs padrão**:
 
@@ -803,7 +807,7 @@ export default {
 };
 ```
 
-#### Comportamento de Fallback
+### Comportamento de Fallback
 
 Quando nenhum arquivo de configuração é encontrado:
 
@@ -826,19 +830,19 @@ Quando nenhum arquivo de configuração é encontrado:
    - Commits em português 50% ou mais → modo português
    - Outros → modo inglês
 
-### Pré-requisitos
+## Pré-requisitos
 
 - Execução dentro de um repositório Git
 - Existência de mudanças não commitadas
 - Mudanças em staging serão resetadas temporariamente
 
-### Observações
+## Observações
 
 - **Sem push automático**: `git push` após commits deve ser executado manualmente
 - **Sem criação de branch**: Commits na branch atual
 - **Backup recomendado**: Use `git stash` para backup antes de mudanças importantes
 
-### Prioridade das Convenções do Projeto
+## Prioridade das Convenções do Projeto
 
 Prioridade ao gerar mensagens de commit:
 
@@ -860,7 +864,7 @@ Prioridade ao gerar mensagens de commit:
 4. **Padrão Conventional Commits** (fallback)
    - Comportamento padrão quando nenhuma configuração é encontrada
 
-#### Exemplos de Detecção de Convenções
+### Exemplos de Detecção de Convenções
 
 **Detecção automática de scope em Monorepo**:
 
@@ -905,7 +909,7 @@ ls packages/ | head -10
 }
 ```
 
-### Melhores Práticas
+## Melhores Práticas
 
 1. **Respeitar convenções do projeto**: Seguir configurações e padrões existentes
 2. **Pequenas unidades de mudança**: Um commit é uma mudança lógica
@@ -914,9 +918,9 @@ ls packages/ | head -10
 5. **Separar testes**: Arquivos de teste em commits separados
 6. **Utilizar arquivos de configuração**: Introduzir CommitLint para unificar convenções em toda a equipe
 
-### Exemplos Reais de Divisão (Antes/Depois)
+## Exemplos Reais de Divisão (Antes/Depois)
 
-#### Exemplo 1: Adição de Sistema de Autenticação em Larga Escala
+### Exemplo 1: Adição de Sistema de Autenticação em Larga Escala
 
 **Antes (1 commit gigante):**
 
@@ -996,7 +1000,7 @@ Arquivos incluídos:
 Razão: Documentação e configuração commitadas em lote por último
 ```
 
-#### Exemplo 2: Mistura de Correção de Bugs e Refatoração
+### Exemplo 2: Mistura de Correção de Bugs e Refatoração
 
 **Antes (commit problemático com mistura):**
 
@@ -1049,7 +1053,7 @@ Arquivos incluídos:
 Razão: Manutenção do ambiente de desenvolvimento commitada por último
 ```
 
-#### Exemplo 3: Desenvolvimento Simultâneo de Múltiplas Funcionalidades
+### Exemplo 3: Desenvolvimento Simultâneo de Múltiplas Funcionalidades
 
 **Antes (commit gigante cruzando funcionalidades):**
 
@@ -1116,7 +1120,7 @@ Arquivos incluídos:
 Razão: Atualizações de dependências comuns por último
 ```
 
-### Comparação dos Efeitos da Divisão
+## Comparação dos Efeitos da Divisão
 
 | Item                         | Antes (Commit Gigante)                        | Depois (Divisão Adequada)                       |
 | ---------------------------- | --------------------------------------------- | ----------------------------------------------- |
@@ -1126,15 +1130,15 @@ Razão: Atualizações de dependências comuns por último
 | **Desenvolvimento Paralelo** | ❌ Propenso a conflitos                       | ✅ Merge fácil por funcionalidade               |
 | **Deploy**                   | ❌ Deploy de todas as funcionalidades em lote | ✅ Deploy gradual possível                      |
 
-### Solução de Problemas
+## Solução de Problemas
 
-#### Quando o Commit Falha
+### Quando o Commit Falha
 
 - Verificação de pre-commit hooks
 - Resolução de dependências
 - Nova tentativa com arquivos individuais
 
-#### Quando a Divisão Não Está Adequada
+### Quando a Divisão Não Está Adequada
 
 - Ajustar com opção `--max-commits`
 - Usar modo `edit` manual

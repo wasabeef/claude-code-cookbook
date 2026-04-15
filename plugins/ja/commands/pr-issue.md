@@ -1,15 +1,15 @@
-## オープン Issue 一覧を優先順位付きで表示
+# オープン Issue 一覧を優先順位付きで表示
 
 現在のリポジトリのオープン Issue 一覧を優先順位付きで表示します。
 
-### 使い方
+## 使い方
 
 ```bash
 # Claude に依頼
 「オープン Issue 一覧を優先順位付きで表示して」
 ```
 
-### 基本例
+## 基本例
 
 ```bash
 # リポジトリ情報を取得
@@ -21,7 +21,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 「上記の Issue を優先度別に整理して、各 Issue の 2 行概要も含めて表示して。URL は上記で取得したリポジトリ名を使用して生成して」
 ```
 
-### 表示形式
+## 表示形式
 
 ```text
 オープン Issue 一覧 (優先順位順)
@@ -39,7 +39,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 (同様の形式)
 ```
 
-### 優先度の判定基準
+## 優先度の判定基準
 
 **高優先度**
 
@@ -59,7 +59,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 - `good first issue` ラベルが付いている Issue
 - `wontfix` や `duplicate` ラベルが付いている Issue
 
-### ラベルによるフィルタリング
+## ラベルによるフィルタリング
 
 ```bash
 # 特定のラベルの Issue のみ取得
@@ -69,7 +69,7 @@ gh issue list --state open --label "bug" --json number,title,author,createdAt,la
 gh issue list --state open --label "bug,high-priority" --json number,title,author,createdAt,labels,comments --limit 30
 ```
 
-### 注意事項
+## 注意事項
 
 - GitHub CLI (`gh`) が必要です
 - オープン状態の Issue のみ表示します

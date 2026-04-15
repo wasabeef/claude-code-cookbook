@@ -1,14 +1,14 @@
-## Mostrar plan de la sesión actual
+# Mostrar plan de la sesión actual
 
 Mostrar el plan que se está ejecutando o que fue ejecutado en la sesión actual.
 
-### Uso
+## Uso
 
 ```bash
 /show-plan
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Verificar plan actual
@@ -20,14 +20,14 @@ Mostrar el plan que se está ejecutando o que fue ejecutado en la sesión actual
 "No hay plan en la sesión actual"
 ```
 
-### Características
+## Características
 
 - Detectar planes creados con ExitPlanMode
 - Buscar encabezados que contengan palabras clave como plan de implementación, detalles de implementación, plan
 - Formatear y mostrar contenidos del plan
 - Notificar claramente cuando no existe plan
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Verificar plan durante implementación
@@ -43,7 +43,7 @@ Mostrar el plan que se está ejecutando o que fue ejecutado en la sesión actual
 /show-plan
 ```
 
-### Patrones de Detección
+## Patrones de Detección
 
 Basado en el formato de planes generados por ExitPlanMode, se detectan los siguientes patrones:
 
@@ -53,7 +53,7 @@ Basado en el formato de planes generados por ExitPlanMode, se detectan los sigui
 - `### Implementation Plan` (Plan de Implementación)
 - Encabezados numerados como `### 1.`
 
-### Notas
+## Notas
 
 - Solo muestra planes en la sesión actual (no incluye sesiones pasadas)
 - Muestra el plan más reciente con prioridad

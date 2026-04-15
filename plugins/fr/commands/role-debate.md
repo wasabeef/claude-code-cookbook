@@ -1,15 +1,15 @@
-## Débat multi-rôle pour explorer les compromis
+# Débat multi-rôle pour explorer les compromis
 
 Une commande qui permet aux rôles avec différentes expertises de discuter et examiner les compromis pour dériver des solutions optimales.
 
-### Utilisation
+## Utilisation
 
 ```bash
 /role-debate <Rôle 1>,<Rôle 2> [Sujet]
 /role-debate <Rôle 1>,<Rôle 2>,<Rôle 3> [Sujet]
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Compromis Sécurité vs Performance
@@ -29,32 +29,32 @@ Une commande qui permet aux rôles avec différentes expertises de discuter et e
 "Pros and Cons of Microservices"
 ```
 
-### Principes de base du débat
+## Principes de base du débat
 
-#### Directives de débat constructif
+### Directives de débat constructif
 
 - **Respect mutuel** : Respecter l'expertise et les perspectives des autres rôles
 - **Basé sur les faits** : Débattre basé sur des données et preuves, pas des réactions émotionnelles
 - **Orienté solutions** : Viser de meilleures solutions plutôt que critiquer pour critiquer
 - **Axé implémentation** : Considérer la faisabilité plutôt que l'idéalisme
 
-#### Exigences de qualité pour les arguments
+### Exigences de qualité pour les arguments
 
 - **Documentation officielle** : Référencer standards, directives et documentation officielle
 - **Cas empiriques** : Citations spécifiques de cas de succès ou d'échec
 - **Évaluation quantitative** : Comparaisons utilisant nombres et métriques quand possible
 - **Considération temporelle** : Évaluation des impacts court, moyen et long termes
 
-#### Éthique du débat
+### Éthique du débat
 
 - **Honnêteté** : Reconnaître les limites de votre expertise
 - **Ouverture** : Flexibilité vers nouvelles informations et perspectives
 - **Transparence** : Déclarer explicitement les bases de jugement et hypothèses
 - **Responsabilité** : Mentionner les risques d'implémentation des propositions
 
-### Processus de débat
+## Processus de débat
 
-### Phase 1 : Déclaration de position initiale
+## Phase 1 : Déclaration de position initiale
 
 Chaque rôle exprime indépendamment des opinions depuis leur perspective professionnelle
 
@@ -63,7 +63,7 @@ Chaque rôle exprime indépendamment des opinions depuis leur perspective profes
 - Explication des risques et questions anticipés
 - Définition des métriques de succès
 
-### Phase 2 : Discussion mutuelle et réfutation
+## Phase 2 : Discussion mutuelle et réfutation
 
 Discussion croisée entre rôles
 
@@ -72,7 +72,7 @@ Discussion croisée entre rôles
 - Clarification des compromis
 - Présentation d'alternatives
 
-### Phase 3 : Recherche de compromis
+## Phase 3 : Recherche de compromis
 
 Exploration de solutions implémentables
 
@@ -81,7 +81,7 @@ Exploration de solutions implémentables
 - Approche d'implémentation étape par étape
 - Considération de mesures de mitigation des risques
 
-### Phase 4 : Conclusion intégrée
+## Phase 4 : Conclusion intégrée
 
 Détermination des recommandations finales
 
@@ -90,9 +90,9 @@ Détermination des recommandations finales
 - Métriques de succès et méthodes de mesure
 - Points de révision futurs
 
-### Exemples de format de sortie
+## Exemples de format de sortie
 
-### Pour un débat à 2 rôles
+## Pour un débat à 2 rôles
 
 ```text
 Débat de rôles : Sécurité vs Performance
@@ -182,7 +182,7 @@ Révision future :
 - Après 6 mois : Considérer migration vers authentification basée sur le risque plus sophistiquée
 ```
 
-### Pour un débat à 3 rôles
+## Pour un débat à 3 rôles
 
 ```text
 Débat de rôles : Architecte vs Sécurité vs Performance
@@ -212,9 +212,9 @@ Conclusion intégrée :
 "Design dirigé par domaine pour division par phases + design sécurité d'abord"
 ```
 
-### Motifs de débat efficaces
+## Motifs de débat efficaces
 
-### Sélection technologique
+## Sélection technologique
 
 ```bash
 /role-debate architect,performance
@@ -227,7 +227,7 @@ Conclusion intégrée :
 "Authentication Method: JWT vs Session Cookie"
 ```
 
-### Décisions de conception
+## Décisions de conception
 
 ```bash
 /role-debate security,frontend
@@ -240,7 +240,7 @@ Conclusion intégrée :
 "Test Strategy and Architecture Design"
 ```
 
-### Questions de compromis
+## Questions de compromis
 
 ```bash
 /role-debate security,performance
@@ -253,9 +253,9 @@ Conclusion intégrée :
 "Convenience vs Data Protection Level"
 ```
 
-### Caractéristiques de débat spécifiques aux rôles
+## Caractéristiques de débat spécifiques aux rôles
 
-#### 🔒 Rôle Sécurité
+### 🔒 Rôle Sécurité
 
 ```yaml
 debate_stance:
@@ -287,7 +287,7 @@ potential_biases:
   - Minimiser coûts implémentation
 ```
 
-#### ⚡ Rôle Performance
+### ⚡ Rôle Performance
 
 ```yaml
 debate_stance:
@@ -319,7 +319,7 @@ potential_biases:
   - Optimisation prématurée
 ```
 
-#### 🏗️ Rôle Architecte
+### 🏗️ Rôle Architecte
 
 ```yaml
 debate_stance:
@@ -351,7 +351,7 @@ potential_biases:
   - Compréhension insuffisante détails implémentation
 ```
 
-#### 🎨 Rôle Frontend
+### 🎨 Rôle Frontend
 
 ```yaml
 debate_stance:
@@ -383,7 +383,7 @@ potential_biases:
   - Sous-estimation impact performance
 ```
 
-#### 📱 Rôle Mobile
+### 📱 Rôle Mobile
 
 ```yaml
 debate_stance:
@@ -415,7 +415,7 @@ potential_biases:
   - Considération insuffisante environnement desktop
 ```
 
-#### 🔍 Rôle Analyste
+### 🔍 Rôle Analyste
 
 ```yaml
 debate_stance:
@@ -447,9 +447,9 @@ potential_biases:
   - Absolutisme données
 ```
 
-### Modèles de progression de débat
+## Modèles de progression de débat
 
-#### Phase 1 : Modèle déclaration position
+### Phase 1 : Modèle déclaration position
 
 ```text
 Recommandation du [Nom du rôle] :
@@ -474,7 +474,7 @@ Métriques de succès :
 - [Métrique mesurable 2]
 ```
 
-#### Phase 2 : Modèle réfutation
+### Phase 2 : Modèle réfutation
 
 ```text
 Réfutation à [Rôle cible] :
@@ -493,7 +493,7 @@ Points compromis :
 - [Possibilité implémentation par phases]
 ```
 
-#### Phase 3 : Modèle solution intégrée
+### Phase 3 : Modèle solution intégrée
 
 ```text
 Solution intégrée :
@@ -515,37 +515,37 @@ Métriques succès et méthodes mesure :
 - [Timing révision]
 ```
 
-### Liste de vérification qualité débat
+## Liste de vérification qualité débat
 
-#### Qualité preuves
+### Qualité preuves
 
 - [ ] Références documents/standards officiels
 - [ ] Cas/données spécifiques présentés
 - [ ] Distinction spéculation et fait
 - [ ] Sources explicitement déclarées
 
-#### Constructivité débat
+### Constructivité débat
 
 - [ ] Compréhension précise propositions adversaire
 - [ ] Réfutation logique plutôt qu'émotionnelle
 - [ ] Alternatives aussi présentées
 - [ ] Exploration possibilités gagnant-gagnant
 
-#### Faisabilité implémentation
+### Faisabilité implémentation
 
 - [ ] Faisabilité technique considérée
 - [ ] Coûts/durée implémentation estimés
 - [ ] Possibilité implémentation par phases considérée
 - [ ] Mesures mitigation risques présentées
 
-#### Intégration
+### Intégration
 
 - [ ] Impacts autres domaines considérés
 - [ ] Recherche optimisation globale
 - [ ] Perspective long terme incluse
 - [ ] Métriques succès mesurables définies
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Débat basé sur documents conception
@@ -563,7 +563,7 @@ cat performance-issues.md
 "Discuss unified UI strategy for iOS, Android, and Web"
 ```
 
-### Notes
+## Notes
 
 - Les débats peuvent prendre du temps (plus long pour sujets complexes)
 - Avec 3+ rôles, discussions peuvent diverger

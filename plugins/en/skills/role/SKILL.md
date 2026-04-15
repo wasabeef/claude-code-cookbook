@@ -1,25 +1,29 @@
 ---
-description: "Switch to expert role for specialized analysis"
+description: 'Switch to expert role for specialized analysis. Trigger with "switch role", "as a security expert", "as an architect", "as a frontend specialist".'
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Switch to expert role for specialized analysis
+# Switch to expert role for specialized analysis
 
 Switch to a specific role to perform specialized analysis or work.
 
-### Usage
+## Usage
 
 ```bash
 /role <role_name> [--agent|-a]
 ```
 
-### Options
+## Options
 
 - `--agent` or `-a`: Execute as a sub-agent (recommended for large-scale analysis)
   - When using this option, if the role description includes proactive delegation phrases (such as "use PROACTIVELY"), more proactive automatic delegation will be enabled
 
-### Available Roles
+## Available Roles
 
-#### Specialized Analysis Roles (Evidence-First Integrated)
+### Specialized Analysis Roles (Evidence-First Integrated)
 
 - `security`: Security audit expert (OWASP Top 10, threat modeling, Zero Trust principles, CVE matching)
 - `performance`: Performance optimization expert (Core Web Vitals, RAIL model, phased optimization, ROI analysis)
@@ -28,13 +32,13 @@ Switch to a specific role to perform specialized analysis or work.
 - `mobile`: Mobile development expert (iOS HIG, Android Material Design, cross-platform strategy)
 - `backend`: Backend and server-side expert (RESTful design, scalability, database optimization)
 
-#### Development Support Roles
+### Development Support Roles
 
 - `reviewer`: Code review expert (readability, maintainability, performance, refactoring proposals)
 - `architect`: System architect (Evidence-First design, MECE analysis, evolutionary architecture)
 - `qa`: Test engineer (test coverage, E2E/integration/unit strategy, automation proposals)
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Switch to security audit mode (normal)
@@ -70,7 +74,7 @@ Switch to a specific role to perform specialized analysis or work.
 "Return to normal Claude"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Security-specific analysis
@@ -88,7 +92,7 @@ ls -la src/
 "Propose the optimal test strategy for this project"
 ```
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Analysis with multiple roles
@@ -112,13 +116,13 @@ Location: db.js:42
 Fix: Use parameterized queries
 ```
 
-### Evidence-First Integration Features
+## Evidence-First Integration Features
 
-#### Core Philosophy
+### Core Philosophy
 
 Each role adopts an **Evidence-First** approach, conducting analysis and making proposals based not on speculation but on **proven methods, official guidelines, and objective data**.
 
-#### Common Features
+### Common Features
 
 - **Official Documentation Compliance**: Prioritized reference to authoritative official guidelines in each field
 - **MECE Analysis**: Systematic problem decomposition without omissions or duplicates
@@ -126,9 +130,9 @@ Each role adopts an **Evidence-First** approach, conducting analysis and making 
 - **Cognitive Bias Countermeasures**: Mechanisms to eliminate confirmation bias, etc.
 - **Discussion Characteristics**: Role-specific professional discussion stances
 
-### Details of Specialized Analysis Roles
+## Details of Specialized Analysis Roles
 
-#### security (Security Audit Expert)
+### security (Security Audit Expert)
 
 **Evidence-Based Security Audit**
 
@@ -146,7 +150,7 @@ OWASP Top 10 Compliance: XX% / CVE Matching: Completed
 Threat Modeling: STRIDE Analysis Completed
 ```
 
-#### performance (Performance Optimization Expert)
+### performance (Performance Optimization Expert)
 
 **Evidence-First Performance Optimization**
 
@@ -164,7 +168,7 @@ Core Web Vitals: LCP[XXXms] INP[XXXms] CLS[X.XX]
 Performance Budget: XX% / ROI Analysis: XX% Improvement Prediction
 ```
 
-#### analyzer (Root Cause Analysis Expert)
+### analyzer (Root Cause Analysis Expert)
 
 **Evidence-First Root Cause Analysis**
 
@@ -182,7 +186,7 @@ Analysis Confidence: High / Bias Countermeasures: Implemented
 Hypothesis Verification Matrix: XX% Confidence
 ```
 
-#### frontend (Frontend & UI/UX Expert)
+### frontend (Frontend & UI/UX Expert)
 
 **Evidence-First Frontend Development**
 
@@ -191,74 +195,74 @@ Hypothesis Verification Matrix: XX% Confidence
 - User-centered design and design system standard application
 - Verification through A/B testing and user behavior analysis
 
-### Details of Development Support Roles
+## Details of Development Support Roles
 
-#### reviewer (Code Review Expert)
+### reviewer (Code Review Expert)
 
 - Multidimensional evaluation of readability, maintainability, and performance
 - Coding convention compliance checks and refactoring proposals
 - Cross-cutting confirmation of security and accessibility
 
-#### architect (System Architect)
+### architect (System Architect)
 
 - Evidence-First design principles and MECE analysis for phased thinking
 - Evolutionary architecture and multi-perspective evaluation (technical, business, operational, user)
 - Reference to official architecture patterns and best practices
 
-#### qa (Test Engineer)
+### qa (Test Engineer)
 
 - Test coverage analysis and E2E/integration/unit test strategies
 - Test automation proposals and quality metrics design
 
-#### mobile (Mobile Development Expert)
+### mobile (Mobile Development Expert)
 
 - iOS HIG and Android Material Design official guidelines compliance
 - Cross-platform strategy and Touch-First design
 - Store review guidelines and mobile-specific UX optimization
 
-#### backend (Backend and Server-Side Expert)
+### backend (Backend and Server-Side Expert)
 
 - RESTful/GraphQL API design, domain-driven design, clean architecture
 - Scalability, fault tolerance, performance optimization
 - Database optimization, caching strategies, reliability improvements
 
-### Role-Specific Discussion Characteristics
+## Role-Specific Discussion Characteristics
 
 Each role has unique discussion stances, evidence sources, and strengths according to their specialized field.
 
-#### security Role Discussion Characteristics
+### security Role Discussion Characteristics
 
 - **Stance**: Conservative approach, risk minimization priority, worst-case scenario assumption
 - **Evidence**: OWASP guidelines, NIST frameworks, actual attack cases
 - **Strengths**: Precision in risk assessment, deep knowledge of regulatory requirements, comprehensive understanding of attack methods
 - **Caution**: Excessive conservatism, insufficient UX consideration, downplaying implementation costs
 
-#### performance Role Discussion Characteristics
+### performance Role Discussion Characteristics
 
 - **Stance**: Data-driven decisions, efficiency focus, user experience priority, continuous improvement
 - **Evidence**: Core Web Vitals, benchmark results, user behavior data, industry standards
 - **Strengths**: Quantitative evaluation ability, precision in bottleneck identification, ROI analysis
 - **Caution**: Downplaying security, insufficient maintainability consideration, overemphasis on measurement
 
-#### analyzer Role Discussion Characteristics
+### analyzer Role Discussion Characteristics
 
 - **Stance**: Evidence-focused, hypothesis verification, structural thinking, bias elimination
 - **Evidence**: Measured data, statistical methods, systems thinking theory, cognitive bias research
 - **Strengths**: Logical analysis ability, objectivity in evidence evaluation, ability to discover structural problems
 - **Caution**: Analysis paralysis, perfectionism, data absolutism, excessive skepticism
 
-#### frontend Role Discussion Characteristics
+### frontend Role Discussion Characteristics
 
 - **Stance**: User-centered, accessibility-focused, design principle compliance, experience value priority
 - **Evidence**: UX research, accessibility standards, design systems, usability testing
 - **Strengths**: User perspective, design principles, accessibility, experience design
 - **Caution**: Downplaying technical constraints, insufficient performance consideration, implementation complexity
 
-### Effects of Multi-Role Collaboration
+## Effects of Multi-Role Collaboration
 
 Combining roles with different discussion characteristics enables balanced analysis:
 
-#### Typical Collaboration Patterns
+### Typical Collaboration Patterns
 
 - **security + frontend**: Balance between security and usability
 - **performance + security**: Balance between speed and safety
@@ -267,19 +271,19 @@ Combining roles with different discussion characteristics enables balanced analy
 
 ## Advanced Role Features
 
-### Intelligent Role Selection
+## Intelligent Role Selection
 
 - `/smart-review`: Automatic role proposal through project analysis
 - `/role-help`: Optimal role selection guide according to the situation
 
-### Multi-Role Collaboration
+## Multi-Role Collaboration
 
 - `/multi-role <Role 1>,<Role 2>`: Simultaneous analysis by multiple roles
 - `/role-debate <Role 1>,<Role 2>`: Discussion between roles
 
-### Usage Examples
+## Usage Examples
 
-#### Automatic Role Proposal
+### Automatic Role Proposal
 
 ```bash
 /smart-review
@@ -289,7 +293,7 @@ Combining roles with different discussion characteristics enables balanced analy
 → Recommend security role based on authentication-related files
 ```
 
-#### Multiple Role Analysis
+### Multiple Role Analysis
 
 ```bash
 /multi-role security,performance
@@ -301,7 +305,7 @@ Combining roles with different discussion characteristics enables balanced analy
 → Discussion from usability and security perspectives
 ```
 
-#### When Unsure About Role Selection
+### When Unsure About Role Selection
 
 ```bash
 /role-help "API is slow and security is also a concern"
@@ -313,32 +317,32 @@ Combining roles with different discussion characteristics enables balanced analy
 
 ## Notes
 
-### About Role Behavior
+## About Role Behavior
 
 - When switching roles, Claude's **behavior, priorities, analysis methods, and report formats** become specialized
 - Each role prioritizes applying official guidelines and proven methods through an **Evidence-First approach**
 - Return to normal mode with `default` (role specialization is removed)
 - Roles are only effective within the current session
 
-### Effective Usage Methods
+## Effective Usage Methods
 
 - **Simple problems**: Sufficient specialized analysis with a single role
 - **Complex problems**: Multi-perspective analysis with multi-role or role-debate is effective
 - **When unsure**: Use smart-review or role-help
 - **Continuous improvement**: Even with the same role, analysis accuracy improves with new evidence and methods
 
-### Sub-Agent Function (--agent Option)
+## Sub-Agent Function (--agent Option)
 
 For large-scale analysis or independent specialized processing, you can run a role as a sub-agent using the `--agent` option.
 
-#### Benefits
+### Benefits
 
 - **Independent context**: Does not interfere with main conversation
 - **Parallel execution**: Multiple analyses can be performed simultaneously
 - **Specialized expertise**: Deeper analysis and detailed reports
 - **Promotion of automatic delegation**: When role descriptions include "use PROACTIVELY" or "MUST BE USED", more proactive automatic delegation is enabled
 
-#### Recommended Usage Scenarios
+### Recommended Usage Scenarios
 
 ```bash
 # Security: OWASP full-item check, CVE matching
@@ -354,7 +358,7 @@ For large-scale analysis or independent specialized processing, you can run a ro
 "Review 1000-line changes in PR #500"
 ```
 
-#### Normal Role vs Sub-Agent
+### Normal Role vs Sub-Agent
 
 | Situation            | Recommendation | Command                  |
 | -------------------- | -------------- | ------------------------ |
@@ -363,7 +367,7 @@ For large-scale analysis or independent specialized processing, you can run a ro
 | Interactive work     | Normal role    | `/role frontend`         |
 | Independent audit    | Sub-agent      | `/role qa --agent`       |
 
-### Role Configuration Details
+## Role Configuration Details
 
 - Detailed settings, expertise, and discussion characteristics of each role are defined in the `.claude/agents/roles/` directory
 - Includes Evidence-First methods and cognitive bias countermeasures

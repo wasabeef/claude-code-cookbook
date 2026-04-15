@@ -1,15 +1,15 @@
-## Processus de réflexion structuré pour les défis complexes
+# Processus de réflexion structuré
 
 Exécute un processus de réflexion structuré étape par étape pour des tâches complexes et des décisions importantes.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Demander une réflexion approfondie à Claude
 "Analyze [task] using ultrathink"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Examiner la conception architecturale
@@ -22,7 +22,7 @@ Exécute un processus de réflexion structuré étape par étape pour des tâche
 "Analyze the causes of poor application performance and improvement methods using ultrathink"
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Décisions commerciales
@@ -39,7 +39,7 @@ cat src/legacy_code.js
 "Develop a refactoring strategy for this legacy code using ultrathink"
 ```
 
-### Processus de réflexion
+## Processus de réflexion
 
 1. **Décomposition de problème** - Décomposer les tâches en composants
 2. **Analyse MECE** - Organiser sans lacunes ni chevauchements
@@ -47,7 +47,7 @@ cat src/legacy_code.js
 4. **Confirmation interactive** - Confirmer avec les utilisateurs aux points de décision importants
 5. **Proposition basée sur preuves** - Conclusions basées sur données et logique
 
-### Exemples détaillés
+## Exemples détaillés
 
 ```bash
 # Résoudre une dette technique complexe
@@ -60,6 +60,6 @@ cat src/legacy_code.js
 "Analyze migrating from PostgreSQL to DynamoDB using ultrathink. Consider cost, performance, and operational aspects"
 ```
 
-### Notes
+## Notes
 
 Ultrathink est idéal pour des tâches qui nécessitent une réflexion approfondie dans le temps. Pour des questions simples ou des réponses immédiates, utilisez le format de question normal.

@@ -1,19 +1,22 @@
 ---
-description: "Mostrar Issues abiertos con ranking de prioridad"
+description: 'Mostrar Issues abiertos con ranking de prioridad. Se activa con "mostrar issues", "issues abiertos".'
+allowed-tools:
+  - Bash(gh issue *)
+  - Bash(gh pr *)
 ---
 
-## Mostrar Issues abiertos con ranking de prioridad
+# Mostrar Issues abiertos con ranking de prioridad
 
 Muestra una lista priorizada de issues abiertos en el repositorio actual.
 
-### Uso
+## Uso
 
 ```bash
 # Solicitar de Claude
 "Mostrar una lista priorizada de issues abiertos"
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Obtener información del repositorio
@@ -25,7 +28,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 "Organizar los issues anteriores por prioridad, incluyendo un resumen de 2 líneas para cada issue. Generar URLs usando el nombre del repositorio obtenido arriba"
 ```
 
-### Formato de Visualización
+## Formato de Visualización
 
 ```text
 Lista de Issues Abiertos (por Prioridad)
@@ -43,7 +46,7 @@ Lista de Issues Abiertos (por Prioridad)
 (Formato similar)
 ```
 
-### Criterios de Evaluación de Prioridad
+## Criterios de Evaluación de Prioridad
 
 **Alta Prioridad**
 
@@ -63,7 +66,7 @@ Lista de Issues Abiertos (por Prioridad)
 - Issues con etiqueta `good first issue`
 - Issues con etiquetas `wontfix` o `duplicate`
 
-### Filtrado por Etiquetas
+## Filtrado por Etiquetas
 
 ```bash
 # Obtener solo issues con etiqueta específica
@@ -73,7 +76,7 @@ gh issue list --state open --label "bug" --json number,title,author,createdAt,la
 gh issue list --state open --label "bug,high-priority" --json number,title,author,createdAt,labels,comments --limit 30
 ```
 
-### Notas
+## Notas
 
 - Requiere GitHub CLI (`gh`)
 - Solo muestra issues en estado abierto

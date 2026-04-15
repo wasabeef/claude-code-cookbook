@@ -1,18 +1,22 @@
 ---
-description: "디자인 패턴 제안 및 SOLID 원칙 평가"
+description: "디자인 패턴 제안 및 SOLID 원칙 평가. 「디자인 패턴 제안해줘」「적용 가능한 패턴은?」「SOLID 원칙 체크」「안티패턴 검출」등으로 기동."
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
-## 디자인 패턴 제안 및 SOLID 원칙 평가
+# 디자인 패턴 제안 및 SOLID 원칙 평가
 
 코드베이스에 적용 가능한 디자인 패턴을 제안하고 SOLID 원칙의 준수 여부을 평가합니다.
 
-### 사용법
+## 사용법
 
 ```bash
 /design-patterns [분석대상] [옵션]
 ```
 
-### 옵션
+## 옵션
 
 - `--suggest` : 적용 가능한 패턴 제안 (기본값)
 - `--analyze` : 기존 패턴의 사용 현황 분석
@@ -20,7 +24,7 @@ description: "디자인 패턴 제안 및 SOLID 원칙 평가"
 - `--solid` : SOLID 원칙 준수 여부 체크
 - `--anti-patterns` : 안티패턴 검출
 
-### 기본 사용 예시
+## 기본 사용 예시
 
 ```bash
 # 프로젝트 전체의 패턴 분석
@@ -36,30 +40,30 @@ description: "디자인 패턴 제안 및 SOLID 원칙 평가"
 /design-patterns --anti-patterns
 ```
 
-### 분석 카테고리
+## 분석 카테고리
 
-#### 1. 생성 관련 패턴
+### 1. 생성 관련 패턴
 
 - **Factory Pattern**: 객체 생성의 추상화
 - **Builder Pattern**: 복잡한 객체의 단계적 구축
 - **Singleton Pattern**: 인스턴스의 유일성 보장
 - **Prototype Pattern**: 객체의 클론 생성
 
-#### 2. 구조 관련 패턴
+### 2. 구조 관련 패턴
 
 - **Adapter Pattern**: 인터페이스의 변환
 - **Decorator Pattern**: 기능의 동적 추가
 - **Facade Pattern**: 복잡한 서브시스템의 단순화
 - **Proxy Pattern**: 객체에 대한 접근 제어
 
-#### 3. 행동 관련 패턴
+### 3. 행동 관련 패턴
 
 - **Observer Pattern**: 이벤트 통지 구현
 - **Strategy Pattern**: 알고리즘의 전환
 - **Command Pattern**: 조작의 캡슐화
 - **Iterator Pattern**: 컬렉션의 순회
 
-### SOLID 원칙 체크 항목
+## SOLID 원칙 체크 항목
 
 ```text
 S - Single Responsibility Principle (단일 책임 원칙)
@@ -69,7 +73,7 @@ I - Interface Segregation Principle (인터페이스 분리 원칙)
 D - Dependency Inversion Principle (의존성 역전 원칙)
 ```
 
-### 출력 예시
+## 출력 예시
 
 ```text
 디자인 패턴 분석 리포트
@@ -112,7 +116,7 @@ SOLID 원칙 위반
 4. IDataStore 를 용도별로 분리
 ```
 
-### 고급 사용 예시
+## 고급 사용 예시
 
 ```bash
 # 패턴 적용의 영향 분석
@@ -128,9 +132,9 @@ SOLID 원칙 위반
 /design-patterns --architecture MVC
 ```
 
-### 패턴 적용 예시
+## 패턴 적용 예시
 
-#### Before (문제가 있는 코드)
+### Before (문제가 있는 코드)
 
 ```javascript
 class OrderService {
@@ -145,7 +149,7 @@ class OrderService {
 }
 ```
 
-#### After (Strategy Pattern 적용)
+### After (Strategy Pattern 적용)
 
 ```javascript
 // 전략 인터페이스
@@ -174,7 +178,7 @@ class OrderService {
 }
 ```
 
-### 안티패턴 검출
+## 안티패턴 검출
 
 - **God Object**: 과도하게 많은 책무를 가진 클래스
 - **Spaghetti Code**: 제어 흐름이 복잡하게 얽힌 코드
@@ -182,7 +186,7 @@ class OrderService {
 - **Magic Numbers**: 하드코딩된 상수
 - **Callback Hell**: 깊게 중첩된 콜백
 
-### 베스트 프랙티스
+## 베스트 프랙티스
 
 1. **점진적 적용**: 한 번에 많은 패턴을 적용하지 않기
 2. **필요성 검증**: 패턴은 문제 해결의 수단이지 목적이 아님

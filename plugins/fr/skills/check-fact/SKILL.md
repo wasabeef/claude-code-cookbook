@@ -1,12 +1,18 @@
 ---
-description: "Vérifier la précision des informations avec le code et la documentation"
+description: "Vérifier la précision des informations. Se déclenche avec « est-ce correct ? », « vérifier les faits », « est-ce précis ? »."
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - WebSearch
+  - WebFetch
 ---
 
-## Vérifier la précision des informations avec le code et la documentation
+# Vérifier la précision des informations
 
 Vérifie si une affirmation est vraie en examinant le code et la documentation de votre projet.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Utilisation de base
@@ -19,7 +25,7 @@ Vérifie si une affirmation est vraie en examinant le code et la documentation d
 /check-fact "JWT est utilisé pour l'authentification, et Firebase Auth n'est pas utilisé"
 ```
 
-### Comment cela fonctionne
+## Comment cela fonctionne
 
 1. **Où je regarde (dans l'ordre)**
    - Le code actuel (le plus fiable)
@@ -38,7 +44,7 @@ Vérifie si une affirmation est vraie en examinant le code et la documentation d
    - Extraits de code pertinents
    - Documentation correspondante
 
-### Format de rapport
+## Format de rapport
 
 ```text
 ## Résultats de vérification de fait
@@ -60,7 +66,7 @@ Vérifie si une affirmation est vraie en examinant le code et la documentation d
 [Si inconnu, voici ce que je devrais vérifier]
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Vérifier la pile technologique
@@ -76,7 +82,7 @@ Vérifie si une affirmation est vraie en examinant le code et la documentation d
 /check-fact "Les tokens d'authentification sont chiffrés et stockés dans un stockage sécurisé"
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Vérifier les dépendances
@@ -92,7 +98,7 @@ cat README.md
 /check-fact "Tout dans le README est réellement implémenté"
 ```
 
-### Quand utiliser ceci
+## Quand utiliser ceci
 
 - Rédaction de spécifications : S'assurer que vos descriptions sont exactes
 - Reprendre un projet : Vérifier si vous le comprenez correctement
@@ -100,7 +106,7 @@ cat README.md
 - Articles de blog : Vérifier les faits de votre contenu technique
 - Présentations : Confirmer les détails du projet avant de présenter
 
-### Important
+## Important
 
 - Le code surpasse la documentation : S'ils ne concordent pas, le code a raison
 - La documentation ancienne arrive : L'implémentation est ce qui compte

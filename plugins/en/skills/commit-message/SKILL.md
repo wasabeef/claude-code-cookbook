@@ -1,24 +1,28 @@
 ---
-description: "Generate commit messages from staged changes"
+description: 'Generate commit messages from staged changes. Trigger with "suggest commit message", "generate commit message", "what should the commit say?", "write commit message".'
+allowed-tools:
+  - Bash(git diff *)
+  - Bash(git log *)
+  - Read
 ---
 
-## Generate commit messages from staged changes
+# Generate commit messages from staged changes
 
 Generates commit messages from staged changes (git diff --staged). This command only creates messages and copies them to your clipboard—it doesn't run any git commands.
 
-### Usage
+## Usage
 
 ```bash
 /commit-message [options]
 ```
 
-### Options
+## Options
 
 - `--format <format>` : Choose message format (conventional, gitmoji, angular)
 - `--lang <language>` : Set language explicitly (en)
 - `--breaking` : Include breaking change detection
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Generate message from staged changes (language auto-detected)
@@ -33,7 +37,7 @@ Generates commit messages from staged changes (git diff --staged). This command 
 /commit-message --breaking
 ```
 
-### Prerequisites
+## Prerequisites
 
 **Important**: This command only works with staged changes. Run `git add` first to stage your changes.
 
@@ -43,7 +47,7 @@ $ /commit-message
 No staged changes found. Please run git add first.
 ```
 
-### Automatic Clipboard Feature
+## Automatic Clipboard Feature
 
 The top suggestion gets copied to your clipboard as a complete command: `git commit -m "message"`. Just paste and run it in your terminal.
 
@@ -52,11 +56,11 @@ The top suggestion gets copied to your clipboard as a complete command: `git com
 - Run `pbcopy` in a separate process from the message output
 - Use `printf` instead of `echo` to avoid unwanted newlines
 
-### Automatic Project Convention Detection
+## Automatic Project Convention Detection
 
 **Important**: If project-specific conventions exist, they take priority.
 
-#### 1. CommitLint Configuration Check
+### 1. CommitLint Configuration Check
 
 Automatically detects settings from the following files:
 
@@ -75,7 +79,7 @@ Automatically detects settings from the following files:
 find . -name "commitlint.config.*" -o -name ".commitlintrc.*" | head -1
 ```
 
-#### 2. Custom Type Detection
+### 2. Custom Type Detection
 
 Example of project-specific types:
 
@@ -106,7 +110,7 @@ export default {
 };
 ```
 
-#### 3. Detecting Language Settings
+### 3. Detecting Language Settings
 
 ```javascript
 // When project uses Japanese messages
@@ -118,7 +122,7 @@ export default {
 };
 ```
 
-#### 4. Existing Commit History Analysis
+### 4. Existing Commit History Analysis
 
 ```bash
 # Learn patterns from recent commits
@@ -130,7 +134,7 @@ grep -oE '^[a-z]+(\([^)]+\))?' | \
 sort | uniq -c | sort -nr
 ```
 
-### Automatic Language Detection
+## Automatic Language Detection
 
 Automatically switches between Japanese/English based on:
 
@@ -141,9 +145,9 @@ Automatically switches between Japanese/English based on:
 
 Default is English. Generates in Japanese if detected as Japanese project.
 
-### Message Format
+## Message Format
 
-#### Conventional Commits (Default)
+### Conventional Commits (Default)
 
 ```text
 <type>: <description>
@@ -153,7 +157,7 @@ Default is English. Generates in Japanese if detected as Japanese project.
 
 **Note**: Project-specific conventions take priority if they exist.
 
-### Standard Types
+## Standard Types
 
 **Required Types**:
 
@@ -171,7 +175,7 @@ Default is English. Generates in Japanese if detected as Japanese project.
 - `perf`: Performance improvements
 - `test`: Adding or fixing tests
 
-### Output Example (English Project)
+## Output Example (English Project)
 
 ```bash
 $ /commit-message
@@ -213,7 +217,7 @@ $COMMIT_MESSAGE
 EOF
 ```
 
-### Output Example (Japanese Project)
+## Output Example (Japanese Project)
 
 ```bash
 $ /commit-message
@@ -232,7 +236,7 @@ feat: JWT authentication system implemented
 ✅ `git commit -m "feat: JWT authentication system implemented"` copied to clipboard
 ```
 
-### Operation Overview
+## Operation Overview
 
 1. **Analysis**: Analyze content of `git diff --staged`
 2. **Generation**: Generate appropriate commit message
@@ -240,9 +244,9 @@ feat: JWT authentication system implemented
 
 **Note**: This command does not execute git add or git commit. It only generates commit messages and copies to clipboard.
 
-### Smart Features
+## Smart Features
 
-#### 1. Automatic Change Classification (Staged Files Only)
+### 1. Automatic Change Classification (Staged Files Only)
 
 - New file addition → `feat`
 - Error fix patterns → `fix`
@@ -250,13 +254,13 @@ feat: JWT authentication system implemented
 - Configuration file changes → `chore`
 - README/docs updates → `docs`
 
-#### 2. Automatic Project Convention Detection
+### 2. Automatic Project Convention Detection
 
 - `.gitmessage` file
 - Conventions in `CONTRIBUTING.md`
 - Past commit history patterns
 
-#### 3. Language Detection Details (Staged Changes Only)
+### 3. Language Detection Details (Staged Changes Only)
 
 ```bash
 # Detection criteria (priority order)
@@ -266,7 +270,7 @@ feat: JWT authentication system implemented
 4. Project main language settings
 ```
 
-#### 4. Staging Analysis Details
+### 4. Staging Analysis Details
 
 Information used for analysis (read-only):
 
@@ -274,7 +278,7 @@ Information used for analysis (read-only):
 - `git diff --staged` - Actual change content
 - `git status --porcelain` - File status
 
-### Breaking Change Detection
+## Breaking Change Detection
 
 For breaking API changes:
 
@@ -306,7 +310,7 @@ Or:
 feat(api)!: change authentication flow
 ```
 
-### Best Practices
+## Best Practices
 
 1. **Match project**: Follow existing commit language
 2. **Conciseness**: Clear within 50 characters
@@ -314,7 +318,7 @@ feat(api)!: change authentication flow
 4. **OSS**: English recommended for open source
 5. **Single line**: Always single-line commit message (supplement with PR for detailed explanations)
 
-### Common Patterns
+## Common Patterns
 
 **English**:
 
@@ -332,7 +336,7 @@ fix: resolve memory leak in cache manager
 docs: update API documentation
 ```
 
-### Integration with Claude
+## Integration with Claude
 
 ```bash
 # Use with staged changes
@@ -351,7 +355,7 @@ git add -A
 "Mark appropriately if there are breaking changes"
 ```
 
-### Important Notes
+## Important Notes
 
 - **Prerequisite**: Changes must be staged with `git add` beforehand
 - **Limitation**: Unstaged changes are not analyzed

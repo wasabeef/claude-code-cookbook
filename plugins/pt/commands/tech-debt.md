@@ -1,8 +1,8 @@
-## Análise quantitativa de dívida técnica e plano de melhoria
+# Análise quantitativa de dívida técnica
 
 Analisa quantitativamente a dívida técnica do projeto e visualiza as pontuações de saúde junto com o impacto na eficiência de desenvolvimento. Acompanha melhorias mediante análise de tendências, calcula custos temporais e cria um plano de melhoria priorizado.
 
-### Uso
+## Uso
 
 ```bash
 # Verificar configuração do projeto para analisar dívida técnica
@@ -10,7 +10,7 @@ ls -la
 "Analisar a dívida técnica deste projeto e criar um plano de melhoria"
 ```
 
-### Painel de Saúde do Projeto
+## Painel de Saúde do Projeto
 
 ```text
 Pontuação de Saúde do Projeto: 72/100
@@ -46,7 +46,7 @@ Pontuação de Saúde do Projeto: 72/100
 └─ ROI: Investimento 40 horas → Recuperação 120 horas (3 meses)
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Análise detalhada da pontuação de saúde
@@ -62,7 +62,7 @@ ls -la | grep -E "package.json|Cargo.toml|pubspec.yaml|go.mod|requirements.txt"
 "Calcular pontuação de frescor das dependências e analisar riscos e efeitos de atualizações"
 ```
 
-### Colaboração com Claude
+## Colaboração com Claude
 
 ```bash
 # Análise integral de dívida técnica
@@ -87,7 +87,7 @@ find . -type d -name "src" -o -name "lib" -o -name "app" | head -10 | xargs ls -
 - Momento recomendado de implementação"
 ```
 
-### Exemplos Detalhados
+## Exemplos Detalhados
 
 ```bash
 # Detecção automática do tipo de projeto e análise
@@ -115,7 +115,7 @@ find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f 
 "Analisar a dívida técnica de cobertura de testes e propor estratégia de testes"
 ```
 
-### Matriz de Prioridades da Dívida
+## Matriz de Prioridades da Dívida
 
 ```text
 Prioridade = (Impacto × Frequência) ÷ Custo de correção
@@ -128,7 +128,7 @@ Prioridade = (Impacto × Frequência) ÷ Custo de correção
 | **[P2] Este mês**          | Baixo                      | Alto              | 1-2x                       | Investimento 1h→Redução 1-2h  | Dentro de 1 mês    |
 | **[P3] Este trimestre**    | Baixo                      | Baixo             | < 1x                       | Investimento=tempo de redução | Dentro de 3 meses  |
 
-### Critérios de Avaliação por Tipo de Dívida
+## Critérios de Avaliação por Tipo de Dívida
 
 | Tipo de dívida                    | Método de detecção                        | Impacto no desenvolvimento                          | Tempo de correção |
 | --------------------------------- | ----------------------------------------- | --------------------------------------------------- | ----------------- |
@@ -140,7 +140,7 @@ Prioridade = (Impacto × Frequência) ÷ Custo de correção
 | **Dívida de dependências**        | Não atualizadas por 2+ anos               | Risco de segurança, problemas de compatibilidade    | 4-16h             |
 | **Dívida de qualidade do código** | Complexidade > 10                         | Tempo de compreensão/correção aumentado             | 2-8h              |
 
-### Cálculo de Impacto da Dívida Técnica
+## Cálculo de Impacto da Dívida Técnica
 
 ```text
 Impacto = Σ(peso de cada elemento × valor medido)
@@ -162,7 +162,7 @@ Impacto = Σ(peso de cada elemento × valor medido)
    └─ Locais de correção por duplicação de código: taxa de duplicação × frequência de mudança
 ```
 
-### Cálculo de ROI baseado em tempo
+## Cálculo de ROI baseado em tempo
 
 ```text
 ROI = (tempo reduzido - tempo de investimento) ÷ tempo de investimento × 100
@@ -177,7 +177,7 @@ Exemplo: Resolução de dependências circulares
 └─ ROI em 3 meses: (70 - 16) ÷ 16 × 100 = 337%
 ```
 
-### Notas
+## Notas
 
 - Auto-detecta a linguagem e framework do projeto para realizar análises específicas
 - Avalia a pontuação de saúde em escala de 0-100 pontos, considerando saudável 70+ pontos e necessitando melhoria <50 pontos

@@ -1,8 +1,8 @@
-## 安全更新 Rust 依赖
+# 安全更新 Rust 依赖
 
 安全地更新 Rust 项目的依赖关系。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 确认依赖状态并请求 Claude
@@ -10,7 +10,7 @@ cargo tree
 「将 Cargo.toml 的依赖更新到最新版本」
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 确认当前依赖
@@ -22,7 +22,7 @@ cargo update --dry-run
 「分析这些 crate 更新的危险度」
 ```
 
-### 与 Claude 配合
+## 与 Claude 配合
 
 ```bash
 # 全面的依赖更新
@@ -42,7 +42,7 @@ cargo tree
 「告诉我将 tokio 更新到最新版本的影响和必要的更改」
 ```
 
-### 详细示例
+## 详细示例
 
 ```bash
 # 包含 Release Notes 的详细分析
@@ -60,7 +60,7 @@ cat Cargo.toml src/main.rs
 「展示从 async-std 迁移到 tokio，或 tokio 主版本升级所需的所有更改」
 ```
 
-### 危险度标准
+## 危险度标准
 
 ```text
 安全 (🟢)：
@@ -80,7 +80,7 @@ cat Cargo.toml src/main.rs
 - trait 边界的变更
 ```
 
-### 执行更新
+## 执行更新
 
 ```bash
 # 创建备份
@@ -96,7 +96,7 @@ cargo test
 cargo clippy
 ```
 
-### 注意事项
+## 注意事项
 
 更新后必须进行功能测试。如果出现问题，使用以下命令恢复：
 

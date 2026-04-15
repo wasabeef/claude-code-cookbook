@@ -1,4 +1,4 @@
-## 根據變更自動更新 PR 說明和標籤
+# 根據變更自動更新 PR 說明和標籤
 
 ## 概述
 
@@ -10,7 +10,7 @@
 /pr-auto-update [選項] [PR 編号]
 ```
 
-### 選項
+## 選項
 
 - `--pr <編号>` : 指定目標 PR 編号 (省略時從當前分支自動檢測)
 - `--description-only` : 仅更新描述 (不修改標簽)
@@ -18,7 +18,7 @@
 - `--dry-run` : 不執行實際更新，仅顯示生成的內容
 - `--lang <語言>` : 指定語言 (zh-tw, en)
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 自動更新當前分支的 PR
@@ -36,7 +36,7 @@
 
 ## 功能詳情
 
-### 1. PR 自動檢測
+## 1. PR 自動檢測
 
 從當前分支自動檢測對應的 PR：
 
@@ -45,7 +45,7 @@
 gh pr list --head $(git branch --show-current) --json number,title,url
 ```
 
-### 2. 更改內容分析
+## 2. 更改內容分析
 
 收集和分析以下資訊：
 
@@ -56,15 +56,15 @@ gh pr list --head $(git branch --show-current) --json number,title,url
 - **配置**: package.json、pubspec.yaml、配置文件的更改
 - **CI/CD**: GitHub Actions、workflow 的更改
 
-### 3. 描述文本自動生成
+## 3. 描述文本自動生成
 
-#### 模板處理優先級
+### 模板處理優先級
 
 1. **現有 PR 描述**: **完全遵循**已存在的內容
 2. **項目模板**: 從 `.github/PULL_REQUEST_TEMPLATE.md` 獲取結構
 3. **默認模板**: 上述不存在時的後備方案
 
-#### 現有內容保留規則
+### 現有內容保留規則
 
 **重要**: 不修改現有內容
 
@@ -72,7 +72,7 @@ gh pr list --head $(git branch --show-current) --json number,title,url
 - 仅補充空白部分
 - 保留功能性注釋 (如 Copilot review rule 等)
 
-#### 項目模板的使用
+### 項目模板的使用
 
 ```bash
 # 解析 .github/PULL_REQUEST_TEMPLATE.md 的結構
@@ -92,16 +92,16 @@ parse_template_structure() {
 }
 ```
 
-### 4. 標簽自動設置
+## 4. 標簽自動設置
 
-#### 標簽獲取機制
+### 標簽獲取機制
 
 **優先級**:
 
 1. **`.github/labels.yml`**: 從項目特定的標簽定義獲取
 2. **GitHub API**: 使用 `gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'` 獲取現有標簽
 
-#### 自動判定規則
+### 自動判定規則
 
 **基于文件模式**:
 
@@ -118,13 +118,13 @@ parse_template_structure() {
 - 性能: `performance|perf|optimize|性能` → 包含 `performance|perf` 的標簽
 - 安全: `security|secure|安全` → 包含 `security` 的標簽
 
-#### 約束
+### 約束
 
 - **最多 3 個**: 自動選擇的標簽數量上限
 - **仅限現有標簽**: 禁止創建新標簽
 - **部分匹配**: 根據標簽名是否包含關鍵詞判定
 
-#### 實際使用示例
+### 實際使用示例
 
 **存在 `.github/labels.yml` 時**:
 
@@ -144,7 +144,7 @@ gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'
 # 例：使用 bug, enhancement, documentation 等標準標簽
 ```
 
-### 5. 執行流程
+## 5. 執行流程
 
 ```bash
 #!/bin/bash
@@ -343,7 +343,7 @@ update_pr() {
 
 ## 常見模式
 
-### Flutter 項目
+## Flutter 項目
 
 ```markdown
 ## What does this change?
@@ -364,7 +364,7 @@ update_pr() {
 - **性能**: {優化內容}
 ```
 
-### Node.js 項目
+## Node.js 項目
 
 ```markdown
 ## What does this change?
@@ -385,7 +385,7 @@ update_pr() {
 - **輸入驗證**: SQL 注入防護
 ```
 
-### CI/CD 改進
+## CI/CD 改進
 
 ```markdown
 ## What does this change?
@@ -434,25 +434,25 @@ update_pr() {
 
 ## 故障排除
 
-### 常見問題
+## 常見問題
 
 1. **找不到 PR**: 檢查分支名與 PR 的關聯
 2. **權限錯誤**: 檢查 GitHub CLI 的認證狀態
 3. **無法設置標簽**: 檢查倉庫權限
 4. **HTML 注釋被轉義**: GitHub CLI 的規格導致 `<!-- -->` 被轉換為 `&lt;!-- --&gt;`
 
-### GitHub CLI 的 HTML 注釋轉義問題
+## GitHub CLI 的 HTML 注釋轉義問題
 
 **重要**: GitHub CLI (`gh pr edit`) 會自動轉義 HTML 注釋。此外，Shell 的重定向處理可能混入 `EOF < /dev/null` 等非法字符串。
 
-#### 根本解決方案
+### 根本解決方案
 
 1. **使用 GitHub API 的 --field 選項**: 使用 `--field` 進行適当的轉義處理
 2. **簡化 Shell 處理**: 避免復杂的重定向和管道處理
 3. **簡化模板處理**: 废除 HTML 注釋移除處理，完全保留
 4. **正確處理 JSON 轉義**: 正確處理特殊字符
 
-### 調試選項
+## 調試選項
 
 ```bash
 # 輸出詳细日誌 (實現時添加)

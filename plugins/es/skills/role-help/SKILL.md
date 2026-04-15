@@ -1,12 +1,12 @@
 ---
-description: "Guía para elegir el rol adecuado"
+description: 'Guía para elegir el rol adecuado. Se activa con "¿qué rol usar?", "lista de roles".'
 ---
 
-## Guía para elegir el rol adecuado
+# Guía para elegir el rol adecuado
 
 Una guía de selección y sistema de ayuda cuando no estás seguro de qué rol usar.
 
-### Uso
+## Uso
 
 ```bash
 /role-help                      # Guía general de selección de roles
@@ -14,7 +14,7 @@ Una guía de selección y sistema de ayuda cuando no estás seguro de qué rol u
 /role-help compare <Rol 1>,<Rol 2> # Comparar roles
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Orientación general
@@ -30,9 +30,9 @@ Una guía de selección y sistema de ayuda cuando no estás seguro de qué rol u
 → Diferencias y uso apropiado entre roles frontend y mobile
 ```
 
-### Guía de Selección de Roles Basada en Situaciones
+## Guía de Selección de Roles Basada en Situaciones
 
-### 🔒 Relacionado con Seguridad
+## 🔒 Relacionado con Seguridad
 
 ```text
 Usar rol security para:
@@ -45,7 +45,7 @@ Usar rol security para:
 Uso: /role security
 ```
 
-### 🏗️ Arquitectura y Diseño
+## 🏗️ Arquitectura y Diseño
 
 ```text
 Usar rol architect para:
@@ -58,7 +58,7 @@ Usar rol architect para:
 Uso: /role architect
 ```
 
-### ⚡ Problemas de Rendimiento
+## ⚡ Problemas de Rendimiento
 
 ```text
 Usar rol performance para:
@@ -71,7 +71,7 @@ Usar rol performance para:
 Uso: /role performance
 ```
 
-### 🔍 Investigación de Causa Raíz de Problemas
+## 🔍 Investigación de Causa Raíz de Problemas
 
 ```text
 Usar rol analyzer para:
@@ -84,7 +84,7 @@ Usar rol analyzer para:
 Uso: /role analyzer
 ```
 
-### 🎨 Frontend y UI/UX
+## 🎨 Frontend y UI/UX
 
 ```text
 Usar rol frontend para:
@@ -97,7 +97,7 @@ Usar rol frontend para:
 Uso: /role frontend
 ```
 
-### 📱 Desarrollo de Aplicaciones Móviles
+## 📱 Desarrollo de Aplicaciones Móviles
 
 ```text
 Usar rol mobile para:
@@ -110,7 +110,7 @@ Usar rol mobile para:
 Uso: /role mobile
 ```
 
-### 👀 Revisión de Código y Calidad
+## 👀 Revisión de Código y Calidad
 
 ```text
 Usar rol reviewer para:
@@ -123,7 +123,7 @@ Usar rol reviewer para:
 Uso: /role reviewer
 ```
 
-### 🧪 Pruebas y Aseguramiento de Calidad
+## 🧪 Pruebas y Aseguramiento de Calidad
 
 ```text
 Usar rol qa para:
@@ -136,9 +136,9 @@ Usar rol qa para:
 Uso: /role qa
 ```
 
-### Cuando se Necesitan Múltiples Roles
+## Cuando se Necesitan Múltiples Roles
 
-### 🔄 multi-role (Análisis Paralelo)
+## 🔄 multi-role (Análisis Paralelo)
 
 ```text
 Usar multi-role para:
@@ -150,7 +150,7 @@ Usar multi-role para:
 Ejemplo: /multi-role security,performance
 ```
 
-### 🗣️ role-debate (Discusión)
+## 🗣️ role-debate (Discusión)
 
 ```text
 Usar role-debate para:
@@ -162,7 +162,7 @@ Usar role-debate para:
 Ejemplo: /role-debate security,performance
 ```
 
-### 🤖 smart-review (Propuesta Automática)
+## 🤖 smart-review (Propuesta Automática)
 
 ```text
 Usar smart-review para:
@@ -174,37 +174,37 @@ Usar smart-review para:
 Ejemplo: /smart-review
 ```
 
-### Tabla de Comparación de Roles
+## Tabla de Comparación de Roles
 
-### Categoría Seguridad
+## Categoría Seguridad
 
 | Rol      | Uso Principal                              | Fortalezas                                    | Debilidades                               |
 | -------- | ------------------------------------------ | --------------------------------------------- | ----------------------------------------- |
 | security | Vulnerabilidades y contramedidas de ataque | Análisis de amenazas, diseño de autenticación | UX, rendimiento                           |
 | analyzer | Análisis de causa raíz                     | Análisis lógico, recolección de evidencia     | Medidas preventivas, planificación futura |
 
-### Categoría Diseño
+## Categoría Diseño
 
 | Rol       | Uso Principal     | Fortalezas                                      | Debilidades                                        |
 | --------- | ----------------- | ----------------------------------------------- | -------------------------------------------------- |
 | architect | Diseño de sistema | Perspectiva a largo plazo, optimización general | Implementación detallada, soluciones a corto plazo |
 | reviewer  | Calidad de código | Nivel de implementación, mantenibilidad         | Requerimientos de negocio, UX                      |
 
-### Categoría Rendimiento
+## Categoría Rendimiento
 
 | Rol         | Uso Principal                      | Fortalezas                                     | Debilidades          |
 | ----------- | ---------------------------------- | ---------------------------------------------- | -------------------- |
 | performance | Mejora de velocidad y optimización | Medición, identificación de cuellos de botella | Seguridad, UX        |
 | qa          | Aseguramiento de calidad           | Pruebas, automatización                        | Diseño, arquitectura |
 
-### Categoría Experiencia de Usuario
+## Categoría Experiencia de Usuario
 
 | Rol      | Uso Principal | Fortalezas               | Debilidades        |
 | -------- | ------------- | ------------------------ | ------------------ |
 | frontend | UI/UX Web     | Navegador, accesibilidad | Lado servidor, BD  |
 | mobile   | UX Móvil      | Táctil, soporte offline  | Lado servidor, Web |
 
-### Diagrama de Flujo de Decisión Cuando No Estés Seguro
+## Diagrama de Flujo de Decisión Cuando No Estés Seguro
 
 ```text
 ¿Cuál es la naturaleza del problema?
@@ -223,9 +223,9 @@ Ejemplo: /smart-review
 └─ No estoy seguro → smart-review
 ```
 
-### Preguntas Frecuentes
+## Preguntas Frecuentes
 
-### P: ¿Cuál es la diferencia entre los roles frontend y mobile?
+## P: ¿Cuál es la diferencia entre los roles frontend y mobile?
 
 ```text
 R:
@@ -235,7 +235,7 @@ mobile: Enfocado en aplicaciones móviles, iOS/Android nativo, React Native, etc
 Para problemas relacionados con ambos, se recomienda multi-role frontend,mobile
 ```
 
-### P: ¿Cómo elegir entre los roles security y analyzer?
+## P: ¿Cómo elegir entre los roles security y analyzer?
 
 ```text
 R:
@@ -245,7 +245,7 @@ analyzer: Análisis de causas de problemas existentes, investigación
 Para investigaciones de incidentes de seguridad, usar multi-role security,analyzer
 ```
 
-### P: ¿Cuál es la diferencia entre los roles architect y performance?
+## P: ¿Cuál es la diferencia entre los roles architect y performance?
 
 ```text
 R:
@@ -255,7 +255,7 @@ performance: Mejoras específicas de velocidad y eficiencia
 Para diseño de rendimiento de sistemas a gran escala, usar multi-role architect,performance
 ```
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Combinado con descripción de situación
@@ -272,7 +272,7 @@ cat problem-description.md
 "¿Qué rol es apropiado para problemas de expiración de token JWT?"
 ```
 
-### Notas
+## Notas
 
 - Para problemas complejos, combinar múltiples roles es más efectivo
 - Para asuntos urgentes, usar un solo rol para respuesta rápida

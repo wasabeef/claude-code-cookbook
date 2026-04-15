@@ -1,17 +1,17 @@
-## Parallel analysis with multiple roles and integrated report
+# Parallel analysis with multiple roles and integrated report
 
 A command that analyzes the same target in parallel with multiple roles and generates an integrated report.
 
-### Usage
+## Usage
 
 ```bash
 /multi-role <role1>,<role2> [--agent|-a] [analysis_target]
 /multi-role <role1>,<role2>,<role3> [--agent|-a] [analysis_target]
 ```
 
-### Available Roles
+## Available Roles
 
-#### Specialized Analysis Roles
+### Specialized Analysis Roles
 
 - `security`: Security audit expert
 - `performance`: Performance optimization expert
@@ -20,7 +20,7 @@ A command that analyzes the same target in parallel with multiple roles and gene
 - `mobile`: Mobile development expert
 - `backend`: Backend and server-side expert
 
-#### Development Support Roles
+### Development Support Roles
 
 - `reviewer`: Code review expert
 - `architect`: System architect
@@ -33,12 +33,12 @@ A command that analyzes the same target in parallel with multiple roles and gene
 - Correct example: `/multi-role qa,architect --agent Evaluate the plan`
 - Incorrect example: `/multi-role qa,architect Evaluate the plan --agent`
 
-### Options
+## Options
 
 - `--agent` or `-a`: Execute each role as a sub-agent in parallel (recommended for large-scale analysis)
   - When using this option, if role descriptions include proactive delegation phrases (like "use PROACTIVELY"), more aggressive automatic delegation becomes enabled
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Dual analysis of security and performance (normal)
@@ -58,9 +58,9 @@ A command that analyzes the same target in parallel with multiple roles and gene
 "Evaluate microservices design"
 ```
 
-### Analysis Process
+## Analysis Process
 
-### Phase 1: Parallel Analysis
+## Phase 1: Parallel Analysis
 
 Each role independently analyzes the same target
 
@@ -68,7 +68,7 @@ Each role independently analyzes the same target
 - Make judgments based on role-specific criteria
 - Generate independent recommendations
 
-### Phase 2: Integrated Analysis
+## Phase 2: Integrated Analysis
 
 Structure and integrate results
 
@@ -76,7 +76,7 @@ Structure and integrate results
 - Identify overlaps and contradictions
 - Clarify complementary relationships
 
-### Phase 3: Integrated Report
+## Phase 3: Integrated Report
 
 Generate final recommendations
 
@@ -84,9 +84,9 @@ Generate final recommendations
 - Explicit trade-offs
 - Implementation roadmap
 
-### Output Format Examples
+## Output Format Examples
 
-### For 2-role Analysis
+## For 2-role Analysis
 
 ```text
 Multi-role Analysis: Security + Performance
@@ -132,7 +132,7 @@ Weeks 3-4: Cache layer design and implementation
 Month 2: Progressive strengthening of authorization control
 ```
 
-### For 3-role Analysis
+## For 3-role Analysis
 
 ```text
 Multi-role Analysis: Frontend + Mobile + Performance
@@ -164,9 +164,9 @@ Priority: Mobile > Performance > Frontend
 Implementation Period: 3-4 weeks
 ```
 
-### Effective Combination Patterns
+## Effective Combination Patterns
 
-### Security-focused
+## Security-focused
 
 ```bash
 /multi-role security,architect
@@ -179,7 +179,7 @@ Implementation Period: 3-4 weeks
 "Mobile app data protection"
 ```
 
-### Performance-focused
+## Performance-focused
 
 ```bash
 /multi-role performance,architect
@@ -192,7 +192,7 @@ Implementation Period: 3-4 weeks
 "App performance optimization"
 ```
 
-### User Experience-focused
+## User Experience-focused
 
 ```bash
 /multi-role frontend,mobile
@@ -205,7 +205,7 @@ Implementation Period: 3-4 weeks
 "Mobile UX optimization"
 ```
 
-### Comprehensive Analysis
+## Comprehensive Analysis
 
 ```bash
 /multi-role architect,security,performance
@@ -218,7 +218,7 @@ Implementation Period: 3-4 weeks
 "Comprehensive mobile app diagnosis"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Combine with file analysis
@@ -237,27 +237,27 @@ cat performance-issues.log
 "Analyze performance issues from multiple angles"
 ```
 
-### Choosing between multi-role and role-debate
+## Choosing between multi-role and role-debate
 
-### When to use multi-role
+## When to use multi-role
 
 - You want independent evaluations from each specialty
 - You want to create an integrated improvement plan
 - You want to organize contradictions and overlaps
 - You want to determine implementation priorities
 
-### When to use role-debate
+## When to use role-debate
 
 - There are trade-offs between specialties
 - Opinions might differ on technology selection
 - You want to decide design policies through discussion
 - You want to hear debates from different perspectives
 
-### Sub-agent Parallel Execution (--agent)
+## Sub-agent Parallel Execution (--agent)
 
 Using the `--agent` option executes each role as an independent sub-agent in parallel.
 
-#### Promoting Automatic Delegation
+### Promoting Automatic Delegation
 
 If role file descriptions include phrases like these, more proactive automatic delegation is enabled when using `--agent`:
 
@@ -265,7 +265,7 @@ If role file descriptions include phrases like these, more proactive automatic d
 - "MUST BE USED"
 - Other emphasis expressions
 
-#### Execution Flow
+### Execution Flow
 
 ```text
 Normal execution:
@@ -279,7 +279,7 @@ Role 3 ─┘
 (Parallel execution, approx. 1-2 minutes)
 ```
 
-#### Effective Usage Examples
+### Effective Usage Examples
 
 ```bash
 # Comprehensive evaluation of large-scale system
@@ -291,7 +291,7 @@ Role 3 ─┘
 "Full screen UX optimization analysis"
 ```
 
-#### Performance Comparison
+### Performance Comparison
 
 | Number of Roles | Normal Execution | --agent Execution | Reduction Rate |
 | --------------- | ---------------- | ----------------- | -------------- |
@@ -299,7 +299,7 @@ Role 3 ─┘
 | 3 roles         | 3-5 minutes      | 1-2 minutes       | 60%            |
 | 4 roles         | 5-8 minutes      | 2-3 minutes       | 65%            |
 
-### Notes
+## Notes
 
 - Executing 3 or more roles simultaneously results in longer output
 - Complex analyses may take longer to execute
@@ -307,7 +307,7 @@ Role 3 ─┘
 - Final judgments should be made by the user with reference to integrated results
 - **When using --agent**: Consumes more resources but is efficient for large-scale analyses
 
-### Role Configuration Details
+## Role Configuration Details
 
 - Detailed settings, domain expertise, and discussion traits for each role are defined in `.claude/agents/roles/`
 - Includes Evidence-First practices and cognitive bias countermeasures

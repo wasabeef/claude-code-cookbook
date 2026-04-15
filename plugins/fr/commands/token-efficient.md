@@ -1,4 +1,4 @@
-## Compresser les réponses pour réduire l'utilisation du contexte de 30-50%
+# Compresser les réponses pour réduire l'utilisation du contexte
 
 Réduit l'utilisation du contexte des réponses IA de 30-50 % grâce au mode de compression efficace.
 
@@ -18,9 +18,9 @@ Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'a
 
 ## Comment ça fonctionne
 
-### 1. Système de symboles
+## 1. Système de symboles
 
-#### Logique et flux
+### Logique et flux
 
 | Symbole | Signification           | Exemple                           |
 | ------- | ----------------------- | --------------------------------- |
@@ -35,7 +35,7 @@ Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'a
 | ∴       | donc                    | `tests ❌ ∴ code cassé`           |
 | ∵       | parce que               | `lent ∵ algorithme O(n²)`         |
 
-#### Statut et progrès
+### Statut et progrès
 
 | Symbole | Signification    | Usage                       |
 | ------- | ---------------- | --------------------------- |
@@ -46,7 +46,7 @@ Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'a
 | ⏳      | en attente       | Programmé pour plus tard    |
 | 🚨      | urgent, critique | Haute priorité              |
 
-#### Domaines techniques
+### Domaines techniques
 
 | Symbole | Domaine         | Usage                    |
 | ------- | --------------- | ------------------------ |
@@ -61,9 +61,9 @@ Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'a
 | ⚙️      | Backend         | Traitement serveur       |
 | 🧪      | Tests           | Assurance qualité        |
 
-### 2. Système d'abréviations
+## 2. Système d'abréviations
 
-#### Système et architecture
+### Système et architecture
 
 - `cfg` → configuration
 - `impl` → implémentation
@@ -72,7 +72,7 @@ Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'a
 - `ops` → opérations
 - `env` → environnement
 
-#### Processus de développement
+### Processus de développement
 
 - `req` → exigences
 - `deps` → dépendances
@@ -81,7 +81,7 @@ Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'a
 - `docs` → documentation
 - `std` → standards
 
-#### Qualité et analyse
+### Qualité et analyse
 
 - `qual` → qualité
 - `sec` → sécurité
@@ -92,7 +92,7 @@ Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'a
 
 ## Exemples de comparaisons
 
-### Exemple 1 : Rapport d'erreur
+## Exemple 1 : Rapport d'erreur
 
 **Mode Normal (93 caractères)**
 
@@ -106,7 +106,7 @@ Vulnérabilité de sécurité trouvée dans la fonction de validation utilisateu
 auth.js:45 → 🛡️ vuln sec dans val() utilisateur
 ```
 
-### Exemple 2 : Statut de build
+## Exemple 2 : Statut de build
 
 **Mode Normal (98 caractères)**
 
@@ -120,7 +120,7 @@ Le processus de build s'est terminé avec succès. Les tests sont actuellement e
 build ✅ » test 🔄 » deploy ⏳
 ```
 
-### Exemple 3 : Analyse de performance
+## Exemple 3 : Analyse de performance
 
 **Mode Normal (105 caractères)**
 
@@ -136,7 +136,7 @@ L'analyse de performance a révélé un traitement lent dû à la complexité al
 
 ## Cas d'usage
 
-### ✅ Scénarios efficaces
+## ✅ Scénarios efficaces
 
 - **Sessions de débogage longues** : Maintenir efficacement l'historique
 - **Révisions de code importantes** : Analyse concise de nombreux fichiers
@@ -144,7 +144,7 @@ L'analyse de performance a révélé un traitement lent dû à la complexité al
 - **Rapports de progression de projet** : Vue d'ensemble de plusieurs états de tâches
 - **Suivi d'erreurs** : Représentation visuelle des chaînes de problèmes
 
-### ❌ Scénarios à éviter
+## ❌ Scénarios à éviter
 
 - Explications pour débutants
 - Création de documentation détaillée
@@ -153,7 +153,7 @@ L'analyse de performance a révélé un traitement lent dû à la complexité al
 
 ## Exemples d'implémentation
 
-### Session de débogage
+## Session de débogage
 
 ```text
 [14:23] breakpoint → vars: {user: null, token: expiré}
@@ -163,7 +163,7 @@ L'analyse de performance a révélé un traitement lent dû à la complexité al
 [14:27] continuer → flux principal 🔄
 ```
 
-### Résultats d'analyse de fichiers
+## Résultats d'analyse de fichiers
 
 ```text
 /src/auth/: 🛡️ problèmes × 3
@@ -173,7 +173,7 @@ L'analyse de performance a révélé un traitement lent dû à la complexité al
 /tests/: 🧪 couverture 78 %
 ```
 
-### Statut de projet
+## Statut de projet
 
 ```text
 Frontend: 🎨 ✅ 100 %

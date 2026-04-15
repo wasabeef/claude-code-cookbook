@@ -1,4 +1,4 @@
-## Auto-actualizar descripción y etiquetas de PR
+# Auto-actualizar descripción y etiquetas de PR
 
 ## Resumen
 
@@ -10,7 +10,7 @@ Un comando que actualiza automáticamente las descripciones y etiquetas de Pull 
 /pr-auto-update [opciones] [número de PR]
 ```
 
-### Opciones
+## Opciones
 
 - `--pr <número>`: Especificar número de PR objetivo (se detecta automáticamente desde la rama actual si se omite)
 - `--description-only`: Actualizar solo la descripción (mantener etiquetas sin cambios)
@@ -18,7 +18,7 @@ Un comando que actualiza automáticamente las descripciones y etiquetas de Pull 
 - `--dry-run`: Mostrar contenido generado sin realizar actualizaciones reales
 - `--lang <idioma>`: Especificar idioma (es, en)
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Auto-actualizar PR para rama actual
@@ -36,7 +36,7 @@ Un comando que actualiza automáticamente las descripciones y etiquetas de Pull 
 
 ## Detalles de Características
 
-### 1. Auto Detección de PR
+## 1. Auto Detección de PR
 
 Detecta automáticamente el PR correspondiente desde la rama actual:
 
@@ -44,7 +44,7 @@ Detecta automáticamente el PR correspondiente desde la rama actual:
 - Obtiene información del PR usando GitHub CLI
 - Soporta tanto GitHub.com como GitHub Enterprise
 
-### 2. Generación de Descripción
+## 2. Generación de Descripción
 
 Genera automáticamente descripción del PR analizando:
 
@@ -53,7 +53,7 @@ Genera automáticamente descripción del PR analizando:
 - **Extracción de Propósito**: Identificación del objetivo del cambio
 - **Referencias de Issues**: Detección automática de #123 mentions
 
-### 3. Sugerencia de Etiquetas
+## 3. Sugerencia de Etiquetas
 
 Sugiere etiquetas apropiadas basadas en:
 
@@ -62,7 +62,7 @@ Sugiere etiquetas apropiadas basadas en:
 - **Prioridad**: `high priority`, `low priority`
 - **Estado**: `work in progress`, `ready for review`
 
-### 4. Análisis de Impacto
+## 4. Análisis de Impacto
 
 Analiza el impacto de los cambios:
 
@@ -73,7 +73,7 @@ Analiza el impacto de los cambios:
 
 ## Formato de Descripción Generada
 
-### Estructura Estándar
+## Estructura Estándar
 
 ```markdown
 ## 📋 Resumen
@@ -117,7 +117,7 @@ Analiza el impacto de los cambios:
 [Puntos específicos que necesitan atención]
 ```
 
-### Personalización por Tipo
+## Personalización por Tipo
 
 **Para Features**:
 
@@ -139,7 +139,7 @@ Analiza el impacto de los cambios:
 
 ## Integración con CI/CD
 
-### GitHub Actions
+## GitHub Actions
 
 ```yaml
 name: Auto Update PR
@@ -157,7 +157,7 @@ jobs:
           /pr-auto-update --pr ${{ github.event.pull_request.number }}
 ```
 
-### Pre-commit Hook
+## Pre-commit Hook
 
 ```bash
 #!/bin/bash
@@ -170,7 +170,7 @@ fi
 
 ## Configuración
 
-### Archivo `.pr-auto-update.yml`
+## Archivo `.pr-auto-update.yml`
 
 ```yaml
 # Configuración personalizada
@@ -186,7 +186,7 @@ description:
   include_screenshots: false
 ```
 
-### Variables de Entorno
+## Variables de Entorno
 
 ```bash
 export PR_AUTO_UPDATE_LANG=es
@@ -196,7 +196,7 @@ export GITHUB_TOKEN=ghp_xxxxx
 
 ## Solución de Problemas
 
-### Error: "No se encontró PR asociado"
+## Error: "No se encontró PR asociado"
 
 ```bash
 # Verificar rama actual
@@ -209,7 +209,7 @@ gh pr list
 gh pr create
 ```
 
-### Error: "Permisos insuficientes"
+## Error: "Permisos insuficientes"
 
 ```bash
 # Verificar autenticación
@@ -219,7 +219,7 @@ gh auth status
 gh auth login
 ```
 
-### Descripción no se actualiza
+## Descripción no se actualiza
 
 ```bash
 # Forzar actualización
@@ -232,7 +232,7 @@ git diff main...HEAD
 
 ## Patrones Comunes
 
-### Proyecto Flutter
+## Proyecto Flutter
 
 ```markdown
 Implementado {nombre_funcionalidad} para resolver {problema_usuario}.
@@ -247,7 +247,7 @@ Implementado {nombre_funcionalidad} para resolver {problema_usuario}.
 - **Rendimiento**: {optimizaciones_realizadas}
 ```
 
-### Proyecto Node.js
+## Proyecto Node.js
 
 ```markdown
 Implementado endpoint {nombre_API} para {caso_uso}.
@@ -262,7 +262,7 @@ Implementado endpoint {nombre_API} para {caso_uso}.
 - **Validación de Entrada**: Protección contra inyección SQL
 ```
 
-### Mejora CI/CD
+## Mejora CI/CD
 
 ```markdown
 Mejorado workflow de GitHub Actions para {efecto_logrado}.
@@ -286,7 +286,7 @@ Mejorado workflow de GitHub Actions para {efecto_logrado}.
 
 ## Casos de Uso Avanzados
 
-### Monorepo con Múltiples Packages
+## Monorepo con Múltiples Packages
 
 ```bash
 # Detectar cambios por package
@@ -295,7 +295,7 @@ git diff main...HEAD --name-only | grep "^packages/"
 "Genera descripción separada para cada package modificado"
 ```
 
-### PR con Múltiples Colaboradores
+## PR con Múltiples Colaboradores
 
 ```bash
 # Incluir co-autores
@@ -304,7 +304,7 @@ git log --format="%an <%ae>" | sort -u
 "Incluye sección de colaboradores en la descripción"
 ```
 
-### Release PR
+## Release PR
 
 ```bash
 # Para PRs de release

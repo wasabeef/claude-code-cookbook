@@ -1,12 +1,18 @@
 ---
-description: "Criar PR automaticamente baseado em análise de mudanças"
+description: 'Criar PR automaticamente. Ativa com "criar PR", "abrir pull request", "enviar para revisão".'
+allowed-tools:
+  - Bash(git *)
+  - Bash(gh *)
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Criar PR automaticamente baseado em análise de mudanças
+# Criar PR automaticamente
 
 Criação automática de PR baseada em análise de mudanças Git para um workflow eficiente de Pull Request.
 
-### Como usar
+## Como usar
 
 ```bash
 # Criação automática de PR por análise de mudanças
@@ -22,7 +28,7 @@ gh pr ready
 "Após confirmação da qualidade, altere para Ready for Review"
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # 1. Criação de branch e commit
@@ -42,9 +48,9 @@ git push -u origin feat-user-profile
 "Quando o CI passar, altere o PR para Ready for Review"
 ```
 
-### Procedimento de Execução
+## Procedimento de Execução
 
-#### 1. Criação de Branch
+### 1. Criação de Branch
 
 ```bash
 # Regras de nomenclatura seguindo diretrizes: {type}-{subject}
@@ -56,7 +62,7 @@ git checkout -b feat-user-authentication
 git branch --show-current
 ```
 
-#### 2. Commit
+### 2. Commit
 
 ```bash
 # Stage das mudanças
@@ -66,7 +72,7 @@ git add .
 git commit -m "feat: implementação da API de autenticação do usuário"
 ```
 
-#### 3. Push para Remote
+### 3. Push para Remote
 
 ```bash
 # Push inicial (configuração upstream)
@@ -76,7 +82,7 @@ git push -u origin feat-user-authentication
 git push
 ```
 
-#### 4. Criação de Draft PR por Análise Automática
+### 4. Criação de Draft PR por Análise Automática
 
 **Step 1: Análise do Conteúdo das Mudanças**
 
@@ -141,16 +147,16 @@ mcp__github__create_pull_request({
 });
 ```
 
-### Sistema de Seleção Automática de Rótulos
+## Sistema de Seleção Automática de Rótulos
 
-#### Determinação Baseada em Padrão de Arquivos
+### Determinação Baseada em Padrão de Arquivos
 
 - **Documentação**: `*.md`, `README`, `docs/` → `documentation|docs|doc`
 - **Teste**: `test`, `spec` → `test|testing`
 - **CI/CD**: `.github/`, `*.yml`, `Dockerfile` → `ci|build|infra|ops`
 - **Dependências**: `package.json`, `pubspec.yaml` → `dependencies|deps`
 
-#### Determinação Baseada em Conteúdo das Mudanças
+### Determinação Baseada em Conteúdo das Mudanças
 
 - **Correção de bug**: `fix|bug|error|crash|corrigir` → `bug|fix`
 - **Nova funcionalidade**: `feat|feature|add|implement|novo|adicionar` → `feature|enhancement|feat`
@@ -158,15 +164,15 @@ mcp__github__create_pull_request({
 - **Performance**: `performance|perf|optimize` → `performance|perf`
 - **Segurança**: `security|secure` → `security`
 
-#### Restrições
+### Restrições
 
 - **Máximo 3**: limite superior da seleção automática
 - **Apenas rótulos existentes**: criação de novos proibida
 - **Correspondência parcial**: determinação por inclusão de palavras-chave
 
-### Diretrizes do Projeto
+## Diretrizes do Projeto
 
-#### Postura Básica
+### Postura Básica
 
 1. **Sempre iniciar como Draft**: todos os PRs são criados no estado Draft
 2. **Melhoria gradual da qualidade**: Fase 1 (implementação básica) → Fase 2 (adição de testes) → Fase 3 (atualização de documentação)
@@ -174,7 +180,7 @@ mcp__github__create_pull_request({
 4. **Uso de template**: sempre usar `.github/PULL_REQUEST_TEMPLATE.md`
 5. **Espaços em japonês**: sempre espaço em branco entre japonês e caracteres alfanuméricos
 
-#### Regras de Nomenclatura de Branch
+### Regras de Nomenclatura de Branch
 
 ```text
 {type}-{subject}
@@ -185,7 +191,7 @@ Exemplos:
 - refactor-api-client
 ```
 
-#### Mensagem de Commit
+### Mensagem de Commit
 
 ```text
 {type}: {description}
@@ -196,15 +202,15 @@ Exemplos:
 - docs: atualização do README
 ```
 
-### Sistema de Processamento de Template
+## Sistema de Processamento de Template
 
-#### Ordem de Prioridade de Processamento
+### Ordem de Prioridade de Processamento
 
 1. **Descrição de PR existente**: **seguir completamente** o conteúdo já descrito
 2. **Template do projeto**: manter estrutura `.github/PULL_REQUEST_TEMPLATE.md`
 3. **Template padrão**: quando os acima não existem
 
-#### Regras de Manutenção de Conteúdo Existente
+### Regras de Manutenção de Conteúdo Existente
 
 - **Não alterar nem um caractere**: conteúdo já descrito
 - **Complementar apenas seções vazias**: preencher partes de placeholder com conteúdo das mudanças
@@ -212,7 +218,7 @@ Exemplos:
 - **Manter comentários HTML**: manter completamente `<!-- ... -->`
 - **Manter linhas separadoras**: manter estruturas como `---`
 
-#### Método para Manutenção de Comentários HTML
+### Método para Manutenção de Comentários HTML
 
 **Importante**: O GitHub CLI (`gh pr edit`) faz escape automático de comentários HTML, podendo resultar em strings inválidas como `EOF < /dev/null` durante o processamento do shell.
 
@@ -222,7 +228,7 @@ Exemplos:
 2. **Simplificar processamento de template**: evitar processamento complexo de pipe e redirecionamento
 3. **Abordagem de manutenção completa**: abolir processamento de remoção de comentários HTML e manter template completamente
 
-### Resposta a Comentários de Revisão
+## Resposta a Comentários de Revisão
 
 ```bash
 # Re-commit após mudanças
@@ -231,21 +237,21 @@ git commit -m "fix: correções baseadas no feedback da revisão"
 git push
 ```
 
-### Observações
+## Observações
 
-#### Importância da Manutenção de Comentários HTML
+### Importância da Manutenção de Comentários HTML
 
 - **Limitações do GitHub CLI**: `gh pr edit` faz escape de comentários HTML, mistura strings inválidas
 - **Solução fundamental**: processamento de escape adequado com opção `--field` da GitHub API
 - **Manutenção completa do template**: abolir processamento de remoção de comentários HTML e manter estrutura completamente
 
-#### Restrições da Automação
+### Restrições da Automação
 
 - **Proibição de novos rótulos**: não é possível criar rótulos fora da definição `.github/labels.yml`
 - **Máximo 3 rótulos**: limite superior da seleção automática
 - **Prioridade do conteúdo existente**: não alterar absolutamente nada do conteúdo escrito manualmente
 
-#### Melhoria Gradual da Qualidade
+### Melhoria Gradual da Qualidade
 
 - **Draft obrigatório**: todos os PRs iniciam como Draft
 - **Confirmação do CI**: confirmar estado com `gh pr checks`

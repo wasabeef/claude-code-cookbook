@@ -1,12 +1,15 @@
 ---
-description: "Evaluate and improve AI prompt quality"
+description: 'Evaluate and improve AI prompt quality. Trigger with "check this prompt", "evaluate prompt quality", "improve this prompt".'
+allowed-tools:
+  - Read
+  - Grep
 ---
 
-## Evaluate and improve AI prompt quality
+# Evaluate and improve AI prompt quality
 
 A comprehensive collection of best practices for evaluating and improving the quality of prompts for AI Agents. It systematizes knowledge gained from actual prompt improvement processes, covering all important aspects such as ambiguity elimination, information integration, enforcement enhancement, tracking systems, and continuous improvement.
 
-### Usage
+## Usage
 
 ```bash
 # Check the quality of a prompt file
@@ -15,7 +18,7 @@ cat your-prompt.md
 "Check the quality of this prompt and suggest improvements"
 ```
 
-### Options
+## Options
 
 - None: Analyze current file or selected text
 - `--category <name>`: Check only specific category (structure/execution/restrictions/quality/roles/improvement)
@@ -23,7 +26,7 @@ cat your-prompt.md
 - `--fix`: Automatically suggest fixes for detected issues
 - `--deep`: Deep analysis mode (focus on ambiguity, information dispersion, and enforcement)
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Evaluate overall prompt quality
@@ -48,31 +51,31 @@ cat devin/playbooks/code-review.md
 
 ## Core Design Principles
 
-### Principle 1: Completely Eliminate Room for Interpretation
+## Principle 1: Completely Eliminate Room for Interpretation
 
 - **Absolutely Prohibited**: "In principle", "Recommended", "If possible", "Depending on the situation", "Use your judgment"
 - **Must Use**: "Always", "Absolutely", "Strictly observe", "Without exception", "Mandatory"
 - **Exception Conditions**: Strictly limited by numbers ("Only under the following 3 conditions", "Except in these 2 cases")
 
-### Principle 2: Strategic Integration of Information
+## Principle 2: Strategic Integration of Information
 
 - Completely integrate related important information into one section
 - Summarize the overall picture in an execution checklist
 - Thoroughly eliminate circular references and dispersion
 
-### Principle 3: Building Gradual Enforcement
+## Principle 3: Building Gradual Enforcement
 
 - Clear hierarchy of 🔴 (Execution stop level) → 🟡 (Quality important) → 🟢 (Recommended items)
 - Gradual upgrade from recommended to mandatory level
 - Explicit indication of impact and countermeasures for violations
 
-### Principle 4: Ensuring Traceability
+## Principle 4: Ensuring Traceability
 
 - All execution results can be recorded and verified
 - Technically prevent false reporting
 - Objective criteria for success/failure judgment
 
-### Principle 5: Feedback-Driven Improvement
+## Principle 5: Feedback-Driven Improvement
 
 - Learn from actual failure cases
 - Continuous effectiveness verification
@@ -82,16 +85,16 @@ cat devin/playbooks/code-review.md
 
 ## 📋 Comprehensive Check Items
 
-### 1. 📐 Structure and Clarity (Weight: 25 points)
+## 1. 📐 Structure and Clarity (Weight: 25 points)
 
-#### 1.1 Priority Indication of Instructions (8 points)
+### 1.1 Priority Indication of Instructions (8 points)
 
 - [ ] 🔴🟡🟢 priorities are clearly indicated for all important instructions
 - [ ] Conditions for execution stop level are specifically and clearly defined
 - [ ] Criteria for each priority level are objective and verifiable
 - [ ] Priority hierarchy is consistently applied
 
-#### 1.2 Complete Elimination of Ambiguous Expressions (9 points)
+### 1.2 Complete Elimination of Ambiguous Expressions (9 points)
 
 - [ ] **Fatal ambiguous expressions**: 0 instances of "In principle", "Recommended", "If possible"
 - [ ] **Use of mandatory expressions**: Appropriate use of "Always", "Absolutely", "Strictly observe", "Without exception"
@@ -99,96 +102,96 @@ cat devin/playbooks/code-review.md
 - [ ] **Elimination of judgment room**: Use only expressions that cannot be multiple interpreted
 - [ ] **Elimination of gray zones**: Clear judgment criteria for all situations
 
-#### 1.3 Strategic Integration of Information (8 points)
+### 1.3 Strategic Integration of Information (8 points)
 
 - [ ] Multiple location dispersion of important information is completely eliminated
 - [ ] Related instructions are logically integrated into one section
 - [ ] The overall picture is completely summarized in the execution checklist
 - [ ] There are no circular references or infinite loops
 
-### 2. 🎯 Executability (Weight: 20 points)
+## 2. 🎯 Executability (Weight: 20 points)
 
-#### 2.1 Completeness of Specific Procedures (7 points)
+### 2.1 Completeness of Specific Procedures (7 points)
 
 - [ ] All command examples are actually executable and verified
 - [ ] Environment variables, prerequisites, and dependencies are clearly stated without omissions
 - [ ] Error handling methods are specific and executable
 - [ ] The order of procedures is logical and necessary
 
-#### 2.2 Ensuring Verifiability (7 points)
+### 2.2 Ensuring Verifiability (7 points)
 
 - [ ] Success/failure of execution results can be objectively determined
 - [ ] Output examples, log formats, and expected values are specifically shown
 - [ ] Testing methods and verification procedures can be implemented
 - [ ] Checkpoints for confirming intermediate results are appropriately placed
 
-#### 2.3 Automation Adaptability (6 points)
+### 2.3 Automation Adaptability (6 points)
 
 - [ ] Format that allows easy scripting and CI/CD integration
 - [ ] Clear separation between human judgment and AI execution points
 - [ ] Support for batch processing and parallel execution
 
-### 3. 🚫 Clarification of Prohibited Items (Weight: 15 points)
+## 3. 🚫 Clarification of Prohibited Items (Weight: 15 points)
 
-#### 3.1 Systematization of Absolute Prohibitions (8 points)
+### 3.1 Systematization of Absolute Prohibitions (8 points)
 
 - [ ] Complete list of operations that must not be performed
 - [ ] Explicit indication of impact level (minor/major/fatal) for each prohibited item violation
 - [ ] Specific presentation of alternatives and avoidance methods
 - [ ] Explanation of technical basis for prohibited items
 
-#### 3.2 Strict Limitation of Exception Conditions (7 points)
+### 3.2 Strict Limitation of Exception Conditions (7 points)
 
 - [ ] Conditions allowing exceptions are specific and limited (numerical specification)
 - [ ] Objective judgment criteria such as "Completely duplicate", "Explicitly stated"
 - [ ] Clear boundaries without leaving gray zones
 - [ ] Explicit indication of additional conditions and constraints when applying exceptions
 
-### 4. 📊 Quality Assurance Mechanisms (Weight: 20 points)
+## 4. 📊 Quality Assurance Mechanisms (Weight: 20 points)
 
-#### 4.1 Completeness of Tracking System (8 points)
+### 4.1 Completeness of Tracking System (8 points)
 
 - [ ] Automatic recording and statistics collection function for all execution results
 - [ ] Verification function to technically prevent false reporting
 - [ ] Real-time monitoring and alert functions
 - [ ] Audit log tampering prevention function
 
-#### 4.2 Enforcement of Template Compliance (7 points)
+### 4.2 Enforcement of Template Compliance (7 points)
 
 - [ ] Clear definition and checking function for mandatory elements
 - [ ] Technical restrictions on areas prohibited from customization
 - [ ] Automated checkpoints for compliance confirmation
 - [ ] Automatic correction and warning functions when violations occur
 
-#### 4.3 comprehensiveness of Error Handling (5 points)
+### 4.3 comprehensiveness of Error Handling (5 points)
 
 - [ ] Complete cataloging of expected error patterns
 - [ ] Step-by-step handling process for errors
 - [ ] Technical prevention of reporting failures as successes
 
-### 5. 🎭 Clarification of Roles and Responsibilities (Weight: 10 points)
+## 5. 🎭 Clarification of Roles and Responsibilities (Weight: 10 points)
 
-#### 5.1 AI Agent's Authority Scope (5 points)
+### 5.1 AI Agent's Authority Scope (5 points)
 
 - [ ] Clear boundaries between executable and prohibited operations
 - [ ] Specific scope and constraints of judgment authority
 - [ ] Clear separation of operations requiring human confirmation
 
-#### 5.2 Unification of Classification System (5 points)
+### 5.2 Unification of Classification System (5 points)
 
 - [ ] Clarity, uniqueness, and exclusivity of classification definitions
 - [ ] Explicit explanations to prevent misunderstanding of importance between classifications
 - [ ] Specific usage examples and decision flowcharts for each classification
 
-### 6. 🔄 Continuous Improvement (Weight: 10 points)
+## 6. 🔄 Continuous Improvement (Weight: 10 points)
 
-#### 6.1 Automation of Feedback Collection (5 points)
+### 6.1 Automation of Feedback Collection (5 points)
 
 - [ ] Automatic extraction of improvement points from execution logs
 - [ ] Machine learning-based analysis of failure patterns
 - [ ] Automatic update mechanism for best practices
 
-#### 6.2 Implementing Learning Functions (5 points)
+### 6.2 Implementing Learning Functions (5 points)
 
 - [ ] Automatic detection and classification of new patterns
 - [ ] Continuous monitoring of effectiveness of existing rules
@@ -198,21 +201,21 @@ cat devin/playbooks/code-review.md
 
 ## 🚨 Fatal Problem Patterns (Immediate Correction Required)
 
-### ❌ Level 1: Fatal Ambiguity (Execution Stop Level)
+## ❌ Level 1: Fatal Ambiguity (Execution Stop Level)
 
 - **Instructions with multiple interpretations**: "Use your judgment", "Depending on the situation", "In principle"
 - **Ambiguous exception conditions**: "In special cases", "As needed"
 - **Subjective judgment criteria**: "Appropriately", "Sufficiently", "As much as possible"
 - **Undefined important concepts**: "Standard", "General", "Basic"
 
-### ❌ Level 2: Structural Defects (Quality Important Level)
+## ❌ Level 2: Structural Defects (Quality Important Level)
 
 - **Information dispersion**: Important related information scattered in 3 or more locations
 - **Circular references**: Infinite loops of section A→B→C→A
 - **Contradictory instructions**: Contradictory instructions in different sections
 - **Unclear execution order**: Procedures with unclear dependencies
 
-### ❌ Level 3: Quality Degradation (Recommended Improvement Level)
+## ❌ Level 3: Quality Degradation (Recommended Improvement Level)
 
 - **Non-verifiability**: Unclear criteria for success/failure judgment
 - **Difficulty in automation**: Design dependent on human subjective judgment
@@ -223,7 +226,7 @@ cat devin/playbooks/code-review.md
 
 ## 🎯 Proven Improvement Methods
 
-### ✅ Gradual Enhancement Approach
+## ✅ Gradual Enhancement Approach
 
 1. **Current situation analysis**: Classification, prioritization, and impact assessment of problems
 2. **Fatal problem priority**: Top priority on complete resolution of Level 1 problems
@@ -231,7 +234,7 @@ cat devin/playbooks/code-review.md
 4. **Effect measurement**: Quantitative comparison before and after improvement
 5. **Continuous monitoring**: Confirmation of sustainability of improvement effects
 
-### ✅ Practical Methods for Ambiguity Elimination
+## ✅ Practical Methods for Ambiguity Elimination
 
 ```markdown
 # ❌ Before Improvement (Ambiguous)
@@ -243,7 +246,7 @@ cat devin/playbooks/code-review.md
 "Comments must be written as inline comments at the corresponding change points on GitHub. Exceptions are only the 3 conditions defined in section 3.3"
 ```
 
-### ✅ Practical Methods for Information Integration
+## ✅ Practical Methods for Information Integration
 
 ```markdown
 # ❌ Before Improvement (Dispersed)
@@ -260,7 +263,7 @@ Execution Checklist:
 ❌ Absolutely prohibited: Section deletion, addition, name change
 ```
 
-### ✅ Implementation Patterns for Tracking Systems
+## ✅ Implementation Patterns for Tracking Systems
 
 ```bash
 # Strict tracking of execution results
@@ -288,7 +291,7 @@ fi
 
 ## 📈 Quality Score Calculation (Improved Version)
 
-### Comprehensive Score Calculation
+## Comprehensive Score Calculation
 
 ```text
 Basic score = Σ(category score × weight) / 100
@@ -306,7 +309,7 @@ Bonus elements:
 Final score = Basic score + Bonus - Penalties
 ```
 
-### Quality Level Assessment
+## Quality Level Assessment
 
 ```text
 95-100 points: World's highest standard (Recommended as industry standard)
@@ -322,7 +325,7 @@ Final score = Basic score + Bonus - Penalties
 
 ## 🔧 Practical Improvement Process
 
-### Phase 1: Diagnosis/Analysis (1-2 days)
+## Phase 1: Diagnosis/Analysis (1-2 days)
 
 1. **Understanding overall structure**: Visualization of section composition, information flow, and dependencies
 2. **Ambiguity detection**: Extraction of all expressions with room for interpretation
@@ -330,14 +333,14 @@ Final score = Basic score + Bonus - Penalties
 4. **Enforcement evaluation**: Evaluation of recommended/mandatory classification and effectiveness
 5. **Traceability confirmation**: Evaluation of execution result recording and verification functions
 
-### Phase 2: Prioritization/Planning (Half a day)
+## Phase 2: Prioritization/Planning (Half a day)
 
 1. **Fatality classification**: Problem classification into Levels 1-3 and impact assessment
 2. **Improvement order determination**: Optimal order considering interdependencies
 3. **Resource allocation**: Optimization of balance between improvement effects and costs
 4. **Risk assessment**: Prediction of side effects and compatibility issues during improvement
 
-### Phase 3: Gradual Implementation (2-5 days)
+## Phase 3: Gradual Implementation (2-5 days)
 
 1. **Level 1 problem resolution**: Complete elimination of fatal ambiguities
 2. **Information integration implementation**: Strategic aggregation of dispersed information
@@ -345,14 +348,14 @@ Final score = Basic score + Bonus - Penalties
 4. **Tracking system implementation**: Automatic recording and verification functions for execution results
 5. **Template enhancement**: Clarification of mandatory elements and enforcement of compliance
 
-### Phase 4: Verification/Adjustment (1-2 days)
+## Phase 4: Verification/Adjustment (1-2 days)
 
 1. **Function testing**: Operation confirmation of all changes
 2. **Integration testing**: Confirmation of system-wide consistency
 3. **Performance testing**: Confirmation of execution efficiency and response
 4. **Usability testing**: Verification in actual usage scenarios
 
-### Phase 5: Operation/Monitoring (Continuous)
+## Phase 5: Operation/Monitoring (Continuous)
 
 1. **Effect measurement**: Quantitative comparison before and after improvement
 2. **Continuous monitoring**: Early detection of quality degradation
@@ -363,9 +366,9 @@ Final score = Basic score + Bonus - Penalties
 
 ## 📊 Actual Improvement Cases (Detailed Version)
 
-### Case Study: Quality Improvement of Large-Scale Prompts
+## Case Study: Quality Improvement of Large-Scale Prompts
 
-#### Situation Before Improvement
+### Situation Before Improvement
 
 ```bash
 Quality score: 70/100 points
@@ -376,7 +379,7 @@ Quality score: 70/100 points
 - Error handling: Unclear countermeasures for failures
 ```
 
-#### Implemented Improvements
+### Implemented Improvements
 
 ```bash
 # 1. Ambiguity elimination (2 days)
@@ -400,7 +403,7 @@ Quality score: 70/100 points
 - Implementation of automatic recovery functions
 ```
 
-#### Results After Improvement
+### Results After Improvement
 
 ```bash
 Quality score: 90/100 points (+20 points improvement)
@@ -417,16 +420,16 @@ Actual improvement effects:
 - User satisfaction: 95% improvement
 ```
 
-### Lessons/Best Practices
+## Lessons/Best Practices
 
-#### Success Factors
+### Success Factors
 
 1. **Gradual approach**: Implement in verifiable units without making all changes at once
 2. **Data-driven**: Improve based on measured data rather than subjective judgment
 3. **Continuous monitoring**: Regularly confirm the sustainability of improvement effects
 4. **Feedback-oriented**: Actively collect opinions from actual users
 
-#### Failure Avoidance Measures
+### Failure Avoidance Measures
 
 1. **Excessive perfectionism**: Start operation once reaching 90 points, aim for 100 points through continuous improvement
 2. **Dangers of batch changes**: Always implement large-scale changes gradually
@@ -435,7 +438,7 @@ Actual improvement effects:
 
 ---
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Quality check combined with prompt file
@@ -454,7 +457,7 @@ cat execution-errors.log
 "Identify potential prompt issues that may have caused this error"
 ```
 
-### Notes
+## Notes
 
 - **Prerequisite**: Prompt files are recommended to be written in Markdown format
 - **Limitation**: For large-scale prompts (10,000 lines or more), it is recommended to analyze in parts

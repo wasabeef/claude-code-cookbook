@@ -1,24 +1,28 @@
 ---
-description: "변경을 의미 단위로 분할하여 시맨틱 커밋"
+description: "변경을 의미 단위로 분할하여 시맨틱 커밋. 「커밋해줘」「변경 커밋해줘」「분할 커밋」「시맨틱 커밋」등으로 기동."
+allowed-tools:
+  - Bash(git *)
+  - Read
+  - Grep
 ---
 
-## 변경을 의미 단위로 분할하여 시맨틱 커밋
+# 변경을 의미 단위로 분할하여 시맨틱 커밋
 
 큰 변경사항을 의미 있는 최소 단위로 분할하여, 시맨틱한 커밋 메시지와 함께 순차적으로 커밋합니다. 외부 도구에 의존하지 않고 git 표준 명령어만 사용합니다.
 
-### 사용법
+## 사용법
 
 ```bash
 /semantic-commit [옵션]
 ```
 
-### 옵션
+## 옵션
 
 - `--dry-run` : 실제 커밋은 하지 않고, 제안되는 커밋 분할만 표시
 - `--lang <언어>` : 커밋 메시지 언어를 강제 지정(en, ko)
 - `--max-commits <수>` : 최대 커밋 수 지정(기본값: 10)
 
-### 기본 예시
+## 기본 예시
 
 ```bash
 # 현재 변경사항을 분석해서 논리적 단위로 커밋
@@ -37,16 +41,16 @@ description: "변경을 의미 단위로 분할하여 시맨틱 커밋"
 /semantic-commit --max-commits 5
 ```
 
-### 동작 플로
+## 동작 플로
 
 1. **변경 분석**: `git diff HEAD`로 전체 변경사항 취득
 2. **파일 분류**: 변경된 파일을 논리적으로 그룹화
 3. **커밋 제안**: 각 그룹에 대해 시맨틱한 커밋 메시지 생성
 4. **순차 실행**: 사용자 확인 후 각 그룹을 순차적으로 커밋
 
-### 변경 분할의 핵심 기능
+## 변경 분할의 핵심 기능
 
-#### "큰 변경사항" 탐지
+### "큰 변경사항" 탐지
 
 다음 조건으로 큰 변경사항으로 탐지:
 
@@ -65,9 +69,9 @@ if [ $CHANGED_FILES -ge 5 ] || [ $CHANGED_LINES -ge 100 ]; then
 fi
 ```
 
-#### "의미 있는 최소 단위"로의 분할 전략
+### "의미 있는 최소 단위"로의 분할 전략
 
-##### 1. 기능 경계를 통한 분할
+#### 1. 기능 경계를 통한 분할
 
 ```bash
 # 디렉터리 구조에서 기능 단위 특정
@@ -75,7 +79,7 @@ git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq
 # → src/auth, src/api, components/ui 등
 ```
 
-##### 2. 변경 종별을 통한 분리
+#### 2. 변경 종별을 통한 분리
 
 ```bash
 # 신규 파일 vs 기존 파일 수정
@@ -84,7 +88,7 @@ git diff HEAD --name-status | grep '^M' # 수정 파일
 git diff HEAD --name-status | grep '^D' # 삭제 파일
 ```
 
-##### 3. 의존 관계 분석
+#### 3. 의존 관계 분석
 
 ```bash
 # 임포트 관계 변경 탐지
@@ -92,7 +96,7 @@ git diff HEAD | grep -E '^[+-].*import|^[+-].*require' | \
 cut -d' ' -f2- | sort | uniq
 ```
 
-#### 파일 단위의 상세 분석
+### 파일 단위의 상세 분석
 
 ```bash
 # 변경된 파일 목록 취득
@@ -112,7 +116,7 @@ git diff HEAD --name-status | while read status file; do
 done
 ```
 
-#### 논리적 그룹화 기준
+### 논리적 그룹화 기준
 
 1. **기능 단위**: 동일 기능 관련 파일
    - `src/auth/` 하위 파일 → 인증 기능
@@ -131,7 +135,7 @@ done
    - 1 커밋당 10 파일 이하
    - 관련성 높은 파일 그룹화
 
-### 출력 예시
+## 출력 예시
 
 ```bash
 $ /semantic-commit
@@ -174,7 +178,7 @@ $ /semantic-commit
 이 분할안으로 커밋을 실행하시겠습니까? (y/n/edit):
 ```
 
-### 실행 시 선택지
+## 실행 시 선택지
 
 - `y` : 제안된 커밋 분할로 실행
 - `n` : 취소
@@ -182,7 +186,7 @@ $ /semantic-commit
 - `merge <번호 1> <번호 2>` : 지정한 커밋을 합치기
 - `split <번호>` : 지정한 커밋을 더 분할
 
-### Dry Run 모드
+## Dry Run 모드
 
 ```bash
 $ /semantic-commit --dry-run
@@ -196,14 +200,14 @@ $ /semantic-commit --dry-run
 💡 실행하려면 --dry-run 옵션을 제거하고 다시 실행하세요
 ```
 
-### 스마트 분석 기능
+## 스마트 분석 기능
 
-#### 1. 프로젝트 구조 이해
+### 1. 프로젝트 구조 이해
 
 - `package.json`, `Cargo.toml`, `pom.xml` 등에서 프로젝트 종류 판정
 - 폴더 구조에서 기능 단위 추측
 
-#### 2. 변경 패턴 인식
+### 2. 변경 패턴 인식
 
 ```bash
 # 버그 수정 패턴 탐지
@@ -217,17 +221,17 @@ $ /semantic-commit --dry-run
 - API 엔드포인트 추가
 ```
 
-#### 3. 의존 관계 분석
+### 3. 의존 관계 분석
 
 - import 문의 변경
 - 타입 정의 추가/수정
 - 설정 파일과의 연관성
 
-### 기술적 구현
+## 기술적 구현
 
-#### Git 표준 명령어를 통한 순차 커밋 구현
+### Git 표준 명령어를 통한 순차 커밋 구현
 
-##### 1. 전처리: 현재 상태 저장
+#### 1. 전처리: 현재 상태 저장
 
 ```bash
 # 스테이징되지 않은 변경사항이 있으면 일단 리셋
@@ -239,7 +243,7 @@ CURRENT_BRANCH=$(git branch --show-current)
 echo "작업 중인 브랜치: $CURRENT_BRANCH"
 ```
 
-##### 2. 그룹별 순차 커밋 실행
+#### 2. 그룹별 순차 커밋 실행
 
 ```bash
 # 분할 계획 읽기
@@ -286,7 +290,7 @@ while IFS= read -r commit_plan; do
 done < /tmp/commit_plan.txt
 ```
 
-##### 3. 에러 처리와 롤백
+#### 3. 에러 처리와 롤백
 
 ```bash
 # 프리커밋 훅 실패 시 처리
@@ -335,7 +339,7 @@ resume_from_failure() {
 }
 ```
 
-##### 4. 완료 후 검증
+#### 4. 완료 후 검증
 
 ```bash
 # 모든 변경사항이 커밋되었는지 확인
@@ -352,7 +356,7 @@ echo "생성된 커밋:"
 git log --oneline -n 10 --graph
 ```
 
-##### 5. 자동 푸시 억제
+#### 5. 자동 푸시 억제
 
 ```bash
 # 주의: 자동 푸시는 하지 않음
@@ -361,9 +365,9 @@ echo "필요시 다음 명령어로 푸시하세요:"
 echo "  git push origin $CURRENT_BRANCH"
 ```
 
-#### 분할 알고리즘 상세
+### 분할 알고리즘 상세
 
-##### 단계 1: 초기 분석
+#### 단계 1: 초기 분석
 
 ```bash
 # 모든 변경 파일 취득 및 분류
@@ -375,7 +379,7 @@ done > /tmp/changes.txt
 git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq -c
 ```
 
-##### 단계 2: 기능 경계를 통한 초기 그룹화
+#### 단계 2: 기능 경계를 통한 초기 그룹화
 
 ```bash
 # 디렉터리 기반 그룹화
@@ -386,7 +390,7 @@ for group in $GROUPS; do
 done
 ```
 
-##### 단계 3: 변경 내용의 유사성 분석
+#### 단계 3: 변경 내용의 유사성 분석
 
 ```bash
 # 각 파일의 변경 타입 분석
@@ -410,7 +414,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### 단계 4: 의존 관계를 통한 조정
+#### 단계 4: 의존 관계를 통한 조정
 
 ```bash
 # import 관계 분석
@@ -429,7 +433,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### 단계 5: 커밋 크기 최적화
+#### 단계 5: 커밋 크기 최적화
 
 ```bash
 # 그룹 크기 조정
@@ -447,7 +451,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### 단계 6: 최종 그룹 결정
+#### 단계 6: 최종 그룹 결정
 
 ```bash
 # 분할 결과 검증
@@ -458,9 +462,9 @@ for group in $(seq 1 $current_group); do
 done
 ```
 
-### Conventional Commits 준수
+## Conventional Commits 준수
 
-#### 기본 형식
+### 기본 형식
 
 ```text
 <type>[optional scope]: <description>
@@ -470,7 +474,7 @@ done
 [optional footer(s)]
 ```
 
-#### 표준 타입
+### 표준 타입
 
 **필수 타입**:
 
@@ -488,7 +492,7 @@ done
 - `perf`: 성능 개선
 - `test`: 테스트 추가나 수정
 
-#### 스코프 (선택적)
+### 스코프 (선택적)
 
 변경의 영향 범위 표시:
 
@@ -498,7 +502,7 @@ fix(ui): resolve button alignment issue
 docs(readme): update installation instructions
 ```
 
-#### Breaking Change
+### Breaking Change
 
 API 의 파괴적 변경이 있는 경우:
 
@@ -514,11 +518,11 @@ BREAKING CHANGE: user response now includes additional metadata
 feat(api)!: change authentication flow
 ```
 
-#### 프로젝트 규약의 자동 감지
+### 프로젝트 규약의 자동 감지
 
 **중요**: 프로젝트 고유 규약이 존재하면 그것을 우선합니다.
 
-##### 1. CommitLint 설정 확인
+#### 1. CommitLint 설정 확인
 
 다음 파일에서 설정을 자동 감지:
 
@@ -539,7 +543,7 @@ cat .commitlintrc.json
 grep -A 10 '"commitlint"' package.json
 ```
 
-##### 2. 커스텀 타입 감지
+#### 2. 커스텀 타입 감지
 
 프로젝트 고유 타입 예시:
 
@@ -570,7 +574,7 @@ export default {
 };
 ```
 
-##### 3. 언어 설정 감지
+#### 3. 언어 설정 감지
 
 ```javascript
 // 프로젝트가 한국어 메시지를 사용하는 경우
@@ -582,7 +586,7 @@ export default {
 };
 ```
 
-#### 자동 분석 흐름
+### 자동 분석 흐름
 
 1. **설정 파일 검색**
 
@@ -604,9 +608,9 @@ export default {
    sort | uniq -c | sort -nr
    ```
 
-#### 프로젝트 규약 예시
+### 프로젝트 규약 예시
 
-##### Angular 스타일
+#### Angular 스타일
 
 ```text
 feat(scope): add new feature
@@ -614,7 +618,7 @@ fix(scope): fix bug
 docs(scope): update documentation
 ```
 
-##### Gitmoji 병용 스타일
+#### Gitmoji 병용 스타일
 
 ```text
 ✨ feat: add user registration
@@ -622,7 +626,7 @@ docs(scope): update documentation
 📚 docs: update API docs
 ```
 
-##### 한국어 프로젝트
+#### 한국어 프로젝트
 
 ```text
 feat: 사용자 등록 기능 추가
@@ -630,7 +634,7 @@ fix: 로그인 처리 버그 수정
 docs: API 문서 업데이트
 ```
 
-### 언어 판정
+## 언어 판정
 
 이 명령어에서 완결되는 언어 판정 로직:
 
@@ -667,7 +671,7 @@ docs: API 문서 업데이트
    git diff HEAD | grep -E '^[+-].*//.*[가-힣]' | wc -l
    ```
 
-#### 판정 알고리즘
+### 판정 알고리즘
 
 ```bash
 # 언어 판정 점수 계산
@@ -705,9 +709,9 @@ else
 fi
 ```
 
-### 설정 파일 자동 읽기
+## 설정 파일 자동 읽기
 
-#### 실행 시 동작
+### 실행 시 동작
 
 명령어 실행 시 다음 순서로 설정 확인:
 
@@ -740,7 +744,7 @@ fi
    head -20
    ```
 
-#### 설정 예시 분석
+### 설정 예시 분석
 
 **표준 commitlint.config.mjs**:
 
@@ -803,7 +807,7 @@ export default {
 };
 ```
 
-#### 폴백 동작
+### 폴백 동작
 
 설정 파일을 찾을 수 없는 경우:
 
@@ -826,19 +830,19 @@ export default {
    - 한국어 커밋이 50% 이상 → 한국어 모드
    - 그 외 → 영어 모드
 
-### 전제 조건
+## 전제 조건
 
 - Git 저장소 내에서 실행
 - 커밋되지 않은 변경사항이 존재할 것
 - 스테이징된 변경사항은 일시적으로 리셋됩니다
 
-### 주의사항
+## 주의사항
 
 - **자동 푸시 없음**: 커밋 후 `git push`는 수동 실행
 - **브랜치 생성 없음**: 현재 브랜치에서 커밋
 - **백업 권장**: 중요한 변경 전에는 `git stash`로 백업
 
-### 프로젝트 규약의 우선순위
+## 프로젝트 규약의 우선순위
 
 커밋 메시지 생성 시 우선순위:
 
@@ -860,7 +864,7 @@ export default {
 4. **Conventional Commits 표준** (폴백)
    - 설정을 찾을 수 없는 경우의 표준 동작
 
-#### 규약 감지 실례
+### 규약 감지 실례
 
 **Monorepo 에서 scope 자동 감지**:
 
@@ -905,7 +909,7 @@ ls packages/ | head -10
 }
 ```
 
-### 베스트 프랙티스
+## 베스트 프랙티스
 
 1. **프로젝트 규약 준수**: 기존 설정이나 패턴을 따름
 2. **작은 변경 단위**: 1 개 커밋은 1 개의 논리적 변경
@@ -914,9 +918,9 @@ ls packages/ | head -10
 5. **테스트 분리**: 테스트 파일은 별도 커밋으로
 6. **설정 파일 활용**: CommitLint 를 도입해 팀 전체 규약 통일
 
-### 실제 분할 예시(Before/After)
+## 실제 분할 예시(Before/After)
 
-#### 예시 1: 대규모 인증 시스템 추가
+### 예시 1: 대규모 인증 시스템 추가
 
 **Before(하나의 거대한 커밋):**
 
@@ -996,7 +1000,7 @@ docs(auth): add authentication documentation and configuration
 이유: 문서와 설정은 마지막에 함께 커밋
 ```
 
-#### 예시 2: 버그 수정과 리팩터링 혼재
+### 예시 2: 버그 수정과 리팩터링 혼재
 
 **Before(혼재된 문제 있는 커밋):**
 
@@ -1049,7 +1053,7 @@ chore: update documentation and dependencies
 이유: 개발 환경 정비는 마지막에 함께 커밋
 ```
 
-#### 예시 3: 여러 기능 동시 개발
+### 예시 3: 여러 기능 동시 개발
 
 **Before(기능 횡단 거대 커밋):**
 
@@ -1116,7 +1120,7 @@ chore: update dependencies for new features
 이유: 공통 의존성 업데이트는 마지막에 함께
 ```
 
-### 분할 효과 비교
+## 분할 효과 비교
 
 | 항목          | Before(거대 커밋)        | After(적절한 분할)             |
 | ------------- | ------------------------ | ------------------------------ |
@@ -1126,15 +1130,15 @@ chore: update dependencies for new features
 | **병렬 개발** | ❌ 충돌 발생 쉬움        | ✅ 기능별로 병합 용이          |
 | **배포**      | ❌ 전체 기능 일괄 배포   | ✅ 단계적 배포 가능            |
 
-### 트러블슈팅
+## 트러블슈팅
 
-#### 커밋 실패 시
+### 커밋 실패 시
 
 - 프리커밋 훅 확인
 - 의존성 해결
 - 개별 파일로 재시도
 
-#### 분할이 적절하지 않은 경우
+### 분할이 적절하지 않은 경우
 
 - `--max-commits` 옵션으로 조정
 - 수동 `edit` 모드 사용

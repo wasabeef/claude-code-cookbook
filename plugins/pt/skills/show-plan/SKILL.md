@@ -1,18 +1,20 @@
 ---
-description: "Exibir plano da sessão atual"
+description: 'Exibir plano da sessão atual. Ativa com "mostrar o plano", "progresso do plano".'
+allowed-tools:
+  - Read
 ---
 
-## Exibir plano da sessão atual
+# Exibir plano da sessão atual
 
 Exibe planos em execução ou executados na sessão atual.
 
-### Como usar
+## Como usar
 
 ```bash
 /show-plan
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Confirmar plano atual
@@ -24,14 +26,14 @@ Exibe planos em execução ou executados na sessão atual.
 "Não há planos na sessão atual"
 ```
 
-### Funcionalidades
+## Funcionalidades
 
 - Detecta planos criados com ExitPlanMode
 - Explora títulos que contêm palavras-chave como plano de implementação, conteúdo de implementação, plano, etc.
 - Formata e exibe o conteúdo do plano
 - Notifica claramente quando não há planos
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Confirmar plano durante implementação
@@ -47,7 +49,7 @@ Exibe planos em execução ou executados na sessão atual.
 /show-plan
 ```
 
-### Padrões de Detecção
+## Padrões de Detecção
 
 Baseado no formato de planos gerados pelo ExitPlanMode, detecta os seguintes padrões:
 
@@ -57,7 +59,7 @@ Baseado no formato de planos gerados pelo ExitPlanMode, detecta os seguintes pad
 - `### Plano de implementação`
 - `### 1.` e outros títulos numerados
 
-### Observações
+## Observações
 
 - Exibe apenas planos da sessão atual (não inclui sessões passadas)
 - Prioriza a exibição do plano mais recente

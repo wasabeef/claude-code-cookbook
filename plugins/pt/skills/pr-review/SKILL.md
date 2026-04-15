@@ -1,12 +1,17 @@
 ---
-description: "Revisão sistemática de PR para garantir qualidade"
+description: 'Revisão sistemática de PR. Ativa com "revisar este PR", "code review", "revisar pull request".'
+allowed-tools:
+  - Bash(gh *)
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Revisão sistemática de PR para garantir qualidade
+# Revisão sistemática de PR
 
 Revisão sistemática de Pull Request para garantir qualidade do código e sanidade da arquitetura.
 
-### Como usar
+## Como usar
 
 ```bash
 # Revisão abrangente de PR
@@ -22,7 +27,7 @@ gh pr checkout 123 && find . -name "*.js" | head -10
 "Avalie a arquitetura dos pontos de vista de separação de camadas, dependências e princípios SOLID"
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Avaliação numérica da qualidade do código
@@ -38,7 +43,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 "Avalie problemas de violação de camadas, dependências circulares e acoplamento"
 ```
 
-### Sistema de Classificação de Comentários
+## Sistema de Classificação de Comentários
 
 ```text
 🔴 critical.must: Problemas críticos
@@ -67,42 +72,42 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 └─ Compartilhamento de melhores práticas
 ```
 
-### Pontos de Vista da Revisão
+## Pontos de Vista da Revisão
 
-#### 1. Precisão do Código
+### 1. Precisão do Código
 
 - **Erros lógicos**: Valores limite, verificação Null, tratamento de exceções
 - **Integridade de dados**: Segurança de tipo, validação
 - **Tratamento de erros**: Abrangência, processamento adequado
 
-#### 2. Segurança
+### 2. Segurança
 
 - **Autenticação e Autorização**: Verificação adequada, gestão de permissões
 - **Validação de entrada**: Contramedidas SQL injection, XSS
 - **Informações confidenciais**: Proibição de output em logs, criptografia
 
-#### 3. Performance
+### 3. Performance
 
 - **Algoritmos**: Complexidade temporal, eficiência de memória
 - **Banco de dados**: Consultas N+1, otimização de índices
 - **Recursos**: Vazamentos de memória, utilização de cache
 
-#### 4. Arquitetura
+### 4. Arquitetura
 
 - **Separação de camadas**: Direção de dependência, separação adequada
 - **Grau de acoplamento**: Baixo acoplamento, utilização de interfaces
 - **Princípios SOLID**: Responsabilidade única, aberto-fechado, inversão de dependência
 
-### Fluxo de Revisão
+## Fluxo de Revisão
 
 1. **Verificação prévia**: Informações do PR, diferenças de mudanças, Issues relacionadas
 2. **Verificação sistemática**: Segurança → Precisão → Performance → Arquitetura
 3. **Feedback construtivo**: Propostas de melhoria específicas e exemplos de código
 4. **Follow-up**: Confirmação de correções, estado do CI, aprovação final
 
-### Exemplos de Comentários Eficazes
+## Exemplos de Comentários Eficazes
 
-#### Problemas de Segurança
+### Problemas de Segurança
 
 **Formato:**
 
@@ -126,7 +131,7 @@ const hashedPassword = await bcrypt.hash(password, 12);
 Hashing é obrigatório para prevenir riscos de segurança.
 ```
 
-#### Melhoria de Performance
+### Melhoria de Performance
 
 **Formato:**
 
@@ -149,7 +154,7 @@ const users = await User.findAll({ include: [Post] });
 Pode reduzir drasticamente o número de consultas.
 ```
 
-#### Violação de Arquitetura
+### Violação de Arquitetura
 
 **Formato:**
 
@@ -169,7 +174,7 @@ A camada de domínio está dependendo diretamente da camada de infraestrutura.
 Introduza interfaces com o princípio de inversão de dependência.
 ```
 
-### Observações
+## Observações
 
 - **Tom construtivo**: Comunicação colaborativa, não agressiva
 - **Propostas específicas**: Apresentar soluções, não apenas apontar problemas

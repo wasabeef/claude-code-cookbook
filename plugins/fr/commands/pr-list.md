@@ -1,15 +1,15 @@
-## Afficher les PRs ouvertes avec classement par priorité
+# Afficher les PRs ouvertes
 
 Affiche une liste priorisée des PR ouvertes dans le dépôt actuel.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Demande à Claude
 "Show a prioritized list of open PRs"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Obtenir les informations du dépôt
@@ -21,7 +21,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 "Organize the above PRs by priority, including a 2-line summary for each PR. Generate URLs using the repository name obtained above"
 ```
 
-### Format d'affichage
+## Format d'affichage
 
 ```text
 Liste des PR Ouvertes (par Priorité)
@@ -39,7 +39,7 @@ Liste des PR Ouvertes (par Priorité)
 (Format similaire)
 ```
 
-### Critères d'évaluation de priorité
+## Critères d'évaluation de priorité
 
 **Haute Priorité**
 
@@ -57,7 +57,7 @@ Liste des PR Ouvertes (par Priorité)
 - PR contenant DO NOT MERGE
 - PR brouillons avec `test:`, `build:`, `perf:`
 
-### Notes
+## Notes
 
 - Nécessite GitHub CLI (`gh`)
 - Affiche seulement les PR à l'état ouvert (les brouillons sont exclus)

@@ -1,18 +1,22 @@
 ---
-description: "Sugerir design patterns e avaliar princípios SOLID"
+description: 'Sugerir design patterns e avaliar princípios SOLID. Ativa com "sugerir padrões", "verificar SOLID", "detectar anti-padrões".'
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Sugerir design patterns e avaliar princípios SOLID
+# Sugerir design patterns e avaliar princípios SOLID
 
 Propõe padrões de design aplicáveis à base de código e avalia a conformidade com os princípios SOLID.
 
-### Uso
+## Uso
 
 ```bash
 /design-patterns [alvo-de-análise] [opções]
 ```
 
-### Opções
+## Opções
 
 - `--suggest` : Propor padrões aplicáveis (padrão)
 - `--analyze` : Analisar uso de padrões existentes
@@ -20,7 +24,7 @@ Propõe padrões de design aplicáveis à base de código e avalia a conformidad
 - `--solid` : Verificar conformidade com princípios SOLID
 - `--anti-patterns` : Detectar antipadrões
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Análise de padrões de todo o projeto
@@ -36,30 +40,30 @@ Propõe padrões de design aplicáveis à base de código e avalia a conformidad
 /design-patterns --anti-patterns
 ```
 
-### Categorias de Análise
+## Categorias de Análise
 
-#### 1. Padrões de Criação
+### 1. Padrões de Criação
 
 - **Factory Pattern**: Abstração da criação de objetos
 - **Builder Pattern**: Construção gradual de objetos complexos
 - **Singleton Pattern**: Garantia de unicidade de instância
 - **Prototype Pattern**: Geração de clones de objetos
 
-#### 2. Padrões Estruturais
+### 2. Padrões Estruturais
 
 - **Adapter Pattern**: Conversão de interfaces
 - **Decorator Pattern**: Adição dinâmica de funcionalidades
 - **Facade Pattern**: Simplificação de subsistemas complexos
 - **Proxy Pattern**: Controle de acesso a objetos
 
-#### 3. Padrões Comportamentais
+### 3. Padrões Comportamentais
 
 - **Observer Pattern**: Implementação de notificação de eventos
 - **Strategy Pattern**: Alternância de algoritmos
 - **Command Pattern**: Encapsulamento de operações
 - **Iterator Pattern**: Percorrer coleções
 
-### Itens de Verificação dos Princípios SOLID
+## Itens de Verificação dos Princípios SOLID
 
 ```text
 S - Single Responsibility Principle (Princípio da Responsabilidade Única)
@@ -69,7 +73,7 @@ I - Interface Segregation Principle (Princípio da Segregação de Interface)
 D - Dependency Inversion Principle (Princípio da Inversão de Dependência)
 ```
 
-### Exemplo de Saída
+## Exemplo de Saída
 
 ```text
 Relatório de Análise de Design Patterns
@@ -112,7 +116,7 @@ Propostas de Refatoração
 4. Separar IDataStore por uso
 ```
 
-### Exemplos de Uso Avançado
+## Exemplos de Uso Avançado
 
 ```bash
 # Análise de impacto da aplicação de padrões
@@ -128,9 +132,9 @@ Propostas de Refatoração
 /design-patterns --architecture MVC
 ```
 
-### Exemplo de Aplicação de Padrão
+## Exemplo de Aplicação de Padrão
 
-#### Antes (código problemático)
+### Antes (código problemático)
 
 ```javascript
 class OrderService {
@@ -145,7 +149,7 @@ class OrderService {
 }
 ```
 
-#### Depois (aplicação do Strategy Pattern)
+### Depois (aplicação do Strategy Pattern)
 
 ```javascript
 // Interface de estratégia
@@ -174,7 +178,7 @@ class OrderService {
 }
 ```
 
-### Detecção de Antipadrões
+## Detecção de Antipadrões
 
 - **God Object**: Classe com responsabilidades excessivas
 - **Spaghetti Code**: Código com fluxo de controle complexamente entrelaçado
@@ -182,7 +186,7 @@ class OrderService {
 - **Magic Numbers**: Constantes hardcoded
 - **Callback Hell**: Callbacks profundamente aninhados
 
-### Melhores Práticas
+## Melhores Práticas
 
 1. **Aplicação gradual**: Não aplicar muitos padrões de uma vez
 2. **Verificação de necessidade**: Padrões são meios para resolver problemas, não fins

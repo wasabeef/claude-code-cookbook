@@ -1,25 +1,29 @@
 ---
-description: "Analyser les dépendances du projet et évaluer la santé architecturale"
+description: "Analyser les dépendances du projet et évaluer la santé architecturale. Se déclenche avec « analyser les dépendances », « détecter les dépendances circulaires », « problèmes d'architecture »."
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Analyser les dépendances du projet et évaluer la santé architecturale
+# Analyser les dépendances du projet et évaluer la santé architecturale
 
 Analyse les dépendances de votre projet et vérifie la santé architecturale.
 
-### Utilisation
+## Utilisation
 
 ```bash
 /dependency-analysis [options]
 ```
 
-### Options
+## Options
 
 - `--visual` : Afficher visuellement les dépendances
 - `--circular` : Détecter uniquement les dépendances circulaires
 - `--depth <number>` : Spécifier la profondeur d'analyse (défaut : 3)
 - `--focus <path>` : Se concentrer sur un module/répertoire spécifique
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Analyser les dépendances pour tout le projet
@@ -32,9 +36,9 @@ Analyse les dépendances de votre projet et vérifie la santé architecturale.
 /dependency-analysis --focus src/core --depth 5
 ```
 
-### Ce qui est analysé
+## Ce qui est analysé
 
-#### 1. Matrice de dépendances
+### 1. Matrice de dépendances
 
 Montre comment les modules se connectent les uns aux autres :
 
@@ -43,21 +47,21 @@ Montre comment les modules se connectent les uns aux autres :
 - Profondeur des dépendances
 - Fan-in/fan-out
 
-#### 2. Violations architecturales
+### 2. Violations architecturales
 
 - Violations de couches (quand les couches inférieures dépendent des supérieures)
 - Dépendances circulaires
 - Couplage excessif (trop de connexions)
 - Modules orphelins
 
-#### 3. Vérification de Clean Architecture
+### 3. Vérification de Clean Architecture
 
 - La couche domaine est-elle indépendante ?
 - L'infrastructure est-elle correctement séparée ?
 - Les dépendances de cas d'usage s'écoulent-elles correctement ?
 - Les interfaces sont-elles utilisées correctement ?
 
-### Exemple de sortie
+## Exemple de sortie
 
 ```text
 Rapport d'analyse de dépendances
@@ -86,7 +90,7 @@ Rapport d'analyse de dépendances
 [Diagramme de dépendances visuelles affiché en art ASCII]
 ```
 
-### Exemples d'utilisation avancée
+## Exemples d'utilisation avancée
 
 ```bash
 # Vérifications automatiques CI/CD
@@ -99,7 +103,7 @@ Rapport d'analyse de dépendances
 /dependency-analysis --compare HEAD~10
 ```
 
-### Exemple de fichier de configuration (.dependency-analysis.yml)
+## Exemple de fichier de configuration (.dependency-analysis.yml)
 
 ```yaml
 rules:
@@ -122,14 +126,14 @@ ignore:
   - "**/mocks/**"
 ```
 
-### Outils que nous utilisons
+## Outils que nous utilisons
 
 - `madge` : Montre visuellement les dépendances JavaScript/TypeScript
 - `dep-cruiser` : Vérifie les règles de dépendances
 - `nx` : Gère les dépendances de monorepo
 - `plato` : Analyse la complexité et les dépendances ensemble
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Vérifier les dépendances avec package.json
@@ -148,13 +152,13 @@ cat docs/architecture.md
 "Does our implementation match the architecture docs?"
 ```
 
-### Notes
+## Notes
 
 - **Exécuter depuis** : Répertoire racine du projet
 - **Soyez patient** : Les gros projets prennent du temps à analyser
 - **Agissez rapidement** : Corrigez les dépendances circulaires dès que vous les trouvez
 
-### Bonnes pratiques
+## Bonnes pratiques
 
 1. **Vérifier hebdomadairement** : Gardez un œil sur la santé des dépendances
 2. **Écrire les règles** : Mettre les règles d'architecture dans les fichiers de configuration

@@ -1,18 +1,20 @@
 ---
-description: "Détecter les patterns mécaniques de l'IA et améliorer le texte"
+description: "Détecter les patterns mécaniques de l'IA et améliorer. Se déclenche avec « détecter l'IA », « rendre plus naturel »."
+allowed-tools:
+  - Read
 ---
 
-## Détecter les patterns mécaniques de l'IA et améliorer le texte
+# Détecter les patterns mécaniques de l'IA et améliorer
 
 Détecte les motifs mécaniques dans les textes générés par IA et fournit des suggestions pour améliorer vers un français plus naturel.
 
-### Utilisation
+## Utilisation
 
 ```bash
 /ai-writing-check [options]
 ```
 
-### Options
+## Options
 
 - Aucune : Analyser le fichier actuel ou le texte sélectionné
 - `--file <path>` : Analyser un fichier spécifique
@@ -20,7 +22,7 @@ Détecte les motifs mécaniques dans les textes générés par IA et fournit des
 - `--severity <level>` : Niveau de détection (all/high/medium)
 - `--fix` : Corriger automatiquement les motifs détectés
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Vérifier le style d'écriture IA dans un fichier
@@ -37,9 +39,9 @@ cat README.md
 "Report only critical AI writing issues in the project"
 ```
 
-### Motifs détectés
+## Motifs détectés
 
-#### 1. Motifs de format de liste mécanique
+### 1. Motifs de format de liste mécanique
 
 ```markdown
 Exemples détectés :
@@ -57,7 +59,7 @@ Exemples améliorés :
 - Prêt à commencer
 ```
 
-#### 2. Expressions exagérées/promotionnelles
+### 2. Expressions exagérées/promotionnelles
 
 ```markdown
 Exemples détectés :
@@ -71,7 +73,7 @@ Résout de nombreux problèmes.
 Fonctionne de manière fluide.
 ```
 
-#### 3. Motifs d'emphase mécanique
+### 3. Motifs d'emphase mécanique
 
 ```markdown
 Exemples détectés :
@@ -83,7 +85,7 @@ Idée : Nouvelle proposition
 Note : Avertissement important
 ```
 
-#### 4. Rédaction technique redondante
+### 4. Rédaction technique redondante
 
 ```markdown
 Exemples détectés :
@@ -97,7 +99,7 @@ Vous pouvez utiliser cet outil.
 Les performances s'améliorent de 30%.
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Analyser tout le document pour le style d'écriture IA
@@ -118,7 +120,7 @@ find . -name "*.md" -type f
 "Analyze AI writing style throughout the documentation and create a summary"
 ```
 
-### Exemples détaillés
+## Exemples détaillés
 
 ```bash
 # Comparer avant et après amélioration
@@ -142,7 +144,7 @@ find . -name "*.md" -type f
 4. Step-by-step improvement plan"
 ```
 
-### Exemples d'utilisation avancée
+## Exemples d'utilisation avancée
 
 ```bash
 # Appliquer des règles personnalisées
@@ -167,14 +169,14 @@ find . -name "*.md" -type f
 - Consideration for readers"
 ```
 
-### Notes
+## Notes
 
 - La détermination du style d'écriture IA varie selon le contexte, traitez les suggestions comme référence
 - Ajustez les critères selon le type de document (documents techniques, blogs, manuels, etc.)
 - Vous n'avez pas besoin d'accepter toutes les suggestions ; sélectionnez celles appropriées
 - L'option `--fix` corrige automatiquement les motifs détectés
 
-### Comportement d'exécution de commande
+## Comportement d'exécution de commande
 
 Quand vous exécutez la commande `/ai-writing-check`, Claude effectue les processus suivants :
 
@@ -185,6 +187,6 @@ Quand vous exécutez la commande `/ai-writing-check`, Claude effectue les proces
 
 Claude lit le contenu réel des fichiers et effectue l'analyse basée sur les règles de textlint-rule-preset-ai-writing.
 
-### Référence
+## Référence
 
 Cette commande est créée en référence au jeu de règles [textlint-rule-preset-ai-writing](https://github.com/textlint-ja/textlint-rule-preset-ai-writing). C'est un preset de règles textlint pour détecter les motifs mécaniques dans les textes générés par IA et promouvoir des expressions plus naturelles.

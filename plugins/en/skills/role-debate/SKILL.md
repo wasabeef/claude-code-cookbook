@@ -1,19 +1,22 @@
 ---
-description: "Multi-role debate to explore trade-offs"
+description: 'Multi-role debate to explore trade-offs. Trigger with "debate between roles", "explore trade-offs", "discuss from different perspectives".'
+allowed-tools:
+  - Read
+  - Grep
 ---
 
-## Multi-role debate to explore trade-offs
+# Multi-role debate to explore trade-offs
 
 A command that allows roles with different expertise to discuss and examine trade-offs to derive optimal solutions.
 
-### Usage
+## Usage
 
 ```bash
 /role-debate <Role 1>,<Role 2> [Topic]
 /role-debate <Role 1>,<Role 2>,<Role 3> [Topic]
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Security vs Performance trade-off
@@ -33,32 +36,32 @@ A command that allows roles with different expertise to discuss and examine trad
 "Pros and Cons of Microservices"
 ```
 
-### Basic Principles of Debate
+## Basic Principles of Debate
 
-#### Constructive Debate Guidelines
+### Constructive Debate Guidelines
 
 - **Mutual Respect**: Respect the expertise and perspectives of other roles
 - **Fact-Based**: Debate based on data and evidence, not emotional reactions
 - **Solution-Oriented**: Aim for better solutions rather than criticizing for criticism's sake
 - **Implementation-Focused**: Consider feasibility rather than idealism
 
-#### Quality Requirements for Arguments
+### Quality Requirements for Arguments
 
 - **Official Documentation**: Reference standards, guidelines, and official documentation
 - **Empirical Cases**: Specific citations of success or failure cases
 - **Quantitative Evaluation**: Comparisons using numbers and metrics whenever possible
 - **Time-Series Consideration**: Evaluation of short-term, medium-term, and long-term impacts
 
-#### Debate Ethics
+### Debate Ethics
 
 - **Honesty**: Acknowledge the limits of your expertise
 - **Openness**: Flexibility toward new information and perspectives
 - **Transparency**: Explicitly state judgment grounds and assumptions
 - **Accountability**: Mention implementation risks of proposals
 
-### Debate Process
+## Debate Process
 
-### Phase 1: Initial Position Statement
+## Phase 1: Initial Position Statement
 
 Each role independently expresses opinions from their professional perspective
 
@@ -67,7 +70,7 @@ Each role independently expresses opinions from their professional perspective
 - Explanation of anticipated risks and issues
 - Definition of success metrics
 
-### Phase 2: Mutual Discussion & Rebuttal
+## Phase 2: Mutual Discussion & Rebuttal
 
 Cross-discussion between roles
 
@@ -76,7 +79,7 @@ Cross-discussion between roles
 - Clarification of trade-offs
 - Presentation of alternatives
 
-### Phase 3: Search for Compromises
+## Phase 3: Search for Compromises
 
 Exploration of implementable solutions
 
@@ -85,7 +88,7 @@ Exploration of implementable solutions
 - Step-by-step implementation approach
 - Consideration of risk mitigation measures
 
-### Phase 4: Integrated Conclusion
+## Phase 4: Integrated Conclusion
 
 Determining final recommendations
 
@@ -94,9 +97,9 @@ Determining final recommendations
 - Success metrics and measurement methods
 - Future review points
 
-### Output Format Examples
+## Output Format Examples
 
-### For 2-Role Debate
+## For 2-Role Debate
 
 ```text
 Role Debate: Security vs Performance
@@ -186,7 +189,7 @@ Future Review:
 - After 6 months: Consider migration to more sophisticated risk-based authentication
 ```
 
-### For 3-Role Debate
+## For 3-Role Debate
 
 ```text
 Role Debate: Architect vs Security vs Performance
@@ -216,9 +219,9 @@ Integrated Conclusion:
 "Domain-driven design for phased division + security-first design"
 ```
 
-### Effective Debate Patterns
+## Effective Debate Patterns
 
-### Technology Selection
+## Technology Selection
 
 ```bash
 /role-debate architect,performance
@@ -231,7 +234,7 @@ Integrated Conclusion:
 "Authentication Method: JWT vs Session Cookie"
 ```
 
-### Design Decisions
+## Design Decisions
 
 ```bash
 /role-debate security,frontend
@@ -244,7 +247,7 @@ Integrated Conclusion:
 "Test Strategy and Architecture Design"
 ```
 
-### Trade-off Issues
+## Trade-off Issues
 
 ```bash
 /role-debate security,performance
@@ -257,9 +260,9 @@ Integrated Conclusion:
 "Convenience vs Data Protection Level"
 ```
 
-### Role-Specific Debate Characteristics
+## Role-Specific Debate Characteristics
 
-#### 🔒 Security Role
+### 🔒 Security Role
 
 ```yaml
 debate_stance:
@@ -291,7 +294,7 @@ potential_biases:
   - Downplaying implementation costs
 ```
 
-#### ⚡ Performance Role
+### ⚡ Performance Role
 
 ```yaml
 debate_stance:
@@ -323,7 +326,7 @@ potential_biases:
   - Premature optimization
 ```
 
-#### 🏗️ Architect Role
+### 🏗️ Architect Role
 
 ```yaml
 debate_stance:
@@ -355,7 +358,7 @@ potential_biases:
   - Insufficient understanding of implementation details
 ```
 
-#### 🎨 Frontend Role
+### 🎨 Frontend Role
 
 ```yaml
 debate_stance:
@@ -387,7 +390,7 @@ potential_biases:
   - Underestimation of performance impact
 ```
 
-#### 📱 Mobile Role
+### 📱 Mobile Role
 
 ```yaml
 debate_stance:
@@ -419,7 +422,7 @@ potential_biases:
   - Insufficient consideration for desktop environment
 ```
 
-#### 🔍 Analyzer Role
+### 🔍 Analyzer Role
 
 ```yaml
 debate_stance:
@@ -451,9 +454,9 @@ potential_biases:
   - Data absolutism
 ```
 
-### Debate Progression Templates
+## Debate Progression Templates
 
-#### Phase 1: Position Statement Template
+### Phase 1: Position Statement Template
 
 ```text
 [Role Name]'s Recommendation:
@@ -478,7 +481,7 @@ Success Metrics:
 - [Measurable metric 2]
 ```
 
-#### Phase 2: Rebuttal Template
+### Phase 2: Rebuttal Template
 
 ```text
 Rebuttal to [Target Role]:
@@ -497,7 +500,7 @@ Compromise Points:
 - [Possibility of phased implementation]
 ```
 
-#### Phase 3: Integrated Solution Template
+### Phase 3: Integrated Solution Template
 
 ```text
 Integrated Solution:
@@ -519,37 +522,37 @@ Success Metrics & Measurement Methods:
 - [Review timing]
 ```
 
-### Debate Quality Checklist
+## Debate Quality Checklist
 
-#### Evidence Quality
+### Evidence Quality
 
 - [ ] References to official documents/standards
 - [ ] Specific cases/data presented
 - [ ] Distinction between speculation and fact
 - [ ] Sources explicitly stated
 
-#### Debate Constructiveness
+### Debate Constructiveness
 
 - [ ] Accurate understanding of opponent's proposals
 - [ ] Logical rather than emotional rebuttal
 - [ ] Alternatives also presented
 - [ ] Exploration of win-win possibilities
 
-#### Implementation Feasibility
+### Implementation Feasibility
 
 - [ ] Technical feasibility considered
 - [ ] Implementation costs/duration estimated
 - [ ] Phased implementation possibility considered
 - [ ] Risk mitigation measures presented
 
-#### Integration
+### Integration
 
 - [ ] Impacts on other fields considered
 - [ ] Pursuit of overall optimization
 - [ ] Long-term perspective included
 - [ ] Measurable success metrics set
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Debate based on design documents
@@ -567,7 +570,7 @@ cat performance-issues.md
 "Discuss unified UI strategy for iOS, Android, and Web"
 ```
 
-### Notes
+## Notes
 
 - Debates may take time (longer for complex topics)
 - With 3+ roles, discussions may diverge

@@ -1,10 +1,10 @@
-## Créer des spécifications détaillées avec le développement piloté par les specs
+# Créer des spécifications détaillées
 
 **"Donner de la structure avant d'écrire le code"** - Entièrement conforme au développement piloté par spécifications de Kiro
 
 Contrairement aux outils traditionnels de génération de code, il réalise le développement piloté par spécifications de Kiro focalisé sur l'apport de structure au chaos du développement. À partir d'une saisie minimale d'exigences, il se développe progressivement des spécifications détaillées de niveau product manager à des conceptions implémentables, assurant une qualité cohérente du **prototype à la production**.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Demander le Mode Spec à Claude (saisie minimale d'exigences)
@@ -20,7 +20,7 @@ Contrairement aux outils traditionnels de génération de code, il réalise le d
 #    - tasks.md : Plan d'implémentation avec application automatique des bonnes pratiques
 ```
 
-### Résultats éprouvés (Historique de Kiro)
+## Résultats éprouvés (Historique de Kiro)
 
 **Application de partage de fichiers sécurisée en 2 jours**
 
@@ -49,7 +49,7 @@ Contrairement aux outils traditionnels de génération de code, il réalise le d
 → Approche structurée par développement piloté par spécifications
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Créer un spec pour une nouvelle fonctionnalité (saisie minimale)
@@ -69,7 +69,7 @@ Contrairement aux outils traditionnels de génération de code, il réalise le d
 - Focus sécurité"
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Spec de fonctionnalité complexe
@@ -85,7 +85,7 @@ Contrairement aux outils traditionnels de génération de code, il réalise le d
 "Créez un spec pour une API RESTful incluant authentification, validation et journalisation"
 ```
 
-### Fonctionnalités du Mode Spec
+## Fonctionnalités du Mode Spec
 
 **Flux de dialogue étape par étape**
 
@@ -105,7 +105,7 @@ Contrairement aux outils traditionnels de génération de code, il réalise le d
 - Présente et discute les options techniques
 - Explique les compromis et confirme les décisions
 
-### Exemples détaillés
+## Exemples détaillés
 
 ```bash
 # Fonctionnalité système complexe
@@ -121,9 +121,9 @@ Contrairement aux outils traditionnels de génération de code, il réalise le d
 "Créez un spec pour un pipeline CI/CD incluant automatisation de tests, déploiement et surveillance"
 ```
 
-### Flux de dialogue phase par phase
+## Flux de dialogue phase par phase
 
-#### Phase 1 : Découverte et discussion des exigences
+### Phase 1 : Découverte et discussion des exigences
 
 **1. Expansion automatique à partir de saisie minimale (Style Kiro)**
 
@@ -195,7 +195,7 @@ Dois-je créer requirements.md ?"
 → "Oui" → génère requirements.md
 ```
 
-#### Phase 2 : Exploration et discussion de conception
+### Phase 2 : Exploration et discussion de conception
 
 **1. Analyse de base de code + Proposition de conception automatique (Style Kiro)**
 
@@ -294,7 +294,7 @@ Puis-je générer design.md ?"
 
 ```
 
-#### Phase 3 : Planification et discussion d'implémentation
+### Phase 3 : Planification et discussion d'implémentation
 
 **1. Application automatique des bonnes pratiques (Style Kiro)**
 
@@ -404,7 +404,7 @@ Puis-je générer tasks.md ?"
 → "Procéder" → génération tasks.md
 ```
 
-### Fonctionnalités spécifiques à Kiro
+## Fonctionnalités spécifiques à Kiro
 
 **Notation EARS (Easy Approach to Requirements Syntax)**
 
@@ -446,7 +446,7 @@ THE SYSTEM SHALL [comportement correspondant]
 - Application automatique d'architecture évolutive
 - Intégration de gestion qualité continue
 
-### Remarques
+## Remarques
 
 **Portée d'application**
 
@@ -466,9 +466,9 @@ THE SYSTEM SHALL [comportement correspondant]
 - Générer tâches implémentation après complétion conception
 - Mettre l'accent sur processus approbation à chaque étape
 
-### Phrases déclencheuses et contrôles
+## Phrases déclencheuses et contrôles
 
-#### Contrôle flux de travail étape par étape
+### Contrôle flux de travail étape par étape
 
 **Déclencheurs de démarrage**
 
@@ -492,7 +492,7 @@ Complétion Phase 2 → "Procéder" → génération design.md
 Complétion Phase 3 → "Procéder" → génération tasks.md
 ```
 
-### Exemple d'exécution (Flux étape par étape)
+## Exemple d'exécution (Flux étape par étape)
 
 ```bash
 # Exemple d'usage
@@ -523,7 +523,7 @@ Utilisateur : "Procéder"
 Claude : "La préparation du développement piloté par spécifications est terminée. Vous pouvez commencer l'implémentation."
 ```
 
-### Différences avec /plan
+## Différences avec /plan
 
 | Fonctionnalité       | /plan                           | /spec                                                           |
 | -------------------- | ------------------------------- | --------------------------------------------------------------- |
@@ -535,7 +535,7 @@ Claude : "La préparation du développement piloté par spécifications est term
 | Assurance qualité    | Stratégie test de base          | Exigences qualité complètes (tests, accessibilité, performance) |
 | Synchronisation      | Plan statique                   | Mises à jour spec dynamiques                                    |
 
-### Cas d'usage recommandés
+## Cas d'usage recommandés
 
 **Recommandé pour usage spec**
 

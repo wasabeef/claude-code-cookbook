@@ -1,49 +1,53 @@
 ---
-description: "상황 분석 후 최적 역할·접근법 자동 제안"
+description: "상황 분석 후 최적 역할·접근법 자동 제안. 「리뷰해줘」「코드 품질 체크」「최적 접근법은?」등으로 기동."
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
-## 상황 분석 후 최적 역할·접근법 자동 제안
+# 상황 분석 후 최적 역할·접근법 자동 제안
 
 현재 상황을 분석하여 최적인 역할·접근법을 자동 제안하는 명령어입니다.
 
-### 사용법
+## 사용법
 
 ```bash
 /smart-review                    # 현재 디렉터리를 분석
 /smart-review <파일/디렉터리> # 특정 대상을 분석
 ```
 
-### 자동 판정 로직
+## 자동 판정 로직
 
-### 파일 확장자를 통한 판정
+## 파일 확장자를 통한 판정
 
 - `package.json`, `*.tsx`, `*.jsx`, `*.css`, `*.scss` → **frontend**
 - `Dockerfile`, `docker-compose.yml`, `*.yaml` → **architect**
 - `*.test.js`, `*.spec.ts`, `test/`, `__tests__/` → **qa**
 - `*.rs`, `Cargo.toml`, `performance/` → **performance**
 
-### 보안 관련 파일 검출
+## 보안 관련 파일 검출
 
 - `auth.js`, `security.yml`, `.env`, `config/auth/` → **security**
 - `login.tsx`, `signup.js`, `jwt.js` → **security + frontend**
 - `api/auth/`, `middleware/auth/` → **security + architect**
 
-### 복합 판정 패턴
+## 복합 판정 패턴
 
 - `mobile/` + `*.swift`, `*.kt`, `react-native/` → **mobile**
 - `webpack.config.js`, `vite.config.js`, `large-dataset/` → **performance**
 - `components/` + `responsive.css` → **frontend + mobile**
 - `api/` + `auth/` → **security + architect**
 
-### 에러·문제 분석
+## 에러·문제 분석
 
 - 스택 트레이스, `error.log`, `crash.log` → **analyzer**
 - `memory leak`, `high CPU`, `slow query` → **performance + analyzer**
 - `SQL injection`, `XSS`, `CSRF` → **security + analyzer**
 
-### 제안 패턴
+## 제안 패턴
 
-### 단일 역할 제안
+## 단일 역할 제안
 
 ```bash
 $ /smart-review src/auth/login.js
@@ -52,7 +56,7 @@ $ /smart-review src/auth/login.js
 → 「실행하시겠습니까? [y]es / [n]o / [m]ore options」
 ```
 
-### 복수 역할 제안
+## 복수 역할 제안
 
 ```bash
 $ /smart-review src/mobile/components/
@@ -64,7 +68,7 @@ $ /smart-review src/mobile/components/
 → 「[4] role-debate mobile,frontend」
 ```
 
-### 문제 분석 시 제안
+## 문제 분석 시 제안
 
 ```bash
 $ /smart-review error.log
@@ -77,7 +81,7 @@ $ /smart-review slow-api.log
 → 「권장: [1]/role performance [2]/role-debate performance,analyzer」
 ```
 
-### 복잡한 설계 결정 시 제안
+## 복잡한 설계 결정 시 제안
 
 ```bash
 $ /smart-review architecture-design.md
@@ -87,9 +91,9 @@ $ /smart-review architecture-design.md
 → 「[대안] /multi-role architect,security,performance」
 ```
 
-### 제안 로직의 상세
+## 제안 로직의 상세
 
-### 우선순위 판정
+## 우선순위 판정
 
 1. **Security** - 인증·인가·암호화 관련은 최우선
 2. **Critical Errors** - 시스템 정지·데이터 손실은 긴급
@@ -98,14 +102,14 @@ $ /smart-review architecture-design.md
 5. **Frontend/Mobile** - UI/UX 개선
 6. **QA** - 품질 보증·테스트 관련
 
-### 토론 권장 조건
+## 토론 권장 조건
 
 - 3 개 이상의 역할이 관련된 경우
 - 보안 vs 성능의 트레이드오프가 있는 경우
 - 아키텍처의 대폭 변경이 포함된 경우
 - 모바일 + 웹 양쪽에 영향이 있는 경우
 
-### 기본 예제
+## 기본 예제
 
 ```bash
 # 현재 디렉터리를 분석
@@ -121,9 +125,9 @@ $ /smart-review architecture-design.md
 「이 에러의 해결에 최적인 접근법을 제안하세요」
 ```
 
-### 실제 예제
+## 실제 예제
 
-### 프로젝트 전체의 분석
+## 프로젝트 전체의 분석
 
 ```bash
 $ /smart-review
@@ -140,7 +144,7 @@ $ /smart-review
 → 「자동 실행하시겠습니까? [y]es / [s]elect role / [c]ustom」
 ```
 
-### 특정 문제의 분석
+## 특정 문제의 분석
 
 ```bash
 $ /smart-review "JWT 의 유효기간을 어떻게 설정해야 할까"
@@ -152,7 +156,7 @@ $ /smart-review "JWT 의 유효기간을 어떻게 설정해야 할까"
 → 「이유: 보안·성능·UX 의 균형이 중요」
 ```
 
-### Claude 와의 연계
+## Claude 와의 연계
 
 ```bash
 # 파일 내용과 조합한 분석
@@ -170,7 +174,7 @@ npm run build 2>&1 | tee build-error.log
 「React Native 와 Progressive Web App 중 어느 것을 선택해야 할지 토론하세요」
 ```
 
-### 주의사항
+## 주의사항
 
 - 제안은 참고 정보입니다. 최종적인 판단은 사용자가 수행하세요
 - 복잡한 문제일수록 토론 형식(role-debate)을 권장합니다

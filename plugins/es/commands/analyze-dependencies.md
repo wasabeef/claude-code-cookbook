@@ -1,21 +1,21 @@
-## Analizar dependencias del proyecto y evaluar salud arquitectónica
+# Analizar dependencias del proyecto y evaluar salud arquitectónica
 
 Analiza las dependencias de tu proyecto y verifica la salud de la arquitectura.
 
-### Uso
+## Uso
 
 ```bash
 /dependency-analysis [opciones]
 ```
 
-### Opciones
+## Opciones
 
 - `--visual`: Mostrar dependencias visualmente
 - `--circular`: Detectar solo dependencias circulares
 - `--depth <número>`: Especificar profundidad de análisis (por defecto: 3)
 - `--focus <ruta>`: Enfocarse en módulo/directorio específico
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Analizar dependencias de todo el proyecto
@@ -28,9 +28,9 @@ Analiza las dependencias de tu proyecto y verifica la salud de la arquitectura.
 /dependency-analysis --focus src/core --depth 5
 ```
 
-### Qué Se Analiza
+## Qué Se Analiza
 
-#### 1. Matriz de Dependencias
+### 1. Matriz de Dependencias
 
 Muestra cómo los módulos se conectan entre sí:
 
@@ -39,21 +39,21 @@ Muestra cómo los módulos se conectan entre sí:
 - Profundidad de dependencias
 - Fan-in/fan-out
 
-#### 2. Violaciones de Arquitectura
+### 2. Violaciones de Arquitectura
 
 - Violaciones de capas (cuando capas inferiores dependen de superiores)
 - Dependencias circulares
 - Acoplamiento excesivo (demasiadas conexiones)
 - Módulos huérfanos
 
-#### 3. Verificación de Clean Architecture
+### 3. Verificación de Clean Architecture
 
 - ¿Es independiente la capa de dominio?
 - ¿Está la infraestructura separada correctamente?
 - ¿Fluyen correctamente las dependencias de casos de uso?
 - ¿Se están usando las interfaces correctamente?
 
-### Ejemplo de Salida
+## Ejemplo de Salida
 
 ```text
 Reporte de Análisis de Dependencias
@@ -82,7 +82,7 @@ Reporte de Análisis de Dependencias
 [Diagrama visual de dependencias mostrado en arte ASCII]
 ```
 
-### Ejemplos de Uso Avanzado
+## Ejemplos de Uso Avanzado
 
 ```bash
 # Verificaciones automáticas CI/CD
@@ -95,7 +95,7 @@ Reporte de Análisis de Dependencias
 /dependency-analysis --compare HEAD~10
 ```
 
-### Ejemplo de Archivo de Configuración (.dependency-analysis.yml)
+## Ejemplo de Archivo de Configuración (.dependency-analysis.yml)
 
 ```yaml
 rules:
@@ -118,14 +118,14 @@ ignore:
   - "**/mocks/**"
 ```
 
-### Herramientas Que Usamos
+## Herramientas Que Usamos
 
 - `madge`: Muestra dependencias de JavaScript/TypeScript visualmente
 - `dep-cruiser`: Verifica reglas de dependencias
 - `nx`: Gestiona dependencias de monorepo
 - `plato`: Analiza complejidad y dependencias juntas
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Verificar dependencias con package.json
@@ -144,13 +144,13 @@ cat docs/architecture.md
 "¿Nuestra implementación coincide con los documentos de arquitectura?"
 ```
 
-### Notas
+## Notas
 
 - **Ejecutar desde**: Directorio raíz del proyecto
 - **Ten paciencia**: Los proyectos grandes toman tiempo para analizar
 - **Actúa rápido**: Corrige las dependencias circulares tan pronto como las encuentres
 
-### Mejores Prácticas
+## Mejores Prácticas
 
 1. **Verificar semanalmente**: Mantén un ojo en la salud de las dependencias
 2. **Escribir reglas**: Pon las reglas de arquitectura en archivos de configuración

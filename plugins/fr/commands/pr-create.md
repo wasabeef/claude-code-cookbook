@@ -1,8 +1,8 @@
-## Créer automatiquement une PR basée sur l'analyse des changements
+# Créer automatiquement une PR
 
 Crée automatiquement des Pull Requests en analysant vos modifications Git pour un flux de travail plus fluide.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Créer automatiquement une PR à partir de vos modifications
@@ -18,7 +18,7 @@ gh pr ready
 "Switch to Ready for Review after checking quality"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # 1. Créer une branche et committer
@@ -38,9 +38,9 @@ git push -u origin feat-user-profile
 "Once CI is green, mark the PR as Ready for Review"
 ```
 
-### Étapes d'exécution
+## Étapes d'exécution
 
-#### 1. Créer une branche
+### 1. Créer une branche
 
 ```bash
 # Nomenclature des branches : {type}-{subject}
@@ -52,7 +52,7 @@ git checkout -b feat-user-authentication
 git branch --show-current
 ```
 
-#### 2. Committer
+### 2. Committer
 
 ```bash
 # Préparer vos modifications
@@ -62,7 +62,7 @@ git add .
 git commit -m "feat: Implement user authentication API"
 ```
 
-#### 3. Pousser vers le distant
+### 3. Pousser vers le distant
 
 ```bash
 # Premier push (définit l'upstream)
@@ -72,7 +72,7 @@ git push -u origin feat-user-authentication
 git push
 ```
 
-#### 4. Créer un brouillon de PR avec analyse automatique
+### 4. Créer un brouillon de PR avec analyse automatique
 
 **Étape 1 : Analyser les modifications**
 
@@ -137,16 +137,16 @@ mcp__github__create_pull_request({
 });
 ```
 
-### Système de sélection automatique de labels
+## Système de sélection automatique de labels
 
-#### Détermination à partir des motifs de fichiers
+### Détermination à partir des motifs de fichiers
 
 - **Documentation** : `*.md`, `README`, `docs/` → `documentation|docs|doc`
 - **Tests** : `test`, `spec` → `test|testing`
 - **CI/CD** : `.github/`, `*.yml`, `Dockerfile` → `ci|build|infra|ops`
 - **Dépendances** : `package.json`, `pubspec.yaml` → `dependencies|deps`
 
-#### Détermination à partir du contenu
+### Détermination à partir du contenu
 
 - **Corrections de bugs** : `fix|bug|error|crash|repair` → `bug|fix`
 - **Nouvelles fonctionnalités** : `feat|feature|add|implement|new-feature|implementation` → `feature|enhancement|feat`
@@ -154,15 +154,15 @@ mcp__github__create_pull_request({
 - **Performance** : `performance|perf|optimize` → `performance|perf`
 - **Sécurité** : `security|secure` → `security`
 
-#### Contraintes
+### Contraintes
 
 - **Max 3 labels** : Limite supérieure pour la sélection automatique
 - **Labels existants uniquement** : Interdit de créer de nouveaux labels
 - **Correspondance partielle** : Déterminée par l'inclusion de mots-clés dans les noms de labels
 
-### Directives du projet
+## Directives du projet
 
-#### Approche de base
+### Approche de base
 
 1. **Toujours commencer en brouillon** : Toutes les PR doivent être créées à l'état Draft
 2. **Amélioration progressive de la qualité** : Phase 1 (Implémentation de base) → Phase 2 (Ajouter des tests) → Phase 3 (Mettre à jour la documentation)
@@ -170,7 +170,7 @@ mcp__github__create_pull_request({
 4. **Utiliser les modèles** : Toujours utiliser `.github/PULL_REQUEST_TEMPLATE.md`
 5. **Espacement japonais** : Toujours ajouter un espace demi-chasse entre le texte japonais et les alphanumériques
 
-#### Convention de nomenclature des branches
+### Convention de nomenclature des branches
 
 ```text
 {type}-{subject}
@@ -181,7 +181,7 @@ Exemples :
 - refactor-api-client
 ```
 
-#### Messages de commit
+### Messages de commit
 
 ```text
 {type}: {description}
@@ -192,15 +192,15 @@ Exemples :
 - docs: Update README
 ```
 
-### Système de traitement des modèles
+## Système de traitement des modèles
 
-#### Priorité de traitement
+### Priorité de traitement
 
 1. **Description PR existante** : Conserver tout ce qui est déjà écrit
 2. **Modèle du projet** : Utiliser `.github/PULL_REQUEST_TEMPLATE.md`
 3. **Modèle par défaut** : Utiliser ceci si rien d'autre n'existe
 
-#### Règles de préservation du contenu existant
+### Règles de préservation du contenu existant
 
 - **Ne pas toucher au contenu existant** : Laisser ce qui est déjà là tel quel
 - **Remplir seulement les blancs** : Ajouter du contenu seulement là où il manque
@@ -208,7 +208,7 @@ Exemples :
 - **Conserver les commentaires HTML** : Tous les `<!-- ... -->` restent tels quels
 - **Conserver les séparateurs** : Les éléments comme `---` restent en place
 
-#### Gestion de la préservation des commentaires HTML
+### Gestion de la préservation des commentaires HTML
 
 **Attention** : GitHub CLI (`gh pr edit`) échappe les commentaires HTML, et le traitement du shell peut créer des problèmes avec des chaînes comme `EOF < /dev/null`.
 
@@ -218,7 +218,7 @@ Exemples :
 2. **Rester simple** : Éviter les pipes et redirections complexes
 3. **Ne rien supprimer** : Conserver tous les commentaires HTML et modèles intacts
 
-### Réponses aux commentaires de revue
+## Réponses aux commentaires de revue
 
 ```bash
 # Committer vos corrections
@@ -227,21 +227,21 @@ git commit -m "fix: Address review feedback"
 git push
 ```
 
-### Notes
+## Notes
 
-#### Importance de la préservation des commentaires HTML
+### Importance de la préservation des commentaires HTML
 
 - **Problème GitHub CLI** : `gh pr edit` échappe les commentaires HTML et peut casser les choses
 - **La solution** : Utiliser l'option `--field` de l'API GitHub pour une gestion appropriée
 - **Tout conserver** : Ne pas supprimer les commentaires HTML - conserver tout le modèle
 
-#### Contraintes d'automatisation
+### Contraintes d'automatisation
 
 - **Pas de nouveaux labels** : Ne peut utiliser que les labels de `.github/labels.yml`
 - **3 labels max** : C'est la limite pour la sélection automatique
 - **Ne pas toucher au contenu manuel** : Ne jamais changer ce que quelqu'un a écrit
 
-#### Qualité étape par étape
+### Qualité étape par étape
 
 - **Commencer avec brouillon** : Chaque PR commence comme brouillon
 - **Vérifier la CI** : Exécuter `gh pr checks` pour voir le statut

@@ -1,8 +1,8 @@
-## 管理多語言 docstring 和註解
+# 管理多語言 docstring 和註解
 
 系統地管理多語言的 docstring/注釋，維護高質量的文檔。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 自動檢測語言並執行
@@ -16,13 +16,13 @@
 「為 src/components/ 下的函數添加 JSDoc」
 ```
 
-### 選項
+## 選項
 
 - `--lang <en|zh-tw>` : 文檔記述語言 (默認：從現有注釋自動判定，無則為 en)
 - `--style <風格>` : 指定文檔風格 (有語言特定的默認值)
 - `--marker <true|false>` : 是否添加 Claude 標記 (默認：true)
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 1. 分析目標文件 (自動檢測編程語言)
@@ -41,9 +41,9 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart"
 「確認所有添加或更新的 docstring 都有 Claude 標記」
 ```
 
-### 執行步骤
+## 執行步骤
 
-#### 1. 目標元素的優先級
+### 1. 目標元素的優先級
 
 1. 🔴 **最優先**: 没有 docstring/注釋的元素 (注釋行數為 0)
 2. 🟡 **次優先**: 不符合標準的元素 (少于 30 個字符或缺少必要元素)
@@ -57,7 +57,7 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart"
 - Enum/枚舉類型
 - Interface/接口 (TypeScript, Go)
 
-#### 2. 語言特定編寫規則
+### 2. 語言特定編寫規則
 
 **Python (PEP 257)**：
 
@@ -150,7 +150,7 @@ pub fn calculate_total(items: &[Item]) -> f64 {
 class UserProfileWidget extends StatelessWidget {
 ```
 
-#### 3. 現有內容保留規則
+### 3. 現有內容保留規則
 
 1. **現有注釋符合標準時**: 保持原樣 (不新增)
    - 標準：30 個字符以上且包含必要元素 (概要、詳细、標記)
@@ -165,7 +165,7 @@ class UserProfileWidget extends StatelessWidget {
 - 使用示例：`Example:`、`例:`、`# Examples` 等
 - 現有的參數和返回值說明
 
-### 語言特定設置
+## 語言特定設置
 
 ```yaml
 # 語言特定默認設置
@@ -203,7 +203,7 @@ languages:
     prefix: "///"
 ```
 
-### 質量檢查清單
+## 質量檢查清單
 
 - ✅ **字符數**: 严格遵守概要 30-60 個字符、詳细 50-200 個字符
 - ✅ **必要元素**: 必须包含概要、詳细說明、Claude 標記三個元素
@@ -212,7 +212,7 @@ languages:
 - ✅ **異常**: 錯誤和異常的說明 (如適用)
 - ✅ **準確性**: 分析實現，仅記載基于事實的描述
 
-### 注意事項
+## 注意事項
 
 **🔴 绝對禁止事項**：
 
@@ -264,7 +264,7 @@ echo "- 更新的注釋：$UPDATED_COMMENTS 條"
 echo "- 錯誤數：$ERRORS 個"
 ```
 
-### 執行成功標準
+## 執行成功標準
 
 1. **完成判定**: 满足以下所有條件時成功
    - 語言特定的靜態分析顯示 PASSED
@@ -279,7 +279,7 @@ echo "- 錯誤數：$ERRORS 個"
    - 靜態分析顯示 FAILED
    - 錯誤數為 5 個或以上
 
-### 與 Claude 配合
+## 與 Claude 配合
 
 ```bash
 # 分析整個項目 (自動判定語言)

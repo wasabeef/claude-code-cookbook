@@ -1,14 +1,14 @@
-## 建议设计模式并评估 SOLID 原则
+# 建议设计模式并评估 SOLID 原则
 
 提出可应用于代码库的设计模式，评估 SOLID 原则的遵守情况。
 
-### 使用方法
+## 使用方法
 
 ```bash
 /design-patterns [分析对象] [选项]
 ```
 
-### 选项
+## 选项
 
 - `--suggest` : 提出可应用的模式 (默认)
 - `--analyze` : 分析现有模式的使用情况
@@ -16,7 +16,7 @@
 - `--solid` : 检查 SOLID 原则的遵守情况
 - `--anti-patterns` : 检测反模式
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 整个项目的模式分析
@@ -32,30 +32,30 @@
 /design-patterns --anti-patterns
 ```
 
-### 分析类别
+## 分析类别
 
-#### 1. 创建型模式
+### 1. 创建型模式
 
 - **Factory Pattern**: 对象创建的抽象化
 - **Builder Pattern**: 复杂对象的分步构建
 - **Singleton Pattern**: 保证实例的唯一性
 - **Prototype Pattern**: 对象的克隆生成
 
-#### 2. 结构型模式
+### 2. 结构型模式
 
 - **Adapter Pattern**: 接口转换
 - **Decorator Pattern**: 动态添加功能
 - **Facade Pattern**: 简化复杂子系统
 - **Proxy Pattern**: 对象访问控制
 
-#### 3. 行为型模式
+### 3. 行为型模式
 
 - **Observer Pattern**: 事件通知的实现
 - **Strategy Pattern**: 算法切换
 - **Command Pattern**: 操作封装
 - **Iterator Pattern**: 集合遍历
 
-### SOLID 原则检查项
+## SOLID 原则检查项
 
 ```text
 S - Single Responsibility Principle (单一职责原则)
@@ -65,7 +65,7 @@ I - Interface Segregation Principle (接口隔离原则)
 D - Dependency Inversion Principle (依赖倒置原则)
 ```
 
-### 输出示例
+## 输出示例
 
 ```text
 设计模式分析报告
@@ -108,7 +108,7 @@ SOLID 原则违反
 4. 按用途拆分 IDataStore
 ```
 
-### 高级用法
+## 高级用法
 
 ```bash
 # 模式应用的影响分析
@@ -124,9 +124,9 @@ SOLID 原则违反
 /design-patterns --architecture MVC
 ```
 
-### 模式应用示例
+## 模式应用示例
 
-#### Before (有问题的代码)
+### Before (有问题的代码)
 
 ```javascript
 class OrderService {
@@ -141,7 +141,7 @@ class OrderService {
 }
 ```
 
-#### After (应用 Strategy Pattern)
+### After (应用 Strategy Pattern)
 
 ```javascript
 // 策略接口
@@ -170,7 +170,7 @@ class OrderService {
 }
 ```
 
-### 反模式检测
+## 反模式检测
 
 - **God Object**: 承担过多职责的类
 - **Spaghetti Code**: 控制流复杂纠缠的代码
@@ -178,7 +178,7 @@ class OrderService {
 - **Magic Numbers**: 硬编码的常量
 - **Callback Hell**: 深度嵌套的回调
 
-### 最佳实践
+## 最佳实践
 
 1. **渐进式应用**: 不要一次应用太多模式
 2. **必要性验证**: 模式是解决问题的手段而非目的

@@ -1,8 +1,8 @@
-## Verificar precisão de informações contra código e documentação
+# Verificar precisão de informações contra código e documentação
 
 Comando para verificar a precisão de informações fornecidas, referenciando a base de código do projeto e documentação (docs/, README.md, etc.).
 
-### Uso
+## Uso
 
 ```bash
 # Uso básico
@@ -15,7 +15,7 @@ Comando para verificar a precisão de informações fornecidas, referenciando a 
 /check-fact "A autenticação usa JWT e não usa Firebase Auth"
 ```
 
-### Processo de Verificação
+## Processo de Verificação
 
 1. **Prioridade das Fontes de Informação**
    - Base de código (mais confiável)
@@ -34,7 +34,7 @@ Comando para verificar a precisão de informações fornecidas, referenciando a 
    - Trechos de código relevantes
    - Seção correspondente da documentação
 
-### Formato do Relatório
+## Formato do Relatório
 
 ```text
 ## Resultado da Verificação de Fatos
@@ -56,7 +56,7 @@ Comando para verificar a precisão de informações fornecidas, referenciando a 
 [Se não pode julgar, explicar informação em falta]
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Verificação da stack tecnológica do projeto
@@ -72,7 +72,7 @@ Comando para verificar a precisão de informações fornecidas, referenciando a 
 /check-fact "Tokens de autenticação são armazenados criptografados no secure storage"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Verificação após análise completa da base de código
@@ -88,7 +88,7 @@ cat README.md
 /check-fact "Todas as funcionalidades descritas no README estão implementadas"
 ```
 
-### Cenários de Uso
+## Cenários de Uso
 
 - Criação de especificações técnicas: Verificação da precisão do conteúdo
 - Transferência de projeto: Verificação de compreensão da implementação existente
@@ -96,7 +96,7 @@ cat README.md
 - Escrita de blog técnico: Verificação da precisão do conteúdo do artigo
 - Criação de materiais para entrevista/apresentação: Verificação da precisão do resumo do projeto
 
-### Observações
+## Observações
 
 - A base de código é a fonte de informação mais confiável
 - Quando a documentação está desatualizada, a implementação tem prioridade

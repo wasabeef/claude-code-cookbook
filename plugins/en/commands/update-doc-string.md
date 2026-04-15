@@ -1,8 +1,8 @@
-## Manage multilingual docstrings and comments
+# Manage multilingual docstrings and comments
 
 Systematically manage multilingual docstrings/comments and maintain high-quality documentation.
 
-### Usage
+## Usage
 
 ```bash
 # Run with automatic language detection
@@ -16,13 +16,13 @@ Systematically manage multilingual docstrings/comments and maintain high-quality
 "Please add JSDoc to functions under src/components/"
 ```
 
-### Options
+## Options
 
 - `--lang <language>` : Documentation language (default: en)
 - `--style <style>` : Specify documentation style (has language-specific defaults)
 - `--marker <true|false>` : Whether to add Claude markers (default: true)
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # 1. Analyze target files (programming language is auto-detected)
@@ -41,9 +41,9 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart"
 "Please confirm that all added/updated docstrings have Claude markers"
 ```
 
-### Execution Steps
+## Execution Steps
 
-#### 1. Priority of Target Elements
+### 1. Priority of Target Elements
 
 1. 🔴 **Highest Priority**: Elements without docstrings/comments (0 comment lines)
 2. 🟡 **Next Priority**: Elements not meeting standards (fewer than 30 characters or missing required elements)
@@ -57,7 +57,7 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart"
 - Enums
 - Interfaces (TypeScript, Go)
 
-#### 2. Language-Specific Documentation Rules
+### 2. Language-Specific Documentation Rules
 
 **Python (PEP 257)**:
 
@@ -150,7 +150,7 @@ pub fn calculate_total(items: &[Item]) -> f64 {
 class UserProfileWidget extends StatelessWidget {
 ```
 
-#### 3. Existing Content Retention Rules
+### 3. Existing Content Retention Rules
 
 1. **If existing comments meet standards**: Keep as-is (do not add new ones)
    - Standards: At least 30 characters and includes required elements (summary, details, marker)
@@ -165,7 +165,7 @@ class UserProfileWidget extends StatelessWidget {
 - Examples: `Example:`, `Usage:`, `# Examples` etc.
 - Existing parameter and return value descriptions
 
-### Language-Specific Settings
+## Language-Specific Settings
 
 ```yaml
 # Language-specific default settings
@@ -203,7 +203,7 @@ languages:
     prefix: "///"
 ```
 
-### Quality Checklist
+## Quality Checklist
 
 - ✅ **Character Count**: Strictly adhere to 30-60 characters for summary, 50-200 for details
 - ✅ **Required Elements**: Always include summary, detailed description, and Claude marker
@@ -212,7 +212,7 @@ languages:
 - ✅ **Exceptions**: Explain errors and exceptions (when applicable)
 - ✅ **Accuracy**: Analyze implementation and only include fact-based descriptions
 
-### Notes
+## Notes
 
 **🔴 Strict Prohibitions**:
 
@@ -264,7 +264,7 @@ echo "- Updated Comments: $UPDATED_COMMENTS"
 echo "- Errors: $ERRORS"
 ```
 
-### Success Criteria
+## Success Criteria
 
 1. **Completion Criteria**: Success when all of the following are met:
    - Language-specific static analysis PASSED
@@ -279,7 +279,7 @@ echo "- Errors: $ERRORS"
    - Static analysis FAILED
    - Error count is 5 or more
 
-### Integration with Claude
+## Integration with Claude
 
 ```bash
 # Analyze entire project (auto language detection)

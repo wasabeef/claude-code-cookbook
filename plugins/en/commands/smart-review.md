@@ -1,45 +1,45 @@
-## Auto-suggest optimal role and approach
+# Auto-suggest optimal role and approach
 
 A command that analyzes the current situation and automatically suggests the optimal role and approach.
 
-### Usage
+## Usage
 
 ```bash
 /smart-review                    # Analyze current directory
 /smart-review <file/directory>   # Analyze specific target
 ```
 
-### Automatic Analysis Logic
+## Automatic Analysis Logic
 
-### Analysis by File Extension
+## Analysis by File Extension
 
 - `package.json`, `*.tsx`, `*.jsx`, `*.css`, `*.scss` → **frontend**
 - `Dockerfile`, `docker-compose.yml`, `*.yaml` → **architect**
 - `*.test.js`, `*.spec.ts`, `test/`, `__tests__/` → **qa**
 - `*.rs`, `Cargo.toml`, `performance/` → **performance**
 
-### Security-related File Detection
+## Security-related File Detection
 
 - `auth.js`, `security.yml`, `.env`, `config/auth/` → **security**
 - `login.tsx`, `signup.js`, `jwt.js` → **security + frontend**
 - `api/auth/`, `middleware/auth/` → **security + architect**
 
-### Complex Analysis Patterns
+## Complex Analysis Patterns
 
 - `mobile/` + `*.swift`, `*.kt`, `react-native/` → **mobile**
 - `webpack.config.js`, `vite.config.js`, `large-dataset/` → **performance**
 - `components/` + `responsive.css` → **frontend + mobile**
 - `api/` + `auth/` → **security + architect**
 
-### Error/Problem Analysis
+## Error/Problem Analysis
 
 - Stack traces, `error.log`, `crash.log` → **analyzer**
 - `memory leak`, `high CPU`, `slow query` → **performance + analyzer**
 - `SQL injection`, `XSS`, `CSRF` → **security + analyzer**
 
-### Suggestion Patterns
+## Suggestion Patterns
 
-### Single Role Suggestion
+## Single Role Suggestion
 
 ```bash
 $ /smart-review src/auth/login.js
@@ -48,7 +48,7 @@ $ /smart-review src/auth/login.js
 → "Execute? [y]es / [n]o / [m]ore options"
 ```
 
-### Multiple Role Suggestion
+## Multiple Role Suggestion
 
 ```bash
 $ /smart-review src/mobile/components/
@@ -60,7 +60,7 @@ $ /smart-review src/mobile/components/
 → "[4] role-debate mobile,frontend"
 ```
 
-### Suggestions for Problem Analysis
+## Suggestions for Problem Analysis
 
 ```bash
 $ /smart-review error.log
@@ -73,7 +73,7 @@ $ /smart-review slow-api.log
 → "Recommended: [1]/role performance [2]/role-debate performance,analyzer"
 ```
 
-### Suggestions for Complex Design Decisions
+## Suggestions for Complex Design Decisions
 
 ```bash
 $ /smart-review architecture-design.md
@@ -83,9 +83,9 @@ $ /smart-review architecture-design.md
 → "[Alternative] /multi-role architect,security,performance"
 ```
 
-### Suggestion Logic Details
+## Suggestion Logic Details
 
-### Priority Assessment
+## Priority Assessment
 
 1. **Security** - Authentication, authorization, and encryption are top priorities
 2. **Critical Errors** - System outages and data loss are urgent
@@ -94,14 +94,14 @@ $ /smart-review architecture-design.md
 5. **Frontend/Mobile** - UI/UX improvements
 6. **QA** - Quality assurance and testing
 
-### Conditions for Recommending Debate
+## Conditions for Recommending Debate
 
 - When 3 or more roles are involved
 - When there's a trade-off between security and performance
 - When significant architectural changes are involved
 - When both mobile and web are affected
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Analyze current directory
@@ -117,9 +117,9 @@ $ /smart-review architecture-design.md
 "Suggest the best approach to resolve this error"
 ```
 
-### Practical Examples
+## Practical Examples
 
-### Project-wide Analysis
+## Project-wide Analysis
 
 ```bash
 $ /smart-review
@@ -136,7 +136,7 @@ $ /smart-review
 → "Auto-execute? [y]es / [s]elect role / [c]ustom"
 ```
 
-### Specific Problem Analysis
+## Specific Problem Analysis
 
 ```bash
 $ /smart-review "How to set JWT expiration time"
@@ -148,7 +148,7 @@ $ /smart-review "How to set JWT expiration time"
 → "Reason: Balance between security, performance, and UX is important"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Analysis combined with file content
@@ -166,7 +166,7 @@ npm run build 2>&1 | tee build-error.log
 "Discuss whether to choose React Native or Progressive Web App"
 ```
 
-### Notes
+## Notes
 
 - Suggestions are for reference only. The final decision is up to the user
 - Debate format (role-debate) is recommended for complex issues

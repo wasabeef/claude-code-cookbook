@@ -1,12 +1,19 @@
 ---
-description: "Node.js 依存関係の安全な更新"
+description: "Node.js プロジェクトの依存関係を安全に更新する。「npm のパッケージを更新して」「Node.js の依存関係を更新」「package.json を最新化」「依存関係をアップデート」などで起動。"
+allowed-tools:
+  - Bash(npm *)
+  - Bash(npx *)
+  - Bash(yarn *)
+  - Bash(pnpm *)
+  - Read
+  - Edit
 ---
 
-## Node.js 依存関係の安全な更新
+# Node.js 依存関係の安全な更新
 
 Node.js プロジェクトの依存関係を安全に更新します。
 
-### 使い方
+## 使い方
 
 ```bash
 # 依存関係の状態を確認して Claude に依頼
@@ -14,7 +21,7 @@ npm outdated
 「package.json の依存関係を最新バージョンに更新して」
 ```
 
-### 基本例
+## 基本例
 
 ```bash
 # 現在の依存関係を確認
@@ -26,7 +33,7 @@ npm outdated
 「これらのパッケージの更新における危険度を分析して」
 ```
 
-### Claude との連携
+## Claude との連携
 
 ```bash
 # 包括的な依存関係更新
@@ -46,7 +53,7 @@ npm outdated
 「express を最新バージョンに更新した場合の影響と必要な変更を教えて」
 ```
 
-### 詳細例
+## 詳細例
 
 ```bash
 # Release Notes を含む詳細分析
@@ -63,7 +70,7 @@ cat package.json tsconfig.json
 「TypeScript の型定義も含めて依存関係を更新し、型エラーが発生しないように更新計画を立てて」
 ```
 
-### 危険度の基準
+## 危険度の基準
 
 ```text
 安全 (🟢)：
@@ -82,7 +89,7 @@ cat package.json tsconfig.json
 - API の削除・変更
 ```
 
-### 更新の実行
+## 更新の実行
 
 ```bash
 # バックアップ作成
@@ -98,7 +105,7 @@ npm run build
 npm audit
 ```
 
-### 注意事項
+## 注意事項
 
 更新後は必ず動作確認を実施してください。問題が発生した場合は以下で復元：
 

@@ -1,8 +1,8 @@
-## Gerenciar docstrings e comentários multilíngue
+# Gerenciar docstrings e comentários multilíngue
 
 Gerencia sistematicamente docstrings/comentários multilíngues e mantém documentação de alta qualidade.
 
-### Uso
+## Uso
 
 ```bash
 # Executar com detecção automática de idioma
@@ -16,13 +16,13 @@ Gerencia sistematicamente docstrings/comentários multilíngues e mantém docume
 "Adicione JSDoc às funções em src/components/"
 ```
 
-### Opções
+## Opções
 
 - `--lang <en|pt>` : Idioma de descrição da documentação (padrão: detecção automática dos comentários existentes, pt se não houver)
 - `--style <estilo>` : Especificar estilo de documentação (com padrões específicos por idioma)
 - `--marker <true|false>` : Se deve adicionar marcadores Claude (padrão: true)
 
-### Exemplos básicos
+## Exemplos básicos
 
 ```bash
 # 1. Análise de arquivos alvo (detecção automática da linguagem de programação)
@@ -41,9 +41,9 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart"
 "Confirme que todas as docstrings adicionadas/atualizadas possuem marcadores Claude"
 ```
 
-### Procedimento de execução
+## Procedimento de execução
 
-#### 1. Prioridade dos elementos alvo
+### 1. Prioridade dos elementos alvo
 
 1. 🔴 **Máxima prioridade**: Elementos sem docstring/comentários (0 linhas de comentário)
 2. 🟡 **Próxima prioridade**: Elementos que não atendem aos critérios (menos de 30 caracteres ou falta elementos essenciais)
@@ -57,7 +57,7 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart"
 - Enum/tipos enumerados
 - Interface/interfaces (TypeScript, Go)
 
-#### 2. Regras de escrita por idioma
+### 2. Regras de escrita por idioma
 
 **Python (PEP 257)**:
 
@@ -150,7 +150,7 @@ pub fn calculate_total(items: &[Item]) -> f64 {
 class UserProfileWidget extends StatelessWidget {
 ```
 
-#### 3. Regras de preservação de conteúdo existente
+### 3. Regras de preservação de conteúdo existente
 
 1. **Quando comentário existente atende aos critérios**: Preservar como está (não adicionar novo)
    - Critérios: 30+ caracteres e contém elementos essenciais (resumo, detalhes, marcador)
@@ -165,7 +165,7 @@ class UserProfileWidget extends StatelessWidget {
 - Exemplos de uso: `Example:`, `Exemplo:`, `# Examples` etc.
 - Descrições existentes de parâmetros e valores de retorno
 
-### Configurações por idioma
+## Configurações por idioma
 
 ```yaml
 # Configurações padrão por idioma
@@ -203,7 +203,7 @@ languages:
     prefix: "///"
 ```
 
-### Lista de verificação de qualidade
+## Lista de verificação de qualidade
 
 - ✅ **Contagem de caracteres**: Respeitar rigorosamente resumo 30-60 caracteres, detalhes 50-200 caracteres
 - ✅ **Elementos essenciais**: Incluir obrigatoriamente 3 elementos: resumo, descrição detalhada, marcador Claude
@@ -212,7 +212,7 @@ languages:
 - ✅ **Exceções**: Descrição de erros e exceções (quando aplicável)
 - ✅ **Precisão**: Analisar implementação e descrever apenas fatos
 
-### Observações
+## Observações
 
 **🔴 Itens absolutamente proibidos**:
 
@@ -264,7 +264,7 @@ echo "- Comentários atualizados: $UPDATED_COMMENTS itens"
 echo "- Número de erros: $ERRORS itens"
 ```
 
-### Critérios de sucesso da execução
+## Critérios de sucesso da execução
 
 1. **Determinação de conclusão**: Sucesso quando atende a todos os seguintes
    - Análise estática específica da linguagem PASSOU
@@ -279,7 +279,7 @@ echo "- Número de erros: $ERRORS itens"
    - Análise estática FALHOU
    - Número de erros 5 ou mais
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Análise de projeto inteiro (detecção automática de idioma)

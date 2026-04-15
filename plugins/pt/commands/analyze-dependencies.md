@@ -1,21 +1,21 @@
-## Analisar dependências do projeto e avaliar saúde arquitetural
+# Analisar dependências do projeto e avaliar saúde arquitetural
 
 Analisa as dependências do projeto e avalia a saúde da arquitetura.
 
-### Uso
+## Uso
 
 ```bash
 /dependency-analysis [opções]
 ```
 
-### Opções
+## Opções
 
 - `--visual` : Exibe as dependências visualmente
 - `--circular` : Detecta apenas dependências circulares
 - `--depth <número>` : Especifica a profundidade da análise (padrão: 3)
 - `--focus <caminho>` : Foca em um módulo/diretório específico
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Análise completa das dependências do projeto
@@ -28,9 +28,9 @@ Analisa as dependências do projeto e avalia a saúde da arquitetura.
 /dependency-analysis --focus src/core --depth 5
 ```
 
-### Itens de Análise
+## Itens de Análise
 
-#### 1. Matriz de Dependências
+### 1. Matriz de Dependências
 
 Exibe as dependências entre módulos de forma numerizada:
 
@@ -39,21 +39,21 @@ Exibe as dependências entre módulos de forma numerizada:
 - Profundidade das dependências
 - Fan-in/Fan-out
 
-#### 2. Detecção de Violações Arquiteturais
+### 2. Detecção de Violações Arquiteturais
 
 - Violações de camadas (camada inferior dependendo da superior)
 - Dependências circulares
 - Acoplamento excessivo (alta dependência)
 - Módulos isolados
 
-#### 3. Verificação de Conformidade com Clean Architecture
+### 3. Verificação de Conformidade com Clean Architecture
 
 - Independência da camada de domínio
 - Separação adequada da camada de infraestrutura
 - Direção das dependências da camada de casos de uso
 - Status da aplicação de interfaces
 
-### Exemplo de Saída
+## Exemplo de Saída
 
 ```text
 Relatório de Análise de Dependências
@@ -82,7 +82,7 @@ Relatório de Análise de Dependências
 [Exibe diagrama visual de dependências em ASCII art]
 ```
 
-### Exemplos de Uso Avançado
+## Exemplos de Uso Avançado
 
 ```bash
 # Verificação automática em pipeline CI/CD
@@ -95,7 +95,7 @@ Relatório de Análise de Dependências
 /dependency-analysis --compare HEAD~10
 ```
 
-### Exemplo de Arquivo de Configuração (.dependency-analysis.yml)
+## Exemplo de Arquivo de Configuração (.dependency-analysis.yml)
 
 ```yaml
 rules:
@@ -118,14 +118,14 @@ ignore:
   - "**/mocks/**"
 ```
 
-### Ferramentas de Integração
+## Ferramentas de Integração
 
 - `madge` : Visualização de dependências JavaScript/TypeScript
 - `dep-cruiser` : Validação de regras de dependências
 - `nx` : Gerenciamento de dependências em monorepo
 - `plato` : Análise integrada de complexidade e dependências
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Análise incluindo package.json
@@ -144,13 +144,13 @@ cat docs/architecture.md
 「Verifique a divergência entre o documento de design e a implementação」
 ```
 
-### Observações
+## Observações
 
 - **Pré-requisitos**: Deve ser executado na raiz do projeto
 - **Limitações**: Em projetos grandes, a análise pode demorar
 - **Recomendação**: Se dependências circulares forem encontradas, considere ação imediata
 
-### Melhores Práticas
+## Melhores Práticas
 
 1. **Análise regular**: Verifique a saúde das dependências semanalmente
 2. **Formalização de regras**: Gerencie regras arquiteturais em arquivos de configuração

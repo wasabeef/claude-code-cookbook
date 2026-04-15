@@ -1,15 +1,15 @@
-## Processo de pensamento passo a passo para problemas complexos
+# Pensamento passo a passo para problemas complexos
 
 Resolve problemas complexos gradualmente através de processo de pensamento dinâmico e iterativo. Abordagem flexível que permite mudanças de direção e revisões no meio do pensamento.
 
-### Como usar
+## Como usar
 
 ```bash
 # Solicitar pensamento sequencial ao Claude
 "Considere [questão] usando sequential-thinking"
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Design de algoritmos
@@ -22,7 +22,7 @@ Resolve problemas complexos gradualmente através de processo de pensamento din�
 "Considere design de sistema de notificações em tempo real usando sequential-thinking"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Política de implementação complexa
@@ -39,7 +39,7 @@ cat src/complex_module.js
 "Analise escolha de framework frontend usando sequential-thinking. Considerando requisitos e restrições do projeto"
 ```
 
-### Processo de Pensamento
+## Processo de Pensamento
 
 1. **Análise inicial** - Compreensão e decomposição básica do problema
 2. **Geração de hipóteses** - Estabelece hipóteses para soluções
@@ -47,7 +47,7 @@ cat src/complex_module.js
 4. **Ramificação e exploração** - Explora múltiplos caminhos de solução
 5. **Integração e conclusão** - Deduz solução ótima
 
-### Características
+## Características
 
 - **Ajuste dinâmico** - Possível mudar direção no meio do pensamento
 - **Verificação de hipóteses** - Ciclo de estabelecer e verificar hipóteses
@@ -55,7 +55,7 @@ cat src/complex_module.js
 - **Refinamento gradual** - Refina gradualmente as soluções
 - **Flexibilidade** - Mudança de política baseada em novas informações
 
-### Exemplos Detalhados
+## Exemplos Detalhados
 
 ```bash
 # Design complexo de sistema
@@ -71,11 +71,11 @@ cat src/complex_module.js
 "Considere estratégia de gerenciamento de dependências de monorepo usando sequential-thinking. Inclua tempo de build, deploy e execução de testes"
 ```
 
-### Observações
+## Observações
 
 sequential-thinking é ideal para problemas complexos que requerem aprofundar gradualmente o pensamento. Para perguntas simples ou quando há respostas claras, use o formato de pergunta normal.
 
-### Exemplo de Execução
+## Exemplo de Execução
 
 ```bash
 # Exemplo de uso

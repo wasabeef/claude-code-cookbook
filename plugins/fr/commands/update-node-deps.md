@@ -1,8 +1,8 @@
-## Mettre à jour les dépendances Node.js en toute sécurité
+# Mettre à jour les dépendances Node.js en toute sécurité
 
 Met à jour en toute sécurité les dépendances de votre projet Node.js.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Vérifier le statut des dépendances et demander l'aide de Claude
@@ -10,7 +10,7 @@ npm outdated
 "Please update the dependencies in package.json to their latest versions"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Vérifier les dépendances actuelles
@@ -22,7 +22,7 @@ npm outdated
 "Analyze the risk level of updating these packages"
 ```
 
-### Intégration avec Claude
+## Intégration avec Claude
 
 ```bash
 # Mise à jour complète des dépendances
@@ -42,7 +42,7 @@ npm outdated
 "Tell me the impact and necessary changes when updating express to the latest version"
 ```
 
-### Exemples détaillés
+## Exemples détaillés
 
 ```bash
 # Analyse détaillée incluant les notes de version
@@ -58,7 +58,7 @@ cat package.json tsconfig.json
 "Update dependencies including TypeScript type definitions and create an update plan that avoids type errors"
 ```
 
-### Critères de risque
+## Critères de risque
 
 ```text
 Sûr (🟢) :
@@ -77,7 +77,7 @@ Dangereux (🔴) :
 - Suppression ou modification d'API
 ```
 
-### Exécution de la mise à jour
+## Exécution de la mise à jour
 
 ```bash
 # Créer des sauvegardes
@@ -93,7 +93,7 @@ npm run build
 npm audit
 ```
 
-### Notes
+## Notes
 
 Toujours vérifier la fonctionnalité après les mises à jour. En cas de problème, restaurer avec :
 

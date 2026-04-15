@@ -1,25 +1,27 @@
 ---
-description: "Capturer et analyser des captures d'écran macOS"
+description: "Capturer et analyser des captures d'écran. Se déclenche avec « capture d'écran », « screenshot »."
+allowed-tools:
+  - Bash(screencapture *)
 ---
 
-## Capturer et analyser des captures d'écran macOS
+# Capturer et analyser des captures d'écran
 
 Capture des captures d'écran sur macOS et analyse les images.
 
-### Utilisation
+## Utilisation
 
 ```bash
 /screenshot [options]
 ```
 
-### Options
+## Options
 
 - Aucune : Sélectionner une fenêtre (Claude confirmera les options)
 - `--window` : Capturer une fenêtre spécifique
 - `--full` : Capturer tout l'écran
 - `--crop` : Sélectionner une région à capturer
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Capturer et analyser une fenêtre
@@ -35,7 +37,7 @@ Capture des captures d'écran sur macOS et analyse les images.
 "Analyze the overall screen composition"
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Aucun problème spécifique - analyse de situation
@@ -63,7 +65,7 @@ Capture des captures d'écran sur macOS et analyse les images.
 "Analyze trends visible in this graph"
 ```
 
-### Exemples détaillés
+## Exemples détaillés
 
 ```bash
 # Analyse depuis plusieurs perspectives
@@ -86,13 +88,13 @@ Capture des captures d'écran sur macOS et analyse les images.
 "Evaluate whether the selected button design harmonizes with other elements"
 ```
 
-### Éléments interdits
+## Éléments interdits
 
 - **Interdit de dire "capturé" quand aucune capture d'écran n'a été prise**
 - **Interdit de tenter l'analyse de fichiers image inexistants**
 - **La commande `/screenshot` ne capture pas réellement de captures d'écran**
 
-### Notes
+## Notes
 
 - Si aucune option n'est spécifiée, veuillez présenter les choix suivants :
 

@@ -1,14 +1,14 @@
-## デザインパターン提案と SOLID 原則評価
+# デザインパターン提案と SOLID 原則評価
 
 コードベースに適用可能なデザインパターンを提案し、SOLID 原則の遵守状況を評価します。
 
-### 使い方
+## 使い方
 
 ```bash
 /design-patterns [分析対象] [オプション]
 ```
 
-### オプション
+## オプション
 
 - `--suggest` : 適用可能なパターンを提案 (デフォルト)
 - `--analyze` : 既存パターンの使用状況を分析
@@ -16,7 +16,7 @@
 - `--solid` : SOLID 原則の遵守状況をチェック
 - `--anti-patterns` : アンチパターンを検出
 
-### 基本例
+## 基本例
 
 ```bash
 # プロジェクト全体のパターン分析
@@ -32,30 +32,30 @@
 /design-patterns --anti-patterns
 ```
 
-### 分析カテゴリ
+## 分析カテゴリ
 
-#### 1. 生成に関するパターン
+### 1. 生成に関するパターン
 
 - **Factory Pattern**: オブジェクト生成の抽象化
 - **Builder Pattern**: 複雑なオブジェクトの段階的構築
 - **Singleton Pattern**: インスタンスの一意性保証
 - **Prototype Pattern**: オブジェクトのクローン生成
 
-#### 2. 構造に関するパターン
+### 2. 構造に関するパターン
 
 - **Adapter Pattern**: インターフェースの変換
 - **Decorator Pattern**: 機能の動的追加
 - **Facade Pattern**: 複雑なサブシステムの簡略化
 - **Proxy Pattern**: オブジェクトへのアクセス制御
 
-#### 3. 振る舞いに関するパターン
+### 3. 振る舞いに関するパターン
 
 - **Observer Pattern**: イベント通知の実装
 - **Strategy Pattern**: アルゴリズムの切り替え
 - **Command Pattern**: 操作のカプセル化
 - **Iterator Pattern**: コレクションの走査
 
-### SOLID 原則チェック項目
+## SOLID 原則チェック項目
 
 ```text
 S - Single Responsibility Principle (単一責任の原則)
@@ -65,7 +65,7 @@ I - Interface Segregation Principle (インターフェース分離の原則)
 D - Dependency Inversion Principle (依存性逆転の原則)
 ```
 
-### 出力例
+## 出力例
 
 ```text
 デザインパターン分析レポート
@@ -108,7 +108,7 @@ SOLID 原則違反
 4. IDataStore を用途別に分離
 ```
 
-### 高度な使用例
+## 高度な使用例
 
 ```bash
 # パターン適用の影響分析
@@ -124,9 +124,9 @@ SOLID 原則違反
 /design-patterns --architecture MVC
 ```
 
-### パターン適用例
+## パターン適用例
 
-#### Before (問題のあるコード)
+### Before (問題のあるコード)
 
 ```javascript
 class OrderService {
@@ -141,7 +141,7 @@ class OrderService {
 }
 ```
 
-#### After (Strategy Pattern 適用)
+### After (Strategy Pattern 適用)
 
 ```javascript
 // 戦略インターフェース
@@ -170,7 +170,7 @@ class OrderService {
 }
 ```
 
-### アンチパターン検出
+## アンチパターン検出
 
 - **God Object**: 過度に多くの責務を持つクラス
 - **Spaghetti Code**: 制御フローが複雑に絡み合ったコード
@@ -178,7 +178,7 @@ class OrderService {
 - **Magic Numbers**: ハードコードされた定数
 - **Callback Hell**: 深くネストしたコールバック
 
-### ベストプラクティス
+## ベストプラクティス
 
 1. **段階的適用**: 一度に多くのパターンを適用しない
 2. **必要性の検証**: パターンは問題解決の手段であり目的ではない

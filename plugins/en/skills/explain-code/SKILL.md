@@ -1,12 +1,15 @@
 ---
-description: "Explain code behavior in detail"
+description: 'Explain code behavior in detail. Trigger with "explain this code", "what does this do?", "how does this work?", "what is this function for?", "explain the logic".'
+allowed-tools:
+  - Read
+  - Grep
 ---
 
-## Explain code behavior in detail
+# Explain code behavior in detail
 
 Explains how code works in detail.
 
-### Usage
+## Usage
 
 ```bash
 # Show a file and ask for explanation
@@ -14,7 +17,7 @@ cat <file>
 "Explain how this code works"
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Understand Rust ownership
@@ -30,7 +33,7 @@ cat factory.rs
 "What design pattern is this? What are the benefits?"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Beginner-friendly explanation
@@ -50,7 +53,7 @@ cat auth_handler.go
 "What security issues do you see?"
 ```
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Complex logic breakdown
@@ -74,7 +77,7 @@ ls -la src/ && cat src/main.rs src/lib.rs
 "Explain how this project is structured"
 ```
 
-### What You'll Get
+## What You'll Get
 
 Not just what the code does, but also:
 

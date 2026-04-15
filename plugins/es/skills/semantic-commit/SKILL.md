@@ -1,24 +1,28 @@
 ---
-description: "Dividir cambios en unidades semánticas y hacer commit"
+description: 'Dividir cambios en unidades semánticas y hacer commit. Se activa con "commit", "dividir y commit", "commit semántico".'
+allowed-tools:
+  - Bash(git *)
+  - Read
+  - Grep
 ---
 
-## Dividir cambios en unidades semánticas y hacer commit
+# Dividir cambios en unidades semánticas y hacer commit
 
 Divide cambios grandes en commits pequeños y significativos con mensajes apropiados. Usa solo comandos git estándar.
 
-### Uso
+## Uso
 
 ```bash
 /semantic-commit [opciones]
 ```
 
-### Opciones
+## Opciones
 
 - `--dry-run`: Mostrar divisiones de commit propuestas sin hacer commit realmente
 - `--lang <idioma>`: Forzar idioma para mensajes de commit (en, es)
 - `--max-commits <número>`: Especificar número máximo de commits (por defecto: 10)
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Analizar cambios actuales y hacer commit en unidades lógicas
@@ -37,16 +41,16 @@ Divide cambios grandes en commits pequeños y significativos con mensajes apropi
 /semantic-commit --max-commits 5
 ```
 
-### Cómo Funciona
+## Cómo Funciona
 
 1. **Analizar Cambios**: Verificar qué cambió con `git diff HEAD`
 2. **Agrupar Archivos**: Juntar archivos relacionados
 3. **Crear Mensajes**: Escribir mensajes de commit semánticos para cada grupo
 4. **Commit Paso a Paso**: Hacer commit de cada grupo después de tu aprobación
 
-### Cuándo Dividir Cambios
+## Cuándo Dividir Cambios
 
-#### Qué Hace un Cambio "Grande"
+### Qué Hace un Cambio "Grande"
 
 Dividimos cuando vemos:
 
@@ -65,9 +69,9 @@ if [ $CHANGED_FILES -ge 5 ] || [ $CHANGED_LINES -ge 100 ]; then
 fi
 ```
 
-#### Cómo Dividir en Commits Pequeños y Significativos
+### Cómo Dividir en Commits Pequeños y Significativos
 
-##### 1. División por Límites Funcionales
+#### 1. División por Límites Funcionales
 
 ```bash
 # Identificar unidades funcionales desde estructura de directorios
@@ -75,7 +79,7 @@ git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq
 # → src/auth, src/api, components/ui, etc.
 ```
 
-##### 2. Separación por Tipo de Cambio
+#### 2. Separación por Tipo de Cambio
 
 ```bash
 # Archivos nuevos vs modificaciones de archivos existentes
@@ -84,7 +88,7 @@ git diff HEAD --name-status | grep '^M' # Archivos modificados
 git diff HEAD --name-status | grep '^D' # Archivos eliminados
 ```
 
-##### 3. Análisis de Dependencias
+#### 3. Análisis de Dependencias
 
 ```bash
 # Detectar cambios de relación de imports
@@ -92,7 +96,7 @@ git diff HEAD | grep -E '^[+-].*import|^[+-].*require' | \
 cut -d' ' -f2- | sort | uniq
 ```
 
-#### Análisis Detallado de Archivos
+### Análisis Detallado de Archivos
 
 ```bash
 # Obtener lista de archivos cambiados
@@ -112,7 +116,7 @@ git diff HEAD --name-status | while read status file; do
 done
 ```
 
-#### Cómo Agrupar Archivos
+### Cómo Agrupar Archivos
 
 1. **Por Característica**: Mantener funciones relacionadas juntas
    - archivos `src/auth/` → Autenticación
@@ -131,7 +135,7 @@ done
    - Máx 10 archivos por commit
    - Mantener archivos relacionados juntos
 
-### Ejemplo de Salida
+## Ejemplo de Salida
 
 ```bash
 $ /semantic-commit
@@ -174,7 +178,7 @@ Archivos incluidos:
 ¿Ejecutar commit con este plan de división? (y/n/edit):
 ```
 
-### Tus Opciones
+## Tus Opciones
 
 - `y`: Ir con la división propuesta
 - `n`: Cancelar todo
@@ -182,7 +186,7 @@ Archivos incluidos:
 - `merge <número1> <número2>`: Combinar commits
 - `split <número>`: Dividir más un commit
 
-### Modo Dry Run
+## Modo Dry Run
 
 ```bash
 $ /semantic-commit --dry-run
@@ -196,14 +200,14 @@ Analizando cambios... (DRY RUN)
 💡 Para ejecutar, ejecutar nuevamente sin opción --dry-run
 ```
 
-### Características Inteligentes
+## Características Inteligentes
 
-#### 1. Entiende tu Proyecto
+### 1. Entiende tu Proyecto
 
 - Detecta tipo de proyecto desde archivos de configuración
 - Descubre características desde estructura de carpetas
 
-#### 2. Reconocimiento de Patrones de Cambio
+### 2. Reconocimiento de Patrones de Cambio
 
 ```bash
 # Detectar patrones de corrección de errores
@@ -217,17 +221,17 @@ Analizando cambios... (DRY RUN)
 - Adiciones de endpoints API
 ```
 
-#### 3. Análisis de Dependencias
+### 3. Análisis de Dependencias
 
 - Cambios a declaraciones import
 - Adición/modificación de definiciones de tipos
 - Relación con archivos de configuración
 
-### Cómo Está Construido
+## Cómo Está Construido
 
-#### Commits Paso a Paso con Git
+### Commits Paso a Paso con Git
 
-##### 1. Preprocesamiento: Guardar Estado Actual
+#### 1. Preprocesamiento: Guardar Estado Actual
 
 ```bash
 # Resetear cambios unstaged si los hay
@@ -239,7 +243,7 @@ CURRENT_BRANCH=$(git branch --show-current)
 echo "Rama de trabajo: $CURRENT_BRANCH"
 ```
 
-##### 2. Ejecución de Commit Secuencial por Grupo
+#### 2. Ejecución de Commit Secuencial por Grupo
 
 ```bash
 # Leer plan de división
@@ -286,7 +290,7 @@ while IFS= read -r commit_plan; do
 done < /tmp/commit_plan.txt
 ```
 
-##### 3. Manejo de Errores y Rollback
+#### 3. Manejo de Errores y Rollback
 
 ```bash
 # Manejar fallos de pre-commit hook
@@ -335,7 +339,7 @@ resume_from_failure() {
 }
 ```
 
-##### 4. Verificación Post-Completado
+#### 4. Verificación Post-Completado
 
 ```bash
 # Verificar todos los cambios committed
@@ -352,7 +356,7 @@ echo "Commits creados:"
 git log --oneline -n 10 --graph
 ```
 
-##### 5. Suprimir Push Automático
+#### 5. Suprimir Push Automático
 
 ```bash
 # Nota: Sin push automático
@@ -361,9 +365,9 @@ echo "Si es necesario, hacer push con el siguiente comando:"
 echo "  git push origin $CURRENT_BRANCH"
 ```
 
-#### Detalles del Algoritmo de División
+### Detalles del Algoritmo de División
 
-##### Paso 1: Análisis Inicial
+#### Paso 1: Análisis Inicial
 
 ```bash
 # Obtener y clasificar todos los archivos cambiados
@@ -375,7 +379,7 @@ done > /tmp/changes.txt
 git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq -c
 ```
 
-##### Paso 2: Agrupación Inicial por Límites Funcionales
+#### Paso 2: Agrupación Inicial por Límites Funcionales
 
 ```bash
 # Agrupación basada en directorios
@@ -386,7 +390,7 @@ for group in $GROUPS; do
 done
 ```
 
-##### Paso 3: Analizar Similitud de Cambios
+#### Paso 3: Analizar Similitud de Cambios
 
 ```bash
 # Analizar tipo de cambio para cada archivo
@@ -410,7 +414,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### Paso 4: Ajustes Basados en Dependencias
+#### Paso 4: Ajustes Basados en Dependencias
 
 ```bash
 # Analizar relaciones import
@@ -429,7 +433,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### Paso 5: Optimización de Tamaño de Commit
+#### Paso 5: Optimización de Tamaño de Commit
 
 ```bash
 # Ajustar tamaño de grupo
@@ -447,7 +451,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### Paso 6: Determinar Grupos Finales
+#### Paso 6: Determinar Grupos Finales
 
 ```bash
 # Verificar resultados de división
@@ -458,9 +462,9 @@ for group in $(seq 1 $current_group); do
 done
 ```
 
-### Cumplimiento con Conventional Commits
+## Cumplimiento con Conventional Commits
 
-#### Formato Básico
+### Formato Básico
 
 ```text
 <tipo>[ámbito opcional]: <descripción>
@@ -470,7 +474,7 @@ done
 [pie(s) opcional(es)]
 ```
 
-#### Tipos Estándar
+### Tipos Estándar
 
 **Tipos Requeridos**:
 
@@ -488,7 +492,7 @@ done
 - `perf`: Mejoras de rendimiento
 - `test`: Agregando o modificando pruebas
 
-#### Ámbito (Opcional)
+### Ámbito (Opcional)
 
 Indica el área afectada del cambio:
 
@@ -498,7 +502,7 @@ fix(ui): resolver problema de alineación de botón
 docs(readme): actualizar instrucciones de instalación
 ```
 
-#### Cambio Disruptivo
+### Cambio Disruptivo
 
 Cuando hay cambios disruptivos de API:
 
@@ -513,11 +517,11 @@ o
 feat(api)!: cambiar flujo de autenticación
 ```
 
-#### Detectar Automáticamente Convenciones del Proyecto
+### Detectar Automáticamente Convenciones del Proyecto
 
 **Importante**: Si existen convenciones específicas del proyecto, tienen prioridad.
 
-##### 1. Verificar Configuración CommitLint
+#### 1. Verificar Configuración CommitLint
 
 Detectar automáticamente configuración de los siguientes archivos:
 
@@ -538,7 +542,7 @@ cat .commitlintrc.json
 grep -A 10 '"commitlint"' package.json
 ```
 
-##### 2. Detectar Tipos Personalizados
+#### 2. Detectar Tipos Personalizados
 
 Ejemplo de tipos específicos del proyecto:
 
@@ -569,7 +573,7 @@ export default {
 };
 ```
 
-##### 3. Detectar Configuraciones de Idioma
+#### 3. Detectar Configuraciones de Idioma
 
 ```javascript
 // Cuando el proyecto usa mensajes en español
@@ -581,7 +585,7 @@ export default {
 };
 ```
 
-#### Flujo de Análisis Automático
+### Flujo de Análisis Automático
 
 1. **Búsqueda de Archivo de Configuración**
 
@@ -603,9 +607,9 @@ export default {
    sort | uniq -c | sort -nr
    ```
 
-#### Ejemplos de Convenciones de Proyecto
+### Ejemplos de Convenciones de Proyecto
 
-##### Estilo Angular
+#### Estilo Angular
 
 ```text
 feat(scope): agregar nueva característica
@@ -613,7 +617,7 @@ fix(scope): corregir bug
 docs(scope): actualizar documentación
 ```
 
-##### Estilo Combinado con Gitmoji
+#### Estilo Combinado con Gitmoji
 
 ```text
 ✨ feat: agregar registro de usuario
@@ -621,7 +625,7 @@ docs(scope): actualizar documentación
 📚 docs: actualizar docs de API
 ```
 
-##### Proyectos en Español
+#### Proyectos en Español
 
 ```text
 feat: agregar funcionalidad de registro de usuario
@@ -629,7 +633,7 @@ fix: resolver bug del proceso de login
 docs: actualizar documentación de API
 ```
 
-### Detección de Idioma
+## Detección de Idioma
 
 Cómo determinamos tu idioma:
 
@@ -666,7 +670,7 @@ Cómo determinamos tu idioma:
    git diff HEAD | grep -E '^[+-].*//.*[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' | wc -l
    ```
 
-#### Algoritmo de Determinación
+### Algoritmo de Determinación
 
 ```bash
 # Calcular puntuación de idioma
@@ -704,9 +708,9 @@ else
 fi
 ```
 
-### Auto-Carga de Configuración
+## Auto-Carga de Configuración
 
-#### Qué Sucede en Tiempo de Ejecución
+### Qué Sucede en Tiempo de Ejecución
 
 Verificamos archivos de configuración en este orden:
 
@@ -739,19 +743,19 @@ Verificamos archivos de configuración en este orden:
    head -20
    ```
 
-### Requisitos
+## Requisitos
 
 - Debe estar en un repo Git
 - Necesitar cambios sin commit
 - Los cambios staged se resetean temporalmente
 
-### Importante
+## Importante
 
 - **No hará push**: Necesitas hacer `git push` tú mismo
 - **Misma rama**: Los commits permanecen en la rama actual
 - **Hacer backup primero**: Considerar `git stash` por seguridad
 
-### Qué Reglas Ganan
+## Qué Reglas Ganan
 
 Al hacer mensajes de commit, seguimos este orden:
 
@@ -773,7 +777,7 @@ Al hacer mensajes de commit, seguimos este orden:
 4. **Estándar Conventional Commits** (respaldo)
    - Comportamiento estándar cuando no se encuentran configuraciones
 
-### Mejores Prácticas
+## Mejores Prácticas
 
 1. **Seguir las reglas**: Usar patrones existentes
 2. **Mantenerlo pequeño**: Un cambio lógico por commit
@@ -782,7 +786,7 @@ Al hacer mensajes de commit, seguimos este orden:
 5. **Tests separados**: Commits de test por su cuenta
 6. **Usar configs**: CommitLint ayuda a los equipos a mantenerse consistentes
 
-#### Análisis de Ejemplos de Configuración
+### Análisis de Ejemplos de Configuración
 
 **commitlint.config.mjs estándar**:
 
@@ -845,7 +849,7 @@ export default {
 };
 ```
 
-#### Comportamiento de Respaldo
+### Comportamiento de Respaldo
 
 Cuando no se encuentra archivo de configuración:
 
@@ -868,7 +872,7 @@ Cuando no se encuentra archivo de configuración:
    - Commits en español > 50% → Modo español
    - Otros → Modo inglés
 
-#### Ejemplos de Detección de Convenciones
+### Ejemplos de Detección de Convenciones
 
 **Detección automática de scope en Monorepo**:
 
@@ -913,9 +917,9 @@ ls packages/ | head -10
 }
 ```
 
-### Ejemplos Reales de División (Antes/Después)
+## Ejemplos Reales de División (Antes/Después)
 
-#### Ejemplo 1: Agregando Sistema de Autenticación Grande
+### Ejemplo 1: Agregando Sistema de Autenticación Grande
 
 **Antes (1 commit gigante):**
 
@@ -995,7 +999,7 @@ Archivos incluidos:
 Razón: Documentación y configuración agrupadas al final
 ```
 
-#### Ejemplo 2: Corrección de Bug y Refactorización Mezcladas
+### Ejemplo 2: Corrección de Bug y Refactorización Mezcladas
 
 **Antes (commit problemático mezclado):**
 
@@ -1048,7 +1052,7 @@ Archivos incluidos:
 Razón: Mantenimiento del entorno de desarrollo agrupado al final
 ```
 
-#### Ejemplo 3: Desarrollo Simultáneo de Múltiples Características
+### Ejemplo 3: Desarrollo Simultáneo de Múltiples Características
 
 **Antes (commit gigante cruzando características):**
 
@@ -1115,7 +1119,7 @@ Archivos incluidos:
 Razón: Actualizaciones de dependencias comunes agrupadas al final
 ```
 
-### Comparación de Efectos de División
+## Comparación de Efectos de División
 
 | Elemento                | Antes (Commits Gigantes)                   | Después (División Apropiada)                        |
 | ----------------------- | ------------------------------------------ | --------------------------------------------------- |
@@ -1125,15 +1129,15 @@ Razón: Actualizaciones de dependencias comunes agrupadas al final
 | **Desarrollo paralelo** | ❌ Propenso a conflictos                   | ✅ Fácil merge por características                  |
 | **Despliegue**          | ❌ Despliegue de todas las características | ✅ Despliegue gradual posible                       |
 
-### Solución de Problemas
+## Solución de Problemas
 
-#### Cuando el commit falla
+### Cuando el commit falla
 
 - Verificar hooks de pre-commit
 - Resolver dependencias
 - Reintentar con archivos individuales
 
-#### Cuando la división no es apropiada
+### Cuando la división no es apropiada
 
 - Ajustar con opción `--max-commits`
 - Usar modo `edit` manual

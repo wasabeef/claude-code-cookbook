@@ -76,110 +76,110 @@ cat devin/playbooks/code-review.md
 
 ---
 
-## 📋 Elementos de Verificación Comprensivos
+# Evaluar y mejorar calidad de prompts de IA
 
-### 1. 📐 Estructura y Claridad (Peso: 25 puntos)
+## 1. 📐 Estructura y Claridad (Peso: 25 puntos)
 
-#### 1.1 Indicación de Prioridad de Instrucciones (8 puntos)
+### 1.1 Indicación de Prioridad de Instrucciones (8 puntos)
 
 - [ ] Prioridades 🔴🟡🟢 están claramente indicadas para todas las instrucciones importantes
 - [ ] Condiciones para nivel de parada de ejecución están específica y claramente definidas
 - [ ] Criterios para cada nivel de prioridad son objetivos y verificables
 
-#### 1.2 Eliminación Completa de Expresiones Ambiguas (9 puntos)
+### 1.2 Eliminación Completa de Expresiones Ambiguas (9 puntos)
 
 - [ ] **Expresiones ambiguas fatales**: 0 instancias de "En principio", "Recomendado", "Si es posible"
 - [ ] **Uso de expresiones obligatorias**: Uso apropiado de "Siempre", "Absolutamente", "Observar estrictamente"
 - [ ] **Limitación numérica de condiciones de excepción**: Límites claros como "Solo 3 condiciones"
 
-#### 1.3 Integración Estratégica de Información (8 puntos)
+### 1.3 Integración Estratégica de Información (8 puntos)
 
 - [ ] Dispersión en múltiples ubicaciones de información importante está completamente eliminada
 - [ ] Instrucciones relacionadas están lógicamente integradas en una sección
 - [ ] El panorama general está completamente resumido en la lista de verificación de ejecución
 
-### 2. 🎯 Ejecutabilidad (Peso: 20 puntos)
+## 2. 🎯 Ejecutabilidad (Peso: 20 puntos)
 
-#### 2.1 Completitud de Procedimientos Específicos (7 puntos)
+### 2.1 Completitud de Procedimientos Específicos (7 puntos)
 
 - [ ] Todos los ejemplos de comandos son realmente ejecutables y verificados
 - [ ] Variables de entorno, prerrequisitos y dependencias están claramente establecidos
 - [ ] Métodos de manejo de errores son específicos y ejecutables
 
-#### 2.2 Asegurar Verificabilidad (7 puntos)
+### 2.2 Asegurar Verificabilidad (7 puntos)
 
 - [ ] Éxito/falla de resultados de ejecución puede determinarse objetivamente
 - [ ] Ejemplos de salida, formatos de log y valores esperados se muestran específicamente
 - [ ] Métodos de prueba y procedimientos de verificación pueden implementarse
 - [ ] Puntos de verificación de resultados intermedios están apropiadamente colocados
 
-#### 2.3 Adaptabilidad a Automatización (6 puntos)
+### 2.3 Adaptabilidad a Automatización (6 puntos)
 
 - [ ] Formato fácil para scriptización e integración CI/CD
 - [ ] Separación clara entre puntos de juicio humano y ejecución AI
 - [ ] Correspondencia a procesamiento por lotes y ejecución paralela
 
-### 3. 🚫 Clarificación de Elementos Prohibidos (Peso: 15 puntos)
+## 3. 🚫 Clarificación de Elementos Prohibidos (Peso: 15 puntos)
 
-#### 3.1 Sistematización de Prohibiciones Absolutas (8 puntos)
+### 3.1 Sistematización de Prohibiciones Absolutas (8 puntos)
 
 - [ ] Lista completa de operaciones que no deben realizarse
 - [ ] Indicación explícita de nivel de impacto (menor/mayor/fatal) para cada violación
 - [ ] Presentación específica de alternativas y métodos de evitación
 - [ ] Explicación del fundamento técnico de los elementos prohibidos
 
-#### 3.2 Limitación Estricta de Condiciones de Excepción (7 puntos)
+### 3.2 Limitación Estricta de Condiciones de Excepción (7 puntos)
 
 - [ ] Condiciones para permitir excepciones son específicas y limitadas (especificación numérica)
 - [ ] Criterios de juicio objetivos como "Completamente duplicado", "Explícitamente establecido"
 - [ ] Límites claros sin dejar zonas grises
 - [ ] Indicación explícita de condiciones adicionales y restricciones al aplicar excepciones
 
-### 4. 📊 Mecanismos de Aseguramiento de Calidad (Peso: 20 puntos)
+## 4. 📊 Mecanismos de Aseguramiento de Calidad (Peso: 20 puntos)
 
-#### 4.1 Completitud del Sistema de Seguimiento (8 puntos)
+### 4.1 Completitud del Sistema de Seguimiento (8 puntos)
 
 - [ ] Función de registro automático y recolección de estadísticas para todos los resultados de ejecución
 - [ ] Función de verificación para prevenir técnicamente reportes falsos
 - [ ] Funciones de monitoreo en tiempo real y alertas
 - [ ] Función de prevención de alteración de logs de auditoría
 
-#### 4.2 Cumplimiento Forzado de Plantillas (7 puntos)
+### 4.2 Cumplimiento Forzado de Plantillas (7 puntos)
 
 - [ ] Definición clara de elementos obligatorios y función de verificación
 - [ ] Restricción técnica de ubicaciones prohibidas para personalización
 - [ ] Puntos de verificación automatizados para confirmación de cumplimiento
 - [ ] Función automática de corrección y advertencia para violaciones
 
-#### 4.3 Cobertura Comprensiva de Manejo de Errores (5 puntos)
+### 4.3 Cobertura Comprensiva de Manejo de Errores (5 puntos)
 
 - [ ] Catalogación completa de patrones de error esperados
 - [ ] Proceso de manejo gradual durante errores
 - [ ] Prevención técnica de reportar fallas como éxitos
 
-### 5. 🎭 Clarificación de Roles y Responsabilidades (Peso: 10 puntos)
+## 5. 🎭 Clarificación de Roles y Responsabilidades (Peso: 10 puntos)
 
-#### 5.1 Alcance de Autoridad del Agente AI (5 puntos)
+### 5.1 Alcance de Autoridad del Agente AI (5 puntos)
 
 - [ ] Límites claros entre operaciones ejecutables y prohibidas
 - [ ] Alcance específico y restricciones de autoridad de juicio
 - [ ] Separación clara de operaciones que requieren confirmación humana
 
-#### 5.2 Unificación del Sistema de Clasificación (5 puntos)
+### 5.2 Unificación del Sistema de Clasificación (5 puntos)
 
 - [ ] Claridad, unicidad y exclusividad de definiciones de clasificación
 - [ ] Explicación explícita para prevenir malentendidos sobre importancia entre clasificaciones
 - [ ] Ejemplos específicos de uso de cada clasificación y diagramas de flujo de juicio
 
-### 6. 🔄 Mejora Continua (Peso: 10 puntos)
+## 6. 🔄 Mejora Continua (Peso: 10 puntos)
 
-#### 6.1 Automatización de Recolección de Retroalimentación (5 puntos)
+### 6.1 Automatización de Recolección de Retroalimentación (5 puntos)
 
 - [ ] Extracción automática de puntos de mejora de logs de ejecución
 - [ ] Análisis basado en machine learning de patrones de falla
 - [ ] Mecanismo de actualización automática de mejores prácticas
 
-#### 6.2 Implementación de Función de Aprendizaje (5 puntos)
+### 6.2 Implementación de Función de Aprendizaje (5 puntos)
 
 - [ ] Detección automática y clasificación de nuevos patrones
 - [ ] Monitoreo continuo de efectividad de reglas existentes
@@ -189,21 +189,21 @@ cat devin/playbooks/code-review.md
 
 ## 🚨 Patrones de Problemas Fatales (Corrección Inmediata Requerida)
 
-### ❌ Nivel 1: Ambigüedad Fatal (Nivel de Parada de Ejecución)
+## ❌ Nivel 1: Ambigüedad Fatal (Nivel de Parada de Ejecución)
 
 - **Instrucciones con múltiples interpretaciones**: "Usa tu juicio", "Dependiendo de la situación", "En principio"
 - **Condiciones de excepción ambiguas**: "En casos especiales", "Según sea necesario"
 - **Criterios de juicio subjetivos**: "Apropiadamente", "Suficientemente", "Tanto como sea posible"
 - **Conceptos importantes no definidos**: "Estándar", "General", "Básico"
 
-### ❌ Nivel 2: Defectos Estructurales (Nivel Importante de Calidad)
+## ❌ Nivel 2: Defectos Estructurales (Nivel Importante de Calidad)
 
 - **Dispersión de información**: Información importante relacionada dispersa en 3 o más ubicaciones
 - **Referencias circulares**: Bucles infinitos de sección A→B→C→A
 - **Instrucciones contradictorias**: Instrucciones contradictorias en diferentes secciones
 - **Orden de ejecución poco claro**: Procedimientos con dependencias poco claras
 
-### ❌ Nivel 3: Degradación de Calidad (Nivel de Mejora Recomendada)
+## ❌ Nivel 3: Degradación de Calidad (Nivel de Mejora Recomendada)
 
 - **No verificabilidad**: Criterios poco claros para juicio de éxito/falla
 - **Dificultad en automatización**: Diseño dependiente de juicio subjetivo humano
@@ -214,7 +214,7 @@ cat devin/playbooks/code-review.md
 
 ## 🎯 Métodos de Mejora Probados
 
-### ✅ Enfoque de Mejora Gradual
+## ✅ Enfoque de Mejora Gradual
 
 1. **Análisis de situación actual**: Clasificación, priorización y evaluación de impacto de problemas
 2. **Prioridad de problemas fatales**: Máxima prioridad en resolución completa de problemas de Nivel 1
@@ -222,7 +222,7 @@ cat devin/playbooks/code-review.md
 4. **Medición de efectos**: Comparación cuantitativa antes y después de la mejora
 5. **Monitoreo continuo**: Confirmación de sostenibilidad de efectos de mejora
 
-### ✅ Métodos Prácticos para Eliminación de Ambigüedad
+## ✅ Métodos Prácticos para Eliminación de Ambigüedad
 
 ```markdown
 # ❌ Antes de Mejora (Ambiguo)
@@ -234,7 +234,7 @@ cat devin/playbooks/code-review.md
 "Los comentarios deben escribirse como comentarios en línea en los puntos de cambio correspondientes en GitHub. Las excepciones son solo las 3 condiciones definidas en la sección 3.3"
 ```
 
-### ✅ Métodos Prácticos para Integración de Información
+## ✅ Métodos Prácticos para Integración de Información
 
 ```markdown
 # ❌ Antes de Mejora (Disperso)
@@ -251,7 +251,7 @@ Lista de verificación de ejecución:
 ❌ Absolutamente prohibido: Eliminar, agregar o cambiar nombres de secciones
 ```
 
-### ✅ Patrones de Implementación de Sistema de Seguimiento
+## ✅ Patrones de Implementación de Sistema de Seguimiento
 
 ```bash
 # Seguimiento estricto de resultados de ejecución
@@ -279,7 +279,7 @@ fi
 
 ## 📈 Cálculo de Puntuación de Calidad
 
-### Cálculo de Puntuación Comprensiva
+## Cálculo de Puntuación Comprensiva
 
 ```text
 Puntuación básica = Σ(puntuación de categoría × peso) / 100
@@ -297,7 +297,7 @@ Elementos de bonificación:
 Puntuación final = Puntuación básica + Bonos - Penalizaciones
 ```
 
-### Evaluación de Nivel de Calidad
+## Evaluación de Nivel de Calidad
 
 ```text
 95-100 puntos: Estándar mundial más alto (Recomendado como estándar de industria)
@@ -313,20 +313,20 @@ Puntuación final = Puntuación básica + Bonos - Penalizaciones
 
 ## 🔧 Proceso de Mejora Práctica
 
-### Fase 1: Diagnóstico/Análisis (1-2 días)
+## Fase 1: Diagnóstico/Análisis (1-2 días)
 
 1. **Comprensión de estructura general**: Visualización de composición de secciones, flujo de información y dependencias
 2. **Detección de ambigüedad**: Extracción de todas las expresiones con espacio para interpretación
 3. **Análisis de dispersión de información**: Mapeo de patrones dispersos de información relacionada
 4. **Evaluación de cumplimiento**: Evaluación de clasificación recomendada/obligatoria y efectividad
 
-### Fase 2: Priorización/Planificación (Medio día)
+## Fase 2: Priorización/Planificación (Medio día)
 
 1. **Clasificación de fatalidad**: Clasificación de problemas en Niveles 1-3 y evaluación de impacto
 2. **Determinación de orden de mejora**: Orden óptimo considerando interdependencias
 3. **Asignación de recursos**: Optimización de balance entre efectos de mejora y costos
 
-### Fase 3: Implementación Gradual (2-5 días)
+## Fase 3: Implementación Gradual (2-5 días)
 
 1. **Resolución de problemas de Nivel 1**: Eliminación completa de ambigüedades fatales
 2. **Implementación de integración de información**: Agregación estratégica de información dispersa
@@ -334,14 +334,14 @@ Puntuación final = Puntuación básica + Bonos - Penalizaciones
 4. **Implementación de sistema de seguimiento**: Funciones automáticas de registro y verificación de resultados de ejecución
 5. **Fortalecimiento de plantillas**: Clarificación de elementos obligatorios y cumplimiento forzado
 
-### Fase 4: Verificación y Ajuste (1-2 días)
+## Fase 4: Verificación y Ajuste (1-2 días)
 
 1. **Prueba funcional**: Confirmación del funcionamiento de todos los puntos de cambio
 2. **Prueba de integración**: Confirmación de consistencia de todo el sistema
 3. **Prueba de rendimiento**: Confirmación de eficiencia de ejecución y respuesta
 4. **Prueba de usabilidad**: Verificación en escenarios de uso real
 
-### Fase 5: Operación y Monitoreo (Continuo)
+## Fase 5: Operación y Monitoreo (Continuo)
 
 1. **Medición de efectos**: Comparación cuantitativa antes y después de mejoras
 2. **Monitoreo continuo**: Detección temprana de degradación de calidad
@@ -352,9 +352,9 @@ Puntuación final = Puntuación básica + Bonos - Penalizaciones
 
 ## 📊 Casos de Mejora Reales (Versión Detallada)
 
-### Estudio de Caso: Mejora de Calidad de Prompt a Gran Escala
+## Estudio de Caso: Mejora de Calidad de Prompt a Gran Escala
 
-#### Situación Antes de la Mejora
+### Situación Antes de la Mejora
 
 ```bash
 Puntuación de calidad: 70 puntos/100 puntos
@@ -365,7 +365,7 @@ Puntuación de calidad: 70 puntos/100 puntos
 - Manejo de errores: Método de manejo durante fallas poco claro
 ```
 
-#### Contenido de Mejoras Implementadas
+### Contenido de Mejoras Implementadas
 
 ```bash
 # 1. Eliminación de ambigüedad (2 días)
@@ -389,7 +389,7 @@ Puntuación de calidad: 70 puntos/100 puntos
 - Implementación de función de recuperación automática
 ```
 
-#### Resultados Después de la Mejora
+### Resultados Después de la Mejora
 
 ```bash
 Puntuación de calidad: 90 puntos/100 puntos (mejora de +20 puntos)
@@ -406,16 +406,16 @@ Efectos de mejora reales:
 - Satisfacción del usuario: 95% mejora
 ```
 
-### Lecciones Aprendidas y Mejores Prácticas
+## Lecciones Aprendidas y Mejores Prácticas
 
-#### Factores de Éxito
+### Factores de Éxito
 
 1. **Enfoque gradual**: Implementar en unidades verificables sin hacer todos los cambios a la vez
 2. **Impulsado por datos**: Mejora basada en datos medidos, no juicio subjetivo
 3. **Monitoreo continuo**: Confirmación periódica de sostenibilidad de efectos de mejora
 4. **Énfasis en retroalimentación**: Recolección activa de opiniones de usuarios reales
 
-#### Estrategias de Evitación de Fallas
+### Estrategias de Evitación de Fallas
 
 1. **Perfeccionismo excesivo**: Comenzar operación al alcanzar 90 puntos, apuntar a 100 puntos con mejora continua
 2. **Peligro de cambios masivos**: Implementar siempre cambios a gran escala gradualmente
@@ -424,7 +424,7 @@ Efectos de mejora reales:
 
 ---
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Verificación de calidad combinada con archivo prompt
@@ -443,7 +443,7 @@ cat execution-errors.log
 "Identificar problemas potenciales de prompt que podrían haber causado este error"
 ```
 
-### Notas
+## Notas
 
 - **Prerrequisito**: Se recomienda escribir archivos prompt en formato Markdown
 - **Limitación**: Para prompts a gran escala (10,000 líneas o más), se recomienda analizar por partes

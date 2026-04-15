@@ -1,8 +1,8 @@
-## Refactorisation sûre et incrémentale avec évaluation SOLID
+# Refactorisation sûre et incrémentale
 
 Implémente une refactorisation de code sûre et progressive, évalue quantitativement le respect des principes SOLID. Visualise la dette technique et clarifie les priorités d'amélioration.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Identification de code complexe et plan de refactorisation
@@ -18,7 +18,7 @@ grep -r "class.*Service" . --include="*.js" | head -10
 "Évaluez si ces classes suivent le principe de responsabilité unique"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Détection de méthodes longues
@@ -34,9 +34,9 @@ grep -r "TODO\|FIXME\|HACK" . --exclude-dir=node_modules
 "Résolvez les commentaires qui sont devenus de la dette technique"
 ```
 
-### Techniques de refactorisation
+## Techniques de refactorisation
 
-#### Extract Method (Extraction de méthode)
+### Extract Method (Extraction de méthode)
 
 ```javascript
 // Avant : Méthode étendue
@@ -52,7 +52,7 @@ function processOrder(order) {
 }
 ```
 
-#### Replace Conditional with Polymorphism
+### Replace Conditional with Polymorphism
 
 ```javascript
 // Avant : instruction switch
@@ -73,9 +73,9 @@ class PremiumPricing {
 }
 ```
 
-### Score des principes SOLID (0-100 points)
+## Score des principes SOLID (0-100 points)
 
-#### Critères d'évaluation et notation
+### Critères d'évaluation et notation
 
 ```text
 S - Single Responsibility (20 points)
@@ -116,9 +116,9 @@ Score total = S + O + L + I + D
 └─ 0-29 points : Critique (Révision de conception obligatoire)
 ```
 
-### Quantification de la dette technique
+## Quantification de la dette technique
 
-#### Formule de calcul de la dette
+### Formule de calcul de la dette
 
 ```text
 Dette technique (temps) = Score de complexité × Portée d'impact × Difficulté de correction
@@ -148,7 +148,7 @@ Conversion de coûts :
 └─ Coût total : Temps + Coût d'opportunité + Coût de qualité
 ```
 
-#### Matrice de priorités
+### Matrice de priorités
 
 | Priorité                          | Degré d'impact | Coût de correction | Délai de réponse            | Exemple concret                                                           | Action recommandée                                       |
 | --------------------------------- | -------------- | ------------------ | --------------------------- | ------------------------------------------------------------------------- | -------------------------------------------------------- |
@@ -157,7 +157,7 @@ Conversion de coûts :
 | **Watch (Objet de surveillance)** | Faible         | Élevé              | Dans 3 mois                 | Traitement interne de haute complexité                                    | Surveillance des métriques, réponse en cas d'aggravation |
 | **Acceptable (Gamme acceptable)** | Faible         | Faible             | Ne nécessite pas de réponse | Code smells légers                                                        | Réponse avec refactorisation normale                     |
 
-### Procédure de refactorisation
+## Procédure de refactorisation
 
 1. **Analyse et mesure de l'état actuel**
    - Mesure de complexité (cyclomatique ・cognitive)
@@ -177,7 +177,7 @@ Conversion de coûts :
    - Confirmation de réduction de la dette technique
    - Révision de code
 
-### Code smells courants et score de dette
+## Code smells courants et score de dette
 
 | Code Smell              | Critère de détection                     | Score de dette | Méthode d'amélioration         |
 | ----------------------- | ---------------------------------------- | -------------- | ------------------------------ |
@@ -192,7 +192,7 @@ Conversion de coûts :
 | **Switch Statements**   | case >5                                  | Moyen (5-10h)  | Strategy Pattern               |
 | **Shotgun Surgery**     | Zones affectées lors du changement >3    | Élevé (10-15h) | Move Method/Field              |
 
-### Exemple pratique : Évaluation du score SOLID
+## Exemple pratique : Évaluation du score SOLID
 
 ```javascript
 // Objet d'évaluation : classe UserService
@@ -234,7 +234,7 @@ Temps de dette: 15 × 8 × 2 = 240 heures
 Priorité: Critical (système d'authentification nécessite réponse immédiate)
 ```
 
-### Exemple d'implémentation après amélioration
+## Exemple d'implémentation après amélioration
 
 ```javascript
 // Après application des principes SOLID (Score : 90 points)
@@ -275,7 +275,7 @@ class UserService {
 // Réduction de dette : 240 heures → 20 heures (92% de réduction)
 ```
 
-### Support d'automatisation
+## Support d'automatisation
 
 ```bash
 # Mesure du score SOLID
@@ -297,7 +297,7 @@ npm test -- --coverage
 npm run test:mutation  # tests de mutation
 ```
 
-### Précautions
+## Précautions
 
 - **Interdiction de changements fonctionnels** : Ne pas changer le comportement externe
 - **Test first** : Ajouter des tests avant la refactorisation

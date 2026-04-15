@@ -1,19 +1,22 @@
 ---
-description: "通过 Context7 MCP 搜索技术文档"
+description: "通过 Context7 MCP 搜索技术文档。「查文档」「查看官方文档」「库怎么用？」等触发。"
+allowed-tools:
+  - mcp__Context7__resolve-library-id
+  - mcp__Context7__query-docs
 ---
 
-## 通过 Context7 MCP 搜索技术文档
+# 通过 Context7 MCP 搜索技术文档
 
 使用 MCP 的 Context7 搜索技术文档。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 以请求 Claude 的形式
 "用 context7 搜索 [搜索关键词]"
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # React hooks 调研
@@ -23,7 +26,7 @@ description: "通过 Context7 MCP 搜索技术文档"
 "用 context7 查找 TypeScript 的类型错误"
 ```
 
-### 与 Claude 的协作
+## 与 Claude 的协作
 
 ```bash
 # 技术调研请求
@@ -36,7 +39,7 @@ description: "通过 Context7 MCP 搜索技术文档"
 "用 context7 查找 React 性能优化的最佳实践"
 ```
 
-### 详细示例
+## 详细示例
 
 ```bash
 # 从多个角度调研
@@ -49,6 +52,6 @@ description: "通过 Context7 MCP 搜索技术文档"
 "用 context7 搜索 Next.js 14 的新功能，重点说明 App Router 的使用方法"
 ```
 
-### 注意事项
+## 注意事项
 
 如果 Context7 找不到信息，Claude 会自动建议其他方法，如 Web 搜索等。

@@ -1,19 +1,19 @@
 ---
-description: "Processo de pensamento estruturado para desafios complexos"
+description: 'Processo de pensamento estruturado. Ativa com "pensar profundamente", "analisar detalhadamente".'
 ---
 
-## Processo de pensamento estruturado para desafios complexos
+# Processo de pensamento estruturado
 
 Executa processo de pensamento estruturado e gradual para questões complexas ou decisões importantes.
 
-### Como usar
+## Como usar
 
 ```bash
 # Solicitar pensamento profundo ao Claude
 "Considere [questão] usando ultrathink"
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Consideração de design arquitetural
@@ -26,7 +26,7 @@ Executa processo de pensamento estruturado e gradual para questões complexas ou
 "Considere as causas da baixa performance da aplicação e métodos de melhoria usando ultrathink"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Decisão de negócio
@@ -43,7 +43,7 @@ cat src/legacy_code.js
 "Elabore estratégia de refatoração deste código legado usando ultrathink"
 ```
 
-### Processo de Pensamento
+## Processo de Pensamento
 
 1. **Decomposição do problema** - Decompõe a questão em componentes
 2. **Análise MECE** - Organiza sem lacunas nem sobreposições
@@ -51,7 +51,7 @@ cat src/legacy_code.js
 4. **Confirmação interativa** - Confirma com usuário em pontos de decisão importantes
 5. **Proposta fundamentada** - Conclusão baseada em dados e lógica
 
-### Exemplos Detalhados
+## Exemplos Detalhados
 
 ```bash
 # Resolução de débito técnico complexo
@@ -64,6 +64,6 @@ cat src/legacy_code.js
 "Analise migração de PostgreSQL para DynamoDB usando ultrathink. Considerando custo, performance e aspectos operacionais"
 ```
 
-### Observações
+## Observações
 
 ultrathink é ideal para questões que requerem tempo e reflexão profunda. Para perguntas simples ou quando respostas imediatas são necessárias, use o formato de pergunta normal.
