@@ -1,5 +1,8 @@
 ---
 description: "Rechercher la documentation technique via Context7 MCP. Se déclenche avec « chercher la doc », « documentation officielle »."
+allowed-tools:
+  - mcp__Context7__resolve-library-id
+  - mcp__Context7__query-docs
 ---
 
 # Rechercher la documentation technique via Context7 MCP

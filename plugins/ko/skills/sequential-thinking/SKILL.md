@@ -1,5 +1,7 @@
 ---
 description: "단계적 사고 프로세스로 복잡한 문제 해결. 「단계적으로 생각해줘」「스텝바이스텝으로」「논리적으로 분석해줘」등으로 기동."
+allowed-tools:
+  - mcp__sequential-thinking__create_or_continue_thinking
 ---
 
 # 단계적 사고 프로세스로 복잡한 문제 해결

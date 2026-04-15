@@ -1,5 +1,7 @@
 ---
 description: 'Step-by-step thinking for complex problems. Trigger with "think step by step", "reason through this", "analyze logically", "solve gradually". Uses Sequential Thinking MCP.'
+allowed-tools:
+  - mcp__sequential-thinking__create_or_continue_thinking
 ---
 
 # Step-by-step thinking for complex problems

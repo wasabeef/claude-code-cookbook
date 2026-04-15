@@ -1,5 +1,8 @@
 ---
 description: "通过 Context7 MCP 搜索技术文档。「查文档」「查看官方文档」「库怎么用？」等触发。"
+allowed-tools:
+  - mcp__Context7__resolve-library-id
+  - mcp__Context7__query-docs
 ---
 
 # 通过 Context7 MCP 搜索技术文档

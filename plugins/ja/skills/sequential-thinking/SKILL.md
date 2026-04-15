@@ -1,5 +1,7 @@
 ---
 description: "動的で反復的な思考プロセスを通じて複雑な問題を段階的に解決する。「段階的に考えて」「ステップバイステップで」「順序立てて考えて」「論理的に分析して」「段階的に解決して」などで起動。Sequential Thinking MCP を使用。"
+allowed-tools:
+  - mcp__sequential-thinking__create_or_continue_thinking
 ---
 
 # 段階的な思考プロセスで複雑な問題を解決

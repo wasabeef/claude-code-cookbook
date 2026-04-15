@@ -1,5 +1,7 @@
 ---
 description: "Réflexion étape par étape pour les problèmes complexes. Se déclenche avec « réfléchir étape par étape », « analyser logiquement »."
+allowed-tools:
+  - mcp__sequential-thinking__create_or_continue_thinking
 ---
 
 # Réflexion étape par étape pour les problèmes complexes

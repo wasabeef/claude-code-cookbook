@@ -1,5 +1,7 @@
 ---
 description: "逐步思考過程解決複雜問題。「逐步思考」「一步一步分析」「邏輯分析」等觸發。使用 Sequential Thinking MCP。"
+allowed-tools:
+  - mcp__sequential-thinking__create_or_continue_thinking
 ---
 
 # 逐步思考過程解決複雜問題

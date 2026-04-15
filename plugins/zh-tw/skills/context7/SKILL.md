@@ -1,5 +1,8 @@
 ---
 description: "透過 Context7 MCP 搜尋技術文件。「查文件」「查看官方文件」「函式庫怎麼用？」等觸發。"
+allowed-tools:
+  - mcp__Context7__resolve-library-id
+  - mcp__Context7__query-docs
 ---
 
 # 透過 Context7 MCP 搜尋技術文件

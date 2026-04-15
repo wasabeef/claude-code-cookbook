@@ -1,5 +1,8 @@
 ---
 description: "Context7 MCP で技術ドキュメントを検索する。「ドキュメント調べて」「公式ドキュメントを確認」「ライブラリの使い方は？」「API リファレンスを見て」「Context7 で検索」などで起動。"
+allowed-tools:
+  - mcp__Context7__resolve-library-id
+  - mcp__Context7__query-docs
 ---
 
 # Context7 MCP で技術ドキュメントを検索

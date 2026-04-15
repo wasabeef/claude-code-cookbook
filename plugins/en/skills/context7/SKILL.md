@@ -1,5 +1,8 @@
 ---
 description: 'Search technical documentation via Context7 MCP. Trigger with "check the docs", "look up documentation", "how to use this library?", "API reference".'
+allowed-tools:
+  - mcp__Context7__resolve-library-id
+  - mcp__Context7__query-docs
 ---
 
 # Search technical documentation via Context7 MCP

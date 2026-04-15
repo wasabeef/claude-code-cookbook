@@ -1,5 +1,7 @@
 ---
 description: 'Pensamiento paso a paso para problemas complejos. Se activa con "pensar paso a paso", "analizar lógicamente".'
+allowed-tools:
+  - mcp__sequential-thinking__create_or_continue_thinking
 ---
 
 # Pensamiento paso a paso para problemas complejos

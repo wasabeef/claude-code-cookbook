@@ -1,5 +1,8 @@
 ---
 description: "Context7 MCP로 기술 문서 검색. 「문서 찾아줘」「공식 문서 확인」「라이브러리 사용법은?」등으로 기동."
+allowed-tools:
+  - mcp__Context7__resolve-library-id
+  - mcp__Context7__query-docs
 ---
 
 # Context7 MCP로 기술 문서 검색

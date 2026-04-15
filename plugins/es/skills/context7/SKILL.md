@@ -1,5 +1,8 @@
 ---
 description: 'Buscar documentación técnica vía Context7 MCP. Se activa con "buscar docs", "ver documentación oficial".'
+allowed-tools:
+  - mcp__Context7__resolve-library-id
+  - mcp__Context7__query-docs
 ---
 
 # Buscar documentación técnica vía Context7 MCP
