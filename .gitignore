@@ -1,6 +1,9 @@
 # Claude Code local settings
 .claude/
 
+# Dependencies
+node_modules/
+
 # Temporary files
 *.tmp
 *.swp
