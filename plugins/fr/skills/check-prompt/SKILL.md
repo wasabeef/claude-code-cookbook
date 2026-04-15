@@ -2,6 +2,7 @@
 description: "Évaluer et améliorer la qualité des prompts IA. Se déclenche avec « vérifier le prompt », « améliorer le prompt »."
 allowed-tools:
   - Read
+  - Grep
 ---
 
 # Évaluer et améliorer la qualité des prompts IA
@@ -48,7 +49,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# Principes de conception de base
+## Principes de conception de base
 
 ## Principe 1 : Éliminer complètement la place à l'interprétation
 
@@ -82,7 +83,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 📋 Éléments de vérification complète
+## 📋 Éléments de vérification complète
 
 ## 1. 📐 Structure et clarté (Poids : 25 points)
 
@@ -198,7 +199,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🚨 Motifs de problèmes fatals (Correction immédiate requise)
+## 🚨 Motifs de problèmes fatals (Correction immédiate requise)
 
 ## ❌ Niveau 1 : Ambiguïté fatale (Niveau d'arrêt d'exécution)
 
@@ -223,7 +224,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🎯 Méthodes d'amélioration éprouvées
+## 🎯 Méthodes d'amélioration éprouvées
 
 ## ✅ Approche d'amélioration progressive
 
@@ -288,7 +289,7 @@ fi
 
 ---
 
-# 📈 Calcul de score de qualité (Version améliorée)
+## 📈 Calcul de score de qualité (Version améliorée)
 
 ## Calcul de score global
 
@@ -322,7 +323,7 @@ Score final = Score de base + Bonus - Pénalités
 
 ---
 
-# 🔧 Processus d'amélioration pratique
+## 🔧 Processus d'amélioration pratique
 
 ## Phase 1 : Diagnostic/Analyse (1-2 jours)
 
@@ -363,7 +364,7 @@ Score final = Score de base + Bonus - Pénalités
 
 ---
 
-# 📊 Cas d'amélioration réels (Version détaillée)
+## 📊 Cas d'amélioration réels (Version détaillée)
 
 ## Étude de cas : Amélioration qualité de prompts à grande échelle
 

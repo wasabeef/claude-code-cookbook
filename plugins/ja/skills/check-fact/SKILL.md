@@ -5,6 +5,7 @@ allowed-tools:
   - Grep
   - Glob
   - WebSearch
+  - WebFetch
 ---
 
 # コードベースとドキュメントで情報の正誤を確認

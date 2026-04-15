@@ -5,6 +5,7 @@ allowed-tools:
   - Grep
   - Glob
   - WebSearch
+  - WebFetch
 ---
 
 # Vérifier la précision des informations

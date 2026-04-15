@@ -2,6 +2,8 @@
 description: "Générer des messages de commit. Se déclenche avec « générer un message de commit », « suggérer un commit message »."
 allowed-tools:
   - Bash(git diff *)
+  - Bash(git log *)
+  - Read
 ---
 
 # Générer des messages de commit

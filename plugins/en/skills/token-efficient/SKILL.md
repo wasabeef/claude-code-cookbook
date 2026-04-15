@@ -6,12 +6,12 @@ description: 'Compress responses to reduce context usage by 30-50%. Trigger with
 
 Reduces AI response context usage by 30-50% through compression efficiency mode.
 
-# Compress responses to reduce context usage by 30-50%
+## Compress responses to reduce context usage by 30-50%
 
 Token Efficiency Mode leverages visual symbols and abbreviation systems to compress Claude's responses.
 **Generated code quality and content remain unchanged**. Only the explanation method changes.
 
-# Usage
+## Usage
 
 ```bash
 # Enable mode
@@ -20,7 +20,7 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 "Concise mode"
 ```
 
-# How It Works
+## How It Works
 
 ## 1. Symbol System
 
@@ -94,7 +94,7 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 - `sev` → severity
 - `opt` → optimization
 
-# Example Comparisons
+## Example Comparisons
 
 ## Example 1: Error Report
 
@@ -138,7 +138,7 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 ⚡ perf: slow ∵ O(n²) → optimize to O(n)
 ```
 
-# Use Cases
+## Use Cases
 
 ## ✅ Effective Scenarios
 
@@ -155,7 +155,7 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 - Initial requirements definition
 - Communication with non-technical stakeholders
 
-# Implementation Examples
+## Implementation Examples
 
 ## Debugging Session
 
@@ -188,7 +188,7 @@ Deploy: 📦 ⏳ scheduled
 Security: 🛡️ 🚨 1 critical
 ```
 
-# Configuration Options
+## Configuration Options
 
 ```javascript
 // Compression levels
@@ -202,7 +202,7 @@ Security: 🛡️ 🚨 1 critical
 --sec; // Security-focused compression
 ```
 
-# Benefits
+## Benefits
 
 1. **Context saving**: 30-50% token reduction
 2. **Visual understanding**: Intuitive grasp through symbols
@@ -210,14 +210,14 @@ Security: 🛡️ 🚨 1 critical
 4. **History retention**: Maintain longer conversation history
 5. **Pattern recognition**: Easier problem detection through visual patterns
 
-# Notes
+## Notes
 
 - This mode only changes **AI response style**
 - **Code quality** remains unchanged
 - Can switch with "explain in normal mode" as needed
 - Normal mode recommended for beginners and non-technical users
 
-# Command Examples
+## Command Examples
 
 ```bash
 # Enable
@@ -231,7 +231,7 @@ Security: 🛡️ 🚨 1 critical
 "Token Efficient Mode off"
 ```
 
-# Implementation Impact
+## Implementation Impact
 
 | Item                    | Impact              |
 | ----------------------- | ------------------- |

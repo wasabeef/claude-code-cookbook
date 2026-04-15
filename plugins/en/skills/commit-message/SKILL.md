@@ -2,6 +2,8 @@
 description: 'Generate commit messages from staged changes. Trigger with "suggest commit message", "generate commit message", "what should the commit say?", "write commit message".'
 allowed-tools:
   - Bash(git diff *)
+  - Bash(git log *)
+  - Read
 ---
 
 # Generate commit messages from staged changes

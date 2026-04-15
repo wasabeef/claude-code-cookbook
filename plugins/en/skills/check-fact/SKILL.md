@@ -5,6 +5,7 @@ allowed-tools:
   - Grep
   - Glob
   - WebSearch
+  - WebFetch
 ---
 
 # Verify information accuracy against codebase and docs

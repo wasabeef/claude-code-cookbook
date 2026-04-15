@@ -1,10 +1,10 @@
 # Atualizar automaticamente descrição e labels de PR
 
-# Visão Geral
+## Visão Geral
 
 Comando para atualizar automaticamente a descrição e rótulos de Pull Requests. Analisa as alterações do Git para gerar e definir descrições e rótulos apropriados.
 
-# Uso
+## Uso
 
 ```bash
 /pr-auto-update [opções] [número do PR]
@@ -34,7 +34,7 @@ Comando para atualizar automaticamente a descrição e rótulos de Pull Requests
 /pr-auto-update --dry-run
 ```
 
-# Detalhes da Funcionalidade
+## Detalhes da Funcionalidade
 
 ## 1. Detecção Automática de PR
 
@@ -330,7 +330,7 @@ update_pr() {
 }
 ```
 
-# Arquivo de Configuração (para expansão futura)
+## Arquivo de Configuração (para expansão futura)
 
 `~/.claude/pr-auto-update.config`:
 
@@ -341,7 +341,7 @@ update_pr() {
 }
 ```
 
-# Padrões Comuns
+## Padrões Comuns
 
 ## Projeto Flutter
 
@@ -405,7 +405,7 @@ Melhorou workflow do GitHub Actions. Realiza {efeito}.
 - **Monitoramento**: Adicionou monitoramento de {métricas}
 ```
 
-# Observações
+## Observações
 
 1. **Preservação Completa do Conteúdo Existente**:
    - **Não altera nem um caractere** do conteúdo já descrito
@@ -432,7 +432,7 @@ Melhorou workflow do GitHub Actions. Realiza {efeito}.
    - Unifica idioma (japonês/inglês)
    - Herda regras de rotulagem
 
-# Solução de Problemas
+## Solução de Problemas
 
 ## Problemas Comuns
 

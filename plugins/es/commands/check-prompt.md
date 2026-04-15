@@ -187,7 +187,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🚨 Patrones de Problemas Fatales (Corrección Inmediata Requerida)
+## 🚨 Patrones de Problemas Fatales (Corrección Inmediata Requerida)
 
 ## ❌ Nivel 1: Ambigüedad Fatal (Nivel de Parada de Ejecución)
 
@@ -212,7 +212,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🎯 Métodos de Mejora Probados
+## 🎯 Métodos de Mejora Probados
 
 ## ✅ Enfoque de Mejora Gradual
 
@@ -277,7 +277,7 @@ fi
 
 ---
 
-# 📈 Cálculo de Puntuación de Calidad
+## 📈 Cálculo de Puntuación de Calidad
 
 ## Cálculo de Puntuación Comprensiva
 
@@ -311,7 +311,7 @@ Puntuación final = Puntuación básica + Bonos - Penalizaciones
 
 ---
 
-# 🔧 Proceso de Mejora Práctica
+## 🔧 Proceso de Mejora Práctica
 
 ## Fase 1: Diagnóstico/Análisis (1-2 días)
 
@@ -350,7 +350,7 @@ Puntuación final = Puntuación básica + Bonos - Penalizaciones
 
 ---
 
-# 📊 Casos de Mejora Reales (Versión Detallada)
+## 📊 Casos de Mejora Reales (Versión Detallada)
 
 ## Estudio de Caso: Mejora de Calidad de Prompt a Gran Escala
 

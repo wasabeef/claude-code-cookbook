@@ -2,6 +2,8 @@
 description: "按語義單元拆分變更並提交。「提交」「分割提交」「語義提交」「按邏輯單元提交」等觸發。"
 allowed-tools:
   - Bash(git *)
+  - Read
+  - Grep
 ---
 
 # 按語義單元拆分變更並提交

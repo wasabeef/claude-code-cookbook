@@ -2,12 +2,12 @@
 
 Reduz o uso de contexto nas respostas da IA em 30-50% através do modo de eficiência por compressão.
 
-# Visão Geral
+## Visão Geral
 
 O Modo Eficiência de Tokens utiliza sistemas de símbolos visuais e abreviações para comprimir as respostas do Claude.
 **A qualidade do código gerado e o conteúdo permanecem inalterados**. Apenas o método de explicação é alterado.
 
-# Como Usar
+## Como Usar
 
 ```bash
 # Ativar modo
@@ -16,7 +16,7 @@ O Modo Eficiência de Tokens utiliza sistemas de símbolos visuais e abreviaçõ
 "Modo conciso"
 ```
 
-# Como Funciona
+## Como Funciona
 
 ## 1. Sistema de Símbolos
 
@@ -90,7 +90,7 @@ O Modo Eficiência de Tokens utiliza sistemas de símbolos visuais e abreviaçõ
 - `sev` → severidade
 - `opt` → otimização
 
-# Exemplos de Comparação
+## Exemplos de Comparação
 
 ## Exemplo 1: Relatório de Erro
 
@@ -134,7 +134,7 @@ Análise de performance revelou processamento lento devido à complexidade do al
 ⚡ perf: lento ∵ O(n²) → otimizar para O(n)
 ```
 
-# Casos de Uso
+## Casos de Uso
 
 ## ✅ Cenários Efetivos
 
@@ -151,7 +151,7 @@ Análise de performance revelou processamento lento devido à complexidade do al
 - Definição de requisitos iniciais
 - Comunicação com stakeholders não-técnicos
 
-# Exemplos de Implementação
+## Exemplos de Implementação
 
 ## Sessão de Debug
 
@@ -184,7 +184,7 @@ Deploy: 📦 ⏳ agendado
 Segurança: 🛡️ 🚨 1 crítico
 ```
 
-# Opções de Configuração
+## Opções de Configuração
 
 ```javascript
 // Níveis de compressão
@@ -198,7 +198,7 @@ Segurança: 🛡️ 🚨 1 crítico
 --seg; // Compressão focada em segurança
 ```
 
-# Benefícios
+## Benefícios
 
 1. **Economia de contexto**: Redução de 30-50% nos tokens
 2. **Compreensão visual**: Compreensão intuitiva através de símbolos
@@ -206,14 +206,14 @@ Segurança: 🛡️ 🚨 1 crítico
 4. **Retenção de histórico**: Manter conversas mais longas no histórico
 5. **Reconhecimento de padrões**: Detecção mais fácil de problemas através de padrões visuais
 
-# Observações
+## Observações
 
 - Este modo apenas muda o **estilo de resposta da IA**
 - **Qualidade do código** permanece inalterada
 - Pode alternar com "explicar no modo normal" conforme necessário
 - Modo normal recomendado para iniciantes e usuários não-técnicos
 
-# Exemplos de Comandos
+## Exemplos de Comandos
 
 ```bash
 # Ativar
@@ -227,7 +227,7 @@ Segurança: 🛡️ 🚨 1 crítico
 "Modo Eficiência de Tokens desligado"
 ```
 
-# Impacto da Implementação
+## Impacto da Implementação
 
 | Item                       | Impacto              |
 | -------------------------- | -------------------- |

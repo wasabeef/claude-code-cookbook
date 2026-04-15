@@ -2,6 +2,8 @@
 description: 'Gerar mensagens de commit a partir de alterações. Ativa com "gerar mensagem de commit", "sugerir commit message".'
 allowed-tools:
   - Bash(git diff *)
+  - Bash(git log *)
+  - Read
 ---
 
 # Gerar mensagens de commit a partir de alterações

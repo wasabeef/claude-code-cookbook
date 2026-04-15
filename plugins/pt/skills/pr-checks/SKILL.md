@@ -3,6 +3,7 @@ description: 'Monitorar GitHub Actions CI e rastrear até conclusão. Ativa com 
 allowed-tools:
   - Bash(gh pr checks *)
   - Bash(gh run *)
+  - Bash(gh pr view *)
 ---
 
 # Monitorar GitHub Actions CI e rastrear até conclusão

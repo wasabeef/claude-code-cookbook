@@ -1,10 +1,10 @@
 # Auto-update PR description and labels from changes
 
-# Overview
+## Overview
 
 A command that automatically updates Pull Request descriptions and labels. Analyzes Git changes to generate and set appropriate descriptions and labels.
 
-# Usage
+## Usage
 
 ```bash
 /pr-auto-update [options] [PR number]
@@ -34,7 +34,7 @@ A command that automatically updates Pull Request descriptions and labels. Analy
 /pr-auto-update --dry-run
 ```
 
-# Feature Details
+## Feature Details
 
 ## 1. PR Auto Detection
 
@@ -330,7 +330,7 @@ update_pr() {
 }
 ```
 
-# Configuration File (Future Extension)
+## Configuration File (Future Extension)
 
 `~/.claude/pr-auto-update.config`:
 
@@ -341,7 +341,7 @@ update_pr() {
 }
 ```
 
-# Common Patterns
+## Common Patterns
 
 ## Flutter Projects
 
@@ -405,7 +405,7 @@ Improved GitHub Actions workflow. Achieves {effect}.
 - **Monitoring**: Added monitoring for {metrics}
 ```
 
-# Important Notes
+## Important Notes
 
 1. **Complete Preservation of Existing Content**:
    - Do not change even a single character of already written content
@@ -432,7 +432,7 @@ Improved GitHub Actions workflow. Achieves {effect}.
    - Maintain language consistency (Japanese/English)
    - Inherit labeling conventions
 
-# Troubleshooting
+## Troubleshooting
 
 ## Common Issues
 

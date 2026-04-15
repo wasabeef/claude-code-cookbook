@@ -2,6 +2,7 @@
 description: 'Evaluate and improve AI prompt quality. Trigger with "check this prompt", "evaluate prompt quality", "improve this prompt".'
 allowed-tools:
   - Read
+  - Grep
 ---
 
 # Evaluate and improve AI prompt quality
@@ -48,7 +49,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# Core Design Principles
+## Core Design Principles
 
 ## Principle 1: Completely Eliminate Room for Interpretation
 
@@ -82,7 +83,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 📋 Comprehensive Check Items
+## 📋 Comprehensive Check Items
 
 ## 1. 📐 Structure and Clarity (Weight: 25 points)
 
@@ -198,7 +199,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🚨 Fatal Problem Patterns (Immediate Correction Required)
+## 🚨 Fatal Problem Patterns (Immediate Correction Required)
 
 ## ❌ Level 1: Fatal Ambiguity (Execution Stop Level)
 
@@ -223,7 +224,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🎯 Proven Improvement Methods
+## 🎯 Proven Improvement Methods
 
 ## ✅ Gradual Enhancement Approach
 
@@ -288,7 +289,7 @@ fi
 
 ---
 
-# 📈 Quality Score Calculation (Improved Version)
+## 📈 Quality Score Calculation (Improved Version)
 
 ## Comprehensive Score Calculation
 
@@ -322,7 +323,7 @@ Final score = Basic score + Bonus - Penalties
 
 ---
 
-# 🔧 Practical Improvement Process
+## 🔧 Practical Improvement Process
 
 ## Phase 1: Diagnosis/Analysis (1-2 days)
 
@@ -363,7 +364,7 @@ Final score = Basic score + Bonus - Penalties
 
 ---
 
-# 📊 Actual Improvement Cases (Detailed Version)
+## 📊 Actual Improvement Cases (Detailed Version)
 
 ## Case Study: Quality Improvement of Large-Scale Prompts
 

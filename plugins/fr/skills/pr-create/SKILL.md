@@ -3,6 +3,9 @@ description: "Créer automatiquement une PR. Se déclenche avec « créer une PR
 allowed-tools:
   - Bash(git *)
   - Bash(gh *)
+  - Read
+  - Grep
+  - Glob
 ---
 
 # Créer automatiquement une PR

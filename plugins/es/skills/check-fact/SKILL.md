@@ -5,6 +5,7 @@ allowed-tools:
   - Grep
   - Glob
   - WebSearch
+  - WebFetch
 ---
 
 # Verificar precisión de información contra código y documentos

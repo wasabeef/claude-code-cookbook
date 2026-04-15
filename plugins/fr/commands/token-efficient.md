@@ -2,12 +2,12 @@
 
 Réduit l'utilisation du contexte des réponses IA de 30-50 % grâce au mode de compression efficace.
 
-# Vue d'ensemble
+## Vue d'ensemble
 
 Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'abréviations pour comprimer les réponses de Claude.
 **La qualité du code généré et le contenu restent inchangés**. Seule la méthode d'explication change.
 
-# Utilisation
+## Utilisation
 
 ```bash
 # Activer le mode
@@ -16,7 +16,7 @@ Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'a
 "Mode concis"
 ```
 
-# Comment ça fonctionne
+## Comment ça fonctionne
 
 ## 1. Système de symboles
 
@@ -90,7 +90,7 @@ Le Mode Efficacité de Tokens exploite les symboles visuels et les systèmes d'a
 - `sev` → sévérité
 - `opt` → optimisation
 
-# Exemples de comparaisons
+## Exemples de comparaisons
 
 ## Exemple 1 : Rapport d'erreur
 
@@ -134,7 +134,7 @@ L'analyse de performance a révélé un traitement lent dû à la complexité al
 ⚡ perf: lent ∵ O(n²) → optimiser vers O(n)
 ```
 
-# Cas d'usage
+## Cas d'usage
 
 ## ✅ Scénarios efficaces
 
@@ -151,7 +151,7 @@ L'analyse de performance a révélé un traitement lent dû à la complexité al
 - Définition d'exigences initiales
 - Communication avec les parties prenantes non techniques
 
-# Exemples d'implémentation
+## Exemples d'implémentation
 
 ## Session de débogage
 
@@ -184,7 +184,7 @@ Déploiement: 📦 ⏳ programmé
 Sécurité: 🛡️ 🚨 1 critique
 ```
 
-# Options de configuration
+## Options de configuration
 
 ```javascript
 // Niveaux de compression
@@ -198,7 +198,7 @@ Sécurité: 🛡️ 🚨 1 critique
 --sec; // Compression axée sécurité
 ```
 
-# Avantages
+## Avantages
 
 1. **Économie de contexte** : Réduction de 30-50 % des tokens
 2. **Compréhension visuelle** : Saisie intuitive grâce aux symboles
@@ -206,14 +206,14 @@ Sécurité: 🛡️ 🚨 1 critique
 4. **Rétention d'historique** : Maintenir un historique de conversation plus long
 5. **Reconnaissance de patterns** : Détection plus facile des problèmes grâce aux patterns visuels
 
-# Remarques
+## Remarques
 
 - Ce mode ne change que **le style de réponse de l'IA**
 - **La qualité du code** reste inchangée
 - Peut basculer avec « expliquez en mode normal » au besoin
 - Mode normal recommandé pour les débutants et utilisateurs non techniques
 
-# Exemples de commandes
+## Exemples de commandes
 
 ```bash
 # Activer
@@ -227,7 +227,7 @@ Sécurité: 🛡️ 🚨 1 critique
 "Mode Efficacité de Tokens désactivé"
 ```
 
-# Impact d'implémentation
+## Impact d'implémentation
 
 | Élément                    | Impact               |
 | -------------------------- | -------------------- |

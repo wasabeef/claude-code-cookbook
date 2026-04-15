@@ -5,6 +5,7 @@ allowed-tools:
   - Grep
   - Glob
   - WebSearch
+  - WebFetch
 ---
 
 # 通过代码库和文档验证信息准确性

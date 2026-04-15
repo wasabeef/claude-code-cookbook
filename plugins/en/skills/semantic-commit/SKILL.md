@@ -2,6 +2,8 @@
 description: 'Split changes into semantic units and commit. Trigger with "commit", "commit changes", "split and commit", "semantic commit", "commit in logical units".'
 allowed-tools:
   - Bash(git *)
+  - Read
+  - Grep
 ---
 
 # Split changes into semantic units and commit

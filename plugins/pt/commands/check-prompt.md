@@ -192,7 +192,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🚨 Padrões de Problemas Fatais (Correção Imediata Necessária)
+## 🚨 Padrões de Problemas Fatais (Correção Imediata Necessária)
 
 ## ❌ Nível 1: Ambiguidade Fatal (Nível de Parada de Execução)
 
@@ -217,7 +217,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🎯 Métodos de Melhoria Comprovados
+## 🎯 Métodos de Melhoria Comprovados
 
 ## ✅ Abordagem de Reforço Gradual
 
@@ -282,7 +282,7 @@ fi
 
 ---
 
-# 📈 Cálculo de Score de Qualidade (Versão Melhorada)
+## 📈 Cálculo de Score de Qualidade (Versão Melhorada)
 
 ## Cálculo do Score Total
 
@@ -316,7 +316,7 @@ Score final = Score base + Bônus - Penalidades
 
 ---
 
-# 🔧 Processo Prático de Melhoria
+## 🔧 Processo Prático de Melhoria
 
 ## Fase 1: Diagnóstico e Análise (1-2 dias)
 
@@ -357,7 +357,7 @@ Score final = Score base + Bônus - Penalidades
 
 ---
 
-# 📊 Casos Reais de Melhoria (Versão Detalhada)
+## 📊 Casos Reais de Melhoria (Versão Detalhada)
 
 ## Estudo de Caso: Melhoria da Qualidade de Prompt de Grande Escala
 

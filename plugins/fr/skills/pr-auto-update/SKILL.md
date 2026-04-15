@@ -3,15 +3,18 @@ description: "Mise à jour automatique de la description et des labels de PR. Se
 allowed-tools:
   - Bash(gh *)
   - Bash(git *)
+  - Read
+  - Grep
+  - Glob
 ---
 
 # Mise à jour automatique de la description et des labels de PR
 
-# Vue d'ensemble
+## Vue d'ensemble
 
 Une commande qui met à jour automatiquement les descriptions et labels de Pull Requests. Analyse les changements Git pour générer et définir des descriptions et labels appropriés.
 
-# Utilisation
+## Utilisation
 
 ```bash
 /pr-auto-update [options] [numéro PR]
@@ -41,7 +44,7 @@ Une commande qui met à jour automatiquement les descriptions et labels de Pull 
 /pr-auto-update --dry-run
 ```
 
-# Détails des fonctionnalités
+## Détails des fonctionnalités
 
 ## 1. Détection automatique de PR
 
@@ -337,7 +340,7 @@ update_pr() {
 }
 ```
 
-# Fichier de configuration (Extension future)
+## Fichier de configuration (Extension future)
 
 `~/.claude/pr-auto-update.config` :
 
@@ -348,7 +351,7 @@ update_pr() {
 }
 ```
 
-# Motifs communs
+## Motifs communs
 
 ## Projets Flutter
 
@@ -412,7 +415,7 @@ Amélioré le workflow GitHub Actions. Obtient {effet}.
 - **Surveillance** : Ajouté surveillance pour {métriques}
 ```
 
-# Notes importantes
+## Notes importantes
 
 1. **Préservation complète du contenu existant** :
    - Ne pas changer même un seul caractère du contenu déjà écrit
@@ -439,7 +442,7 @@ Amélioré le workflow GitHub Actions. Obtient {effet}.
    - Maintenir la cohérence linguistique (français/anglais)
    - Hériter des conventions de labellisation
 
-# Dépannage
+## Dépannage
 
 ## Problèmes courants
 

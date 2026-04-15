@@ -3,6 +3,7 @@ description: 'Monitor GitHub Actions CI and track to completion. Trigger with "P
 allowed-tools:
   - Bash(gh pr checks *)
   - Bash(gh run *)
+  - Bash(gh pr view *)
 ---
 
 # Monitor GitHub Actions CI and track to completion

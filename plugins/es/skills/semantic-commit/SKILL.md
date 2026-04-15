@@ -2,6 +2,8 @@
 description: 'Dividir cambios en unidades semánticas y hacer commit. Se activa con "commit", "dividir y commit", "commit semántico".'
 allowed-tools:
   - Bash(git *)
+  - Read
+  - Grep
 ---
 
 # Dividir cambios en unidades semánticas y hacer commit

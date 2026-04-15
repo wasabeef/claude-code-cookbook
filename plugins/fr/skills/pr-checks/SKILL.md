@@ -3,6 +3,7 @@ description: "Surveiller GitHub Actions CI et suivre jusqu'à complétion. Se d�
 allowed-tools:
   - Bash(gh pr checks *)
   - Bash(gh run *)
+  - Bash(gh pr view *)
 ---
 
 # Surveiller GitHub Actions CI et suivre jusqu'à complétion

@@ -192,7 +192,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🚨 Motifs de problèmes fatals (Correction immédiate requise)
+## 🚨 Motifs de problèmes fatals (Correction immédiate requise)
 
 ## ❌ Niveau 1 : Ambiguïté fatale (Niveau d'arrêt d'exécution)
 
@@ -217,7 +217,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🎯 Méthodes d'amélioration éprouvées
+## 🎯 Méthodes d'amélioration éprouvées
 
 ## ✅ Approche d'amélioration progressive
 
@@ -282,7 +282,7 @@ fi
 
 ---
 
-# 📈 Calcul de score de qualité (Version améliorée)
+## 📈 Calcul de score de qualité (Version améliorée)
 
 ## Calcul de score global
 
@@ -316,7 +316,7 @@ Score final = Score de base + Bonus - Pénalités
 
 ---
 
-# 🔧 Processus d'amélioration pratique
+## 🔧 Processus d'amélioration pratique
 
 ## Phase 1 : Diagnostic/Analyse (1-2 jours)
 
@@ -357,7 +357,7 @@ Score final = Score de base + Bonus - Pénalités
 
 ---
 
-# 📊 Cas d'amélioration réels (Version détaillée)
+## 📊 Cas d'amélioration réels (Version détaillée)
 
 ## Étude de cas : Amélioration qualité de prompts à grande échelle
 

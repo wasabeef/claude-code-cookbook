@@ -3,6 +3,9 @@ description: 'Crear PR automáticamente. Se activa con "crear PR", "abrir pull r
 allowed-tools:
   - Bash(git *)
   - Bash(gh *)
+  - Read
+  - Grep
+  - Glob
 ---
 
 # Crear PR automáticamente

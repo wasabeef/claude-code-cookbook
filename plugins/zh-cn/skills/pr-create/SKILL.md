@@ -3,6 +3,9 @@ description: "基于 Git 变更分析自动创建 PR。「创建 PR」「提交 
 allowed-tools:
   - Bash(git *)
   - Bash(gh *)
+  - Read
+  - Grep
+  - Glob
 ---
 
 # 基于 Git 变更分析自动创建 PR

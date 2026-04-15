@@ -2,6 +2,8 @@
 description: "스테이징 변경에서 커밋 메시지 생성. 「커밋 메시지 만들어줘」「좋은 메시지 생성해줘」「커밋 문구 제안해줘」등으로 기동."
 allowed-tools:
   - Bash(git diff *)
+  - Bash(git log *)
+  - Read
 ---
 
 # 스테이징 변경에서 커밋 메시지 생성

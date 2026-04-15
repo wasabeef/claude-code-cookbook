@@ -261,7 +261,7 @@ Combinar roles con diferentes características de discusión permite análisis e
 - **analyzer + architect**: Integración de análisis de problemas y diseño estructural
 - **reviewer + qa**: Coordinación de calidad de código y estrategia de pruebas
 
-# Características Avanzadas de Roles
+## Características Avanzadas de Roles
 
 ## Selección Inteligente de Rol
 
@@ -307,7 +307,7 @@ Combinar roles con diferentes características de discusión permite análisis e
 → Diferencias y uso apropiado entre roles frontend y mobile
 ```
 
-# Notas
+## Notas
 
 ## Sobre el Comportamiento del Rol
 

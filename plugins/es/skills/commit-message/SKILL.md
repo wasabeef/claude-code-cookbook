@@ -2,6 +2,8 @@
 description: 'Generar mensajes de commit desde cambios preparados. Se activa con "generar mensaje de commit", "sugerir commit message".'
 allowed-tools:
   - Bash(git diff *)
+  - Bash(git log *)
+  - Read
 ---
 
 # Generar mensajes de commit desde cambios preparados

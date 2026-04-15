@@ -1,5 +1,9 @@
 ---
 description: "Passer à un rôle expert. Se déclenche avec « changer de rôle », « en tant qu'expert sécurité »."
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
 # Passer à un rôle expert
@@ -265,7 +269,7 @@ Combiner des rôles avec différentes caractéristiques de discussion permet une
 - **analyzer + architect** : Intégration d'analyse de problèmes et conception structurelle
 - **reviewer + qa** : Coordination de qualité de code et stratégie de test
 
-# Fonctionnalités avancées des rôles
+## Fonctionnalités avancées des rôles
 
 ## Sélection intelligente de rôle
 
@@ -311,7 +315,7 @@ Combiner des rôles avec différentes caractéristiques de discussion permet une
 → Différences et usage approprié entre rôles frontend et mobile
 ```
 
-# Remarques
+## Remarques
 
 ## À propos du comportement des rôles
 

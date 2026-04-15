@@ -2,6 +2,7 @@
 description: 'Evaluar y mejorar calidad de prompts de IA. Se activa con "revisar prompt", "evaluar calidad del prompt".'
 allowed-tools:
   - Read
+  - Grep
 ---
 
 # Evaluar y mejorar calidad de prompts de IA
@@ -48,7 +49,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# Principios de Diseño Fundamentales
+## Principios de Diseño Fundamentales
 
 ## Principio 1: Eliminar Completamente Espacio para Interpretación
 
@@ -82,7 +83,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 📋 Elementos de Verificación Comprensivos
+## 📋 Elementos de Verificación Comprensivos
 
 ## 1. 📐 Estructura y Claridad (Peso: 25 puntos)
 
@@ -193,7 +194,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🚨 Patrones de Problemas Fatales (Corrección Inmediata Requerida)
+## 🚨 Patrones de Problemas Fatales (Corrección Inmediata Requerida)
 
 ## ❌ Nivel 1: Ambigüedad Fatal (Nivel de Parada de Ejecución)
 
@@ -218,7 +219,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🎯 Métodos de Mejora Probados
+## 🎯 Métodos de Mejora Probados
 
 ## ✅ Enfoque de Mejora Gradual
 
@@ -283,7 +284,7 @@ fi
 
 ---
 
-# 📈 Cálculo de Puntuación de Calidad
+## 📈 Cálculo de Puntuación de Calidad
 
 ## Cálculo de Puntuación Comprensiva
 
@@ -317,7 +318,7 @@ Puntuación final = Puntuación básica + Bonos - Penalizaciones
 
 ---
 
-# 🔧 Proceso de Mejora Práctica
+## 🔧 Proceso de Mejora Práctica
 
 ## Fase 1: Diagnóstico/Análisis (1-2 días)
 
@@ -356,7 +357,7 @@ Puntuación final = Puntuación básica + Bonos - Penalizaciones
 
 ---
 
-# 📊 Casos de Mejora Reales (Versión Detallada)
+## 📊 Casos de Mejora Reales (Versión Detallada)
 
 ## Estudio de Caso: Mejora de Calidad de Prompt a Gran Escala
 

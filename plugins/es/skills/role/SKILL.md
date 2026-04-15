@@ -1,5 +1,9 @@
 ---
 description: 'Cambiar a rol experto. Se activa con "cambiar rol", "como experto en seguridad", "como arquitecto".'
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
 # Cambiar a rol experto
@@ -265,7 +269,7 @@ Combinar roles con diferentes características de discusión permite análisis e
 - **analyzer + architect**: Integración de análisis de problemas y diseño estructural
 - **reviewer + qa**: Coordinación de calidad de código y estrategia de pruebas
 
-# Características Avanzadas de Roles
+## Características Avanzadas de Roles
 
 ## Selección Inteligente de Rol
 
@@ -311,7 +315,7 @@ Combinar roles con diferentes características de discusión permite análisis e
 → Diferencias y uso apropiado entre roles frontend y mobile
 ```
 
-# Notas
+## Notas
 
 ## Sobre el Comportamiento del Rol
 

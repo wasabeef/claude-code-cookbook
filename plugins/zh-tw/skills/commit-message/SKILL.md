@@ -2,6 +2,8 @@
 description: "從暫存變更生成提交訊息。「生成提交訊息」「建議 commit message」「寫個提交資訊」等觸發。"
 allowed-tools:
   - Bash(git diff *)
+  - Bash(git log *)
+  - Read
 ---
 
 # 從暫存變更生成提交訊息

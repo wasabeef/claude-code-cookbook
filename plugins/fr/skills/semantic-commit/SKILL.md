@@ -2,6 +2,8 @@
 description: "Diviser les changements en unités sémantiques et commiter. Se déclenche avec « commit », « diviser et commiter »."
 allowed-tools:
   - Bash(git *)
+  - Read
+  - Grep
 ---
 
 # Diviser les changements en unités sémantiques et commiter

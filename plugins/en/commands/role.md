@@ -261,7 +261,7 @@ Combining roles with different discussion characteristics enables balanced analy
 - **analyzer + architect**: Integration of problem analysis and structural design
 - **reviewer + qa**: Coordination of code quality and test strategy
 
-# Advanced Role Features
+## Advanced Role Features
 
 ## Intelligent Role Selection
 
@@ -307,7 +307,7 @@ Combining roles with different discussion characteristics enables balanced analy
 → Differences and appropriate usage between frontend and mobile roles
 ```
 
-# Notes
+## Notes
 
 ## About Role Behavior
 

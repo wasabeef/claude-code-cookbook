@@ -3,15 +3,18 @@ description: 'Auto-actualizar descripción y etiquetas de PR. Se activa con "act
 allowed-tools:
   - Bash(gh *)
   - Bash(git *)
+  - Read
+  - Grep
+  - Glob
 ---
 
 # Auto-actualizar descripción y etiquetas de PR
 
-# Resumen
+## Resumen
 
 Un comando que actualiza automáticamente las descripciones y etiquetas de Pull Request. Analiza los cambios de Git para generar y establecer descripciones y etiquetas apropiadas.
 
-# Uso
+## Uso
 
 ```bash
 /pr-auto-update [opciones] [número de PR]
@@ -41,7 +44,7 @@ Un comando que actualiza automáticamente las descripciones y etiquetas de Pull 
 /pr-auto-update --dry-run
 ```
 
-# Detalles de Características
+## Detalles de Características
 
 ## 1. Auto Detección de PR
 
@@ -78,7 +81,7 @@ Analiza el impacto de los cambios:
 - **Breaking Changes**: Detección de cambios incompatibles
 - **Cobertura de Tests**: Verificación de tests agregados
 
-# Formato de Descripción Generada
+## Formato de Descripción Generada
 
 ## Estructura Estándar
 
@@ -144,7 +147,7 @@ Analiza el impacto de los cambios:
 - Mejoras de rendimiento/mantenibilidad
 - Compatibilidad hacia atrás
 
-# Integración con CI/CD
+## Integración con CI/CD
 
 ## GitHub Actions
 
@@ -175,7 +178,7 @@ if [ -n "$(git status --porcelain)" ]; then
 fi
 ```
 
-# Configuración
+## Configuración
 
 ## Archivo `.pr-auto-update.yml`
 
@@ -201,7 +204,7 @@ export PR_AUTO_UPDATE_TEMPLATE=detailed
 export GITHUB_TOKEN=ghp_xxxxx
 ```
 
-# Solución de Problemas
+## Solución de Problemas
 
 ## Error: "No se encontró PR asociado"
 
@@ -237,7 +240,7 @@ git status
 git diff main...HEAD
 ```
 
-# Patrones Comunes
+## Patrones Comunes
 
 ## Proyecto Flutter
 
@@ -283,7 +286,7 @@ Mejorado workflow de GitHub Actions para {efecto_logrado}.
 - **Monitoreo**: Agregado monitoreo de {métricas}
 ```
 
-# Mejores Prácticas
+## Mejores Prácticas
 
 1. **Ejecutar antes de solicitar revisión**: Asegura descripciones actualizadas
 2. **Usar `--dry-run` primero**: Revisa cambios antes de aplicar
@@ -291,7 +294,7 @@ Mejorado workflow de GitHub Actions para {efecto_logrado}.
 4. **Configurar templates**: Consistencia en equipo
 5. **Integrar con CI**: Automatización completa
 
-# Casos de Uso Avanzados
+## Casos de Uso Avanzados
 
 ## Monorepo con Múltiples Packages
 
@@ -320,14 +323,14 @@ git log v1.0.0...HEAD --oneline
 "Agrega etiquetas de release y changelog"
 ```
 
-# Limitaciones
+## Limitaciones
 
 - Requiere GitHub CLI instalado y configurado
 - No modifica PRs ya mergeados
 - Límite de 65,536 caracteres en descripción
 - No puede cambiar título del PR (usar `gh pr edit` para eso)
 
-# Ver También
+## Ver También
 
 - `/pr-create` - Crear nuevo PR
 - `/pr-review` - Generar revisión de PR

@@ -192,7 +192,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🚨 Fatal Problem Patterns (Immediate Correction Required)
+## 🚨 Fatal Problem Patterns (Immediate Correction Required)
 
 ## ❌ Level 1: Fatal Ambiguity (Execution Stop Level)
 
@@ -217,7 +217,7 @@ cat devin/playbooks/code-review.md
 
 ---
 
-# 🎯 Proven Improvement Methods
+## 🎯 Proven Improvement Methods
 
 ## ✅ Gradual Enhancement Approach
 
@@ -282,7 +282,7 @@ fi
 
 ---
 
-# 📈 Quality Score Calculation (Improved Version)
+## 📈 Quality Score Calculation (Improved Version)
 
 ## Comprehensive Score Calculation
 
@@ -316,7 +316,7 @@ Final score = Basic score + Bonus - Penalties
 
 ---
 
-# 🔧 Practical Improvement Process
+## 🔧 Practical Improvement Process
 
 ## Phase 1: Diagnosis/Analysis (1-2 days)
 
@@ -357,7 +357,7 @@ Final score = Basic score + Bonus - Penalties
 
 ---
 
-# 📊 Actual Improvement Cases (Detailed Version)
+## 📊 Actual Improvement Cases (Detailed Version)
 
 ## Case Study: Quality Improvement of Large-Scale Prompts
 

@@ -3,6 +3,7 @@ description: "GitHub Actions CI 모니터링 및 완료 추적. 「PR 체크 상
 allowed-tools:
   - Bash(gh pr checks *)
   - Bash(gh run *)
+  - Bash(gh pr view *)
 ---
 
 # GitHub Actions CI 모니터링 및 완료 추적

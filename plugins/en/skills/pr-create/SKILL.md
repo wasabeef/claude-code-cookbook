@@ -3,6 +3,9 @@ description: 'Auto-create PR based on Git change analysis. Trigger with "create 
 allowed-tools:
   - Bash(git *)
   - Bash(gh *)
+  - Read
+  - Grep
+  - Glob
 ---
 
 # Auto-create PR based on Git change analysis
