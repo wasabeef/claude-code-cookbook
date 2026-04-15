@@ -1,8 +1,8 @@
-## Quantitative tech debt analysis and improvement plan
+# Quantitative tech debt analysis and improvement plan
 
 Quantitatively analyzes technical debt in projects, visualizes health scores and impact on development efficiency. Tracks improvement status through trend analysis and creates prioritized improvement plans with calculated time costs.
 
-### Usage
+## Usage
 
 ```bash
 # Analyze project structure for technical debt
@@ -10,7 +10,7 @@ ls -la
 "Analyze technical debt in this project and create improvement plan"
 ```
 
-### Project Health Dashboard
+## Project Health Dashboard
 
 ```text
 Project Health Score: 72/100
@@ -46,7 +46,7 @@ Project Health Score: 72/100
 └─ ROI: Invest 40 hours → Recover 120 hours (3 months)
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Detailed health score analysis
@@ -62,7 +62,7 @@ ls -la | grep -E "package.json|Cargo.toml|pubspec.yaml|go.mod|requirements.txt"
 "Calculate dependency freshness score and analyze update risks and benefits"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Comprehensive technical debt analysis
@@ -87,7 +87,7 @@ find . -type d -name "src" -o -name "lib" -o -name "app" | head -10 | xargs ls -
 - Recommended implementation timing"
 ```
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Auto-detect project type and analyze
@@ -115,7 +115,7 @@ find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f 
 "Analyze technical debt in test coverage and propose testing strategy"
 ```
 
-### Debt Priority Matrix
+## Debt Priority Matrix
 
 ```text
 Priority = (Impact × Frequency) ÷ Fix Cost
@@ -128,7 +128,7 @@ Priority = (Impact × Frequency) ÷ Fix Cost
 | **[P2] This Month**      | Low                | High     | 1-2x         | Invest 1h → Save 1-2h | Within 1 month    |
 | **[P3] This Quarter**    | Low                | Low      | < 1x         | Investment = Savings  | Within 3 months   |
 
-### Debt Type Evaluation Criteria
+## Debt Type Evaluation Criteria
 
 | Debt Type              | Detection Method                      | Development Impact                                | Fix Time |
 | ---------------------- | ------------------------------------- | ------------------------------------------------- | -------- |
@@ -140,7 +140,7 @@ Priority = (Impact × Frequency) ÷ Fix Cost
 | **Dependency Debt**    | 2+ years without updates              | Security risks, compatibility issues              | 4-16h    |
 | **Code Quality Debt**  | Complexity > 10                       | Increased understanding/modification time         | 2-8h     |
 
-### Technical Debt Impact Calculation
+## Technical Debt Impact Calculation
 
 ```text
 Impact = Σ(Weight of each factor × Measured value)
@@ -162,7 +162,7 @@ Impact = Σ(Weight of each factor × Measured value)
    └─ Code duplication fix locations: Duplication rate × Change frequency
 ```
 
-### Time-based ROI Calculation
+## Time-based ROI Calculation
 
 ```text
 ROI = (Time Saved - Investment Time) ÷ Investment Time × 100
@@ -177,7 +177,7 @@ Example: Resolving circular dependencies
 └─ 3-month ROI: (70 - 16) ÷ 16 × 100 = 337%
 ```
 
-### Notes
+## Notes
 
 - Automatically detects project language and framework for tailored analysis
 - Health score evaluated on 0-100 scale: 70+ healthy, 50 or below needs improvement

@@ -1,16 +1,16 @@
-## Auto-update PR description and labels from changes
+# Auto-update PR description and labels from changes
 
-## Overview
+# Overview
 
 A command that automatically updates Pull Request descriptions and labels. Analyzes Git changes to generate and set appropriate descriptions and labels.
 
-## Usage
+# Usage
 
 ```bash
 /pr-auto-update [options] [PR number]
 ```
 
-### Options
+## Options
 
 - `--pr <number>`: Specify target PR number (automatically detected from current branch if omitted)
 - `--description-only`: Update only the description (keep labels unchanged)
@@ -18,7 +18,7 @@ A command that automatically updates Pull Request descriptions and labels. Analy
 - `--dry-run`: Show generated content without making actual updates
 - `--lang <language>`: Specify language (en)
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Auto-update PR for current branch
@@ -34,9 +34,9 @@ A command that automatically updates Pull Request descriptions and labels. Analy
 /pr-auto-update --dry-run
 ```
 
-## Feature Details
+# Feature Details
 
-### 1. PR Auto Detection
+## 1. PR Auto Detection
 
 Automatically detects the corresponding PR from the current branch:
 
@@ -45,7 +45,7 @@ Automatically detects the corresponding PR from the current branch:
 gh pr list --head $(git branch --show-current) --json number,title,url
 ```
 
-### 2. Change Analysis
+## 2. Change Analysis
 
 Collects and analyzes the following information:
 
@@ -56,15 +56,15 @@ Collects and analyzes the following information:
 - **Configuration**: Changes to package.json, pubspec.yaml, configuration files
 - **CI/CD**: Changes to GitHub Actions, workflows
 
-### 3. Automatic Description Generation
+## 3. Automatic Description Generation
 
-#### Template Processing Priority
+### Template Processing Priority
 
 1. **Existing PR description**: Completely follows already written content
 2. **Project template**: Gets structure from `.github/PULL_REQUEST_TEMPLATE.md`
 3. **Default template**: Fallback when above don't exist
 
-#### Rules for Preserving Existing Content
+### Rules for Preserving Existing Content
 
 **Important**: Do not modify existing content
 
@@ -72,7 +72,7 @@ Collects and analyzes the following information:
 - Only complete empty sections
 - Keep functional comments (like Copilot review rules)
 
-#### Using Project Templates
+### Using Project Templates
 
 ```bash
 # Parse structure of .github/PULL_REQUEST_TEMPLATE.md
@@ -92,16 +92,16 @@ parse_template_structure() {
 }
 ```
 
-### 4. Automatic Label Setting
+## 4. Automatic Label Setting
 
-#### Label Retrieval Mechanism
+### Label Retrieval Mechanism
 
 **Priority**:
 
 1. **`.github/labels.yml`**: Get from project-specific label definitions
 2. **GitHub API**: Get existing labels with `gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'`
 
-#### Automatic Determination Rules
+### Automatic Determination Rules
 
 **File Pattern Based**:
 
@@ -118,13 +118,13 @@ parse_template_structure() {
 - Performance: `performance|perf|optimize|optimization` → labels containing `performance|perf`
 - Security: `security|secure|vulnerability` → labels containing `security`
 
-#### Constraints
+### Constraints
 
 - **Maximum 3**: Upper limit on automatically selected labels
 - **Existing labels only**: Creating new labels is prohibited
 - **Partial match**: Determined by whether keywords are contained in label names
 
-#### Actual Usage Examples
+### Actual Usage Examples
 
 **When `.github/labels.yml` exists**:
 
@@ -144,7 +144,7 @@ gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'
 # Example: Use standard labels like bug, enhancement, documentation
 ```
 
-### 5. Execution Flow
+## 5. Execution Flow
 
 ```bash
 #!/bin/bash
@@ -330,7 +330,7 @@ update_pr() {
 }
 ```
 
-## Configuration File (Future Extension)
+# Configuration File (Future Extension)
 
 `~/.claude/pr-auto-update.config`:
 
@@ -341,9 +341,9 @@ update_pr() {
 }
 ```
 
-## Common Patterns
+# Common Patterns
 
-### Flutter Projects
+## Flutter Projects
 
 ```markdown
 ## What does this change?
@@ -364,7 +364,7 @@ Implemented {feature name}. Solves user {issue}.
 - **Performance**: {optimization details}
 ```
 
-### Node.js Projects
+## Node.js Projects
 
 ```markdown
 ## What does this change?
@@ -385,7 +385,7 @@ Implemented {API name} endpoint. Supports {use case}.
 - **Input Validation**: SQL injection protection
 ```
 
-### CI/CD Improvements
+## CI/CD Improvements
 
 ```markdown
 ## What does this change?
@@ -405,7 +405,7 @@ Improved GitHub Actions workflow. Achieves {effect}.
 - **Monitoring**: Added monitoring for {metrics}
 ```
 
-## Important Notes
+# Important Notes
 
 1. **Complete Preservation of Existing Content**:
    - Do not change even a single character of already written content
@@ -432,27 +432,27 @@ Improved GitHub Actions workflow. Achieves {effect}.
    - Maintain language consistency (Japanese/English)
    - Inherit labeling conventions
 
-## Troubleshooting
+# Troubleshooting
 
-### Common Issues
+## Common Issues
 
 1. **PR not found**: Check branch name and PR association
 2. **Permission error**: Check GitHub CLI authentication status
 3. **Cannot set labels**: Check repository permissions
 4. **HTML comments get escaped**: GitHub CLI specification converts `<!-- -->` to `&lt;!-- --&gt;`
 
-### GitHub CLI HTML Comment Escaping Issue
+## GitHub CLI HTML Comment Escaping Issue
 
 **Important**: GitHub CLI (`gh pr edit`) automatically escapes HTML comments. Also, shell redirect processing may introduce invalid strings like `EOF < /dev/null`.
 
-#### Fundamental Solutions
+### Fundamental Solutions
 
 1. **Use GitHub API --field option**: Use `--field` for proper escape processing
 2. **Simplify shell processing**: Avoid complex redirects and pipe processing
 3. **Simplify template processing**: Eliminate HTML comment removal processing and preserve completely
 4. **Proper JSON escaping**: Handle special characters correctly
 
-### Debug Options
+## Debug Options
 
 ```bash
 # Detailed log output (to be added during implementation)

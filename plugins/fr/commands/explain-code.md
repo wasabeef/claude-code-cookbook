@@ -1,8 +1,8 @@
-## Expliquer le comportement du code en détail
+# Expliquer le comportement du code en détail
 
 Explique en détail comment fonctionne le code.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Montrer un fichier et demander une explication
@@ -10,7 +10,7 @@ cat <fichier>
 "Expliquez comment ce code fonctionne"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Comprendre la propriété Rust
@@ -26,7 +26,7 @@ cat factory.rs
 "Quel motif de conception est-ce ? Quels sont les avantages ?"
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Explication pour débutants
@@ -46,7 +46,7 @@ cat auth_handler.go
 "Quels problèmes de sécurité voyez-vous ?"
 ```
 
-### Exemples détaillés
+## Exemples détaillés
 
 ```bash
 # Décomposition de logique complexe
@@ -70,7 +70,7 @@ ls -la src/ && cat src/main.rs src/lib.rs
 "Expliquez comment ce projet est structuré"
 ```
 
-### Ce que vous obtiendrez
+## Ce que vous obtiendrez
 
 Pas seulement ce que fait le code, mais aussi :
 

@@ -1,8 +1,8 @@
-## Revisión sistemática de PR para asegurar calidad
+# Revisión sistemática de PR
 
 Asegura la calidad del código y solidez arquitectónica a través de revisiones sistemáticas de Pull Request.
 
-### Uso
+## Uso
 
 ```bash
 # Revisión comprensiva de PR
@@ -18,7 +18,7 @@ gh pr checkout 123 && find . -name "*.js" | head -10
 "Evaluar la arquitectura desde perspectivas de separación de capas, dependencias y principios SOLID"
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Evaluación cuantitativa de calidad de código
@@ -34,7 +34,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 "Evaluar violaciones de capas, dependencias circulares y problemas de acoplamiento"
 ```
 
-### Sistema de Clasificación de Comentarios
+## Sistema de Clasificación de Comentarios
 
 ```text
 🔴 critical.must: Problemas críticos
@@ -63,42 +63,42 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 └─ Compartir mejores prácticas
 ```
 
-### Perspectivas de Revisión
+## Perspectivas de Revisión
 
-#### 1. Corrección de Código
+### 1. Corrección de Código
 
 - **Errores lógicos**: Valores límite, verificaciones de null, manejo de excepciones
 - **Integridad de datos**: Seguridad de tipos, validación
 - **Manejo de errores**: Completitud, procesamiento apropiado
 
-#### 2. Seguridad
+### 2. Seguridad
 
 - **Autenticación/autorización**: Verificaciones apropiadas, gestión de permisos
 - **Validación de entrada**: Contramedidas SQL injection, XSS
 - **Información sensible**: Restricciones de logging, cifrado
 
-#### 3. Rendimiento
+### 3. Rendimiento
 
 - **Algoritmos**: Complejidad temporal, eficiencia de memoria
 - **Base de datos**: Consultas N+1, optimización de índices
 - **Recursos**: Fugas de memoria, utilización de caché
 
-#### 4. Arquitectura
+### 4. Arquitectura
 
 - **Separación de capas**: Dirección de dependencias, separación apropiada
 - **Acoplamiento**: Acoplamiento fuerte, utilización de interfaces
 - **Principios SOLID**: Responsabilidad única, abierto-cerrado, inversión de dependencias
 
-### Flujo de Revisión
+## Flujo de Revisión
 
 1. **Pre-verificación**: Información de PR, diff de cambios, issues relacionados
 2. **Verificaciones sistemáticas**: Seguridad → Corrección → Rendimiento → Arquitectura
 3. **Feedback constructivo**: Sugerencias específicas de mejora y ejemplos de código
 4. **Seguimiento**: Confirmación de correcciones, estado de CI, aprobación final
 
-### Ejemplos de Comentarios Efectivos
+## Ejemplos de Comentarios Efectivos
 
-#### Problemas de Seguridad
+### Problemas de Seguridad
 
 **Formato:**
 
@@ -122,7 +122,7 @@ const hashedPassword = await bcrypt.hash(password, 12);
 Se requiere hashing para prevenir riesgos de seguridad.
 ```
 
-#### Mejora de Rendimiento
+### Mejora de Rendimiento
 
 **Formato:**
 
@@ -145,7 +145,7 @@ const users = await User.findAll({ include: [Post] });
 Esto puede reducir significativamente el número de consultas.
 ```
 
-#### Violación de Arquitectura
+### Violación de Arquitectura
 
 **Formato:**
 
@@ -164,7 +164,7 @@ La capa de dominio depende directamente de la capa de infraestructura.
 Por favor introducir una interfaz siguiendo el principio de inversión de dependencias.
 ```
 
-### Notas
+## Notas
 
 - **Tono constructivo**: Comunicación colaborativa en lugar de agresiva
 - **Sugerencias específicas**: Proporcionar soluciones junto con señalar problemas

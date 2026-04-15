@@ -1,19 +1,22 @@
 ---
-description: "按优先级显示 Issue 列表"
+description: "按优先级显示 Issue 列表。「显示 Issue」「打开的 Issue？」「Issue 列表」等触发。"
+allowed-tools:
+  - Bash(gh issue *)
+  - Bash(gh pr *)
 ---
 
-## 按优先级显示 Issue 列表
+# 按优先级显示 Issue 列表
 
 显示当前仓库的开放 Issue 列表，并按优先级排序。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 向 Claude 请求
 「请按优先级显示开放的 Issue 列表」
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 获取仓库信息
@@ -25,7 +28,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 「请按优先级整理上述 Issue，并包含每个 Issue 的 2 行概要。使用上面获取的仓库名生成 URL」
 ```
 
-### 显示格式
+## 显示格式
 
 ```text
 开放 Issue 列表 (按优先级排序)
@@ -43,7 +46,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 (相同格式)
 ```
 
-### 优先级判定标准
+## 优先级判定标准
 
 **高优先级**
 
@@ -63,7 +66,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 - 带有 `good first issue` 标签的 Issue
 - 带有 `wontfix` 或 `duplicate` 标签的 Issue
 
-### 按标签筛选
+## 按标签筛选
 
 ```bash
 # 仅获取特定标签的 Issue
@@ -73,7 +76,7 @@ gh issue list --state open --label "bug" --json number,title,author,createdAt,la
 gh issue list --state open --label "bug,high-priority" --json number,title,author,createdAt,labels,comments --limit 30
 ```
 
-### 注意事项
+## 注意事项
 
 - 需要安装 GitHub CLI (`gh`)
 - 仅显示开放状态的 Issue

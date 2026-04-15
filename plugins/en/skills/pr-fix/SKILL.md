@@ -1,12 +1,18 @@
 ---
-description: "Efficiently respond to PR review comments"
+description: 'Efficiently respond to PR review comments. Trigger with "fix review comments", "address PR feedback", "implement review fixes", "respond to review".'
+allowed-tools:
+  - Bash(gh *)
+  - Read
+  - Edit
+  - Grep
+  - Glob
 ---
 
-## Efficiently respond to PR review comments
+# Efficiently respond to PR review comments
 
 Efficiently handle Pull Request review comments and achieve root cause resolution using a 3-stage error analysis approach.
 
-### Usage
+## Usage
 
 ```bash
 # Retrieve and analyze review comments
@@ -22,7 +28,7 @@ npm test && npm run lint
 "Fixes are complete - please check regression tests and code quality"
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Classify comments
@@ -38,7 +44,7 @@ git diff HEAD~1
 "Evaluate whether this fix appropriately addresses the review comments"
 ```
 
-### Comment Classification System
+## Comment Classification System
 
 ```text
 🔴 must: Required fixes
@@ -66,9 +72,9 @@ git diff HEAD~1
 └─ Alternative solution consideration
 ```
 
-### 3-Stage Error Analysis Approach
+## 3-Stage Error Analysis Approach
 
-#### Stage 1: Information Collection
+### Stage 1: Information Collection
 
 **Required actions**
 
@@ -82,20 +88,20 @@ git diff HEAD~1
 - Recent change history
 - Related logs review
 
-#### Stage 2: Root Cause Analysis
+### Stage 2: Root Cause Analysis
 
 - 5 Whys analysis application
 - Dependency tracking
 - Environment difference checking
 - Minimal reproduction code creation
 
-#### Stage 3: Solution Implementation
+### Stage 3: Solution Implementation
 
 - Immediate response (hotfix)
 - Root cause resolution (essential fix)
 - Preventive measures (recurrence prevention)
 
-### Response Flow
+## Response Flow
 
 1. **Comment analysis**: Classification by priority
 2. **Fix plan**: Determining response order
@@ -103,7 +109,7 @@ git diff HEAD~1
 4. **Quality confirmation**: Testing, linting, building
 5. **Progress report**: Description of specific fixes
 
-### Post-Fix Verification
+## Post-Fix Verification
 
 ```bash
 # Basic checks
@@ -118,7 +124,7 @@ npm run test:e2e
 npm run test:coverage
 ```
 
-### Reply Templates
+## Reply Templates
 
 **Fix completion report**
 
@@ -139,7 +145,7 @@ Considered alternatives: [Options and decision rationale]
 Adopted solution benefits: [Advantages]
 ```
 
-### Notes
+## Notes
 
 - **Priority adherence**: Address in order of Critical → High → Medium → Low
 - **Test first**: Confirm regression tests before making fixes

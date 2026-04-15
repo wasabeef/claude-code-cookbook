@@ -1,15 +1,15 @@
-## Recherche web via Gemini CLI pour les dernières informations
+# Recherche web via Gemini CLI
 
 Exécutez des recherches web via Gemini CLI pour obtenir les informations les plus récentes.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Recherche web via Gemini CLI (requis)
 gemini --prompt "WebSearch: <requête_recherche>"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Utilisation de Gemini CLI
@@ -17,7 +17,7 @@ gemini --prompt "WebSearch: React 19 nouvelles fonctionnalités"
 gemini --prompt "WebSearch: TypeError Cannot read property of undefined solution"
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Recherche et résumé de documents
@@ -34,7 +34,7 @@ gemini --prompt "WebSearch: Rust vs Go benchmark performance 2026"
 "Résumez les différences de performance à partir des résultats de recherche"
 ```
 
-### Exemples détaillés
+## Exemples détaillés
 
 ```bash
 # Collecte d'informations depuis plusieurs sources
@@ -54,12 +54,12 @@ gemini --prompt "WebSearch: CVE-2024 Node.js vulnérabilités"
 "Résumez l'impact et les contre-mesures des vulnérabilités trouvées"
 ```
 
-### Éléments interdits
+## Éléments interdits
 
 - **Interdit d'utiliser l'outil WebSearch intégré de Claude**
 - Quand une recherche web est nécessaire, utilisez toujours `gemini --prompt "WebSearch: ..."`
 
-### Notes importantes
+## Notes importantes
 
 - **Quand Gemini CLI est disponible, utilisez toujours `gemini --prompt "WebSearch: ..."`**
 - Les résultats de recherche web ne sont pas toujours les plus récents

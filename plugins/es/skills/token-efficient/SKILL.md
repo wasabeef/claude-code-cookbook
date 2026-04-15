@@ -1,17 +1,17 @@
 ---
-description: "Comprimir respuestas para reducir uso de contexto 30-50%"
+description: 'Comprimir respuestas para reducir uso de contexto. Se activa con "modo eficiente", "comprimir respuestas", "ahorrar contexto".'
 ---
 
-# Modo de Eficiencia de Tokens
+# Comprimir respuestas para reducir uso de contexto
 
 Reduce el uso del contexto de respuesta de IA en un 30-50% mediante el modo de eficiencia de compresión.
 
-## Comprimir respuestas para reducir uso de contexto 30-50%
+# Comprimir respuestas para reducir uso de contexto 30-50%
 
 El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abreviación para comprimir las respuestas de Claude.
 **La calidad del código generado y el contenido permanecen sin cambios**. Solo cambia el método de explicación.
 
-## Uso
+# Uso
 
 ```bash
 # Habilitar modo
@@ -20,11 +20,11 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 "Modo conciso"
 ```
 
-## ¿Cómo Funciona?
+# ¿Cómo Funciona?
 
-### 1. Sistema de Símbolos
+## 1. Sistema de Símbolos
 
-#### Lógica y Flujo
+### Lógica y Flujo
 
 | Símbolo | Significado          | Ejemplo                               |
 | ------- | -------------------- | ------------------------------------- |
@@ -39,7 +39,7 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 | ∴       | por lo tanto         | `tests ❌ ∴ código roto`              |
 | ∵       | porque               | `lento ∵ algoritmo O(n²)`             |
 
-#### Estado y Progreso
+### Estado y Progreso
 
 | Símbolo | Significado      | Uso                          |
 | ------- | ---------------- | ---------------------------- |
@@ -50,7 +50,7 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 | ⏳      | pendiente        | Programado para después      |
 | 🚨      | urgente, crítico | Alta prioridad               |
 
-#### Dominios Técnicos
+### Dominios Técnicos
 
 | Símbolo | Dominio       | Uso                         |
 | ------- | ------------- | --------------------------- |
@@ -65,9 +65,9 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 | ⚙️      | Backend       | Procesamiento del servidor  |
 | 🧪      | Pruebas       | Aseguramiento de calidad    |
 
-### 2. Sistema de Abreviaciones
+## 2. Sistema de Abreviaciones
 
-#### Sistema y Arquitectura
+### Sistema y Arquitectura
 
 - `cfg` → configuración
 - `impl` → implementación
@@ -76,7 +76,7 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 - `ops` → operaciones
 - `env` → entorno
 
-#### Proceso de Desarrollo
+### Proceso de Desarrollo
 
 - `req` → requisitos
 - `deps` → dependencias
@@ -85,7 +85,7 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 - `docs` → documentación
 - `std` → estándares
 
-#### Calidad y Análisis
+### Calidad y Análisis
 
 - `qual` → calidad
 - `sec` → seguridad
@@ -94,9 +94,9 @@ El Modo de Eficiencia de Tokens aprovecha símbolos visuales y sistemas de abrev
 - `sev` → severidad
 - `opt` → optimización
 
-## Ejemplos Comparativos
+# Ejemplos Comparativos
 
-### Ejemplo 1: Reporte de Error
+## Ejemplo 1: Reporte de Error
 
 **Modo Normal (85 caracteres)**
 
@@ -110,7 +110,7 @@ Vulnerabilidad de seguridad encontrada en la función de validación de usuario 
 auth.js:45 → 🛡️ vuln sec en val() usuario
 ```
 
-### Ejemplo 2: Estado de Construcción
+## Ejemplo 2: Estado de Construcción
 
 **Modo Normal (125 caracteres)**
 
@@ -124,7 +124,7 @@ El proceso de construcción se completó exitosamente. Las pruebas se están eje
 build ✅ » test 🔄 » deploy ⏳
 ```
 
-### Ejemplo 3: Análisis de Rendimiento
+## Ejemplo 3: Análisis de Rendimiento
 
 **Modo Normal (108 caracteres)**
 
@@ -138,9 +138,9 @@ El análisis de rendimiento reveló procesamiento lento debido a la complejidad 
 ⚡ perf: lento ∵ O(n²) → optimizar a O(n)
 ```
 
-## Casos de Uso
+# Casos de Uso
 
-### ✅ Escenarios Efectivos
+## ✅ Escenarios Efectivos
 
 - **Sesiones largas de depuración**: Mantenimiento eficiente del historial
 - **Revisiones de código extensas**: Análisis conciso de muchos archivos
@@ -148,16 +148,16 @@ El análisis de rendimiento reveló procesamiento lento debido a la complejidad 
 - **Reportes de progreso del proyecto**: Vista general de múltiples estados de tareas
 - **Seguimiento de errores**: Representación visual de cadenas de problemas
 
-### ❌ Escenarios a Evitar
+## ❌ Escenarios a Evitar
 
 - Explicaciones para principiantes
 - Creación de documentación detallada
 - Definición inicial de requisitos
 - Comunicación con stakeholders no técnicos
 
-## Ejemplos de Implementación
+# Ejemplos de Implementación
 
-### Sesión de Depuración
+## Sesión de Depuración
 
 ```text
 [14:23] breakpoint → vars: {usuario: null, token: expirado}
@@ -167,7 +167,7 @@ El análisis de rendimiento reveló procesamiento lento debido a la complejidad 
 [14:27] continuar → flujo principal 🔄
 ```
 
-### Resultados del Análisis de Archivos
+## Resultados del Análisis de Archivos
 
 ```text
 /src/auth/: 🛡️ problemas × 3
@@ -177,7 +177,7 @@ El análisis de rendimiento reveló procesamiento lento debido a la complejidad 
 /tests/: 🧪 cobertura 78%
 ```
 
-### Estado del Proyecto
+## Estado del Proyecto
 
 ```text
 Frontend: 🎨 ✅ 100%
@@ -188,7 +188,7 @@ Deploy: 📦 ⏳ programado
 Seguridad: 🛡️ 🚨 1 crítico
 ```
 
-## Opciones de Configuración
+# Opciones de Configuración
 
 ```javascript
 // Niveles de compresión
@@ -202,7 +202,7 @@ Seguridad: 🛡️ 🚨 1 crítico
 --sec; // Compresión enfocada en seguridad
 ```
 
-## Beneficios
+# Beneficios
 
 1. **Ahorro de contexto**: 30-50% de reducción de tokens
 2. **Comprensión visual**: Captación intuitiva mediante símbolos
@@ -210,14 +210,14 @@ Seguridad: 🛡️ 🚨 1 crítico
 4. **Retención del historial**: Mantener historial de conversación más largo
 5. **Reconocimiento de patrones**: Detección más fácil de problemas mediante patrones visuales
 
-## Notas
+# Notas
 
 - Este modo solo cambia el **estilo de respuesta de la IA**
 - **La calidad del código** permanece sin cambios
 - Se puede cambiar con "explicar en modo normal" según sea necesario
 - Se recomienda el modo normal para principiantes y usuarios no técnicos
 
-## Ejemplos de Comandos
+# Ejemplos de Comandos
 
 ```bash
 # Habilitar
@@ -231,7 +231,7 @@ Seguridad: 🛡️ 🚨 1 crítico
 "Modo de Eficiencia de Tokens desactivado"
 ```
 
-## Impacto de la Implementación
+# Impacto de la Implementación
 
 | Elemento                       | Impacto                |
 | ------------------------------ | ---------------------- |

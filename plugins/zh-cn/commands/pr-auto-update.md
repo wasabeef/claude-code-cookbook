@@ -1,16 +1,16 @@
-## 根据变更自动更新 PR 说明和标签
+# 根据变更自动更新 PR 说明和标签
 
-## 概述
+# 概述
 
 自动更新 Pull Request 描述和标签的命令。通过分析 Git 更改内容，生成并设置适当的描述文本和标签。
 
-## 使用方法
+# 使用方法
 
 ```bash
 /pr-auto-update [选项] [PR 编号]
 ```
 
-### 选项
+## 选项
 
 - `--pr <编号>` : 指定目标 PR 编号 (省略时从当前分支自动检测)
 - `--description-only` : 仅更新描述 (不修改标签)
@@ -18,7 +18,7 @@
 - `--dry-run` : 不执行实际更新，仅显示生成的内容
 - `--lang <语言>` : 指定语言 (zh-cn, en)
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 自动更新当前分支的 PR
@@ -34,9 +34,9 @@
 /pr-auto-update --dry-run
 ```
 
-## 功能详情
+# 功能详情
 
-### 1. PR 自动检测
+## 1. PR 自动检测
 
 从当前分支自动检测对应的 PR：
 
@@ -45,7 +45,7 @@
 gh pr list --head $(git branch --show-current) --json number,title,url
 ```
 
-### 2. 更改内容分析
+## 2. 更改内容分析
 
 收集和分析以下信息：
 
@@ -56,15 +56,15 @@ gh pr list --head $(git branch --show-current) --json number,title,url
 - **配置**: package.json、pubspec.yaml、配置文件的更改
 - **CI/CD**: GitHub Actions、workflow 的更改
 
-### 3. 描述文本自动生成
+## 3. 描述文本自动生成
 
-#### 模板处理优先级
+### 模板处理优先级
 
 1. **现有 PR 描述**: **完全遵循**已存在的内容
 2. **项目模板**: 从 `.github/PULL_REQUEST_TEMPLATE.md` 获取结构
 3. **默认模板**: 上述不存在时的后备方案
 
-#### 现有内容保留规则
+### 现有内容保留规则
 
 **重要**: 不修改现有内容
 
@@ -72,7 +72,7 @@ gh pr list --head $(git branch --show-current) --json number,title,url
 - 仅补充空白部分
 - 保留功能性注释 (如 Copilot review rule 等)
 
-#### 项目模板的使用
+### 项目模板的使用
 
 ```bash
 # 解析 .github/PULL_REQUEST_TEMPLATE.md 的结构
@@ -92,16 +92,16 @@ parse_template_structure() {
 }
 ```
 
-### 4. 标签自动设置
+## 4. 标签自动设置
 
-#### 标签获取机制
+### 标签获取机制
 
 **优先级**:
 
 1. **`.github/labels.yml`**: 从项目特定的标签定义获取
 2. **GitHub API**: 使用 `gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'` 获取现有标签
 
-#### 自动判定规则
+### 自动判定规则
 
 **基于文件模式**:
 
@@ -118,13 +118,13 @@ parse_template_structure() {
 - 性能: `performance|perf|optimize|性能` → 包含 `performance|perf` 的标签
 - 安全: `security|secure|安全` → 包含 `security` 的标签
 
-#### 约束
+### 约束
 
 - **最多 3 个**: 自动选择的标签数量上限
 - **仅限现有标签**: 禁止创建新标签
 - **部分匹配**: 根据标签名是否包含关键词判定
 
-#### 实际使用示例
+### 实际使用示例
 
 **存在 `.github/labels.yml` 时**:
 
@@ -144,7 +144,7 @@ gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'
 # 例：使用 bug, enhancement, documentation 等标准标签
 ```
 
-### 5. 执行流程
+## 5. 执行流程
 
 ```bash
 #!/bin/bash
@@ -330,7 +330,7 @@ update_pr() {
 }
 ```
 
-## 配置文件 (未来扩展用)
+# 配置文件 (未来扩展用)
 
 `~/.claude/pr-auto-update.config`:
 
@@ -341,9 +341,9 @@ update_pr() {
 }
 ```
 
-## 常见模式
+# 常见模式
 
-### Flutter 项目
+## Flutter 项目
 
 ```markdown
 ## What does this change?
@@ -364,7 +364,7 @@ update_pr() {
 - **性能**: {优化内容}
 ```
 
-### Node.js 项目
+## Node.js 项目
 
 ```markdown
 ## What does this change?
@@ -385,7 +385,7 @@ update_pr() {
 - **输入验证**: SQL 注入防护
 ```
 
-### CI/CD 改进
+## CI/CD 改进
 
 ```markdown
 ## What does this change?
@@ -405,7 +405,7 @@ update_pr() {
 - **监控**: 添加{指标}监控
 ```
 
-## 注意事项
+# 注意事项
 
 1. **完全保留现有内容**:
    - **一字不改**现有描述内容
@@ -432,27 +432,27 @@ update_pr() {
    - 统一语言 (日语/英语)
    - 继承标签规则
 
-## 故障排除
+# 故障排除
 
-### 常见问题
+## 常见问题
 
 1. **找不到 PR**: 检查分支名与 PR 的关联
 2. **权限错误**: 检查 GitHub CLI 的认证状态
 3. **无法设置标签**: 检查仓库权限
 4. **HTML 注释被转义**: GitHub CLI 的规格导致 `<!-- -->` 被转换为 `&lt;!-- --&gt;`
 
-### GitHub CLI 的 HTML 注释转义问题
+## GitHub CLI 的 HTML 注释转义问题
 
 **重要**: GitHub CLI (`gh pr edit`) 会自动转义 HTML 注释。此外，Shell 的重定向处理可能混入 `EOF < /dev/null` 等非法字符串。
 
-#### 根本解决方案
+### 根本解决方案
 
 1. **使用 GitHub API 的 --field 选项**: 使用 `--field` 进行适当的转义处理
 2. **简化 Shell 处理**: 避免复杂的重定向和管道处理
 3. **简化模板处理**: 废除 HTML 注释移除处理，完全保留
 4. **正确处理 JSON 转义**: 正确处理特殊字符
 
-### 调试选项
+## 调试选项
 
 ```bash
 # 输出详细日志 (实现时添加)

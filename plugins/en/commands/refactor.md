@@ -1,8 +1,8 @@
-## Safe, incremental refactoring with SOLID evaluation
+# Safe, incremental refactoring with SOLID evaluation
 
 Performs safe, step-by-step code refactoring with quantitative SOLID principles evaluation. Visualizes technical debt and clarifies improvement priorities.
 
-### Usage
+## Usage
 
 ```bash
 # Identify complex code and create refactoring plan
@@ -18,7 +18,7 @@ grep -r "class.*Service" . --include="*.js" | head -10
 "Assess whether these classes follow Single Responsibility Principle"
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Find long methods
@@ -34,9 +34,9 @@ grep -r "TODO\|FIXME\|HACK" . --exclude-dir=node_modules
 "Resolve technical debt in comments"
 ```
 
-### Refactoring Techniques
+## Refactoring Techniques
 
-#### Extract Method (Split Big Functions)
+### Extract Method (Split Big Functions)
 
 ```javascript
 // Before: Long method
@@ -52,7 +52,7 @@ function processOrder(order) {
 }
 ```
 
-#### Replace Conditional with Polymorphism (Remove Switch/If Chains)
+### Replace Conditional with Polymorphism (Remove Switch/If Chains)
 
 ```javascript
 // Before: switch statement
@@ -73,9 +73,9 @@ class PremiumPricing {
 }
 ```
 
-### SOLID Principles Scoring (0-100 points)
+## SOLID Principles Scoring (0-100 points)
 
-#### Evaluation Criteria and Scoring
+### Evaluation Criteria and Scoring
 
 ```text
 S - Single Responsibility (20 points)
@@ -116,9 +116,9 @@ Total Score = S + O + L + I + D
 └─ 0-29 points: Critical (Design overhaul required)
 ```
 
-### Technical Debt Quantification
+## Technical Debt Quantification
 
-#### Debt Calculation Formula
+### Debt Calculation Formula
 
 ```text
 Technical Debt (time) = Complexity Score × Impact Range × Fix Difficulty
@@ -148,7 +148,7 @@ Cost Conversion:
 └─ Total cost: Time + Opportunity + Quality costs
 ```
 
-#### Priority Matrix
+### Priority Matrix
 
 | Priority                   | Impact | Fix Cost | Time Savings | Investment ROI        | Response Deadline |
 | -------------------------- | ------ | -------- | ------------ | --------------------- | ----------------- |
@@ -157,7 +157,7 @@ Cost Conversion:
 | **Watch (Monitor)**        | Low    | High     | 1-2x         | Invest 1h → Save 1-2h | Within 3 months   |
 | **Acceptable (Tolerable)** | Low    | Low      | < 1x         | Investment = Savings  | No action needed  |
 
-### Refactoring Process
+## Refactoring Process
 
 1. **Current Analysis and Measurement**
    - Measure complexity (cyclomatic & cognitive)
@@ -177,7 +177,7 @@ Cost Conversion:
    - Verify technical debt reduction
    - Code review
 
-### Common Code Smells and Debt Scores
+## Common Code Smells and Debt Scores
 
 | Code Smell              | Detection Criteria               | Debt Score     | Improvement Method       |
 | ----------------------- | -------------------------------- | -------------- | ------------------------ |
@@ -192,7 +192,7 @@ Cost Conversion:
 | **Switch Statements**   | Cases >5                         | Medium (5-10h) | Strategy Pattern         |
 | **Shotgun Surgery**     | Change impact areas >3           | High (10-15h)  | Move Method/Field        |
 
-### Practical Example: SOLID Score Evaluation
+## Practical Example: SOLID Score Evaluation
 
 ```javascript
 // Evaluation target: UserService class
@@ -234,7 +234,7 @@ Debt Time: 15 × 8 × 2 = 240 hours
 Priority: Critical (Auth system requires immediate attention)
 ```
 
-### Improved Implementation Example
+## Improved Implementation Example
 
 ```javascript
 // After applying SOLID principles (Score: 90 points)
@@ -275,7 +275,7 @@ class UserService {
 // Debt reduction: 240 hours → 20 hours (92% reduction)
 ```
 
-### Automation Support
+## Automation Support
 
 ```bash
 # SOLID score measurement
@@ -297,7 +297,7 @@ npm test -- --coverage
 npm run test:mutation  # Mutation testing
 ```
 
-### Important Rules
+## Important Rules
 
 - **No functional changes**: Don't alter external behavior
 - **Test first**: Add tests before refactoring

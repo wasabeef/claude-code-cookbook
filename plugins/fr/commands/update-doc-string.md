@@ -1,8 +1,8 @@
-## Gérer les docstrings et commentaires multilingues
+# Gérer les docstrings et commentaires multilingues
 
 Gère systématiquement les docstrings/commentaires multilingues et maintient une documentation de haute qualité.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Exécuter avec détection automatique de langue
@@ -16,13 +16,13 @@ Gère systématiquement les docstrings/commentaires multilingues et maintient un
 "Please add JSDoc to functions under src/components/"
 ```
 
-### Options
+## Options
 
 - `--lang <en|fr>` : Langue de documentation (défaut : détection automatique depuis les commentaires existants, sinon en)
 - `--style <style>` : Spécifier le style de documentation (a des défauts spécifiques à la langue)
 - `--marker <true|false>` : Ajouter ou non les marqueurs Claude (défaut : true)
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # 1. Analyser les fichiers cibles (langage de programmation détecté automatiquement)
@@ -41,9 +41,9 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart"
 "Please confirm that all added/updated docstrings have Claude markers"
 ```
 
-### Étapes d'exécution
+## Étapes d'exécution
 
-#### 1. Priorité des éléments cibles
+### 1. Priorité des éléments cibles
 
 1. 🔴 **Priorité la plus élevée** : Éléments sans docstrings/commentaires (0 ligne de commentaire)
 2. 🟡 **Priorité suivante** : Éléments ne respectant pas les standards (moins de 30 caractères ou éléments requis manquants)
@@ -57,7 +57,7 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart"
 - Enums
 - Interfaces (TypeScript, Go)
 
-#### 2. Règles de documentation spécifiques aux langages
+### 2. Règles de documentation spécifiques aux langages
 
 **Python (PEP 257)** :
 
@@ -150,7 +150,7 @@ pub fn calculate_total(items: &[Item]) -> f64 {
 class UserProfileWidget extends StatelessWidget {
 ```
 
-#### 3. Règles de rétention du contenu existant
+### 3. Règles de rétention du contenu existant
 
 1. **Si les commentaires existants respectent les standards** : Garder tels quels (ne pas en ajouter de nouveaux)
    - Standards : Au moins 30 caractères et inclut les éléments requis (résumé, détails, marqueur)
@@ -165,7 +165,7 @@ class UserProfileWidget extends StatelessWidget {
 - Exemples : `Example:`, `Usage:`, `# Examples` etc.
 - Descriptions existantes de paramètres et valeurs de retour
 
-### Paramètres spécifiques aux langages
+## Paramètres spécifiques aux langages
 
 ```yaml
 # Paramètres par défaut spécifiques aux langages
@@ -203,7 +203,7 @@ languages:
     prefix: "///"
 ```
 
-### Liste de contrôle qualité
+## Liste de contrôle qualité
 
 - ✅ **Nombre de caractères** : Respecter strictement 30-60 caractères pour résumé, 50-200 pour détails
 - ✅ **Éléments requis** : Toujours inclure résumé, description détaillée et marqueur Claude
@@ -212,7 +212,7 @@ languages:
 - ✅ **Exceptions** : Expliquer erreurs et exceptions (quand applicable)
 - ✅ **Précision** : Analyser l'implémentation et n'inclure que des descriptions factuelles
 
-### Notes
+## Notes
 
 **🔴 Interdictions strictes** :
 
@@ -264,7 +264,7 @@ echo "- Commentaires mis à jour : $UPDATED_COMMENTS"
 echo "- Erreurs : $ERRORS"
 ```
 
-### Critères de réussite
+## Critères de réussite
 
 1. **Critères d'achèvement** : Réussite quand tous les éléments suivants sont satisfaits :
    - Analyse statique spécifique au langage RÉUSSIE
@@ -279,7 +279,7 @@ echo "- Erreurs : $ERRORS"
    - Analyse statique ÉCHOUÉE
    - Nombre d'erreurs est 5 ou plus
 
-### Intégration avec Claude
+## Intégration avec Claude
 
 ```bash
 # Analyser tout le projet (détection automatique de langue)

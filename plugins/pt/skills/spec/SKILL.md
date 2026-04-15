@@ -1,14 +1,19 @@
 ---
-description: "Criar especificações detalhadas com desenvolvimento orientado a specs"
+description: 'Criar especificações detalhadas. Ativa com "escrever spec", "definir requisitos", "design detalhado".'
+allowed-tools:
+  - Read
+  - Write
+  - Grep
+  - Glob
 ---
 
-## Criar especificações detalhadas com desenvolvimento orientado a specs
+# Criar especificações detalhadas
 
 **"Dar estrutura antes de escrever código"** - Totalmente em conformidade com o spec-driven development de Kiro
 
 Diferente das ferramentas tradicionais de geração de código, realiza o desenvolvimento orientado por especificações de Kiro focado em dar estrutura ao caos do desenvolvimento. A partir de uma entrada mínima de requisitos, expande gradualmente desde especificações detalhadas de nível de product manager até design implementável, garantindo qualidade consistente do **protótipo ao ambiente de produção**.
 
-### Como usar
+## Como usar
 
 ```bash
 # Solicitar Spec Mode ao Claude (entrada mínima de requisitos)
@@ -24,7 +29,7 @@ Diferente das ferramentas tradicionais de geração de código, realiza o desenv
 #    - tasks.md: Plano de implementação com aplicação automática de boas práticas
 ```
 
-### Efeitos Comprovados (Resultados do Kiro)
+## Efeitos Comprovados (Resultados do Kiro)
 
 **Aplicativo de compartilhamento seguro de arquivos em 2 dias**
 
@@ -53,7 +58,7 @@ Diferente das ferramentas tradicionais de geração de código, realiza o desenv
 → Abordagem estruturada através de spec-driven development
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Criação de spec para nova funcionalidade (entrada mínima)
@@ -73,7 +78,7 @@ Diferente das ferramentas tradicionais de geração de código, realiza o desenv
 - Foco em segurança"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Spec de funcionalidade complexa
@@ -89,7 +94,7 @@ Diferente das ferramentas tradicionais de geração de código, realiza o desenv
 "Crie spec de API RESTful. Inclua autenticação, validação e registro de logs"
 ```
 
-### Características do Spec Mode
+## Características do Spec Mode
 
 **Fluxo de Trabalho de Diálogo Gradual**
 
@@ -109,7 +114,7 @@ Diferente das ferramentas tradicionais de geração de código, realiza o desenv
 - Apresentação e discussão de opções técnicas
 - Explicação de trade-offs e confirmação de decisões
 
-### Exemplos Detalhados
+## Exemplos Detalhados
 
 ```bash
 # Funcionalidade complexa de sistema
@@ -125,9 +130,9 @@ Diferente das ferramentas tradicionais de geração de código, realiza o desenv
 "Crie spec de pipeline CI/CD. Inclua automação de testes, deployment e monitoramento"
 ```
 
-### Fluxo de Trabalho de Diálogo Gradual (Phase by Phase)
+## Fluxo de Trabalho de Diálogo Gradual (Phase by Phase)
 
-#### Phase 1: Requirements Discovery & Discussion
+### Phase 1: Requirements Discovery & Discussion
 
 **1. Expansão automática a partir de entrada mínima (estilo Kiro)**
 
@@ -200,7 +205,7 @@ Posso gerar requirements.md?"
 → "Próximo passo" → Geração de requirements.md
 ```
 
-#### Phase 2: Design Exploration & Discussion
+### Phase 2: Design Exploration & Discussion
 
 **1. Análise de codebase + Proposta automática de design (estilo Kiro)**
 
@@ -301,7 +306,7 @@ Posso gerar design.md?"
 
 ```
 
-#### Phase 3: Implementation Planning & Discussion
+### Phase 3: Implementation Planning & Discussion
 
 **1. Aplicação automática de boas práticas (estilo Kiro)**
 
@@ -413,7 +418,7 @@ Posso gerar tasks.md?"
 
 ```
 
-### Funcionalidades Específicas do Kiro
+## Funcionalidades Específicas do Kiro
 
 **Notação EARS (Easy Approach to Requirements Syntax)**
 
@@ -455,7 +460,7 @@ THE SYSTEM SHALL [comportamento correspondente]
 - Aplicação automática de arquitetura escalável
 - Incorporação de gerenciamento contínuo de qualidade
 
-### Observações
+## Observações
 
 **Escopo de aplicação**
 
@@ -475,9 +480,9 @@ THE SYSTEM SHALL [comportamento correspondente]
 - Gerar tarefas de implementação após conclusão do design
 - Valorizar processo de aprovação em cada etapa
 
-### Frases de Ativação e Controle
+## Frases de Ativação e Controle
 
-#### Controle de fluxo de trabalho gradual
+### Controle de fluxo de trabalho gradual
 
 **Triggers de início**
 
@@ -501,7 +506,7 @@ Conclusão Phase 2 → "Próximo passo" → Geração de design.md
 Conclusão Phase 3 → "Próximo passo" → Geração de tasks.md
 ```
 
-### Exemplo de Execução (Fluxo Gradual)
+## Exemplo de Execução (Fluxo Gradual)
 
 ```bash
 # Exemplo de uso
@@ -532,7 +537,7 @@ Usuário: "Próximo passo"
 Claude: "Preparação para spec-driven development concluída. Pode iniciar a implementação."
 ```
 
-### Diferenças com /plan
+## Diferenças com /plan
 
 | Característica          | /plan                            | /spec                                                                     |
 | ----------------------- | -------------------------------- | ------------------------------------------------------------------------- |
@@ -544,7 +549,7 @@ Claude: "Preparação para spec-driven development concluída. Pode iniciar a im
 | Garantia de qualidade   | Estratégia básica de testes      | Requisitos abrangentes de qualidade (testes, acessibilidade, performance) |
 | Sincronização           | Plano estático                   | Atualização dinâmica de spec                                              |
 
-### Casos de Uso Recomendados
+## Casos de Uso Recomendados
 
 **Uso recomendado de spec**
 

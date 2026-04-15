@@ -1,8 +1,8 @@
-## Responder eficientemente a comentarios de revisión de PR
+# Responder eficientemente a comentarios de revisión
 
 Manejar eficientemente comentarios de revisión de Pull Request y lograr resolución de causa raíz usando un enfoque de análisis de errores de 3 etapas.
 
-### Uso
+## Uso
 
 ```bash
 # Recuperar y analizar comentarios de revisión
@@ -18,7 +18,7 @@ npm test && npm run lint
 "Las correcciones están completas - por favor verificar pruebas de regresión y calidad de código"
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Clasificar comentarios
@@ -34,7 +34,7 @@ git diff HEAD~1
 "Evaluar si esta corrección aborda apropiadamente los comentarios de revisión"
 ```
 
-### Sistema de Clasificación de Comentarios
+## Sistema de Clasificación de Comentarios
 
 ```text
 🔴 must: Correcciones requeridas
@@ -62,9 +62,9 @@ git diff HEAD~1
 └─ Consideración de soluciones alternativas
 ```
 
-### Enfoque de Análisis de Errores de 3 Etapas
+## Enfoque de Análisis de Errores de 3 Etapas
 
-#### Etapa 1: Recopilación de Información
+### Etapa 1: Recopilación de Información
 
 **Acciones requeridas**
 
@@ -78,20 +78,20 @@ git diff HEAD~1
 - Historial de cambios recientes
 - Revisión de logs relacionados
 
-#### Etapa 2: Análisis de Causa Raíz
+### Etapa 2: Análisis de Causa Raíz
 
 - Aplicación de análisis de 5 Por qués
 - Seguimiento de dependencias
 - Verificación de diferencias de entorno
 - Creación de código mínimo de reproducción
 
-#### Etapa 3: Implementación de Solución
+### Etapa 3: Implementación de Solución
 
 - Respuesta inmediata (hotfix)
 - Resolución de causa raíz (corrección esencial)
 - Medidas preventivas (prevención de recurrencia)
 
-### Flujo de Respuesta
+## Flujo de Respuesta
 
 1. **Análisis de comentarios**: Clasificación por prioridad
 2. **Plan de corrección**: Determinación de orden de respuesta
@@ -99,7 +99,7 @@ git diff HEAD~1
 4. **Confirmación de calidad**: Testing, linting, building
 5. **Reporte de progreso**: Descripción de correcciones específicas
 
-### Verificación Post-Corrección
+## Verificación Post-Corrección
 
 ```bash
 # Verificaciones básicas
@@ -114,7 +114,7 @@ npm run test:e2e
 npm run test:coverage
 ```
 
-### Plantillas de Respuesta
+## Plantillas de Respuesta
 
 **Reporte de finalización de corrección**
 
@@ -135,7 +135,7 @@ Alternativas consideradas: [Opciones y justificación de decisión]
 Beneficios de solución adoptada: [Ventajas]
 ```
 
-### Notas
+## Notas
 
 - **Adherencia a prioridades**: Abordar en orden de Crítico → Alto → Medio → Bajo
 - **Pruebas primero**: Confirmar pruebas de regresión antes de hacer correcciones

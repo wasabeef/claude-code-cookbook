@@ -1,12 +1,18 @@
 ---
-description: "Répondre efficacement aux commentaires de revue de PR"
+description: "Répondre efficacement aux commentaires de revue. Se déclenche avec « corriger les commentaires de revue », « répondre au feedback »."
+allowed-tools:
+  - Bash(gh *)
+  - Read
+  - Edit
+  - Grep
+  - Glob
 ---
 
-## Répondre efficacement aux commentaires de revue de PR
+# Répondre efficacement aux commentaires de revue
 
 Gérez efficacement les commentaires de revue de Pull Requests et obtenez une résolution de cause racine en utilisant une approche d'analyse d'erreurs en 3 étapes.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Récupérer et analyser les commentaires de revue
@@ -22,7 +28,7 @@ npm test && npm run lint
 "Fixes are complete - please check regression tests and code quality"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Classer les commentaires
@@ -38,7 +44,7 @@ git diff HEAD~1
 "Evaluate whether this fix appropriately addresses the review comments"
 ```
 
-### Système de classification des commentaires
+## Système de classification des commentaires
 
 ```text
 🔴 must : Corrections requises
@@ -66,9 +72,9 @@ git diff HEAD~1
 └─ Considération de solutions alternatives
 ```
 
-### Approche d'analyse d'erreurs en 3 étapes
+## Approche d'analyse d'erreurs en 3 étapes
 
-#### Étape 1 : Collecte d'informations
+### Étape 1 : Collecte d'informations
 
 **Actions requises**
 
@@ -82,20 +88,20 @@ git diff HEAD~1
 - Historique des changements récents
 - Revue des journaux associés
 
-#### Étape 2 : Analyse de cause racine
+### Étape 2 : Analyse de cause racine
 
 - Application de l'analyse des 5 pourquoi
 - Suivi des dépendances
 - Vérification des différences d'environnement
 - Création de code de reproduction minimal
 
-#### Étape 3 : Implémentation de solution
+### Étape 3 : Implémentation de solution
 
 - Réponse immédiate (hotfix)
 - Résolution de cause racine (correction essentielle)
 - Mesures préventives (prévention de récurrence)
 
-### Flux de réponse
+## Flux de réponse
 
 1. **Analyse de commentaires** : Classification par priorité
 2. **Plan de correction** : Détermination de l'ordre de réponse
@@ -103,7 +109,7 @@ git diff HEAD~1
 4. **Confirmation de qualité** : Tests, linting, construction
 5. **Rapport de progression** : Description des corrections spécifiques
 
-### Vérification post-correction
+## Vérification post-correction
 
 ```bash
 # Vérifications de base
@@ -118,7 +124,7 @@ npm run test:e2e
 npm run test:coverage
 ```
 
-### Modèles de réponse
+## Modèles de réponse
 
 **Rapport d'achèvement de correction**
 
@@ -139,7 +145,7 @@ Alternatives considérées : [Options et raisonnement de la décision]
 Avantages de la solution adoptée : [Avantages]
 ```
 
-### Notes
+## Notes
 
 - **Adhérer à la priorité** : Traiter dans l'ordre Critique → Haute → Moyenne → Basse
 - **Tests d'abord** : Confirmer les tests de régression avant de faire des corrections

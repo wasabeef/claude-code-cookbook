@@ -1,12 +1,17 @@
 ---
-description: "Atualizar dependências Flutter com segurança"
+description: 'Atualizar dependências Flutter com segurança. Ativa com "atualizar pacotes Flutter", "atualizar pubspec.yaml".'
+allowed-tools:
+  - Bash(flutter *)
+  - Bash(dart *)
+  - Read
+  - Edit
 ---
 
-## Atualizar dependências Flutter com segurança
+# Atualizar dependências Flutter com segurança
 
 Atualiza com segurança as dependências de projetos Flutter.
 
-### Uso
+## Uso
 
 ```bash
 # Verificar estado das dependências e solicitar ao Claude
@@ -14,7 +19,7 @@ flutter pub deps --style=compact
 "Atualize as dependências do pubspec.yaml para as versões mais recentes"
 ```
 
-### Exemplos básicos
+## Exemplos básicos
 
 ```bash
 # Verificar dependências atuais
@@ -26,7 +31,7 @@ flutter pub upgrade --dry-run
 "Verifique se há mudanças disruptivas no conteúdo planejado para este upgrade"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Atualização abrangente de dependências
@@ -46,7 +51,7 @@ flutter pub outdated
 "Informe o impacto e mudanças necessárias se atualizar o provider para a versão mais recente"
 ```
 
-### Exemplos detalhados
+## Exemplos detalhados
 
 ```bash
 # Análise detalhada incluindo Release Notes
@@ -63,7 +68,7 @@ cat pubspec.yaml
 "Identifique pacotes que não suportam Null Safety e crie um plano de migração"
 ```
 
-### Critérios de nível de risco
+## Critérios de nível de risco
 
 ```text
 Seguro (🟢):
@@ -82,7 +87,7 @@ Perigoso (🔴):
 - Remoção/alteração de API
 ```
 
-### Execução da atualização
+## Execução da atualização
 
 ```bash
 # Criar backup
@@ -98,7 +103,7 @@ flutter test
 flutter pub deps --style=compact
 ```
 
-### Observações
+## Observações
 
 Sempre realize verificação de funcionamento após a atualização. Em caso de problemas, restaure usando:
 

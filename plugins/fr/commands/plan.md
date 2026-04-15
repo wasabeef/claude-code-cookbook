@@ -1,15 +1,15 @@
-## Mode planification pour la stratégie avant l'implémentation
+# Mode planification pour la stratégie
 
 Vous aide à planifier avant de coder. Crée des stratégies détaillées pour faciliter le développement.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Demander le Mode Plan à Claude
 "Créez un plan d'implémentation pour [contenu d'implémentation]"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Plan d'implémentation pour une nouvelle fonctionnalité
@@ -22,7 +22,7 @@ Vous aide à planifier avant de coder. Crée des stratégies détaillées pour f
 "Créez un plan de refactorisation pour le code hérité"
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Implémentation de fonctionnalité complexe
@@ -38,7 +38,7 @@ Vous aide à planifier avant de coder. Crée des stratégies détaillées pour f
 "Créez un plan d'implémentation pour la dockerisation, incluant environnement de développement, environnement de production et CI/CD"
 ```
 
-### Comment fonctionne le Mode Plan
+## Comment fonctionne le Mode Plan
 
 **Démarrage automatique**
 
@@ -60,7 +60,7 @@ Vous aide à planifier avant de coder. Crée des stratégies détaillées pour f
 - Vous pouvez demander des changements à tout moment
 - Le suivi TaskCreate commence après votre approbation
 
-### Exemples détaillés
+## Exemples détaillés
 
 ```bash
 # Implémentation de système complexe
@@ -76,30 +76,30 @@ Vous aide à planifier avant de coder. Crée des stratégies détaillées pour f
 "Créez un plan d'implémentation pour un pipeline CI/CD, incluant automatisation de tests, déploiement et surveillance"
 ```
 
-### Flux de travail en 3 phases
+## Flux de travail en 3 phases
 
-#### Phase 1 : Exigences
+### Phase 1 : Exigences
 
 - **User Stories** : Que construisons-nous et pourquoi ?
 - **Critères de succès** : Comment savons-nous que c'est terminé ?
 - **Contraintes** : Quelles limites avons-nous ?
 - **Priorité** : Qu'est-ce qui est indispensable vs agréable à avoir ?
 
-#### Phase 2 : Conception
+### Phase 2 : Conception
 
 - **Architecture** : Comment le système fonctionnera-t-il ?
 - **Modèle de données** : Schéma de base de données et APIs
 - **UI/UX** : Mises en page d'écran et flux utilisateur
 - **Risques** : Qu'est-ce qui pourrait mal tourner et comment le prévenir
 
-#### Phase 3 : Implémentation
+### Phase 3 : Implémentation
 
 - **Décomposition des tâches** : Diviser en blocs gérables
 - **Suivi du progrès** : TaskUpdate gère le statut
 - **Vérifications qualité** : Plan de tests et de vérification
 - **Votre approbation** : Montrer le plan et attendre votre OK
 
-### Remarques
+## Remarques
 
 **Quand utiliser ceci**
 
@@ -119,7 +119,7 @@ Vous aide à planifier avant de coder. Crée des stratégies détaillées pour f
 - Toujours attendre votre réponse
 - Offrir des alternatives si quelque chose échoue
 
-### Exemple d'exécution
+## Exemple d'exécution
 
 ```bash
 # Exemple d'utilisation

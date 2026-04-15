@@ -1,15 +1,15 @@
-## Agent autonome pour les tâches de recherche et d'analyse
+# Agent autonome pour les tâches de recherche et d'analyse
 
 Lance un agent intelligent pour gérer les recherches et investigations complexes. Excellent pour le travail à grande échelle sans consommer le contexte.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Demander une Tâche à Claude
 "Enquêtez sur [tâche] en utilisant Task"
 ```
 
-### Ce que fait Task
+## Ce que fait Task
 
 **Fonctionne de manière indépendante**
 
@@ -29,7 +29,7 @@ Lance un agent intelligent pour gérer les recherches et investigations complexe
 - Vérifie sous différents angles
 - Comble les lacunes manquantes
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Investigation complexe de base de code
@@ -42,7 +42,7 @@ Lance un agent intelligent pour gérer les recherches et investigations complexe
 "Enquêtez sur les dernières tendances technologiques IA en utilisant Task"
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Analyse de problème complexe
@@ -58,9 +58,9 @@ Lance un agent intelligent pour gérer les recherches et investigations complexe
 "Analysez les dépendances de ce microservice en utilisant Task"
 ```
 
-### Task vs Autres commandes
+## Task vs Autres commandes
 
-#### Quand utiliser quoi
+### Quand utiliser quoi
 
 | Commande            | Cas d'usage principal               | Méthode d'exécution       | Collecte d'informations            |
 | ------------------- | ----------------------------------- | ------------------------- | ---------------------------------- |
@@ -69,7 +69,7 @@ Lance un agent intelligent pour gérer les recherches et investigations complexe
 | sequential-thinking | Résolution de problèmes, conception | Réflexion étape par étape | Selon les besoins                  |
 | plan                | Planification d'implémentation      | Processus d'approbation   | Analyse des exigences              |
 
-#### Guide de décision rapide
+### Guide de décision rapide
 
 ```text
 Besoin de collecter des infos ?
@@ -81,7 +81,7 @@ Besoin de collecter des infos ?
           └─ Non → Demandez simplement normalement
 ```
 
-### Quand Task fonctionne le mieux
+## Quand Task fonctionne le mieux
 
 **Excellent pour**
 
@@ -99,9 +99,9 @@ Besoin de collecter des infos ?
 - Choses nécessitant des discussions interactives
 - Décisions de conception (utilisez plan ou commandes de réflexion à la place)
 
-### Exemples détaillés par catégorie
+## Exemples détaillés par catégorie
 
-#### Analyse et investigation système
+### Analyse et investigation système
 
 ```bash
 # Analyse de système complexe
@@ -114,7 +114,7 @@ Besoin de collecter des infos ?
 "Analysez la dette technique dans le code hérité en utilisant Task, incluant les priorités de refactorisation"
 ```
 
-#### Sécurité et conformité
+### Sécurité et conformité
 
 ```bash
 # Audit de sécurité
@@ -127,7 +127,7 @@ Besoin de collecter des infos ?
 "Identifiez les incohérences de configuration de sécurité en utilisant Task, incluant les différences d'environnement"
 ```
 
-#### Performance et optimisation
+### Performance et optimisation
 
 ```bash
 # Analyse de performance
@@ -140,7 +140,7 @@ Besoin de collecter des infos ?
 "Enquêtez sur les problèmes de taille du bundle frontend en utilisant Task, incluant les suggestions d'optimisation"
 ```
 
-#### Collecte d'informations externes
+### Collecte d'informations externes
 
 ```bash
 # Investigation de tendances technologiques
@@ -153,9 +153,9 @@ Besoin de collecter des infos ?
 "Comparez les bibliothèques de gestion d'état en utilisant Task, incluant performance et coûts d'apprentissage"
 ```
 
-### Flux d'exécution et assurance qualité
+## Flux d'exécution et assurance qualité
 
-#### Flux d'exécution de Task
+### Flux d'exécution de Task
 
 ```text
 1. Analyse initiale
@@ -179,35 +179,35 @@ Besoin de collecter des infos ?
    └─ Présentation des actions suivantes
 ```
 
-#### Assurance qualité
+### Assurance qualité
 
 - **Vérification de fiabilité des sources d'information** : Confirmation des faits à partir de multiples sources
 - **Vérification de complétude** : Vérification qu'il n'y a pas de lacunes dans les cibles d'investigation
 - **Vérification de cohérence** : Confirmation de cohérence dans les informations contradictoires
 - **Évaluation de praticabilité** : Évaluation de la faisabilité et de l'efficacité des propositions
 
-### Gestion d'erreurs et contraintes
+## Gestion d'erreurs et contraintes
 
-#### Contraintes communes
+### Contraintes communes
 
 - **Limites d'usage des API externes** : Limites de débit et erreurs d'authentification
 - **Limites de traitement de gros fichiers** : Contraintes de mémoire et timeout
 - **Problèmes de permissions d'accès** : Restrictions sur l'accès aux fichiers et répertoires
 
-#### Gestion d'erreurs
+### Gestion d'erreurs
 
 - **Rapport de résultats partiels** : Analyse avec seulement les informations obtenables
 - **Propositions alternatives** : Suggestion de méthodes d'investigation alternatives sous contraintes
 - **Exécution par étapes** : Division des tâches à grande échelle pour l'exécution
 
-### Remarques
+## Remarques
 
 - Task est optimal pour les tâches d'investigation et d'analyse complexes et autonomes
 - Pour les questions simples ou quand des réponses immédiates sont nécessaires, utilisez le format de question normal
 - Traitez les résultats d'investigation comme informations de référence et vérifiez toujours les décisions importantes
 - Lors de la collecte d'informations externes, portez attention à la fraîcheur et à l'exactitude des informations
 
-### Exemple d'exécution
+## Exemple d'exécution
 
 ```bash
 # Exemple d'usage

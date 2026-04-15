@@ -1,8 +1,8 @@
-## 角色選擇指南和說明
+# 角色選擇指南
 
 迷茫時的角色選擇指南和帮助系統。
 
-### 使用方法
+## 使用方法
 
 ```bash
 /role-help                      # 全面的角色選擇指南
@@ -10,7 +10,7 @@
 /role-help compare <角色 1>,<角色 2> # 角色比较
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 一般指導
@@ -26,9 +26,9 @@
 → frontend 和 mobile 的區別與使用場景
 ```
 
-### 情况別角色選擇指南
+## 情况別角色選擇指南
 
-### 安全相關
+## 安全相關
 
 ```text
 這种情况使用 security 角色:
@@ -41,7 +41,7 @@
 使用方法: /role security
 ```
 
-### 🏗️ 架構·設計
+## 🏗️ 架構·設計
 
 ```text
 這种情况使用 architect 角色:
@@ -54,7 +54,7 @@
 使用方法: /role architect
 ```
 
-### ⚡ 性能問題
+## ⚡ 性能問題
 
 ```text
 這种情况使用 performance 角色:
@@ -67,7 +67,7 @@
 使用方法: /role performance
 ```
 
-### 🔍 問題原因調查
+## 🔍 問題原因調查
 
 ```text
 這种情况使用 analyzer 角色:
@@ -80,7 +80,7 @@
 使用方法: /role analyzer
 ```
 
-### 🎨 前端·UI/UX
+## 🎨 前端·UI/UX
 
 ```text
 這种情况使用 frontend 角色:
@@ -93,7 +93,7 @@
 使用方法: /role frontend
 ```
 
-### 📱 移動應用開發
+## 📱 移動應用開發
 
 ```text
 這种情况使用 mobile 角色:
@@ -106,7 +106,7 @@
 使用方法: /role mobile
 ```
 
-### 👀 代碼審查·質量
+## 👀 代碼審查·質量
 
 ```text
 這种情况使用 reviewer 角色:
@@ -119,7 +119,7 @@
 使用方法: /role reviewer
 ```
 
-### 🧪 測試·質量保證
+## 🧪 測試·質量保證
 
 ```text
 這种情况使用 qa 角色:
@@ -132,9 +132,9 @@
 使用方法: /role qa
 ```
 
-### 需要多個角色的情况
+## 需要多個角色的情况
 
-### 🔄 multi-role (並行分析)
+## 🔄 multi-role (並行分析)
 
 ```text
 這种情况使用 multi-role:
@@ -146,7 +146,7 @@
 例: /multi-role security,performance
 ```
 
-### 🗣️ role-debate (辩論)
+## 🗣️ role-debate (辩論)
 
 ```text
 這种情况使用 role-debate:
@@ -158,7 +158,7 @@
 例: /role-debate security,performance
 ```
 
-### 🤖 smart-review (自動建議)
+## 🤖 smart-review (自動建議)
 
 ```text
 這种情况使用 smart-review:
@@ -170,37 +170,37 @@
 例: /smart-review
 ```
 
-### 角色比较表
+## 角色比较表
 
-### 安全系
+## 安全系
 
 | 角色     | 主要用途      | 擅长領域           | 不擅长領域       |
 | -------- | ------------- | ------------------ | ---------------- |
 | security | 漏洞·攻擊對策 | 威胁分析、認證設計 | UX、性能         |
 | analyzer | 根本原因分析  | 邏輯分析、證據收集 | 預防策、未來規劃 |
 
-### 設計系
+## 設計系
 
 | 角色      | 主要用途 | 擅长領域           | 不擅长領域         |
 | --------- | -------- | ------------------ | ------------------ |
 | architect | 系統設計 | 长期視角、全局優化 | 詳细實現、短期解決 |
 | reviewer  | 代碼質量 | 實現級別、可維護性 | 業務需求、UX       |
 
-### 性能系
+## 性能系
 
 | 角色        | 主要用途    | 擅长領域     | 不擅长領域 |
 | ----------- | ----------- | ------------ | ---------- |
 | performance | 高速化·優化 | 測量、瓶頸   | 安全性、UX |
 | qa          | 質量保證    | 測試、自動化 | 設計、架構 |
 
-### 用戶體驗系
+## 用戶體驗系
 
 | 角色     | 主要用途  | 擅长領域         | 不擅长領域    |
 | -------- | --------- | ---------------- | ------------- |
 | frontend | Web UI/UX | 瀏覽器、可訪問性 | 服務器端、DB  |
 | mobile   | 移動 UX   | 觸摸、離線支持   | 服務器端、Web |
 
-### 迷茫時的流程圖
+## 迷茫時的流程圖
 
 ```text
 問題的性質是？
@@ -219,9 +219,9 @@
 └─ 不知如何判斷 → smart-review
 ```
 
-### 常見問題
+## 常見問題
 
-### Q: frontend 和 mobile 的區別是？
+## Q: frontend 和 mobile 的區別是？
 
 ```text
 A:
@@ -231,7 +231,7 @@ mobile: 以移動應用為中心、iOS/Android 原生·React Native 等
 两者都相關時推薦 multi-role frontend,mobile
 ```
 
-### Q: security 和 analyzer 的使用場景？
+## Q: security 和 analyzer 的使用場景？
 
 ```text
 A:
@@ -241,7 +241,7 @@ analyzer: 已發生問題的原因分析、調查
 安全事件調查使用 multi-role security,analyzer
 ```
 
-### Q: architect 和 performance 的區別是？
+## Q: architect 和 performance 的區別是？
 
 ```text
 A:
@@ -251,7 +251,7 @@ performance: 具體的速度·效率改進
 大規模系統的性能設計使用 multi-role architect,performance
 ```
 
-### 與 Claude 的協作
+## 與 Claude 的協作
 
 ```bash
 # 結合情况說明
@@ -268,7 +268,7 @@ cat problem-description.md
 "JWT 令牌有效期問題该用哪個角色？"
 ```
 
-### 注意事項
+## 注意事項
 
 - 復杂問題多角色組合更有效
 - 紧急性高時使用 single role 快速應對

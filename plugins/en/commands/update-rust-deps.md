@@ -1,8 +1,8 @@
-## Safely update Rust dependencies
+# Safely update Rust dependencies
 
 Safely update dependencies in your Rust project.
 
-### Usage
+## Usage
 
 ```bash
 # Check dependency status and request Claude's help
@@ -10,7 +10,7 @@ cargo tree
 "Please update the dependencies in Cargo.toml to their latest versions"
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Check current dependencies
@@ -22,7 +22,7 @@ cargo update --dry-run
 "Analyze the risk level of updating these crates"
 ```
 
-### Integration with Claude
+## Integration with Claude
 
 ```bash
 # Comprehensive dependency update
@@ -42,7 +42,7 @@ cargo tree
 "Tell me the impact and necessary changes when updating tokio to the latest version"
 ```
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Detailed analysis including release notes
@@ -59,7 +59,7 @@ cat Cargo.toml src/main.rs
 "Present all necessary changes for migrating from async-std to tokio or upgrading tokio to a new major version"
 ```
 
-### Risk Criteria
+## Risk Criteria
 
 ```text
 Safe (🟢):
@@ -79,7 +79,7 @@ Dangerous (🔴):
 - Trait bound changes
 ```
 
-### Execution of Update
+## Execution of Update
 
 ```bash
 # Create backups
@@ -95,7 +95,7 @@ cargo test
 cargo clippy
 ```
 
-### Notes
+## Notes
 
 Always verify functionality after updates. If issues occur, restore with:
 

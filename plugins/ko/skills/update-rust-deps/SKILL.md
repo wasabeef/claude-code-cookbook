@@ -1,12 +1,16 @@
 ---
-description: "Rust 의존성 안전 업데이트"
+description: "Rust 의존성 안전 업데이트. 「Rust 의존성 업데이트해줘」「Cargo.toml 업데이트」「crate 최신화」등으로 기동."
+allowed-tools:
+  - Bash(cargo *)
+  - Read
+  - Edit
 ---
 
-## Rust 의존성 안전 업데이트
+# Rust 의존성 안전 업데이트
 
 Rust 프로젝트의 의존성을 안전하게 업데이트합니다.
 
-### 사용법
+## 사용법
 
 ```bash
 # 의존성의 상태를 확인해서 Claude 에 의뢰
@@ -14,7 +18,7 @@ cargo tree
 「Cargo.toml 의 의존성을 최신 버전으로 업데이트하세요」
 ```
 
-### 기본 예제
+## 기본 예제
 
 ```bash
 # 현재 의존성을 확인
@@ -26,7 +30,7 @@ cargo update --dry-run
 「이 크레이트들의 업데이트에서의 위험도를 분석하세요」
 ```
 
-### Claude 와의 연계
+## Claude 와의 연계
 
 ```bash
 # 포괄적인 의존성 업데이트
@@ -46,7 +50,7 @@ cargo tree
 「tokio 를 최신 버전으로 업데이트한 경우의 영향과 필요한 변경을 알려주세요」
 ```
 
-### 상세 예제
+## 상세 예제
 
 ```bash
 # Release Notes 를 포함한 상세 분석
@@ -64,7 +68,7 @@ cat Cargo.toml src/main.rs
 「async-std 에서 tokio 로의 이전, 또는 tokio 의 메이저 버전 업에 필요한 변경을 모두 제시하세요」
 ```
 
-### 위험도의 기준
+## 위험도의 기준
 
 ```text
 안전(🟢)：
@@ -84,7 +88,7 @@ cat Cargo.toml src/main.rs
 - 트레이트 경계의 변경
 ```
 
-### 업데이트의 실행
+## 업데이트의 실행
 
 ```bash
 # 백업 생성
@@ -100,7 +104,7 @@ cargo test
 cargo clippy
 ```
 
-### 주의사항
+## 주의사항
 
 업데이트 후에는 반드시 동작 확인을 실시하세요. 문제가 발생한 경우는 다음으로 복원：
 

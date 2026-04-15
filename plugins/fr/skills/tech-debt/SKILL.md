@@ -1,12 +1,17 @@
 ---
-description: "Analyse quantitative de la dette technique et plan d'amélioration"
+description: "Analyse quantitative de la dette technique. Se déclenche avec « analyser la dette technique », « santé du projet »."
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
 ---
 
-## Analyse quantitative de la dette technique et plan d'amélioration
+# Analyse quantitative de la dette technique
 
 Analyse quantitativement la dette technique du projet et visualise les scores de santé avec l'impact sur l'efficacité de développement. Suit les améliorations grâce à l'analyse de tendances, calcule les coûts temporels et crée un plan d'amélioration priorisé.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Vérifier la configuration du projet pour analyser la dette technique
@@ -14,7 +19,7 @@ ls -la
 "Analyser la dette technique de ce projet et créer un plan d'amélioration"
 ```
 
-### Tableau de Bord de Santé du Projet
+## Tableau de Bord de Santé du Projet
 
 ```text
 Score de Santé du Projet: 72/100
@@ -50,7 +55,7 @@ Score de Santé du Projet: 72/100
 └─ ROI: Investissement 40 heures → Récupération 120 heures (3 mois)
 ```
 
-### Exemples de Base
+## Exemples de Base
 
 ```bash
 # Analyse détaillée du score de santé
@@ -66,7 +71,7 @@ ls -la | grep -E "package.json|Cargo.toml|pubspec.yaml|go.mod|requirements.txt"
 "Calculer le score de fraîcheur des dépendances et analyser les risques et effets des mises à jour"
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Analyse intégrale de dette technique
@@ -91,7 +96,7 @@ find . -type d -name "src" -o -name "lib" -o -name "app" | head -10 | xargs ls -
 - Moment recommandé d'implémentation"
 ```
 
-### Exemples Détaillés
+## Exemples Détaillés
 
 ```bash
 # Détection automatique du type de projet et analyse
@@ -119,7 +124,7 @@ find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f 
 "Analyser la dette technique de couverture de tests et proposer une stratégie de tests"
 ```
 
-### Matrice de Priorités de Dette
+## Matrice de Priorités de Dette
 
 ```text
 Priorité = (Impact × Fréquence) ÷ Coût de correction
@@ -132,7 +137,7 @@ Priorité = (Impact × Fréquence) ÷ Coût de correction
 | **[P2] Ce mois**           | Faible                   | Élevé              | 1-2x                        | Investissement 1h→Réduction 1-2h  | Dans 1 mois      |
 | **[P3] Ce trimestre**      | Faible                   | Faible             | < 1x                        | Investissement=temps de réduction | Dans 3 mois      |
 
-### Critères d'Évaluation par Type de Dette
+## Critères d'Évaluation par Type de Dette
 
 | Type de dette                | Méthode de détection                    | Impact sur développement                                     | Temps de correction |
 | ---------------------------- | --------------------------------------- | ------------------------------------------------------------ | ------------------- |
@@ -144,7 +149,7 @@ Priorité = (Impact × Fréquence) ÷ Coût de correction
 | **Dette de dépendances**     | Non mises à jour depuis 2+ ans          | Risque de sécurité, problèmes de compatibilité               | 4-16h               |
 | **Dette de qualité du code** | Complexité > 10                         | Temps de compréhension/correction augmenté                   | 2-8h                |
 
-### Calcul d'Impact de Dette Technique
+## Calcul d'Impact de Dette Technique
 
 ```text
 Impact = Σ(poids de chaque élément × valeur mesurée)
@@ -166,7 +171,7 @@ Impact = Σ(poids de chaque élément × valeur mesurée)
    └─ Lieux de correction par duplication de code: taux de duplication × fréquence de changement
 ```
 
-### Calcul de ROI basé sur le temps
+## Calcul de ROI basé sur le temps
 
 ```text
 ROI = (temps réduit - temps d'investissement) ÷ temps d'investissement × 100
@@ -181,7 +186,7 @@ Exemple: Résolution de dépendances circulaires
 └─ ROI en 3 mois: (70 - 16) ÷ 16 × 100 = 337%
 ```
 
-### Notes
+## Notes
 
 - Auto-détecte le langage et framework du projet pour réaliser des analyses spécifiques
 - Évalue le score de santé sur une échelle de 0-100 points, considérant sain 70+ points et nécessitant amélioration <50 points

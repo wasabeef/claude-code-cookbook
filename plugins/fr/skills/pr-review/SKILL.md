@@ -1,12 +1,17 @@
 ---
-description: "Revue systématique de PR pour assurer la qualité"
+description: "Revue systématique de PR. Se déclenche avec « réviser cette PR », « code review »."
+allowed-tools:
+  - Bash(gh *)
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Revue systématique de PR pour assurer la qualité
+# Revue systématique de PR
 
 Assure la qualité du code et la solidité architecturale grâce à des revues systématiques de Pull Requests.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Revue complète de PR
@@ -22,7 +27,7 @@ gh pr checkout 123 && find . -name "*.js" | head -10
 "Evaluate the architecture from the perspectives of layer separation, dependencies, and SOLID principles"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Évaluation quantitative de la qualité du code
@@ -38,7 +43,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 "Evaluate layer violations, circular dependencies, and coupling issues"
 ```
 
-### Système de classification des commentaires
+## Système de classification des commentaires
 
 ```text
 🔴 critical.must : Questions critiques
@@ -67,42 +72,42 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 └─ Partage de bonnes pratiques
 ```
 
-### Perspectives de revue
+## Perspectives de revue
 
-#### 1. Correction du code
+### 1. Correction du code
 
 - **Erreurs logiques** : Valeurs limites, vérifications null, gestion des exceptions
 - **Intégrité des données** : Sécurité de type, validation
 - **Gestion d'erreurs** : Complétude, traitement approprié
 
-#### 2. Sécurité
+### 2. Sécurité
 
 - **Authentification/autorisation** : Vérifications appropriées, gestion des permissions
 - **Validation d'entrée** : Contremesures injection SQL, XSS
 - **Informations sensibles** : Restrictions de journalisation, chiffrement
 
-#### 3. Performance
+### 3. Performance
 
 - **Algorithmes** : Complexité temporelle, efficacité mémoire
 - **Base de données** : Requêtes N+1, optimisation d'index
 - **Ressources** : Fuites mémoire, utilisation du cache
 
-#### 4. Architecture
+### 4. Architecture
 
 - **Séparation des couches** : Direction des dépendances, séparation appropriée
 - **Couplage** : Couplage serré, utilisation d'interfaces
 - **Principes SOLID** : Responsabilité unique, ouvert-fermé, inversion de dépendances
 
-### Flux de revue
+## Flux de revue
 
 1. **Pré-vérification** : Informations PR, diff des changements, issues liées
 2. **Vérifications systématiques** : Sécurité → Correction → Performance → Architecture
 3. **Feedback constructif** : Suggestions d'amélioration spécifiques et exemples de code
 4. **Suivi** : Confirmation des corrections, statut CI, approbation finale
 
-### Exemples de commentaires efficaces
+## Exemples de commentaires efficaces
 
-#### Problèmes de sécurité
+### Problèmes de sécurité
 
 **Format :**
 
@@ -126,7 +131,7 @@ const hashedPassword = await bcrypt.hash(password, 12);
 Le hachage est requis pour prévenir les risques de sécurité.
 ```
 
-#### Amélioration des performances
+### Amélioration des performances
 
 **Format :**
 
@@ -149,7 +154,7 @@ const users = await User.findAll({ include: [Post] });
 Ceci peut réduire significativement le nombre de requêtes.
 ```
 
-#### Violation architecturale
+### Violation architecturale
 
 **Format :**
 
@@ -168,7 +173,7 @@ La couche domaine dépend directement de la couche infrastructure.
 Veuillez introduire une interface suivant le principe d'inversion de dépendances.
 ```
 
-### Notes
+## Notes
 
 - **Ton constructif** : Communication collaborative plutôt qu'agressive
 - **Suggestions spécifiques** : Fournir des solutions en plus de signaler les problèmes

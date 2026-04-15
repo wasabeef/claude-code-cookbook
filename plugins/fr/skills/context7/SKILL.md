@@ -1,19 +1,19 @@
 ---
-description: "Rechercher la documentation technique via Context7 MCP"
+description: "Rechercher la documentation technique via Context7 MCP. Se déclenche avec « chercher la doc », « documentation officielle »."
 ---
 
-## Rechercher la documentation technique via Context7 MCP
+# Rechercher la documentation technique via Context7 MCP
 
 Recherche dans la documentation technique en utilisant Context7 de MCP.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Format pour demander à Claude
 "Recherchez [mot-clé de recherche] en utilisant context7"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Rechercher les hooks React
@@ -23,7 +23,7 @@ Recherche dans la documentation technique en utilisant Context7 de MCP.
 "Recherchez les erreurs de type TypeScript en utilisant context7"
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Demander une recherche technique
@@ -36,7 +36,7 @@ Recherche dans la documentation technique en utilisant Context7 de MCP.
 "Recherchez les bonnes pratiques pour l'optimisation des performances React en utilisant context7"
 ```
 
-### Exemples détaillés
+## Exemples détaillés
 
 ```bash
 # Rechercher sous plusieurs perspectives
@@ -49,6 +49,6 @@ Recherche dans la documentation technique en utilisant Context7 de MCP.
 "Recherchez les nouvelles fonctionnalités de Next.js 14 en utilisant context7, en vous concentrant sur l'utilisation d'App Router"
 ```
 
-### Remarques
+## Remarques
 
 Si l'information ne peut pas être trouvée avec Context7, Claude suggérera automatiquement d'autres méthodes comme la recherche web.

@@ -1,15 +1,15 @@
-## Context7 MCP로 기술 문서 검색
+# Context7 MCP로 기술 문서 검색
 
 MCP 의 Context7 로 기술 문서를 검색합니다.
 
-### 사용 방법
+## 사용 방법
 
 ```bash
 # Claude 에게 의뢰하는 형식
 「context7 에서 [검색 키워드]에 대해 검색하세요」
 ```
 
-### 기본 예제
+## 기본 예제
 
 ```bash
 # React hooks 조사
@@ -19,7 +19,7 @@ MCP 의 Context7 로 기술 문서를 검색합니다.
 「context7 에서 TypeScript 의 타입 오류에 대해 조사하세요」
 ```
 
-### Claude 와의 연계
+## Claude 와의 연계
 
 ```bash
 # 기술 조사 의뢰
@@ -32,7 +32,7 @@ MCP 의 Context7 로 기술 문서를 검색합니다.
 「context7 에서 React 성능 최적화의 베스트 프랙티스를 찾아 주세요」
 ```
 
-### 세부 예제
+## 세부 예제
 
 ```bash
 # 여러 관점으로 조사
@@ -45,6 +45,6 @@ MCP 의 Context7 로 기술 문서를 검색합니다.
 「context7 에서 Next.js 14 의 새로운 기능에 대해 검색하고, App Router 사용법을 중심으로 설명하세요」
 ```
 
-### 주의사항
+## 주의사항
 
 Context7 에서 정보를 찾을 수 없는 경우, Claude 가 자동으로 웹 검색 등 다른 방법을 제안합니다.

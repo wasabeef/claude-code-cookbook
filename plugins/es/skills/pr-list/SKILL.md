@@ -1,19 +1,21 @@
 ---
-description: "Mostrar PRs abiertos con ranking de prioridad"
+description: 'Mostrar PRs abiertos con ranking de prioridad. Se activa con "mostrar PRs", "PRs abiertos", "PRs pendientes".'
+allowed-tools:
+  - Bash(gh pr list *)
 ---
 
-## Mostrar PRs abiertos con ranking de prioridad
+# Mostrar PRs abiertos con ranking de prioridad
 
 Muestra una lista priorizada de PRs abiertos en el repositorio actual.
 
-### Uso
+## Uso
 
 ```bash
 # Solicitar de Claude
 "Mostrar una lista priorizada de PRs abiertos"
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Obtener información del repositorio
@@ -25,7 +27,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 "Organizar los PRs anteriores por prioridad, incluyendo un resumen de 2 líneas para cada PR. Generar URLs usando el nombre del repositorio obtenido arriba"
 ```
 
-### Formato de Visualización
+## Formato de Visualización
 
 ```text
 Lista de PRs Abiertos (por Prioridad)
@@ -43,7 +45,7 @@ Lista de PRs Abiertos (por Prioridad)
 (Formato similar)
 ```
 
-### Criterios de Evaluación de Prioridad
+## Criterios de Evaluación de Prioridad
 
 **Alta Prioridad**
 
@@ -61,7 +63,7 @@ Lista de PRs Abiertos (por Prioridad)
 - PRs que contienen DO NOT MERGE
 - PRs Draft con `test:`, `build:`, `perf:`
 
-### Notas
+## Notas
 
 - Requiere GitHub CLI (`gh`)
 - Solo muestra PRs en estado abierto (se excluyen Drafts)

@@ -1,15 +1,15 @@
-## 오픈 Issue 목록을 우선순위로 표시
+# 오픈 Issue 목록을 우선순위로 표시
 
 현재 리포지토리의 오픈 Issue 목록을 우선순위와 함께 표시합니다.
 
-### 사용법
+## 사용법
 
 ```bash
 # Claude 에 의뢰
 「오픈 Issue 목록을 우선순위와 함께 표시하세요」
 ```
 
-### 기본 예제
+## 기본 예제
 
 ```bash
 # 리포지토리 정보 취득
@@ -21,7 +21,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 「위의 Issue 를 우선순위별로 정리하여, 각 Issue 의 2 행 개요도 포함해서 표시하세요. URL 은 위에서 취득한 리포지토리명을 사용하여 생성하세요」
 ```
 
-### 표시 형식
+## 표시 형식
 
 ```text
 오픈 Issue 목록 (우선순위순)
@@ -39,7 +39,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 (동일한 형식)
 ```
 
-### 우선순위 판정 기준
+## 우선순위 판정 기준
 
 **고우선순위**
 
@@ -59,7 +59,7 @@ gh issue list --state open --json number,title,author,createdAt,updatedAt,labels
 - `good first issue` 라벨이 붙은 Issue
 - `wontfix`나 `duplicate` 라벨이 붙은 Issue
 
-### 라벨을 통한 필터링
+## 라벨을 통한 필터링
 
 ```bash
 # 특정 라벨의 Issue 만 취득
@@ -69,7 +69,7 @@ gh issue list --state open --label "bug" --json number,title,author,createdAt,la
 gh issue list --state open --label "bug,high-priority" --json number,title,author,createdAt,labels,comments --limit 30
 ```
 
-### 주의사항
+## 주의사항
 
 - GitHub CLI (`gh`)가 필요합니다
 - 오픈 상태의 Issue 만 표시합니다

@@ -1,19 +1,22 @@
 ---
-description: "Debate multi-rol para explorar compromisos"
+description: 'Debate multi-rol para explorar compromisos. Se activa con "debatir entre roles", "explorar compromisos".'
+allowed-tools:
+  - Read
+  - Grep
 ---
 
-## Debate multi-rol para explorar compromisos
+# Debate multi-rol para explorar compromisos
 
 Un comando que permite que roles con diferentes experticias discutan y examinen trade-offs para derivar soluciones óptimas.
 
-### Uso
+## Uso
 
 ```bash
 /role-debate <Rol 1>,<Rol 2> [Tópico]
 /role-debate <Rol 1>,<Rol 2>,<Rol 3> [Tópico]
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Trade-off entre Seguridad y Rendimiento
@@ -33,32 +36,32 @@ Un comando que permite que roles con diferentes experticias discutan y examinen 
 "Pros y Contras de Microservicios"
 ```
 
-### Principios Básicos del Debate
+## Principios Básicos del Debate
 
-#### Directrices de Debate Constructivo
+### Directrices de Debate Constructivo
 
 - **Respeto Mutuo**: Respetar la experiencia y perspectivas de otros roles
 - **Basado en Hechos**: Debatir basado en datos y evidencia, no reacciones emocionales
 - **Orientado a Soluciones**: Apuntar a mejores soluciones en lugar de criticar por criticar
 - **Enfocado en Implementación**: Considerar factibilidad en lugar de idealismo
 
-#### Requisitos de Calidad para Argumentos
+### Requisitos de Calidad para Argumentos
 
 - **Documentación Oficial**: Referenciar estándares, directrices y documentación oficial
 - **Casos Empíricos**: Citaciones específicas de casos de éxito o falla
 - **Evaluación Cuantitativa**: Comparaciones usando números y métricas cuando sea posible
 - **Consideración de Series Temporales**: Evaluación de impactos a corto, mediano y largo plazo
 
-#### Ética del Debate
+### Ética del Debate
 
 - **Honestidad**: Reconocer los límites de tu experiencia
 - **Apertura**: Flexibilidad hacia nueva información y perspectivas
 - **Transparencia**: Declarar explícitamente fundamentos de juicio y suposiciones
 - **Responsabilidad**: Mencionar riesgos de implementación de propuestas
 
-### Proceso de Debate
+## Proceso de Debate
 
-### Fase 1: Declaración de Posición Inicial
+## Fase 1: Declaración de Posición Inicial
 
 Cada rol expresa independientemente opiniones desde su perspectiva profesional
 
@@ -67,7 +70,7 @@ Cada rol expresa independientemente opiniones desde su perspectiva profesional
 - Explicación de riesgos y problemas anticipados
 - Definición de métricas de éxito
 
-### Fase 2: Discusión Mutua y Refutación
+## Fase 2: Discusión Mutua y Refutación
 
 Discusión cruzada entre roles
 
@@ -76,7 +79,7 @@ Discusión cruzada entre roles
 - Clarificación de trade-offs
 - Presentación de alternativas
 
-### Fase 3: Búsqueda de Compromisos
+## Fase 3: Búsqueda de Compromisos
 
 Exploración de soluciones implementables
 
@@ -85,7 +88,7 @@ Exploración de soluciones implementables
 - Enfoque de implementación paso a paso
 - Consideración de medidas de mitigación de riesgos
 
-### Fase 4: Conclusión Integrada
+## Fase 4: Conclusión Integrada
 
 Determinación de recomendaciones finales
 
@@ -94,9 +97,9 @@ Determinación de recomendaciones finales
 - Métricas de éxito y métodos de medición
 - Puntos de revisión futura
 
-### Ejemplos de Formato de Salida
+## Ejemplos de Formato de Salida
 
-### Para Debate de 2 Roles
+## Para Debate de 2 Roles
 
 ```text
 Debate de Roles: Seguridad vs Rendimiento
@@ -186,7 +189,7 @@ Revisión Futura:
 - Después de 6 meses: Considerar migración a autenticación basada en riesgo más sofisticada
 ```
 
-### Para Debate de 3 Roles
+## Para Debate de 3 Roles
 
 ```text
 Debate de Roles: Architect vs Security vs Performance
@@ -216,9 +219,9 @@ Conclusión Integrada:
 "Diseño dirigido por dominio para división por fases + diseño security-first"
 ```
 
-### Patrones de Debate Efectivos
+## Patrones de Debate Efectivos
 
-### Selección de Tecnología
+## Selección de Tecnología
 
 ```bash
 /role-debate architect,performance
@@ -231,7 +234,7 @@ Conclusión Integrada:
 "Método de Autenticación: JWT vs Session Cookie"
 ```
 
-### Decisiones de Diseño
+## Decisiones de Diseño
 
 ```bash
 /role-debate security,frontend
@@ -244,7 +247,7 @@ Conclusión Integrada:
 "Estrategia de Testing y Diseño de Arquitectura"
 ```
 
-### Problemas de Trade-off
+## Problemas de Trade-off
 
 ```bash
 /role-debate security,performance
@@ -257,9 +260,9 @@ Conclusión Integrada:
 "Conveniencia vs Nivel de Protección de Datos"
 ```
 
-### Características de Debate Específicas del Rol
+## Características de Debate Específicas del Rol
 
-#### 🔒 Rol Security
+### 🔒 Rol Security
 
 ```yaml
 debate_stance:
@@ -291,7 +294,7 @@ potential_biases:
   - Subestimar costos de implementación
 ```
 
-#### ⚡ Rol Performance
+### ⚡ Rol Performance
 
 ```yaml
 debate_stance:
@@ -323,7 +326,7 @@ potential_biases:
   - Optimización prematura
 ```
 
-#### 🏗️ Rol Architect
+### 🏗️ Rol Architect
 
 ```yaml
 debate_stance:
@@ -355,7 +358,7 @@ potential_biases:
   - Comprensión insuficiente de detalles de implementación
 ```
 
-#### 🎨 Rol Frontend
+### 🎨 Rol Frontend
 
 ```yaml
 debate_stance:
@@ -387,7 +390,7 @@ potential_biases:
   - Subestimación de impacto de rendimiento
 ```
 
-#### 📱 Rol Mobile
+### 📱 Rol Mobile
 
 ```yaml
 debate_stance:
@@ -419,7 +422,7 @@ potential_biases:
   - Consideración insuficiente para entorno de escritorio
 ```
 
-#### 🔍 Rol Analyzer
+### 🔍 Rol Analyzer
 
 ```yaml
 debate_stance:
@@ -451,9 +454,9 @@ potential_biases:
   - Absolutismo de datos
 ```
 
-### Plantillas de Progresión de Debate
+## Plantillas de Progresión de Debate
 
-#### Plantilla de Declaración de Posición Fase 1
+### Plantilla de Declaración de Posición Fase 1
 
 ```text
 Recomendación de [Nombre de Rol]:
@@ -478,7 +481,7 @@ Métricas de Éxito:
 - [Métrica medible 2]
 ```
 
-#### Plantilla de Refutación Fase 2
+### Plantilla de Refutación Fase 2
 
 ```text
 Refutación a [Rol Objetivo]:
@@ -497,7 +500,7 @@ Puntos de Compromiso:
 - [Posibilidad de implementación por fases]
 ```
 
-#### Plantilla de Solución Integrada Fase 3
+### Plantilla de Solución Integrada Fase 3
 
 ```text
 Solución Integrada:
@@ -519,37 +522,37 @@ Métricas de Éxito y Métodos de Medición:
 - [Tiempo de revisión]
 ```
 
-### Lista de Verificación de Calidad de Debate
+## Lista de Verificación de Calidad de Debate
 
-#### Calidad de Evidencia
+### Calidad de Evidencia
 
 - [ ] Referencias a documentos/estándares oficiales
 - [ ] Casos/datos específicos presentados
 - [ ] Distinción entre especulación y hecho
 - [ ] Fuentes explícitamente declaradas
 
-#### Constructividad del Debate
+### Constructividad del Debate
 
 - [ ] Comprensión precisa de propuestas del oponente
 - [ ] Refutación lógica en lugar de emocional
 - [ ] Alternativas también presentadas
 - [ ] Exploración de posibilidades ganar-ganar
 
-#### Factibilidad de Implementación
+### Factibilidad de Implementación
 
 - [ ] Factibilidad técnica considerada
 - [ ] Costos/duración de implementación estimados
 - [ ] Posibilidad de implementación por fases considerada
 - [ ] Medidas de mitigación de riesgos presentadas
 
-#### Integración
+### Integración
 
 - [ ] Impactos en otros campos considerados
 - [ ] Búsqueda de optimización general
 - [ ] Perspectiva a largo plazo incluida
 - [ ] Métricas de éxito medibles establecidas
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Debate basado en documentos de diseño
@@ -567,7 +570,7 @@ cat performance-issues.md
 "Discutir estrategia de UI unificada para iOS, Android y Web"
 ```
 
-### Notas
+## Notas
 
 - Los debates pueden tomar tiempo (más largo para tópicos complejos)
 - Con 3+ roles, las discusiones pueden divergir

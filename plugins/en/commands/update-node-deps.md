@@ -1,8 +1,8 @@
-## Safely update Node.js dependencies
+# Safely update Node.js dependencies
 
 Safely update dependencies in your Node.js project.
 
-### Usage
+## Usage
 
 ```bash
 # Check dependency status and request Claude's help
@@ -10,7 +10,7 @@ npm outdated
 "Please update the dependencies in package.json to their latest versions"
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Check current dependencies
@@ -22,7 +22,7 @@ npm outdated
 "Analyze the risk level of updating these packages"
 ```
 
-### Integration with Claude
+## Integration with Claude
 
 ```bash
 # Comprehensive dependency update
@@ -42,7 +42,7 @@ npm outdated
 "Tell me the impact and necessary changes when updating express to the latest version"
 ```
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Detailed analysis including release notes
@@ -58,7 +58,7 @@ cat package.json tsconfig.json
 "Update dependencies including TypeScript type definitions and create an update plan that avoids type errors"
 ```
 
-### Risk Criteria
+## Risk Criteria
 
 ```text
 Safe (🟢):
@@ -77,7 +77,7 @@ Dangerous (🔴):
 - API removals or modifications
 ```
 
-### Execution of Update
+## Execution of Update
 
 ```bash
 # Create backups
@@ -93,7 +93,7 @@ npm run build
 npm audit
 ```
 
-### Notes
+## Notes
 
 Always verify functionality after updates. If issues occur, restore with:
 

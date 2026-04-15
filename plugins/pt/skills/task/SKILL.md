@@ -1,19 +1,26 @@
 ---
-description: "Agente autônomo para tarefas de pesquisa e análise"
+description: 'Agente autônomo para tarefas de pesquisa e análise. Ativa com "investigar com Task", "pesquisar", "analisar", "buscar".'
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
-## Agente autônomo para tarefas de pesquisa e análise
+# Agente autônomo para tarefas de pesquisa e análise
 
 Inicia um agente especializado para executar autonomamente tarefas complexas de pesquisa, investigação e análise. Processamento de informações em larga escala combinando múltiplas ferramentas, priorizando eficiência contextual.
 
-### Como usar
+## Como usar
 
 ```bash
 # Solicitar Task ao Claude
 "Investigue [problema] usando Task"
 ```
 
-### Características do Task
+## Características do Task
 
 **Execução Autônoma**
 
@@ -33,7 +40,7 @@ Inicia um agente especializado para executar autonomamente tarefas complexas de 
 - Validação de múltiplas perspectivas
 - Complementação automática de informações ausentes
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Investigação de codebase complexo
@@ -46,7 +53,7 @@ Inicia um agente especializado para executar autonomamente tarefas complexas de 
 "Investigue as tendências mais recentes de tecnologia IA usando Task"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Análise de problemas complexos
@@ -62,9 +69,9 @@ Inicia um agente especializado para executar autonomamente tarefas complexas de 
 "Analise as dependências deste microsserviço usando Task"
 ```
 
-### Diferenciação de Outros Comandos
+## Diferenciação de Outros Comandos
 
-#### Task vs Outros Comandos
+### Task vs Outros Comandos
 
 | Comando             | Uso Principal                         | Método de Execução     | Coleta de Informações              |
 | ------------------- | ------------------------------------- | ---------------------- | ---------------------------------- |
@@ -73,7 +80,7 @@ Inicia um agente especializado para executar autonomamente tarefas complexas de 
 | sequential-thinking | Resolução de problemas e Design       | Pensamento por etapas  | Conforme necessário                |
 | plan                | Elaboração de planos de implementação | Processo de aprovação  | Análise de requisitos              |
 
-#### Fluxograma de Decisão
+### Fluxograma de Decisão
 
 ```text
 Coleta de informações necessária?
@@ -85,7 +92,7 @@ Coleta de informações necessária?
           └─ Não → Pergunta normal
 ```
 
-### Casos Efetivos e Casos Desnecessários
+## Casos Efetivos e Casos Desnecessários
 
 **Casos Efetivos**
 
@@ -103,9 +110,9 @@ Coleta de informações necessária?
 - Trabalho que requer confirmação ou consulta interativa
 - Julgamento de implementação ou design (apropriado usar plan ou comandos de pensamento)
 
-### Exemplos Detalhados por Categoria
+## Exemplos Detalhados por Categoria
 
-#### Análise e Investigação de Sistema
+### Análise e Investigação de Sistema
 
 ```bash
 # Análise complexa de sistema
@@ -118,7 +125,7 @@ Coleta de informações necessária?
 "Analise o débito técnico do código legado usando Task. Inclua prioridade de refatoração"
 ```
 
-#### Segurança e Conformidade
+### Segurança e Conformidade
 
 ```bash
 # Auditoria de segurança
@@ -131,7 +138,7 @@ Coleta de informações necessária?
 "Identifique inconsistências nas configurações de segurança usando Task. Inclua diferenças entre ambientes"
 ```
 
-#### Performance e Otimização
+### Performance e Otimização
 
 ```bash
 # Análise de performance
@@ -144,7 +151,7 @@ Coleta de informações necessária?
 "Investigue problemas de tamanho de bundle do frontend usando Task. Inclua propostas de otimização"
 ```
 
-#### Coleta de Informações Externas
+### Coleta de Informações Externas
 
 ```bash
 # Investigação de tendências tecnológicas
@@ -157,9 +164,9 @@ Coleta de informações necessária?
 "Compare bibliotecas de gerenciamento de estado usando Task. Inclua performance e custo de aprendizado"
 ```
 
-### Fluxo de Execução e Garantia de Qualidade
+## Fluxo de Execução e Garantia de Qualidade
 
-#### Fluxo de Execução do Task
+### Fluxo de Execução do Task
 
 ```text
 1. Análise inicial
@@ -183,35 +190,35 @@ Coleta de informações necessária?
    └─ Apresentação das próximas ações
 ```
 
-#### Garantia de Qualidade
+### Garantia de Qualidade
 
 - **Verificação de Confiabilidade das Fontes**: Verificação de fatos com múltiplas fontes
 - **Confirmação de Abrangência**: Verificação se não há lacunas no objeto de investigação
 - **Verificação de Consistência**: Confirmação de consistência de informações contraditórias
 - **Avaliação de Praticidade**: Avaliação da viabilidade e efetividade das propostas
 
-### Tratamento de Erros e Restrições
+## Tratamento de Erros e Restrições
 
-#### Restrições Comuns
+### Restrições Comuns
 
 - **Limitações de uso de API externa**: Limitações de taxa ou erros de autenticação
 - **Limitações de processamento de arquivos de grande capacidade**: Restrições de memória ou timeout
 - **Problemas de permissão de acesso**: Restrições de acesso a arquivos ou diretórios
 
-#### Tratamento em Caso de Erro
+### Tratamento em Caso de Erro
 
 - **Relatório de resultados parciais**: Análise apenas com informações que puderam ser obtidas
 - **Proposta de métodos alternativos**: Métodos de investigação alternativos sob restrições
 - **Execução em etapas**: Execução dividida de tarefas de larga escala
 
-### Observações
+## Observações
 
 - Task é ideal para tarefas de investigação e análise complexas e autônomas
 - Para perguntas simples ou quando respostas imediatas são necessárias, use o formato de pergunta normal
 - Trate os resultados da investigação como informações de referência e sempre verifique julgamentos importantes
 - Ao coletar informações externas, preste atenção à atualidade e precisão das informações
 
-### Exemplo de Execução
+## Exemplo de Execução
 
 ```bash
 # Exemplo de uso

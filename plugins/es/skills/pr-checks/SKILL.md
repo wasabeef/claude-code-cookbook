@@ -1,19 +1,22 @@
 ---
-description: "Monitorear GitHub Actions CI y rastrear hasta completar"
+description: 'Monitorear GitHub Actions CI y rastrear hasta completar. Se activa con "¿estado de checks del PR?", "¿pasaron los tests?", "¿compiló bien?".'
+allowed-tools:
+  - Bash(gh pr checks *)
+  - Bash(gh run *)
 ---
 
-## Monitorear GitHub Actions CI y rastrear hasta completar
+# Monitorear GitHub Actions CI y rastrear hasta completar
 
 Monitorea el estado de GitHub Actions CI y rastrea hasta completarse.
 
-### Uso
+## Uso
 
 ```bash
 # Verificar estado de CI
 gh pr checks
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Verificar CI después de crear PR
@@ -21,7 +24,7 @@ gh pr create --title "Add new feature" --body "Description"
 gh pr checks
 ```
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Flujo desde verificación CI hasta corrección
@@ -34,7 +37,7 @@ gh pr checks
 "Verificar resultados CI después de corrección para confirmar que no hay problemas"
 ```
 
-### Ejemplo de Resultados de Ejecución
+## Ejemplo de Resultados de Ejecución
 
 ```text
 All checks were successful
@@ -50,7 +53,7 @@ All checks were successful
 -  Visual Test (pull_request)                                                  https://github.com/user/repo/actions/runs/123456789
 ```
 
-### Notas
+## Notas
 
 - Verificar detalles cuando falle
 - Esperar a que todas las verificaciones se completen antes de hacer merge

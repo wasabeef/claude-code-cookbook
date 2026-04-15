@@ -1,8 +1,8 @@
-## Refatoração segura e incremental com avaliação SOLID
+# Refatoração segura e incremental
 
 Realiza refatoração segura e gradual de código, avaliando quantitativamente a aderência aos princípios SOLID. Visualiza dívida técnica e clarifica as prioridades de melhoria.
 
-### Uso
+## Uso
 
 ```bash
 # Identificação de código complexo e planejamento de refatoração
@@ -18,7 +18,7 @@ grep -r "class.*Service" . --include="*.js" | head -10
 "Avaliar se essas classes seguem o princípio da responsabilidade única"
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Detecção de métodos longos
@@ -34,9 +34,9 @@ grep -r "TODO\|FIXME\|HACK" . --exclude-dir=node_modules
 "Resolver comentários que se tornaram dívida técnica"
 ```
 
-### Técnicas de Refatoração
+## Técnicas de Refatoração
 
-#### Extract Method (Extração de Método)
+### Extract Method (Extração de Método)
 
 ```javascript
 // Antes: método extenso
@@ -52,7 +52,7 @@ function processOrder(order) {
 }
 ```
 
-#### Replace Conditional with Polymorphism
+### Replace Conditional with Polymorphism
 
 ```javascript
 // Antes: declaração switch
@@ -73,9 +73,9 @@ class PremiumPricing {
 }
 ```
 
-### Pontuação dos Princípios SOLID (0-100 pontos)
+## Pontuação dos Princípios SOLID (0-100 pontos)
 
-#### Critérios de Avaliação e Pontuação
+### Critérios de Avaliação e Pontuação
 
 ```text
 S - Single Responsibility (20 pontos)
@@ -116,9 +116,9 @@ Pontuação Total = S + O + L + I + D
 └─ 0-29 pontos: Critical (Revisão de design obrigatória)
 ```
 
-### Quantificação da Dívida Técnica
+## Quantificação da Dívida Técnica
 
-#### Fórmula de Cálculo da Dívida
+### Fórmula de Cálculo da Dívida
 
 ```text
 Dívida Técnica (tempo) = Pontuação de Complexidade × Escopo de Impacto × Dificuldade de Correção
@@ -148,7 +148,7 @@ Conversão de Custo:
 └─ Custo total: Tempo + Perda de oportunidade + Custo de qualidade
 ```
 
-#### Matriz de Prioridades
+### Matriz de Prioridades
 
 | Prioridade                          | Impacto | Custo de Correção | Prazo de Resposta  | Exemplo Concreto                                                        | Ação Recomendada                                               |
 | ----------------------------------- | ------- | ----------------- | ------------------ | ----------------------------------------------------------------------- | -------------------------------------------------------------- |
@@ -157,7 +157,7 @@ Conversão de Custo:
 | **Watch (Objeto de Monitoramento)** | Baixo   | Alto              | Dentro de 3 meses  | Processamento interno de alta complexidade                              | Monitoramento de métricas, resposta quando houver deterioração |
 | **Acceptable (Faixa Aceitável)**    | Baixo   | Baixo             | Não necessário     | Code smells menores                                                     | Resposta através de refatoração normal                         |
 
-### Procedimento de Refatoração
+## Procedimento de Refatoração
 
 1. **Análise e Medição Atual**
    - Medição de complexidade (ciclomática ・cognitiva)
@@ -177,7 +177,7 @@ Conversão de Custo:
    - Confirmação de redução de dívida técnica
    - Revisão de código
 
-### Code Smells Comuns e Pontuação de Dívida
+## Code Smells Comuns e Pontuação de Dívida
 
 | Code Smell              | Critério de Detecção                   | Pontuação de Dívida | Técnica de Melhoria          |
 | ----------------------- | -------------------------------------- | ------------------- | ---------------------------- |
@@ -192,7 +192,7 @@ Conversão de Custo:
 | **Switch Statements**   | case >5                                | Média (5-10h)       | Strategy Pattern             |
 | **Shotgun Surgery**     | Locais de impacto na mudança >3        | Alta (10-15h)       | Move Method/Field            |
 
-### Exemplo Prático: Avaliação de Pontuação SOLID
+## Exemplo Prático: Avaliação de Pontuação SOLID
 
 ```javascript
 // Objeto de avaliação: classe UserService
@@ -234,7 +234,7 @@ Tempo de dívida: 15 × 8 × 2 = 240 horas
 Prioridade: Critical (sistema de autenticação requer resposta imediata)
 ```
 
-### Exemplo de Implementação Após Melhoria
+## Exemplo de Implementação Após Melhoria
 
 ```javascript
 // Após aplicação dos princípios SOLID (Pontuação: 90 pontos)
@@ -275,7 +275,7 @@ class UserService {
 // Redução de dívida: 240 horas → 20 horas (redução de 92%)
 ```
 
-### Suporte de Automação
+## Suporte de Automação
 
 ```bash
 # Medição de pontuação SOLID
@@ -297,7 +297,7 @@ npm test -- --coverage
 npm run test:mutation  # teste de mutação
 ```
 
-### Observações
+## Observações
 
 - **Proibição de mudança funcional**: Não alterar comportamento externo
 - **Test First**: Adicionar testes antes da refatoração

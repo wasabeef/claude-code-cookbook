@@ -1,19 +1,23 @@
 ---
-description: "Modo planejamento para estratégia antes da implementação"
+description: 'Modo planejamento para estratégia. Ativa com "fazer um plano", "como proceder?", "estratégia de implementação".'
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Modo planejamento para estratégia antes da implementação
+# Modo planejamento para estratégia
 
 Inicia o modo de planejamento pré-implementação para estabelecer estratégias detalhadas de implementação. Apoia desenvolvimento eficiente através do estabelecimento de planos estruturados antes da implementação do código.
 
-### Uso
+## Uso
 
 ```bash
 # Solicitar Plan Mode ao Claude
 "Faça um plano de implementação para [conteúdo da implementação]"
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Plano de implementação de nova funcionalidade
@@ -26,7 +30,7 @@ Inicia o modo de planejamento pré-implementação para estabelecer estratégias
 "Faça um plano de refatoração do código legado"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Implementação de funcionalidade complexa
@@ -42,7 +46,7 @@ Inicia o modo de planejamento pré-implementação para estabelecer estratégias
 "Faça um plano de implementação de dockerização. Incluindo ambiente de desenvolvimento, ambiente de produção e CI/CD"
 ```
 
-### Características do Plan Mode
+## Características do Plan Mode
 
 **Inicialização Automática**
 
@@ -64,7 +68,7 @@ Inicia o modo de planejamento pré-implementação para estabelecer estratégias
 - É possível corrigir e ajustar o plano
 - Iniciar gestão de tarefas com TaskCreate apenas após aprovação
 
-### Exemplos Detalhados
+## Exemplos Detalhados
 
 ```bash
 # Implementação de sistema complexo
@@ -80,30 +84,30 @@ Inicia o modo de planejamento pré-implementação para estabelecer estratégias
 "Faça um plano de implementação de pipeline CI/CD. Incluindo automação de testes, deployment e monitoramento"
 ```
 
-### Workflow de 3 Fases
+## Workflow de 3 Fases
 
-#### Fase 1: Requirements (Definição de Requisitos)
+### Fase 1: Requirements (Definição de Requisitos)
 
 - **User Stories**: Clarificar propósito e valor das funcionalidades
 - **Critérios de Aceitação**: Definir condições de conclusão e padrões de qualidade
 - **Restrições e Pré-condições**: Organizar restrições técnicas e temporais
 - **Priorização**: Classificação em Must-have/Nice-to-have
 
-#### Fase 2: Design
+### Fase 2: Design
 
 - **Design de Arquitetura**: Configuração do sistema e seleção de tecnologias
 - **Design de Dados**: Schema, especificações de API, fluxo de dados
 - **Design de UI/UX**: Configuração de telas e fluxo de operações
 - **Análise de Riscos**: Problemas potenciais e contramedidas
 
-#### Fase 3: Implementation (Implementação)
+### Fase 3: Implementation (Implementação)
 
 - **Decomposição de Tarefas**: Subdivisão em unidades implementáveis
 - **Acompanhamento de Progresso**: Gestão de estado através de TaskUpdate
 - **Garantia de Qualidade**: Estratégia de testes e métodos de verificação
 - **Processo de Aprovação**: Apresentação do plano com ExitPlanMode e espera por aprovação explícita
 
-### Observações
+## Observações
 
 **Escopo de Aplicação**
 
@@ -123,7 +127,7 @@ Inicia o modo de planejamento pré-implementação para estabelecer estratégias
 - Sempre aguardar resposta do usuário após apresentação do plano
 - Apresentar meios alternativos em caso de erro
 
-### Exemplo de Execução
+## Exemplo de Execução
 
 ```bash
 # Exemplo de uso

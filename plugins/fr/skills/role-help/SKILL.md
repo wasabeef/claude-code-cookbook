@@ -1,12 +1,12 @@
 ---
-description: "Guide pour choisir le bon rôle"
+description: "Guide pour choisir le bon rôle. Se déclenche avec « quel rôle utiliser ? », « liste des rôles »."
 ---
 
-## Guide pour choisir le bon rôle
+# Guide pour choisir le bon rôle
 
 Un guide de sélection et système d'aide quand vous n'êtes pas sûr du rôle à utiliser.
 
-### Utilisation
+## Utilisation
 
 ```bash
 /role-help                      # Guide général de sélection de rôle
@@ -14,7 +14,7 @@ Un guide de sélection et système d'aide quand vous n'êtes pas sûr du rôle �
 /role-help compare <Rôle 1>,<Rôle 2> # Comparer les rôles
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Guidance générale
@@ -30,9 +30,9 @@ Un guide de sélection et système d'aide quand vous n'êtes pas sûr du rôle �
 → Différences et utilisation appropriée entre les rôles frontend et mobile
 ```
 
-### Guide de sélection de rôle basé sur situation
+## Guide de sélection de rôle basé sur situation
 
-### Sécurité
+## Sécurité
 
 ```text
 Utilisez le rôle security pour :
@@ -45,7 +45,7 @@ Utilisez le rôle security pour :
 Usage : /role security
 ```
 
-### 🏗️ Architecture & Conception
+## 🏗️ Architecture & Conception
 
 ```text
 Utilisez le rôle architect pour :
@@ -58,7 +58,7 @@ Utilisez le rôle architect pour :
 Usage : /role architect
 ```
 
-### ⚡ Problèmes de performance
+## ⚡ Problèmes de performance
 
 ```text
 Utilisez le rôle performance pour :
@@ -71,7 +71,7 @@ Utilisez le rôle performance pour :
 Usage : /role performance
 ```
 
-### 🔍 Investigation cause racine de problèmes
+## 🔍 Investigation cause racine de problèmes
 
 ```text
 Utilisez le rôle analyzer pour :
@@ -84,7 +84,7 @@ Utilisez le rôle analyzer pour :
 Usage : /role analyzer
 ```
 
-### 🎨 Frontend & UI/UX
+## 🎨 Frontend & UI/UX
 
 ```text
 Utilisez le rôle frontend pour :
@@ -97,7 +97,7 @@ Utilisez le rôle frontend pour :
 Usage : /role frontend
 ```
 
-### 📱 Développement d'applications mobiles
+## 📱 Développement d'applications mobiles
 
 ```text
 Utilisez le rôle mobile pour :
@@ -110,7 +110,7 @@ Utilisez le rôle mobile pour :
 Usage : /role mobile
 ```
 
-### 👀 Revue de code & Qualité
+## 👀 Revue de code & Qualité
 
 ```text
 Utilisez le rôle reviewer pour :
@@ -123,7 +123,7 @@ Utilisez le rôle reviewer pour :
 Usage : /role reviewer
 ```
 
-### 🧪 Tests & Assurance qualité
+## 🧪 Tests & Assurance qualité
 
 ```text
 Utilisez le rôle qa pour :
@@ -136,9 +136,9 @@ Utilisez le rôle qa pour :
 Usage : /role qa
 ```
 
-### Quand plusieurs rôles sont nécessaires
+## Quand plusieurs rôles sont nécessaires
 
-### 🔄 multi-role (Analyse parallèle)
+## 🔄 multi-role (Analyse parallèle)
 
 ```text
 Utilisez multi-role pour :
@@ -150,7 +150,7 @@ Utilisez multi-role pour :
 Exemple : /multi-role security,performance
 ```
 
-### 🗣️ role-debate (Discussion)
+## 🗣️ role-debate (Discussion)
 
 ```text
 Utilisez role-debate pour :
@@ -162,7 +162,7 @@ Utilisez role-debate pour :
 Exemple : /role-debate security,performance
 ```
 
-### 🤖 smart-review (Proposition automatique)
+## 🤖 smart-review (Proposition automatique)
 
 ```text
 Utilisez smart-review pour :
@@ -174,37 +174,37 @@ Utilisez smart-review pour :
 Exemple : /smart-review
 ```
 
-### Tableau de comparaison des rôles
+## Tableau de comparaison des rôles
 
-### Catégorie Sécurité
+## Catégorie Sécurité
 
 | Rôle     | Utilisation principale                    | Forces                                             | Faiblesses                                |
 | -------- | ----------------------------------------- | -------------------------------------------------- | ----------------------------------------- |
 | security | Vulnérabilités et contremesures d'attaque | Analyse des menaces, conception d'authentification | UX, performance                           |
 | analyzer | Analyse de cause racine                   | Analyse logique, collecte de preuves               | Mesures préventives, planification future |
 
-### Catégorie Conception
+## Catégorie Conception
 
 | Rôle      | Utilisation principale | Forces                                       | Faiblesses                                      |
 | --------- | ---------------------- | -------------------------------------------- | ----------------------------------------------- |
 | architect | Conception de système  | Perspective long terme, optimisation globale | Implémentation détaillée, solutions court terme |
 | reviewer  | Qualité du code        | Niveau d'implémentation, maintenabilité      | Exigences métier, UX                            |
 
-### Catégorie Performance
+## Catégorie Performance
 
 | Rôle        | Utilisation principale                  | Forces                                           | Faiblesses               |
 | ----------- | --------------------------------------- | ------------------------------------------------ | ------------------------ |
 | performance | Amélioration de vitesse et optimisation | Mesure, identification de goulots d'étranglement | Sécurité, UX             |
 | qa          | Assurance qualité                       | Tests, automatisation                            | Conception, architecture |
 
-### Catégorie Expérience utilisateur
+## Catégorie Expérience utilisateur
 
 | Rôle     | Utilisation principale | Forces                      | Faiblesses        |
 | -------- | ---------------------- | --------------------------- | ----------------- |
 | frontend | UI/UX Web              | Navigateur, accessibilité   | Côté serveur, DB  |
 | mobile   | UX Mobile              | Tactile, support hors ligne | Côté serveur, Web |
 
-### Organigramme de décision en cas d'incertitude
+## Organigramme de décision en cas d'incertitude
 
 ```text
 Quelle est la nature du problème ?
@@ -223,9 +223,9 @@ S'étend sur plusieurs domaines ?
 └─ Incertain → smart-review
 ```
 
-### Questions fréquemment posées
+## Questions fréquemment posées
 
-### Q : Quelle est la différence entre les rôles frontend et mobile ?
+## Q : Quelle est la différence entre les rôles frontend et mobile ?
 
 ```text
 R :
@@ -235,7 +235,7 @@ mobile : Axé applications mobiles, iOS/Android natif, React Native, etc.
 Pour des problèmes liés aux deux, multi-role frontend,mobile est recommandé
 ```
 
-### Q : Comment choisir entre les rôles security et analyzer ?
+## Q : Comment choisir entre les rôles security et analyzer ?
 
 ```text
 R :
@@ -245,7 +245,7 @@ analyzer : Analyse des causes de problèmes existants, investigation
 Pour les investigations d'incidents de sécurité, utilisez multi-role security,analyzer
 ```
 
-### Q : Quelle est la différence entre les rôles architect et performance ?
+## Q : Quelle est la différence entre les rôles architect et performance ?
 
 ```text
 R :
@@ -255,7 +255,7 @@ performance : Améliorations spécifiques de vitesse et efficacité
 Pour la conception de performance de systèmes à grande échelle, utilisez multi-role architect,performance
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Combiné avec description de situation
@@ -272,7 +272,7 @@ cat problem-description.md
 "Which role is appropriate for JWT token expiration issues?"
 ```
 
-### Notes
+## Notes
 
 - Pour les problèmes complexes, combiner plusieurs rôles est plus efficace
 - Pour les urgences, utilisez un seul rôle pour une réponse rapide

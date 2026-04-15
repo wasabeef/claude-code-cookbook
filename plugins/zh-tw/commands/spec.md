@@ -1,10 +1,10 @@
-## 規範驅動開發建立詳細規範
+# 規範驅動開發建立詳細規範
 
 **「在編寫代碼之前赋予結構」** - 完全遵循 Kiro 的規格驅動開發
 
 與傳統代碼生成工具不同，實現 Kiro 的規格驅動開發，重點是為開發的混沌赋予結構。從最少的需求輸入，逐步展開到產品經理級別的詳细規格和可實施的設計，**從原型到生產環境**保證一致的質量。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 請求 Claude 的 Spec Mode(最少需求輸入)
@@ -20,7 +20,7 @@
 #    - tasks.md: 自動應用最佳實践的實施計劃
 ```
 
-### 實證效果 (Kiro 實績)
+## 實證效果 (Kiro 實績)
 
 **2 天完成安全文件共享應用**
 
@@ -49,7 +49,7 @@
 → 通過 spec-driven development 的結構化方法
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 新功能的 spec 創建 (最少輸入)
@@ -69,7 +69,7 @@
 - 重視安全性」
 ```
 
-### 與 Claude 配合
+## 與 Claude 配合
 
 ```bash
 # 復杂功能 spec
@@ -85,7 +85,7 @@
 「創建 RESTful API 的 spec。包括認證、驗證、日誌記錄」
 ```
 
-### Spec Mode 的特點
+## Spec Mode 的特點
 
 **分阶段對話工作流**
 
@@ -105,7 +105,7 @@
 - 提示和讨論技術選項
 - 說明權衡並確認判斷
 
-### 詳细示例
+## 詳细示例
 
 ```bash
 # 復杂系統功能
@@ -121,9 +121,9 @@
 「創建 CI/CD 管道的 spec。包括測試自動化、部署、監控」
 ```
 
-### 分阶段對話工作流 (Phase by Phase)
+## 分阶段對話工作流 (Phase by Phase)
 
-#### Phase 1: Requirements Discovery & Discussion
+### Phase 1: Requirements Discovery & Discussion
 
 **1. 從最少輸入自動擴展 (Kiro 式)**
 
@@ -196,7 +196,7 @@ Claude：「Requirements Phase 已完成。
 → 「繼續」→ 生成 requirements.md
 ```
 
-#### Phase 2: Design Exploration & Discussion
+### Phase 2: Design Exploration & Discussion
 
 **1. 代碼庫分析 + 自動設計建議 (Kiro 式)**
 
@@ -297,7 +297,7 @@ Claude：「Design Phase 已完成。
 
 ```
 
-#### Phase 3: Implementation Planning & Discussion
+### Phase 3: Implementation Planning & Discussion
 
 **1. 最佳實践自動應用 (Kiro 式)**
 
@@ -409,7 +409,7 @@ Claude：「Implementation Planning Phase 已完成。
 
 ```
 
-### Kiro 特有的功能
+## Kiro 特有的功能
 
 **EARS 記法 (Easy Approach to Requirements Syntax)**
 
@@ -451,7 +451,7 @@ THE SYSTEM SHALL [對應行為]
 - 自動應用可擴展架構
 - 集成持續質量管理
 
-### 注意事項
+## 注意事項
 
 **適用範圍**
 
@@ -471,9 +471,9 @@ THE SYSTEM SHALL [對應行為]
 - 設計完成後生成實施任務
 - 重視各阶段的批準流程
 
-### 觸發短語和控制
+## 觸發短語和控制
 
-#### 分阶段工作流控制
+### 分阶段工作流控制
 
 **開始觸發器**
 
@@ -497,7 +497,7 @@ Phase 2 完成 → 「繼續」 → 生成 design.md
 Phase 3 完成 → 「繼續」 → 生成 tasks.md
 ```
 
-### 執行示例 (分阶段流程)
+## 執行示例 (分阶段流程)
 
 ```bash
 # 使用示例
@@ -528,7 +528,7 @@ Claude: 「Implementation Phase 已完成。可以繼續吗？」
 Claude: 「spec 驅動開發的準備已完成。可以開始實施。」
 ```
 
-### 與 /plan 的區別
+## 與 /plan 的區別
 
 | 特徵     | /plan            | /spec                                               |
 | -------- | ---------------- | --------------------------------------------------- |
@@ -540,7 +540,7 @@ Claude: 「spec 驅動開發的準備已完成。可以開始實施。」
 | 質量保證 | 基本測試策略     | 全面質量要求 (測試、無障礙、性能)                   |
 | 同步     | 靜態計劃         | 動態 spec 更新                                      |
 
-### 推薦用例
+## 推薦用例
 
 **推薦使用 spec**
 

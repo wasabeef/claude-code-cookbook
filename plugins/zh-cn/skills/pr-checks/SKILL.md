@@ -1,19 +1,22 @@
 ---
-description: "监控 GitHub Actions CI 并跟踪完成"
+description: "监控 GitHub Actions CI 并跟踪完成。「PR 检查状态？」「CI 结果」「测试通过了吗？」「构建成功？」等触发。"
+allowed-tools:
+  - Bash(gh pr checks *)
+  - Bash(gh run *)
 ---
 
-## 监控 GitHub Actions CI 并跟踪完成
+# 监控 GitHub Actions CI 并跟踪完成
 
 监控 GitHub Actions CI 状态，并跟踪到完成。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 检查 CI 状态
 gh pr checks
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # PR 创建后的 CI 确认
@@ -21,7 +24,7 @@ gh pr create --title "新功能添加" --body "说明"
 gh pr checks
 ```
 
-### 与 Claude 的协作
+## 与 Claude 的协作
 
 ```bash
 # CI 确认到修复的流程
@@ -34,7 +37,7 @@ gh pr checks
 "确认修复后的 CI 结果，确保没有问题"
 ```
 
-### 执行结果示例
+## 执行结果示例
 
 ```text
 All checks were successful
@@ -50,7 +53,7 @@ All checks were successful
 -  Visual Test (pull_request)                                                  https://github.com/user/repo/actions/runs/123456789
 ```
 
-### 注意事项
+## 注意事项
 
 - 失败时需要详细确认
 - 等待所有检查完成后再合并

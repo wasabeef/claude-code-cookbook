@@ -1,8 +1,8 @@
-## Crear PR automáticamente basado en análisis de cambios
+# Crear PR automáticamente
 
 Crea Pull Requests automáticamente analizando tus cambios Git para un flujo de trabajo más fluido.
 
-### Uso
+## Uso
 
 ```bash
 # Auto-crear PR desde tus cambios
@@ -18,7 +18,7 @@ gh pr ready
 "Cambiar a Ready for Review después de verificar calidad"
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # 1. Crear rama y commit
@@ -38,9 +38,9 @@ git push -u origin feat-user-profile
 "Una vez que CI esté verde, marcar el PR como Ready for Review"
 ```
 
-### Pasos de Ejecución
+## Pasos de Ejecución
 
-#### 1. Crear Rama
+### 1. Crear Rama
 
 ```bash
 # Nomenclatura de rama: {tipo}-{asunto}
@@ -52,7 +52,7 @@ git checkout -b feat-user-authentication
 git branch --show-current
 ```
 
-#### 2. Commit
+### 2. Commit
 
 ```bash
 # Staged tus cambios
@@ -62,7 +62,7 @@ git add .
 git commit -m "feat: Implementar API de autenticación de usuario"
 ```
 
-#### 3. Push al Remoto
+### 3. Push al Remoto
 
 ```bash
 # Primer push (establece upstream)
@@ -72,7 +72,7 @@ git push -u origin feat-user-authentication
 git push
 ```
 
-#### 4. Crear Draft PR con Análisis Automático
+### 4. Crear Draft PR con Análisis Automático
 
 **Paso 1: Analizar Cambios**
 
@@ -121,16 +121,16 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 - Preservar todos los comentarios HTML"
 ```
 
-### Sistema de Selección Automática de Etiquetas
+## Sistema de Selección Automática de Etiquetas
 
-#### Determinar desde Patrones de Archivos
+### Determinar desde Patrones de Archivos
 
 - **Documentación**: `*.md`, `README`, `docs/` → `documentation|docs|doc`
 - **Pruebas**: `test`, `spec` → `test|testing`
 - **CI/CD**: `.github/`, `*.yml`, `Dockerfile` → `ci|build|infra|ops`
 - **Dependencias**: `package.json`, `pubspec.yaml` → `dependencies|deps`
 
-#### Determinar desde Contenido
+### Determinar desde Contenido
 
 - **Correcciones de errores**: `fix|bug|error|crash|repair` → `bug|fix`
 - **Nuevas características**: `feat|feature|add|implement|new-feature|implementation` → `feature|enhancement|feat`
@@ -138,15 +138,15 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 - **Rendimiento**: `performance|perf|optimize` → `performance|perf`
 - **Seguridad**: `security|secure` → `security`
 
-#### Restricciones
+### Restricciones
 
 - **Máx 3 etiquetas**: Límite superior para selección automática
 - **Solo etiquetas existentes**: Prohibido crear nuevas etiquetas
 - **Coincidencia parcial**: Determinado por inclusión de palabra clave en nombres de etiquetas
 
-### Pautas del Proyecto
+## Pautas del Proyecto
 
-#### Enfoque Básico
+### Enfoque Básico
 
 1. **Siempre empezar como Draft**: Todos los PRs deben crearse en estado Draft
 2. **Mejora gradual de calidad**: Fase 1 (Implementación básica) → Fase 2 (Agregar pruebas) → Fase 3 (Actualizar documentación)
@@ -154,7 +154,7 @@ cp .github/PULL_REQUEST_TEMPLATE.md pr_body.md
 4. **Usar plantillas**: Usar siempre `.github/PULL_REQUEST_TEMPLATE.md`
 5. **Espaciado español**: Agregar siempre espacio de ancho medio entre texto español y alfanuméricos
 
-#### Convención de Nomenclatura de Ramas
+### Convención de Nomenclatura de Ramas
 
 ```text
 {tipo}-{asunto}
@@ -165,7 +165,7 @@ Ejemplos:
 - refactor-api-client
 ```
 
-#### Mensajes de Commit
+### Mensajes de Commit
 
 ```text
 {tipo}: {descripción}
@@ -176,15 +176,15 @@ Ejemplos:
 - docs: Actualizar README
 ```
 
-### Sistema de Procesamiento de Plantillas
+## Sistema de Procesamiento de Plantillas
 
-#### Prioridad de Procesamiento
+### Prioridad de Procesamiento
 
 1. **Descripción PR existente**: Mantener todo lo que ya está escrito
 2. **Plantilla del proyecto**: Usar `.github/PULL_REQUEST_TEMPLATE.md`
 3. **Plantilla por defecto**: Usar esta si no existe nada más
 
-#### Reglas de Preservación de Contenido Existente
+### Reglas de Preservación de Contenido Existente
 
 - **No tocar contenido existente**: Dejar lo que ya está ahí solo
 - **Llenar solo los espacios en blanco**: Agregar contenido donde falta
@@ -192,7 +192,7 @@ Ejemplos:
 - **Mantener comentarios HTML**: Todos `<!-- ... -->` permanecen como están
 - **Mantener separadores**: Cosas como `---` se quedan
 
-#### Manejo de Preservación de Comentarios HTML
+### Manejo de Preservación de Comentarios HTML
 
 **Importante**: GitHub CLI (`gh pr edit`) automáticamente escapa comentarios HTML, y el procesamiento shell puede causar mezcla de strings inválidos como `EOF < /dev/null`.
 
@@ -202,7 +202,7 @@ Ejemplos:
 2. **Simplificación de Procesamiento de Plantilla**: Evitar procesamiento complejo de pipes y redirecciones
 3. **Enfoque de Preservación Completa**: Abolir procesamiento de eliminación de comentarios HTML, preservar completamente plantillas
 
-### Respuestas a Comentarios de Revisión
+## Respuestas a Comentarios de Revisión
 
 ```bash
 # Hacer commit de tus correcciones
@@ -211,21 +211,21 @@ git commit -m "fix: Abordar feedback de revisión"
 git push
 ```
 
-### Notas
+## Notas
 
-#### Importancia de Preservación de Comentarios HTML
+### Importancia de Preservación de Comentarios HTML
 
 - **Problema de GitHub CLI**: `gh pr edit` escapa comentarios HTML y puede romper cosas
 - **La solución**: Usar opción `--field` de GitHub API para manejo apropiado
 - **Mantener todo**: No eliminar comentarios HTML - mantener toda la plantilla
 
-#### Restricciones de Automatización
+### Restricciones de Automatización
 
 - **No nuevas etiquetas**: Solo puede usar etiquetas de `.github/labels.yml`
 - **Máx 3 etiquetas**: Ese es el límite para auto-selección
 - **No tocar contenido manual**: Nunca cambiar lo que alguien escribió
 
-#### Calidad Paso a Paso
+### Calidad Paso a Paso
 
 - **Empezar con Draft**: Cada PR comienza como borrador
 - **Verificar CI**: Ejecutar `gh pr checks` para ver el estado

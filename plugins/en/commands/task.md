@@ -1,15 +1,15 @@
-## Autonomous agent for research and analysis tasks
+# Autonomous agent for research and analysis tasks
 
 Launches a smart agent to handle complex searches and investigations. Great for large-scale work without eating up context.
 
-### Usage
+## Usage
 
 ```bash
 # Request Task from Claude
 "Investigate [task] using Task"
 ```
 
-### What Task Does
+## What Task Does
 
 **Works Independently**
 
@@ -29,7 +29,7 @@ Launches a smart agent to handle complex searches and investigations. Great for 
 - Verifies from different angles
 - Fills in missing pieces
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Complex codebase investigation
@@ -42,7 +42,7 @@ Launches a smart agent to handle complex searches and investigations. Great for 
 "Investigate the latest AI technology trends using Task"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Complex problem analysis
@@ -58,9 +58,9 @@ Launches a smart agent to handle complex searches and investigations. Great for 
 "Analyze dependencies of this microservice using Task"
 ```
 
-### Task vs Other Commands
+## Task vs Other Commands
 
-#### When to Use What
+### When to Use What
 
 | Command             | Main Use Case                   | Execution Method      | Information Collection     |
 | ------------------- | ------------------------------- | --------------------- | -------------------------- |
@@ -69,7 +69,7 @@ Launches a smart agent to handle complex searches and investigations. Great for 
 | sequential-thinking | Problem-solving, design         | Step-by-step thinking | As needed                  |
 | plan                | Implementation planning         | Approval process      | Requirement analysis       |
 
-#### Quick Decision Guide
+### Quick Decision Guide
 
 ```text
 Need to gather info?
@@ -81,7 +81,7 @@ Need to gather info?
           └─ No → Just ask normally
 ```
 
-### When Task Works Best
+## When Task Works Best
 
 **Great For**
 
@@ -99,9 +99,9 @@ Need to gather info?
 - Things needing back-and-forth discussion
 - Design decisions (use plan or thinking commands instead)
 
-### Detailed Examples by Category
+## Detailed Examples by Category
 
-#### System Analysis and Investigation
+### System Analysis and Investigation
 
 ```bash
 # Complex system analysis
@@ -114,7 +114,7 @@ Need to gather info?
 "Analyze technical debt in legacy code using Task, including refactoring priorities"
 ```
 
-#### Security and Compliance
+### Security and Compliance
 
 ```bash
 # Security audit
@@ -127,7 +127,7 @@ Need to gather info?
 "Identify security configuration inconsistencies using Task, including environment differences"
 ```
 
-#### Performance and Optimization
+### Performance and Optimization
 
 ```bash
 # Performance analysis
@@ -140,7 +140,7 @@ Need to gather info?
 "Investigate frontend bundle size issues using Task, including optimization suggestions"
 ```
 
-#### External Information Collection
+### External Information Collection
 
 ```bash
 # Technology trend investigation
@@ -153,9 +153,9 @@ Need to gather info?
 "Compare state management libraries using Task, including performance and learning costs"
 ```
 
-### Execution Flow and Quality Assurance
+## Execution Flow and Quality Assurance
 
-#### Task Execution Flow
+### Task Execution Flow
 
 ```text
 1. Initial Analysis
@@ -179,35 +179,35 @@ Need to gather info?
    └─ Presentation of next actions
 ```
 
-#### Quality Assurance
+### Quality Assurance
 
 - **Reliability check of information sources**: Fact confirmation from multiple sources
 - **Completeness check**: Verification of no gaps in investigation targets
 - **Consistency verification**: Confirmation of consistency in conflicting information
 - **Practicality evaluation**: Assessment of feasibility and effectiveness of proposals
 
-### Error Handling and Constraints
+## Error Handling and Constraints
 
-#### Common Constraints
+### Common Constraints
 
 - **External API usage limits**: Rate limits and authentication errors
 - **Large file processing limits**: Memory and timeout constraints
 - **Access permission issues**: Restrictions on file and directory access
 
-#### Error Handling
+### Error Handling
 
 - **Partial result reporting**: Analysis with only obtainable information
 - **Alternative proposals**: Suggestion of alternative investigation methods under constraints
 - **Stepwise execution**: Division of large-scale tasks for execution
 
-### Notes
+## Notes
 
 - Task is optimal for complex, autonomous investigation and analysis tasks
 - For simple questions or when immediate answers are needed, use normal question format
 - Treat investigation results as reference information and always verify important decisions
 - When collecting external information, pay attention to the freshness and accuracy of information
 
-### Execution Example
+## Execution Example
 
 ```bash
 # Usage example

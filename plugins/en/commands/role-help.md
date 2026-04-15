@@ -1,8 +1,8 @@
-## Guide for choosing the right role
+# Guide for choosing the right role
 
 A selection guide and help system when you're unsure which role to use.
 
-### Usage
+## Usage
 
 ```bash
 /role-help                      # General role selection guide
@@ -10,7 +10,7 @@ A selection guide and help system when you're unsure which role to use.
 /role-help compare <Role 1>,<Role 2> # Compare roles
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # General guidance
@@ -26,9 +26,9 @@ A selection guide and help system when you're unsure which role to use.
 → Differences and appropriate usage between frontend and mobile roles
 ```
 
-### Situation-Based Role Selection Guide
+## Situation-Based Role Selection Guide
 
-### Security-Related
+## Security-Related
 
 ```text
 Use security role for:
@@ -41,7 +41,7 @@ Use security role for:
 Usage: /role security
 ```
 
-### 🏗️ Architecture & Design
+## 🏗️ Architecture & Design
 
 ```text
 Use architect role for:
@@ -54,7 +54,7 @@ Use architect role for:
 Usage: /role architect
 ```
 
-### ⚡ Performance Issues
+## ⚡ Performance Issues
 
 ```text
 Use performance role for:
@@ -67,7 +67,7 @@ Use performance role for:
 Usage: /role performance
 ```
 
-### 🔍 Problem Root Cause Investigation
+## 🔍 Problem Root Cause Investigation
 
 ```text
 Use analyzer role for:
@@ -80,7 +80,7 @@ Use analyzer role for:
 Usage: /role analyzer
 ```
 
-### 🎨 Frontend & UI/UX
+## 🎨 Frontend & UI/UX
 
 ```text
 Use frontend role for:
@@ -93,7 +93,7 @@ Use frontend role for:
 Usage: /role frontend
 ```
 
-### 📱 Mobile App Development
+## 📱 Mobile App Development
 
 ```text
 Use mobile role for:
@@ -106,7 +106,7 @@ Use mobile role for:
 Usage: /role mobile
 ```
 
-### 👀 Code Review & Quality
+## 👀 Code Review & Quality
 
 ```text
 Use reviewer role for:
@@ -119,7 +119,7 @@ Use reviewer role for:
 Usage: /role reviewer
 ```
 
-### 🧪 Testing & Quality Assurance
+## 🧪 Testing & Quality Assurance
 
 ```text
 Use qa role for:
@@ -132,9 +132,9 @@ Use qa role for:
 Usage: /role qa
 ```
 
-### When Multiple Roles Are Needed
+## When Multiple Roles Are Needed
 
-### 🔄 multi-role (Parallel Analysis)
+## 🔄 multi-role (Parallel Analysis)
 
 ```text
 Use multi-role for:
@@ -146,7 +146,7 @@ Use multi-role for:
 Example: /multi-role security,performance
 ```
 
-### 🗣️ role-debate (Discussion)
+## 🗣️ role-debate (Discussion)
 
 ```text
 Use role-debate for:
@@ -158,7 +158,7 @@ Use role-debate for:
 Example: /role-debate security,performance
 ```
 
-### 🤖 smart-review (Automatic Proposal)
+## 🤖 smart-review (Automatic Proposal)
 
 ```text
 Use smart-review for:
@@ -170,37 +170,37 @@ Use smart-review for:
 Example: /smart-review
 ```
 
-### Role Comparison Table
+## Role Comparison Table
 
-### Security Category
+## Security Category
 
 | Role     | Main Use                                 | Strengths                              | Weaknesses                           |
 | -------- | ---------------------------------------- | -------------------------------------- | ------------------------------------ |
 | security | Vulnerability and attack countermeasures | Threat analysis, authentication design | UX, performance                      |
 | analyzer | Root cause analysis                      | Logical analysis, evidence collection  | Preventive measures, future planning |
 
-### Design Category
+## Design Category
 
 | Role      | Main Use      | Strengths                                   | Weaknesses                                    |
 | --------- | ------------- | ------------------------------------------- | --------------------------------------------- |
 | architect | System design | Long-term perspective, overall optimization | Detailed implementation, short-term solutions |
 | reviewer  | Code quality  | Implementation level, maintainability       | Business requirements, UX                     |
 
-### Performance Category
+## Performance Category
 
 | Role        | Main Use                           | Strengths                              | Weaknesses           |
 | ----------- | ---------------------------------- | -------------------------------------- | -------------------- |
 | performance | Speed improvement and optimization | Measurement, bottleneck identification | Security, UX         |
 | qa          | Quality assurance                  | Testing, automation                    | Design, architecture |
 
-### User Experience Category
+## User Experience Category
 
 | Role     | Main Use  | Strengths              | Weaknesses       |
 | -------- | --------- | ---------------------- | ---------------- |
 | frontend | Web UI/UX | Browser, accessibility | Server-side, DB  |
 | mobile   | Mobile UX | Touch, offline support | Server-side, Web |
 
-### Decision Flowchart When Unsure
+## Decision Flowchart When Unsure
 
 ```text
 What is the nature of the problem?
@@ -219,9 +219,9 @@ Spans multiple fields?
 └─ Unsure → smart-review
 ```
 
-### Frequently Asked Questions
+## Frequently Asked Questions
 
-### Q: What's the difference between frontend and mobile roles?
+## Q: What's the difference between frontend and mobile roles?
 
 ```text
 A:
@@ -231,7 +231,7 @@ mobile: Mobile app-focused, iOS/Android native, React Native, etc.
 For issues related to both, multi-role frontend,mobile is recommended
 ```
 
-### Q: How to choose between security and analyzer roles?
+## Q: How to choose between security and analyzer roles?
 
 ```text
 A:
@@ -241,7 +241,7 @@ analyzer: Analysis of causes of existing problems, investigation
 For security incident investigations, use multi-role security,analyzer
 ```
 
-### Q: What's the difference between architect and performance roles?
+## Q: What's the difference between architect and performance roles?
 
 ```text
 A:
@@ -251,7 +251,7 @@ performance: Specific speed and efficiency improvements
 For performance design of large-scale systems, use multi-role architect,performance
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Combined with situation description
@@ -268,7 +268,7 @@ cat problem-description.md
 "Which role is appropriate for JWT token expiration issues?"
 ```
 
-### Notes
+## Notes
 
 - For complex problems, combining multiple roles is more effective
 - For urgent matters, use single role for quick response

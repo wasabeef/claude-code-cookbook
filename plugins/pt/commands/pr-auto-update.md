@@ -1,16 +1,16 @@
-## Atualizar automaticamente descrição e labels de PR
+# Atualizar automaticamente descrição e labels de PR
 
-## Visão Geral
+# Visão Geral
 
 Comando para atualizar automaticamente a descrição e rótulos de Pull Requests. Analisa as alterações do Git para gerar e definir descrições e rótulos apropriados.
 
-## Uso
+# Uso
 
 ```bash
 /pr-auto-update [opções] [número do PR]
 ```
 
-### Opções
+## Opções
 
 - `--pr <número>` : Especifica o número do PR alvo (detecta automaticamente do branch atual se omitido)
 - `--description-only` : Atualiza apenas a descrição (não altera os rótulos)
@@ -18,7 +18,7 @@ Comando para atualizar automaticamente a descrição e rótulos de Pull Requests
 - `--dry-run` : Não executa a atualização real, apenas exibe o conteúdo que seria gerado
 - `--lang <idioma>` : Especifica o idioma (pt, en)
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Atualiza automaticamente o PR do branch atual
@@ -34,9 +34,9 @@ Comando para atualizar automaticamente a descrição e rótulos de Pull Requests
 /pr-auto-update --dry-run
 ```
 
-## Detalhes da Funcionalidade
+# Detalhes da Funcionalidade
 
-### 1. Detecção Automática de PR
+## 1. Detecção Automática de PR
 
 Detecta automaticamente o PR correspondente do branch atual:
 
@@ -45,7 +45,7 @@ Detecta automaticamente o PR correspondente do branch atual:
 gh pr list --head $(git branch --show-current) --json number,title,url
 ```
 
-### 2. Análise do Conteúdo das Alterações
+## 2. Análise do Conteúdo das Alterações
 
 Coleta e analisa as seguintes informações:
 
@@ -56,15 +56,15 @@ Coleta e analisa as seguintes informações:
 - **Configuração**: Alterações em package.json, pubspec.yaml, arquivos de configuração
 - **CI/CD**: Alterações em GitHub Actions e workflow
 
-### 3. Geração Automática de Descrição
+## 3. Geração Automática de Descrição
 
-#### Prioridade do Processamento de Template
+### Prioridade do Processamento de Template
 
 1. **Descrição de PR Existente**: **Segue completamente** o conteúdo já descrito
 2. **Template do Projeto**: Obtém estrutura de `.github/PULL_REQUEST_TEMPLATE.md`
 3. **Template Padrão**: Fallback caso os anteriores não existam
 
-#### Regras de Preservação de Conteúdo Existente
+### Regras de Preservação de Conteúdo Existente
 
 **Importante**: Não altera o conteúdo existente
 
@@ -72,7 +72,7 @@ Coleta e analisa as seguintes informações:
 - Complementa apenas seções vazias
 - Preserva comentários funcionais (como regras do Copilot review)
 
-#### Uso do Template do Projeto
+### Uso do Template do Projeto
 
 ```bash
 # Analisa a estrutura de .github/PULL_REQUEST_TEMPLATE.md
@@ -92,16 +92,16 @@ parse_template_structure() {
 }
 ```
 
-### 4. Configuração Automática de Rótulos
+## 4. Configuração Automática de Rótulos
 
-#### Mecanismo de Obtenção de Rótulos
+### Mecanismo de Obtenção de Rótulos
 
 **Ordem de Prioridade**:
 
 1. **`.github/labels.yml`**: Obtém de definições de rótulos específicos do projeto
 2. **GitHub API**: Obtém rótulos existentes com `gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'`
 
-#### Regras de Determinação Automática
+### Regras de Determinação Automática
 
 **Baseado em Padrões de Arquivo**:
 
@@ -118,13 +118,13 @@ parse_template_structure() {
 - Performance: `performance|perf|optimize|otimizar|desempenho` → rótulos contendo `performance|perf`
 - Segurança: `security|secure|segurança|proteger` → rótulos contendo `security`
 
-#### Restrições
+### Restrições
 
 - **Máximo 3**: Limite superior do número de rótulos selecionados automaticamente
 - **Apenas Rótulos Existentes**: Proibida a criação de novos rótulos
 - **Correspondência Parcial**: Determina se palavras-chave estão contidas no nome do rótulo
 
-#### Exemplo de Uso Real
+### Exemplo de Uso Real
 
 **Quando `.github/labels.yml` existe**:
 
@@ -144,7 +144,7 @@ gh api repos/{OWNER}/{REPO}/labels --jq '.[].name'
 # Exemplo: Usa rótulos padrão como bug, enhancement, documentation
 ```
 
-### 5. Fluxo de Execução
+## 5. Fluxo de Execução
 
 ```bash
 #!/bin/bash
@@ -330,7 +330,7 @@ update_pr() {
 }
 ```
 
-## Arquivo de Configuração (para expansão futura)
+# Arquivo de Configuração (para expansão futura)
 
 `~/.claude/pr-auto-update.config`:
 
@@ -341,9 +341,9 @@ update_pr() {
 }
 ```
 
-## Padrões Comuns
+# Padrões Comuns
 
-### Projeto Flutter
+## Projeto Flutter
 
 ```markdown
 ## What does this change?
@@ -364,7 +364,7 @@ Implementou {nome da funcionalidade}. Resolve {problema} do usuário.
 - **Performance**: {conteúdo de otimização}
 ```
 
-### Projeto Node.js
+## Projeto Node.js
 
 ```markdown
 ## What does this change?
@@ -385,7 +385,7 @@ Implementou endpoint {nome da API}. Corresponde a {caso de uso}.
 - **Validação de Entrada**: Contramedidas para injeção SQL
 ```
 
-### Melhoria de CI/CD
+## Melhoria de CI/CD
 
 ```markdown
 ## What does this change?
@@ -405,7 +405,7 @@ Melhorou workflow do GitHub Actions. Realiza {efeito}.
 - **Monitoramento**: Adicionou monitoramento de {métricas}
 ```
 
-## Observações
+# Observações
 
 1. **Preservação Completa do Conteúdo Existente**:
    - **Não altera nem um caractere** do conteúdo já descrito
@@ -432,27 +432,27 @@ Melhorou workflow do GitHub Actions. Realiza {efeito}.
    - Unifica idioma (japonês/inglês)
    - Herda regras de rotulagem
 
-## Solução de Problemas
+# Solução de Problemas
 
-### Problemas Comuns
+## Problemas Comuns
 
 1. **PR não encontrado**: Confirme associação entre nome do branch e PR
 2. **Erro de permissão**: Confirme estado de autenticação do GitHub CLI
 3. **Não consegue definir rótulo**: Confirme permissões do repositório
 4. **Comentários HTML são escapados**: Devido às especificações do GitHub CLI, `<!-- -->` é convertido para `&lt;!-- --&gt;`
 
-### Problema de Escape de Comentários HTML do GitHub CLI
+## Problema de Escape de Comentários HTML do GitHub CLI
 
 **Importante**: GitHub CLI (`gh pr edit`) escapa automaticamente comentários HTML. Além disso, strings inválidas como `EOF < /dev/null` podem ser misturadas devido ao processamento de redirecionamento do shell.
 
-#### Soluções Fundamentais
+### Soluções Fundamentais
 
 1. **Uso da opção --field do GitHub API**: Usa `--field` para processamento adequado de escape
 2. **Simplificação do processamento Shell**: Evita processamento complexo de redirecionamento e pipe
 3. **Simplificação do processamento de template**: Elimina processamento de remoção de comentários HTML e preserva completamente
 4. **Processamento adequado de escape JSON**: Processa corretamente caracteres especiais
 
-### Opções de Debug
+## Opções de Debug
 
 ```bash
 # Saída de log detalhado (adicionar durante implementação)

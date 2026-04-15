@@ -1,45 +1,45 @@
-## 分析情况自动建议最优角色和方法
+# 分析情况自动建议最优角色和方法
 
 分析当前情况，自动建议最佳角色和方法的命令。
 
-### 使用方法
+## 使用方法
 
 ```bash
 /smart-review                    # 分析当前目录
 /smart-review <文件/目录>        # 分析特定对象
 ```
 
-### 自动判定逻辑
+## 自动判定逻辑
 
-### 基于文件扩展名的判定
+## 基于文件扩展名的判定
 
 - `package.json`, `*.tsx`, `*.jsx`, `*.css`, `*.scss` → **frontend**
 - `Dockerfile`, `docker-compose.yml`, `*.yaml` → **architect**
 - `*.test.js`, `*.spec.ts`, `test/`, `__tests__/` → **qa**
 - `*.rs`, `Cargo.toml`, `performance/` → **performance**
 
-### 安全相关文件检测
+## 安全相关文件检测
 
 - `auth.js`, `security.yml`, `.env`, `config/auth/` → **security**
 - `login.tsx`, `signup.js`, `jwt.js` → **security + frontend**
 - `api/auth/`, `middleware/auth/` → **security + architect**
 
-### 复合判定模式
+## 复合判定模式
 
 - `mobile/` + `*.swift`, `*.kt`, `react-native/` → **mobile**
 - `webpack.config.js`, `vite.config.js`, `large-dataset/` → **performance**
 - `components/` + `responsive.css` → **frontend + mobile**
 - `api/` + `auth/` → **security + architect**
 
-### 错误与问题分析
+## 错误与问题分析
 
 - 堆栈跟踪、`error.log`, `crash.log` → **analyzer**
 - `memory leak`, `high CPU`, `slow query` → **performance + analyzer**
 - `SQL injection`, `XSS`, `CSRF` → **security + analyzer**
 
-### 建议模式
+## 建议模式
 
-### 单一角色建议
+## 单一角色建议
 
 ```bash
 $ /smart-review src/auth/login.js
@@ -48,7 +48,7 @@ $ /smart-review src/auth/login.js
 → 「是否执行？ [y]es / [n]o / [m]ore options」
 ```
 
-### 多角色建议
+## 多角色建议
 
 ```bash
 $ /smart-review src/mobile/components/
@@ -60,7 +60,7 @@ $ /smart-review src/mobile/components/
 → 「[4] role-debate mobile,frontend」
 ```
 
-### 问题分析时的建议
+## 问题分析时的建议
 
 ```bash
 $ /smart-review error.log
@@ -73,7 +73,7 @@ $ /smart-review slow-api.log
 → 「推荐：[1]/role performance [2]/role-debate performance,analyzer」
 ```
 
-### 复杂设计决策时的建议
+## 复杂设计决策时的建议
 
 ```bash
 $ /smart-review architecture-design.md
@@ -83,9 +83,9 @@ $ /smart-review architecture-design.md
 → 「[替代] /multi-role architect,security,performance」
 ```
 
-### 建议逻辑详情
+## 建议逻辑详情
 
-### 优先级判定
+## 优先级判定
 
 1. **Security** - 认证、授权、加密相关最优先
 2. **Critical Errors** - 系统停机、数据丢失紧急处理
@@ -94,14 +94,14 @@ $ /smart-review architecture-design.md
 5. **Frontend/Mobile** - UI/UX 改进
 6. **QA** - 质量保证、测试相关
 
-### 推荐讨论的条件
+## 推荐讨论的条件
 
 - 涉及 3 个以上角色时
 - 存在安全性与性能的权衡时
 - 包含架构大幅变更时
 - 同时影响移动端和 Web 时
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 分析当前目录
@@ -117,9 +117,9 @@ $ /smart-review architecture-design.md
 「请建议解决此错误的最佳方法」
 ```
 
-### 实际示例
+## 实际示例
 
-### 项目整体分析
+## 项目整体分析
 
 ```bash
 $ /smart-review
@@ -136,7 +136,7 @@ $ /smart-review
 → 「是否自动执行？ [y]es / [s]elect role / [c]ustom」
 ```
 
-### 特定问题分析
+## 特定问题分析
 
 ```bash
 $ /smart-review "JWT 有效期应该如何设置"
@@ -148,7 +148,7 @@ $ /smart-review "JWT 有效期应该如何设置"
 → 「原因：需要平衡安全性、性能和用户体验」
 ```
 
-### 与 Claude 配合
+## 与 Claude 配合
 
 ```bash
 # 结合文件内容分析
@@ -166,7 +166,7 @@ npm run build 2>&1 | tee build-error.log
 「请讨论应该选择 React Native 还是 Progressive Web App」
 ```
 
-### 注意事项
+## 注意事项
 
 - 建议仅供参考，最终决定由用户做出
 - 复杂问题推荐使用讨论形式 (role-debate)

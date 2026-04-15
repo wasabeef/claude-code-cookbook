@@ -1,19 +1,22 @@
 ---
-description: "Monitor GitHub Actions CI and track to completion"
+description: 'Monitor GitHub Actions CI and track to completion. Trigger with "PR check status?", "show CI results", "did tests pass?", "build succeeded?", "check status", "Actions results?".'
+allowed-tools:
+  - Bash(gh pr checks *)
+  - Bash(gh run *)
 ---
 
-## Monitor GitHub Actions CI and track to completion
+# Monitor GitHub Actions CI and track to completion
 
 Monitors GitHub Actions CI status and tracks until completion.
 
-### Usage
+## Usage
 
 ```bash
 # Check CI status
 gh pr checks
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Check CI after creating PR
@@ -21,7 +24,7 @@ gh pr create --title "Add new feature" --body "Description"
 gh pr checks
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Flow from CI check to correction
@@ -34,7 +37,7 @@ gh pr checks
 "Check CI results after correction to confirm no issues"
 ```
 
-### Example Execution Results
+## Example Execution Results
 
 ```text
 All checks were successful
@@ -50,7 +53,7 @@ All checks were successful
 -  Visual Test (pull_request)                                                  https://github.com/user/repo/actions/runs/123456789
 ```
 
-### Notes
+## Notes
 
 - Check details when failed
 - Wait for all checks to complete before merging

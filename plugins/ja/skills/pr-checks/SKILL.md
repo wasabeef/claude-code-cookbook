@@ -1,19 +1,22 @@
 ---
-description: "GitHub Actions CI の監視と完了追跡"
+description: "GitHub Actions CI の監視と完了追跡。「PR のチェック状況は？」「CI の結果を見せて」「テストは通った？」「ビルド成功した？」「チェックの状態を確認」「Actions の結果は？」「CI/CD の状況教えて」などで起動。GitHub Actions、テスト、ビルドの状態を表示。"
+allowed-tools:
+  - Bash(gh pr checks *)
+  - Bash(gh run *)
 ---
 
-## GitHub Actions CI の監視と完了追跡
+# GitHub Actions CI の監視と完了追跡
 
 GitHub Actions CI 状況を監視して、完了まで追跡します。
 
-### 使い方
+## 使い方
 
 ```bash
 # CI チェック状況を確認
 gh pr checks
 ```
 
-### 基本例
+## 基本例
 
 ```bash
 # PR 作成後の CI 確認
@@ -21,7 +24,7 @@ gh pr create --title "新機能の追加" --body "説明"
 gh pr checks
 ```
 
-### Claude との連携
+## Claude との連携
 
 ```bash
 # CI 確認から修正までの流れ
@@ -34,7 +37,7 @@ gh pr checks
 「修正後の CI 結果を確認して、問題がないことを確認して」
 ```
 
-### 実行結果の例
+## 実行結果の例
 
 ```text
 All checks were successful
@@ -50,7 +53,7 @@ All checks were successful
 -  Visual Test (pull_request)                                                  https://github.com/user/repo/actions/runs/123456789
 ```
 
-### 注意事項
+## 注意事項
 
 - 失敗時は詳細確認
 - 全チェック完了まで待機してからマージ

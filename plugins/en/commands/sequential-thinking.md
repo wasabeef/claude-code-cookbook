@@ -1,15 +1,15 @@
-## Step-by-step thinking for complex problems
+# Step-by-step thinking for complex problems
 
 Solve complex problems step-by-step through a dynamic, iterative thinking process. This flexible approach allows for course corrections and revisions during the thinking process.
 
-### Usage
+## Usage
 
 ```bash
 # Request Claude to think sequentially
 "Analyze [task] using sequential-thinking"
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Algorithm design
@@ -22,7 +22,7 @@ Solve complex problems step-by-step through a dynamic, iterative thinking proces
 "Examine real-time notification system design using sequential-thinking"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Complex implementation strategy
@@ -39,7 +39,7 @@ cat src/complex_module.js
 "Analyze front-end framework selection using sequential-thinking. Consider project requirements and constraints"
 ```
 
-### Thinking Process
+## Thinking Process
 
 1. **Initial Analysis** - Basic understanding and decomposition of the problem
 2. **Hypothesis Generation** - Formulate hypotheses for solutions
@@ -47,7 +47,7 @@ cat src/complex_module.js
 4. **Branching and Exploration** - Explore multiple solution paths
 5. **Integration and Conclusion** - Derive optimal solution
 
-### Features
+## Features
 
 - **Dynamic Adjustment** - Ability to change direction during thinking
 - **Hypothesis Testing** - Cycle of forming and testing hypotheses
@@ -55,7 +55,7 @@ cat src/complex_module.js
 - **Gradual Refinement** - Step-by-step refinement of solutions
 - **Flexibility** - Policy changes based on new information
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Complex system design
@@ -71,11 +71,11 @@ cat src/complex_module.js
 "Examine monorepo dependency management strategy using sequential-thinking. Include build time, deployment, and test execution"
 ```
 
-### Notes
+## Notes
 
 Sequential-thinking is ideal for complex problems that require deepening thought in stages. For simple questions or those with clear answers, use normal question format.
 
-### Execution Example
+## Execution Example
 
 ```bash
 # Usage example

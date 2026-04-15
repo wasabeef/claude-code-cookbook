@@ -1,8 +1,8 @@
-## Actualizar dependencias de Flutter de forma segura
+# Actualizar dependencias de Flutter de forma segura
 
 Actualiza de forma segura las dependencias en tu proyecto Flutter.
 
-### Uso
+## Uso
 
 ```bash
 # Verificar estado de dependencias y solicitar ayuda de Claude
@@ -10,7 +10,7 @@ flutter pub deps --style=compact
 "Por favor actualiza las dependencias en pubspec.yaml a sus últimas versiones"
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Verificar dependencias actuales
@@ -22,7 +22,7 @@ flutter pub upgrade --dry-run
 "Verificar si hay cambios disruptivos en esta actualización planeada"
 ```
 
-### Integración con Claude
+## Integración con Claude
 
 ```bash
 # Actualización comprensiva de dependencias
@@ -42,7 +42,7 @@ flutter pub outdated
 "Decirme el impacto y cambios necesarios al actualizar provider a la última versión"
 ```
 
-### Ejemplos Detallados
+## Ejemplos Detallados
 
 ```bash
 # Análisis detallado incluyendo notas de lanzamiento
@@ -58,7 +58,7 @@ cat pubspec.yaml
 "Identificar paquetes no compatibles con Null Safety y crear un plan de migración"
 ```
 
-### Criterios de Riesgo
+## Criterios de Riesgo
 
 ```text
 Seguro (🟢):
@@ -77,7 +77,7 @@ Peligroso (🔴):
 - Eliminaciones o modificaciones de API
 ```
 
-### Ejecución de Actualización
+## Ejecución de Actualización
 
 ```bash
 # Crear respaldos
@@ -93,7 +93,7 @@ flutter test
 flutter pub deps --style=compact
 ```
 
-### Notas
+## Notas
 
 Siempre verificar funcionalidad después de actualizaciones. Si ocurren problemas, restaurar con:
 

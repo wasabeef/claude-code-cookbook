@@ -1,12 +1,17 @@
 ---
-description: "Verificar precisión de información contra código y documentos"
+description: 'Verificar precisión de información contra código y documentos. Se activa con "¿es correcto?", "verificar hechos", "¿es preciso?".'
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - WebSearch
 ---
 
-## Verificar precisión de información contra código y documentos
+# Verificar precisión de información contra código y documentos
 
 Verifica si una declaración es verdadera revisando el código y documentación de tu proyecto.
 
-### Uso
+## Uso
 
 ```bash
 # Uso básico
@@ -19,7 +24,7 @@ Verifica si una declaración es verdadera revisando el código y documentación 
 /check-fact "JWT se usa para autenticación, y Firebase Auth no se usa"
 ```
 
-### Cómo Funciona
+## Cómo Funciona
 
 1. **Dónde Busco (en orden)**
    - El código real (más confiable)
@@ -38,7 +43,7 @@ Verifica si una declaración es verdadera revisando el código y documentación 
    - Fragmentos de código relevantes
    - Documentación que coincide
 
-### Formato de Reporte
+## Formato de Reporte
 
 ```text
 ## Resultados de Verificación de Hechos
@@ -60,7 +65,7 @@ Verifica si una declaración es verdadera revisando el código y documentación 
 [Si es desconocido, aquí está lo que necesitaría verificar]
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Verificar el stack tecnológico
@@ -76,7 +81,7 @@ Verifica si una declaración es verdadera revisando el código y documentación 
 /check-fact "Los tokens de autenticación están cifrados y almacenados en almacenamiento seguro"
 ```
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Verificar dependencias
@@ -92,7 +97,7 @@ cat README.md
 /check-fact "Todo en el README está realmente implementado"
 ```
 
-### Cuándo Usar Esto
+## Cuándo Usar Esto
 
 - Escribiendo especificaciones: Asegurar que tus descripciones son precisas
 - Tomando control de un proyecto: Verificar si lo entiendes correctamente
@@ -100,7 +105,7 @@ cat README.md
 - Posts de blog: Verificar hechos de tu contenido técnico
 - Presentaciones: Confirmar detalles del proyecto antes de presentar
 
-### Importante
+## Importante
 
 - El código gana sobre docs: Si no coinciden, el código tiene razón
 - Los docs viejos pasan: La implementación es lo que importa

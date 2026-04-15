@@ -1,14 +1,17 @@
 ---
-description: "基於 Git 變更分析自動建立 PR"
+description: "基於 Git 變更分析自動建立 PR。「建立 PR」「提交 PR」「開 pull request」「提交審查」等觸發。"
+allowed-tools:
+  - Bash(git *)
+  - Bash(gh *)
 ---
 
-## 基於 Git 變更分析自動建立 PR
+# 基於 Git 變更分析自動建立 PR
 
 > 不再推薦：請優先使用 `/pr-create-smart` 生成高質量的 PR 描述草稿，然後使用 gh/GUI 創建 PR。本命令属于“端到端自動創建 PR(保留模板、自動打標簽、創建 Draft)”的旧方案，仅為兼容保留。
 
 基于 Git 變更分析的自動 PR 創建，實現高效的 Pull Request 工作流程。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 基于變更分析的自動 PR 創建
@@ -24,7 +27,7 @@ gh pr ready
 "質量確認完成後，更改為 Ready for Review"
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 1. 創建分支並提交
@@ -44,9 +47,9 @@ git push -u origin feat-user-profile
 "CI 通過後將 PR 更改為 Ready for Review"
 ```
 
-### 執行步骤
+## 執行步骤
 
-#### 1. 分支創建
+### 1. 分支創建
 
 ```bash
 # 遵循準則的命名規則: {type}-{subject}
@@ -58,7 +61,7 @@ git checkout -b feat-user-authentication
 git branch --show-current
 ```
 
-#### 2. 提交
+### 2. 提交
 
 ```bash
 # 暂存變更
@@ -68,7 +71,7 @@ git add .
 git commit -m "feat: 實現用戶認證 API"
 ```
 
-#### 3. 推送到远程
+### 3. 推送到远程
 
 ```bash
 # 首次推送 (設置 upstream)
@@ -78,7 +81,7 @@ git push -u origin feat-user-authentication
 git push
 ```
 
-#### 4. 基于自動分析創建 Draft PR
+### 4. 基于自動分析創建 Draft PR
 
 **步骤 1: 分析變更內容**
 
@@ -143,16 +146,16 @@ mcp__github__create_pull_request({
 });
 ```
 
-### 自動標簽選擇系統
+## 自動標簽選擇系統
 
-#### 基于文件模式的判定
+### 基于文件模式的判定
 
 - **文檔**: `*.md`, `README`, `docs/` → `documentation|docs|doc`
 - **測試**: `test`, `spec` → `test|testing`
 - **CI/CD**: `.github/`, `*.yml`, `Dockerfile` → `ci|build|infra|ops`
 - **依賴**: `package.json`, `pubspec.yaml` → `dependencies|deps`
 
-#### 基于變更內容的判定
+### 基于變更內容的判定
 
 - **Bug 修復**: `fix|bug|error|crash|修復` → `bug|fix`
 - **新功能**: `feat|feature|add|implement|新功能|實現` → `feature|enhancement|feat`
@@ -160,15 +163,15 @@ mcp__github__create_pull_request({
 - **性能**: `performance|perf|optimize` → `performance|perf`
 - **安全**: `security|secure` → `security`
 
-#### 約束條件
+### 約束條件
 
 - **最多 3 個**: 自動選擇的上限
 - **仅現有標簽**: 禁止新建
 - **部分匹配**: 通過關鍵詞包含進行判定
 
-### 項目準則
+## 項目準則
 
-#### 基本原則
+### 基本原則
 
 1. **必须以 Draft 開始**: 所有 PR 都以 Draft 狀態創建
 2. **逐步提升質量**: 阶段 1(基本實現)→ 阶段 2(添加測試)→ 阶段 3(更新文檔)
@@ -176,7 +179,7 @@ mcp__github__create_pull_request({
 4. **使用模板**: 必须使用 `.github/PULL_REQUEST_TEMPLATE.md`
 5. **中文空格**: 中文與半角英數字之間必须有半角空格
 
-#### 分支命名規則
+### 分支命名規則
 
 ```text
 {type}-{subject}
@@ -187,7 +190,7 @@ mcp__github__create_pull_request({
 - refactor-api-client
 ```
 
-#### 提交消息
+### 提交消息
 
 ```text
 {type}: {description}
@@ -198,15 +201,15 @@ mcp__github__create_pull_request({
 - docs: 更新 README
 ```
 
-### 模板處理系統
+## 模板處理系統
 
-#### 處理優先級
+### 處理優先級
 
 1. **現有 PR 描述**: **完全沿用**已編寫的內容
 2. **項目模板**: 保持 `.github/PULL_REQUEST_TEMPLATE.md` 結構
 3. **默認模板**: 以上不存在時使用
 
-#### 現有內容保留規則
+### 現有內容保留規則
 
 - **一字不改**: 已編寫的內容
 - **仅補充空白部分**: 用變更內容填充佔位符部分
@@ -214,7 +217,7 @@ mcp__github__create_pull_request({
 - **保留 HTML 注釋**: 完全保留 `<!-- ... -->`
 - **保留分隔線**: 保持 `---` 等結構
 
-#### HTML 注釋保留的處理方法
+### HTML 注釋保留的處理方法
 
 **重要**: GitHub CLI (`gh pr edit`) 會自動轉義 HTML 注釋，在 Shell 處理中可能混入 `EOF < /dev/null` 等非法字符串。
 
@@ -224,7 +227,7 @@ mcp__github__create_pull_request({
 2. **簡化模板處理**: 避免復杂的管道處理和重定向
 3. **完全保留方法**: 废除 HTML 注釋刪除處理，完全保留模板
 
-### 審查評論響應
+## 審查評論響應
 
 ```bash
 # 變更後重新提交
@@ -233,21 +236,21 @@ git commit -m "fix: 基于審查反饋的更正"
 git push
 ```
 
-### 注意事項
+## 注意事項
 
-#### HTML 注釋保留的重要性
+### HTML 注釋保留的重要性
 
 - **GitHub CLI 限制**: `gh pr edit` 會轉義 HTML 注釋，混入非法字符串
 - **根本規避策略**: 使用 GitHub API 的 `--field` 選項進行適当的轉義處理
 - **模板完全保留**: 废除 HTML 注釋刪除處理，完全維護結構
 
-#### 自動化的約束
+### 自動化的約束
 
 - **禁止新建標簽**: 不可創建 `.github/labels.yml` 定義外的標簽
 - **最多 3 個標簽**: 自動選擇的上限
 - **現有內容優先**: 不更改手動編寫的內容
 
-#### 逐步提升質量
+### 逐步提升質量
 
 - **Draft 必须**: 所有 PR 以 Draft 開始
 - **CI 確認**: 使用 `gh pr checks` 確認狀態

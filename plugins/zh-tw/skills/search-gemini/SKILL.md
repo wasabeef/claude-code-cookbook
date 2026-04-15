@@ -1,19 +1,21 @@
 ---
-description: "透過 Gemini CLI 搜尋最新資訊"
+description: "透過 Gemini CLI 搜尋最新資訊。「搜尋網頁」「查找最新資訊」等觸發。"
+allowed-tools:
+  - Bash(gemini *)
 ---
 
-## 透過 Gemini CLI 搜尋最新資訊
+# 透過 Gemini CLI 搜尋最新資訊
 
 使用 Gemini CLI 執行網絡搜索以獲取最新資訊。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 通過 Gemini CLI 進行網絡搜索 (必须)
 gemini --prompt "WebSearch: <搜索查询>"
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 使用 Gemini CLI
@@ -21,7 +23,7 @@ gemini --prompt "WebSearch: React 19 新功能"
 gemini --prompt "WebSearch: TypeError Cannot read property of undefined 解決方法"
 ```
 
-### 與 Claude 配合
+## 與 Claude 配合
 
 ```bash
 # 文檔搜索和摘要
@@ -38,7 +40,7 @@ gemini --prompt "WebSearch: Rust vs Go performance benchmark 2026"
 「請從搜索結果總結性能差異」
 ```
 
-### 詳细示例
+## 詳细示例
 
 ```bash
 # 從多個來源收集資訊
@@ -58,12 +60,12 @@ gemini --prompt "WebSearch: CVE-2024 Node.js vulnerabilities"
 「請總結發現的漏洞影響和對策」
 ```
 
-### 禁止事項
+## 禁止事項
 
 - **禁止使用 Claude 的內置 WebSearch 工具**
 - 需要網絡搜索時，必须使用 `gemini --prompt "WebSearch: ..."`
 
-### 注意事項
+## 注意事項
 
 - **如果 Gemini CLI 可用，必须使用 `gemini --prompt "WebSearch: ..."`**
 - 網絡搜索結果不一定總是最新的

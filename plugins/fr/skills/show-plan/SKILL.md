@@ -1,18 +1,20 @@
 ---
-description: "Afficher le plan de la session en cours"
+description: "Afficher le plan de la session en cours. Se déclenche avec « montrer le plan », « progrès du plan »."
+allowed-tools:
+  - Read
 ---
 
-## Afficher le plan de la session en cours
+# Afficher le plan de la session en cours
 
 Affiche le plan en cours d'exécution ou exécuté dans la session actuelle.
 
-### Utilisation
+## Utilisation
 
 ```bash
 /show-plan
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Vérifier le plan actuel
@@ -24,14 +26,14 @@ Affiche le plan en cours d'exécution ou exécuté dans la session actuelle.
 "Il n'y a pas de plan dans la session actuelle"
 ```
 
-### Fonctionnalités
+## Fonctionnalités
 
 - Détecte les plans créés avec ExitPlanMode
 - Recherche les en-têtes contenant des mots-clés comme plan d'implémentation, détails d'implémentation, plan
 - Formate et affiche le contenu du plan
 - Notifie clairement quand aucun plan n'existe
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Vérifier le plan pendant l'implémentation
@@ -47,7 +49,7 @@ Affiche le plan en cours d'exécution ou exécuté dans la session actuelle.
 /show-plan
 ```
 
-### Patterns de détection
+## Patterns de détection
 
 Basé sur le format des plans générés par ExitPlanMode, les patterns suivants sont détectés :
 
@@ -57,7 +59,7 @@ Basé sur le format des plans générés par ExitPlanMode, les patterns suivants
 - `### Implementation Plan` (Plan d'implémentation)
 - En-têtes numérotés comme `### 1.`
 
-### Remarques
+## Remarques
 
 - Affiche seulement les plans de la session actuelle (n'inclut pas les sessions passées)
 - Affiche le plan le plus récent en priorité

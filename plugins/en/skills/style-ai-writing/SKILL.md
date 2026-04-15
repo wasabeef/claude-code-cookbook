@@ -1,18 +1,20 @@
 ---
-description: "Detect mechanical AI patterns and improve to natural text"
+description: 'Detect mechanical AI patterns and improve to natural text. Trigger with "check for AI-ness", "detect mechanical writing", "make it sound natural", "fix AI-like text".'
+allowed-tools:
+  - Read
 ---
 
-## Detect mechanical AI patterns and improve to natural text
+# Detect mechanical AI patterns and improve to natural text
 
 Detects mechanical patterns in AI-generated text and provides suggestions for improving to more natural Japanese.
 
-### Usage
+## Usage
 
 ```bash
 /ai-writing-check [options]
 ```
 
-### Options
+## Options
 
 - None: Analyze current file or selected text
 - `--file <path>`: Analyze specific file
@@ -20,7 +22,7 @@ Detects mechanical patterns in AI-generated text and provides suggestions for im
 - `--severity <level>`: Detection level (all/high/medium)
 - `--fix`: Automatically fix detected patterns
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Check AI writing style in file
@@ -37,9 +39,9 @@ cat README.md
 "Report only critical AI writing issues in the project"
 ```
 
-### Detected Patterns
+## Detected Patterns
 
-#### 1. Mechanical List Format Patterns
+### 1. Mechanical List Format Patterns
 
 ```markdown
 Examples detected:
@@ -57,7 +59,7 @@ Improved examples:
 - Ready to start
 ```
 
-#### 2. Exaggerated/Hype Expressions
+### 2. Exaggerated/Hype Expressions
 
 ```markdown
 Examples detected:
@@ -71,7 +73,7 @@ Solves many problems.
 Works smoothly.
 ```
 
-#### 3. Mechanical Emphasis Patterns
+### 3. Mechanical Emphasis Patterns
 
 ```markdown
 Examples detected:
@@ -83,7 +85,7 @@ Idea: New proposal
 Note: Important warning
 ```
 
-#### 4. Redundant Technical Writing
+### 4. Redundant Technical Writing
 
 ```markdown
 Examples detected:
@@ -97,7 +99,7 @@ You can use this tool.
 Performance improves by 30%.
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Analyze entire document for AI writing style
@@ -118,7 +120,7 @@ find . -name "*.md" -type f
 "Analyze AI writing style throughout the documentation and create a summary"
 ```
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Compare before and after improvement
@@ -142,7 +144,7 @@ find . -name "*.md" -type f
 4. Step-by-step improvement plan"
 ```
 
-### Advanced Usage Examples
+## Advanced Usage Examples
 
 ```bash
 # Apply custom rules
@@ -167,14 +169,14 @@ find . -name "*.md" -type f
 - Consideration for readers"
 ```
 
-### Notes
+## Notes
 
 - AI writing style determination varies by context, so treat suggestions as reference
 - Adjust criteria according to document type (technical documents, blogs, manuals, etc.)
 - You don't need to accept all suggestions; select appropriate ones
 - The `--fix` option automatically corrects detected patterns
 
-### Command Execution Behavior
+## Command Execution Behavior
 
 When you run the `/ai-writing-check` command, Claude performs the following processes:
 
@@ -185,6 +187,6 @@ When you run the `/ai-writing-check` command, Claude performs the following proc
 
 Claude reads the actual file contents and performs analysis based on the rules of textlint-rule-preset-ai-writing.
 
-### Reference
+## Reference
 
 This command is created with reference to the [textlint-rule-preset-ai-writing](https://github.com/textlint-ja/textlint-rule-preset-ai-writing) rule set. It is a textlint rule preset for detecting mechanical patterns in AI-generated text and promoting more natural expressions.

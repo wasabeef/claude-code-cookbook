@@ -1,14 +1,19 @@
 ---
-description: "Create detailed specifications with spec-driven development"
+description: 'Create detailed specifications with spec-driven development. Trigger with "write a spec", "define requirements", "clarify the spec", "detailed design", "create functional spec".'
+allowed-tools:
+  - Read
+  - Write
+  - Grep
+  - Glob
 ---
 
-## Create detailed specifications with spec-driven development
+# Create detailed specifications with spec-driven development
 
 **"Give structure before writing code"** - Fully compliant with Kiro's spec-driven development
 
 Unlike traditional code generation tools, it realizes Kiro's specification-driven development focused on bringing structure to development chaos. From minimal requirement input, it progressively develops from detailed product manager-level specifications to implementable designs, ensuring consistent quality from **prototype to production**.
 
-### Usage
+## Usage
 
 ```bash
 # Request Spec Mode from Claude (minimal requirement input)
@@ -24,7 +29,7 @@ Unlike traditional code generation tools, it realizes Kiro's specification-drive
 #    - tasks.md: Implementation plan with automatic application of best practices
 ```
 
-### Proven Results (Kiro Track Record)
+## Proven Results (Kiro Track Record)
 
 **Secure File Sharing App in 2 Days**
 
@@ -53,7 +58,7 @@ Unlike traditional code generation tools, it realizes Kiro's specification-drive
 → Structured approach through spec-driven development
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Create spec for new feature (minimal input)
@@ -73,7 +78,7 @@ Unlike traditional code generation tools, it realizes Kiro's specification-drive
 - Security-focused"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # Complex feature spec
@@ -89,7 +94,7 @@ Unlike traditional code generation tools, it realizes Kiro's specification-drive
 "Create a spec for a RESTful API including authentication, validation, and logging"
 ```
 
-### Features of Spec Mode
+## Features of Spec Mode
 
 **Step-by-Step Dialogue Workflow**
 
@@ -109,7 +114,7 @@ Unlike traditional code generation tools, it realizes Kiro's specification-drive
 - Presents and discusses technical options
 - Explains trade-offs and confirms decisions
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Complex system feature
@@ -125,9 +130,9 @@ Unlike traditional code generation tools, it realizes Kiro's specification-drive
 "Create a spec for a CI/CD pipeline including test automation, deployment, and monitoring"
 ```
 
-### Phase-by-Phase Dialogue Workflow
+## Phase-by-Phase Dialogue Workflow
 
-#### Phase 1: Requirements Discovery & Discussion
+### Phase 1: Requirements Discovery & Discussion
 
 **1. Automatic Expansion from Minimal Input (Kiro Style)**
 
@@ -199,7 +204,7 @@ Should I create requirements.md?"
 → "Yes" → generates requirements.md
 ```
 
-#### Phase 2: Design Exploration & Discussion
+### Phase 2: Design Exploration & Discussion
 
 **1. Codebase Analysis + Automatic Design Proposal (Kiro Style)**
 
@@ -302,7 +307,7 @@ May I generate design.md?"
 
 ```
 
-#### Phase 3: Implementation Planning & Discussion
+### Phase 3: Implementation Planning & Discussion
 
 **1. Automatic Application of Best Practices (Kiro Style)**
 
@@ -414,7 +419,7 @@ May I generate tasks.md?"
 
 ```
 
-### Kiro-Specific Features
+## Kiro-Specific Features
 
 **EARS Notation (Easy Approach to Requirements Syntax)**
 
@@ -456,7 +461,7 @@ THE SYSTEM SHALL [corresponding behavior]
 - Automatic application of scalable architecture
 - Integration of continuous quality management
 
-### Notes
+## Notes
 
 **Scope of Application**
 
@@ -476,9 +481,9 @@ THE SYSTEM SHALL [corresponding behavior]
 - Generate implementation tasks after design completion
 - Emphasize approval process at each stage
 
-### Trigger Phrases and Controls
+## Trigger Phrases and Controls
 
-#### Step-by-Step Workflow Control
+### Step-by-Step Workflow Control
 
 **Start Triggers**
 
@@ -502,7 +507,7 @@ Phase 2 completion → "Proceed" → design.md generation
 Phase 3 completion → "Proceed" → tasks.md generation
 ```
 
-### Execution Example (Step-by-Step Flow)
+## Execution Example (Step-by-Step Flow)
 
 ```bash
 # Usage example
@@ -533,7 +538,7 @@ User: "Proceed"
 Claude: "Spec-driven development preparation is complete. You can begin implementation."
 ```
 
-### Differences from /plan
+## Differences from /plan
 
 | Feature                | /plan                          | /spec                                                                    |
 | ---------------------- | ------------------------------ | ------------------------------------------------------------------------ |
@@ -545,7 +550,7 @@ Claude: "Spec-driven development preparation is complete. You can begin implemen
 | Quality assurance      | Basic test strategy            | Comprehensive quality requirements (testing, accessibility, performance) |
 | Synchronization        | Static plan                    | Dynamic spec updates                                                     |
 
-### Recommended Use Cases
+## Recommended Use Cases
 
 **Recommended for spec use**
 

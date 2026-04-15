@@ -1,19 +1,19 @@
 ---
-description: "Context7 MCP で技術ドキュメントを検索"
+description: "Context7 MCP で技術ドキュメントを検索する。「ドキュメント調べて」「公式ドキュメントを確認」「ライブラリの使い方は？」「API リファレンスを見て」「Context7 で検索」などで起動。"
 ---
 
-## Context7 MCP で技術ドキュメントを検索
+# Context7 MCP で技術ドキュメントを検索
 
 技術ドキュメントを MCP の Context7 で検索します。
 
-### 使い方
+## 使い方
 
 ```bash
 # Claude に依頼する形式
 「context7 で [検索キーワード] について検索して」
 ```
 
-### 基本例
+## 基本例
 
 ```bash
 # React hooks の調査
@@ -23,7 +23,7 @@ description: "Context7 MCP で技術ドキュメントを検索"
 「context7 で TypeScript の型エラーについて調べて」
 ```
 
-### Claude との連携
+## Claude との連携
 
 ```bash
 # 技術調査の依頼
@@ -36,7 +36,7 @@ description: "Context7 MCP で技術ドキュメントを検索"
 「context7 で React のパフォーマンス最適化のベストプラクティスを探して」
 ```
 
-### 詳細例
+## 詳細例
 
 ```bash
 # 複数の観点から調査
@@ -49,6 +49,6 @@ description: "Context7 MCP で技術ドキュメントを検索"
 「context7 で Next.js 14 の新機能について検索して、App Router の使い方を中心に説明して」
 ```
 
-### 注意事項
+## 注意事項
 
 Context7 で情報が見つからない場合は、Claude が自動的に Web 検索など他の方法を提案します。

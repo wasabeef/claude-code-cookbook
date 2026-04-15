@@ -1,12 +1,17 @@
 ---
-description: "Gestionar docstrings y comentarios multilingüe"
+description: 'Gestionar docstrings y comentarios multilingüe. Se activa con "actualizar docstrings", "gestionar comentarios".'
+allowed-tools:
+  - Read
+  - Edit
+  - Grep
+  - Glob
 ---
 
-## Gestionar docstrings y comentarios multilingüe
+# Gestionar docstrings y comentarios multilingüe
 
 Gestionar sistemáticamente docstrings/comentarios multilingües y mantener documentación de alta calidad.
 
-### Uso
+## Uso
 
 ```bash
 # Ejecutar con detección automática de idioma
@@ -20,13 +25,13 @@ Gestionar sistemáticamente docstrings/comentarios multilingües y mantener docu
 "Por favor agregar JSDoc a funciones bajo src/components/"
 ```
 
-### Opciones
+## Opciones
 
 - `--lang <es|en|ja>` : Idioma de documentación (por defecto: auto-detectado de comentarios existentes, sino es)
 - `--style <estilo>` : Especificar estilo de documentación (tiene valores por defecto específicos del idioma)
 - `--marker <true|false>` : Si agregar marcadores Claude (por defecto: true)
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # 1. Analizar archivos objetivo (lenguaje de programación auto-detectado)
@@ -45,9 +50,9 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart"
 "Por favor confirmar que todos los docstrings agregados/actualizados tienen marcadores Claude"
 ```
 
-### Pasos de Ejecución
+## Pasos de Ejecución
 
-#### 1. Prioridad de Elementos Objetivo
+### 1. Prioridad de Elementos Objetivo
 
 1. 🔴 **Prioridad Más Alta**: Elementos sin docstrings/comentarios (0 líneas de comentario)
 2. 🟡 **Siguiente Prioridad**: Elementos que no cumplen estándares (menos de 30 caracteres o elementos requeridos faltantes)
@@ -61,7 +66,7 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" -o -name "*.dart"
 - Enums
 - Interfaces (TypeScript, Go)
 
-#### 2. Reglas de Documentación Específicas del Idioma
+### 2. Reglas de Documentación Específicas del Idioma
 
 **Python (PEP 257)**:
 
@@ -142,7 +147,7 @@ func CalculateTotal(items []Item) float64 {
 pub fn calculate_total(items: &[Item]) -> f64 {
 ```
 
-#### 3. Reglas de Retención de Contenido Existente
+### 3. Reglas de Retención de Contenido Existente
 
 1. **Si comentarios existentes cumplen estándares**: Mantener como están (no agregar nuevos)
    - Estándares: Al menos 30 caracteres e incluye elementos requeridos (resumen, detalles, marcador)
@@ -157,7 +162,7 @@ pub fn calculate_total(items: &[Item]) -> f64 {
 - Ejemplos: `Ejemplo:`, `Uso:`, `# Ejemplos` etc.
 - Descripciones existentes de parámetros y valores de retorno
 
-### Configuraciones Específicas del Idioma
+## Configuraciones Específicas del Idioma
 
 ```yaml
 # Configuraciones por defecto específicas del idioma
@@ -195,7 +200,7 @@ languages:
     prefix: "///"
 ```
 
-### Lista de Verificación de Calidad
+## Lista de Verificación de Calidad
 
 - ✅ **Conteo de Caracteres**: Adherir estrictamente a 30-60 caracteres para resumen, 50-200 para detalles
 - ✅ **Elementos Requeridos**: Incluir siempre resumen, descripción detallada y marcador Claude
@@ -204,7 +209,7 @@ languages:
 - ✅ **Excepciones**: Explicar errores y excepciones (cuando aplique)
 - ✅ **Precisión**: Analizar implementación y solo incluir descripciones basadas en hechos
 
-### Notas
+## Notas
 
 **🔴 Prohibiciones Estrictas**:
 
@@ -215,7 +220,7 @@ languages:
 - ❌ Duplicación con comentarios existentes
 - ❌ Comentarios bajo estándares de conteo de caracteres en archivos de prueba
 
-### Integración con Claude
+## Integración con Claude
 
 ```bash
 # Analizar proyecto completo (detección automática de idioma)
@@ -237,7 +242,7 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" \)
 "Mejorar docstrings existentes sin agregar marcadores Claude"
 ```
 
-### Criterios de Éxito en Ejecución
+## Criterios de Éxito en Ejecución
 
 **Métricas de Calidad**
 
@@ -251,7 +256,7 @@ find . -type f \( -name "*.py" -o -name "*.js" -o -name "*.ts" \)
 - La documentación sigue las convenciones del lenguaje
 - Los ejemplos de código son ejecutables y precisos
 
-### Configuración del Sistema
+## Configuración del Sistema
 
 ```bash
 # Variables de entorno para personalización
@@ -291,7 +296,7 @@ echo "- Comentarios actualizados: $UPDATED_COMMENTS elementos"
 echo "- Número de errores: $ERRORS elementos"
 ```
 
-### Validación de Calidad Final
+## Validación de Calidad Final
 
 **Criterios de Completitud**
 

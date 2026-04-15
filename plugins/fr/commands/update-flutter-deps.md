@@ -1,8 +1,8 @@
-## Mettre à jour les dépendances Flutter en toute sécurité
+# Mettre à jour les dépendances Flutter en toute sécurité
 
 Met à jour en toute sécurité les dépendances de votre projet Flutter.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Vérifier le statut des dépendances et demander l'aide de Claude
@@ -10,7 +10,7 @@ flutter pub deps --style=compact
 "Please update the dependencies in pubspec.yaml to their latest versions"
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Vérifier les dépendances actuelles
@@ -22,7 +22,7 @@ flutter pub upgrade --dry-run
 "Check if there are any breaking changes in this planned upgrade"
 ```
 
-### Intégration avec Claude
+## Intégration avec Claude
 
 ```bash
 # Mise à jour complète des dépendances
@@ -42,7 +42,7 @@ flutter pub outdated
 "Tell me the impact and necessary changes when updating provider to the latest version"
 ```
 
-### Exemples détaillés
+## Exemples détaillés
 
 ```bash
 # Analyse détaillée incluant les notes de version
@@ -58,7 +58,7 @@ cat pubspec.yaml
 "Identify packages not compatible with Null Safety and create a migration plan"
 ```
 
-### Critères de risque
+## Critères de risque
 
 ```text
 Sûr (🟢) :
@@ -77,7 +77,7 @@ Dangereux (🔴) :
 - Suppression ou modification d'API
 ```
 
-### Exécution de la mise à jour
+## Exécution de la mise à jour
 
 ```bash
 # Créer des sauvegardes
@@ -93,7 +93,7 @@ flutter test
 flutter pub deps --style=compact
 ```
 
-### Notes
+## Notes
 
 Toujours vérifier la fonctionnalité après les mises à jour. En cas de problème, restaurer avec :
 

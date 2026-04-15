@@ -1,12 +1,19 @@
 ---
-description: "Node.js 의존성 안전 업데이트"
+description: "Node.js 의존성 안전 업데이트. 「npm 패키지 업데이트해줘」「Node.js 의존성 업데이트」등으로 기동."
+allowed-tools:
+  - Bash(npm *)
+  - Bash(npx *)
+  - Bash(yarn *)
+  - Bash(pnpm *)
+  - Read
+  - Edit
 ---
 
-## Node.js 의존성 안전 업데이트
+# Node.js 의존성 안전 업데이트
 
 Node.js 프로젝트의 의존성을 안전하게 업데이트합니다.
 
-### 사용법
+## 사용법
 
 ```bash
 # 의존성의 상태를 확인해서 Claude 에 의뢰
@@ -14,7 +21,7 @@ npm outdated
 「package.json 의 의존성을 최신 버전으로 업데이트하세요」
 ```
 
-### 기본 예제
+## 기본 예제
 
 ```bash
 # 현재 의존성을 확인
@@ -26,7 +33,7 @@ npm outdated
 「이 패키지들의 업데이트에서의 위험도를 분석하세요」
 ```
 
-### Claude 와의 연계
+## Claude 와의 연계
 
 ```bash
 # 포괄적인 의존성 업데이트
@@ -46,7 +53,7 @@ npm outdated
 「express 를 최신 버전으로 업데이트한 경우의 영향과 필요한 변경을 알려주세요」
 ```
 
-### 상세 예제
+## 상세 예제
 
 ```bash
 # Release Notes 를 포함한 상세 분석
@@ -63,7 +70,7 @@ cat package.json tsconfig.json
 「TypeScript 의 타입 정의도 포함해서 의존성을 업데이트하고, 타입 오류가 발생하지 않도록 업데이트 계획을 세워주세요」
 ```
 
-### 위험도의 기준
+## 위험도의 기준
 
 ```text
 안전(🟢)：
@@ -82,7 +89,7 @@ cat package.json tsconfig.json
 - API 의 삭제·변경
 ```
 
-### 업데이트의 실행
+## 업데이트의 실행
 
 ```bash
 # 백업 생성
@@ -98,7 +105,7 @@ npm run build
 npm audit
 ```
 
-### 주의사항
+## 주의사항
 
 업데이트 후에는 반드시 동작 확인을 실시하세요. 문제가 발생한 경우는 다음으로 복원：
 

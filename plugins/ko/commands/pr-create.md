@@ -1,8 +1,8 @@
-## Git 변경 분석 기반 자동 PR 생성
+# Git 변경 분석 기반 자동 PR 생성
 
 Git 변경 분석기반의 자동 PR 생성으로 효율적인 Pull Request 워크플로를 실현합니다.
 
-### 사용법
+## 사용법
 
 ```bash
 # 변경 분석을 통한 자동 PR 생성
@@ -18,7 +18,7 @@ gh pr ready
 "품질 확인 완료 후 Ready for Review 로 변경하세요"
 ```
 
-### 기본 예시
+## 기본 예시
 
 ```bash
 # 1. 브랜치 생성과 커밋
@@ -38,9 +38,9 @@ git push -u origin feat-user-profile
 "CI 가 통과하면 PR 을 Ready for Review 로 변경하세요"
 ```
 
-### 실행 절차
+## 실행 절차
 
-#### 1. 브랜치 생성
+### 1. 브랜치 생성
 
 ```bash
 # 가이드라인을 준수한 네이밍 규칙: {type}-{subject}
@@ -52,7 +52,7 @@ git checkout -b feat-user-authentication
 git branch --show-current
 ```
 
-#### 2. 커밋
+### 2. 커밋
 
 ```bash
 # 변경사항 스테이징
@@ -62,7 +62,7 @@ git add .
 git commit -m "feat: 사용자 인증 API 구현"
 ```
 
-#### 3. 리모트에 Push
+### 3. 리모트에 Push
 
 ```bash
 # 첫 번째 Push (upstream 설정)
@@ -72,7 +72,7 @@ git push -u origin feat-user-authentication
 git push
 ```
 
-#### 4. 자동 분석을 통한 Draft PR 생성
+### 4. 자동 분석을 통한 Draft PR 생성
 
 **Step 1: 변경 내용 분석**
 
@@ -137,16 +137,16 @@ mcp__github__create_pull_request({
 });
 ```
 
-### 자동 라벨 선택 시스템
+## 자동 라벨 선택 시스템
 
-#### 파일 패턴 기반 판정
+### 파일 패턴 기반 판정
 
 - **문서**: `*.md`, `README`, `docs/` → `documentation|docs|doc`
 - **테스트**: `test`, `spec` → `test|testing`
 - **CI/CD**: `.github/`, `*.yml`, `Dockerfile` → `ci|build|infra|ops`
 - **의존성**: `package.json`, `pubspec.yaml` → `dependencies|deps`
 
-#### 변경 내용 기반 판정
+### 변경 내용 기반 판정
 
 - **버그 수정**: `fix|bug|error|crash|수정` → `bug|fix`
 - **새 기능**: `feat|feature|add|implement|새기능|구현` → `feature|enhancement|feat`
@@ -154,15 +154,15 @@ mcp__github__create_pull_request({
 - **성능**: `performance|perf|optimize` → `performance|perf`
 - **보안**: `security|secure` → `security`
 
-#### 제약 사항
+### 제약 사항
 
 - **최대 3 개까지**: 자동 선택의 상한
 - **기존 라벨만**: 신규 생성 금지
 - **부분 매치**: 키워드 포함을 통한 판정
 
-### 프로젝트 가이드라인
+## 프로젝트 가이드라인
 
-#### 기본 자세
+### 기본 자세
 
 1. **반드시 Draft 로 시작**: 모든 PR 은 Draft 상태로 생성
 2. **단계적 품질 향상**: Phase 1 (기본 구현) → Phase 2 (테스트 추가) → Phase 3 (문서 업데이트)
@@ -170,7 +170,7 @@ mcp__github__create_pull_request({
 4. **템플릿 사용**: `.github/PULL_REQUEST_TEMPLATE.md`를 반드시 사용
 5. **한국어 스페이스**: 한국어와 반각 영숫자 사이에 반드시 반각 스페이스
 
-#### 브랜치 네이밍 규칙
+### 브랜치 네이밍 규칙
 
 ```text
 {type}-{subject}
@@ -181,7 +181,7 @@ mcp__github__create_pull_request({
 - refactor-api-client
 ```
 
-#### 커밋 메시지
+### 커밋 메시지
 
 ```text
 {type}: {description}
@@ -192,15 +192,15 @@ mcp__github__create_pull_request({
 - docs: README 업데이트
 ```
 
-### 템플릿 처리 시스템
+## 템플릿 처리 시스템
 
-#### 처리 우선순위
+### 처리 우선순위
 
 1. **기존 PR 설명**: 이미 기술된 내용을 **완전히 보존**
 2. **프로젝트 템플릿**: `.github/PULL_REQUEST_TEMPLATE.md` 구조 유지
 3. **기본 템플릿**: 위가 존재하지 않는 경우
 
-#### 기존 내용 보존 규칙
+### 기존 내용 보존 규칙
 
 - **한 글자도 변경하지 않음**: 이미 기술된 내용
 - **빈 섹션만 보완**: 플레이스홀더 부분을 변경 내용으로 채움
@@ -208,7 +208,7 @@ mcp__github__create_pull_request({
 - **HTML 코멘트 유지**: `<!-- ... -->`를 완전히 보존
 - **구분선 유지**: `---` 등의 구조를 유지
 
-#### HTML 코멘트 보존 대처법
+### HTML 코멘트 보존 대처법
 
 **중요**: GitHub CLI (`gh pr edit`)는 HTML 코멘트를 자동 이스케이프하고, 셸 처리에서 `EOF < /dev/null` 등의 불법 문자열이 혼입되는 경우가 있습니다.
 
@@ -218,7 +218,7 @@ mcp__github__create_pull_request({
 2. **템플릿 처리 단순화**: 복잡한 파이프 처리나 리다이렉트를 피함
 3. **완전 보존 접근**: HTML 코멘트 삭제 처리를 폐지하고 템플릿을 완전 보존
 
-### 리뷰 코멘트 대응
+## 리뷰 코멘트 대응
 
 ```bash
 # 변경 후 재커밋
@@ -227,21 +227,21 @@ git commit -m "fix: 리뷰 피드백기반의 수정"
 git push
 ```
 
-### 주의사항
+## 주의사항
 
-#### HTML 코멘트 보존의 중요성
+### HTML 코멘트 보존의 중요성
 
 - **GitHub CLI 제한**: `gh pr edit`는 HTML 코멘트를 이스케이프하고 불법 문자열 혼입
 - **근본적 회피책**: GitHub API 의 `--field` 옵션으로 적절한 이스케이프 처리
 - **템플릿 완전 보존**: HTML 코멘트 삭제 처리를 폐지하고 구조를 완전 유지
 
-#### 자동화 제약
+### 자동화 제약
 
 - **신규 라벨 금지**: `.github/labels.yml` 정의 외 라벨 생성 불가
 - **최대 3 라벨**: 자동 선택의 상한
 - **기존 내용 우선**: 수동으로 기술된 내용은 일체 변경하지 않음
 
-#### 단계적 품질 향상
+### 단계적 품질 향상
 
 - **Draft 필수**: 모든 PR 은 Draft 로 시작
 - **CI 확인**: `gh pr checks`로 상태 확인

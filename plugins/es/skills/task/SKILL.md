@@ -1,19 +1,26 @@
 ---
-description: "Agente autónomo para tareas de investigación y análisis"
+description: 'Agente autónomo para tareas de investigación y análisis. Se activa con "investigar con Task", "investigar", "analizar", "buscar".'
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
+  - WebSearch
+  - WebFetch
 ---
 
-## Agente autónomo para tareas de investigación y análisis
+# Agente autónomo para tareas de investigación y análisis
 
 Lanza un agente inteligente para manejar búsquedas e investigaciones complejas. Excelente para trabajo a gran escala sin consumir contexto.
 
-### Uso
+## Uso
 
 ```bash
 # Solicitar Task de Claude
 "Investigar [tarea] usando Task"
 ```
 
-### Lo que Hace Task
+## Lo que Hace Task
 
 **Funciona Independientemente**
 
@@ -33,7 +40,7 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 - Verifica desde diferentes ángulos
 - Llena piezas faltantes
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Investigación compleja de codebase
@@ -46,7 +53,7 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 "Investigar las últimas tendencias de tecnología IA usando Task"
 ```
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Análisis de problema complejo
@@ -62,9 +69,9 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 "Analizar dependencias de este microservicio usando Task"
 ```
 
-### Task vs Otros Comandos
+## Task vs Otros Comandos
 
-#### Cuándo Usar Qué
+### Cuándo Usar Qué
 
 | Comando             | Caso de Uso Principal             | Método de Ejecución      | Recolección de Información        |
 | ------------------- | --------------------------------- | ------------------------ | --------------------------------- |
@@ -73,7 +80,7 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 | sequential-thinking | Resolución de problemas, diseño   | Pensamiento paso a paso  | Según sea necesario               |
 | plan                | Planificación de implementación   | Proceso de aprobación    | Análisis de requerimientos        |
 
-#### Guía de Decisión Rápida
+### Guía de Decisión Rápida
 
 ```text
 ¿Necesitas recopilar información?
@@ -85,7 +92,7 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
           └─ No → Solo preguntar normalmente
 ```
 
-### Cuándo Task Funciona Mejor
+## Cuándo Task Funciona Mejor
 
 **Excelente Para**
 
@@ -103,9 +110,9 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 - Cosas que necesitan discusión de ida y vuelta
 - Decisiones de diseño (usar plan o comandos de pensamiento en su lugar)
 
-### Ejemplos Detallados por Categoría
+## Ejemplos Detallados por Categoría
 
-#### Análisis e Investigación de Sistema
+### Análisis e Investigación de Sistema
 
 ```bash
 # Análisis complejo de sistema
@@ -118,7 +125,7 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 "Analizar deuda técnica en código legacy usando Task, incluyendo prioridades de refactoring"
 ```
 
-#### Seguridad y Cumplimiento
+### Seguridad y Cumplimiento
 
 ```bash
 # Auditoría de seguridad
@@ -131,7 +138,7 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 "Identificar inconsistencias de configuración de seguridad usando Task, incluyendo diferencias de entorno"
 ```
 
-#### Rendimiento y Optimización
+### Rendimiento y Optimización
 
 ```bash
 # Análisis de rendimiento
@@ -144,7 +151,7 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 "Investigar problemas de tamaño de bundle frontend usando Task, incluyendo sugerencias de optimización"
 ```
 
-#### Recolección de Información Externa
+### Recolección de Información Externa
 
 ```bash
 # Investigación de tendencias tecnológicas
@@ -157,9 +164,9 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
 "Comparar librerías de gestión de estado usando Task, incluyendo costos de rendimiento y aprendizaje"
 ```
 
-### Flujo de Ejecución y Aseguramiento de Calidad
+## Flujo de Ejecución y Aseguramiento de Calidad
 
-#### Flujo de Ejecución de Task
+### Flujo de Ejecución de Task
 
 ```text
 1. Análisis Inicial
@@ -183,35 +190,35 @@ Lanza un agente inteligente para manejar búsquedas e investigaciones complejas.
    └─ Presentación de próximas acciones
 ```
 
-#### Aseguramiento de Calidad
+### Aseguramiento de Calidad
 
 - **Verificación de confiabilidad de fuentes de información**: Confirmación de hechos de múltiples fuentes
 - **Verificación de completitud**: Verificación de no gaps en objetivos de investigación
 - **Verificación de consistencia**: Confirmación de consistencia en información conflictiva
 - **Evaluación de practicidad**: Evaluación de factibilidad y efectividad de propuestas
 
-### Manejo de Errores y Restricciones
+## Manejo de Errores y Restricciones
 
-#### Restricciones Comunes
+### Restricciones Comunes
 
 - **Límites de uso de API externa**: Límites de tasa y errores de autenticación
 - **Límites de procesamiento de archivos grandes**: Restricciones de memoria y timeout
 - **Problemas de permisos de acceso**: Restricciones en acceso a archivos y directorios
 
-#### Manejo de Errores
+### Manejo de Errores
 
 - **Reporte de resultados parciales**: Análisis con solo información obtenible
 - **Propuestas alternativas**: Sugerencia de métodos alternativos de investigación bajo restricciones
 - **Ejecución paso a paso**: División de tareas a gran escala para ejecución
 
-### Notas
+## Notas
 
 - Task es óptimo para tareas complejas, autónomas de investigación y análisis
 - Para preguntas simples o cuando se necesitan respuestas inmediatas, usar formato de pregunta normal
 - Tratar resultados de investigación como información de referencia y siempre verificar decisiones importantes
 - Al recopilar información externa, prestar atención a la frescura y precisión de la información
 
-### Ejemplo de Ejecución
+## Ejemplo de Ejecución
 
 ```bash
 # Ejemplo de uso

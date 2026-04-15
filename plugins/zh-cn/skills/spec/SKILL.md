@@ -1,14 +1,19 @@
 ---
-description: "规范驱动开发创建详细规范"
+description: "规范驱动开发创建详细规范。「写规范」「定义需求」「写 spec」「明确规范」等触发。"
+allowed-tools:
+  - Read
+  - Write
+  - Grep
+  - Glob
 ---
 
-## 规范驱动开发创建详细规范
+# 规范驱动开发创建详细规范
 
 **「在编写代码之前赋予结构」** - 完全遵循 Kiro 的规格驱动开发
 
 与传统代码生成工具不同，实现 Kiro 的规格驱动开发，重点是为开发的混沌赋予结构。从最少的需求输入，逐步展开到产品经理级别的详细规格和可实施的设计，**从原型到生产环境**保证一致的质量。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 请求 Claude 的 Spec Mode(最少需求输入)
@@ -24,7 +29,7 @@ description: "规范驱动开发创建详细规范"
 #    - tasks.md: 自动应用最佳实践的实施计划
 ```
 
-### 实证效果 (Kiro 实绩)
+## 实证效果 (Kiro 实绩)
 
 **2 天完成安全文件共享应用**
 
@@ -53,7 +58,7 @@ description: "规范驱动开发创建详细规范"
 → 通过 spec-driven development 的结构化方法
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 新功能的 spec 创建 (最少输入)
@@ -73,7 +78,7 @@ description: "规范驱动开发创建详细规范"
 - 重视安全性」
 ```
 
-### 与 Claude 配合
+## 与 Claude 配合
 
 ```bash
 # 复杂功能 spec
@@ -89,7 +94,7 @@ description: "规范驱动开发创建详细规范"
 「创建 RESTful API 的 spec。包括认证、验证、日志记录」
 ```
 
-### Spec Mode 的特点
+## Spec Mode 的特点
 
 **分阶段对话工作流**
 
@@ -109,7 +114,7 @@ description: "规范驱动开发创建详细规范"
 - 提示和讨论技术选项
 - 说明权衡并确认判断
 
-### 详细示例
+## 详细示例
 
 ```bash
 # 复杂系统功能
@@ -125,9 +130,9 @@ description: "规范驱动开发创建详细规范"
 「创建 CI/CD 管道的 spec。包括测试自动化、部署、监控」
 ```
 
-### 分阶段对话工作流 (Phase by Phase)
+## 分阶段对话工作流 (Phase by Phase)
 
-#### Phase 1: Requirements Discovery & Discussion
+### Phase 1: Requirements Discovery & Discussion
 
 **1. 从最少输入自动扩展 (Kiro 式)**
 
@@ -200,7 +205,7 @@ Claude：「Requirements Phase 已完成。
 → 「继续」→ 生成 requirements.md
 ```
 
-#### Phase 2: Design Exploration & Discussion
+### Phase 2: Design Exploration & Discussion
 
 **1. 代码库分析 + 自动设计建议 (Kiro 式)**
 
@@ -301,7 +306,7 @@ Claude：「Design Phase 已完成。
 
 ```
 
-#### Phase 3: Implementation Planning & Discussion
+### Phase 3: Implementation Planning & Discussion
 
 **1. 最佳实践自动应用 (Kiro 式)**
 
@@ -413,7 +418,7 @@ Claude：「Implementation Planning Phase 已完成。
 
 ```
 
-### Kiro 特有的功能
+## Kiro 特有的功能
 
 **EARS 记法 (Easy Approach to Requirements Syntax)**
 
@@ -455,7 +460,7 @@ THE SYSTEM SHALL [对应行为]
 - 自动应用可扩展架构
 - 集成持续质量管理
 
-### 注意事项
+## 注意事项
 
 **适用范围**
 
@@ -475,9 +480,9 @@ THE SYSTEM SHALL [对应行为]
 - 设计完成后生成实施任务
 - 重视各阶段的批准流程
 
-### 触发短语和控制
+## 触发短语和控制
 
-#### 分阶段工作流控制
+### 分阶段工作流控制
 
 **开始触发器**
 
@@ -501,7 +506,7 @@ Phase 2 完成 → 「继续」 → 生成 design.md
 Phase 3 完成 → 「继续」 → 生成 tasks.md
 ```
 
-### 执行示例 (分阶段流程)
+## 执行示例 (分阶段流程)
 
 ```bash
 # 使用示例
@@ -532,7 +537,7 @@ Claude: 「Implementation Phase 已完成。可以继续吗？」
 Claude: 「spec 驱动开发的准备已完成。可以开始实施。」
 ```
 
-### 与 /plan 的区别
+## 与 /plan 的区别
 
 | 特征     | /plan            | /spec                                               |
 | -------- | ---------------- | --------------------------------------------------- |
@@ -544,7 +549,7 @@ Claude: 「spec 驱动开发的准备已完成。可以开始实施。」
 | 质量保证 | 基本测试策略     | 全面质量要求 (测试、无障碍、性能)                   |
 | 同步     | 静态计划         | 动态 spec 更新                                      |
 
-### 推荐用例
+## 推荐用例
 
 **推荐使用 spec**
 

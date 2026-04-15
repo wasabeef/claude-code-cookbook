@@ -1,12 +1,17 @@
 ---
-description: "Gestionar sistemáticamente comentarios DartDoc"
+description: 'Gestionar sistemáticamente comentarios DartDoc. Se activa con "actualizar DartDoc", "gestionar documentación Dart".'
+allowed-tools:
+  - Read
+  - Edit
+  - Grep
+  - Glob
 ---
 
-## Gestionar sistemáticamente comentarios DartDoc
+# Gestionar sistemáticamente comentarios DartDoc
 
 Gestiona sistemáticamente los comentarios DartDoc en archivos Dart y mantiene documentación en español de alta calidad.
 
-### Uso
+## Uso
 
 ```bash
 # Realizar nuevas adiciones y actualizaciones simultáneamente
@@ -23,11 +28,11 @@ Gestiona sistemáticamente los comentarios DartDoc en archivos Dart y mantiene d
 "Mejorar DartDoc en proyecto existente (sin marcadores Claude)"
 ```
 
-### Opciones
+## Opciones
 
 - `--marker <true|false>` : Si agregar marcadores Claude (por defecto: true)
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # 1. Analizar archivos objetivo
@@ -41,9 +46,9 @@ find . -name "*.dart" -not -path "*/.*" | grep -v "_test.dart" | grep -v "_vrt.d
 "Asegurar que todos los DartDoc agregados/actualizados tengan marcadores Claude"
 ```
 
-### Procedimiento de Ejecución
+## Procedimiento de Ejecución
 
-#### 1. Prioridad de Elementos Objetivo
+### 1. Prioridad de Elementos Objetivo
 
 1. 🔴 **Prioridad más alta**: Elementos sin comentarios DartDoc (0 líneas de comentario)
 2. 🟡 **Siguiente prioridad**: Elementos que no cumplen estándares (menos de 30 caracteres o elementos requeridos faltantes)
@@ -56,7 +61,7 @@ find . -name "*.dart" -not -path "*/.*" | grep -v "_test.dart" | grep -v "_vrt.d
 - Extensiones
 - Funciones importantes (funciones de nivel superior, opcional)
 
-#### 2. Reglas de Escritura DartDoc
+### 2. Reglas de Escritura DartDoc
 
 **Estructura básica**:
 
@@ -78,7 +83,7 @@ class ClassName {
 - Usar español para términos técnicos: "Estado de autenticación"
 - Mantener cada línea dentro de 80 caracteres
 
-#### 3. Ejemplos de Escritura por Categoría de Clase
+### 3. Ejemplos de Escritura por Categoría de Clase
 
 **Clase de gestión de estado (Riverpod)**:
 
@@ -105,7 +110,7 @@ class HorizontalDragGestureIgnoreState extends _$HorizontalDragGestureIgnoreStat
 class UserProfileWidget extends HookConsumerWidget {
 ```
 
-#### 4. Reglas para Preservar Contenido Existente
+### 4. Reglas para Preservar Contenido Existente
 
 1. **Si el comentario existente cumple estándares**: Mantener como está (no agregar nuevo comentario)
    - Estándares: 30+ caracteres e incluye elementos requeridos (resumen, detalles, marcador)
@@ -120,7 +125,7 @@ class UserProfileWidget extends HookConsumerWidget {
 - Ejemplos de uso: Código que comienza con `Ejemplo:` o `Uso:`
 - Restricciones técnicas: Descripciones de rendimiento o limitaciones
 
-### Gestión de Marcadores Claude
+## Gestión de Marcadores Claude
 
 ```bash
 # Formato de marcador
@@ -131,7 +136,7 @@ gh pr diff 4308 --name-only | grep "\.dart$" | xargs grep -l "Generado por Claud
 "Agregar marcadores a archivos que no los tienen"
 ```
 
-### Lista de Verificación de Calidad
+## Lista de Verificación de Calidad
 
 - ✅ **Conteo de caracteres**: Adherir estrictamente a 30-60 caracteres para resumen, 50-200 para detalles
 - ✅ **Elementos requeridos**: Incluir siempre 3 elementos - resumen, explicación detallada y marcador Claude
@@ -143,7 +148,7 @@ gh pr diff 4308 --name-only | grep "\.dart$" | xargs grep -l "Generado por Claud
 - ✅ **Longitud**: Mantener cada línea dentro de 80 caracteres
 - ✅ **Marcador**: Agregar siempre marcador para cambios por Claude
 
-### Notas
+## Notas
 
 **🔴 Prohibiciones absolutas**:
 
@@ -190,7 +195,7 @@ Resultados de ejecución:
 Generado por Claude 🤖"
 ```
 
-### Criterios de Éxito de Ejecución
+## Criterios de Éxito de Ejecución
 
 1. **Éxito completo**: Cuando se cumplen todos los siguientes
    - `melos analyze` PASÓ

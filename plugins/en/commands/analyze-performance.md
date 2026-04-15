@@ -1,8 +1,8 @@
-## Performance analysis based on Core Web Vitals
+# Performance analysis based on Core Web Vitals
 
 Analyzes application performance from a user experience perspective and quantifies experience improvements from optimizations. Calculates UX scores based on Core Web Vitals and proposes prioritized optimization strategies.
 
-### UX Performance Score
+## UX Performance Score
 
 ```text
 User Experience Score: B+ (78/100)
@@ -42,7 +42,7 @@ User Experience Score: B+ (78/100)
 └─ [P3] Cache strategy → 50% faster repeat visits
 ```
 
-### Usage
+## Usage
 
 ```bash
 # Comprehensive UX score analysis
@@ -58,7 +58,7 @@ grep -r "addEventListener\|setInterval" . --include="*.js" | grep -v "removeEven
 "Analyze performance impact on user experience"
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Bundle size and load time
@@ -74,30 +74,30 @@ npm outdated && npm audit
 "Evaluate performance impact of outdated dependencies"
 ```
 
-### Analysis Perspectives
+## Analysis Perspectives
 
-#### 1. Code-Level Problems
+### 1. Code-Level Problems
 
 - **O(n²) Algorithms**: Detect inefficient array operations
 - **Synchronous I/O**: Identify blocking processes
 - **Redundant Processing**: Remove unnecessary calculations or requests
 - **Memory Leaks**: Manage event listeners and timers
 
-#### 2. Architecture-Level Problems
+### 2. Architecture-Level Problems
 
 - **N+1 Queries**: Database access patterns
 - **Missing Cache**: Repeated calculations or API calls
 - **Bundle Size**: Unnecessary libraries or code splitting
 - **Resource Management**: Connection pools and thread usage
 
-#### 3. Technical Debt Impact
+### 3. Technical Debt Impact
 
 - **Legacy Code**: Performance degradation from old implementations
 - **Design Issues**: High coupling from poor responsibility distribution
 - **Insufficient Testing**: Missing performance regression detection
 - **Monitoring Gaps**: Early problem detection system
 
-### Performance Improvement ROI Matrix
+## Performance Improvement ROI Matrix
 
 ```text
 Improvement ROI = (Time Savings + Quality Improvement) ÷ Implementation Effort
@@ -110,14 +110,14 @@ Improvement ROI = (Time Savings + Quality Improvement) ÷ Implementation Effort
 | **[P2] Planned Implementation** | Low       | High                      | 10-20%       | Code splitting      | 40h    | Initial -15%  |
 | **[P3] Hold/Monitor**           | Low       | Low                       | < 10%        | Minor optimizations | 20h    | Partial -5%   |
 
-#### Priority Criteria
+### Priority Criteria
 
 - **P0 (Immediate)**: High UX impact × Low difficulty = Maximum ROI
 - **P1 (Early)**: High UX impact × Medium difficulty = High ROI
 - **P2 (Planned)**: Low UX impact × High difficulty = Medium ROI
 - **P3 (Hold)**: Low UX impact × Low difficulty = Low ROI
 
-### Performance Metrics and UX Improvement Correlation
+## Performance Metrics and UX Improvement Correlation
 
 | Metric                     | Improvement | Perceived Speed | User Satisfaction    | Implementation Effort |
 | -------------------------- | ----------- | --------------- | -------------------- | --------------------- |
@@ -128,9 +128,9 @@ Improvement ROI = (Time Savings + Quality Improvement) ÷ Implementation Effort
 | **TTI (Interactive)**      | -1.0s       | +35%            | +15% completion rate | 32h                   |
 | **Bundle Size**            | -30%        | +20%            | +25% first visit     | 16h                   |
 
-### Measurement and Tools
+## Measurement and Tools
 
-#### Node.js / JavaScript
+### Node.js / JavaScript
 
 ```bash
 # Profiling
@@ -142,7 +142,7 @@ npx webpack-bundle-analyzer
 lighthouse --chrome-flags="--headless"
 ```
 
-#### Database
+### Database
 
 ```sql
 -- Query analysis
@@ -150,7 +150,7 @@ EXPLAIN ANALYZE SELECT ...
 SHOW SLOW LOG;
 ```
 
-#### Frontend
+### Frontend
 
 ```bash
 # React performance
@@ -160,7 +160,7 @@ grep -r "useMemo\|useCallback" . --include="*.jsx"
 find ./src -name "*.png" -o -name "*.jpg" | xargs ls -lh
 ```
 
-### Continuous Improvement
+## Continuous Improvement
 
 - **Regular Audits**: Run weekly performance tests
 - **Metrics Collection**: Track response times and memory usage

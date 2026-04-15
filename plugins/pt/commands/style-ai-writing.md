@@ -1,14 +1,14 @@
-## Detectar padrões mecânicos de IA e melhorar para texto natural
+# Detectar padrões mecânicos de IA e melhorar
 
 Detecta padrões mecânicos de textos gerados por IA e propõe melhorias para um português mais natural.
 
-### Uso
+## Uso
 
 ```bash
 /ai-writing-check [opções]
 ```
 
-### Opções
+## Opções
 
 - nenhuma : Analisa o arquivo atual ou texto selecionado
 - `--file <path>` : Analisa arquivo específico
@@ -16,7 +16,7 @@ Detecta padrões mecânicos de textos gerados por IA e propõe melhorias para um
 - `--severity <level>` : Nível de detecção (all/high/medium)
 - `--fix` : Corrige automaticamente padrões detectados
 
-### Exemplos básicos
+## Exemplos básicos
 
 ```bash
 # Verificar artificialidade de IA no arquivo
@@ -33,9 +33,9 @@ cat README.md
 "Reporte apenas problemas importantes de artificialidade de IA no projeto"
 ```
 
-### Padrões de detecção
+## Padrões de detecção
 
-#### 1. Padrões mecânicos de formato de lista
+### 1. Padrões mecânicos de formato de lista
 
 ```markdown
 Exemplos detectados:
@@ -53,7 +53,7 @@ Exemplos melhorados:
 - Pronto para início
 ```
 
-#### 2. Expressões exageradas e de hype
+### 2. Expressões exageradas e de hype
 
 ```markdown
 Exemplos detectados:
@@ -67,7 +67,7 @@ Resolve muitos problemas.
 Funciona de forma fluida.
 ```
 
-#### 3. Padrões mecânicos de ênfase
+### 3. Padrões mecânicos de ênfase
 
 ```markdown
 Exemplos detectados:
@@ -79,7 +79,7 @@ Ideia: Há uma nova proposta
 Observação: Aviso importante
 ```
 
-#### 4. Escrita técnica redundante
+### 4. Escrita técnica redundante
 
 ```markdown
 Exemplos detectados:
@@ -93,7 +93,7 @@ Você pode usar esta ferramenta.
 O desempenho melhora 30%.
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Análise de artificialidade de IA do documento inteiro
@@ -114,7 +114,7 @@ find . -name "*.md" -type f
 "Analise a artificialidade de IA de toda a documentação e crie resumo"
 ```
 
-### Exemplos detalhados
+## Exemplos detalhados
 
 ```bash
 # Comparação antes e depois das melhorias
@@ -138,7 +138,7 @@ find . -name "*.md" -type f
 4. Plano de melhoria em fases"
 ```
 
-### Exemplos de uso avançado
+## Exemplos de uso avançado
 
 ```bash
 # Aplicação de regras personalizadas
@@ -163,14 +163,14 @@ find . -name "*.md" -type f
 - Consideração pelo leitor"
 ```
 
-### Observações
+## Observações
 
 - A determinação de artificialidade de IA varia conforme o contexto, então trate as sugestões como referência
 - Ajuste os critérios conforme o tipo de documento: documentos técnicos, blogs, manuais, etc.
 - Não é necessário aceitar todas as sugestões; selecione as apropriadas
 - A opção `--fix` corrige automaticamente padrões detectados
 
-### Comportamento na execução do comando
+## Comportamento na execução do comando
 
 Quando o comando `/ai-writing-check` é executado, Claude realiza os seguintes processos:
 
@@ -181,6 +181,6 @@ Quando o comando `/ai-writing-check` é executado, Claude realiza os seguintes p
 
 Claude lê o conteúdo real dos arquivos e executa análise baseada nas regras do textlint-rule-preset-ai-writing.
 
-### Referência
+## Referência
 
 Este comando foi criado com base no conjunto de regras do [textlint-rule-preset-ai-writing](https://github.com/textlint-ja/textlint-rule-preset-ai-writing). É um preset de regras textlint para detectar padrões mecânicos de textos gerados por IA e promover expressões mais naturais.

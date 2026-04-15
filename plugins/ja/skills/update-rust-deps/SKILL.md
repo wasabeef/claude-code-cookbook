@@ -1,12 +1,16 @@
 ---
-description: "Rust 依存関係の安全な更新"
+description: "Rust プロジェクトの依存関係を安全に更新する。「Rust の依存関係を更新して」「Cargo.toml を更新」「crate を最新化」「cargo update して」などで起動。"
+allowed-tools:
+  - Bash(cargo *)
+  - Read
+  - Edit
 ---
 
-## Rust 依存関係の安全な更新
+# Rust 依存関係の安全な更新
 
 Rust プロジェクトの依存関係を安全に更新します。
 
-### 使い方
+## 使い方
 
 ```bash
 # 依存関係の状態を確認して Claude に依頼
@@ -14,7 +18,7 @@ cargo tree
 「Cargo.toml の依存関係を最新バージョンに更新して」
 ```
 
-### 基本例
+## 基本例
 
 ```bash
 # 現在の依存関係を確認
@@ -26,7 +30,7 @@ cargo update --dry-run
 「これらのクレートの更新における危険度を分析して」
 ```
 
-### Claude との連携
+## Claude との連携
 
 ```bash
 # 包括的な依存関係更新
@@ -46,7 +50,7 @@ cargo tree
 「tokio を最新バージョンに更新した場合の影響と必要な変更を教えて」
 ```
 
-### 詳細例
+## 詳細例
 
 ```bash
 # Release Notes を含む詳細分析
@@ -64,7 +68,7 @@ cat Cargo.toml src/main.rs
 「async-std から tokio への移行、または tokio のメジャーバージョンアップに必要な変更をすべて提示して」
 ```
 
-### 危険度の基準
+## 危険度の基準
 
 ```text
 安全 (🟢)：
@@ -84,7 +88,7 @@ cat Cargo.toml src/main.rs
 - トレイト境界の変更
 ```
 
-### 更新の実行
+## 更新の実行
 
 ```bash
 # バックアップ作成
@@ -100,7 +104,7 @@ cargo test
 cargo clippy
 ```
 
-### 注意事項
+## 注意事項
 
 更新後は必ず動作確認を実施してください。問題が発生した場合は以下で復元：
 

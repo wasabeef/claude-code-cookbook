@@ -1,24 +1,26 @@
 ---
-description: "Générer des messages de commit à partir des changements préparés"
+description: "Générer des messages de commit. Se déclenche avec « générer un message de commit », « suggérer un commit message »."
+allowed-tools:
+  - Bash(git diff *)
 ---
 
-## Générer des messages de commit à partir des changements préparés
+# Générer des messages de commit
 
 Génère des messages de commit à partir des modifications indexées (git diff --staged). Cette commande ne fait que créer des messages et les copie dans votre presse-papiers—elle n'exécute aucune commande git.
 
-### Usage
+## Usage
 
 ```bash
 /commit-message [options]
 ```
 
-### Options
+## Options
 
 - `--format <format>` : Choisir le format du message (conventional, gitmoji, angular)
 - `--lang <language>` : Définir la langue explicitement (en, fr)
 - `--breaking` : Inclure la détection de changements cassants
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Générer un message à partir des modifications indexées (langue auto-détectée)
@@ -33,7 +35,7 @@ Génère des messages de commit à partir des modifications indexées (git diff 
 /commit-message --breaking
 ```
 
-### Prérequis
+## Prérequis
 
 **Important** : Cette commande ne fonctionne qu'avec les modifications indexées. Exécutez d'abord `git add` pour indexer vos modifications.
 
@@ -43,7 +45,7 @@ $ /commit-message
 Aucune modification indexée trouvée. Veuillez d'abord exécuter git add.
 ```
 
-### Fonctionnalité de presse-papiers automatique
+## Fonctionnalité de presse-papiers automatique
 
 La suggestion principale est copiée dans votre presse-papiers comme commande complète : `git commit -m "message"`. Il suffit de la coller et l'exécuter dans votre terminal.
 
@@ -52,11 +54,11 @@ La suggestion principale est copiée dans votre presse-papiers comme commande co
 - Exécuter `pbcopy` dans un processus séparé de la sortie du message
 - Utiliser `printf` au lieu de `echo` pour éviter les sauts de ligne indésirables
 
-### Détection automatique des conventions de projet
+## Détection automatique des conventions de projet
 
 **Important** : Si des conventions spécifiques au projet existent, elles ont la priorité.
 
-#### 1. Vérification de la configuration CommitLint
+### 1. Vérification de la configuration CommitLint
 
 Détecte automatiquement les paramètres des fichiers suivants :
 
@@ -75,7 +77,7 @@ Détecte automatiquement les paramètres des fichiers suivants :
 find . -name "commitlint.config.*" -o -name ".commitlintrc.*" | head -1
 ```
 
-#### 2. Détection de types personnalisés
+### 2. Détection de types personnalisés
 
 Exemple de types spécifiques au projet :
 
@@ -106,7 +108,7 @@ export default {
 };
 ```
 
-#### 3. Détection des paramètres de langue
+### 3. Détection des paramètres de langue
 
 ```javascript
 // Quand le projet utilise des messages français
@@ -118,7 +120,7 @@ export default {
 };
 ```
 
-#### 4. Analyse de l'historique des commits existants
+### 4. Analyse de l'historique des commits existants
 
 ```bash
 # Apprendre les modèles des commits récents
@@ -130,7 +132,7 @@ grep -oE '^[a-z]+(\([^)]+\))?' | \
 sort | uniq -c | sort -nr
 ```
 
-### Détection automatique de la langue
+## Détection automatique de la langue
 
 Bascule automatiquement entre français/anglais basé sur :
 
@@ -141,9 +143,9 @@ Bascule automatiquement entre français/anglais basé sur :
 
 Par défaut c'est l'anglais. Génère en français si détecté comme projet français.
 
-### Format de message
+## Format de message
 
-#### Commits conventionnels (Par défaut)
+### Commits conventionnels (Par défaut)
 
 ```text
 <type>: <description>
@@ -153,7 +155,7 @@ Par défaut c'est l'anglais. Génère en français si détecté comme projet fra
 
 **Note** : Les conventions spécifiques au projet ont la priorité si elles existent.
 
-### Types standards
+## Types standards
 
 **Types requis** :
 
@@ -171,7 +173,7 @@ Par défaut c'est l'anglais. Génère en français si détecté comme projet fra
 - `perf` : Améliorations de performances
 - `test` : Ajout ou correction de tests
 
-### Exemple de sortie (Projet anglais)
+## Exemple de sortie (Projet anglais)
 
 ```bash
 $ /commit-message
@@ -213,7 +215,7 @@ $COMMIT_MESSAGE
 EOF
 ```
 
-### Exemple de sortie (Projet français)
+## Exemple de sortie (Projet français)
 
 ```bash
 $ /commit-message
@@ -232,7 +234,7 @@ feat: système d'authentification JWT implémenté
 ✅ `git commit -m "feat: système d'authentification JWT implémenté"` copié dans le presse-papiers
 ```
 
-### Vue d'ensemble du fonctionnement
+## Vue d'ensemble du fonctionnement
 
 1. **Analyse** : Analyser le contenu de `git diff --staged`
 2. **Génération** : Générer un message de commit approprié
@@ -240,9 +242,9 @@ feat: système d'authentification JWT implémenté
 
 **Note** : Cette commande n'exécute pas git add ou git commit. Elle ne fait que générer des messages de commit et les copie dans le presse-papiers.
 
-### Fonctionnalités intelligentes
+## Fonctionnalités intelligentes
 
-#### 1. Classification automatique des changements (Fichiers indexés uniquement)
+### 1. Classification automatique des changements (Fichiers indexés uniquement)
 
 - Ajout de nouveau fichier → `feat`
 - Modèles de correction d'erreur → `fix`
@@ -250,13 +252,13 @@ feat: système d'authentification JWT implémenté
 - Changements de fichiers de configuration → `chore`
 - Mises à jour README/docs → `docs`
 
-#### 2. Détection automatique des conventions de projet
+### 2. Détection automatique des conventions de projet
 
 - Fichier `.gitmessage`
 - Conventions dans `CONTRIBUTING.md`
 - Modèles d'historique de commits passés
 
-#### 3. Détails de détection de langue (Modifications indexées uniquement)
+### 3. Détails de détection de langue (Modifications indexées uniquement)
 
 ```bash
 # Critères de détection (ordre de priorité)
@@ -266,7 +268,7 @@ feat: système d'authentification JWT implémenté
 4. Paramètres de langue principale du projet
 ```
 
-#### 4. Détails de l'analyse d'indexation
+### 4. Détails de l'analyse d'indexation
 
 Informations utilisées pour l'analyse (lecture seule) :
 
@@ -274,7 +276,7 @@ Informations utilisées pour l'analyse (lecture seule) :
 - `git diff --staged` - Contenu réel des changements
 - `git status --porcelain` - Statut des fichiers
 
-### Détection de changements cassants
+## Détection de changements cassants
 
 Pour les changements d'API cassants :
 
@@ -306,7 +308,7 @@ Ou :
 feat(api)!: change authentication flow
 ```
 
-### Meilleures pratiques
+## Meilleures pratiques
 
 1. **Correspondre au projet** : Suivre la langue de commit existante
 2. **Concision** : Clair en moins de 50 caractères
@@ -314,7 +316,7 @@ feat(api)!: change authentication flow
 4. **OSS** : Anglais recommandé pour l'open source
 5. **Ligne unique** : Toujours message de commit sur une ligne (compléter avec PR pour explications détaillées)
 
-### Modèles communs
+## Modèles communs
 
 **Français** :
 
@@ -332,7 +334,7 @@ fix: resolve memory leak in cache manager
 docs: update API documentation
 ```
 
-### Intégration avec Claude
+## Intégration avec Claude
 
 ```bash
 # Utiliser avec les modifications indexées
@@ -351,7 +353,7 @@ git add -A
 "Marquer appropriément s'il y a des changements cassants"
 ```
 
-### Notes importantes
+## Notes importantes
 
 - **Prérequis** : Les modifications doivent être indexées avec `git add` au préalable
 - **Limitation** : Les modifications non indexées ne sont pas analysées

@@ -1,12 +1,15 @@
 ---
-description: "Explicar o comportamento do código em detalhe"
+description: 'Explicar o comportamento do código em detalhe. Ativa com "explica este código", "o que isso faz?", "como funciona?".'
+allowed-tools:
+  - Read
+  - Grep
 ---
 
-## Explicar o comportamento do código em detalhe
+# Explicar o comportamento do código em detalhe
 
 Explica detalhadamente o funcionamento do código.
 
-### Uso
+## Uso
 
 ```bash
 # Exibir conteúdo do arquivo e solicitar ao Claude
@@ -14,7 +17,7 @@ cat <file>
 "Explique o funcionamento deste código"
 ```
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Compreender ownership do Rust
@@ -30,7 +33,7 @@ cat factory.rs
 "Explique os padrões de design utilizados e suas vantagens"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Explicação para iniciantes
@@ -50,7 +53,7 @@ cat auth_handler.go
 "Aponte as preocupações de segurança deste código"
 ```
 
-### Exemplos Detalhados
+## Exemplos Detalhados
 
 ```bash
 # Explicação de lógica complexa
@@ -74,6 +77,6 @@ ls -la src/ && cat src/main.rs src/lib.rs
 "Explique a arquitetura e estrutura de módulos deste projeto"
 ```
 
-### Observações
+## Observações
 
 Na explicação de código, além de simplesmente explicar o funcionamento, também fornece insights profundos sobre por que foi implementado dessa forma, quais são as vantagens e quais são os problemas potenciais.

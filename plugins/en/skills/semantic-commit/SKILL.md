@@ -1,24 +1,26 @@
 ---
-description: "Split changes into semantic units and commit"
+description: 'Split changes into semantic units and commit. Trigger with "commit", "commit changes", "split and commit", "semantic commit", "commit in logical units".'
+allowed-tools:
+  - Bash(git *)
 ---
 
-## Split changes into semantic units and commit
+# Split changes into semantic units and commit
 
 Breaks big changes into small, meaningful commits with proper messages. Uses only standard git commands.
 
-### Usage
+## Usage
 
 ```bash
 /semantic-commit [options]
 ```
 
-### Options
+## Options
 
 - `--dry-run`: Show proposed commit splits without actually committing
 - `--lang <language>`: Force language for commit messages (en)
 - `--max-commits <number>`: Specify maximum number of commits (default: 10)
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Analyze current changes and commit in logical units
@@ -34,16 +36,16 @@ Breaks big changes into small, meaningful commits with proper messages. Uses onl
 /semantic-commit --max-commits 5
 ```
 
-### How It Works
+## How It Works
 
 1. **Analyze Changes**: Check what changed with `git diff HEAD`
 2. **Group Files**: Put related files together
 3. **Create Messages**: Write semantic commit messages for each group
 4. **Commit Step by Step**: Commit each group after you approve
 
-### When to Split Changes
+## When to Split Changes
 
-#### What Makes a Change "Large"
+### What Makes a Change "Large"
 
 We split when we see:
 
@@ -62,9 +64,9 @@ if [ $CHANGED_FILES -ge 5 ] || [ $CHANGED_LINES -ge 100 ]; then
 fi
 ```
 
-#### How to Split into Small, Meaningful Commits
+### How to Split into Small, Meaningful Commits
 
-##### 1. Splitting by Functional Boundaries
+#### 1. Splitting by Functional Boundaries
 
 ```bash
 # Identify functional units from directory structure
@@ -72,7 +74,7 @@ git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq
 # → src/auth, src/api, components/ui, etc.
 ```
 
-##### 2. Separation by Change Type
+#### 2. Separation by Change Type
 
 ```bash
 # New files vs existing file modifications
@@ -81,7 +83,7 @@ git diff HEAD --name-status | grep '^M' # Modified files
 git diff HEAD --name-status | grep '^D' # Deleted files
 ```
 
-##### 3. Dependency Analysis
+#### 3. Dependency Analysis
 
 ```bash
 # Detect import relationship changes
@@ -89,7 +91,7 @@ git diff HEAD | grep -E '^[+-].*import|^[+-].*require' | \
 cut -d' ' -f2- | sort | uniq
 ```
 
-#### Detailed File Analysis
+### Detailed File Analysis
 
 ```bash
 # Get list of changed files
@@ -109,7 +111,7 @@ git diff HEAD --name-status | while read status file; do
 done
 ```
 
-#### How to Group Files
+### How to Group Files
 
 1. **By Feature**: Keep related functions together
    - `src/auth/` files → Authentication
@@ -128,7 +130,7 @@ done
    - Max 10 files per commit
    - Keep related files together
 
-### Output Example
+## Output Example
 
 ```bash
 $ /semantic-commit
@@ -171,7 +173,7 @@ Included files:
 Execute commit with this split plan? (y/n/edit):
 ```
 
-### Your Options
+## Your Options
 
 - `y`: Go with the proposed split
 - `n`: Cancel everything
@@ -179,7 +181,7 @@ Execute commit with this split plan? (y/n/edit):
 - `merge <number1> <number2>`: Combine commits
 - `split <number>`: Break up a commit more
 
-### Dry Run Mode
+## Dry Run Mode
 
 ```bash
 $ /semantic-commit --dry-run
@@ -193,14 +195,14 @@ Analyzing changes... (DRY RUN)
 💡 To execute, run again without --dry-run option
 ```
 
-### Smart Features
+## Smart Features
 
-#### 1. Understands Your Project
+### 1. Understands Your Project
 
 - Detects project type from config files
 - Figures out features from folder structure
 
-#### 2. Change Pattern Recognition
+### 2. Change Pattern Recognition
 
 ```bash
 # Detect bug fix patterns
@@ -214,17 +216,17 @@ Analyzing changes... (DRY RUN)
 - API endpoint additions
 ```
 
-#### 3. Dependency Analysis
+### 3. Dependency Analysis
 
 - Changes to import statements
 - Addition/modification of type definitions
 - Relationship with configuration files
 
-### How It's Built
+## How It's Built
 
-#### Step-by-Step Commits with Git
+### Step-by-Step Commits with Git
 
-##### 1. Preprocessing: Save Current State
+#### 1. Preprocessing: Save Current State
 
 ```bash
 # Reset unstaged changes if any
@@ -236,7 +238,7 @@ CURRENT_BRANCH=$(git branch --show-current)
 echo "Working branch: $CURRENT_BRANCH"
 ```
 
-##### 2. Sequential Commit Execution by Group
+#### 2. Sequential Commit Execution by Group
 
 ```bash
 # Read split plan
@@ -283,7 +285,7 @@ while IFS= read -r commit_plan; do
 done < /tmp/commit_plan.txt
 ```
 
-##### 3. Error Handling and Rollback
+#### 3. Error Handling and Rollback
 
 ```bash
 # Handle pre-commit hook failures
@@ -332,7 +334,7 @@ resume_from_failure() {
 }
 ```
 
-##### 4. Post-Completion Verification
+#### 4. Post-Completion Verification
 
 ```bash
 # Verify all changes committed
@@ -349,7 +351,7 @@ echo "Created commits:"
 git log --oneline -n 10 --graph
 ```
 
-##### 5. Suppress Automatic Push
+#### 5. Suppress Automatic Push
 
 ```bash
 # Note: No automatic push
@@ -358,9 +360,9 @@ echo "If needed, push with the following command:"
 echo "  git push origin $CURRENT_BRANCH"
 ```
 
-#### Split Algorithm Details
+### Split Algorithm Details
 
-##### Step 1: Initial Analysis
+#### Step 1: Initial Analysis
 
 ```bash
 # Get and classify all changed files
@@ -372,7 +374,7 @@ done > /tmp/changes.txt
 git diff HEAD --name-only | cut -d'/' -f1-2 | sort | uniq -c
 ```
 
-##### Step 2: Initial Grouping by Functional Boundaries
+#### Step 2: Initial Grouping by Functional Boundaries
 
 ```bash
 # Directory-based grouping
@@ -383,7 +385,7 @@ for group in $GROUPS; do
 done
 ```
 
-##### Step 3: Analyzing Change Similarity
+#### Step 3: Analyzing Change Similarity
 
 ```bash
 # Analyze change type for each file
@@ -407,7 +409,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### Step 4: Dependency-based Adjustments
+#### Step 4: Dependency-based Adjustments
 
 ```bash
 # Analyze import relationships
@@ -426,7 +428,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### Step 5: Commit Size Optimization
+#### Step 5: Commit Size Optimization
 
 ```bash
 # Adjust group size
@@ -444,7 +446,7 @@ git diff HEAD --name-only | while read file; do
 done
 ```
 
-##### Step 6: Determining Final Groups
+#### Step 6: Determining Final Groups
 
 ```bash
 # Verify split results
@@ -455,9 +457,9 @@ for group in $(seq 1 $current_group); do
 done
 ```
 
-### Conventional Commits Compliance
+## Conventional Commits Compliance
 
-#### Basic Format
+### Basic Format
 
 ```text
 <type>[optional scope]: <description>
@@ -467,7 +469,7 @@ done
 [optional footer(s)]
 ```
 
-#### Standard Types
+### Standard Types
 
 **Required Types**:
 
@@ -485,7 +487,7 @@ done
 - `perf`: Performance improvements
 - `test`: Adding or modifying tests
 
-#### Scope (Optional)
+### Scope (Optional)
 
 Indicates the affected area of the change:
 
@@ -495,7 +497,7 @@ fix(ui): resolve button alignment issue
 docs(readme): update installation instructions
 ```
 
-#### Breaking Change
+### Breaking Change
 
 When there are breaking API changes:
 
@@ -510,11 +512,11 @@ or
 feat(api)!: change authentication flow
 ```
 
-#### Automatically Detecting Project Conventions
+### Automatically Detecting Project Conventions
 
 **Important**: If project-specific conventions exist, they take precedence.
 
-##### 1. Check CommitLint Configuration
+#### 1. Check CommitLint Configuration
 
 Automatically detect configuration from the following files:
 
@@ -535,7 +537,7 @@ cat .commitlintrc.json
 grep -A 10 '"commitlint"' package.json
 ```
 
-##### 2. Detecting Custom Types
+#### 2. Detecting Custom Types
 
 Example of project-specific types:
 
@@ -566,7 +568,7 @@ export default {
 };
 ```
 
-##### 3. Detecting Language Settings
+#### 3. Detecting Language Settings
 
 ```javascript
 // When project uses Japanese messages
@@ -578,7 +580,7 @@ export default {
 };
 ```
 
-#### Automatic Analysis Flow
+### Automatic Analysis Flow
 
 1. **Configuration File Search**
 
@@ -600,9 +602,9 @@ export default {
    sort | uniq -c | sort -nr
    ```
 
-#### Examples of Project Conventions
+### Examples of Project Conventions
 
-##### Angular Style
+#### Angular Style
 
 ```text
 feat(scope): add new feature
@@ -610,7 +612,7 @@ fix(scope): fix bug
 docs(scope): update documentation
 ```
 
-##### Gitmoji Combined Style
+#### Gitmoji Combined Style
 
 ```text
 ✨ feat: add user registration
@@ -618,7 +620,7 @@ docs(scope): update documentation
 📚 docs: update API docs
 ```
 
-##### Japanese Projects
+#### Japanese Projects
 
 ```text
 feat: add user registration functionality
@@ -626,7 +628,7 @@ fix: resolve login process bug
 docs: update API documentation
 ```
 
-### Language Detection
+## Language Detection
 
 How we figure out your language:
 
@@ -663,16 +665,16 @@ How we figure out your language:
    git diff HEAD | grep -E '^[+-].*//.*[\x{3040}-\x{30ff}]|[\x{4e00}-\x{9fff}]' | wc -l
    ```
 
-#### Determination Algorithm
+### Determination Algorithm
 
 ```bash
 # English version always uses English
 LANGUAGE="en"
 ```
 
-### Auto-Loading Config
+## Auto-Loading Config
 
-#### What Happens at Runtime
+### What Happens at Runtime
 
 We check for config files in this order:
 
@@ -705,7 +707,7 @@ We check for config files in this order:
    head -20
    ```
 
-#### Analyzing Configuration Examples
+### Analyzing Configuration Examples
 
 **Standard commitlint.config.mjs**:
 
@@ -768,7 +770,7 @@ export default {
 };
 ```
 
-#### Fallback Behavior
+### Fallback Behavior
 
 If no configuration file is found:
 
@@ -791,19 +793,19 @@ If no configuration file is found:
    - Japanese mode if over 50% of commits are in Japanese
    - English mode otherwise
 
-### Requirements
+## Requirements
 
 - Must be in a Git repo
 - Need uncommitted changes
 - Staged changes get reset temporarily
 
-### Important
+## Important
 
 - **Won't push**: You need to `git push` yourself
 - **Same branch**: Commits stay in current branch
 - **Back up first**: Consider `git stash` for safety
 
-### Which Rules Win
+## Which Rules Win
 
 When making commit messages, we follow this order:
 
@@ -825,7 +827,7 @@ When making commit messages, we follow this order:
 4. **Conventional Commits standard** (fallback)
    - Standard behavior when no settings found
 
-#### Examples of Convention Detection
+### Examples of Convention Detection
 
 **Automatic scope detection in Monorepo**:
 
@@ -870,7 +872,7 @@ ls packages/ | head -10
 }
 ```
 
-### Best Practices
+## Best Practices
 
 1. **Follow the rules**: Use existing patterns
 2. **Keep it small**: One logical change per commit
@@ -879,9 +881,9 @@ ls packages/ | head -10
 5. **Tests separate**: Test commits on their own
 6. **Use configs**: CommitLint helps teams stay consistent
 
-### Real-world Split Examples (Before/After)
+## Real-world Split Examples (Before/After)
 
-#### Example 1: Large Authentication System Addition
+### Example 1: Large Authentication System Addition
 
 **Before (one massive commit):**
 
@@ -961,7 +963,7 @@ Included files:
 Reason: Documentation and configuration committed together at the end
 ```
 
-#### Example 2: Mixed Bug Fixes and Refactoring
+### Example 2: Mixed Bug Fixes and Refactoring
 
 **Before (problematic mixed commit):**
 
@@ -1014,7 +1016,7 @@ Included files:
 Reason: Development environment improvements committed together at the end
 ```
 
-#### Example 3: Simultaneous Development of Multiple Features
+### Example 3: Simultaneous Development of Multiple Features
 
 **Before (cross-functional massive commit):**
 
@@ -1081,7 +1083,7 @@ Included files:
 Reason: Common dependency updates committed together at the end
 ```
 
-### Comparison of Splitting Effects
+## Comparison of Splitting Effects
 
 | Item                     | Before (Massive Commit)                   | After (Proper Splitting)                             |
 | ------------------------ | ----------------------------------------- | ---------------------------------------------------- |
@@ -1091,15 +1093,15 @@ Reason: Common dependency updates committed together at the end
 | **Parallel Development** | ❌ Conflict-prone                         | ✅ Feature-based merging is easy                     |
 | **Deployment**           | ❌ All features deployed at once          | ✅ Staged deployment possible                        |
 
-### Troubleshooting
+## Troubleshooting
 
-#### When Commit Fails
+### When Commit Fails
 
 - Check pre-commit hooks
 - Resolve dependencies
 - Retry with individual files
 
-#### When Splitting is Inappropriate
+### When Splitting is Inappropriate
 
 - Adjust with `--max-commits` option
 - Use manual `edit` mode

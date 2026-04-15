@@ -1,24 +1,26 @@
 ---
-description: "Generar mensajes de commit desde cambios preparados"
+description: 'Generar mensajes de commit desde cambios preparados. Se activa con "generar mensaje de commit", "sugerir commit message".'
+allowed-tools:
+  - Bash(git diff *)
 ---
 
-## Generar mensajes de commit desde cambios preparados
+# Generar mensajes de commit desde cambios preparados
 
 Genera mensajes de commit a partir de cambios staged (git diff --staged). Este comando solo crea mensajes y los copia al portapapeles—no ejecuta ningún comando git.
 
-### Uso
+## Uso
 
 ```bash
 /commit-message [opciones]
 ```
 
-### Opciones
+## Opciones
 
 - `--format <formato>` : Elegir formato de mensaje (conventional, gitmoji, angular)
 - `--lang <idioma>` : Establecer idioma explícitamente (en, es)
 - `--breaking` : Incluir detección de cambios disruptivos
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Generar mensaje a partir de cambios staged (idioma auto-detectado)
@@ -33,7 +35,7 @@ Genera mensajes de commit a partir de cambios staged (git diff --staged). Este c
 /commit-message --breaking
 ```
 
-### Prerrequisitos
+## Prerrequisitos
 
 **Importante**: Este comando solo funciona con cambios staged. Ejecuta `git add` primero para staged tus cambios.
 
@@ -43,7 +45,7 @@ $ /commit-message
 No staged changes found. Please run git add first.
 ```
 
-### Función Automática de Portapapeles
+## Función Automática de Portapapeles
 
 La sugerencia principal se copia al portapapeles como comando completo: `git commit -m "mensaje"`. Solo pégalo y ejecútalo en tu terminal.
 
@@ -52,11 +54,11 @@ La sugerencia principal se copia al portapapeles como comando completo: `git com
 - Ejecutar `pbcopy` en un proceso separado de la salida del mensaje
 - Usar `printf` en lugar de `echo` para evitar saltos de línea no deseados
 
-### Detección Automática de Convenciones del Proyecto
+## Detección Automática de Convenciones del Proyecto
 
 **Importante**: Si existen convenciones específicas del proyecto, tienen prioridad.
 
-#### 1. Verificación de Configuración CommitLint
+### 1. Verificación de Configuración CommitLint
 
 Detecta automáticamente configuraciones de los siguientes archivos:
 
@@ -75,7 +77,7 @@ Detecta automáticamente configuraciones de los siguientes archivos:
 find . -name "commitlint.config.*" -o -name ".commitlintrc.*" | head -1
 ```
 
-#### 2. Detección de Tipos Personalizados
+### 2. Detección de Tipos Personalizados
 
 Ejemplo de tipos específicos del proyecto:
 
@@ -106,7 +108,7 @@ export default {
 };
 ```
 
-#### 3. Detección de Configuración de Idioma
+### 3. Detección de Configuración de Idioma
 
 ```javascript
 // El proyecto usa mensajes en español
@@ -118,7 +120,7 @@ export default {
 };
 ```
 
-#### 4. Análisis de Historial de Commits Existentes
+### 4. Análisis de Historial de Commits Existentes
 
 ```bash
 # Aprender patrones de uso de commits recientes
@@ -130,7 +132,7 @@ grep -oE '^[a-z]+(\([^)]+\))?' | \
 sort | uniq -c | sort -nr
 ```
 
-### Detección Automática de Idioma
+## Detección Automática de Idioma
 
 Cambia automáticamente entre español/inglés/japonés basado en:
 
@@ -141,9 +143,9 @@ Cambia automáticamente entre español/inglés/japonés basado en:
 
 Por defecto es inglés. Genera en español si se detecta como proyecto en español.
 
-### Formato de Mensaje
+## Formato de Mensaje
 
-#### Conventional Commits (Por defecto)
+### Conventional Commits (Por defecto)
 
 ```text
 <type>: <description>
@@ -153,7 +155,7 @@ Por defecto es inglés. Genera en español si se detecta como proyecto en españ
 
 **Nota**: Las convenciones específicas del proyecto tienen prioridad si existen.
 
-### Tipos Estándar
+## Tipos Estándar
 
 **Tipos Requeridos**:
 
@@ -171,7 +173,7 @@ Por defecto es inglés. Genera en español si se detecta como proyecto en españ
 - `perf`: Mejoras de rendimiento
 - `test`: Agregando o corrigiendo pruebas
 
-### Ejemplo de Salida (Proyecto en Inglés)
+## Ejemplo de Salida (Proyecto en Inglés)
 
 ```bash
 $ /commit-message
@@ -213,7 +215,7 @@ $COMMIT_MESSAGE
 EOF
 ```
 
-### Ejemplo de Salida (Proyecto en Español)
+## Ejemplo de Salida (Proyecto en Español)
 
 ```bash
 $ /commit-message
@@ -232,7 +234,7 @@ feat: implementar sistema de autenticación JWT
 ✅ `git commit -m "feat: implementar sistema de autenticación JWT"` copiado al portapapeles
 ```
 
-### Resumen de Operación
+## Resumen de Operación
 
 1. **Análisis**: Analizar contenido de `git diff --staged`
 2. **Generación**: Generar mensaje de commit apropiado
@@ -240,9 +242,9 @@ feat: implementar sistema de autenticación JWT
 
 **Nota**: Este comando no ejecuta git add o git commit. Solo genera mensajes de commit y copia al portapapeles.
 
-### Características Inteligentes
+## Características Inteligentes
 
-#### 1. Clasificación Automática de Cambios (Solo Archivos Staged)
+### 1. Clasificación Automática de Cambios (Solo Archivos Staged)
 
 - Adición de archivo nuevo → `feat`
 - Patrones de corrección de errores → `fix`
@@ -250,13 +252,13 @@ feat: implementar sistema de autenticación JWT
 - Cambios en archivos de configuración → `chore`
 - Actualizaciones README/docs → `docs`
 
-#### 2. Detección Automática de Convenciones del Proyecto
+### 2. Detección Automática de Convenciones del Proyecto
 
 - Archivo `.gitmessage`
 - Convenciones en `CONTRIBUTING.md`
 - Patrones de historial de commits pasados
 
-#### 3. Detalles de Detección de Idioma (Solo Cambios Staged)
+### 3. Detalles de Detección de Idioma (Solo Cambios Staged)
 
 ```bash
 # Criterios de detección (orden de prioridad)
@@ -266,7 +268,7 @@ feat: implementar sistema de autenticación JWT
 4. Configuraciones de idioma principal del proyecto
 ```
 
-#### 4. Detalles de Análisis de Staging
+### 4. Detalles de Análisis de Staging
 
 Información utilizada para análisis (solo lectura):
 
@@ -274,7 +276,7 @@ Información utilizada para análisis (solo lectura):
 - `git diff --staged` - Contenido real de cambios
 - `git status --porcelain` - Estado de archivos
 
-### Detección de Cambios Disruptivos
+## Detección de Cambios Disruptivos
 
 Para cambios disruptivos de API:
 
@@ -306,7 +308,7 @@ O:
 feat(api)!: cambiar flujo de autenticación
 ```
 
-### Mejores Prácticas
+## Mejores Prácticas
 
 1. **Coincidir con proyecto**: Seguir idioma de commits existentes
 2. **Concisión**: Claro dentro de 50 caracteres
@@ -314,7 +316,7 @@ feat(api)!: cambiar flujo de autenticación
 4. **OSS**: Inglés recomendado para código abierto
 5. **Una línea**: Siempre mensaje de commit de una línea (complementar con PR para explicaciones detalladas)
 
-### Patrones Comunes
+## Patrones Comunes
 
 **Inglés**:
 
@@ -332,7 +334,7 @@ fix: resolver fuga de memoria en gestor de caché
 docs: actualizar documentación de API
 ```
 
-### Integración con Claude
+## Integración con Claude
 
 ```bash
 # Usar con cambios staged
@@ -351,7 +353,7 @@ git add -A
 "Marcar apropiadamente si hay cambios disruptivos"
 ```
 
-### Notas Importantes
+## Notas Importantes
 
 - **Prerrequisito**: Los cambios deben estar staged con `git add` de antemano
 - **Limitación**: Los cambios no staged no se analizan

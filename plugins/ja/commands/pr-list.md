@@ -1,15 +1,15 @@
-## オープン PR 一覧を優先順位付きで表示
+# オープン PR 一覧を優先順位付きで表示
 
 現在のリポジトリのオープン PR 一覧を優先順位付きで表示します。
 
-### 使い方
+## 使い方
 
 ```bash
 # Claude に依頼
 「オープン PR 一覧を優先順位付きで表示して」
 ```
 
-### 基本例
+## 基本例
 
 ```bash
 # リポジトリ情報を取得
@@ -21,7 +21,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 「上記の PR を優先度別に整理して、各 PR の 2 行概要も含めて表示して。URL は上記で取得したリポジトリ名を使用して生成して」
 ```
 
-### 表示形式
+## 表示形式
 
 ```text
 オープン PR 一覧 (優先順位順)
@@ -39,7 +39,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 (同様の形式)
 ```
 
-### 優先度の判定基準
+## 優先度の判定基準
 
 **高優先度**
 
@@ -57,7 +57,7 @@ gh pr list --state open --draft=false --json number,title,author,createdAt,addit
 - DO NOT MERGE を含む PR
 - Draft で `test:`、`build:`、`perf:` の PR
 
-### 注意事項
+## 注意事項
 
 - GitHub CLI (`gh`) が必要です
 - オープン状態の PR のみ表示します (Draft は除外)

@@ -1,12 +1,17 @@
 ---
-description: "Análisis cuantitativo de deuda técnica y plan de mejora"
+description: 'Análisis cuantitativo de deuda técnica. Se activa con "analizar deuda técnica", "salud del proyecto", "puntuación de deuda".'
+allowed-tools:
+  - Read
+  - Grep
+  - Glob
+  - Bash
 ---
 
-## Análisis cuantitativo de deuda técnica y plan de mejora
+# Análisis cuantitativo de deuda técnica
 
 Analiza cuantitativamente la deuda técnica del proyecto y visualiza las puntuaciones de salud junto con el impacto en la eficiencia de desarrollo. Rastrea las mejoras mediante análisis de tendencias, calcula costos temporales y crea un plan de mejora priorizado.
 
-### Uso
+## Uso
 
 ```bash
 # Verificar configuración del proyecto para analizar deuda técnica
@@ -14,7 +19,7 @@ ls -la
 "Analizar la deuda técnica de este proyecto y crear un plan de mejora"
 ```
 
-### Panel de Salud del Proyecto
+## Panel de Salud del Proyecto
 
 ```text
 Puntuación de Salud del Proyecto: 72/100
@@ -50,7 +55,7 @@ Puntuación de Salud del Proyecto: 72/100
 └─ ROI: Inversión 40 horas → Recuperación 120 horas (3 meses)
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Análisis detallado de puntuación de salud
@@ -66,7 +71,7 @@ ls -la | grep -E "package.json|Cargo.toml|pubspec.yaml|go.mod|requirements.txt"
 "Calcular puntuación de frescura de dependencias y analizar riesgos y efectos de actualizaciones"
 ```
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Análisis integral de deuda técnica
@@ -91,7 +96,7 @@ find . -type d -name "src" -o -name "lib" -o -name "app" | head -10 | xargs ls -
 - Momento recomendado de implementación"
 ```
 
-### Ejemplos Detallados
+## Ejemplos Detallados
 
 ```bash
 # Detección automática del tipo de proyecto y análisis
@@ -119,7 +124,7 @@ find . -type f \( -name "*test*" -o -name "*spec*" \) | wc -l && find . -type f 
 "Analizar la deuda técnica de cobertura de pruebas y proponer estrategia de pruebas"
 ```
 
-### Matriz de Prioridades de Deuda
+## Matriz de Prioridades de Deuda
 
 ```text
 Prioridad = (Impacto × Frecuencia) ÷ Costo de corrección
@@ -132,7 +137,7 @@ Prioridad = (Impacto × Frecuencia) ÷ Costo de corrección
 | **[P2] Este mes**            | Bajo                  | Alto                | 1-2x                          | Inversión 1h→Reducción 1-2h   | Dentro de 1 mes    |
 | **[P3] Este trimestre**      | Bajo                  | Bajo                | < 1x                          | Inversión=tiempo de reducción | Dentro de 3 meses  |
 
-### Criterios de Evaluación por Tipo de Deuda
+## Criterios de Evaluación por Tipo de Deuda
 
 | Tipo de deuda                   | Método de detección                        | Impacto en desarrollo                                 | Tiempo de corrección |
 | ------------------------------- | ------------------------------------------ | ----------------------------------------------------- | -------------------- |
@@ -144,7 +149,7 @@ Prioridad = (Impacto × Frecuencia) ÷ Costo de corrección
 | **Deuda de dependencias**       | No actualizadas por 2+ años                | Riesgo de seguridad, problemas de compatibilidad      | 4-16h                |
 | **Deuda de calidad del código** | Complejidad > 10                           | Tiempo de comprensión/corrección aumentado            | 2-8h                 |
 
-### Cálculo de Impacto de Deuda Técnica
+## Cálculo de Impacto de Deuda Técnica
 
 ```text
 Impacto = Σ(peso de cada elemento × valor medido)
@@ -166,7 +171,7 @@ Impacto = Σ(peso de cada elemento × valor medido)
    └─ Lugares de corrección por duplicación de código: tasa de duplicación × frecuencia de cambio
 ```
 
-### Cálculo de ROI basado en tiempo
+## Cálculo de ROI basado en tiempo
 
 ```text
 ROI = (tiempo reducido - tiempo de inversión) ÷ tiempo de inversión × 100
@@ -181,7 +186,7 @@ Ejemplo: Resolución de dependencias circulares
 └─ ROI en 3 meses: (70 - 16) ÷ 16 × 100 = 337%
 ```
 
-### Notas
+## Notas
 
 - Auto-detecta el lenguaje y framework del proyecto para realizar análisis específicos
 - Evalúa la puntuación de salud en escala de 0-100 puntos, considerando saludable 70+ puntos y necesitando mejora <50 puntos

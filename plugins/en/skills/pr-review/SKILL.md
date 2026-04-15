@@ -1,12 +1,17 @@
 ---
-description: "Systematic PR review for code quality assurance"
+description: 'Systematic PR review for code quality assurance. Trigger with "review this PR", "check this pull request", "code review", "review please".'
+allowed-tools:
+  - Bash(gh *)
+  - Read
+  - Grep
+  - Glob
 ---
 
-## Systematic PR review for code quality assurance
+# Systematic PR review for code quality assurance
 
 Ensure code quality and architectural soundness through systematic Pull Request reviews.
 
-### Usage
+## Usage
 
 ```bash
 # Comprehensive PR review
@@ -22,7 +27,7 @@ gh pr checkout 123 && find . -name "*.js" | head -10
 "Evaluate the architecture from the perspectives of layer separation, dependencies, and SOLID principles"
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Quantitative code quality assessment
@@ -38,7 +43,7 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 "Evaluate layer violations, circular dependencies, and coupling issues"
 ```
 
-### Comment Classification System
+## Comment Classification System
 
 ```text
 🔴 critical.must: Critical issues
@@ -67,42 +72,42 @@ grep -r "import.*from.*\.\./\.\." . --include="*.js"
 └─ Best practices sharing
 ```
 
-### Review Perspectives
+## Review Perspectives
 
-#### 1. Code Correctness
+### 1. Code Correctness
 
 - **Logic errors**: Boundary values, null checks, exception handling
 - **Data integrity**: Type safety, validation
 - **Error handling**: Completeness, appropriate processing
 
-#### 2. Security
+### 2. Security
 
 - **Authentication/authorization**: Appropriate checks, permission management
 - **Input validation**: SQL injection, XSS countermeasures
 - **Sensitive information**: Logging restrictions, encryption
 
-#### 3. Performance
+### 3. Performance
 
 - **Algorithms**: Time complexity, memory efficiency
 - **Database**: N+1 queries, index optimization
 - **Resources**: Memory leaks, cache utilization
 
-#### 4. Architecture
+### 4. Architecture
 
 - **Layer separation**: Dependency direction, appropriate separation
 - **Coupling**: Tight coupling, interface utilization
 - **SOLID principles**: Single responsibility, open-closed, dependency inversion
 
-### Review Flow
+## Review Flow
 
 1. **Pre-check**: PR information, change diff, related issues
 2. **Systematic checks**: Security → Correctness → Performance → Architecture
 3. **Constructive feedback**: Specific improvement suggestions and code examples
 4. **Follow-up**: Fix confirmation, CI status, final approval
 
-### Comment Templates
+## Comment Templates
 
-#### Security Issues Template
+### Security Issues Template
 
 **Format:**
 
@@ -123,7 +128,7 @@ const hashedPassword = await bcrypt.hash(password, 12);
 Hashing is required to prevent security risks.
 ```
 
-#### Performance Improvement Template
+### Performance Improvement Template
 
 **Format:**
 
@@ -143,7 +148,7 @@ const users = await User.findAll({ include: [Post] });
 This can significantly reduce the number of queries.
 ```
 
-#### Architecture Violation Template
+### Architecture Violation Template
 
 **Format:**
 
@@ -160,7 +165,7 @@ The domain layer directly depends on the infrastructure layer.
 Please introduce an interface following the dependency inversion principle.
 ```
 
-### Notes
+## Notes
 
 - **Constructive tone**: Collaborative rather than aggressive communication
 - **Specific suggestions**: Provide solutions along with pointing out problems

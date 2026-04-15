@@ -1,8 +1,8 @@
-## 安全更新 Flutter 依賴
+# 安全更新 Flutter 依賴
 
 安全地更新 Flutter 項目的依賴關系。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 確認依賴狀態並請求 Claude
@@ -10,7 +10,7 @@ flutter pub deps --style=compact
 「將 pubspec.yaml 的依賴更新到最新版本」
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 確認當前依賴
@@ -22,7 +22,7 @@ flutter pub upgrade --dry-run
 「確認這個升級計劃中是否有破坏性變更」
 ```
 
-### 與 Claude 配合
+## 與 Claude 配合
 
 ```bash
 # 全面的依賴更新
@@ -42,7 +42,7 @@ flutter pub outdated
 「告诉我將 provider 更新到最新版本的影響和必要的更改」
 ```
 
-### 詳细示例
+## 詳细示例
 
 ```bash
 # 包含 Release Notes 的詳细分析
@@ -59,7 +59,7 @@ cat pubspec.yaml
 「識別不支持 Null Safety 的包，制定遷移計劃」
 ```
 
-### 危險度標準
+## 危險度標準
 
 ```text
 安全 (🟢)：
@@ -78,7 +78,7 @@ cat pubspec.yaml
 - API 的刪除或更改
 ```
 
-### 執行更新
+## 執行更新
 
 ```bash
 # 創建備份
@@ -94,7 +94,7 @@ flutter test
 flutter pub deps --style=compact
 ```
 
-### 注意事項
+## 注意事項
 
 更新後必须進行功能測試。如果出現問題，使用以下命令恢復：
 

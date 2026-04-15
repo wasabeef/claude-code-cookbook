@@ -1,13 +1,13 @@
-## Compress responses to reduce context usage by 30-50%
+# Compress responses to reduce context usage by 30-50%
 
 Reduces AI response context usage by 30-50% through compression efficiency mode.
 
-## Overview
+# Overview
 
 Token Efficiency Mode leverages visual symbols and abbreviation systems to compress Claude's responses.
 **Generated code quality and content remain unchanged**. Only the explanation method changes.
 
-## Usage
+# Usage
 
 ```bash
 # Enable mode
@@ -16,11 +16,11 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 "Concise mode"
 ```
 
-## How It Works
+# How It Works
 
-### 1. Symbol System
+## 1. Symbol System
 
-#### Logic & Flow
+### Logic & Flow
 
 | Symbol | Meaning          | Example                         |
 | ------ | ---------------- | ------------------------------- |
@@ -35,7 +35,7 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 | ∴      | therefore        | `tests ❌ ∴ code broken`        |
 | ∵      | because          | `slow ∵ O(n²) algorithm`        |
 
-#### Status & Progress
+### Status & Progress
 
 | Symbol | Meaning           | Usage                   |
 | ------ | ----------------- | ----------------------- |
@@ -46,7 +46,7 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 | ⏳     | pending           | Scheduled for later     |
 | 🚨     | urgent, critical  | High priority           |
 
-#### Technical Domains
+### Technical Domains
 
 | Symbol | Domain        | Usage                 |
 | ------ | ------------- | --------------------- |
@@ -61,9 +61,9 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 | ⚙️     | Backend       | Server processing     |
 | 🧪     | Testing       | Quality assurance     |
 
-### 2. Abbreviation System
+## 2. Abbreviation System
 
-#### System & Architecture
+### System & Architecture
 
 - `cfg` → configuration
 - `impl` → implementation
@@ -72,7 +72,7 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 - `ops` → operations
 - `env` → environment
 
-#### Development Process
+### Development Process
 
 - `req` → requirements
 - `deps` → dependencies
@@ -81,7 +81,7 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 - `docs` → documentation
 - `std` → standards
 
-#### Quality & Analysis
+### Quality & Analysis
 
 - `qual` → quality
 - `sec` → security
@@ -90,9 +90,9 @@ Token Efficiency Mode leverages visual symbols and abbreviation systems to compr
 - `sev` → severity
 - `opt` → optimization
 
-## Example Comparisons
+# Example Comparisons
 
-### Example 1: Error Report
+## Example 1: Error Report
 
 **Normal Mode (85 chars)**
 
@@ -106,7 +106,7 @@ Security vulnerability found in the user validation function at line 45 of the a
 auth.js:45 → 🛡️ sec vuln in user val()
 ```
 
-### Example 2: Build Status
+## Example 2: Build Status
 
 **Normal Mode (112 chars)**
 
@@ -120,7 +120,7 @@ Build process completed successfully. Tests are currently running, followed by d
 build ✅ » test 🔄 » deploy ⏳
 ```
 
-### Example 3: Performance Analysis
+## Example 3: Performance Analysis
 
 **Normal Mode (95 chars)**
 
@@ -134,9 +134,9 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 ⚡ perf: slow ∵ O(n²) → optimize to O(n)
 ```
 
-## Use Cases
+# Use Cases
 
-### ✅ Effective Scenarios
+## ✅ Effective Scenarios
 
 - **Long debugging sessions**: Efficiently maintaining history
 - **Large code reviews**: Concise analysis of many files
@@ -144,16 +144,16 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 - **Project progress reports**: Overview of multiple task states
 - **Error tracking**: Visual representation of problem chains
 
-### ❌ Scenarios to Avoid
+## ❌ Scenarios to Avoid
 
 - Explanations for beginners
 - Detailed documentation creation
 - Initial requirements definition
 - Communication with non-technical stakeholders
 
-## Implementation Examples
+# Implementation Examples
 
-### Debugging Session
+## Debugging Session
 
 ```text
 [14:23] breakpoint → vars: {user: null, token: expired}
@@ -163,7 +163,7 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 [14:27] continue → main flow 🔄
 ```
 
-### File Analysis Results
+## File Analysis Results
 
 ```text
 /src/auth/: 🛡️ issues × 3
@@ -173,7 +173,7 @@ Performance analysis revealed slow processing due to O(n²) algorithm complexity
 /tests/: 🧪 coverage 78%
 ```
 
-### Project Status
+## Project Status
 
 ```text
 Frontend: 🎨 ✅ 100%
@@ -184,7 +184,7 @@ Deploy: 📦 ⏳ scheduled
 Security: 🛡️ 🚨 1 critical
 ```
 
-## Configuration Options
+# Configuration Options
 
 ```javascript
 // Compression levels
@@ -198,7 +198,7 @@ Security: 🛡️ 🚨 1 critical
 --sec; // Security-focused compression
 ```
 
-## Benefits
+# Benefits
 
 1. **Context saving**: 30-50% token reduction
 2. **Visual understanding**: Intuitive grasp through symbols
@@ -206,14 +206,14 @@ Security: 🛡️ 🚨 1 critical
 4. **History retention**: Maintain longer conversation history
 5. **Pattern recognition**: Easier problem detection through visual patterns
 
-## Notes
+# Notes
 
 - This mode only changes **AI response style**
 - **Code quality** remains unchanged
 - Can switch with "explain in normal mode" as needed
 - Normal mode recommended for beginners and non-technical users
 
-## Command Examples
+# Command Examples
 
 ```bash
 # Enable
@@ -227,7 +227,7 @@ Security: 🛡️ 🚨 1 critical
 "Token Efficient Mode off"
 ```
 
-## Implementation Impact
+# Implementation Impact
 
 | Item                    | Impact              |
 | ----------------------- | ------------------- |

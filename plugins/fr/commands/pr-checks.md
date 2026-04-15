@@ -1,15 +1,15 @@
-## Surveiller GitHub Actions CI et suivre jusqu'à complétion
+# Surveiller GitHub Actions CI et suivre jusqu'à complétion
 
 Surveille le statut CI de GitHub Actions et suit jusqu'à l'achèvement.
 
-### Utilisation
+## Utilisation
 
 ```bash
 # Vérifier le statut CI
 gh pr checks
 ```
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Vérifier la CI après création de PR
@@ -17,7 +17,7 @@ gh pr create --title "Add new feature" --body "Description"
 gh pr checks
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Flux de vérification CI à correction
@@ -30,7 +30,7 @@ gh pr checks
 "Check CI results after correction to confirm no issues"
 ```
 
-### Exemples de résultats d'exécution
+## Exemples de résultats d'exécution
 
 ```text
 Toutes les vérifications ont réussi
@@ -46,7 +46,7 @@ Toutes les vérifications ont réussi
 -  Visual Test (pull_request)                                                  https://github.com/user/repo/actions/runs/123456789
 ```
 
-### Notes
+## Notes
 
 - Vérifier les détails en cas d'échec
 - Attendre que toutes les vérifications soient terminées avant fusion

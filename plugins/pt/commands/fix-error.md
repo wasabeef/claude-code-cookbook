@@ -1,21 +1,21 @@
-## Identificar causa raiz e sugerir soluções comprovadas
+# Identificar causa raiz e sugerir soluções
 
 Identifica a causa raiz a partir de mensagens de erro, prediz o tempo de resolução e propõe soluções comprovadas. Aprende padrões de erros similares e apresenta imediatamente o método de resolução apropriado.
 
-### Uso
+## Uso
 
 ```bash
 /fix-error [opções]
 ```
 
-### Opções
+## Opções
 
 - nenhuma : Análise padrão de erro
 - `--deep` : Modo de análise profunda (inclui dependências e fatores ambientais)
 - `--preventive` : Análise focada em medidas preventivas
 - `--quick` : Apresenta apenas correções aplicáveis imediatamente
 
-### Exemplos Básicos
+## Exemplos Básicos
 
 ```bash
 # Análise padrão de erro
@@ -39,7 +39,7 @@ cargo test 2>&1
 "Apresente correção do erro e medidas preventivas futuras"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Análise de log de erro
@@ -63,7 +63,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 "Classifique esses erros e avisos por ordem de prioridade e proponha métodos de resolução para cada um"
 ```
 
-### Previsão de Tempo de Resolução de Erro
+## Previsão de Tempo de Resolução de Erro
 
 ```text
 🚀 Correção Imediata(menos de 5 min)
@@ -91,7 +91,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 └─ Tempo previsto: 4 horas-vários dias
 ```
 
-### Banco de Dados de Padrões de Erro Similares
+## Banco de Dados de Padrões de Erro Similares
 
 ```text
 Erros Frequentes e Soluções Imediatas
@@ -128,7 +128,7 @@ Erros Frequentes e Soluções Imediatas
 └─ Solução: Verificar condição de parada da recursão, resolver referência circular
 ```
 
-### Matriz de Prioridade da Análise de Erro
+## Matriz de Prioridade da Análise de Erro
 
 | Prioridade        | Ícone                  | Alcance do Impacto | Dificuldade de Resolução | Prazo de Resposta     | Descrição                                                           |
 | ----------------- | ---------------------- | ------------------ | ------------------------ | --------------------- | ------------------------------------------------------------------- |
@@ -137,9 +137,9 @@ Erros Frequentes e Soluções Imediatas
 | **Medium**        | 🟡 Resposta Planejada  | Restrito           | Alta                     | Resposta no mesmo dia | Restrição de funcionalidade parcial, solução alternativa disponível |
 | **Low**           | 🟢 Observação          | Restrito           | Baixa                    | Na próxima correção   | Falha menor, pequeno impacto na UX                                  |
 
-### Processo de Análise
+## Processo de Análise
 
-#### Fase 1: Coleta de Informações do Erro
+### Fase 1: Coleta de Informações do Erro
 
 ```bash
 🔴 Execução obrigatória:
@@ -158,7 +158,7 @@ Erros Frequentes e Soluções Imediatas
 - Estado de serviços externos
 ```
 
-#### Fase 2: Análise de Causa Raiz
+### Fase 2: Análise de Causa Raiz
 
 1. **Organização de Sintomas Superficiais**
    - Conteúdo exato da mensagem de erro
@@ -175,7 +175,7 @@ Erros Frequentes e Soluções Imediatas
    - Execução de testes isolados
    - Refinamento da causa
 
-#### Fase 3: Implementação da Solução
+### Fase 3: Implementação da Solução
 
 ```bash
 🔴 Resposta Imediata(hotfix):
@@ -194,7 +194,7 @@ Erros Frequentes e Soluções Imediatas
 - Melhoria do pipeline de CI/CD
 ```
 
-### Exemplo de Saída
+## Exemplo de Saída
 
 ```text
 🚨 Relatório de Análise de Erro
@@ -231,9 +231,9 @@ Erros Frequentes e Soluções Imediatas
 3. [Itens de verificação de operação]
 ```
 
-### Técnicas de Análise por Tipo de Erro
+## Técnicas de Análise por Tipo de Erro
 
-#### Erro de Compilação/Build
+### Erro de Compilação/Build
 
 ```bash
 # Erro de tipo TypeScript
@@ -249,7 +249,7 @@ Verificação obrigatória(Alta):
 - Conflito de mutabilidade
 ```
 
-#### Erro de Runtime
+### Erro de Runtime
 
 ```bash
 # Referência Null/Undefined
@@ -265,7 +265,7 @@ Verificação obrigatória(Alta):
 - Detecção de referência circular
 ```
 
-#### Erro de Dependência
+### Erro de Dependência
 
 ```bash
 # Conflito de versão
@@ -281,7 +281,7 @@ Verificação obrigatória(Alta):
 - Link simbólico
 ```
 
-### Observações
+## Observações
 
 - **Absolutamente proibido**: Julgamento baseado apenas em parte da mensagem de erro, aplicação de soluções do Stack Overflow sem verificação
 - **Condições de exceção**: Soluções temporárias são permitidas apenas nas seguintes 3 condições
@@ -290,21 +290,21 @@ Verificação obrigatória(Alta):
   3. Bug conhecido do framework(esperando lançamento de versão corrigida)
 - **Recomendação**: Priorizar a identificação da causa raiz e evitar correções superficiais
 
-### Melhores Práticas
+## Melhores Práticas
 
 1. **Coleta completa de informações**: Verificar mensagem de erro do início ao fim
 2. **Confirmação de reprodutibilidade**: Priorizar criação de código de reprodução mínima
 3. **Abordagem gradual**: Começar com pequenas correções e verificar
 4. **Documentação**: Registrar processo de resolução para compartilhamento de conhecimento
 
-#### Erros Comuns
+### Erros Comuns
 
 - **Lidar com sintomas**: Correção superficial que perde a causa raiz
 - **Generalização excessiva**: Aplicar amplamente solução de caso específico
 - **Omitir verificação**: Não verificar efeitos colaterais após correção
 - **Personalização do conhecimento**: Não documentar método de resolução
 
-### Comandos Relacionados
+## Comandos Relacionados
 
 - `/design-patterns` : Analisar problemas de estrutura de código e propor padrões
 - `/tech-debt` : Analisar causa raiz de erro do ponto de vista da dívida técnica

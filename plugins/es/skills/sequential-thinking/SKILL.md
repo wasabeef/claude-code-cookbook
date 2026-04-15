@@ -1,19 +1,19 @@
 ---
-description: "Pensamiento paso a paso para problemas complejos"
+description: 'Pensamiento paso a paso para problemas complejos. Se activa con "pensar paso a paso", "analizar lógicamente".'
 ---
 
-## Pensamiento paso a paso para problemas complejos
+# Pensamiento paso a paso para problemas complejos
 
 Resolver problemas complejos paso a paso a través de un proceso de pensamiento dinámico e iterativo. Este enfoque flexible permite correcciones de curso y revisiones durante el proceso de pensamiento.
 
-### Uso
+## Uso
 
 ```bash
 # Solicitar a Claude que piense secuencialmente
 "Analizar [tarea] usando sequential-thinking"
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Diseño de algoritmo
@@ -26,7 +26,7 @@ Resolver problemas complejos paso a paso a través de un proceso de pensamiento 
 "Examinar diseño de sistema de notificaciones en tiempo real usando sequential-thinking"
 ```
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Estrategia de implementación compleja
@@ -43,7 +43,7 @@ cat src/complex_module.js
 "Analizar selección de framework frontend usando sequential-thinking. Considerar requerimientos y restricciones del proyecto"
 ```
 
-### Proceso de Pensamiento
+## Proceso de Pensamiento
 
 1. **Análisis Inicial** - Comprensión básica y descomposición del problema
 2. **Generación de Hipótesis** - Formular hipótesis para soluciones
@@ -51,7 +51,7 @@ cat src/complex_module.js
 4. **Ramificación y Exploración** - Explorar múltiples rutas de solución
 5. **Integración y Conclusión** - Derivar solución óptima
 
-### Características
+## Características
 
 - **Ajuste Dinámico** - Capacidad de cambiar dirección durante el pensamiento
 - **Prueba de Hipótesis** - Ciclo de formar y probar hipótesis
@@ -59,7 +59,7 @@ cat src/complex_module.js
 - **Refinamiento Gradual** - Refinamiento paso a paso de soluciones
 - **Flexibilidad** - Cambios de política basados en nueva información
 
-### Ejemplos Detallados
+## Ejemplos Detallados
 
 ```bash
 # Diseño de sistema complejo
@@ -75,11 +75,11 @@ cat src/complex_module.js
 "Examinar estrategia de gestión de dependencias de monorepo usando sequential-thinking. Incluir tiempo de build, despliegue y ejecución de pruebas"
 ```
 
-### Notas
+## Notas
 
 Sequential-thinking es ideal para problemas complejos que requieren profundizar el pensamiento en etapas. Para preguntas simples o aquellas con respuestas claras, usar formato de pregunta normal.
 
-### Ejemplo de Ejecución
+## Ejemplo de Ejecución
 
 ```bash
 # Ejemplo de uso

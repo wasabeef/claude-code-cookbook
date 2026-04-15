@@ -1,17 +1,17 @@
-## Analyse parallèle multi-rôle avec rapport intégré
+# Analyse parallèle multi-rôle avec rapport intégré
 
 Une commande qui analyse la même cible en parallèle avec plusieurs rôles et génère un rapport intégré.
 
-### Utilisation
+## Utilisation
 
 ```bash
 /multi-role <rôle1>,<rôle2> [--agent|-a] [cible_analyse]
 /multi-role <rôle1>,<rôle2>,<rôle3> [--agent|-a] [cible_analyse]
 ```
 
-### Rôles Disponibles
+## Rôles Disponibles
 
-#### Rôles d'analyse spécialisée
+### Rôles d'analyse spécialisée
 
 - `security` : Expert en audit de sécurité
 - `performance` : Expert en optimisation des performances
@@ -20,7 +20,7 @@ Une commande qui analyse la même cible en parallèle avec plusieurs rôles et g
 - `mobile` : Expert en développement mobile
 - `backend` : Expert backend et serveur
 
-#### Rôles de support au développement
+### Rôles de support au développement
 
 - `reviewer` : Expert en revue de code
 - `architect` : Architecte système
@@ -33,12 +33,12 @@ Une commande qui analyse la même cible en parallèle avec plusieurs rôles et g
 - Exemple correct : `/multi-role qa,architect --agent Évaluez le plan`
 - Exemple incorrect : `/multi-role qa,architect Évaluez le plan --agent`
 
-### Options
+## Options
 
 - `--agent` ou `-a` : Exécuter chaque rôle en tant que sous-agent en parallèle (recommandé pour l'analyse à grande échelle)
   - Lors de l'utilisation de cette option, si les descriptions de rôle incluent des phrases de délégation proactive (comme "utiliser PROACTIVEMENT"), une délégation automatique plus agressive devient activée
 
-### Exemples de base
+## Exemples de base
 
 ```bash
 # Analyse double de sécurité et performance (normal)
@@ -58,9 +58,9 @@ Une commande qui analyse la même cible en parallèle avec plusieurs rôles et g
 "Évaluez la conception de microservices"
 ```
 
-### Processus d'analyse
+## Processus d'analyse
 
-### Phase 1 : Analyse parallèle
+## Phase 1 : Analyse parallèle
 
 Chaque rôle analyse indépendamment la même cible
 
@@ -68,7 +68,7 @@ Chaque rôle analyse indépendamment la même cible
 - Porter des jugements basés sur des critères spécifiques au rôle
 - Générer des recommandations indépendantes
 
-### Phase 2 : Analyse intégrée
+## Phase 2 : Analyse intégrée
 
 Structurer et intégrer les résultats
 
@@ -76,7 +76,7 @@ Structurer et intégrer les résultats
 - Identifier les chevauchements et contradictions
 - Clarifier les relations complémentaires
 
-### Phase 3 : Rapport intégré
+## Phase 3 : Rapport intégré
 
 Générer les recommandations finales
 
@@ -84,9 +84,9 @@ Générer les recommandations finales
 - Compromis explicites
 - Feuille de route d'implémentation
 
-### Exemples de format de sortie
+## Exemples de format de sortie
 
-### Pour une analyse à 2 rôles
+## Pour une analyse à 2 rôles
 
 ```text
 Analyse multi-rôles : Sécurité + Performance
@@ -132,7 +132,7 @@ Semaines 3-4 : Conception et implémentation de la couche cache
 Mois 2 : Renforcement progressif du contrôle d'autorisation
 ```
 
-### Pour une analyse à 3 rôles
+## Pour une analyse à 3 rôles
 
 ```text
 Analyse multi-rôles : Frontend + Mobile + Performance
@@ -164,9 +164,9 @@ Priorité : Mobile > Performance > Frontend
 Période d'implémentation : 3-4 semaines
 ```
 
-### Patterns de combinaison efficaces
+## Patterns de combinaison efficaces
 
-### Focus sécurité
+## Focus sécurité
 
 ```bash
 /multi-role security,architect
@@ -179,7 +179,7 @@ Période d'implémentation : 3-4 semaines
 "Protection des données d'application mobile"
 ```
 
-### Focus performance
+## Focus performance
 
 ```bash
 /multi-role performance,architect
@@ -192,7 +192,7 @@ Période d'implémentation : 3-4 semaines
 "Optimisation performance d'app"
 ```
 
-### Focus expérience utilisateur
+## Focus expérience utilisateur
 
 ```bash
 /multi-role frontend,mobile
@@ -205,7 +205,7 @@ Période d'implémentation : 3-4 semaines
 "Optimisation UX mobile"
 ```
 
-### Analyse complète
+## Analyse complète
 
 ```bash
 /multi-role architect,security,performance
@@ -218,7 +218,7 @@ Période d'implémentation : 3-4 semaines
 "Diagnostic exhaustif application mobile"
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Combiner avec analyse de fichier
@@ -237,27 +237,27 @@ cat performance-issues.log
 "Analysez les problèmes de performance sous multiples angles"
 ```
 
-### Choisir entre multi-role et role-debate
+## Choisir entre multi-role et role-debate
 
-### Quand utiliser multi-role
+## Quand utiliser multi-role
 
 - Vous voulez des évaluations indépendantes de chaque spécialité
 - Vous voulez créer un plan d'amélioration intégré
 - Vous voulez organiser les contradictions et chevauchements
 - Vous voulez déterminer les priorités d'implémentation
 
-### Quand utiliser role-debate
+## Quand utiliser role-debate
 
 - Il y a des compromis entre spécialités
 - Les opinions pourraient différer sur la sélection de technologie
 - Vous voulez décider les politiques de conception par discussion
 - Vous voulez entendre des débats de différentes perspectives
 
-### Exécution parallèle de sous-agents (--agent)
+## Exécution parallèle de sous-agents (--agent)
 
 L'utilisation de l'option `--agent` exécute chaque rôle en tant que sous-agent indépendant en parallèle.
 
-#### Promotion de délégation automatique
+### Promotion de délégation automatique
 
 Si les descriptions de fichier de rôle incluent des phrases comme celles-ci, une délégation automatique plus proactive est activée lors de l'utilisation de `--agent` :
 
@@ -265,7 +265,7 @@ Si les descriptions de fichier de rôle incluent des phrases comme celles-ci, un
 - "DOIT ÊTRE UTILISÉ"
 - Autres expressions d'emphase
 
-#### Flux d'exécution
+### Flux d'exécution
 
 ```text
 Exécution normale :
@@ -279,7 +279,7 @@ Rôle 3 ─┘
 (Exécution parallèle, approx. 1-2 minutes)
 ```
 
-#### Exemples d'usage efficaces
+### Exemples d'usage efficaces
 
 ```bash
 # Évaluation exhaustive de système à grande échelle
@@ -291,7 +291,7 @@ Rôle 3 ─┘
 "Analyse complète d'optimisation UX écran"
 ```
 
-#### Comparaison de performance
+### Comparaison de performance
 
 | Nombre de rôles | Exécution normale | Exécution --agent | Taux de réduction |
 | --------------- | ----------------- | ----------------- | ----------------- |
@@ -299,7 +299,7 @@ Rôle 3 ─┘
 | 3 rôles         | 3-5 minutes       | 1-2 minutes       | 60%               |
 | 4 rôles         | 5-8 minutes       | 2-3 minutes       | 65%               |
 
-### Remarques
+## Remarques
 
 - L'exécution simultanée de 3 rôles ou plus résulte en une sortie plus longue
 - Les analyses complexes peuvent prendre plus de temps à exécuter
@@ -307,7 +307,7 @@ Rôle 3 ─┘
 - Les jugements finaux doivent être faits par l'utilisateur en référence aux résultats intégrés
 - **Lors de l'utilisation de --agent** : Consomme plus de ressources mais est efficace pour les analyses à grande échelle
 
-### Détails de Configuration des Rôles
+## Détails de Configuration des Rôles
 
 - Les paramètres détaillés, l'expertise et les caractéristiques de discussion de chaque rôle sont définis dans `.claude/agents/roles/`
 - Inclut les pratiques Evidence-First et les contre-mesures aux biais cognitifs

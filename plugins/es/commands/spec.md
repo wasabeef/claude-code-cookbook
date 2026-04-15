@@ -1,10 +1,10 @@
-## Crear especificaciones detalladas con desarrollo dirigido por specs
+# Crear especificaciones detalladas
 
 **"Dar estructura antes de escribir código"** - Completamente compatible con el desarrollo dirigido por especificaciones de Kiro
 
 A diferencia de las herramientas tradicionales de generación de código, realiza el desarrollo dirigido por especificaciones de Kiro enfocado en dar estructura al caos del desarrollo. Desde entrada mínima de requerimientos, se desarrolla progresivamente desde especificaciones detalladas a nivel de product manager hasta diseños implementables, asegurando calidad consistente desde **prototipo hasta producción**.
 
-### Uso
+## Uso
 
 ```bash
 # Solicitar Modo Spec de Claude (entrada mínima de requerimientos)
@@ -20,7 +20,7 @@ A diferencia de las herramientas tradicionales de generación de código, realiz
 #    - tasks.md: Plan de implementación con aplicación automática de mejores prácticas
 ```
 
-### Resultados Probados (Historial de Kiro)
+## Resultados Probados (Historial de Kiro)
 
 **Aplicación de Compartir Archivos Segura en 2 Días**
 
@@ -40,7 +40,7 @@ A diferencia de las herramientas tradicionales de generación de código, realiz
 → Kiro maneja lógica de implementación, permitiendo a desarrolladores enfocarse en creatividad
 ```
 
-### Ejemplos Básicos
+## Ejemplos Básicos
 
 ```bash
 # Crear spec para nueva característica (entrada mínima)
@@ -60,7 +60,7 @@ A diferencia de las herramientas tradicionales de generación de código, realiz
 - Enfocado en seguridad"
 ```
 
-### Colaboración con Claude
+## Colaboración con Claude
 
 ```bash
 # Spec de característica compleja
@@ -76,7 +76,7 @@ A diferencia de las herramientas tradicionales de generación de código, realiz
 "Crear un spec para API RESTful incluyendo autenticación, validación y logging"
 ```
 
-### Características del Modo Spec
+## Características del Modo Spec
 
 **Flujo de Trabajo de Diálogo Paso a Paso**
 
@@ -96,9 +96,9 @@ A diferencia de las herramientas tradicionales de generación de código, realiz
 - Presenta y discute opciones técnicas
 - Explica trade-offs y confirma decisiones
 
-### Flujo de Trabajo de Diálogo Fase por Fase
+## Flujo de Trabajo de Diálogo Fase por Fase
 
-#### Fase 1: Descubrimiento y Discusión de Requerimientos
+### Fase 1: Descubrimiento y Discusión de Requerimientos
 
 **1. Expansión Automática desde Entrada Mínima (Estilo Kiro)**
 
@@ -142,7 +142,7 @@ IS cuando el sistema deberá verificar niveles de permiso
 AND denegar acceso si es insuficiente"
 ```
 
-#### Fase 2: Exploración y Discusión de Diseño
+### Fase 2: Exploración y Discusión de Diseño
 
 **1. Análisis de Codebase + Propuesta de Diseño Automático (Estilo Kiro)**
 
@@ -180,7 +180,7 @@ graph TB
 ¿También genero un diagrama de flujo de datos?"
 ```
 
-#### Fase 3: Planificación e Implementación y Discusión
+### Fase 3: Planificación e Implementación y Discusión
 
 **1. Aplicación Automática de Mejores Prácticas (Estilo Kiro)**
 
@@ -204,7 +204,7 @@ Estrategia de implementación generada automáticamente:
 
 ```
 
-### Características Específicas de Kiro
+## Características Específicas de Kiro
 
 **Notación EARS (Easy Approach to Requirements Syntax)**
 
@@ -232,9 +232,9 @@ THE SYSTEM SHALL [comportamiento correspondiente]
 - **Mejores prácticas**: Incorporación automática de medidas de seguridad y rendimiento
 - **Puntos de control de calidad**: Configuración automática de estándares de calidad específicos por fase
 
-### Frases Disparadoras y Controles
+## Frases Disparadoras y Controles
 
-#### Control de Flujo de Trabajo Paso a Paso
+### Control de Flujo de Trabajo Paso a Paso
 
 **Disparadores de Inicio**
 
@@ -257,7 +257,7 @@ Completitud Fase 2 → "Proceder" → generación de design.md
 Completitud Fase 3 → "Proceder" → generación de tasks.md
 ```
 
-### Características Específicas de Kiro
+## Características Específicas de Kiro
 
 **Notación EARS (Easy Approach to Requirements Syntax)**
 
@@ -299,11 +299,11 @@ THE SYSTEM SHALL [comportamiento correspondiente]
 - Aplicación automática de arquitectura escalable
 - Incorporación de gestión continua de calidad
 
-### Detalle de Implementación
+## Detalle de Implementación
 
 Los requisitos detallados se implementan a través de un proceso estructurado de 3 fases, garantizando calidad y consistencia en cada etapa.
 
-### Notas
+## Notas
 
 **Alcance de Aplicación**
 
@@ -323,9 +323,9 @@ Los requisitos detallados se implementan a través de un proceso estructurado de
 - Generar tareas de implementación después de completar diseño
 - Valorar proceso de aprobación en cada etapa
 
-### Frases Disparadoras y Controles
+## Frases Disparadoras y Controles
 
-#### Control de Flujo de Trabajo Paso a Paso
+### Control de Flujo de Trabajo Paso a Paso
 
 **Triggers de inicio**
 
@@ -349,7 +349,7 @@ Completitud Fase 2 → "Proceder" → generación de design.md
 Completitud Fase 3 → "Proceder" → generación de tasks.md
 ```
 
-### Ejemplo de Ejecución (Flujo Paso a Paso)
+## Ejemplo de Ejecución (Flujo Paso a Paso)
 
 ```bash
 # Ejemplo de uso
@@ -380,7 +380,7 @@ Usuario: "Proceder"
 Claude: "Preparación para desarrollo impulsado por spec completada. Puede comenzar implementación."
 ```
 
-### Diferencias con /plan
+## Diferencias con /plan
 
 | Característica           | /plan                              | /spec                                                                  |
 | ------------------------ | ---------------------------------- | ---------------------------------------------------------------------- |
@@ -392,7 +392,7 @@ Claude: "Preparación para desarrollo impulsado por spec completada. Puede comen
 | Garantía de calidad      | Estrategia básica de pruebas       | Requisitos de calidad integrales (pruebas, accesibilidad, rendimiento) |
 | Sincronización           | Plan estático                      | Actualización dinámica de spec                                         |
 
-### Casos de Uso Recomendados
+## Casos de Uso Recomendados
 
 **Uso recomendado de spec**
 

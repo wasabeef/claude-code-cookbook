@@ -1,45 +1,45 @@
-## Sugerir automaticamente papel e abordagem ideais
+# Sugerir automaticamente papel e abordagem ideais
 
 Comando que analisa a situação atual e sugere automaticamente o papel e abordagem ideais.
 
-### Uso
+## Uso
 
 ```bash
 /smart-review                    # Analisa diretório atual
 /smart-review <arquivo/diretório> # Analisa alvo específico
 ```
 
-### Lógica de determinação automática
+## Lógica de determinação automática
 
-### Determinação por extensão de arquivo
+## Determinação por extensão de arquivo
 
 - `package.json`, `*.tsx`, `*.jsx`, `*.css`, `*.scss` → **frontend**
 - `Dockerfile`, `docker-compose.yml`, `*.yaml` → **architect**
 - `*.test.js`, `*.spec.ts`, `test/`, `__tests__/` → **qa**
 - `*.rs`, `Cargo.toml`, `performance/` → **performance**
 
-### Detecção de arquivos relacionados à segurança
+## Detecção de arquivos relacionados à segurança
 
 - `auth.js`, `security.yml`, `.env`, `config/auth/` → **security**
 - `login.tsx`, `signup.js`, `jwt.js` → **security + frontend**
 - `api/auth/`, `middleware/auth/` → **security + architect**
 
-### Padrões de determinação complexa
+## Padrões de determinação complexa
 
 - `mobile/` + `*.swift`, `*.kt`, `react-native/` → **mobile**
 - `webpack.config.js`, `vite.config.js`, `large-dataset/` → **performance**
 - `components/` + `responsive.css` → **frontend + mobile**
 - `api/` + `auth/` → **security + architect**
 
-### Análise de erros e problemas
+## Análise de erros e problemas
 
 - Stack trace, `error.log`, `crash.log` → **analyzer**
 - `memory leak`, `high CPU`, `slow query` → **performance + analyzer**
 - `SQL injection`, `XSS`, `CSRF` → **security + analyzer**
 
-### Padrões de sugestão
+## Padrões de sugestão
 
-### Sugestão de papel único
+## Sugestão de papel único
 
 ```bash
 $ /smart-review src/auth/login.js
@@ -48,7 +48,7 @@ $ /smart-review src/auth/login.js
 → "Executar? [y]es / [n]o / [m]ore options"
 ```
 
-### Sugestão de múltiplos papéis
+## Sugestão de múltiplos papéis
 
 ```bash
 $ /smart-review src/mobile/components/
@@ -60,7 +60,7 @@ $ /smart-review src/mobile/components/
 → "[4] role-debate mobile,frontend"
 ```
 
-### Sugestão durante análise de problemas
+## Sugestão durante análise de problemas
 
 ```bash
 $ /smart-review error.log
@@ -73,7 +73,7 @@ $ /smart-review slow-api.log
 → "Recomendado: [1]/role performance [2]/role-debate performance,analyzer"
 ```
 
-### Sugestão para decisões de design complexas
+## Sugestão para decisões de design complexas
 
 ```bash
 $ /smart-review architecture-design.md
@@ -83,9 +83,9 @@ $ /smart-review architecture-design.md
 → "[Alternativo] /multi-role architect,security,performance"
 ```
 
-### Detalhes da lógica de sugestão
+## Detalhes da lógica de sugestão
 
-### Determinação de prioridade
+## Determinação de prioridade
 
 1. **Security** - Relacionado à autenticação, autorização, criptografia é máxima prioridade
 2. **Critical Errors** - Parada do sistema, perda de dados é urgente
@@ -94,14 +94,14 @@ $ /smart-review architecture-design.md
 5. **Frontend/Mobile** - Melhorias de UI/UX
 6. **QA** - Relacionado à garantia de qualidade e testes
 
-### Condições para recomendação de debate
+## Condições para recomendação de debate
 
 - Quando 3 ou mais papéis estão relacionados
 - Quando há trade-off entre segurança vs performance
 - Quando inclui mudanças arquiteturais significativas
 - Quando afeta tanto mobile quanto web
 
-### Exemplos básicos
+## Exemplos básicos
 
 ```bash
 # Analisa diretório atual
@@ -117,9 +117,9 @@ $ /smart-review architecture-design.md
 "Sugira a abordagem ideal para resolver este erro"
 ```
 
-### Exemplos práticos
+## Exemplos práticos
 
-### Análise do projeto inteiro
+## Análise do projeto inteiro
 
 ```bash
 $ /smart-review
@@ -136,7 +136,7 @@ $ /smart-review
 → "Executar automaticamente? [y]es / [s]elect role / [c]ustom"
 ```
 
-### Análise de problema específico
+## Análise de problema específico
 
 ```bash
 $ /smart-review "Como configurar o tempo de validade do JWT"
@@ -148,7 +148,7 @@ $ /smart-review "Como configurar o tempo de validade do JWT"
 → "Motivo: Importante o equilíbrio entre segurança, performance e UX"
 ```
 
-### Integração com Claude
+## Integração com Claude
 
 ```bash
 # Análise combinada com conteúdo do arquivo
@@ -166,7 +166,7 @@ npm run build 2>&1 | tee build-error.log
 "Debata se devemos escolher React Native ou Progressive Web App"
 ```
 
-### Observações
+## Observações
 
 - As sugestões são informações de referência. A decisão final deve ser tomada pelo usuário
 - Para problemas complexos, recomenda-se formato de debate (role-debate)

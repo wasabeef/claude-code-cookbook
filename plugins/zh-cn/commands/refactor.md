@@ -1,8 +1,8 @@
-## 安全渐进式重构与 SOLID 评估
+# 安全渐进式重构与 SOLID 评估
 
 实施安全且渐进式的代码重构，定量评估 SOLID 原则的遵守情况。将技术债务可视化，明确改进的优先级。
 
-### 使用方法
+## 使用方法
 
 ```bash
 # 识别复杂代码并制定重构计划
@@ -18,7 +18,7 @@ grep -r "class.*Service" . --include="*.js" | head -10
 "评估这些类是否遵循单一职责原则"
 ```
 
-### 基本示例
+## 基本示例
 
 ```bash
 # 检测长方法
@@ -34,9 +34,9 @@ grep -r "TODO\|FIXME\|HACK" . --exclude-dir=node_modules
 "解决成为技术债务的注释"
 ```
 
-### 重构技法
+## 重构技法
 
-#### Extract Method(提取方法)
+### Extract Method(提取方法)
 
 ```javascript
 // Before: 冗长的方法
@@ -52,7 +52,7 @@ function processOrder(order) {
 }
 ```
 
-#### Replace Conditional with Polymorphism(多态替换条件)
+### Replace Conditional with Polymorphism(多态替换条件)
 
 ```javascript
 // Before: switch 语句
@@ -73,9 +73,9 @@ class PremiumPricing {
 }
 ```
 
-### SOLID 原则评分 (0-100 分)
+## SOLID 原则评分 (0-100 分)
 
-#### 评估标准与计分
+### 评估标准与计分
 
 ```text
 S - Single Responsibility(20 分)
@@ -116,7 +116,7 @@ D - Dependency Inversion(20 分)
 └─ 0-29 分: Critical(设计重新考虑必要)
 ```
 
-### 重构步骤
+## 重构步骤
 
 1. **现状分析**
    - 复杂度测量 (循环复杂度)
@@ -133,7 +133,7 @@ D - Dependency Inversion(20 分)
    - 性能测量
    - 代码审查
 
-### 常见的代码异味
+## 常见的代码异味
 
 - **God Object**: 承担过多职责的类
 - **Long Method**: 超过 50 行的长方法
@@ -141,7 +141,7 @@ D - Dependency Inversion(20 分)
 - **Large Class**: 超过 300 行的大类
 - **Long Parameter List**: 4 个以上的参数
 
-### 自动化支持
+## 自动化支持
 
 ```bash
 # 静态分析
@@ -157,9 +157,9 @@ npm test
 npm run test:coverage
 ```
 
-### 技术债务的定量化
+## 技术债务的定量化
 
-#### 债务计算公式
+### 债务计算公式
 
 ```text
 技术债务 (时间) = 复杂度评分 × 影响范围 × 修复难度
@@ -189,7 +189,7 @@ npm run test:coverage
 └─ 总成本: 时间 + 机会损失 + 质量成本
 ```
 
-#### 优先级矩阵
+### 优先级矩阵
 
 | 优先级                    | 影响度 | 修复成本 | 处理期限 | 具体例                   | 推荐行动             |
 | ------------------------- | ------ | -------- | -------- | ------------------------ | -------------------- |
@@ -198,7 +198,7 @@ npm run test:coverage
 | **Watch(监视对象)**       | 低     | 高       | 3 个月内 | 复杂度高的内部处理       | 指标监视、恶化时处理 |
 | **Acceptable(容许范围)**  | 低     | 低       | 无需处理 | 轻微的代码异味           | 通常重构时处理       |
 
-### 重构步骤
+## 重构步骤
 
 1. **现状分析和测量**
    - 复杂度测量 (循环、认知)
@@ -218,7 +218,7 @@ npm run test:coverage
    - 技术债务删减确认
    - 代码审查
 
-### 常见代码异味和债务评分
+## 常见代码异味和债务评分
 
 | 代码异味                | 检测标准             | 债务评分    | 改进手法                |
 | ----------------------- | -------------------- | ----------- | ----------------------- |
@@ -233,7 +233,7 @@ npm run test:coverage
 | **Switch Statements**   | case >5              | 中 (5-10h)  | Strategy Pattern        |
 | **Shotgun Surgery**     | 变更时影响位置 >3    | 高 (10-15h) | Move Method/Field       |
 
-### 实践例: SOLID 评分评估
+## 实践例: SOLID 评分评估
 
 ```javascript
 // 评估对象: UserService 类
@@ -275,7 +275,7 @@ D: 10 分 (具象类依赖)
 优先级: Critical (认证系应即座处理)
 ```
 
-### 改进后实现例
+## 改进后实现例
 
 ```javascript
 // SOLID 原则适用后 (评分: 90 分)
@@ -316,7 +316,7 @@ class UserService {
 // 债务删减: 240 小时 → 20 小时 (92% 删减)
 ```
 
-### 注意事项
+## 注意事项
 
 - **禁止功能变更**: 不改变外部行为
 - **测试优先**: 重构前添加测试

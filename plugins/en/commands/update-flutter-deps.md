@@ -1,8 +1,8 @@
-## Safely update Flutter dependencies
+# Safely update Flutter dependencies
 
 Safely update dependencies in your Flutter project.
 
-### Usage
+## Usage
 
 ```bash
 # Check dependency status and request Claude's help
@@ -10,7 +10,7 @@ flutter pub deps --style=compact
 "Please update the dependencies in pubspec.yaml to their latest versions"
 ```
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Check current dependencies
@@ -22,7 +22,7 @@ flutter pub upgrade --dry-run
 "Check if there are any breaking changes in this planned upgrade"
 ```
 
-### Integration with Claude
+## Integration with Claude
 
 ```bash
 # Comprehensive dependency update
@@ -42,7 +42,7 @@ flutter pub outdated
 "Tell me the impact and necessary changes when updating provider to the latest version"
 ```
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Detailed analysis including release notes
@@ -58,7 +58,7 @@ cat pubspec.yaml
 "Identify packages not compatible with Null Safety and create a migration plan"
 ```
 
-### Risk Criteria
+## Risk Criteria
 
 ```text
 Safe (🟢):
@@ -77,7 +77,7 @@ Dangerous (🔴):
 - API removals or modifications
 ```
 
-### Execution of Update
+## Execution of Update
 
 ```bash
 # Create backups
@@ -93,7 +93,7 @@ flutter test
 flutter pub deps --style=compact
 ```
 
-### Notes
+## Notes
 
 Always verify functionality after updates. If issues occur, restore with:
 

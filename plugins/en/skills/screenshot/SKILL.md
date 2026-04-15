@@ -1,25 +1,27 @@
 ---
-description: "Capture and analyze macOS screenshots"
+description: 'Capture and analyze macOS screenshots. Trigger with "take a screenshot", "capture screen", "screenshot".'
+allowed-tools:
+  - Bash(screencapture *)
 ---
 
-## Capture and analyze macOS screenshots
+# Capture and analyze macOS screenshots
 
 Capture screenshots on macOS and analyze the images.
 
-### Usage
+## Usage
 
 ```bash
 /screenshot [options]
 ```
 
-### Options
+## Options
 
 - None: Select window (Claude will confirm options)
 - `--window`: Capture a specific window
 - `--full`: Capture the entire screen
 - `--crop`: Select a region to capture
 
-### Basic Examples
+## Basic Examples
 
 ```bash
 # Capture and analyze a window
@@ -35,7 +37,7 @@ Capture screenshots on macOS and analyze the images.
 "Analyze the overall screen composition"
 ```
 
-### Collaboration with Claude
+## Collaboration with Claude
 
 ```bash
 # No specific problem - situation analysis
@@ -63,7 +65,7 @@ Capture screenshots on macOS and analyze the images.
 "Analyze trends visible in this graph"
 ```
 
-### Detailed Examples
+## Detailed Examples
 
 ```bash
 # Analysis from multiple perspectives
@@ -86,13 +88,13 @@ Capture screenshots on macOS and analyze the images.
 "Evaluate whether the selected button design harmonizes with other elements"
 ```
 
-### Prohibited Items
+## Prohibited Items
 
 - **Prohibited to say "captured" when no screenshot was taken**
 - **Prohibited to attempt analysis of non-existent image files**
 - **The `/screenshot` command does not actually capture screenshots**
 
-### Notes
+## Notes
 
 - If no option is specified, please present the following choices:
 

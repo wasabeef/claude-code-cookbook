@@ -1,21 +1,21 @@
-## Identifier la cause racine et suggérer des solutions éprouvées
+# Identifier la cause racine et suggérer des solutions
 
 Identifie la cause racine du message d'erreur, prédit le temps de résolution et propose des solutions éprouvées. Apprend les modèles d'erreurs similaires et présente immédiatement la solution appropriée.
 
-### Utilisation
+## Utilisation
 
 ```bash
 /fix-error [options]
 ```
 
-### Options
+## Options
 
 - Aucune : Analyse d'erreur standard
 - `--deep` : Mode d'analyse approfondie (inclut les dépendances et facteurs environnementaux)
 - `--preventive` : Analyse axée sur les mesures préventives
 - `--quick` : Présente uniquement les corrections applicables immédiatement
 
-### Exemples de Base
+## Exemples de Base
 
 ```bash
 # Analyse d'erreur standard
@@ -39,7 +39,7 @@ cargo test 2>&1
 「Présenter la correction de l'erreur et les mesures préventives futures」
 ```
 
-### Collaboration avec Claude
+## Collaboration avec Claude
 
 ```bash
 # Analyse de log d'erreur
@@ -63,7 +63,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 「Classer ces erreurs et avertissements par priorité et proposer la méthode de résolution pour chacun」
 ```
 
-### Prédiction du Temps de Résolution d'Erreur
+## Prédiction du Temps de Résolution d'Erreur
 
 ```text
 🚀 Correction immédiate (dans les 5 minutes)
@@ -91,7 +91,7 @@ grep -E "ERROR|WARN" app.log | tail -20
 └─ Temps prédit : 4 heures-plusieurs jours
 ```
 
-### Base de Données de Modèles d'Erreurs Similaires
+## Base de Données de Modèles d'Erreurs Similaires
 
 ```text
 Erreurs fréquentes et solutions immédiates
@@ -128,7 +128,7 @@ Erreurs fréquentes et solutions immédiates
 └─ Solution : Vérifier la condition de terminaison de récursion, résoudre la référence circulaire
 ```
 
-### Matrice de Priorité d'Analyse d'Erreur
+## Matrice de Priorité d'Analyse d'Erreur
 
 | Priorité          | Icône                | Portée d'Impact | Difficulté de Résolution | Délai de Réponse       | Description                                                    |
 | ----------------- | -------------------- | --------------- | ------------------------ | ---------------------- | -------------------------------------------------------------- |
@@ -137,9 +137,9 @@ Erreurs fréquentes et solutions immédiates
 | **Medium**        | 🟡 Réponse planifiée | Limitée         | Élevée                   | Réponse le jour même   | Restriction de fonction partielle, solution alternative existe |
 | **Low**           | 🟢 Observation       | Limitée         | Faible                   | Prochaine modification | Défaut mineur, petit impact sur UX                             |
 
-### Processus d'Analyse
+## Processus d'Analyse
 
-#### Phase 1 : Collecte d'Informations d'Erreur
+### Phase 1 : Collecte d'Informations d'Erreur
 
 ```bash
 🔴 Exécution obligatoire :
@@ -158,7 +158,7 @@ Erreurs fréquentes et solutions immédiates
 - État des services externes
 ```
 
-#### Phase 2 : Analyse de Cause Racine
+### Phase 2 : Analyse de Cause Racine
 
 1. **Organisation des symptômes de surface**
    - Contenu exact du message d'erreur
@@ -175,7 +175,7 @@ Erreurs fréquentes et solutions immédiates
    - Exécution de test d'isolement
    - Affinement des causes
 
-#### Phase 3 : Implémentation de Solution
+### Phase 3 : Implémentation de Solution
 
 ```bash
 🔴 Gestion immédiate (hotfix) :
@@ -194,7 +194,7 @@ Erreurs fréquentes et solutions immédiates
 - Amélioration du pipeline CI/CD
 ```
 
-### Exemple de Sortie
+## Exemple de Sortie
 
 ```text
 🚨 Rapport d'Analyse d'Erreur
@@ -231,9 +231,9 @@ Erreurs fréquentes et solutions immédiates
 3. [Éléments de vérification de fonctionnement]
 ```
 
-### Méthode d'Analyse par Type d'Erreur
+## Méthode d'Analyse par Type d'Erreur
 
-#### Erreur de Compilation/Build
+### Erreur de Compilation/Build
 
 ```bash
 # Erreur de type TypeScript
@@ -249,7 +249,7 @@ Vérification obligatoire (élevée) :
 - Conflit de mutabilité
 ```
 
-#### Erreur de Temps d'Exécution
+### Erreur de Temps d'Exécution
 
 ```bash
 # Référence Null/Undefined
@@ -265,7 +265,7 @@ Vérification obligatoire (élevée) :
 - Détection de référence circulaire
 ```
 
-#### Erreur de Dépendances
+### Erreur de Dépendances
 
 ```bash
 # Conflit de version
@@ -281,7 +281,7 @@ Vérification obligatoire (élevée) :
 - Liens symboliques
 ```
 
-### Précautions
+## Précautions
 
 - **Absolument interdit** : Jugement basé sur une partie seulement du message d'erreur, application de solution Stack Overflow sans vérification
 - **Conditions d'exception** : Mesures temporaires autorisées uniquement sous ces 3 conditions :
@@ -290,21 +290,21 @@ Vérification obligatoire (élevée) :
   3. Bug connu du framework (en attente de sortie de version corrigée)
 - **Recommandation** : Prioriser l'identification de la cause racine, éviter la correction superficielle
 
-### Meilleures Pratiques
+## Meilleures Pratiques
 
 1. **Collecte complète d'informations** : Vérifier le message d'erreur du début à la fin
 2. **Vérification de reproductibilité** : Prioriser la création de code minimal de reproduction
 3. **Approche graduelle** : Commencer par de petites corrections et vérifier
 4. **Documentation** : Enregistrer le processus de résolution pour partager les connaissances
 
-#### Pièges Courants
+### Pièges Courants
 
 - **Gestion des symptômes** : Correction superficielle qui ignore la cause racine
 - **Généralisation excessive** : Appliquer largement la solution d'un cas spécifique
 - **Omission de vérification** : Ne pas confirmer les effets secondaires après correction
 - **Personnalisation des connaissances** : Ne pas documenter la méthode de résolution
 
-### Commandes Connexes
+## Commandes Connexes
 
 - `/design-patterns` : Analyser les problèmes de structure de code et proposer des modèles
 - `/tech-debt` : Analyser la cause racine des erreurs du point de vue de la dette technique

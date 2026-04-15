@@ -1,12 +1,17 @@
 ---
-description: "Flutter 依存関係の安全な更新"
+description: "Flutter プロジェクトの依存関係を安全に更新する。「Flutter のパッケージを更新して」「pubspec.yaml を更新」「Flutter の依存関係を最新化」「dart の依存を更新」などで起動。"
+allowed-tools:
+  - Bash(flutter *)
+  - Bash(dart *)
+  - Read
+  - Edit
 ---
 
-## Flutter 依存関係の安全な更新
+# Flutter 依存関係の安全な更新
 
 Flutter プロジェクトの依存関係を安全に更新します。
 
-### 使い方
+## 使い方
 
 ```bash
 # 依存関係の状態を確認して Claude に依頼
@@ -14,7 +19,7 @@ flutter pub deps --style=compact
 「pubspec.yaml の依存関係を最新バージョンに更新して」
 ```
 
-### 基本例
+## 基本例
 
 ```bash
 # 現在の依存関係を確認
@@ -26,7 +31,7 @@ flutter pub upgrade --dry-run
 「このアップグレード予定の内容から破壊的変更があるか確認して」
 ```
 
-### Claude との連携
+## Claude との連携
 
 ```bash
 # 包括的な依存関係更新
@@ -46,7 +51,7 @@ flutter pub outdated
 「provider を最新バージョンに更新した場合の影響と必要な変更を教えて」
 ```
 
-### 詳細例
+## 詳細例
 
 ```bash
 # Release Notes を含む詳細分析
@@ -63,7 +68,7 @@ cat pubspec.yaml
 「Null Safety に対応していないパッケージを特定し、移行計画を立てて」
 ```
 
-### 危険度の基準
+## 危険度の基準
 
 ```text
 安全 (🟢)：
@@ -82,7 +87,7 @@ cat pubspec.yaml
 - API の削除・変更
 ```
 
-### 更新の実行
+## 更新の実行
 
 ```bash
 # バックアップ作成
@@ -98,7 +103,7 @@ flutter test
 flutter pub deps --style=compact
 ```
 
-### 注意事項
+## 注意事項
 
 更新後は必ず動作確認を実施してください。問題が発生した場合は以下で復元：
 
